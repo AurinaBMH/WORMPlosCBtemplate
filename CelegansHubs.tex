@@ -178,7 +178,7 @@
 % Title must be 250 characters or less.
 \begin{flushleft}
 {\Large
-\textbf\newline{Title of submission to PLOS journals} % Please use "sentence case" for title and headings (capitalize only the first word in a title (or heading), the first word in a subtitle (or subheading), and any proper nouns).
+\textbf\newline{Hub connectivity and gene expression in the worm connectome} % Please use "sentence case" for title and headings (capitalize only the first word in a title (or heading), the first word in a subtitle (or subheading), and any proper nouns).
 }
 \newline
 % Insert author names, affiliations and corresponding author email (do not include titles, positions, or degrees).
@@ -242,19 +242,19 @@ Text
 
 % Use "Eq" instead of "Equation" for equation citations.
 \section*{Introduction}
-Connectivity in brain networks is not uniformly distributed. Network elements with high node degree – i.e., a large number of connections to other areas – are called ‘hubs’. When hubs are more densely interconnected than expected by chance they form a ‘rich-club’, the idea being that the richest members of the network (in terms of connections) are tightly connected to each other, thus forming a club. These densely interconnected hubs are thought to promote efficient integration between anatomically distinct areas and play an important role in brain functioning. It has been shown that hubs exhibit distinct transcriptional signatures in both humans \cite{Vertes2016a} and mice \cite{Fulcher2015}. According to Fulcher & Fornito [2], connections involving rich club hubs carry a distinctive genetic signature, which is driven by genes regulating the synthesis and breakdown of adenosine triphosphate (ATP) – the primary energetic substrate of neuronal signaling [2]. These findings highlight a close relationship between metabolic expenditure and the high signaling load of hub regions in the brain, as has been previously proposed [3]. We therefore have some preliminary indications that the transcriptional signature of hubs may be a consistent feature of mammalian brain networks, but it is not known how distinctive this expression signature is; and in particular, whether it holds true for networks resolved at the scale of individual neurons and synapses. To test this possibility, we aimed to replicate findings presented in [2] using microscale connectivity data in C. elegans and gene expression data from WormBase. We sought to determine whether hubs in the C. elegans connectome exhibit distinct gene expression patterns. 
-Lorem ipsum dolor sit~\cite{bib1} amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed sem. Nullam Eq~(\ref{eq:schemeP}) sapien tellus, commodo id velit id, eleifend volutpat quam. Phasellus mauris velit, dapibus finibus elementum vel, pulvinar non tellus. Nunc pellentesque pretium diam, quis maximus dolor faucibus id.~\cite{bib2} Nunc convallis sodales ante, ut ullamcorper est egestas vitae. Nam sit amet enim ultrices, ultrices elit pulvinar, volutpat risus.
-
+Connectivity in brain networks is not uniformly distributed. Network elements with high node degree – i.e., a large number of connections to other areas – are called ‘hubs’. When hubs are more densely interconnected than expected by chance they form a ‘rich-club’, the idea being that the richest members of the network (in terms of connections) are tightly connected to each other, thus forming a club. These densely interconnected hubs are thought to promote efficient integration between anatomically distinct areas and play an important role in brain functioning. It has been shown that hubs exhibit distinct transcriptional signatures in both humans \cite{Vertes2016a} and mice \cite{Fulcher2015}. According to Fulcher & Fornito \cite{Fulcher2015}, connections involving rich club hubs carry a distinctive genetic signature, which is driven by genes regulating the synthesis and breakdown of adenosine triphosphate (ATP) – the primary energetic substrate of neuronal signaling \cite{Fulcher2015}. These findings highlight a close relationship between metabolic expenditure and the high signaling load of hub regions in the brain, as has been previously proposed \cite{Bullmore2012}. We therefore have some preliminary indications that the transcriptional signature of hubs may be a consistent feature of mammalian brain networks, but it is not known how distinctive this expression signature is; and in particular, whether it holds true for networks resolved at the scale of individual neurons and synapses. To test this possibility, we aimed to replicate findings presented in \cite{Fulcher2015} using microscale connectivity data in C. elegans and gene expression data from WormBase. We sought to determine whether hubs in the C. elegans connectome exhibit distinct gene expression patterns. \\
 \begin{eqnarray}
 \label{eq:schemeP}
 	\mathrm{P_Y} = \underbrace{H(Y_n) - H(Y_n|\mathbf{V}^{Y}_{n})}_{S_Y} + \underbrace{H(Y_n|\mathbf{V}^{Y}_{n})- H(Y_n|\mathbf{V}^{X,Y}_{n})}_{T_{X\rightarrow Y}},
 \end{eqnarray}
 
 \section*{Materials and methods}
-\subsection*{Etiam eget sapien nibh}
 
 % For figure citations, please use "Fig" instead of "Figure".
-Nulla mi mi, Fig~\ref{fig1} venenatis sed ipsum varius, volutpat euismod diam. Proin rutrum vel massa non gravida. Quisque tempor sem et dignissim rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at justo vitae nulla elementum commodo eu id massa. In vitae diam ac augue semper tincidunt eu ut eros. Fusce fringilla erat porttitor lectus cursus, \nameref{S1_Video} vel sagittis arcu lobortis. Aliquam in enim semper, aliquam massa id, cursus neque. Praesent faucibus semper libero.
+To investigate the gene expression similarity of hub connectivity on a neuronal level, we coupled publicly available synapse-level connectome data of the C. elegans somatic nervous system (279 neurons, chemical synapses (directed binary network) (Figure 1) \cite{Varshney2011}) with a gene expression dataset containing binary expression profiles for 932 genes (WormBase WS254 release; from ~15 000 genes queried, 932 genes were directly (specifically) annotated to at least one neuron). Each neuron has between 3 and 135 genes expressed (median=20); each gene is expressed in a number of neurons ranging from 1 to 148 (median=4). It is important to note that, because the absence of expression data not recorded in the database, it is not possible to distinguish between the following two cases: (i) “gene is not expressed” and (ii) “there is no information on whether gene is expressed”. Both cases are recorded and analyzed as “0” expression here.\\
+To measure how similar gene expression patterns are between pairs of neurons (‘gene coexpression’ or ‘transcriptional similarity’ across 932 genes), we computed the mean square contingency coefficient, $\phi$, between their binary expression profiles, as shown in Figure 2. A coexpression value of 1 means that expression profiles for both neurons are exactly matching; a coexpression of 0 means that gene expression between a pair of neurons is matching in half the cases and mismatching in the other half; and a coexpression value of  -1 means that gene expression values are mismatching in all cases (i.e., if a gene is expressed in one neuron, it will not be expressed in the other one, and vice versa, for all genes).\\
+In the C. elegans connectome, 92 neurons have bilateral representation. Gene coexpression values for these pairs range between 0.81 to 1, with a mean of 0.98. To ensure that our results are not influenced by this symmetry, coexpression values between the pairs of those symmetrical neurons were excluded from all further analyses.
+
 
 % Place figure captions after the first paragraph in which they are cited.
 \begin{figure}[!h]
@@ -265,7 +265,20 @@ Figure caption text here, please use this space for the figure panel description
 
 % Results and Discussion can be combined.
 \section*{Results}
-Nulla mi mi, venenatis sed ipsum varius, Table~\ref{table1} volutpat euismod diam. Proin rutrum vel massa non gravida. Quisque tempor sem et dignissim rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at justo vitae nulla elementum commodo eu id massa. In vitae diam ac augue semper tincidunt eu ut eros. Fusce fringilla erat porttitor lectus cursus, vel sagittis arcu lobortis. Aliquam in enim semper, aliquam massa id, cursus neque. Praesent faucibus semper libero.
+\subsection*{Connected vs unconnected}
+
+First, we compared gene coexpression between connected and unconnected neurons in order to determine if connected neurons have more similar gene expression patterns than unconnected neurons. \\
+The distribution of transcriptional similarity, $\phi$, between all pairs of neurons, grouped by connected and unconnected pairs, is plotted in Figure 3. Connected pairs of neurons have more similar expression profiles than unconnected pairs (Welch’s t test, P $ \leq 10^{-24}$ ). To investigate which functional groups of genes contributed to this difference in transcriptional coupling between connected and unconnected neurons, we used a measure that quantifies the contribution of each gene (gene contribution score (GCC)). This statistic quantifies how likely it is that a given gene shows matching expression in connected pairs of neurons than expected by chance given its expression profile.\\
+These GCC scores were then used to perform a gene function enrichment analysis for Gene Ontology (GO) biological processes using gene score resampling (GSR) implemented in ermineJ \cite{Gillis2010}. In this analysis average gene scores for a specific GO category are compared to a randomly selected gene sample of the same size. Therefore, the resulting P-value (last column in Figure 4) quantifies how unlikely it is to find genes with high scores in a specific GO category compared to chance. The majority of the significant (P $<$ 0.05) GO categories are related to neuronal connectivity and communication, as listed in Figure 4 (second column: Description). These findings are in line with our expectations as they confirm that genes that are more likely to be expressed in a pair of connected neurons are in fact related to neuronal connectivity and communication. \\
+
+\subsection*{Rich, feeder, peripheral connections}
+
+For the second part of our analysis, we focused on features of rich-club organisation of C. elegans connectome. We first confirmed the rich-club organization of the C. elegans connectome, in which a small number (n=14) of high degree nodes (degree, k = 41-58) are more densely inter-connected than expected by chance, consistent with prior analysis \cite{Towlson2013} (see Figure 5). The highest degree neurons are mostly interneurons, with the exception of one motor neuron (Table 1). Neuron descriptions from WORMATLAS reveal that 10 of these interneurons are ventral cord interneurons. \\
+We investigated the relationship between gene coexpression and neuronal connectivity by comparing three different classes of neuron pairs. At each level of node degree, k (x-axis in Figure 5), we labelled each neuron as either a hub (nodes with degree $\geq$ k) or a nonhub (otherwise), and then labelled each connection as rich (hub - hub), feeder (nonhub - hub or hub - nonhub), or peripheral (nonhub- nonhub). Across the topological rich club regime, mean gene coexpression is significantly higher for rich connections (red in Figure 6) and increases slightly for feeder links from k=52.\\
+To see how coexpression values are distributed for different types of links, we show a separate case in Figure 7, in the topological rich-club regime, where hubs are defined as having at least 42 connections (k$\geq$42). Here we can see a gradient of coexpression between rich/feeder/peripheral, similar to that found for the mouse \cite{Fulcher2015}.\\
+To investigate which functional groups of genes contributed to the higher coexpression for links involving hubs (rich and feeder links, see Figure 6) we calculated a variation of a GCC which assigns each gene a score according to the probability of getting a higher number of matches in gene expression for rich and feeder links. Lower probability in this case means that a gene has a high number of matches for rich and feeder links in the experimental data, and therefore is of high interest for the analysis. Enrichment analysis show that the majority of the significant (P < 0.05) GO categories are related to glutamate related signaling, neuronal connectivity and communication as well as neurotransmitter metabolic processes (second column: Description in Figure 8). These findings are in line with our expectations as high degree neurons are highly involved in signalling and are likely to use glutamate and acetylcholine. 
+\subsection*{Dependence on neuron type}
+While above we demonstrated a relationship between transcriptional similarity and structural connectivity, we note that hubs of the C. elegans connectome are dominated by interneurons. Correspondingly, we investigated whether the effect of increasing gene coexpression is specific to interneurons. The relationship between average coexpression and degree for connections including different types of neurons (interneurons, motor neurons and sensory neurons) is shown in Figure 8. Connections involving interneurons show a pattern of increasing average coexpression with increasing degree, however neither connections involving motor nor sensory neurons resemble this trend; even showing evidence for the opposite relationship. In other words, motor and sensory neurons with higher degree show less similar gene expression patterns.
 
 % Place tables after the first paragraph in which they are cited.
 \begin{table}[!ht]
@@ -288,9 +301,9 @@ $cell1 row3$ & cell2 row 3 & cell3 row 3 & cell4 row 3 & cell5 row 3 & cell6 row
 
 
 %PLOS does not support heading levels beyond the 3rd (no 4th level headings).
-\subsection*{\lorem\ and \ipsum\ nunc blandit a tortor}
+
 \subsubsection*{3rd level heading} 
-Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque. Quisque augue sem, tincidunt sit amet feugiat eget, ullamcorper sed velit. Sed non aliquet felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris commodo justo ac dui pretium imperdiet. Sed suscipit iaculis mi at feugiat. 
+Text.  
 
 \begin{enumerate}
 	\item{react}
@@ -299,9 +312,8 @@ Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh.
 \end{enumerate}
 
 
-\subsection*{Sed ac quam id nisi malesuada congue}
+\subsection*{Another subsection}
 
-Nulla mi mi, venenatis sed ipsum varius, volutpat euismod diam. Proin rutrum vel massa non gravida. Quisque tempor sem et dignissim rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at justo vitae nulla elementum commodo eu id massa. In vitae diam ac augue semper tincidunt eu ut eros. Fusce fringilla erat porttitor lectus cursus, vel sagittis arcu lobortis. Aliquam in enim semper, aliquam massa id, cursus neque. Praesent faucibus semper libero.
 
 \begin{itemize}
 	\item First bulleted item.
@@ -310,13 +322,11 @@ Nulla mi mi, venenatis sed ipsum varius, volutpat euismod diam. Proin rutrum vel
 \end{itemize}
 
 \section*{Discussion}
-Nulla mi mi, venenatis sed ipsum varius, Table~\ref{table1} volutpat euismod diam. Proin rutrum vel massa non gravida. Quisque tempor sem et dignissim rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at justo vitae nulla elementum commodo eu id massa. In vitae diam ac augue semper tincidunt eu ut eros. Fusce fringilla erat porttitor lectus cursus, vel sagittis arcu lobortis. Aliquam in enim semper, aliquam massa id, cursus neque. Praesent faucibus semper libero~\cite{bib3}.
+Discussion text
 
 \section*{Conclusion}
 
-CO\textsubscript{2} Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque. Quisque augue sem, tincidunt sit amet feugiat eget, ullamcorper sed velit. 
-
-Sed non aliquet felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris commodo justo ac dui pretium imperdiet. Sed suscipit iaculis mi at feugiat. Ut neque ipsum, luctus id lacus ut, laoreet scelerisque urna. Phasellus venenatis, tortor nec vestibulum mattis, massa tortor interdum felis, nec pellentesque metus tortor nec nisl. Ut ornare mauris tellus, vel dapibus arcu suscipit sed. Nam condimentum sem eget mollis euismod. Nullam dui urna, gravida venenatis dui et, tincidunt sodales ex. Nunc est dui, sodales sed mauris nec, auctor sagittis leo. Aliquam tincidunt, ex in facilisis elementum, libero lectus luctus est, non vulputate nisl augue at dolor. For more information, see \nameref{S1_Appendix}.
+Conclussion text. 
 
 \section*{Supporting information}
 

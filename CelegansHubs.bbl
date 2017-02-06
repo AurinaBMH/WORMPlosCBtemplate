@@ -1,0 +1,44 @@
+\begin{thebibliography}{1}
+
+\bibitem{Vertes2016a}
+V{\'{e}}rtes PE, Rittman T, Whitaker KJ, Romero-Garcia R, V{\'{a}}{\v{s}}a F,
+  Kitzbichler MG, et~al.
+\newblock {Gene transcription profiles associated with inter-modular hubs and
+  connection distance in human functional magnetic resonance imaging networks}.
+\newblock Philosophical Transactions of the Royal Society B.
+  2016;371(1705):735--769.
+\newblock doi:{10.1098/rstb.2015.0362}.
+
+\bibitem{Fulcher2015}
+Fulcher BD, Fornito A.
+\newblock {A transcriptional signature of hub connectivity in the mouse
+  connectome}.
+\newblock Proceedings of the National Academy of Sciences. 2016;I(1):1--14.
+\newblock doi:{10.1073/pnas.1513302113}.
+
+\bibitem{Bullmore2012}
+Bullmore E, Sporns O.
+\newblock {The economy of brain network organization.}
+\newblock Nature Reviews Neuroscience. 2012;13(5):336--49.
+\newblock doi:{10.1038/nrn3214}.
+
+\bibitem{Varshney2011}
+Varshney LR, Chen BL, Paniagua E, Hall DH, Chklovskii DB.
+\newblock {Structural properties of the Caenorhabditis elegans neuronal
+  network.}
+\newblock PLoS computational biology. 2011;7(2):e1001066.
+\newblock doi:{10.1371/journal.pcbi.1001066}.
+
+\bibitem{Gillis2010}
+Gillis J, Mistry M, Pavlidis P.
+\newblock {Gene function analysis in complex data sets using ErmineJ.}
+\newblock Nature protocols. 2010;5(6):1148--59.
+\newblock doi:{10.1038/nprot.2010.78}.
+
+\bibitem{Towlson2013}
+Towlson EK, V{\'{e}}rtes PE, Ahnert SE, Schafer WR, Bullmore ET.
+\newblock {The rich club of the C. elegans neuronal connectome.}
+\newblock Journal of Neuroscience. 2013;33(15):6380--7.
+\newblock doi:{10.1523/JNEUROSCI.3784-12.2013}.
+
+\end{thebibliography}
