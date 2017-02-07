@@ -246,94 +246,126 @@ Connectivity in brain networks is not uniformly distributed. Network elements wi
 When hubs are more densely interconnected than expected by chance they form a `rich-club', the idea being that the richest members of the network (in terms of connections) are tightly connected to each other, thus forming a club.
 These densely interconnected hubs are thought to promote efficient integration between anatomically distinct areas and play an important role in brain functioning.
 It has been shown that hubs exhibit distinct transcriptional signatures in both humans \cite{Vertes2016a} and mice \cite{Fulcher2015}.
-According to Fulcher & Fornito \cite{Fulcher2015}, connections involving rich club hubs carry a distinctive genetic signature, which is driven by genes regulating the synthesis and breakdown of adenosine triphosphate (ATP) – the primary energetic substrate of neuronal signaling \cite{Fulcher2015}. These findings highlight a close relationship between metabolic expenditure and the high signaling load of hub regions in the brain, as has been previously proposed \cite{Bullmore2012}.
+According to Fulcher \& Fornito \cite{Fulcher2015}, connections involving rich club hubs carry a distinctive genetic signature, which is driven by genes regulating the synthesis and breakdown of adenosine triphosphate (ATP) – the primary energetic substrate of neuronal signaling \cite{Fulcher2015}. These findings highlight a close relationship between metabolic expenditure and the high signaling load of hub regions in the brain, as has been previously proposed \cite{Bullmore2012}.
 We therefore have some preliminary indications that the transcriptional signature of hubs may be a consistent feature of mammalian brain networks, but it is not known how distinctive this expression signature is; and in particular, whether it holds true for networks resolved at the scale of individual neurons and synapses.
 To test this possibility, we aimed to replicate findings presented in \cite{Fulcher2015} using microscale connectivity data in C. elegans and gene expression data from WormBase.
 We sought to determine whether hubs in the C. elegans connectome exhibit distinct gene expression patterns.\\
-\begin{eqnarray}
-\label{eq:schemeP}
-	\mathrm{P_Y} = \underbrace{H(Y_n) - H(Y_n|\mathbf{V}^{Y}_{n})}_{S_Y} + \underbrace{H(Y_n|\mathbf{V}^{Y}_{n})- H(Y_n|\mathbf{V}^{X,Y}_{n})}_{T_{X\rightarrow Y}},
-\end{eqnarray}
+
+% \begin{eqnarray}
+% \label{eq:schemeP}
+%     \mathrm{P_Y} = \underbrace{H(Y_n) - H(Y_n|\mathbf{V}^{Y}_{n})}_{S_Y} + \underbrace{H(Y_n|\mathbf{V}^{Y}_{n})- H(Y_n|\mathbf{V}^{X,Y}_{n})}_{T_{X\rightarrow Y}},
+% \end{eqnarray}
 
 \section*{Materials and methods}
 
 % For figure citations, please use "Fig" instead of "Figure".
-To investigate the gene expression similarity of hub connectivity on a neuronal level, we coupled publicly available synapse-level connectome data of the C. elegans somatic nervous system (279 neurons, chemical synapses (directed binary network) (Figure 1) \cite{Varshney2011}) with a gene expression dataset containing binary expression profiles for 932 genes (WormBase WS254 release; from ~15 000 genes queried, 932 genes were directly (specifically) annotated to at least one neuron). Each neuron has between 3 and 135 genes expressed (median=20); each gene is expressed in a number of neurons ranging from 1 to 148 (median=4). It is important to note that, because the absence of expression data not recorded in the database, it is not possible to distinguish between the following two cases: (i) “gene is not expressed” and (ii) “there is no information on whether gene is expressed”. Both cases are recorded and analyzed as “0” expression here.\\
-To measure how similar gene expression patterns are between pairs of neurons (`gene coexpression' or `transcriptional similarity' across 932 genes), we computed the mean square contingency coefficient, $\phi$, between their binary expression profiles, as shown in Figure 2. A coexpression value of 1 means that expression profiles for both neurons are exactly matching; a coexpression of 0 means that gene expression between a pair of neurons is matching in half the cases and mismatching in the other half; and a coexpression value of  -1 means that gene expression values are mismatching in all cases (i.e., if a gene is expressed in one neuron, it will not be expressed in the other one, and vice versa, for all genes).\\
-In the C. elegans connectome, 92 neurons have bilateral representation. Gene coexpression values for these pairs range between 0.81 to 1, with a mean of 0.98. To ensure that our results are not influenced by this symmetry, coexpression values between the pairs of those symmetrical neurons were excluded from all further analyses.
+To investigate the gene expression similarity of hub connectivity on a neuronal level, we coupled publicly available synapse-level connectome data of the C. elegans somatic nervous system (279 neurons, chemical synapses (directed binary network) (Figure 1) \cite{Varshney2011}) with a gene expression dataset containing binary expression profiles for 932 genes (WormBase WS254 release; from ~15 000 genes queried, 932 genes were directly (specifically) annotated to at least one neuron).
+Each neuron has between 3 and 135 genes expressed (median=20); each gene is expressed in a number of neurons ranging from 1 to 148 (median$=$4).
+It is important to note that, because the absence of expression data not recorded in the database, it is not possible to distinguish between the following two cases: (i) ``gene is not expressed'' and (ii) ``there is no information on whether gene is expressed''.
+Both cases are recorded and analyzed as ``0'' expression here.
+
+To measure how similar gene expression patterns are between pairs of neurons (`gene coexpression' or `transcriptional similarity' across 932 genes), we computed the mean square contingency coefficient, $\phi$, between their binary expression profiles, as shown in Figure 2.
+A coexpression value of 1 means that expression profiles for both neurons are exactly matching; a coexpression of 0 means that gene expression between a pair of neurons is matching in half the cases and mismatching in the other half; and a coexpression value of $-1$ means that gene expression values are mismatching in all cases (i.e., if a gene is expressed in one neuron, it will not be expressed in the other one, and vice versa, for all genes).
+
+In the C. elegans connectome, 92 neurons have bilateral representation.
+Gene coexpression values for these pairs range between 0.81 to 1, with a mean of 0.98.
+To ensure that our results are not influenced by this symmetry, coexpression values between the pairs of those symmetrical neurons were excluded from all further analyses.
 
 
 % Place figure captions after the first paragraph in which they are cited.
-\begin{figure}[!h]
-\caption{{\bf Bold the figure title.}
-Figure caption text here, please use this space for the figure panel descriptions instead of using subfigure commands. A: Lorem ipsum dolor sit amet. B: Consectetur adipiscing elit.}
-\label{fig1}
-\end{figure}
+% \begin{figure}[!h]
+% \caption{{\bf Bold the figure title.}
+% Figure caption text here, please use this space for the figure panel descriptions instead of using subfigure commands. A: Lorem ipsum dolor sit amet. B: Consectetur adipiscing elit.}
+% \label{fig1}
+% \end{figure}
 
 % Results and Discussion can be combined.
 \section*{Results}
 \subsection*{Connected vs unconnected}
 
-First, we compared gene coexpression between connected and unconnected neurons in order to determine if connected neurons have more similar gene expression patterns than unconnected neurons. \\
-The distribution of transcriptional similarity, $\phi$, between all pairs of neurons, grouped by connected and unconnected pairs, is plotted in Figure 3. Connected pairs of neurons have more similar expression profiles than unconnected pairs (Welch's t test, P $ \leq 10^{-24}$ ). To investigate which functional groups of genes contributed to this difference in transcriptional coupling between connected and unconnected neurons, we used a measure that quantifies the contribution of each gene (gene contribution score (GCC)). This statistic quantifies how likely it is that a given gene shows matching expression in connected pairs of neurons than expected by chance given its expression profile.\\
-These GCC scores were then used to perform a gene function enrichment analysis for Gene Ontology (GO) biological processes using gene score resampling (GSR) implemented in ermineJ \cite{Gillis2010}. In this analysis average gene scores for a specific GO category are compared to a randomly selected gene sample of the same size. Therefore, the resulting P-value (last column in Figure 4) quantifies how unlikely it is to find genes with high scores in a specific GO category compared to chance. The majority of the significant (P $<$ 0.05) GO categories are related to neuronal connectivity and communication, as listed in Figure 4 (second column: Description). These findings are in line with our expectations as they confirm that genes that are more likely to be expressed in a pair of connected neurons are in fact related to neuronal connectivity and communication. \\
+First, we compared gene coexpression between connected and unconnected neurons in order to determine if connected neurons have more similar gene expression patterns than unconnected neurons.
+
+The distribution of transcriptional similarity, $\phi$, between all pairs of neurons, grouped by connected and unconnected pairs, is plotted in Figure 3.
+Connected pairs of neurons have more similar expression profiles than unconnected pairs (Welch's t test, P $ \leq 10^{-24}$ ). To investigate which functional groups of genes contributed to this difference in transcriptional coupling between connected and unconnected neurons, we used a measure that quantifies the contribution of each gene (gene contribution score (GCC)).
+This statistic quantifies how likely it is that a given gene shows matching expression in connected pairs of neurons than expected by chance given its expression profile.
+
+These GCC scores were then used to perform a gene function enrichment analysis for Gene Ontology (GO) biological processes using gene score resampling (GSR) implemented in ermineJ \cite{Gillis2010}.
+In this analysis average gene scores for a specific GO category are compared to a randomly selected gene sample of the same size.
+Therefore, the resulting $P$-value (last column in Figure 4) quantifies how unlikely it is to find genes with high scores in a specific GO category compared to chance.
+The majority of the significant ($P < 0.05$) GO categories are related to neuronal connectivity and communication, as listed in Figure 4 (second column: Description).
+These findings are in line with our expectations as they confirm that genes that are more likely to be expressed in a pair of connected neurons are in fact related to neuronal connectivity and communication.
 
 \subsection*{Rich, feeder, peripheral connections}
 
-For the second part of our analysis, we focused on features of rich-club organisation of C. elegans connectome. We first confirmed the rich-club organization of the C. elegans connectome, in which a small number (n=14) of high degree nodes (degree, k = 41-58) are more densely inter-connected than expected by chance, consistent with prior analysis \cite{Towlson2013} (see Figure 5). The highest degree neurons are mostly interneurons, with the exception of one motor neuron (Table 1). Neuron descriptions from WORMATLAS reveal that 10 of these interneurons are ventral cord interneurons. \\
-We investigated the relationship between gene coexpression and neuronal connectivity by comparing three different classes of neuron pairs. At each level of node degree, k (x-axis in Figure 5), we labelled each neuron as either a hub (nodes with degree $\geq$ k) or a nonhub (otherwise), and then labelled each connection as rich (hub - hub), feeder (nonhub - hub or hub - nonhub), or peripheral (nonhub- nonhub). Across the topological rich club regime, mean gene coexpression is significantly higher for rich connections (red in Figure 6) and increases slightly for feeder links from k=52.\\
-To see how coexpression values are distributed for different types of links, we show a separate case in Figure 7, in the topological rich-club regime, where hubs are defined as having at least 42 connections (k$\geq$42). Here we can see a gradient of coexpression between rich/feeder/peripheral, similar to that found for the mouse \cite{Fulcher2015}.\\
-To investigate which functional groups of genes contributed to the higher coexpression for links involving hubs (rich and feeder links, see Figure 6) we calculated a variation of a GCC which assigns each gene a score according to the probability of getting a higher number of matches in gene expression for rich and feeder links. Lower probability in this case means that a gene has a high number of matches for rich and feeder links in the experimental data, and therefore is of high interest for the analysis. Enrichment analysis show that the majority of the significant (P < 0.05) GO categories are related to glutamate related signaling, neuronal connectivity and communication as well as neurotransmitter metabolic processes (second column: Description in Figure 8). These findings are in line with our expectations as high degree neurons are highly involved in signalling and are likely to use glutamate and acetylcholine. 
+For the second part of our analysis, we focused on features of rich-club organization of C. elegans connectome. We first confirmed the rich-club organization of the C. elegans connectome, in which a small number (n=14) of high degree nodes (degree, k = 41-58) are more densely inter-connected than expected by chance, consistent with prior analysis \cite{Towlson2013} (see Figure 5).
+The highest degree neurons are mostly interneurons, with the exception of one motor neuron (Table 1).
+Neuron descriptions from WORMATLAS reveal that 10 of these interneurons are ventral cord interneurons.
+
+We investigated the relationship between gene coexpression and neuronal connectivity by comparing three different classes of neuron pairs.
+At each level of node degree, $k$ (x-axis in Figure 5), we labeled each neuron as either a hub (nodes with degree $\geq k$) or a nonhub (otherwise), and then labeled each connection as rich (hub - hub), feeder (nonhub - hub or hub - nonhub), or peripheral (nonhub- nonhub). Across the topological rich club regime, mean gene coexpression is significantly higher for rich connections (red in Figure 6) and increases slightly for feeder links from $k=52$.
+
+To see how coexpression values are distributed for different types of links, we show a separate case in Figure 7, in the topological rich-club regime, where hubs are defined as having at least 42 connections ($k \geq 42$).
+Here we can see a gradient of coexpression between rich/feeder/peripheral, similar to that found for the mouse \cite{Fulcher2015}.
+
+To investigate which functional groups of genes contributed to the higher coexpression for links involving hubs (rich and feeder links, see Figure 6) we calculated a variation of a GCC which assigns each gene a score according to the probability of getting a higher number of matches in gene expression for rich and feeder links.
+Lower probability in this case means that a gene has a high number of matches for rich and feeder links in the experimental data, and therefore is of high interest for the analysis.
+Enrichment analysis show that the majority of the significant ($P < 0.05$) GO categories are related to glutamate related signaling, neuronal connectivity and communication as well as neurotransmitter metabolic processes (second column: Description in Figure 8).
+These findings are in line with our expectations as high degree neurons are highly involved in signaling and are likely to use glutamate and acetylcholine.
+
 \subsection*{Dependence on neuron type}
-While above we demonstrated a relationship between transcriptional similarity and structural connectivity, we note that hubs of the C. elegans connectome are dominated by interneurons. Correspondingly, we investigated whether the effect of increasing gene coexpression is specific to interneurons. The relationship between average coexpression and degree for connections including different types of neurons (interneurons, motor neurons and sensory neurons) is shown in Figure 8. Connections involving interneurons show a pattern of increasing average coexpression with increasing degree, however neither connections involving motor nor sensory neurons resemble this trend; even showing evidence for the opposite relationship. In other words, motor and sensory neurons with higher degree show less similar gene expression patterns.
+While above we demonstrated a relationship between transcriptional similarity and structural connectivity, we note that hubs of the C. elegans connectome are dominated by interneurons.
+Correspondingly, we investigated whether the effect of increasing gene coexpression is specific to interneurons.
+The relationship between average coexpression and degree for connections including different types of neurons (interneurons, motor neurons and sensory neurons) is shown in Figure 8.
+Connections involving interneurons show a pattern of increasing average coexpression with increasing degree, however neither connections involving motor nor sensory neurons resemble this trend; even showing evidence for the opposite relationship.
+In other words, motor and sensory neurons with higher degree show less similar gene expression patterns.
 
 % Place tables after the first paragraph in which they are cited.
-\begin{table}[!ht]
-\begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
-\centering
-\caption{
-{\bf Table caption Nulla mi mi, venenatis sed ipsum varius, volutpat euismod diam.}}
-\begin{tabular}{|l+l|l|l|l|l|l|l|}
-\hline
-\multicolumn{4}{|l|}{\bf Heading1} & \multicolumn{4}{|l|}{\bf Heading2}\\ \thickhline
-$cell1 row1$ & cell2 row 1 & cell3 row 1 & cell4 row 1 & cell5 row 1 & cell6 row 1 & cell7 row 1 & cell8 row 1\\ \hline
-$cell1 row2$ & cell2 row 2 & cell3 row 2 & cell4 row 2 & cell5 row 2 & cell6 row 2 & cell7 row 2 & cell8 row 2\\ \hline
-$cell1 row3$ & cell2 row 3 & cell3 row 3 & cell4 row 3 & cell5 row 3 & cell6 row 3 & cell7 row 3 & cell8 row 3\\ \hline
-\end{tabular}
-\begin{flushleft} Table notes Phasellus venenatis, tortor nec vestibulum mattis, massa tortor interdum felis, nec pellentesque metus tortor nec nisl. Ut ornare mauris tellus, vel dapibus arcu suscipit sed.
-\end{flushleft}
-\label{table1}
-\end{adjustwidth}
-\end{table}
+% \begin{table}[!ht]
+% \begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
+% \centering
+% \caption{
+% {\bf Table caption Nulla mi mi, venenatis sed ipsum varius, volutpat euismod diam.}}
+% \begin{tabular}{|l+l|l|l|l|l|l|l|}
+% \hline
+% \multicolumn{4}{|l|}{\bf Heading1} & \multicolumn{4}{|l|}{\bf Heading2}\\ \thickhline
+% $cell1 row1$ & cell2 row 1 & cell3 row 1 & cell4 row 1 & cell5 row 1 & cell6 row 1 & cell7 row 1 & cell8 row 1\\ \hline
+% $cell1 row2$ & cell2 row 2 & cell3 row 2 & cell4 row 2 & cell5 row 2 & cell6 row 2 & cell7 row 2 & cell8 row 2\\ \hline
+% $cell1 row3$ & cell2 row 3 & cell3 row 3 & cell4 row 3 & cell5 row 3 & cell6 row 3 & cell7 row 3 & cell8 row 3\\ \hline
+% \end{tabular}
+% \begin{flushleft} Table notes Phasellus venenatis, tortor nec vestibulum mattis, massa tortor interdum felis, nec pellentesque metus tortor nec nisl. Ut ornare mauris tellus, vel dapibus arcu suscipit sed.
+% \end{flushleft}
+% \label{table1}
+% \end{adjustwidth}
+% \end{table}
 
 
 %PLOS does not support heading levels beyond the 3rd (no 4th level headings).
 
-\subsubsection*{3rd level heading} 
-Text.  
-
-\begin{enumerate}
-	\item{react}
-	\item{diffuse free particles}
-	\item{increment time by dt and go to 1}
-\end{enumerate}
-
-
-\subsection*{Another subsection}
-
-
-\begin{itemize}
-	\item First bulleted item.
-	\item Second bulleted item.
-	\item Third bulleted item.
-\end{itemize}
+% \subsubsection*{3rd level heading}
+% Text.
+%
+% \begin{enumerate}
+%     \item{react}
+%     \item{diffuse free particles}
+%     \item{increment time by dt and go to 1}
+% \end{enumerate}
+%
+%
+% \subsection*{Another subsection}
+%
+%
+% \begin{itemize}
+%     \item First bulleted item.
+%     \item Second bulleted item.
+%     \item Third bulleted item.
+% \end{itemize}
 
 \section*{Discussion}
 Discussion text
 
 \section*{Conclusion}
 
-Conclussion text. 
+Conclusion text. 
 
 \section*{Supporting information}
 
@@ -363,7 +395,7 @@ Conclussion text.
 {\bf Lorem ipsum.} Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
 
 \section*{Acknowledgments}
-Cras egestas velit mauris, eu mollis turpis pellentesque sit amet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam id pretium nisi. Sed ac quam id nisi malesuada congue. Sed interdum aliquet augue, at pellentesque quam rhoncus vitae.
+Thanks to Alex Fornito, for being a big deal.
 
 \nolinenumbers
 
@@ -382,27 +414,27 @@ Cras egestas velit mauris, eu mollis turpis pellentesque sit amet. Interdum et m
 % 
 
 \bibliography{library}
-\begin{thebibliography}{10}
+% \begin{thebibliography}{10}
 
-\bibitem{bib1}
-Conant GC, Wolfe KH.
-\newblock {{T}urning a hobby into a job: how duplicated genes find new
-  functions}.
-\newblock Nat Rev Genet. 2008 Dec;9(12):938--950.
+% \bibitem{bib1}
+% Conant GC, Wolfe KH.
+% \newblock {{T}urning a hobby into a job: how duplicated genes find new
+%   functions}.
+% \newblock Nat Rev Genet. 2008 Dec;9(12):938--950.
+%
+% \bibitem{bib2}
+% Ohno S.
+% \newblock Evolution by gene duplication.
+% \newblock London: George Alien \& Unwin Ltd. Berlin, Heidelberg and New York:
+%   Springer-Verlag.; 1970.
+%
+% \bibitem{bib3}
+% Magwire MM, Bayer F, Webster CL, Cao C, Jiggins FM.
+% \newblock {{S}uccessive increases in the resistance of {D}rosophila to viral
+%   infection through a transposon insertion followed by a {D}uplication}.
+% \newblock PLoS Genet. 2011 Oct;7(10):e1002337.
 
-\bibitem{bib2}
-Ohno S.
-\newblock Evolution by gene duplication.
-\newblock London: George Alien \& Unwin Ltd. Berlin, Heidelberg and New York:
-  Springer-Verlag.; 1970.
-
-\bibitem{bib3}
-Magwire MM, Bayer F, Webster CL, Cao C, Jiggins FM.
-\newblock {{S}uccessive increases in the resistance of {D}rosophila to viral
-  infection through a transposon insertion followed by a {D}uplication}.
-\newblock PLoS Genet. 2011 Oct;7(10):e1002337.
-
-\end{thebibliography}
+% \end{thebibliography}
 
 
 
