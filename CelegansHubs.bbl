@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{Kaufman2006}
 Kaufman A, Dror G, Meilijson I, Ruppin E.
@@ -50,16 +50,23 @@ Varshney LR, Chen BL, Paniagua E, Hall DH, Chklovskii DB.
 \newblock PLoS computational biology. 2011;7(2):e1001066.
 \newblock doi:{10.1371/journal.pcbi.1001066}.
 
-\bibitem{Gillis2010}
-Gillis J, Mistry M, Pavlidis P.
-\newblock {Gene function analysis in complex data sets using ErmineJ.}
-\newblock Nature protocols. 2010;5(6):1148--59.
-\newblock doi:{10.1038/nprot.2010.78}.
-
 \bibitem{Towlson2013}
 Towlson EK, V{\'{e}}rtes PE, Ahnert SE, Schafer WR, Bullmore ET.
 \newblock {The rich club of the C. elegans neuronal connectome.}
 \newblock Journal of Neuroscience. 2013;33(15):6380--7.
 \newblock doi:{10.1523/JNEUROSCI.3784-12.2013}.
+
+\bibitem{Rubinov2010}
+Rubinov M, Sporns O.
+\newblock {Complex network measures of brain connectivity: Uses and
+  interpretations}.
+\newblock NeuroImage. 2010;52(3):1059--1069.
+\newblock doi:{10.1016/j.neuroimage.2009.10.003}.
+
+\bibitem{Gillis2010}
+Gillis J, Mistry M, Pavlidis P.
+\newblock {Gene function analysis in complex data sets using ErmineJ.}
+\newblock Nature protocols. 2010;5(6):1148--59.
+\newblock doi:{10.1038/nprot.2010.78}.
 
 \end{thebibliography}
