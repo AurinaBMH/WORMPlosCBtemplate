@@ -321,20 +321,37 @@ where where $N_{>\textit{k}}$ is the number of nodes with degree $>\textit{k}$ a
      \mathrm{\Phi_{\textit{norm}}(\textit{k})} = \dfrac{\Phi(\textit{k})}{\Phi_{\textit{random}}(\textit{k})}, 
 	 \end{eqnarray}
 where $\Phi_{\textit{random}}(\textit{k})$ is the average value of $\Phi(\textit{k})$ across random networks.
-For each degree threshold $\geq k$ we computed 1000 random networks rewiring each edge an average of 50 times per null net- work. Statistical significance for $\Phi_{norm}$ was estimated by computing P value directly from the empirical null
+For each degree threshold $\geq k$ we computed 1000 random networks rewiring each edge an average of 50 times per null net- work. 
+Statistical significance for $\Phi_{norm}$ was estimated by computing P value directly from the empirical null
 distribution under the null hypothesis $\Phi(\textit{k}) \leq \Phi_{\textit{random}}(\textit{k})$. 
 Rich club coefficient and null networks were generated using the rich\textunderscore club\textunderscore bd and randmio\textunderscore dir functions from the Brain Connectivity Toolbox \cite{Rubinov2010} respectively.
 
 % METHODS: gene expression
 \textbf{Gene expression.}
-(http://wormbase.org, release WS256),
-with a gene expression dataset containing binary expression profiles for 932 genes (WormBase WS254 release; from ~15 000 genes queried, 932 genes were directly (specifically) annotated to at least one neuron).
-Each neuron has between 3 and 135 genes expressed (median=20); each gene is expressed in a number of neurons ranging from 1 to 148 (median$=$4).
+Gene expression signatures for each neuron were obtained from the publicly available WormBase database \href{ftp://ftp.wormbase.org/pub/wormbase/releases/WS256/ONTOLOGY/anatomy_association.WS256.wb}{(http://wormbase.org, release WS256)} on 6 February 2017. 
+The dataset contains binary expression profiles for 948 genes annotated to at least one neuron. 
+To minimise noise in the dataset we selected genes that were directly annotated to a specific neuron and labelled with the following qualifiers in the anatomy association file: certain, enriched, partial, blank. 
+Each neuron on average is associated with the expression of 30 genes (range: 3 to 138 genes), while each gene is expressed on average in 9 out of 279 neurons (range: 1 to 148 neurons).     
 It is important to note that, because the absence of expression data not recorded in the database, it is not possible to distinguish between the following two cases: (i) ``gene is not expressed'' and (ii) ``there is no information on whether gene is expressed''.
 Both cases are recorded and analyzed as ``0'' expression here.\\
+Gene expression was assigned to neurons based on anatomical hierarchy obtained from ...\\
+PROBABLY SHOULD ADD INFORMATION ABOUT HIERARCHY FILE HERE as it's also from the wormbase (how/when downloaded/what queries were used \\
+BEN, can you add information?
 
 % METHODS: gene coexpression
 \textbf{Gene coexpression.}\\
+Genetic analysis in this paper focused on patterns of coupled gene expression between pairs of neurons rather than the presence or absence of gene expression in any single neuron on its own. 
+In order to evaluate the similarity in gene expression profiles between each pair of neurons (\textit{i},\textit{j}) we calculated a measure of gene coexpression as a mean square contingency coefficient, $\phi$, between their binary expression profiles, which is a binary version of the traditional Pearson correlation coefficient.  
+$\phi$ values range from $-1$ to $+1$, where $\pm1$ indicates perfect agreement or disagreement respectively, and 0 indicates no relationship. \\
+As the number of genes expressed in each neuron varies in a broad range, we aimed to choose a measure of similarity between binary gene expression profiles which is not sensitive to the ratio between the number of ones and zeros in a vector. 
+Mean square contingency coefficient $\phi$ met this criterion best. 
+In contrast, other measures such as Jaccard index, Yule's Q, Yule's Y and Simple matching coefficients are highly dependent on this ratio. 
+For example, Yule's Q, Yule's Y coefficients on average tend to reach extreme values when the ratio between the number of ones and zeros in a vector is large (e.g. 1:20). 
+Simple matching coefficient, on the other hand, shows a steady increase with increasing ratio.     
+Therefore, a relatively scenario-free measure $\phi$ was highly preferable to others.     \\
+EFFECT OF SPACE - no clear relationship, therefore can't be corrected in a systematic manner.\\
+Excluding L/R expression values.  
+
 
 % METHODS: gene enrichment
 \textbf{Gene enrichment.}
@@ -345,9 +362,6 @@ Both cases are recorded and analyzed as ``0'' expression here.\\
 Connectivity matrix coded according to link type (and probably gene expression matrix: rows as it is (neuron order), columns ordered according to similarity).}
  \label{fig:SchematicRepresentation}
  \end{figure}
-
-To measure how similar gene expression patterns are between pairs of neurons (`gene coexpression' or `transcriptional similarity' across 932 genes), we computed the mean square contingency coefficient, $\phi$, between their binary expression profiles, as shown in Figure 2.
-A coexpression value of 1 means that expression profiles for both neurons are exactly matching; a coexpression of 0 means that gene expression between a pair of neurons is matching in half the cases and mismatching in the other half; and a coexpression value of $-1$ means that gene expression values are mismatching in all cases (i.e., if a gene is expressed in one neuron, it will not be expressed in the other one, and vice versa, for all genes).
 
 In the C. elegans connectome, 92 neurons have bilateral representation.
 Gene coexpression values for these pairs range between 0.81 to 1, with a mean of 0.98.
@@ -377,7 +391,7 @@ Connected pairs of neurons have more similar expression profiles than unconnecte
 This statistic quantifies how likely it is that a given gene shows matching expression in connected pairs of neurons than expected by chance given its expression profile.
 
  \begin{figure}[!h]
- \caption{{\bf Coexpression between connected and unconnected neurons}
+ \caption{{\bf Coexpression between connected and unconnected neurons. SHOULD PROBABLY split connected into reciprocally connected and unidirectionally connected}
 Distribution of transcriptional similarity for all pairs of neurons, grouped by connected and unconnected pairs (Welch’s t test, P $ \leq 10^{-21}$). Note that symmetric pairs of neurons with high coexpression (92 pairs) have been excluded from this analysis.}
  \label{ConUnconChemical}
  \end{figure}
