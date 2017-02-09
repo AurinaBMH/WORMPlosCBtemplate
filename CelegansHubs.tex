@@ -348,8 +348,13 @@ In contrast, other measures such as Jaccard index, Yule's Q, Yule's Y and Simple
 For example, Yule's Q, Yule's Y coefficients on average tend to reach extreme values when the ratio between the number of ones and zeros in a vector is large (e.g. 1:20). 
 Simple matching coefficient, on the other hand, shows a steady increase with increasing ratio.     
 Therefore, a relatively scenario-free measure $\phi$ was highly preferable to others.     \\
-EFFECT OF SPACE - no clear relationship, therefore can't be corrected in a systematic manner.\\
-Excluding L/R expression values.  
+
+The effect of spatial distance on gene coexpression \cite{Fulcher2015} was evaluated. 
+We calculated the distance between each pair of neurons based on their 2D coordinates and estimated the relationship between this distance and coexpression. 
+No clear relationship was found, therefore no coexpression-distance corrections were applied (maybe include the plot in supplementary?). \\
+In the C. elegans connectome, 92 classes of neurons have bilateral representation, meaning that each of those neuron classes have both left and right counterparts. 
+These neurons tend to have very similar gene expression patterns with a mean value of 0.98. 
+To ensure that our results are not influenced by this symmetry, coexpression values between the pairs of those symmetrical neurons were excluded from all further analyses.
 
 
 % METHODS: gene enrichment
@@ -361,10 +366,6 @@ Excluding L/R expression values.
 Connectivity matrix coded according to link type (and probably gene expression matrix: rows as it is (neuron order), columns ordered according to similarity).}
  \label{fig:SchematicRepresentation}
  \end{figure}
-
-In the C. elegans connectome, 92 neurons have bilateral representation.
-Gene coexpression values for these pairs range between 0.81 to 1, with a mean of 0.98.
-To ensure that our results are not influenced by this symmetry, coexpression values between the pairs of those symmetrical neurons were excluded from all further analyses.
 
 
 % Place figure captions after the first paragraph in which they are cited.
