@@ -243,14 +243,29 @@ Text
 
 % Use "Eq" instead of "Equation" for equation citations.
 \section*{Introduction}
-Connectivity in brain networks is not uniformly distributed. Network elements with high node degree – i.e., a large number of connections to other areas – are called `hubs'.
-When hubs are more densely interconnected than expected by chance they form a `rich-club', the idea being that the richest members of the network (in terms of connections) are tightly connected to each other, thus forming a club.
-These densely interconnected hubs are thought to promote efficient integration between anatomically distinct areas and play an important role in brain functioning.
+
+% Introduce the structural connectome, characterization of its properties, focusing on worm, but also linking to other species to make the point of consistency
+The complex pattern of axonal connections between neural elements of nervous systems provides key insights into the physical constraints underlying a functionally optimized system.
+Mapping the network of structural connections between neural elements, from the scale of neurons in model organisms like \emph{C. elegans}, through to mesoscale brain regions using tract tracing in rodents, through to non-invasive MRI imaging in human subjects, has revealed a surprising consistency of organizational properties, suggesting a common set of selection pressures under which efficient neural systems have evolved.
+In this work, the brain network, or `connectome', is abstracted to a graph representation, in which neural elements are represented as nodes (e.g., neurons in \emph{C. elegans}, or macroscopic brain regions in human), with edges connecting pairs of elements that have an axonal connection; in this way allowing very different species, measurements, and scales of neuronal networks to be represented in a consistent and unified way.
+As well as showing a modular network structure, that can often be interpreted in terms of distinct functional brain networks, connectomes have been consistently shown to exhibit a non-uniform distribution of connectivity across the network, leading to the existence of highly connected `hub' nodes.
+Hubs have also been shown to be strongly interconnected, forming an integrated `rich club' that may be crucial for facilitating efficient integration of information between more specialized processing modules.
+Prior work has characterized the rich club organization of the neuronal connectome of the \emph{C. elegans} nervous system \cite{Towlson:2013gf}, \emph{Drosophila} \cite{Shih:2015cu}, mouse \cite{Fulcher:2016ck}, rat \cite{vandenHeuvel:2015ie}, 53 \cite{ZamoraLopez:2010hy} or 65 areas \cite{deReus:2013cy} of the cat cortex, 242 macaque cortical regions \cite{Harriger:2012bb}, and in 82 brain regions \cite{vandenHeuvel:2011he} and 1\,170 human cortical areas \cite{vandenHeuvel:2012kh}.
+% I DON'T BELIEVE THIS ONE: pigeon \cite{Shanahan:2013ej},
+
+% Introduce gene expression work and prior work relating them
+With the availability of gene expression data in the worm, 
+
+% Introduce hub connectivity-expression hypothesis
 It has been shown that hubs exhibit distinct transcriptional signatures in both humans \cite{Vertes2016a} and mice \cite{Fulcher2015}.
-According to Fulcher \& Fornito \cite{Fulcher2015}, connections involving rich club hubs carry a distinctive genetic signature, which is driven by genes regulating the synthesis and breakdown of adenosine triphosphate (ATP) – the primary energetic substrate of neuronal signaling \cite{Fulcher2015}. These findings highlight a close relationship between metabolic expenditure and the high signaling load of hub regions in the brain, as has been previously proposed \cite{Bullmore2012}.
+According to \citet{Fulcher2015}, connections involving rich club hubs carry a distinctive genetic signature, which is driven by genes regulating the synthesis and breakdown of adenosine triphosphate (ATP) – the primary energetic substrate of neuronal signaling \cite{Fulcher2015}.
+These findings highlight a close relationship between metabolic expenditure and the high signaling load of hub regions in the brain, as has been previously proposed \cite{Bullmore2012}.
+
+
 We therefore have some preliminary indications that the transcriptional signature of hubs may be a consistent feature of mammalian brain networks, but it is not known how distinctive this expression signature is; and in particular, whether it holds true for networks resolved at the scale of individual neurons and synapses.
 To test this possibility, we aimed to replicate findings presented in \cite{Fulcher2015} using microscale connectivity data in C. elegans and gene expression data from WormBase.
-We sought to determine whether hubs in the C. elegans connectome exhibit distinct gene expression patterns.\\
+We sought to determine whether hubs in the C. elegans connectome exhibit distinct gene expression patterns.
+
 
 % \begin{eqnarray}
 % \label{eq:schemeP}
@@ -258,6 +273,8 @@ We sought to determine whether hubs in the C. elegans connectome exhibit distinc
 % \end{eqnarray}
 
 \section*{Materials and methods}
+
+Neurons of \emph{C. elegans} can be divided into groups, commonly as: sensory neurons (support receptive function), motor neurons (cells containing neuromuscular junctions), and interneurons (all other neurons) \cite{White:1986tx}.
 
 % For figure citations, please use "Fig" instead of "Figure".
 To investigate the gene expression similarity of hub connectivity on a neuronal level, we coupled publicly available synapse-level connectome data of the C. elegans somatic nervous system (279 neurons, chemical synapses (directed binary network) (Figure 1) \cite{Varshney2011}) with a gene expression dataset containing binary expression profiles for 932 genes (WormBase WS254 release; from ~15 000 genes queried, 932 genes were directly (specifically) annotated to at least one neuron).
