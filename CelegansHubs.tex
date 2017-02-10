@@ -306,7 +306,7 @@ The total number of connections involving a given neuron is defined by its degre
 
 % METHODS: rich club analysis
 \textbf{Rich club.} The extended tail of the degree distribution presented in \ref{fig:SchematicRepresentation} indicates the existence of a small number of highly connected nodes. 
-At each degree \textit{k} we calculated a normalised rich club coefficient $\Phi_{\textit{norm}}$ which quantifies the tendency of nodes with degree $\geq k$ to preferentially connect to each other. 
+At each degree \textit{k} we calculated a normalised rich club coefficient $\Phi_{\textit{norm}}$ (see eq. \ref{eq:RCcoef} and \ref{eq:RCnormcoef}) which quantifies the tendency of nodes with degree $\geq k$ to preferentially connect to each other. 
 $\Phi_{norm}> 1$ indicates the rich-club organisation of the network. 
 The phenomenon of the rich-club organisation in \textit{C. elegans} connectome was originally demonstrated by Towlson et al. \cite{Towlson2013} in an undirected binary version of the connectome where data for both chemical and electrical synapses were combined.
 As a result, a small number of high degree nodes forming a rich club was identified.   
@@ -352,13 +352,35 @@ Therefore, a relatively scenario-free measure $\phi$ was highly preferable to ot
 The effect of spatial distance on gene coexpression \cite{Fulcher2015} was evaluated. 
 We calculated the distance between each pair of neurons based on their 2D coordinates and estimated the relationship between this distance and coexpression. 
 No clear relationship was found, therefore no coexpression-distance corrections were applied (maybe include the plot in supplementary?). \\
-In the C. elegans connectome, 92 classes of neurons have bilateral representation, meaning that each of those neuron classes have both left and right counterparts. 
-These neurons tend to have very similar gene expression patterns with a mean value of 0.98. 
-To ensure that our results are not influenced by this symmetry, coexpression values between the pairs of those symmetrical neurons were excluded from all further analyses.
+In the C. elegans connectome, 92 out of 118 classes of neurons have bilateral representation, meaning that each of those neuron classes have both left and right counterparts (e.g. AVAL, AVAR). 
+Apart from their anatomical resemblance, these neurons tend to have very similar gene expression signature with a mean coexpression value of 0.98. 
+To ensure that our analyses are not influenced by this symmetry, coexpression values between the pairs of symmetrical neurons were excluded from all further analyses.
 
 
 % METHODS: gene enrichment
 \textbf{Gene enrichment.}
+It was particularly important to determine, which functional groups of genes contribute to the increased coexpression between connected pairs of neurons as compared to unconnected pairs as well as connections involving hubs (rich and feeder) compared to connections that don't involve hubs (peripheral). \\
+First, for each gene we determined the pattern of matching expression profiles (a match meaning that a gene is expressed by both neurons) between each pair of neurons resulting in a binary 279 x 279 matrix.
+Then, for each gene we calculated a cumulative binomial probability of getting more matches $(X)$ than in the empirical data on a particular connection type (see eq. \ref{eq:CBinomialProbability}). 
+Depending on the connection type in question this can be phrased in two following ways: (i) what is the probability to get more matches on connected links given the number of connected links; (ii) what is the probability to get more matches on links involving hubs (rich and feeder) given the number of matches on connected links. 
+\begin{eqnarray}
+	\label{eq:CBinomialProbability}
+     \mathrm{P(X>m)} = 1 - \sum_{\textit{i}=0}^{m}\binom{n}{i} p^{\textit{i}}(1-p^{n-\textit{i}}), 
+\end{eqnarray}
+where m - the number of matches in empirical data, \textit{p} - the probability of randomly choosing a selected type of connection and \textit{n} - a maximum number of possible matches given the connection type in question. 
+Therefore, each gene was given a score (p value - gene coexpression contribution (GCC) score), where lower GCC corresponds to higher contribution towards increased correlation. 
+(NOTE: not literally true as both on and off matches equally contribute to an increase in coexpression, - need to find a way how to explain, why non-expression matches are not taken into account here). \\
+These GCC scores were used to perform over-representation analysis (ORA), which examines the genes that meet a selection criterion (selected threshold) and determines if there are functional gene sets which are statistically over-represented in that list. 
+The above mentioned analysis was done using 3.0.2 of ErmineJ \cite{Gillis2010}. 
+Gene annotations were assigned from GO \cite{Ashburner2000} using an annotation file from GEMMA \cite{Zoubarev2012}.  
+Generic\textunderscore worm \textunderscore noParents.an.txt.gz downloaded using a build-in option within ErmineJ software on February 10 2017. 
+GO terms and definitions were obtained in RDF XML file format downloaded from \href{archive.geneontology.org/latest-termdb/go _daily-termdb.rdf-xml.gz}{archive.geneontology.org/latest-termdb/go \textunderscore daily-termdb.rdf-xml.gz} on February 10 2017. 
+In the analysis we were considering gene set sizes in the range 5–100, taking the mean score in a GO group to summarize it. 
+As due to distinct gene scoring options between connected \textit{vs} unconnected and rich/feeder \textit{vs} peripheral connections, the number of genes that were assigned meaningful scores was different. 
+As probability of getting a match in the case of connected links was much higher, much more genes given meaningful scores, therefore for this analysis we could choose much more stringent GCC threshold for defining "hit" genes.  
+Thus, when evaluating what categories of genes had the highest influence in the difference between connected \textit{vs} unconnected and between rich/feeder \textit{vs} peripheral links GCC$=10^{-4}$ and GCC$=10^{-2}$ thresholds were chosen respectively. 
+
+
 
 
  \begin{figure}[!h]

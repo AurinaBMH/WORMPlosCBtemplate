@@ -24,8 +24,9 @@ Varadan V, Miller DM, Anastassiou D.
 \bibitem{Fulcher2015}
 Fulcher BD, Fornito A.
 \newblock {A transcriptional signature of hub connectivity in the mouse
-  connectome}.
-\newblock Proceedings of the National Academy of Sciences. 2016;I(1):1--14.
+  connectome.}
+\newblock Proceedings of the National Academy of Sciences of the United States
+  of America. 2016;113(5):1513302113--.
 \newblock doi:{10.1073/pnas.1513302113}.
 
 \bibitem{Vertes2016a}
@@ -68,5 +69,19 @@ Gillis J, Mistry M, Pavlidis P.
 \newblock {Gene function analysis in complex data sets using ErmineJ.}
 \newblock Nature protocols. 2010;5(6):1148--59.
 \newblock doi:{10.1038/nprot.2010.78}.
+
+\bibitem{Ashburner2000}
+Ashburner M, Ball CA, Blake JA, Botstein D, Butler H, Cherry JM, et~al.
+\newblock {Gene Ontology: Tool for The Unification of Biology}.
+\newblock NATURE GENETICS. 2000;25(1):25--29.
+\newblock doi:{10.1038/75556}.
+
+\bibitem{Zoubarev2012}
+Zoubarev A, Hamer KM, Keshav KD, {Luke Mccarthy} E, Santos JRC, Van~rossum T,
+  et~al.
+\newblock {Gemma: A resource for the reuse, sharing and meta-analysis of
+  expression profiling data}.
+\newblock Bioinformatics. 2012;28(17):2272--2273.
+\newblock doi:{10.1093/bioinformatics/bts430}.
 
 \end{thebibliography}
