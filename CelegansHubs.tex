@@ -359,11 +359,17 @@ Therefore, a relatively scenario-free measure $\phi$ was highly preferable to ot
 
 The effect of spatial distance on gene coexpression \cite{Fulcher2015} was evaluated. 
 We calculated the distance between each pair of neurons based on their 2D coordinates and estimated the relationship between this distance and coexpression. 
-No clear relationship was found, therefore no coexpression-distance corrections were applied (maybe include the plot in supplementary?). \\
+No clear relationship was found (plot in supplementary??), therefore no coexpression-distance corrections were applied (maybe include the plot in supplementary?). \\
 In the C. elegans connectome, 92 out of 118 classes of neurons have bilateral representation, meaning that each of those neuron classes have both left and right counterparts (e.g. AVAL, AVAR). 
 Apart from their anatomical resemblance, these neurons tend to have very similar gene expression signature with a mean coexpression value of 0.98. 
 To ensure that our analyses are not influenced by this symmetry, coexpression values between the pairs of symmetrical neurons were excluded from all further analyses.
-
+ \begin{figure}[!ht]
+  \centering
+    \includegraphics[width=1\textwidth]{SchematicDATA}
+ \caption{{\bf Schematic representation of the work-flow}
+Connectivity matrix coded according to link type (and probably gene expression matrix: rows as it is (neuron order), columns ordered according to similarity).}
+ \label{fig:SchematicRepresentation}
+ \end{figure}
 
 % METHODS: gene enrichment
 \textbf{Gene enrichment.}
@@ -391,13 +397,6 @@ Thus, when evaluating what categories of genes had the highest influence in the 
 
 
 
- \begin{figure}[!h]
- \caption{{\bf Schematic representation of the work-flow}
-Connectivity matrix coded according to link type (and probably gene expression matrix: rows as it is (neuron order), columns ordered according to similarity).}
- \label{fig:SchematicRepresentation}
- \end{figure}
-
-
 % Place figure captions after the first paragraph in which they are cited.
 % \begin{figure}[!h]
 % \caption{{\bf Bold the figure title.}
@@ -407,24 +406,29 @@ Connectivity matrix coded according to link type (and probably gene expression m
 
 % Results and Discussion can be combined.
 \section*{Results}
-\subsection*{Connected vs unconnected}
+
+%%
+\subsection*{Coexpression and connectivity}
 
 \begin{itemize}
     \item{difference in coexpression}
     \item{Enrichment for this part: what genes driving the difference}
 \end{itemize} 
 %% for now figres are old - just to define where the figure is
-First, we compared gene coexpression between connected and unconnected neurons in order to determine if connected neurons have more similar gene expression patterns than unconnected neurons.
-
-The distribution of transcriptional similarity, $\phi$, between all pairs of neurons, grouped by connected and unconnected pairs, is plotted in Figure 3.
-Connected pairs of neurons have more similar expression profiles than unconnected pairs (Welch's t test, P $ \leq 10^{-21}$ ). To investigate which functional groups of genes contributed to this difference in transcriptional coupling between connected and unconnected neurons, we used a measure that quantifies the contribution of each gene (gene contribution score (GCC)).
-This statistic quantifies how likely it is that a given gene shows matching expression in connected pairs of neurons than expected by chance given its expression profile.
-
- \begin{figure}[!h]
- \caption{{\bf Coexpression between connected and unconnected neurons. SHOULD PROBABLY split connected into reciprocally connected and unidirectionally connected}
-Distribution of transcriptional similarity for all pairs of neurons, grouped by connected and unconnected pairs (Welch’s t test, P $ \leq 10^{-21}$). Note that symmetric pairs of neurons with high coexpression (92 pairs) have been excluded from this analysis.}
- \label{ConUnconChemical}
+First, we investigated how gene coexpression relates to connectivity by examining it between neuron pairs with different types of connectivity: (i) reciprocally connected, where both neurons send and receive a connection (ii) unidirectionally connected, where only one neuron sends or receives a connection and (iii) unconnected. \\
+As it is shown in Fig \ref{RecUnidirUncon}, there is a gradual increase in gene coexpression with increasing level of connectivity.
+Reciprocally connected pairs of neurons have more similar expression profiles than both unidirectionally connected (Welch’s t test, $P < 0.05$) and unconnected pairs (Welch’s t test, $P < 10^{-5}$).
+Consequently, unidirectionally connected pairs show much higher gene coexpression than unconnected pairs (Welch’s t test, $P < 10^{-18}$).
+\begin{figure}[!h]
+   \centering
+    \includegraphics[width=0.7\textwidth]{RecUnidirUnconFINAL}
+ \caption{{\bf Coexpression between connected and unconnected neurons.} 
+Distribution of transcriptional similarity for all pairs of neurons, grouped by reciprocally connected, unidirectionally connected and unconnected pairs. P-values are from pairwise comparisons using Welch’s t test.}
+ \label{RecUnidirUncon}
  \end{figure}
+To investigate which functional groups of genes contributed to the difference in transcriptional coupling between connected and unconnected neurons, we used a method of assigning each gene a GCC measure that quantifies the contribution of each gene (see Methods).   
+
+ 
 
 These GCC scores were then used to perform a gene function enrichment analysis for Gene Ontology (GO) biological processes using gene score resampling (GSR) implemented in ermineJ \cite{Gillis2010}.
 In this analysis average gene scores for a specific GO category are compared to a randomly selected gene sample of the same size.
@@ -432,7 +436,21 @@ Therefore, the resulting $P$-value (last column in Figure 4) quantifies how unli
 The majority of the significant ($P < 0.05$) GO categories are related to neuronal connectivity and communication, as listed in Figure 4 (second column: Description).
 These findings are in line with our expectations as they confirm that genes that are more likely to be expressed in a pair of connected neurons are in fact related to neuronal connectivity and communication.
 
-\subsection*{Coexpression: link type}
+%%
+\subsection*{Rich club organisation of the connectome}
+\begin{figure}[!h]
+   \centering
+    \includegraphics[width=0.7\textwidth]{RCcurve}
+ \caption{{\bf Rich-club organisation of the connectome.} \\
+Top: normalized rich club coefficient, $\Phi_{random}$ as a function of the degree, \textit{k}, at which hubs (regions with degree $\geq \textit{k}$) are defined. 
+$\Phi_{random}>1$ indicates that hubs are more densely interconnected among each other than expected by chance. 
+Red circles indicate values of $\Phi_{random}$ that are significantly higher than an ensemble of 1000 null networks (permutation test; $P<0.05$). \\
+Bottom: degree distribution of C. elegans connectome for chemical synapses. }
+ \label{RCcoef}
+ \end{figure}
+ 
+%%  
+\subsection*{Coexpression and hub connectivity}
 \begin{itemize}
     \item{Coexpression for rich/feeder/peripheral links}
     \item{Enrichment for links involving hubs (rich/feeder), define how genes were scored here}
@@ -446,6 +464,8 @@ We investigated the relationship between gene coexpression and neuronal connecti
 At each level of node degree, $k$ (x-axis in Figure 5), we labeled each neuron as either a hub (nodes with degree $\geq k$) or a nonhub (otherwise), and then labeled each connection as rich (hub - hub), feeder (nonhub - hub or hub - nonhub), or peripheral (nonhub- nonhub). Across the topological rich club regime, mean gene coexpression is significantly higher for rich connections (red in Figure 6) and increases slightly for feeder links from $k=52$.
 
  \begin{figure}[!h]
+ \centering
+    \includegraphics[width=1\textwidth]{RichFeederPeripheral_k}
  \caption{{\bf Mean coexpression for rich, feeder and peripheral links as a function of degree.}
 Top: degree distribution. Mean gene coexpression for rich, feeder, and peripheral connections as a function of \textit{k}, with the mean across all network links shown as a dashed black line and the topological rich club regime shaded grey. Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (one-sided Welch’s t test; $P < 0.05$}
  \label{RCdegree}
@@ -455,8 +475,10 @@ To see how coexpression values are distributed for different types of links, we 
 Here we can see a gradient of coexpression between rich/feeder/peripheral, similar to that found for the mouse \cite{Fulcher2015}.
 
 \begin{figure}[!h]
- \caption{{\bf Mean coexpression for rich, feeder and peripheral links as a function of degree.}
-Coexpression ($\phi$) for different types of network connections, where hubs are neurons with degree $k \geq 42$. P-values are from pairwise comparisons using Welch’s t test.}
+ \centering
+    \includegraphics[width=1\textwidth]{RichFeederPeripheral_k42FINAL}
+ \caption{{\bf Coexpression for rich, feeder and peripheral links as a function of degree.}
+Coexpression ($\phi$) for different types of network connections, where hubs are neurons with degree $k \geq 42$. P-values are from pairwise comparisons using Welch’s t test. Should probably NOT include this plot}
  \label{ViolinPlots}
  \end{figure}
 
@@ -466,6 +488,7 @@ Lower probability in this case means that a gene has a high number of matches fo
 Enrichment analysis show that the majority of the significant ($P < 0.05$) GO categories are related to glutamate related signaling, neuronal connectivity and communication as well as neurotransmitter metabolic processes (second column: Description in Figure 8).
 These findings are in line with our expectations as high degree neurons are highly involved in signaling and are likely to use glutamate and acetylcholine.
 
+%%
 \subsection*{EXTRAS: neuron type, lineage}
 \begin{itemize}
     \item{Difference between interneurons/motor/sensory neurons - effect driven by interneurons}
@@ -479,12 +502,21 @@ Connections involving interneurons show a pattern of increasing average coexpres
 In other words, motor and sensory neurons with higher degree show less similar gene expression patterns.
 
 \begin{figure}[!h]
+\centering
+    \includegraphics[width=1\textwidth]{coexpressionInvolvingCategory}
  \caption{{\bf Coexpression for different types of neurons. }
 Top: Average gene coexpression as a function of degree for connections involving different types of neurons. Bottom: The number of connections in each category for a range of degrees. }
  \label{NeuronTypePlot}
  \end{figure}
 Top: Average gene coexpression as a function of degree for connections involving different types of neurons. Bottom: The number of connections in each category for a range of degrees. 
-
+\begin{figure}[!h]
+\centering
+    \includegraphics[width=1\textwidth]{LineageRFP}
+ \caption{{\bf Coexpression for different types of neurons. }
+Top: Average gene coexpression as a function of degree for connections involving different types of neurons. Bottom: The number of connections in each category for a range of degrees. }
+ \label{Lineage}
+ \end{figure}
+%% 
 
 % Place tables after the first paragraph in which they are cited.
 % \begin{table}[!ht]
