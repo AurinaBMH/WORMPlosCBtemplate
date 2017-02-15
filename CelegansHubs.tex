@@ -289,6 +289,7 @@ We sought to determine whether hubs in the C. elegans connectome exhibit distinc
 \begin{itemize}
     \item{Connectivity data: types of synapses, weighted/binary, degree; Rich club analysis, how neurons are annotated}
     \item{Expression data: where data comes from, processing (options: annotations, qualifiers)}
+    \item{Lineage data: where and when downloaded from, how defined. What for used in here}
     \item{Coexpression metric: how did we choose? How different measures depend on the number of genes; The effect of coexpression/space: can not be corrected for; Excluding left/right homolog gene expression from calculations}
     \item{Enrichment: software (ermineJ), how to score genes (maybe define gene scoring within results as scoring for connected and unconnected and rich/feeder vs peripheral is different)}
     
@@ -392,8 +393,8 @@ GO terms and definitions were obtained in RDF XML file format downloaded from \h
 In the analysis we were considering gene set sizes in the range 5–100, taking the mean score in a GO group to summarize it. 
 As due to distinct gene scoring options between connected \textit{vs} unconnected and rich/feeder \textit{vs} peripheral connections, the number of genes that were assigned meaningful scores was different. 
 As probability of getting a match in the case of connected links was much higher, much more genes given meaningful scores, therefore for this analysis we could choose much more stringent GCC threshold for defining "hit" genes.  
-Thus, when evaluating what categories of genes had the highest influence in the difference between connected \textit{vs} unconnected and between rich/feeder \textit{vs} peripheral links GCC$=10^{-4}$ and GCC$=10^{-2}$ thresholds were chosen respectively. 
-
+Thus, when evaluating what categories of genes had the highest influence in the difference between connected \textit{vs} unconnected and between rich/feeder \textit{vs} peripheral links GCC$=10^{-4}$ and GCC$=10^{-2}$ thresholds were chosen respectively. \\
+\textbf{Lineage distance.}
 
 
 
@@ -410,86 +411,134 @@ Thus, when evaluating what categories of genes had the highest influence in the 
 %%
 \subsection*{Coexpression and connectivity}
 
-\begin{itemize}
-    \item{difference in coexpression}
-    \item{Enrichment for this part: what genes driving the difference}
-\end{itemize} 
 %% for now figres are old - just to define where the figure is
 First, we investigated how gene coexpression relates to connectivity by examining it between neuron pairs with different types of connectivity: (i) reciprocally connected, where both neurons send and receive a connection (ii) unidirectionally connected, where only one neuron sends or receives a connection and (iii) unconnected. \\
 As it is shown in Fig \ref{RecUnidirUncon}, there is a gradual increase in gene coexpression with increasing level of connectivity.
 Reciprocally connected pairs of neurons have more similar expression profiles than both unidirectionally connected (Welch’s t test, $P < 0.05$) and unconnected pairs (Welch’s t test, $P < 10^{-5}$).
-Consequently, unidirectionally connected pairs show much higher gene coexpression than unconnected pairs (Welch’s t test, $P < 10^{-18}$).
+Consequently, unidirectionally connected pairs show much higher gene coexpression than unconnected pairs (Welch’s t test, $P < 10^{-18}$).\\
 \begin{figure}[!h]
    \centering
-    \includegraphics[width=0.7\textwidth]{RecUnidirUnconFINAL}
+    \includegraphics[width=0.9\textwidth]{RecUnidirUnconFINAL}
  \caption{{\bf Coexpression between connected and unconnected neurons.} 
 Distribution of transcriptional similarity for all pairs of neurons, grouped by reciprocally connected, unidirectionally connected and unconnected pairs. P-values are from pairwise comparisons using Welch’s t test.}
  \label{RecUnidirUncon}
  \end{figure}
-To investigate which functional groups of genes contributed to the difference in transcriptional coupling between connected and unconnected neurons, we used a method of assigning each gene a GCC measure that quantifies the contribution of each gene (see Methods).   
+To investigate which functional groups of genes contributed to the difference in transcriptional coupling between connected and unconnected neurons, we used a method of assigning each gene a GCC measure that quantifies the contribution of each gene (see Methods).  \\ 
 
- 
+%% comment on enrichment analysis. No write up can be done before deciding on options. 
+\textbf{NOTE: should decide on enrichment analysis as results change when different options are used}. 
+\textbf{Scores in case connected and rich+feeder change in magnitude. 
+There are 4 options:
+\begin{itemize}
+    \item{\textbf{run ORA using the full set of genes in both cases:}}
+    \begin{itemize}
+    \item{with the same threshold (0.0001)? (both connected and RF results give similar enrichment, RF gives more items, but no metabolism). }
+    \item{with different thresholds (0.0001 for connected and 0.01 for RF), some metabolism enrichment for RF emerges. lower threshold for RF as score range is different.}
+    \end{itemize}
+    \item{\textbf{run GSR on}}
+    \begin{itemize}
+    \item{full gene sample. connected and RF give same categories. weird scores assigned to half of RF genes.}
+    \item{If genes with weird scores excluded, connected gives some glutamate categories (619 genes in the sample), RF (425 genes in the sample) don't give any significant categories.}
+    \end{itemize} 
+\end{itemize} }
 
-These GCC scores were then used to perform a gene function enrichment analysis for Gene Ontology (GO) biological processes using gene score resampling (GSR) implemented in ermineJ \cite{Gillis2010}.
-In this analysis average gene scores for a specific GO category are compared to a randomly selected gene sample of the same size.
-Therefore, the resulting $P$-value (last column in Figure 4) quantifies how unlikely it is to find genes with high scores in a specific GO category compared to chance.
-The majority of the significant ($P < 0.05$) GO categories are related to neuronal connectivity and communication, as listed in Figure 4 (second column: Description).
+The majority of the significant ($P < 0.05$) GO categories are related to neuronal connectivity and communication, as listed in Figure 4 (second column: Description).\\
+\textbf{NOTE: As coexpression is increased in for both "on" and "off" matches, we might present a list for enrichment in 2 cases: ON matches (genes, that need to be both on to increase coexpression for a certain group of links), OFF matches (genes that need to be both off to increase coexpression for a certain group of links). 
+Would separate meaning of ON and OFF and wouldn't mislead the reader. }
+
+%% include table with results 
+
+
 These findings are in line with our expectations as they confirm that genes that are more likely to be expressed in a pair of connected neurons are in fact related to neuronal connectivity and communication.
 
-%%
-\subsection*{Rich club organisation of the connectome}
+
+%%  
+\subsection*{Properties of hub connectivity}
+%% INTRODUCE RICH CLUB  hene and focus on the difference between rich/feeder/peripheral links below
+\textbf{Rich club organisation of the connectome.}\\
+
+Connectivity is not distributed evenly throughout the \textit{C. elegans} nervous system.  
+Some neurons have a very high number of connections and, therefore, act as hubs in the network. 
+When hubs in the network are more densely interconnected than expected by chance, they form a rich-club - a sub-network of high degree nodes that share a disproportionally high number of connections between themselves.\\
+The phenomenon of a rich-club in \textit{C. elegans} nervous system was first established by Towlson et al. \cite{Towlson2013} using an undirected binary connectivity matrix where both chemical and electrical synapses were combined. 
+In this work we use a directed binary connectivity matrix of chemical synapses provided by Varshney et al. \cite{Varshney2011} (see \textit{Materials and Methods}) for 279 non-pharingeal neurons (nodes) and 1961 connections between them (edges). \\
+Here we confirm a rich-club organisation of the chemical synapse network, where rich-club organisation manifests across a continuous range of degrees $41<k<58$ ($P<0.05$, shaded grey area in Fig.\ref{RCcoef}) as normalised rich-club coefficient $\Phi_{norm}>1$. 
+This indicates that when nodes are defined as hubs (degree $>\textit{k}$) in this range, they are more densely interconnected than expected by chance.
+Rich club in the chemical synapse network consists of 13 high degree neurons with degree $42 \leq k \leq 98$. \\
+\textbf{(NOTE: maybe include a list with degrees and definitions in SUPP (like in Towlson's paper?)).}
+
+
 \begin{figure}[!h]
    \centering
-    \includegraphics[width=0.7\textwidth]{RCcurve}
+    \includegraphics[width=0.7\textwidth]{RCcurveFINAL}
  \caption{{\bf Rich-club organisation of the connectome.} \\
-Top: normalized rich club coefficient, $\Phi_{random}$ as a function of the degree, \textit{k}, at which hubs (regions with degree $\geq \textit{k}$) are defined. 
-$\Phi_{random}>1$ indicates that hubs are more densely interconnected among each other than expected by chance. 
-Red circles indicate values of $\Phi_{random}$ that are significantly higher than an ensemble of 1000 null networks (permutation test; $P<0.05$). \\
-Bottom: degree distribution of C. elegans connectome for chemical synapses. }
+Top: degree distribution of C. elegans connectome for chemical synapses. (permutation test; $P<0.05$). \\
+Bottom: normalized rich club coefficient, $\Phi_{random}$ as a function of the degree, \textit{k}, at which hubs (regions with degree $\geq \textit{k}$) are defined. 
+$\Phi_{norm}>1$ indicates that hubs are more densely interconnected among each other than expected by chance. 
+Red circles indicate values of $\Phi_{random}$ that are significantly higher than an ensemble of 1000 null networks  }
  \label{RCcoef}
  \end{figure}
  
-%%  
-\subsection*{Coexpression and hub connectivity}
-\begin{itemize}
-    \item{Coexpression for rich/feeder/peripheral links}
-    \item{Enrichment for links involving hubs (rich/feeder), define how genes were scored here}
-\end{itemize} 
 
-For the second part of our analysis, we focused on features of rich-club organization of C. elegans connectome. We first confirmed the rich-club organization of the C. elegans connectome, in which a small number (n=14) of high degree nodes (degree, $k = 41-58$) are more densely inter-connected than expected by chance, consistent with prior analysis \cite{Towlson2013} (see Figure 5).
-The highest degree neurons are mostly interneurons, with the exception of one motor neuron (Table 1).
-Neuron descriptions from WORMATLAS reveal that 10 of these interneurons are ventral cord interneurons.
-
-We investigated the relationship between gene coexpression and neuronal connectivity by comparing three different classes of neuron pairs.
-At each level of node degree, $k$ (x-axis in Figure 5), we labeled each neuron as either a hub (nodes with degree $\geq k$) or a nonhub (otherwise), and then labeled each connection as rich (hub - hub), feeder (nonhub - hub or hub - nonhub), or peripheral (nonhub- nonhub). Across the topological rich club regime, mean gene coexpression is significantly higher for rich connections (red in Figure 6) and increases slightly for feeder links from $k=52$.
+\textbf{Coexpression and hub connectivity.}\\
+For the second part of our analysis, we focused on the features of rich-club organization of \textit{C. elegans} connectome by investigating the relationship between gene coexpression and neuronal connectivity by comparing three different classes of neuron pairs.
+At each node degree, $k$ (x-axis in Fig \ref{RCdegree}), we defined each neuron as either a hub (nodes with degree $\geq k$) or a nonhub (otherwise), and then labelled each connection as rich (hub $\rightarrow$ hub), feeder (nonhub $\rightarrow$ hub or hub $\rightarrow$ nonhub), or peripheral (nonhub $\rightarrow$ nonhub). 
+Then at each degree, we calculated mean coexpression values for each link type (Fig. \ref{RCdegree}). 
+Coexpression for rich links consistently increases for a range of degrees and reaches plateau at around $k=40$ where topological rich club regime begins. 
+Mean coexpression also increases slightly for feeder links from $k=52$, while peripheral links steady show decrease before reaching the minimal value.
 
  \begin{figure}[!h]
  \centering
-    \includegraphics[width=1\textwidth]{RichFeederPeripheral_k}
+    \includegraphics[width=0.7\textwidth]{RichFeederPeripheral_k}
  \caption{{\bf Mean coexpression for rich, feeder and peripheral links as a function of degree.}
-Top: degree distribution. Mean gene coexpression for rich, feeder, and peripheral connections as a function of \textit{k}, with the mean across all network links shown as a dashed black line and the topological rich club regime shaded grey. Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (one-sided Welch’s t test; $P < 0.05$}
+Top: degree distribution. Mean gene coexpression for rich, feeder, and peripheral connections as a function of \textit{k}, with the mean across all network links shown as a dashed black line and the topological rich club regime shaded grey. 
+Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (one-sided Welch’s t test; $P < 0.05$)}
  \label{RCdegree}
  \end{figure}
 
-To see how coexpression values are distributed for different types of links, we show a separate case in Figure 7, in the topological rich-club regime, where hubs are defined as having at least 42 connections ($k \geq 42$).
-Here we can see a gradient of coexpression between rich/feeder/peripheral, similar to that found for the mouse \cite{Fulcher2015}.
 
 \begin{figure}[!h]
  \centering
     \includegraphics[width=1\textwidth]{RichFeederPeripheral_k42FINAL}
  \caption{{\bf Coexpression for rich, feeder and peripheral links as a function of degree.}
-Coexpression ($\phi$) for different types of network connections, where hubs are neurons with degree $k \geq 42$. P-values are from pairwise comparisons using Welch’s t test. Should probably NOT include this plot}
+Coexpression ($\phi$) for different types of network connections, where hubs are neurons with degree $k \geq 42$. P-values are from pairwise comparisons using Welch’s t test. MAYBE SHOW THIS IN SUPP}
  \label{ViolinPlots}
  \end{figure}
 
+To investigate which functional groups of genes contributed to the increased coexpression for links involving hubs (rich and feeder) we used a method of assigning each gene a GCC measure that quantifies the contribution of each gene (see Methods).
 
-To investigate which functional groups of genes contributed to the higher coexpression for links involving hubs (rich and feeder links, see Figure 6) we calculated a variation of a GCC which assigns each gene a score according to the probability of getting a higher number of matches in gene expression for rich and feeder links.
-Lower probability in this case means that a gene has a high number of matches for rich and feeder links in the experimental data, and therefore is of high interest for the analysis.
-Enrichment analysis show that the majority of the significant ($P < 0.05$) GO categories are related to glutamate related signaling, neuronal connectivity and communication as well as neurotransmitter metabolic processes (second column: Description in Figure 8).
+Enrichment analysis show that the majority of the significant ($P < 0.05$) GO categories are related to glutamate signalling, neuronal connectivity and communication as well as neurotransmitter metabolic processes.  
+
+%% combine enrichment tables into one
+\begin{table}[!ht]
+\begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
+\centering
+\caption{
+{\bf Enrichment.}}
+\begin{tabular}{ |c|c|c|c| }
+\thickhline
+\multicolumn{2}{c}{Connected} & \multicolumn{2}{c}{Rich and feeder} \\ \hline
+%{\bf Connected} & {} & {\bf Rich and feeder}\\ \thickhline
+GO category  & pvalue & GO category  & p value \\ \thickhline
+glutamate receptor & 0.003 & synaptic transmission & 0.041\\ \hline
+cell1 row3 & cell2 row 3 & cell3 row 2 & cell4 row 2\\ \hline
+cell1 row4 & cell2 row 4 & cell3 row 2 & cell4 row 2\\ \hline
+cell1 row5 & cell2 row 5 & cell3 row 2 & cell4 row 2\\ \hline
+cell1 row6 & cell2 row 6 & cell3 row 2 & cell4 row 2\\ \hline
+cell1 row7 & cell2 row 7 & cell3 row 2 & cell4 row 2\\ \hline
+\end{tabular}
+\begin{flushleft} Table notes what GO categories were overrepresented in driving the difference between different types of links.
+\end{flushleft}
+\label{table1}
+\end{adjustwidth}
+\end{table}
+
+
 These findings are in line with our expectations as high degree neurons are highly involved in signaling and are likely to use glutamate and acetylcholine.
 
-%%
-\subsection*{EXTRAS: neuron type, lineage}
+\textbf{Lineage and hub connectivity.}\\
+
+\subsection*{EXTRAS: neuron type}
 \begin{itemize}
     \item{Difference between interneurons/motor/sensory neurons - effect driven by interneurons}
     \item{Maybe include lineage data: lineage distance increases with degree for feeder links; no difference between rich and peripheral links; Sort of confirms separation into rich/feeder/peripheral links as distance increases for feeders?}
