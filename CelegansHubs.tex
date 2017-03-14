@@ -386,7 +386,7 @@ where m - the number of matches in empirical data, \textit{p} - the probability 
 Therefore, each gene was given a score (p value - gene coexpression contribution (GCC) score), where lower GCC corresponds to higher contribution towards increased correlation. 
 Whan calculating GCC for connected links more then one match for a gene overall was required (as a result 577 genes out of 948 left); when calculating GCC for the links involving hubs (rich and feeder links) more than one match was required on connected links (as a result 390 out of 948 genes left).    
 Otherwise, no information about the contribution of a specific gene to the overall coexpression pattern could be extracted. 
-(NOTE: not literally true as both on and off matches equally contribute to an increase in coexpression, - need to find a way how to explain, why non-expression matches are not taken into account here). \\
+\textbf{(NOTE: not literally true as both on and off matches equally contribute to an increase in coexpression, - need to find a way how to explain, why non-expression matches are not taken into account here).} \\
 These GCC scores were then used to perform gene score resampling (GSR) analysis, which examines if genes with low GCC scores are statistically over-represented in any functional category. 
 
 The above mentioned analysis was done using 3.0.2 of ErmineJ \cite{Gillis2010}. 
@@ -416,7 +416,7 @@ Full resampling with $10^{7}$ iterations was used . \\
 
 %% for now figres are old - just to define where the figure is
 First, we investigated how gene coexpression relates to connectivity by examining it between connected and unconnected neuron pairs.
-As it is shown in Fig \ref{ConUncon}, connected pairs of neurons have more similar expression profiles than unconnected pairs (Wilcoxon rank-sum test, $P < 10^{-50}$).\\
+As it is shown in Fig \ref{ConUncon}, connected pairs of neurons have more similar expression profiles than unconnected pairs (Wilcoxon rank-sum test, $P < 10^{-50}$). Furthermore, there is no difference in gene coexpression between reciprocally and unidirectionally connected neurons while coexpression in both of these groups is higher than between unconnected neurons (see Fig \ref{S1_Fig}). \\
 
 \begin{figure}[!h]
    \centering
@@ -435,30 +435,11 @@ Enrichment results depend on the size of gene sets selected: \\
 We get sensible results only when -log(score) option is selected. 
 Otherwise connected links get sensory categories related to light detection.}. 
 
-
-%\textbf{Scores in case connected and rich+feeder change in magnitude. 
-%There are 4 options:
-%\begin{itemize}
-    %\item{\textbf{run ORA using the full set of genes in both cases:}}
-    %\begin{itemize}
-    %\item{with the same threshold (0.0001)? (both connected and RF results give similar enrichment, RF gives more items, but no metabolism). }
-   % \item{with different thresholds (0.0001 for connected and 0.01 for RF), some metabolism enrichment for RF emerges. lower threshold for RF as score range is different.}
-    %\end{itemize}
-    %\item{\textbf{run GSR on}}
-    %\begin{itemize}
-    %\item{full gene sample. connected and RF give same categories. weird scores assigned to half of RF genes.}
-    %\item{If genes with weird scores excluded, connected gives some glutamate categories (619 genes in the sample), RF (425 genes in the sample) don't give any significant categories.}
-    %\end{itemize} 
-%\end{itemize} }
-
-The majority of the significant ($P < 0.05$) GO categories are related to neuronal connectivity and communication, as listed in table \ref{table1} (1st column: GO category).\\
+The majority of the significant ($P < 0.05$) GO categories are related to neuronal connectivity and communication, as listed in table \ref{table1} (1st column: GO category). 
+These findings are in line with our expectations as they confirm that genes that are more likely to be expressed in a pair of connected neurons are in fact related to neuronal connectivity and communication.\\
 \textbf{NOTE: As coexpression is increased in for both "on" and "off" matches, we might present a list for enrichment in 2 cases: ON matches (genes, that need to be both on to increase coexpression for a certain group of links), OFF matches (genes that need to be both off to increase coexpression for a certain group of links). 
 Would separate meaning of ON and OFF and wouldn't mislead the reader. }
 
-%% include table with results 
-
-
-These findings are in line with our expectations as they confirm that genes that are more likely to be expressed in a pair of connected neurons are in fact related to neuronal connectivity and communication.
 
 
 %%  
@@ -494,14 +475,14 @@ At each node degree, $k$ (x-axis in Fig \ref{RCdegree}), we defined each neuron 
 Then at each degree, we calculated median coexpression values for each link type (Fig. \ref{RCdegree}). 
 Median was chosen instead of the mean due to non-normal coexpression value distributions.
 Coexpression is gradually increasing with degree for links involving hubs (Fig. \ref{RCdegree}). 
-Coexpression for rich links consistently increases for a range of degrees and reaches plateau at around $k=38$ where topological rich club regime begins. 
-Median coexpression also increases slightly for feeder links from around the same threshold $k=38$, while peripheral links steady show decrease before reaching the minimal value.
+Rich links show consistently increasing coexpression for a range of degrees until it reaches plateau at around $k=38$ and stays constant in the topological rich club regime. 
+Median coexpression also increases slightly for feeder links from around the same threshold $k=38$, while pthe curve for peripheral links remain flat through the range of degrees. 
 
  \begin{figure}[!h]
  \centering
     \includegraphics[width=0.7\textwidth]{RichFeederPeripheral_k}
  \caption{{\bf Mean coexpression for rich, feeder and peripheral links as a function of degree.}
-Top: degree distribution. Median gene coexpression for rich, feeder, and peripheral connections as a function of \textit{k}, with the mean across all network links shown as a dashed black line and the topological rich club regime shaded grey. 
+Top: degree distribution. Median gene coexpression for rich, feeder, and peripheral connections as a function of \textit{k}, with the median across all network links shown as a dashed black line and the topological rich club regime shaded grey. 
 Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (Wilcoxon rank sum test; $P < 0.05$)}
  \label{RCdegree}
  \end{figure}
@@ -517,8 +498,7 @@ Coexpression ($\phi$) for different types of network connections, where hubs are
 
 To investigate which functional groups of genes contributed to the increased coexpression for links involving hubs (rich and feeder) we used a method of assigning each gene a GCC measure that quantifies the contribution of each gene (see Methods).
 
-Enrichment analysis show that the majority of the significant ($P < 0.05$) GO categories are related to glutamate signalling, neuronal connectivity and communication as well as neurotransmitter metabolic processes.  
-
+Enrichment analysis show that the majority of the significant ($P < 0.05$) GO categories are related to glutamate signalling, neuronal connectivity and communication. 
 %% combine enrichment tables into one
 \begin{table}[!ht]
 \begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
@@ -577,6 +557,45 @@ Top: Average gene coexpression as a function of degree for connections involving
  \label{Lineage}
  \end{figure}
 \subsection*{Modules}
+\textbf{Chemical BINARY}\\
+Changing tau value can get from 4 to 6 modules:\\
+4 modules: \\
+* 95\% of RC links are within one module (module 3), which is dominated by motor neurons \\
+* 5\% RC links within module 2 \\
+No RC links between modules. \\
+module 4 - small motor neuron module. \\
+
+5 modules: \\
+trends the same, 2 small modules originates. \\
+all RC links are within modules. \\
+
+6 modules:\\
+* 45 \% RC links within module 3\\
+* 5 \% and 5 \% RC links in modules 2 and 4. 
+Major module (module 3) dominated by motor neurons. 
+around 45 \% RC links connect different modules. \\
+as the number of modules increases, more RC links tend to connect different modules between themselves (instead of connecting nodes within a module) \\
+Modules with the most of RC links have highest coexpression despite having longest connection distances. 
+
+\begin{figure}[!h]
+\centering
+    \includegraphics[width=1\textwidth]{modules}
+ \caption{{\bf Modular compositions}
+1st row: 4 modules (tau=0.2). 2nd row: 5 modules (tau=0.3). 3rd row (tau=0.5). }
+ \label{Modules}
+ \end{figure}
+
+\textbf{Chemical WEIGHTED}\\
+for a range of tau thresholds (0.1-0.5), same result: \\
+7 modules. \\
+* 60\% RC links are within module 1\\
+* 5\% RC links are within module 3\\
+* 35 \% of RC links connect different modules between themselves. \\
+
+There are four really small modules, three of them purely motor neuron modules (5.6.7). 
+Module 1 - high proportion of motor neurons! module distributed through the body. 
+around 50 \% of feeder links link different modules; another half link nodes within 1 and 4 modules. 
+Module 1 has highest coexpression despite having highest connection cost (longest distances)
 
 
 
@@ -647,8 +666,13 @@ Conclusion text.
 
 % Include only the SI item label in the paragraph heading. Use the \nameref{label} command to cite SI items in the text.
 \paragraph*{S1 Fig.}
+{\bf Coexpression between reciprocally connected, unidirectionally connected and unconnected neurons.} P-values are from Wilcoxon rank sum test. 
+\begin{figure}[!h]
 \label{S1_Fig}
-{\bf Bold the title sentence.} Add descriptive text after the title of the item (optional).
+\centering
+    \includegraphics[width=1\textwidth]{RecUnidirUncon}
+\end{figure}
+
 
 \paragraph*{S2 Fig.}
 \label{S2_Fig}
