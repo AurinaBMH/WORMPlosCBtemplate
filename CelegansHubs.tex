@@ -353,7 +353,7 @@ Rich club coefficient and null networks were generated using the rich\textunders
 %As a result, a small number of high degree nodes forming a rich club was identified.
 
 % METHODS: gene expression
-\textbf{Gene expression.}
+\subsection*{Gene expression}
 Gene expression signatures for each neuron were obtained from the publicly available WormBase database (release WS256 downloaded on 6th Feb 2017 from \url{ftp://ftp.wormbase.org/pub/wormbase/releases/WS256/ONTOLOGY/anatomy_association.WS256.wb}).
 The dataset contains binary expression profiles for 948 genes annotated to at least one neuron.
 To minimize noise in the dataset we selected genes that were directly annotated to a specific neuron and labelled with the following qualifiers in the anatomy association file: certain, enriched, partial, blank.
@@ -373,14 +373,16 @@ $\phi$ values range from $-1$ to $+1$, where $\pm1$ indicates perfect agreement 
 As the number of genes expressed in each neuron varies in a broad range, we aimed to choose a measure of similarity between binary gene expression profiles which is not sensitive to the ratio between the number of ones and zeros in a vector.
 Mean square contingency coefficient $\phi$ met this criterion best.
 In contrast, other measures such as Jaccard index, Yule's Q, Yule's Y and Simple matching coefficients are highly dependent on this ratio.
-For example, Yule's Q, Yule's Y coefficients on average tend to reach extreme values when the ratio between the number of ones and zeros in a vector is large (e.g. 1:20).
+For example, Yule's Q, Yule's Y coefficients on average tend to reach extreme values when the ratio between the number of ones and zeros in a vector is large (e.g., 1:20).
 Simple matching coefficient, on the other hand, shows a steady increase with increasing ratio.
-Therefore, a relatively scenario-free measure $\phi$ was highly preferable to others.     \\
+Therefore, a relatively scenario-free measure $\phi$ was highly preferable to others.
 
 The effect of spatial distance on gene coexpression \cite{Fulcher2015} was evaluated.
 We calculated the distance between each pair of neurons based on their 2D coordinates and estimated the relationship between this distance and coexpression.
-No clear relationship was found (plot in supplementary??), therefore no coexpression-distance corrections were applied (maybe include the plot in supplementary?). \\
-In the \emph{C. elegans} connectome, 92 out of 118 classes of neurons have bilateral representation, meaning that each of those neuron classes have both left and right counterparts (e.g. AVAL, AVAR).
+[[TODO: Aurina, why is this Fulcher2015--PNAS paper was 2016...?]]\\
+No clear relationship was found (plot in supplementary??), therefore no coexpression-distance corrections were applied (maybe include the plot in supplementary?).
+
+In the \emph{C. elegans} connectome, 92 out of 118 classes of neurons have bilateral representation, meaning that each of those neuron classes have both left and right counterparts (e.g., AVAL/AVAR).
 Apart from their anatomical resemblance, these neurons tend to have very similar gene expression signature with a mean coexpression value of 0.98.
 To ensure that our analyses are not influenced by this symmetry, coexpression values between the pairs of symmetrical neurons were excluded from all further analyses.
  \begin{figure}[!ht]
@@ -392,8 +394,9 @@ Connectivity matrix coded according to link type (and probably gene expression m
  \end{figure}
 
 % METHODS: gene enrichment
-\textbf{Gene enrichment.}
-It was particularly important to determine, which functional groups of genes contribute to the increased coexpression between: (i) connected pairs of neurons as compared to unconnected pairs as well as (ii) connections involving hubs (rich and feeder) compared to connections that do not involve hubs (peripheral). \\
+\subsection*{Gene enrichment analysis}
+It was particularly important to determine, which functional groups of genes contribute to the increased coexpression between: (i) connected pairs of neurons as compared to unconnected pairs as well as (ii) connections involving hubs (rich and feeder) compared to connections that do not involve hubs (peripheral).
+
 First, for each gene we determined the pattern of matching expression profiles (a match meaning that a gene is expressed by both neurons) between each pair of neurons resulting in a binary 279 x 279 matrix.
 Then, for each gene we calculated a cumulative binomial probability of getting more matches $(X)$ than in the empirical data $(m)$ on a particular connection type (see eq. \ref{eq:CBinomialProbability}).
 Depending on the connection type in question this can be phrased in two following ways: (i) what is the probability to get more matches on connected links given the number of connected links; (ii) what is the probability to get more matches on links involving hubs (rich and feeder) given the number of matches on connected links.
@@ -401,11 +404,12 @@ Depending on the connection type in question this can be phrased in two followin
 	\label{eq:CBinomialProbability}
      \mathrm{P(X>m)} = 1 - \sum_{\textit{i}=0}^{m}\binom{n}{i} p^{\textit{i}}(1-p^{n-\textit{i}}),
 \end{eqnarray}
-where m - the number of matches in empirical data, \textit{p} - the probability of randomly choosing a selected type of connection and \textit{n} - a maximum number of possible matches given the connection type in question. \\
-Therefore, each gene was given a score (p value - gene coexpression contribution (GCC) score), where lower GCC corresponds to higher contribution towards increased correlation.
-Whan calculating GCC for connected links more then one match for a gene overall was required (as a result 577 genes out of 948 left); when calculating GCC for the links involving hubs (rich and feeder links) more than one match was required on connected links (as a result 390 out of 948 genes left).
+where m - the number of matches in empirical data, \textit{p} - the probability of randomly choosing a selected type of connection and \textit{n} - a maximum number of possible matches given the connection type in question.
+
+Therefore, each gene was given a score ($p$ value - gene coexpression contribution (GCC) score), where lower GCC corresponds to higher contribution towards increased correlation.
+When calculating GCC for connected links more then one match for a gene overall was required (as a result 577 genes out of 948 left); when calculating GCC for the links involving hubs (rich and feeder links) more than one match was required on connected links (as a result 390 out of 948 genes left).
 Otherwise, no information about the contribution of a specific gene to the overall coexpression pattern could be extracted.
-\textbf{(NOTE: not literally true as both on and off matches equally contribute to an increase in coexpression, - need to find a way how to explain, why non-expression matches are not taken into account here).} \\
+\textbf{(NOTE: not literally true as both on and off matches equally contribute to an increase in coexpression, - need to find a way how to explain, why non-expression matches are not taken into account here).}\\
 These GCC scores were then used to perform gene score resampling (GSR) analysis, which examines if genes with low GCC scores are statistically over-represented in any functional category.
 
 The above mentioned analysis was done using 3.0.2 of ErmineJ \cite{Gillis2010}.
@@ -414,9 +418,12 @@ Generic\textunderscore worm \textunderscore noParents.an.txt.gz downloaded using
 GO terms and definitions were obtained in RDF XML file format downloaded from \url{archive.geneontology.org/latest-termdb/go_daily-termdb.rdf-xml.gz} on February 10 2017.
 In the analysis we were considering gene set sizes in the range 5–100, taking the mean score in a GO group to summarize it.
 % {archive.geneontology.org/latest-termdb/go \textunderscore daily-termdb.rdf-xml.gz}
-Full resampling with $10^{7}$ iterations was used . \\
+Full resampling with $10^{7}$ iterations was used.
+
 \textbf{Lineage distance.}\\
+
 \textbf{Non-overlapping modules.}\\
+
 \textbf{Overlapping modules.}
 
 
