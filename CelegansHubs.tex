@@ -308,7 +308,7 @@ Neurons making up the nervous system of the nematode worm \emph{C. elegans} can 
 To investigate the relationship between hub connectivity and gene expression in a micro-scale network we coupled two publicly available datasets containing synaptic-level connectivity network and gene expression signatures for the somatic nervous system of the \textit{C. elegans} hermaphrodite.
 
 % METHODS: connectivity data
-\paragraph{Connectivity data}
+\subsection*{Connectivity data}
 Full neuron level connectivity data for 279 somatic neurons (282 nonpharyngeal neurons, excluding CANL/R and VC6, for which connectivity data is unavailable) produced in \citet{Varshney2011} were downloaded from WormAtlas (\url{http://www.wormatlas.org/neuronalwiring.html#NeuronalconnectivityII}).
 [[TODO: Summarize briefly how the data were collected, using EM, etc., and what connections were recorded and how categorized -- i.e., both electrical gap junctions and chemical synapses]]
 For the chemical synapses, presynaptic and postsynaptic neurons, and the number of synapses are resolved, resulting in a weighted, directed connectivity matrix, with weights given by the number of synapses.
@@ -319,28 +319,33 @@ Two dimensional spatial co-ordinates for 277 neurons (including VC6) were obtain
 Positions for 3 neurons not included in this dataset (AIBL, AIYL, SMDVL) were reconstructed based on the positions of the contralateral neurons (AIBR, AIYR, SMDVR).
 
 % METHODS: rich club analysis
-\textbf{Network measures.} \\
-\textit{Degree.} The total number of connections involving a given neuron is defined by its degree \textit{k} - the sum of incoming and outgoing connections $k=k_{in} + k_{out} $.
+\subsection*{Network measures}
+\paragraph{Degree}
+The total number of connections involving a given neuron is defined by its degree, $k$, defined as the sum of the number of incoming connections (in-degree, $k_\mathrm{in}$) and outgoing connections ($k_\mathrm{out}$), as $k = k_\mathrm{in} + k_\mathrm{out}$.
 The extended tail of the degree distribution presented in \ref{fig:SchematicRepresentation} indicates the existence of a small number of highly connected nodes.
-At each degree \textit{k} nodes in the network were classified as hubs (degree $>\textit{k}$) or non-hubs (degree $\leq\textit{k}$) and consequently all links between them separated into three categories: rich (hub $\rightarrow$ hub), feeder (hub $\rightarrow$ non-hub or non-hub $\rightarrow$ hub) and peripheral (non-hub $\rightarrow$ non-hub). \\
-\textit{Rich club.} In order to examine, if high degree nodes then to preferentially connect to other high degree nodes, at each degree \textit{k} we calculated a rich-club coefficient (see eq. \ref{eq:RCcoef}).
+At each degree \textit{k} nodes in the network were classified as hubs (degree $>\textit{k}$) or non-hubs (degree $\leq\textit{k}$) and consequently all links between them separated into three categories: rich (hub $\rightarrow$ hub), feeder (hub $\rightarrow$ non-hub or non-hub $\rightarrow$ hub) and peripheral (non-hub $\rightarrow$ non-hub).
+
+\paragraph{Rich-club organization}
+In order to examine whether high degree nodes then to preferentially connect to other high degree nodes, at each degree \textit{k} we calculated a rich-club coefficient (see eq. \ref{eq:RCcoef}).
 % RC coeficient formula
  	\begin{eqnarray}
 	\label{eq:RCcoef}
      \mathrm{\Phi(\textit{k})} = \dfrac{2M_{>\textit{k}}}{N_{>\textit{k}}(N_{>\textit{k}}-1)},
 	 \end{eqnarray}
-where where $N_{>\textit{k}}$ is the number of nodes with degree $>\textit{k}$ and $M_{>\textit{k}}$ is the number of edges between them. \\
+where $N_{>\textit{k}}$ is the number of nodes with degree $>\textit{k}$ and $M_{>\textit{k}}$ is the number of edges between them.
+
 It quantifies the tendency of nodes with degree $\geq k$ to preferentially connect to each other by calculating how many edges are present between nodes of degree at least \textit{k}, normalized by how many edges there could be between these nodes in a complete graph.
-Rich club coefficient monotonically increases with degree as only nodes with degree >\textit{k} are retained and this alone yields a higher expected density of a sub-graph, therefore a normalised rich-club coefficient (\ref{eq:RCnormcoef}) is used in order to define, whether this increase in the empirical network is higher that could be expected by chance alone.
+Rich club coefficient monotonically increases with degree as only nodes with degree >\textit{k} are retained and this alone yields a higher expected density of a sub-graph, therefore a normalized rich-club coefficient (\ref{eq:RCnormcoef}) is used in order to define, whether this increase in the empirical network is higher that could be expected by chance alone.
 
 \begin{eqnarray}
 	\label{eq:RCnormcoef}
-     \mathrm{\Phi_{\textit{norm}}(\textit{k})} = \dfrac{\Phi(\textit{k})}{\Phi_{\textit{random}}(\textit{k})},
+     \Phi_\mathrm{norm}(k) = \dfrac{\Phi(k)}{\Phi_\mathrm{random}(k)},
 	 \end{eqnarray}
-where $\Phi_{\textit{random}}(\textit{k})$ is the average value of $\Phi(\textit{k})$ across random networks.
-$\Phi_{norm}> 1$ indicates the rich-club organisation of the network.  \\
-In order to calculate the normalised rich club coefficient $\Phi_{norm}$ we computed a 1000 random networks rewiring each edge an average of 50 times per null network and evaluated the ratio between rich club coefficient in the empirical $\Phi(k)$ and random $\Phi_{random}(k)$ resulting in $\Phi_{norm}(k)$ at each degree threshold.
-Statistical significance for $\Phi_{norm}$ was estimated by computing P value directly from the empirical null distribution under the null hypothesis $\Phi(\textit{k}) \leq \Phi_{\textit{random}}(\textit{k})$. \\
+where $\Phi_\mathrm{random}(k)$ is the average value of $\Phi(k)$ across random networks.
+$\Phi_\mathrm{norm}>1$ indicates the rich-club organization of the network.
+
+In order to calculate the normalized rich club coefficient $\Phi_\mathrm{norm}$ we computed a 1000 random networks rewiring each edge an average of 50 times per null network and evaluated the ratio between rich club coefficient in the empirical $\Phi(k)$ and random $\Phi_{random}(k)$ resulting in $\Phi_\mathrm{norm}(k)$ at each degree threshold.
+Statistical significance for $\Phi_{norm}$ was estimated by computing P value directly from the empirical null distribution under the null hypothesis $\Phi(k) \leq \Phi_\mathrm{random}(k)$. \\
 Rich club coefficient and null networks were generated using the rich\textunderscore club\textunderscore bd and randmio\textunderscore dir functions from the Brain Connectivity Toolbox \cite{Rubinov2010} respectively.
 
 % NOTE THAT TOWLSON USED UNDIRECTED (CHEMICAL+ELECTRICAL) network. WE USE DIRECTED CHEMICAL. (should probably put this into results - not in methids).
@@ -349,21 +354,22 @@ Rich club coefficient and null networks were generated using the rich\textunders
 
 % METHODS: gene expression
 \textbf{Gene expression.}
-Gene expression signatures for each neuron were obtained from the publicly available WormBase database \href{ftp://ftp.wormbase.org/pub/wormbase/releases/WS256/ONTOLOGY/anatomy_association.WS256.wb}{(http://wormbase.org, release WS256)} on 6 February 2017.
+Gene expression signatures for each neuron were obtained from the publicly available WormBase database (release WS256 downloaded on 6th Feb 2017 from \url{ftp://ftp.wormbase.org/pub/wormbase/releases/WS256/ONTOLOGY/anatomy_association.WS256.wb}).
 The dataset contains binary expression profiles for 948 genes annotated to at least one neuron.
-To minimise noise in the dataset we selected genes that were directly annotated to a specific neuron and labelled with the following qualifiers in the anatomy association file: certain, enriched, partial, blank.
+To minimize noise in the dataset we selected genes that were directly annotated to a specific neuron and labelled with the following qualifiers in the anatomy association file: certain, enriched, partial, blank.
 Each neuron on average is associated with the expression of 30 genes (range: 3 to 138 genes), while each gene is expressed on average in 9 out of 279 neurons (range: 1 to 148 neurons).
 It is important to note that, because the absence of expression data not recorded in the database, it is not possible to distinguish between the following two cases: (i) ``gene is not expressed'' and (ii) ``there is no information on whether gene is expressed''.
 Both cases are recorded and analyzed as ``0'' expression here.\\
-Gene expression was assigned to neurons based on anatomical hierarchy obtained from ...\\
-PROBABLY SHOULD ADD INFORMATION ABOUT HIERARCHY FILE HERE as it's also from the wormbase (how/when downloaded/what queries were used \\
-BEN, can you add information?
+
+Gene expression was assigned to neurons based on anatomical hierarchy obtained from...
+[[TODO BEN: PROBABLY SHOULD ADD INFORMATION ABOUT HIERARCHY FILE HERE as it's also from the wormbase (how/when downloaded/what queries were used]]
 
 % METHODS: gene coexpression
-\textbf{Gene coexpression.}\\
+\subsection*{Gene coexpression}
 Genetic analysis in this paper focused on patterns of coupled gene expression between pairs of neurons rather than the presence or absence of gene expression in any single neuron on its own.
 In order to evaluate the similarity in gene expression profiles between each pair of neurons (\textit{i},\textit{j}) we calculated a measure of gene coexpression as a mean square contingency coefficient, $\phi$, between their binary expression profiles, which is a binary version of the traditional Pearson correlation coefficient.
-$\phi$ values range from $-1$ to $+1$, where $\pm1$ indicates perfect agreement or disagreement respectively, and 0 indicates no relationship. \\
+$\phi$ values range from $-1$ to $+1$, where $\pm1$ indicates perfect agreement or disagreement respectively, and 0 indicates no relationship.
+
 As the number of genes expressed in each neuron varies in a broad range, we aimed to choose a measure of similarity between binary gene expression profiles which is not sensitive to the ratio between the number of ones and zeros in a vector.
 Mean square contingency coefficient $\phi$ met this criterion best.
 In contrast, other measures such as Jaccard index, Yule's Q, Yule's Y and Simple matching coefficients are highly dependent on this ratio.
@@ -374,7 +380,7 @@ Therefore, a relatively scenario-free measure $\phi$ was highly preferable to ot
 The effect of spatial distance on gene coexpression \cite{Fulcher2015} was evaluated.
 We calculated the distance between each pair of neurons based on their 2D coordinates and estimated the relationship between this distance and coexpression.
 No clear relationship was found (plot in supplementary??), therefore no coexpression-distance corrections were applied (maybe include the plot in supplementary?). \\
-In the C. elegans connectome, 92 out of 118 classes of neurons have bilateral representation, meaning that each of those neuron classes have both left and right counterparts (e.g. AVAL, AVAR).
+In the \emph{C. elegans} connectome, 92 out of 118 classes of neurons have bilateral representation, meaning that each of those neuron classes have both left and right counterparts (e.g. AVAL, AVAR).
 Apart from their anatomical resemblance, these neurons tend to have very similar gene expression signature with a mean coexpression value of 0.98.
 To ensure that our analyses are not influenced by this symmetry, coexpression values between the pairs of symmetrical neurons were excluded from all further analyses.
  \begin{figure}[!ht]
