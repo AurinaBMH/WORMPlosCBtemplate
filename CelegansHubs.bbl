@@ -24,10 +24,60 @@ Varadan V, Miller DM, Anastassiou D.
 \bibitem{Fulcher2015}
 Fulcher BD, Fornito A.
 \newblock {A transcriptional signature of hub connectivity in the mouse
-  connectome.}
-\newblock Proceedings of the National Academy of Sciences of the United States
-  of America. 2016;113(5):1513302113--.
+  connectome}.
+\newblock Proceedings of the National Academy of Sciences. 2016;I(1):1--14.
 \newblock doi:{10.1073/pnas.1513302113}.
+
+\bibitem{Towlson:2013gf}
+Towlson EK, V{\'e}rtes PE, Ahnert SE.
+\newblock {The rich club of the C. elegans neuronal connectome}.
+\newblock J Neurosci. 2013;33(15):6380--6387.
+
+\bibitem{Shih:2015cu}
+Shih CT, Sporns O, Yuan SL, Su TS, Lin YJ, Chuang CC, et~al.
+\newblock {Connectomics-Based Analysis of Information Flow in the Drosophila
+  Brain}.
+\newblock Curr Biol. 2015;.
+
+\bibitem{Fulcher:2016ck}
+Fulcher BD, Fornito A.
+\newblock {A transcriptional signature of hub connectivity in the mouse
+  connectome}.
+\newblock Proc Natl Acad Sci USA. 2016;113(5):1435--1440.
+
+\bibitem{vandenHeuvel:2015ie}
+van~den Heuvel MP, Scholtens LH, de~Reus MA.
+\newblock {Topological organization of connectivity strength in the rat
+  connectome}.
+\newblock Brain Struct Funct. 2015; p. 1--18.
+
+\bibitem{ZamoraLopez:2010hy}
+Zamora-L{\'o}pez G, Zhou C, Kurths J.
+\newblock {Cortical Hubs Form a Module for Multisensory Integration on Top of
+  the Hierarchy of Cortical Networks}.
+\newblock Front Neuroinf. 2010;4:1.
+
+\bibitem{deReus:2013cy}
+de~Reus MA, van~den Heuvel MP.
+\newblock {Rich Club Organization and Intermodule Communication in the Cat
+  Connectome}.
+\newblock J Neurosci. 2013;33(32):12929--12939.
+
+\bibitem{Harriger:2012bb}
+Harriger L, van~den Heuvel MP, Sporns O.
+\newblock {Rich Club Organization of Macaque Cerebral Cortex and Its Role in
+  Network Communication}.
+\newblock PLoS ONE. 2012;7(9):e46497.
+
+\bibitem{vandenHeuvel:2011he}
+van~den Heuvel MP, Sporns O.
+\newblock {Rich-Club Organization of the Human Connectome}.
+\newblock J Neurosci. 2011;31(44):15775--15786.
+
+\bibitem{vandenHeuvel:2012kh}
+van~den Heuvel MP, Kahn RS, Go{\~n}i J, Sporns O.
+\newblock {High-cost, high-capacity backbone for global brain communication}.
+\newblock Proc Natl Acad Sci USA. 2012;109(28):11372--11377.
 
 \bibitem{Vertes2016a}
 V{\'{e}}rtes PE, Rittman T, Whitaker KJ, Romero-Garcia R, V{\'{a}}{\v{s}}a F,
@@ -44,6 +94,12 @@ Bullmore E, Sporns O.
 \newblock Nature Reviews Neuroscience. 2012;13(5):336--49.
 \newblock doi:{10.1038/nrn3214}.
 
+\bibitem{White:1986tx}
+White JG, Southgate E, Thomson JN.
+\newblock {The structure of the nervous system of the nematode Caenorhabditis
+  elegans}.
+\newblock {\ldots} Trans R Soc Lond B Biol {\ldots}. 1986;.
+
 \bibitem{Varshney2011}
 Varshney LR, Chen BL, Paniagua E, Hall DH, Chklovskii DB.
 \newblock {Structural properties of the Caenorhabditis elegans neuronal
@@ -51,37 +107,16 @@ Varshney LR, Chen BL, Paniagua E, Hall DH, Chklovskii DB.
 \newblock PLoS computational biology. 2011;7(2):e1001066.
 \newblock doi:{10.1371/journal.pcbi.1001066}.
 
-\bibitem{Towlson2013}
-Towlson EK, V{\'{e}}rtes PE, Ahnert SE, Schafer WR, Bullmore ET.
-\newblock {The rich club of the C. elegans neuronal connectome.}
-\newblock Journal of Neuroscience. 2013;33(15):6380--7.
-\newblock doi:{10.1523/JNEUROSCI.3784-12.2013}.
-
-\bibitem{Rubinov2010}
-Rubinov M, Sporns O.
-\newblock {Complex network measures of brain connectivity: Uses and
-  interpretations}.
-\newblock NeuroImage. 2010;52(3):1059--1069.
-\newblock doi:{10.1016/j.neuroimage.2009.10.003}.
-
 \bibitem{Gillis2010}
 Gillis J, Mistry M, Pavlidis P.
 \newblock {Gene function analysis in complex data sets using ErmineJ.}
 \newblock Nature protocols. 2010;5(6):1148--59.
 \newblock doi:{10.1038/nprot.2010.78}.
 
-\bibitem{Ashburner2000}
-Ashburner M, Ball CA, Blake JA, Botstein D, Butler H, Cherry JM, et~al.
-\newblock {Gene Ontology: Tool for The Unification of Biology}.
-\newblock NATURE GENETICS. 2000;25(1):25--29.
-\newblock doi:{10.1038/75556}.
-
-\bibitem{Zoubarev2012}
-Zoubarev A, Hamer KM, Keshav KD, {Luke Mccarthy} E, Santos JRC, Van~rossum T,
-  et~al.
-\newblock {Gemma: A resource for the reuse, sharing and meta-analysis of
-  expression profiling data}.
-\newblock Bioinformatics. 2012;28(17):2272--2273.
-\newblock doi:{10.1093/bioinformatics/bts430}.
+\bibitem{Towlson2013}
+Towlson EK, V{\'{e}}rtes PE, Ahnert SE, Schafer WR, Bullmore ET.
+\newblock {The rich club of the C. elegans neuronal connectome.}
+\newblock Journal of Neuroscience. 2013;33(15):6380--7.
+\newblock doi:{10.1523/JNEUROSCI.3784-12.2013}.
 
 \end{thebibliography}
