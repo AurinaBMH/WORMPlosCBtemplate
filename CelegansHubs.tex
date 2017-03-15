@@ -459,12 +459,13 @@ Rich club in the chemical synapse network consists of 13 high degree neurons wit
 
 \begin{figure}[!h]
    \centering
-    \includegraphics[width=0.7\textwidth]{RCcurveFINAL}
+    \includegraphics[width=1\textwidth]{RCcurveFINAL3}
  \caption{{\bf Rich-club organisation of the connectome.} \\
-Top: degree distribution of C. elegans connectome for chemical synapses. (permutation test; $P<0.05$). \\
-Bottom: normalized rich club coefficient, $\Phi_{random}$ as a function of the degree, \textit{k}, at which hubs (regions with degree $\geq \textit{k}$) are defined. 
+A: Topological rich-club. B: Mixed rich-club. C: Weighted rich-club. \\
+Normalized rich club coefficient, $\Phi_{random}$ as a function of the degree, \textit{k}, at which hubs (regions with degree $\geq \textit{k}$) are defined. (permutation test; $P<0.05$).
 $\Phi_{norm}>1$ indicates that hubs are more densely interconnected among each other than expected by chance. 
-Red circles indicate values of $\Phi_{random}$ that are significantly higher than an ensemble of 1000 null networks}
+Red circles indicate values of $\Phi_{random}$ that are significantly higher than an ensemble of 1000 null networks.\\
+\textbf{NOTE: plot three curves in one plot (with different colours) and shade grey the overlapping area. } }
  \label{RCcoef}
  \end{figure}
  
@@ -492,13 +493,14 @@ Circles indicate a statistically significant increase in gene coexpression in a 
  \centering
     \includegraphics[width=1\textwidth]{RichFeederPeripheral_k42FINAL}
  \caption{{\bf Coexpression for rich, feeder and peripheral links as a function of degree.}
-Coexpression ($\phi$) for different types of network connections, where hubs are neurons with degree $k \geq 42$. P-values are from Wilcoxon rank sum test. MAYBE SHOW THIS IN SUPP}
+Coexpression ($\phi$) for different types of network connections, where hubs are neurons with degree $k \geq 42$. P-values are from Wilcoxon rank sum test. \\ 
+SHOW THIS IN SUPP}
  \label{ViolinPlots}
  \end{figure}
 
 To investigate which functional groups of genes contributed to the increased coexpression for links involving hubs (rich and feeder) we used a method of assigning each gene a GCC measure that quantifies the contribution of each gene (see Methods).
 
-Enrichment analysis show that the majority of the significant ($P < 0.05$) GO categories are related to glutamate signalling, neuronal connectivity and communication. 
+Enrichment analysis show that the majority of the significant ($P < 0.05$) GO categories are related to glutamate signalling, neuronal connectivity and communication. It is line with the previous analysis where same GO categories were shown to be significant in differentiating connected from unconnected neurons. 
 %% combine enrichment tables into one
 \begin{table}[!ht]
 \begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
@@ -507,15 +509,19 @@ Enrichment analysis show that the majority of the significant ($P < 0.05$) GO ca
 {\bf Enrichment.}}
 \begin{tabular}{ |c|c|c|c| }
 \thickhline
-\multicolumn{2}{c}{Connected} & \multicolumn{2}{c}{Rich and feeder} \\ \hline
+\multicolumn{2}{c}{Connected \textit{vs} unconnected} & \multicolumn{2}{c}{Rich and feeder \textit{vs} peripheral} \\ \hline
 %{\bf Connected} & {} & {\bf Rich and feeder}\\ \thickhline
 GO category  & pvalue & GO category  	& p value \\ \thickhline
-glutamate receptor signalling pathway 	& 0.00001 & glutamate receptor signalling pathway 			& $10^{-7}$\\ \hline
-neuron-neuron synaptic transmission 		& 0.00002 & ionotropic glutamate receptor signalling pathway 	& $10^{-7}$\\ \hline
-chemical synaptic transmission		 	& 0.00057 & synaptic transmission, glutamatergic 				& $10^{-7}$\\ \hline
-anterograde trans-synaptic signalling 	& 0.00057 & neuron-neuron synaptic transmission 				& $10^{-6}$\\ \hline
-synaptic signalling 						& 0.00057 & chemical synaptic transmission 					& $10^{-6}$\\ \hline
-cell1 row7 								& cell2 ro& cell-cell signalling 							& 0.00021 \\ \hline
+glutamate receptor signalling pathway 	& $10^{-7}$ 	& glutamate receptor signalling pathway 			& $10^{-5}$\\ \hline
+ionitropic glutamate receptor signalling	& $10^{-7}$ 	& ionitropic glutamate receptor signalling		& $10^{-5}$ \\ \hline
+synaptic transmission, glutamatergic 	& $10^{-7}$	& synaptic transmission, glutamatergic 			& $10^{-5}$ \\ \hline
+neuron-neuron synaptic transmission 		& $10^{-5}$	& chemical synaptic transmission	 	 			& $10^{-5}$\\ \hline
+chemical synaptic transmission		 	& 0.00057 	& anterograde trans-synaptic signalling			& $10^{-5}$\\ \hline
+anterograde trans-synaptic signalling 	& 0.00057 	& synaptic signalling 							& $10^{-5}$\\ \hline
+synaptic signalling 						& 0.00057 	& trans-synaptic signalling	 					& $10^{-5}$\\ \hline
+trans-synaptic signalling				& 0.00057 	& neuron-neuron synaptic transmission  			& 0.00031 \\ \hline
+										&  			& cell-cell signalling				  			& 0.00086 \\ \hline
+										&  			& cell surface receptor signalling pathway 		& 0.00107 \\ \hline
 \end{tabular}
 \begin{flushleft} Table notes what GO categories were overrepresented in driving the difference between different types of links.
 \end{flushleft}
@@ -523,8 +529,8 @@ cell1 row7 								& cell2 ro& cell-cell signalling 							& 0.00021 \\ \hline
 \end{adjustwidth}
 \end{table}
 
-
-These findings are in line with our expectations as high degree neurons are highly involved in signaling and are likely to use glutamate and acetylcholine.
+These findings are in line with our expectations as high degree neurons are highly involved in signalling and the majority of hubs while being cholinergic, receive input from sensory neurons the majority of which is glutamatergic. \\
+NOTE: NOTE HERE ABOUT REDUCED LIST OF GENES IN EACH ANALYSIS (577 and 390 genes for connected and R/F respectively) AND WHAT IMPACT THAT COULD HAVE ON RESULTS. 
 
 \subsection*{EXTRAS}
 \begin{itemize}
@@ -532,9 +538,9 @@ These findings are in line with our expectations as high degree neurons are high
     \item{Maybe include lineage data: lineage distance increases with degree for feeder links; no difference between rich and peripheral links; Sort of confirms separation into rich/feeder/peripheral links as distance increases for feeders?}
 \end{itemize} 
 \subsection*{Neuron type}
-While above we demonstrated a relationship between transcriptional similarity and structural connectivity, we note that hubs of the C. elegans connectome are dominated by interneurons.
+While above we demonstrated a relationship between transcriptional similarity and structural connectivity, we note that all hubs in the topological rich-club regime in the C. elegans connectome are interneurons.
 Correspondingly, we investigated whether the effect of increasing gene coexpression is specific to interneurons.
-The relationship between average coexpression and degree for connections including different types of neurons (interneurons, motor neurons and sensory neurons) is shown in Figure 8.
+The relationship between median coexpression and degree for connections including different types of neurons (interneurons, motor neurons and sensory neurons) is shown in Fig. \ref{NeuronTypePlot}.
 Connections involving interneurons show a pattern of increasing average coexpression with increasing degree, however neither connections involving motor nor sensory neurons resemble this trend; even showing evidence for the opposite relationship.
 In other words, motor and sensory neurons with higher degree show less similar gene expression patterns.
 
@@ -547,6 +553,7 @@ Top: Average gene coexpression as a function of degree for connections involving
  \end{figure}
 Top: Average gene coexpression as a function of degree for connections involving different types of neurons. Bottom: The number of connections in each category for a range of degrees. 
 
+Next, we compare transcriptional similarity between hub interneurons and non-hub interneurons that share similar anatomical properties. 
 \textbf{Compare coexpression between hub interneurons and non-hub interneurons with the same anatomy here.}
 \subsection*{Lineage}
 \begin{figure}[!h]
