@@ -395,7 +395,12 @@ Connectivity matrix coded according to link type (and probably gene expression m
 
 % METHODS: gene enrichment
 \subsection*{Gene enrichment analysis}
-It was particularly important to determine, which functional groups of genes contribute to the increased coexpression between: (i) connected pairs of neurons as compared to unconnected pairs as well as (ii) connections involving hubs (rich and feeder) compared to connections that do not involve hubs (peripheral).
+In order to interpret differences in gene coexpression between different types of node pairs, we used enrichment analysis to identify functionally annotated groups of genes from the Gene Ontology (GO) \cite{Ashburner2000}.
+%  that contribute to the increased coexpression between:
+% (i) connected pairs of neurons as compared to unconnected pairs as well as
+% (ii) connections involving hubs (rich and feeder) compared to connections that do not involve hubs (peripheral).
+
+Following previous work \cite{Fulcher:2016ck}, we first assigned a gene coexpression contribution (GCC) score to each gene, $g_{ij},$ that quantifies the contribution of each gene to the coexpression score for a given pair of brain regions ($i$ and $j$).
 
 First, for each gene we determined the pattern of matching expression profiles (a match meaning that a gene is expressed by both neurons) between each pair of neurons resulting in a binary 279 x 279 matrix.
 Then, for each gene we calculated a cumulative binomial probability of getting more matches $(X)$ than in the empirical data $(m)$ on a particular connection type (see eq. \ref{eq:CBinomialProbability}).
@@ -406,7 +411,7 @@ Depending on the connection type in question this can be phrased in two followin
 \end{eqnarray}
 where m - the number of matches in empirical data, \textit{p} - the probability of randomly choosing a selected type of connection and \textit{n} - a maximum number of possible matches given the connection type in question.
 
-Therefore, each gene was given a score ($p$ value - gene coexpression contribution (GCC) score), where lower GCC corresponds to higher contribution towards increased correlation.
+
 When calculating GCC for connected links more then one match for a gene overall was required (as a result 577 genes out of 948 left); when calculating GCC for the links involving hubs (rich and feeder links) more than one match was required on connected links (as a result 390 out of 948 genes left).
 Otherwise, no information about the contribution of a specific gene to the overall coexpression pattern could be extracted.
 \textbf{(NOTE: not literally true as both on and off matches equally contribute to an increase in coexpression, - need to find a way how to explain, why non-expression matches are not taken into account here).}\\
