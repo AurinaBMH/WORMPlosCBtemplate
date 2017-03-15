@@ -93,6 +93,9 @@
 % Added natbib for citet commands:
 \usepackage{natbib}
 
+% Added url for urls:
+\usepackage{url}
+
 % Use nameref to cite supporting information files (see Supporting Information section for more info)
 \usepackage{nameref,hyperref}
 
@@ -188,21 +191,11 @@
 \newline
 % Insert author names, affiliations and corresponding author email (do not include titles, positions, or degrees).
 \\
-Name1 Surname\textsuperscript{1,2\Yinyang},
-Name2 Surname\textsuperscript{2\Yinyang},
-Name3 Surname\textsuperscript{2,3\textcurrency},
-Name4 Surname\textsuperscript{2},
-Name5 Surname\textsuperscript{2\ddag},
-Name6 Surname\textsuperscript{2\ddag},
-Name7 Surname\textsuperscript{1,2,3*},
-with the Lorem Ipsum Consortium\textsuperscript{\textpilcrow}
-\\
+Aurina Arnatkevi\u{c}i\={u}t\.{e}\textsuperscript{1\Yinyang},
+Ben D. Fulcher\textsuperscript{1\Yinyang},
+Alex Fornito\textsuperscript{1}\\
 \bigskip
-\textbf{1} Affiliation Dept/Program/Center, Institution Name, City, State, Country
-\\
-\textbf{2} Affiliation Dept/Program/Center, Institution Name, City, State, Country
-\\
-\textbf{3} Affiliation Dept/Program/Center, Institution Name, City, State, Country
+\textbf{1} Brain and Mental Health Laboratory, Monash Institute of Cognitive and Clinical Neurosciences, School of Psychological Sciences, Monash University, 770 Blackburn Rd, Clayton, 3168, VIC, Australia.
 \\
 \bigskip
 
@@ -215,18 +208,18 @@ with the Lorem Ipsum Consortium\textsuperscript{\textpilcrow}
 
 % Additional Equal Contribution Note
 % Also use this double-dagger symbol for special authorship notes, such as senior authorship.
-\ddag These authors also contributed equally to this work.
+% \ddag These authors also contributed equally to this work.
 
 % Current address notes
-\textcurrency Current Address: Dept/Program/Center, Institution Name, City, State, Country % change symbol to "\textcurrency a" if more than one current address note
+% \textcurrency Current Address: Dept/Program/Center, Institution Name, City, State, Country % change symbol to "\textcurrency a" if more than one current address note
 % \textcurrency b Insert second current address
 % \textcurrency c Insert third current address
 
 % Deceased author note
-\dag Deceased
+% \dag Deceased
 
 % Group/Consortium Author Note
-\textpilcrow Membership list can be found in the Acknowledgments section.
+% \textpilcrow Membership list can be found in the Acknowledgments section.
 
 % Use the asterisk to denote corresponding authorship and provide email address in note below.
 * correspondingauthor@institute.edu
@@ -292,21 +285,15 @@ According to \citet{Fulcher2015}, connections involving rich club hubs carry a d
 These findings highlight a close relationship between metabolic expenditure and the high signaling load of hub regions in the brain, as has been previously proposed \cite{Bullmore2012}.
 
 
-We therefore have some preliminary indications that the transcriptional signature of hubs may be a consistent feature of mammalian brain networks, but it is not known how distinctive this expression signature is; and in particular, whether it holds true for networks resolved at the scale of individual neurons and synapses.
-To test this possibility, we aimed to replicate findings presented in \cite{Fulcher2015} using microscale connectivity data in C. elegans and gene expression data from WormBase.
-We sought to determine whether hubs in the C. elegans connectome exhibit distinct gene expression patterns.
-
-
-% \begin{eqnarray}
-% \label{eq:schemeP}
-%     \mathrm{P_Y} = \underbrace{H(Y_n) - H(Y_n|\mathbf{V}^{Y}_{n})}_{S_Y} + \underbrace{H(Y_n|\mathbf{V}^{Y}_{n})- H(Y_n|\mathbf{V}^{X,Y}_{n})}_{T_{X\rightarrow Y}},
-% \end{eqnarray}
+We therefore have preliminary indications that the transcriptional signature of hubs may be a consistent feature of mammalian brain networks, but it is not known how distinctive this expression signature is; and in particular, whether it holds true for networks resolved at the scale of individual neurons and synapses.
+To test this possibility, we aimed to replicate findings presented in \cite{Fulcher2015} using microscale connectivity data in \emph{C. elegans} and gene expression data from \emph{WormBase}.
+We sought to determine whether hubs in the \emph{C. elegans} connectome exhibit distinctive gene expression patterns.
 
 
 % METHODS SECTION
 \section*{Materials and methods}
 
-Neurons of \emph{C. elegans} can be divided into groups, commonly as: sensory neurons (support receptive function), motor neurons (cells containing neuromuscular junctions), and interneurons (all other neurons) \cite{White:1986tx}.
+Neurons making up the nervous system of the nematode worm \emph{C. elegans} can be divided into groups, commonly as: sensory neurons (support receptive function), motor neurons (cells containing neuromuscular junctions), and interneurons (all other neurons) \cite{White:1986tx}.
 
 % For figure citations, please use "Fig" instead of "Figure".
 \begin{itemize}
@@ -315,18 +302,21 @@ Neurons of \emph{C. elegans} can be divided into groups, commonly as: sensory ne
     \item{Lineage data: where and when downloaded from, how defined. What for used in here}
     \item{Coexpression metric: how did we choose? How different measures depend on the number of genes; The effect of coexpression/space: can not be corrected for; Excluding left/right homolog gene expression from calculations}
     \item{Enrichment: software (ermineJ), how to score genes (maybe define gene scoring within results as scoring for connected and unconnected and rich/feeder vs peripheral is different)}
-
 \end{itemize}
+
 % METHODS: Outline (add what it's about)
-To investigate the relationship between hub connectivity and gene expression in a micro-scale network we coupled two publicly available datasets containing synaptic-level connectivity network and gene expression signatures for the somatic nervous system of the \textit{C. elegans} hermaphrodite.\\
+To investigate the relationship between hub connectivity and gene expression in a micro-scale network we coupled two publicly available datasets containing synaptic-level connectivity network and gene expression signatures for the somatic nervous system of the \textit{C. elegans} hermaphrodite.
 
 % METHODS: connectivity data
-\textbf{Connectivity data}. Full neuron level connectivity data for 279 somatic neurons (282 nonpharyngeal neurons excluding VC6 and CANL/R neurons, which are missing connectivity data) were provided by Varshney et al. \cite{Varshney2011} and downloaded from the  \href{http://www.wormatlas.org/neuronalwiring.html#NeuronalconnectivityII}{wormatlas.org}).
-Corresponding 2D coordinates for 277 neurons (including VC06) were obtained from \href{www.biological-networks.org/?page_id=25}{biological-networks.org}).
-Positions for 3 neurons not included in this dataset (AIBL, AIYL, SMDVL) were reconstructed based on the positions of the contralateral neurons (AIBR, AIYR, SMDVR).  \\
-In order to avoid any possible inherent differences in gene expression based on connectivity type we focused on binary chemical synapse network (M=1961 connections).
-In the case of chemical synapses identities of presynaptic and postsynaptic neurons are well-defined, therefore each neuron is characterised with two binary vectors: one for incoming, second for outgoing connections, resulting in a directed connectivity matrix.
+\paragraph{Connectivity data}
+Full neuron level connectivity data for 279 somatic neurons (282 nonpharyngeal neurons, excluding CANL/R and VC6, for which connectivity data is unavailable) produced in \citet{Varshney2011} were downloaded from WormAtlas (\url{http://www.wormatlas.org/neuronalwiring.html#NeuronalconnectivityII}).
+[[TODO: Summarize briefly how the data were collected, using EM, etc., and what connections were recorded and how categorized -- i.e., both electrical gap junctions and chemical synapses]]
+For the chemical synapses, presynaptic and postsynaptic neurons, and the number of synapses are resolved, resulting in a weighted, directed connectivity matrix, with weights given by the number of synapses.
+To avoid any possible differences in gene expression between chemical synapses and gap junctions, here we focused just on the chemical synapse network, which contains a total of 1\,961 connections [[TODO: add number of synapses]].
+[[TODO: contextualize this section by adding references to past work -- e.g., when we say we just look at synaptic network -- has this been done in the past?]]
 
+Two dimensional spatial co-ordinates for 277 neurons (including VC6) were obtained from \url{www.biological-networks.org/?page_id=25}.
+Positions for 3 neurons not included in this dataset (AIBL, AIYL, SMDVL) were reconstructed based on the positions of the contralateral neurons (AIBR, AIYR, SMDVR).
 
 % METHODS: rich club analysis
 \textbf{Network measures.} \\
@@ -415,8 +405,9 @@ These GCC scores were then used to perform gene score resampling (GSR) analysis,
 The above mentioned analysis was done using 3.0.2 of ErmineJ \cite{Gillis2010}.
 Gene annotations were assigned from GO \cite{Ashburner2000} using an annotation file from GEMMA \cite{Zoubarev2012}.
 Generic\textunderscore worm \textunderscore noParents.an.txt.gz downloaded using a build-in option within ErmineJ software on February 10 2017.
-GO terms and definitions were obtained in RDF XML file format downloaded from \href{archive.geneontology.org/latest-termdb/go _daily-termdb.rdf-xml.gz}{archive.geneontology.org/latest-termdb/go \textunderscore daily-termdb.rdf-xml.gz} on February 10 2017.
+GO terms and definitions were obtained in RDF XML file format downloaded from \url{archive.geneontology.org/latest-termdb/go_daily-termdb.rdf-xml.gz} on February 10 2017.
 In the analysis we were considering gene set sizes in the range 5–100, taking the mean score in a GO group to summarize it.
+% {archive.geneontology.org/latest-termdb/go \textunderscore daily-termdb.rdf-xml.gz}
 Full resampling with $10^{7}$ iterations was used . \\
 \textbf{Lineage distance.}\\
 \textbf{Non-overlapping modules.}\\
