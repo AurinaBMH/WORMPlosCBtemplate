@@ -417,10 +417,10 @@ We therefore selected $r_\phi$ to analyze in this work, which was insensitive to
 As well as $r_\phi$, we also developed a new index that distinguishes matching of positive gene expression from negative gene expression that quantifies that probability that two binary strings will contain at least as many positive matches, $n_{11}$, as observed (see Supplementary Information).
 This showed ([[biases?]]) which gave similar results [[TODO: check that behavior is indeed similar]].
 
-
-The effect of spatial distance on gene coexpression \cite{Fulcher2015} was evaluated.
-We calculated the distance between each pair of neurons based on their 2D coordinates and estimated the relationship between this distance and coexpression.
-[[TODO: Aurina, why is this Fulcher2015--PNAS paper was 2016...?]]\\
+Previous work has emphasized the importance of spatial effects in driving patterns of gene expression, for example, with gene coexpression exhibiting high spatial correlation in the mouse brain \cite{Fulcher:2016ck} and human cortex \cite{Pantazatos:2016ir}.
+[[TODO: Aurina, adjust record for our PNAS paper, listed as \textt{Fulcher2015}, but is a 2016 article...]]
+Given that connection probability is also dependent on spatial separation in mammalian brains \cite{Henderson:2014fg, Horvat:2016ia}, [[TODO: has this analysis been done in worm? If not we need to do it...]], it is important to correct for spatial effects to ensure that relationships between gene expression and connectivity are not simply the result of both properties showing spatial autocorrelation.
+In C. elegans, we found no correlation between the Euclidean separation distance between a pair of neurons (based on their two dimensional coordinates) and their gene coexpression, $r_\phi$ ($r = X$, $p = Y$, cf. Fig.~[[SUPP-FIG]]).
 No clear relationship was found (plot in supplementary??), therefore no coexpression-distance corrections were applied (maybe include the plot in supplementary?).
 
 In the \emph{C. elegans} connectome, 92 out of 118 classes of neurons have bilateral representation, meaning that each of those neuron classes have both left and right counterparts (e.g., AVAL/AVAR).
@@ -753,6 +753,7 @@ Future work systematically mapping gene expression in a unified experimental par
 Conclusion text.
 
 \section*{Supporting information}
+
 
 % Include only the SI item label in the paragraph heading. Use the \nameref{label} command to cite SI items in the text.
 \paragraph*{S1 Fig.}
