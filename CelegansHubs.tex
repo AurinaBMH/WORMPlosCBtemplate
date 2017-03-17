@@ -396,13 +396,25 @@ To this end, we computed the similarity in gene expression profiles between a pa
 \end{equation}
 for two vectors $x$, $y$, of length $N$, where $n_{xy}$ count the number of observations of each of the four outcomes (e.g., $n_{10} = \sum_i \delta_{x_i,1}\delta_{y_i,0}$ counts the number of times $x=1$ and $y=0$ across the length of $x$ and $y$), while the symbol $\bullet$ sums across a given variable (e.g., $n_{\bullet 0} = \sum_i \delta_{y_i,0}$ counts the number of times $y = 0$).
 A maximum value $r_\phi = 1$ when $x$ and $y$ are identical such that $n_{11} + n_{00} = N$, and a minimum value $r_\phi = -1$ when $x$ and $y$ are always mismatched such that $n_{10} + n_{01} = N$.
+[[TODO: Add a reference for this measure -- maybe some stats textbook?]]
 
-As the number of genes expressed in each neuron varies in a broad range, we aimed to choose a measure of similarity between binary gene expression profiles which is not sensitive to the ratio between the number of ones and zeros in a vector.
+Note that, in addition to $r_\phi$ defined above, a range of other similarity measures for binary strings exist, including the
+Jaccard index, $n_{11}/(n_{10}+n_{01}+n_{11})$,
+Yule's coefficient, $(n_{00}n_{11} - n_{01}n_{10})/(n_{00}n_{11} + n_{01}n_{10})$,
+and the $\chi^2$ index, $N (n_{00}n_{11} - n_{01}n_{10})/(n_{1\bullet}n_{0\bullet}n_{\bullet 0}n_{\bullet 1})$ \cite{Kaufman2006}.
+% and Simple matching coefficients [[TODO: define and give reference]],
+[[TODO: if we want to distinguish Yule's Q and Yule's Y, we'll need a reference and definition]]
+Since the gene expression data analyzed here is sparse (X\% expression), we needed to ensure that our similarity metric was not sensitive to the proportion of genes expressed in a given neuron.
 Mean square contingency coefficient $\phi$ met this criterion best.
-In contrast, other measures such as Jaccard index, Yule's Q, Yule's Y and Simple matching coefficients are highly dependent on this ratio.
+In contrast, other measures such as Jaccard index, Yule's Q, Yule's Y are highly dependent on this ratio.
+% and Simple matching coefficients
 For example, Yule's Q, Yule's Y coefficients on average tend to reach extreme values when the ratio between the number of ones and zeros in a vector is large (e.g., 1:20).
-Simple matching coefficient, on the other hand, shows a steady increase with increasing ratio.
+% Simple matching coefficient, on the other hand, shows a steady increase with increasing ratio.
 Therefore, a relatively scenario-free measure $\phi$ was highly preferable to others.
+
+To distinguish matching of positive gene expression from negative gene expression, we also developed a new index that quantifies that probability that two binary strings will contain at least as many positive matches as observed (see Supplementary Information), which gave similar results
+[[TODO: check that behavior is similar]].
+
 
 The effect of spatial distance on gene coexpression \cite{Fulcher2015} was evaluated.
 We calculated the distance between each pair of neurons based on their 2D coordinates and estimated the relationship between this distance and coexpression.
