@@ -318,6 +318,8 @@ Classification of neurons to `sensory', `motor', `interneuron' types, and as `he
 The neurotransmitter types of the majority of neurons in the hermaphrodite C. elegans nervous system has been mapped, revealing the dominance of cholinergic signaling \cite{Pereira:2015er}.
 We matched data from Table 2 in \citet{Pereira:2015er} to label the neurotransmitter type of all neurons.
 
+[[TODO: lineage data and processing?]]
+
 Neuronal connectivity data was obtained for 279 somatic neurons (282 nonpharyngeal neurons, excluding CANL/R and VC6, for which connectivity data is unavailable) of the C. elegans nervous system, as described in \citet{Varshney2011}.
 Data were downloaded from WormAtlas (\url{http://www.wormatlas.org/neuronalwiring.html#NeuronalconnectivityII}).
 [[TODO: Summarize briefly how the data were originally collected, using EM, from White and then updated by Varshney etc., and what connections were recorded and how categorized -- i.e., both electrical gap junctions and chemical synapses]]
@@ -385,9 +387,15 @@ As well as being unable to distinguish relative expression levels between neuron
 
 % METHODS: gene coexpression
 \subsection*{Gene coexpression}
-Genetic analysis in this paper focused on patterns of coupled gene expression between pairs of neurons rather than the presence or absence of gene expression in any single neuron on its own.
-In order to evaluate the similarity in gene expression profiles between each pair of neurons (\textit{i},\textit{j}) we calculated a measure of gene coexpression as a mean square contingency coefficient, $\phi$, between their binary expression profiles, which is a binary version of the traditional Pearson correlation coefficient.
-$\phi$ values range from $-1$ to $+1$, where $\pm1$ indicates perfect agreement or disagreement respectively, and 0 indicates no relationship.
+As shown in Fig.~\ref{fig:SchematicRepresentation}A, we have a gene expression profile for each neuron that indicates which of 948 genes have been observed to be expressed in that neuron.
+Given the pairwise nature of connectivity patterns, in this work we analyzed patterns of coupled gene expression between pairs of neurons.
+% rather than the presence or absence of gene expression in any single neuron on its own.
+To this end, we computed the similarity in gene expression profiles between a pair of neurons (\textit{i},\textit{j}) using a binary analogue of the linear Pearson correlation coefficient, the mean square contingency coefficient, $r_\phi$,
+\begin{equation}
+    r_\phi = \frac{n_{11}n_{00} - n_{10}n_{01}}{\sqrt{n_{1\bullet}n_{0\bullet}n_{\bullet 0}n_{\bullet 1}}},
+\end{equation}
+for two vectors $x$, $y$, of length $N$, where $n_{xy}$ count the number of observations of each of the four outcomes (e.g., $n_{10} = \sum_i \delta_{x_i,1}\delta_{y_i,0}$ counts the number of times $x=1$ and $y=0$ across the length of $x$ and $y$), while the symbol $\bullet$ sums across a given variable (e.g., $n_{\bullet 0} = \sum_i \delta_{y_i,0}$ counts the number of times $y = 0$).
+A maximum value $r_\phi = 1$ when $x$ and $y$ are identical such that $n_{11} + n_{00} = N$, and a minimum value $r_\phi = -1$ when $x$ and $y$ are always mismatched such that $n_{10} + n_{01} = N$.
 
 As the number of genes expressed in each neuron varies in a broad range, we aimed to choose a measure of similarity between binary gene expression profiles which is not sensitive to the ratio between the number of ones and zeros in a vector.
 Mean square contingency coefficient $\phi$ met this criterion best.
