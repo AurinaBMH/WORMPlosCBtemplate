@@ -336,7 +336,7 @@ Spatial information about neurons was obtained for 277 neurons (including VC6 [[
 Coordinates for three neurons (AIBL, AIYL, SMDVL) were missing in this dataset, and were reconstructed based on the positions of the contralateral neurons (AIBR, AIYR, SMDVR) [[TODO: Aurina, provide details on how these were `reconstructed']].
 
 % METHODS: rich club analysis
-\subsection*{Network measures}
+\subsection*{Network analysis}
 
 In this section, we describe the methods used to characterize the C. elegans structural connectome, represented as a graph with neurons as nodes and synaptic connections as edges \cite{Schroter:2017eo}, which will later allow us to compare gene coexpression as a function of connectivity structure.
 
@@ -406,14 +406,16 @@ and the $\chi^2$ index, $N (n_{00}n_{11} - n_{01}n_{10})/(n_{1\bullet}n_{0\bulle
 [[TODO: if we want to distinguish Yule's Q and Yule's Y, we'll need a reference and definition]]
 Since the gene expression data analyzed here is sparse (X\% expression), we needed to ensure that our similarity metric was not sensitive to the proportion of genes expressed in a given neuron.
 Mean square contingency coefficient $\phi$ met this criterion best.
-In contrast, other measures such as Jaccard index, Yule's Q, Yule's Y are highly dependent on this ratio.
+[[TODO: we need to describe what test we used to determine, and perhaps show the results in supplement. I'm happy to prepare this if you remind me the code that generates]]
+In contrast, other measures such as Jaccard index, Yule's Q, Yule's Y are highly dependent on this ratio [[TODO: Aurina, I think we leave out the simple matching coefficient -- it's not standard and just shows poor results]].
+[[TODO: Aurina, if we distinguish Yules Q/Y, we need to clearly define, otherwise should we just use the Yule's coefficient defined in Kaufman?]]
 % and Simple matching coefficients
-For example, Yule's Q, Yule's Y coefficients on average tend to reach extreme values when the ratio between the number of ones and zeros in a vector is large (e.g., 1:20).
+% For example, Yule's Q, Yule's Y coefficients on average tend to reach extreme values when the ratio between the number of ones and zeros in a vector is large (e.g., 1:20).
 % Simple matching coefficient, on the other hand, shows a steady increase with increasing ratio.
-Therefore, a relatively scenario-free measure $\phi$ was highly preferable to others.
+We therefore selected $r_\phi$ to analyze in this work, which was insensitive to the proportion of genes expressed in each neuron.
 
-To distinguish matching of positive gene expression from negative gene expression, we also developed a new index that quantifies that probability that two binary strings will contain at least as many positive matches as observed (see Supplementary Information), which gave similar results
-[[TODO: check that behavior is similar]].
+As well as $r_\phi$, we also developed a new index that distinguishes matching of positive gene expression from negative gene expression that quantifies that probability that two binary strings will contain at least as many positive matches, $n_{11}$, as observed (see Supplementary Information).
+This showed ([[biases?]]) which gave similar results [[TODO: check that behavior is indeed similar]].
 
 
 The effect of spatial distance on gene coexpression \cite{Fulcher2015} was evaluated.
