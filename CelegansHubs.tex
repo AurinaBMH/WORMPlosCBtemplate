@@ -317,22 +317,32 @@ To avoid any possible differences in gene expression between chemical synapses a
 
 Two dimensional spatial co-ordinates for 277 neurons (including VC6) were obtained from \url{www.biological-networks.org/?page_id=25}.
 Positions for 3 neurons not included in this dataset (AIBL, AIYL, SMDVL) were reconstructed based on the positions of the contralateral neurons (AIBR, AIYR, SMDVR).
+[[TODO: details on how reconstructed]]
 
 % METHODS: rich club analysis
 \subsection*{Network measures}
-\paragraph{Degree}
-The total number of connections involving a given neuron is defined by its degree, $k$, defined as the sum of the number of incoming connections (in-degree, $k_\mathrm{in}$) and outgoing connections ($k_\mathrm{out}$), as $k = k_\mathrm{in} + k_\mathrm{out}$.
-The extended tail of the degree distribution presented in \ref{fig:SchematicRepresentation} indicates the existence of a small number of highly connected nodes.
-At each degree \textit{k} nodes in the network were classified as hubs (degree $>\textit{k}$) or non-hubs (degree $\leq\textit{k}$) and consequently all links between them separated into three categories: rich (hub $\rightarrow$ hub), feeder (hub $\rightarrow$ non-hub or non-hub $\rightarrow$ hub) and peripheral (non-hub $\rightarrow$ non-hub).
 
-\paragraph{Rich-club organization}
-In order to examine whether high degree nodes then to preferentially connect to other high degree nodes, at each degree \textit{k} we calculated a rich-club coefficient (see eq. \ref{eq:RCcoef}).
-% RC coeficient formula
- 	\begin{eqnarray}
-	\label{eq:RCcoef}
-     \mathrm{\Phi(\textit{k})} = \dfrac{2M_{>\textit{k}}}{N_{>\textit{k}}(N_{>\textit{k}}-1)},
-	 \end{eqnarray}
+In this section, we describe the methods used to characterize the C. elegans structural connectome, represented as a graph with neurons as nodes and synaptic connections as edges \cite{Schroter:2017eo}, which will later allow us to compare gene coexpression as a function of connectivity structure.
+
+% \paragraph{Degree}
+The number of regions that a neuron projects to is its out-degree, $k_\mathrm{out}$, and the number of regions that project to a given neuron is its in-degree, $k_\mathrm{in}$.
+The total number of connections involving a given neuron is defined by its degree, $k = k_\mathrm{in} + k_\mathrm{out}$.
+% Weighted analogues of these degree measures involve counting the number of synaptic connections that a neuron makes to other regions (weighted out-degree, $k^w_\mathrm{out}$), that are afferent to it (weighted in-degree, $k^w_\mathrm{in}$), or the combination, weighted degree, $k^w = k^w_\mathrm{in} + k^w_\mathrm{out}$.
+
+At a given $k$ threshold, neurons were classified as either `hub' (degree $>k$) or `non-hub' (degree $\leq k$).
+All edges could subsequently be classified as either `rich' (hub $\rightarrow$ hub), `feeder' (hub $\rightarrow$ non-hub or non-hub $\rightarrow$ hub), or `peripheral' (non-hub $\rightarrow$ non-hub).
+For simplicity, hub $\rightarrow$ non-hub and non-hub $\rightarrow$ hub connections were grouped as a single `feeder' category for simplicity, [[TODO: check whether gene coexpression patterns were similar for connections running in both directions]].
+
+% \paragraph{Rich-club organization}
+In order to assess rich-club organization of our networks, we used the rich-club coefficient, defined as
+\begin{eqnarray} \label{eq:RCcoef}
+    \mathrm{\Phi(\textit{k})} = \dfrac{2M_{>\textit{k}}}{N_{>\textit{k}}(N_{>\textit{k}}-1)},
+\end{eqnarray}
 where $N_{>\textit{k}}$ is the number of nodes with degree $>\textit{k}$ and $M_{>\textit{k}}$ is the number of edges between them.
+
+When hubs in the network are more densely interconnected than expected by chance, they form a rich-club - a sub-network of high degree nodes that share a disproportionally high number of connections between themselves.
+
+In order to examine whether high degree nodes then to preferentially connect to other high degree nodes, at each degree \textit{k} we calculated a rich-club coefficient (see eq. \ref{eq:RCcoef}).
 
 It quantifies the tendency of nodes with degree $\geq k$ to preferentially connect to each other by calculating how many edges are present between nodes of degree at least \textit{k}, normalized by how many edges there could be between these nodes in a complete graph.
 Rich club coefficient monotonically increases with degree as only nodes with degree >\textit{k} are retained and this alone yields a higher expected density of a sub-graph, therefore a normalized rich-club coefficient (\ref{eq:RCnormcoef}) is used in order to define, whether this increase in the empirical network is higher that could be expected by chance alone.
@@ -344,8 +354,9 @@ Rich club coefficient monotonically increases with degree as only nodes with deg
 where $\Phi_\mathrm{random}(k)$ is the average value of $\Phi(k)$ across random networks.
 $\Phi_\mathrm{norm}>1$ indicates the rich-club organization of the network.
 
-In order to calculate the normalized rich club coefficient $\Phi_\mathrm{norm}$ we computed a 1000 random networks rewiring each edge an average of 50 times per null network and evaluated the ratio between rich club coefficient in the empirical $\Phi(k)$ and random $\Phi_{random}(k)$ resulting in $\Phi_\mathrm{norm}(k)$ at each degree threshold.
-Statistical significance for $\Phi_{norm}$ was estimated by computing P value directly from the empirical null distribution under the null hypothesis $\Phi(k) \leq \Phi_\mathrm{random}(k)$. \\
+In order to calculate the normalized rich club coefficient $\Phi_\mathrm{norm}$ we computed a 1\,000 random networks rewiring each edge an average of 50 times per null network and evaluated the ratio between rich club coefficient in the empirical $\Phi(k)$ and random $\Phi_{random}(k)$ resulting in $\Phi_\mathrm{norm}(k)$ at each degree threshold.
+Statistical significance for $\Phi_{norm}$ was estimated by computing P value directly from the empirical null distribution under the null hypothesis $\Phi(k) \leq \Phi_\mathrm{random}(k)$.
+
 Rich club coefficient and null networks were generated using the rich\textunderscore club\textunderscore bd and randmio\textunderscore dir functions from the Brain Connectivity Toolbox \cite{Rubinov2010} respectively.
 
 % NOTE THAT TOWLSON USED UNDIRECTED (CHEMICAL+ELECTRICAL) network. WE USE DIRECTED CHEMICAL. (should probably put this into results - not in methids).
@@ -448,15 +459,16 @@ Full resampling with $10^{7}$ iterations was used.
 
 %% for now figres are old - just to define where the figure is
 First, we investigated how gene coexpression relates to connectivity by examining it between connected and unconnected neuron pairs.
-As it is shown in Fig \ref{ConUncon}, connected pairs of neurons have more similar expression profiles than unconnected pairs (Wilcoxon rank-sum test, $P < 10^{-50}$). Furthermore, there is no difference in gene coexpression between reciprocally and unidirectionally connected neurons while coexpression in both of these groups is higher than between unconnected neurons (see Fig \ref{S1_Fig}). \\
+As it is shown in Fig \ref{fig:ConUncon}, connected pairs of neurons have more similar expression profiles than unconnected pairs (Wilcoxon rank-sum test, $P < 10^{-50}$). Furthermore, there is no difference in gene coexpression between reciprocally and unidirectionally connected neurons while coexpression in both of these groups is higher than between unconnected neurons (see Fig \ref{S1_Fig}). \\
 
 \begin{figure}[!h]
    \centering
     \includegraphics[width=0.9\textwidth]{ConUnconChemicalFINAL}
  \caption{{\bf Coexpression between connected and unconnected neurons.}
-Distribution of transcriptional similarity between connected and unconnected neurons. P-values are from Wilcoxon rank sum test.}
- \label{ConUncon}
- \end{figure}
+Distribution of transcriptional similarity between connected and unconnected neurons.
+P-values are from Wilcoxon rank sum test.}
+ \label{fig:ConUncon}
+\end{figure}
 To investigate which functional groups of genes contributed to the difference in transcriptional coupling between connected and unconnected neurons, we used a method of assigning each gene coexpression contribution (GCC) score that quantifies the contribution of each gene to the overall coexpression between neuron pairs (see Methods).  \\
 
 %% comment on enrichment analysis. No write up can be done before deciding on options.
@@ -467,9 +479,9 @@ Enrichment results depend on the size of gene sets selected: \\
 We get sensible results only when -log(score) option is selected.
 Otherwise connected links get sensory categories related to light detection.}.
 
-The majority of the significant ($P < 0.05$) GO categories are related to neuronal connectivity and communication, as listed in table \ref{table1} (1st column: GO category).
+The majority of the significant ($P < 0.05$) GO categories are related to neuronal connectivity and communication, as listed in Table~\ref{table1} (1st column: GO category).
 These findings are in line with our expectations as they confirm that genes that are more likely to be expressed in a pair of connected neurons are in fact related to neuronal connectivity and communication.\\
-\textbf{NOTE: As coexpression is increased in for both "on" and "off" matches, we might present a list for enrichment in 2 cases: ON matches (genes, that need to be both on to increase coexpression for a certain group of links), OFF matches (genes that need to be both off to increase coexpression for a certain group of links).
+\textbf{NOTE: As coexpression is increased in for both ``on'' and ``off'' matches, we might present a list for enrichment in 2 cases: ON matches (genes, that need to be both on to increase coexpression for a certain group of links), OFF matches (genes that need to be both off to increase coexpression for a certain group of links).
 Would separate meaning of ON and OFF and wouldn't mislead the reader. }
 
 
@@ -477,13 +489,18 @@ Would separate meaning of ON and OFF and wouldn't mislead the reader. }
 %%
 \subsection*{Properties of hub connectivity}
 %% INTRODUCE RICH CLUB  hene and focus on the difference between rich/feeder/peripheral links below
-\textbf{Rich club organisation of the connectome.}\\
+\textbf{Rich club organization of the connectome}\\
 
-Connectivity is not distributed evenly throughout the \textit{C. elegans} nervous system.
-Some neurons have a very high number of connections and, therefore, act as hubs in the network.
-When hubs in the network are more densely interconnected than expected by chance, they form a rich-club - a sub-network of high degree nodes that share a disproportionally high number of connections between themselves.
-The phenomenon of a rich-club in \textit{C. elegans} nervous system was first established by Towlson et al. \cite{Towlson2013} using an undirected binary connectivity matrix where both chemical and electrical synapses were combined. \\
-In this work we use a directed binary connectivity matrix of chemical synapses provided by Varshney et al. \cite{Varshney2011} for 279 non-pharingeal neurons (nodes) and 1961 connections between them (edges) and show a rich-club organisation of the chemical synapse network (see \textit{Materials and Methods}).
+In connectomes across species and scales, degree is distributed unequally, with a small number of highly connected brain regions, known as hubs \cite{Sporns:2007ea}, that are themselves more densely connected between themselves, forming a so-called `rich club' \cite{deReus:2013cy, ZamoraLopez:2010hy, Shih:2015cu, vandenHeuvel:2012kh, vandenHeuvel:2011he}.
+The same is true in the C. elegans neuronal nervous system, analyzed in the past as an undirected binary connectome including both chemical and electrical synapses \cite{Towlson:2013gf}, which exhibits highly connected, and densely interconnected hub neurons.
+As 
+
+
+The extended tail of the degree distribution presented in \ref{fig:SchematicRepresentation} indicates the existence of a small number of highly connected nodes.
+At each degree \textit{k} nodes in the network were classified as hubs (degree $>\textit{k}$) or non-hubs (degree $\leq\textit{k}$) and consequently all links between them separated into three categories: rich (hub $\rightarrow$ hub), feeder (hub $\rightarrow$ non-hub or non-hub $\rightarrow$ hub) and peripheral (non-hub $\rightarrow$ non-hub).
+
+
+In this work we use a directed binary connectivity matrix of chemical synapses provided by \citet{Varshney2011} for 279 non-pharingeal neurons (nodes) and 1961 connections between them (edges) and show a rich-club organisation of the chemical synapse network (see \textit{Materials and Methods}).
 Rich-club organisation manifests across a continuous range of degrees $41<k<58$ ($P<0.05$, shaded grey area in Fig.\ref{RCcoef}) as normalised rich-club coefficient $\Phi_{norm}>1$.
 This indicates that when nodes are defined as hubs (degree $>\textit{k}$) in this range, they are more densely interconnected than expected by chance.
 Rich club in the chemical synapse network consists of 13 high degree neurons with degree $42 \leq k \leq 98$. \\
