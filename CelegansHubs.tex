@@ -334,18 +334,23 @@ All edges could subsequently be classified as either `rich' (hub $\rightarrow$ h
 For simplicity, hub $\rightarrow$ non-hub and non-hub $\rightarrow$ hub connections were grouped as a single `feeder' category for simplicity, [[TODO: check whether gene coexpression patterns were similar for connections running in both directions]].
 
 % \paragraph{Rich-club organization}
-In order to assess rich-club organization of our networks, we used the rich-club coefficient, defined as
-\begin{eqnarray} \label{eq:RCcoef}
-    \mathrm{\Phi(\textit{k})} = \dfrac{2M_{>\textit{k}}}{N_{>\textit{k}}(N_{>\textit{k}}-1)},
-\end{eqnarray}
-where $N_{>\textit{k}}$ is the number of nodes with degree $>\textit{k}$ and $M_{>\textit{k}}$ is the number of edges between them.
+To measure whether hubs are densely interconnected, we used the rich-club coefficient, $\phi(k)$ \cite{Colizza:2006kz}:
+\begin{equation}
+    \label{eqn:rich_club}
+    \phi(k) = \frac{2E_{>k}}{N_{>k}(N_{>k}-1)},
+\end{equation}
+where $N_{>k}$ is the number of nodes with degree $>k$ and $E_{>k}$ counts the number of edges between them.
+The rich-club coefficient, $\phi(k)$, thus measures the link density in the subgraph containing nodes with degree $>k$.
+However, $\phi(k)$ is expected to increase with $k$ for general networks, since retaining nodes with higher degree will yield a higher expected link density in the subgraph containing nodes with degree $>k$.
+Consequently, we compared $\phi(k)$ measured from the C. elegans connectome, to that obtained from randomized null networks, $\phi_\mathrm{rand}(k)$.
+An ensemble of 1\,000 null networks were generated, constructed by shuffling the links in the empirical network while retaining the degree distribution of nodes in the network \cite{Maslov:2002hi} (rewiring each edge an average of 50 times per null network) using the \texttt{randmio\_dir} function from the {\it Brain Connectivity Toolbox} \cite{Rubinov:2010jd}.
 
-When hubs in the network are more densely interconnected than expected by chance, they form a rich-club - a sub-network of high degree nodes that share a disproportionally high number of connections between themselves.
+The normalized rich-club coefficient, $\Phi_\mathrm{norm}(k)$, was computed as the ratio of the rich-club coefficient of the empirical network to the mean rich-club coefficient of the ensemble of randomized networks: $\Phi_\mathrm{norm}(k) = \phi(k)/\langle \phi_\mathrm{rand}(k) \rangle$ \cite{Colizza:2006kz}.
+Statistical significance was assessed by computing a $P$-value directly from the empirical null distribution, $\phi_\mathrm{rand}(k)$, as a permutation test under the null hypothesis $\phi(k) \leq \phi_\mathrm{rand}(k)$ \cite{vandenHeuvel:2011he}.
+Note that although the sharp increase in $\phi_\mathrm{norm}$ at $k = 42$ coincided with the exclusion of the piriform area (PIR), the last remaining region of the olfactory cortex (Fig.~\ref{fig:RichClub}B), the network's rich-club organization was not driven by the olfactory areas, as similar rich-club organization was also observed when all olfactory regions were excluded from the analysis.
 
-In order to examine whether high degree nodes then to preferentially connect to other high degree nodes, at each degree \textit{k} we calculated a rich-club coefficient (see eq. \ref{eq:RCcoef}).
 
-It quantifies the tendency of nodes with degree $\geq k$ to preferentially connect to each other by calculating how many edges are present between nodes of degree at least \textit{k}, normalized by how many edges there could be between these nodes in a complete graph.
-Rich club coefficient monotonically increases with degree as only nodes with degree >\textit{k} are retained and this alone yields a higher expected density of a sub-graph, therefore a normalized rich-club coefficient (\ref{eq:RCnormcoef}) is used in order to define, whether this increase in the empirical network is higher that could be expected by chance alone.
+
 
 \begin{eqnarray}
 	\label{eq:RCnormcoef}
@@ -358,6 +363,8 @@ In order to calculate the normalized rich club coefficient $\Phi_\mathrm{norm}$ 
 Statistical significance for $\Phi_{norm}$ was estimated by computing P value directly from the empirical null distribution under the null hypothesis $\Phi(k) \leq \Phi_\mathrm{random}(k)$.
 
 Rich club coefficient and null networks were generated using the rich\textunderscore club\textunderscore bd and randmio\textunderscore dir functions from the Brain Connectivity Toolbox \cite{Rubinov2010} respectively.
+
+In order to examine whether high degree nodes then to preferentially connect to other high degree nodes, at each degree \textit{k} we calculated a rich-club coefficient (see eq. \ref{eq:RCcoef}).
 
 % NOTE THAT TOWLSON USED UNDIRECTED (CHEMICAL+ELECTRICAL) network. WE USE DIRECTED CHEMICAL. (should probably put this into results - not in methids).
 %The phenomenon of the rich-club organisation in \textit{C. elegans} connectome was originally demonstrated by Towlson et al. \cite{Towlson2013} in an undirected binary version of the connectome where data for both chemical and electrical synapses were combined.
