@@ -426,13 +426,6 @@ No clear relationship was found (plot in supplementary??), therefore no coexpres
 In the \emph{C. elegans} connectome, 92 out of 118 classes of neurons have bilateral representation, meaning that each of those neuron classes have both left and right counterparts (e.g., AVAL/AVAR).
 Apart from their anatomical resemblance, these neurons tend to have very similar gene expression signature with a mean coexpression value of 0.98.
 To ensure that our analyses are not influenced by this symmetry, coexpression values between the pairs of symmetrical neurons were excluded from all further analyses.
- \begin{figure}[!ht]
-  \centering
-    \includegraphics[width=1\textwidth]{SchematicDATA}
- \caption{{\bf Schematic representation of the work-flow}
-Connectivity matrix coded according to link type (and probably gene expression matrix: rows as it is (neuron order), columns ordered according to similarity).}
- \label{fig:SchematicRepresentation}
- \end{figure}
 
 % METHODS: gene enrichment
 \subsection*{Gene enrichment analysis}
@@ -460,7 +453,7 @@ These GCC scores were then used to perform gene score resampling (GSR) analysis,
 
 The above mentioned analysis was done using 3.0.2 of ErmineJ \cite{Gillis2010}.
 Gene annotations were assigned from GO \cite{Ashburner2000} using an annotation file from GEMMA \cite{Zoubarev2012}.
-Generic\textunderscore worm \textunderscore noParents.an.txt.gz downloaded using a build-in option within ErmineJ software on February 10 2017.
+\texttt{Generic\_worm\_noParents.an.txt.gz} downloaded using a build-in option within ErmineJ software on February 10 2017.
 GO terms and definitions were obtained in RDF XML file format downloaded from \url{archive.geneontology.org/latest-termdb/go_daily-termdb.rdf-xml.gz} on February 10 2017.
 In the analysis we were considering gene set sizes in the range 5–100, taking the mean score in a GO group to summarize it.
 % {archive.geneontology.org/latest-termdb/go \textunderscore daily-termdb.rdf-xml.gz}
@@ -483,6 +476,17 @@ Full resampling with $10^{7}$ iterations was used.
 
 % Results and Discussion can be combined.
 \section*{Results}
+
+A schematic overview of our analysis is shown in Fig.~\ref{fig:SchematicRepresentation}.
+We show binary expression data, the binary topology of the directed synaptic connectome, and our aim to investigate relationships between the pairwise patterns of synaptic connectivity and gene coexpression.
+
+\begin{figure}[t]
+  \centering
+    \includegraphics[width=1\textwidth]{SchematicDATA}
+ \caption{{\bf Schematic representation of the work-flow}
+Connectivity matrix coded according to link type (and probably gene expression matrix: rows as it is (neuron order), columns ordered according to similarity).}
+\label{fig:SchematicRepresentation}
+\end{figure}
 
 %%
 \subsection*{Coexpression and connectivity}
