@@ -293,8 +293,6 @@ We sought to determine whether hubs in the \emph{C. elegans} connectome exhibit 
 % METHODS SECTION
 \section*{Materials and methods}
 
-Neurons making up the nervous system of the nematode worm \emph{C. elegans} can be divided into groups, commonly as: sensory neurons (support receptive function), motor neurons (cells containing neuromuscular junctions), and interneurons (all other neurons) \cite{White:1986tx}.
-
 % For figure citations, please use "Fig" instead of "Figure".
 \begin{itemize}
     \item{Connectivity data: types of synapses, weighted/binary, degree; Rich club analysis, how neurons are annotated}
@@ -308,18 +306,31 @@ Neurons making up the nervous system of the nematode worm \emph{C. elegans} can 
 To investigate the relationship between hub connectivity and gene expression in a micro-scale network we coupled two publicly available datasets containing synaptic-level connectivity network and gene expression signatures for the somatic nervous system of the \textit{C. elegans} hermaphrodite.
 
 % METHODS: connectivity data
-\subsection*{Connectivity data}
-Full neuron level connectivity data for 279 somatic neurons (282 nonpharyngeal neurons, excluding CANL/R and VC6, for which connectivity data is unavailable) produced in \citet{Varshney2011} were downloaded from WormAtlas (\url{http://www.wormatlas.org/neuronalwiring.html#NeuronalconnectivityII}).
-[[TODO: Summarize briefly how the data were collected, using EM, etc., and what connections were recorded and how categorized -- i.e., both electrical gap junctions and chemical synapses]]
-For the chemical synapses, presynaptic and postsynaptic neurons, and the number of synapses are resolved, resulting in a weighted, directed connectivity matrix, with weights given by the number of synapses.
-To avoid any possible differences in gene expression between chemical synapses and gap junctions, here we focused just on the chemical synapse network, which contains a total of 1\,961 connections [[TODO: add number of synapses]].
+\subsection*{Neuronal connectivity data}
+
+The C. elegans nervous system contains 282 nonpharyngeal neurons [[TODO: what about the others?]].
+Previous work has commonly divided them into three groups as:
+sensory neurons (support receptive function),
+motor neurons (cells containing neuromuscular junctions),
+and interneurons (all other neurons) \cite{White:1986tx}.
+
+The neurotransmitter types of the majority of neurons in the hermaphrodite C. elegans nervous system has been mapped, revealing the dominance of cholinergic signaling \cite{Pereira:2015er}.
+We matched data from Table 2 in \citet{Pereira:2015er} to label the neurotransmitter type of all neurons.
+
+Neuronal connectivity data was obtained for 279 somatic neurons (282 nonpharyngeal neurons, excluding CANL/R and VC6, for which connectivity data is unavailable) of the C. elegans nervous system, as described in \citet{Varshney2011}.
+Data were downloaded from WormAtlas (\url{http://www.wormatlas.org/neuronalwiring.html#NeuronalconnectivityII}).
+[[TODO: Summarize briefly how the data were originally collected, using EM, from White and then updated by Varshney etc., and what connections were recorded and how categorized -- i.e., both electrical gap junctions and chemical synapses]]
+
+The data distinguish presynaptic and postsynaptic neurons (providing connection direction information) as well as the number of synapses (providing connection weight information).
+The result can be represented as a weighted, directed connectivity matrix, with weights given by the number of synapses.
+By contrast, the directionality of electrical gap junctions remains unknown, and have thus been represented as bidirectional connections.
+
+To avoid any possible differences in gene expression between chemical synapses and gap junctions, our analysis focuses just on the synaptic connectivity network, which contains a total of 1\,961 connections [[TODO: add number of synapses]].
+Note that this is in contrast to previous analysis by \citet{Towlson:2013gf}, which symmetrized chemical connections (ignoring directed information) and added electrical gap junctions as undirected connections.
 [[TODO: contextualize this section by adding references to past work -- e.g., when we say we just look at synaptic network -- has this been done in the past?]]
 
-Two dimensional spatial co-ordinates for 277 neurons (including VC6) were obtained from \url{www.biological-networks.org/?page_id=25}.
-Positions for 3 neurons not included in this dataset (AIBL, AIYL, SMDVL) were reconstructed based on the positions of the contralateral neurons (AIBR, AIYR, SMDVR).
-[[TODO: details on how reconstructed]]
-
-NOTE THAT TOWLSON USED UNDIRECTED (CHEMICAL+ELECTRICAL) network. WE USE DIRECTED CHEMICAL. (should probably put this into results - not in methids).
+Spatial information about neurons was obtained for 277 neurons (including VC6 [[TODO: Aurina, why mention this?]]) as two dimensional spatial coordinates from \url{www.biological-networks.org/?page_id=25}.
+Coordinates for three neurons (AIBL, AIYL, SMDVL) were missing in this dataset, and were reconstructed based on the positions of the contralateral neurons (AIBR, AIYR, SMDVR) [[TODO: Aurina, provide details on how these were `reconstructed']].
 
 % METHODS: rich club analysis
 \subsection*{Network measures}
@@ -648,9 +659,7 @@ Module 1 has highest coexpression despite having highest connection cost (longes
 
 
 
-
 %%
-
 % Place tables after the first paragraph in which they are cited.
 % \begin{table}[!ht]
 % \begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
