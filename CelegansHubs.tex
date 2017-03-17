@@ -376,9 +376,12 @@ Expression annotations are made directly to individual neurons, and indirectly t
 Annotations are also made with different levels of certainty, including `certain', `enriched', `partial', `blank' [[TODO: Aurina, what do all of these mean? Are there more possible annotations? We must describe here how these labels are ascribed.]].
 The main analyses presented here are of expression data that is annotated directly to individual neurons, and with one of the following qualifiers: `certain', `enriched', `partial', or `blank' [[TODO: Aurina, check?]].
 
-Each neuron on average is associated with the expression of 30 genes (range: 3 to 138 genes), while each gene is expressed on average in 9 out of 279 neurons (range: 1 to 148 neurons).
-It is important to note that, because the absence of expression data not recorded in the database, it is not possible to distinguish between the following two cases: (i) ``gene is not expressed'' and (ii) ``there is no information on whether gene is expressed''.
-Both cases are recorded and analyzed as ``0'' expression here.
+The resulting binary expression data for 279 neurons and 948 genes is shown as a matrix in Fig.~\ref{fig:SchematicRepresentation}A.
+An average of 30 genes are expressed in each neuron (range: 3 to 138 genes); each gene is expressed in an average of 9 neurons (range: 1 to 148 neurons).
+
+As well as being unable to distinguish relative expression levels between neurons, we also cannot distinguish between the two cases: (i) ``gene is not expressed'' and (ii) ``there is no information on whether gene is expressed'', which are both represented as a ``0'' in the expression data at hand.
+
+It is important to note that, because the absence of expression data not recorded in the database, it is not possible to distinguish between the following two cases
 
 
 
@@ -720,8 +723,13 @@ Discussion text
     \item{No way of discriminating between missing data and the absence of expression}
     \item{only around 5 percent of genes in the genome available}
     \item{annotation problems: different qualifiers, loosing sensitivity/specificity if including too much or too little - need to balance}
-
 \end{itemize}
+
+% Binary expression data
+Compared to continuous expression information provided from techniques like RNA sequencing, \emph{in situ} hybridization, or microarray with whole-brain coverage using a systematic experimental procedure \cite{Lein:2007jn, Shen:2012ua, Tasic:2016jp}, the data analyzed here presents numerous challenges.
+With access to only a relatively limited coverage of the genome [[TODO: how many worm genes in total? Add proportion of worm genes represented]], the enrichment results provided here are severely constrained in scope.
+Further, using the current data, we are unable to distinguish expression levels between neurons that express a given gene, and we are unable to distinguish missing data, from negative data (both are represented as `0' in our data).
+Future work systematically mapping gene expression in a unified experimental paradigm would allow a more subtle and comprehensive analysis of gene expression and function.
 
 \section*{Conclusion}
 
