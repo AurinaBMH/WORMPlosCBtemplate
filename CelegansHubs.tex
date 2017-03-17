@@ -368,12 +368,19 @@ $\Phi_\mathrm{norm} > 1$ indicates the rich-club organization of the network, wi
 
 % METHODS: gene expression
 \subsection*{Gene expression}
-Gene expression signatures for each neuron were obtained from the publicly available WormBase database (release WS256 downloaded on 6th Feb 2017 from \url{ftp://ftp.wormbase.org/pub/wormbase/releases/WS256/ONTOLOGY/anatomy_association.WS256.wb}).
-The dataset contains binary expression profiles for 948 genes annotated to at least one neuron.
-To minimize noise in the dataset we selected genes that were directly annotated to a specific neuron and labelled with the following qualifiers in the anatomy association file: certain, enriched, partial, blank.
+
+Gene expression in C. elegans neurons is measured as a binary indicator from individual experiments, and compiled into a unified data resource on WormBase \cite{Harris:2009kd}.
+The database is regularly updated; here we used release WS256 (\url{ftp://ftp.wormbase.org/pub/wormbase/releases/WS256/ONTOLOGY/anatomy_association.WS256.wb}), in which 948 genes were expressed in at least one neuron.
+% downloaded on 6th Feb 2017
+Expression annotations are made directly to individual neurons, and indirectly to groups of neurons [[TODO: add some detail about this? We investigated and compared annotation types in some detail.]].
+Annotations are also made with different levels of certainty, including `certain', `enriched', `partial', `blank' [[TODO: Aurina, what do all of these mean? Are there more possible annotations? We must describe here how these labels are ascribed.]].
+The main analyses presented here are of expression data that is annotated directly to individual neurons, and with one of the following qualifiers: `certain', `enriched', `partial', or `blank' [[TODO: Aurina, check?]].
+
 Each neuron on average is associated with the expression of 30 genes (range: 3 to 138 genes), while each gene is expressed on average in 9 out of 279 neurons (range: 1 to 148 neurons).
 It is important to note that, because the absence of expression data not recorded in the database, it is not possible to distinguish between the following two cases: (i) ``gene is not expressed'' and (ii) ``there is no information on whether gene is expressed''.
-Both cases are recorded and analyzed as ``0'' expression here.\\
+Both cases are recorded and analyzed as ``0'' expression here.
+
+
 
 Gene expression was assigned to neurons based on anatomical hierarchy obtained from...
 [[TODO BEN: PROBABLY SHOULD ADD INFORMATION ABOUT HIERARCHY FILE HERE as it's also from the wormbase (how/when downloaded/what queries were used]]
@@ -734,6 +741,7 @@ Conclusion text.
 
 \section*{Acknowledgments}
 Thanks to Alex Fornito, for being such a big deal.
+We thank WormBase.
 
 \nolinenumbers
 
