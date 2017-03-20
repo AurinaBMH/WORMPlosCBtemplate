@@ -417,15 +417,18 @@ We therefore selected $r_\phi$ to analyze in this work, which was insensitive to
 As well as $r_\phi$, we also developed a new index that distinguishes matching of positive gene expression from negative gene expression that quantifies that probability that two binary strings will contain at least as many positive matches, $n_{11}$, as observed (see Supplementary Information).
 This showed ([[biases?]]) which gave similar results [[TODO: check that behavior is indeed similar]].
 
-Previous work has emphasized the importance of spatial effects in driving patterns of gene expression, for example, with gene coexpression exhibiting high spatial correlation in the mouse brain \cite{Fulcher:2016ck} and human cortex \cite{Pantazatos:2016ir}.
-[[TODO: Aurina, adjust record for our PNAS paper, listed as \textt{Fulcher2015}, but is a 2016 article...]]
+Previous work has emphasized the importance of spatial effects in driving patterns of gene expression, for example, with gene coexpression exhibiting spatial autocorrelation in the mouse brain \cite{Fulcher:2016ck} and human cortex \cite{Krienen:2016eq, Pantazatos:2016ir}.
+[[TODO: Aurina, adjust record for our PNAS paper, listed as \textbf{Fulcher2015}, but is a 2016 article...]]
 Given that connection probability is also dependent on spatial separation in mammalian brains \cite{Henderson:2014fg, Horvat:2016ia}, [[TODO: has this analysis been done in worm? If not we need to do it...]], it is important to correct for spatial effects to ensure that relationships between gene expression and connectivity are not simply the result of both properties showing spatial autocorrelation.
 In C. elegans, we found no correlation between the Euclidean separation distance between a pair of neurons (based on their two dimensional coordinates) and their gene coexpression, $r_\phi$ ($r = X$, $p = Y$, cf. Fig.~[[SUPP-FIG]]).
+[[TODO: add supplementary figure on distance dependence; perhaps coloring by head/tail]]
 No clear relationship was found (plot in supplementary??), therefore no coexpression-distance corrections were applied (maybe include the plot in supplementary?).
 
-In the \emph{C. elegans} connectome, 92 out of 118 classes of neurons have bilateral representation, meaning that each of those neuron classes have both left and right counterparts (e.g., AVAL/AVAR).
-Apart from their anatomical resemblance, these neurons tend to have very similar gene expression signature with a mean coexpression value of 0.98.
-To ensure that our analyses are not influenced by this symmetry, coexpression values between the pairs of symmetrical neurons were excluded from all further analyses.
+A total of 92 of the 118 anatomically distinct neuron classes in the hermaphrodite C. elegans have a bilateral representation, meaning that each of those neuron classes have both left and right counterparts (e.g., AVAL/AVAR).
+[[TODO: Aurina, isn't it more relevant to describe the neurons that we include in the present analysis? 118 neuron classes gives 302 neurons, but we analyze fewer, right?]]
+These neurons exhibit highly correlated gene expression patterns, with a mean coexpression value $\langle r_\phi^{\mathrm{intraclass}} \rangle = 0.98$.
+[[TODO: Aurina, can you comment in the code through the text that you used to produce results like this? I think it would be good to include a standard deviation here]]
+To ensure that our analyses are not influenced by this symmetry, we excluded coexpression values within neuron classes from all analyses reported here.
 
 % METHODS: gene enrichment
 \subsection*{Gene enrichment analysis}
