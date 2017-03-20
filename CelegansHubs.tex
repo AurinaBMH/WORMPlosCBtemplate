@@ -432,26 +432,34 @@ To ensure that our analyses are not influenced by this symmetry, we excluded coe
 
 % METHODS: gene enrichment
 \subsection*{Gene enrichment analysis}
-In order to interpret differences in gene coexpression between different types of node pairs, we used enrichment analysis to identify functionally annotated groups of genes from the Gene Ontology (GO) \cite{Ashburner2000}.
+To interpret differences in gene coexpression between different types of node pairs, we used enrichment analysis to identify functionally annotated groups of genes from the Gene Ontology (GO) \cite{Ashburner2000}.
 %  that contribute to the increased coexpression between:
 % (i) connected pairs of neurons as compared to unconnected pairs as well as
 % (ii) connections involving hubs (rich and feeder) compared to connections that do not involve hubs (peripheral).
-
-Following previous work \cite{Fulcher:2016ck}, we first assigned a gene coexpression contribution (GCC) score to each gene, $g_{ij},$ that quantifies the contribution of each gene to the coexpression score for a given pair of brain regions ($i$ and $j$).
-
-First, for each gene we determined the pattern of matching expression profiles (a match meaning that a gene is expressed by both neurons) between each pair of neurons resulting in a binary 279 x 279 matrix.
-Then, for each gene we calculated a cumulative binomial probability of getting more matches $(X)$ than in the empirical data $(m)$ on a particular connection type (see eq. \ref{eq:CBinomialProbability}).
-Depending on the connection type in question this can be phrased in two following ways: (i) what is the probability to get more matches on connected links given the number of connected links; (ii) what is the probability to get more matches on links involving hubs (rich and feeder) given the number of matches on connected links.
+% To this end, we first assigned a gene coexpression contribution (GCC) score to each inter-region pair, $(i,j)$, for each gene, $a$, as $\mathrm{GCC}_{ij}^{(a)}$, that quantifies the contribution of each gene to the coexpression score for a given pair of brain regions ($i$ and $j$).
+In previous work involving continuous expression data, we developed a score for each gene that quantified its contribution, at each edge, $(i,j)$, to the overall Pearson correlation across all genes \cite{Fulcher:2016ck}.
+However, with the current binary expression data, expression of a given gene, $a$, across brain regions, $i$: $g^{(a)}_i$, can take three possible combinations of coexpression at each edge, $(i,j)$:
+(i) \emph{both expressed} $g^{(a)}_i = 1$ and $g^{(a)}_j = 1$;
+(ii) \emph{mismatched} $g^{(a)}_i = 1$ and $g^{(a)}_j = 0$ or $g^{(a)}_i = 0$ and $g^{(a)}_j = 1$;
+(iii) \emph{neither expressed} $g^{(a)}_i = 0$ and $g^{(a)}_j = 0$.
+Our measure attempts to score individual genes by their coexpression type in different types of inter-region pairs (e.g., connected versus unconnected pairs, or rich/feeder/peripheral connections).
+In particular, we were interested in quantifying increases in a gene being expressed in both regions of a given class of inter-region pairs, which we computed as a cumulative binomial probability of obtaining at least $m$ matches ($g^{(a)}_i = 1$ and $g^{(a)}_j = 1$) being observed empirically:
 \begin{eqnarray}
 	\label{eq:CBinomialProbability}
-     \mathrm{P(X>m)} = 1 - \sum_{\textit{i}=0}^{m}\binom{n}{i} p^{\textit{i}}(1-p^{n-\textit{i}}),
+     P(X > m) = 1 - \sum_{i=0}^{m}\binom{n}{i} p^{i}(1-p^{n-i}),
 \end{eqnarray}
-where m - the number of matches in empirical data, \textit{p} - the probability of randomly choosing a selected type of connection and \textit{n} - a maximum number of possible matches given the connection type in question.
+where $p$ is the probability of the given connection class (as $n_\mathrm{class}/M$ for $n_\mathrm{class}$ connections out of $M$ possible pairs), and $n$ is the maximum number of possible matches.
+For example, when comparing differences in binary coexpression between pairs of brain regions that are structurally connected and pairs that are unconnected, Eq.~\eqref{eq:CBinomialProbability} has $p$ as the proportion of all possible connections that exist, and captures the probability of genes being expressed together in connected pairs of brain regions at least as frequently as observed.
+When comparing links involving hubs compared to those between nonhubs, $p$ is the proportion of connections that involve hubs.
+
+% For each gene, we first determined the pattern of matching expression profiles (a match meaning that a gene is expressed by both neurons) between each pair of neurons resulting in a binary 279 x 279 matrix.
+% Then, for each gene we calculated a cumulative binomial probability of getting more matches $(X)$ than in the empirical data $(m)$ on a particular connection type (see eq. \ref{eq:CBinomialProbability}).
 
 
 When calculating GCC for connected links more then one match for a gene overall was required (as a result 577 genes out of 948 left); when calculating GCC for the links involving hubs (rich and feeder links) more than one match was required on connected links (as a result 390 out of 948 genes left).
 Otherwise, no information about the contribution of a specific gene to the overall coexpression pattern could be extracted.
-\textbf{(NOTE: not literally true as both on and off matches equally contribute to an increase in coexpression, - need to find a way how to explain, why non-expression matches are not taken into account here).}\\
+\textbf{(NOTE: not literally true as both on and off matches equally contribute to an increase in coexpression, - need to find a way how to explain, why non-expression matches are not taken into account here).}
+
 These GCC scores were then used to perform gene score resampling (GSR) analysis, which examines if genes with low GCC scores are statistically over-represented in any functional category.
 
 The above mentioned analysis was done using 3.0.2 of ErmineJ \cite{Gillis2010}.
