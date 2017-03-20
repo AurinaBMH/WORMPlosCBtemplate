@@ -4,52 +4,59 @@ The top-level auxiliary file: ./CelegansHubs.aux
 The style file: plos2015.bst
 Database file #1: library.bib
 Database file #2: library_ben.bib
-Warning--I didn't find a database entry for "Rubinov2010"
+Repeated entry---line 67 of file library_ben.bib
+ : @article{Shih:2015cu
+ :                     ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 228 of file library_ben.bib
+ : @article{deReus:2013cy
+ :                       ,
+I'm skipping whatever remains of this entry
 Warning--I didn't find a database entry for "Ashburner2000"
 Warning--I didn't find a database entry for "Zoubarev2012"
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 19 entries,
+You've used 32 entries,
             3058 wiz_defined-function locations,
-            783 strings with 13121 characters,
-and the built_in function-call counts, 71484 in all, are:
-= -- 8594
-> -- 272
-< -- 1
-+ -- 371
-- -- 68
-* -- 6964
-:= -- 7849
-add.period$ -- 85
-call.type$ -- 19
+            867 strings with 18485 characters,
+and the built_in function-call counts, 120814 in all, are:
+= -- 14412
+> -- 496
+< -- 3
++ -- 483
+- -- 124
+* -- 11778
+:= -- 13286
+add.period$ -- 136
+call.type$ -- 32
 change.case$ -- 0
 chr.to.int$ -- 0
-cite$ -- 19
-duplicate$ -- 3119
-empty$ -- 7324
-format.name$ -- 87
-if$ -- 16264
+cite$ -- 32
+duplicate$ -- 5064
+empty$ -- 12408
+format.name$ -- 156
+if$ -- 27459
 int.to.chr$ -- 0
-int.to.str$ -- 19
-missing$ -- 177
-newline$ -- 107
-num.names$ -- 19
-pop$ -- 296
+int.to.str$ -- 32
+missing$ -- 309
+newline$ -- 171
+num.names$ -- 32
+pop$ -- 507
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 285
+skip$ -- 520
 stack$ -- 0
-substring$ -- 18649
-swap$ -- 453
-text.length$ -- 1
+substring$ -- 31838
+swap$ -- 793
+text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 193
-width$ -- 21
-write$ -- 227
-(There were 3 warnings)
+while$ -- 337
+width$ -- 34
+write$ -- 368
+(There were 2 error messages)

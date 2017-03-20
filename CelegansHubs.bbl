@@ -100,6 +100,17 @@ White JG, Southgate E, Thomson JN.
   elegans}.
 \newblock {\ldots} Trans R Soc Lond B Biol {\ldots}. 1986;.
 
+\bibitem{Harris:2009kd}
+Harris TW, Antoshechkin I, Bieri T, Blasiar D, Chan J, Chen WJ, et~al.
+\newblock {WormBase: a comprehensive resource for nematode research}.
+\newblock Nucleic Acids Research. 2009;38:D463--D467.
+
+\bibitem{Pereira:2015er}
+Pereira L, Kratsios P, Serrano-Saiz E, Sheftel H, Mayo AE, Hall DH, et~al.
+\newblock {A cellular and regulatory map of the cholinergic nervous system of
+  C. elegans}.
+\newblock eLife. 2015;4:e12432.
+
 \bibitem{Varshney2011}
 Varshney LR, Chen BL, Paniagua E, Hall DH, Chklovskii DB.
 \newblock {Structural properties of the Caenorhabditis elegans neuronal
@@ -107,16 +118,79 @@ Varshney LR, Chen BL, Paniagua E, Hall DH, Chklovskii DB.
 \newblock PLoS computational biology. 2011;7(2):e1001066.
 \newblock doi:{10.1371/journal.pcbi.1001066}.
 
+\bibitem{Schroter:2017eo}
+Schr{\"o}ter M, Paulsen O, Bullmore E.
+\newblock {Micro-connectomics: probing the organization of neuronal networks at
+  the cellular scale}.
+\newblock Nat Rev Neurosci. 2017; p. 1--16.
+
+\bibitem{Colizza:2006kz}
+Colizza V, Flammini A, Serrano M, Vespignani A.
+\newblock {Detecting rich-club ordering in complex networks}.
+\newblock Nat Phys. 2006;2(2):110--115.
+
+\bibitem{Maslov:2002hi}
+Maslov S, Sneppen K.
+\newblock {Specificity and stability in topology of protein networks}.
+\newblock Science. 2002;296:910--913.
+
+\bibitem{Rubinov:2010jd}
+Rubinov M, Sporns O.
+\newblock {Complex network measures of brain connectivity: Uses and
+  interpretations}.
+\newblock NeuroImage. 2010;52(3):1059--1069.
+
+\bibitem{Krienen:2016eq}
+Krienen FM, Yeo BTT, Ge T, Buckner RL, Sherwood CC.
+\newblock {Transcriptional profiles of supragranular-enriched genes associate
+  with corticocortical network architecture in the human brain.}
+\newblock Proc Natl Acad Sci USA. 2016;113(4):E469--78.
+
+\bibitem{Pantazatos:2016ir}
+Pantazatos SP, Li X.
+\newblock {Commentary: BRAIN NETWORKS. Correlated gene expression supports
+  synchronous activity in brain networks. Science 348, 1241-4.}
+\newblock bioRxiv. 2016; p. 079202.
+
+\bibitem{Henderson:2014fg}
+Henderson JA, Robinson PA.
+\newblock {Relations Between the Geometry of Cortical Gyrification and
+  White-Matter Network Architecture}.
+\newblock Brain Conn. 2014;4(2):112--130.
+
+\bibitem{Horvat:2016ia}
+Horv{\'a}t S, G{\u{a}}m{\u{a}}nuț R, Ercsey-Ravasz M, Magrou L,
+  G{\u{a}}m{\u{a}}nuț B, Van~Essen DC, et~al.
+\newblock {Spatial Embedding and Wiring Cost Constrain the Functional Layout of
+  the Cortical Network of Rodents and Primates}.
+\newblock PLoS Biol. 2016;14(7):e1002512.
+
 \bibitem{Gillis2010}
 Gillis J, Mistry M, Pavlidis P.
 \newblock {Gene function analysis in complex data sets using ErmineJ.}
 \newblock Nature protocols. 2010;5(6):1148--59.
 \newblock doi:{10.1038/nprot.2010.78}.
 
-\bibitem{Towlson2013}
-Towlson EK, V{\'{e}}rtes PE, Ahnert SE, Schafer WR, Bullmore ET.
-\newblock {The rich club of the C. elegans neuronal connectome.}
-\newblock Journal of Neuroscience. 2013;33(15):6380--7.
-\newblock doi:{10.1523/JNEUROSCI.3784-12.2013}.
+\bibitem{Sporns:2007ea}
+Sporns O, Honey CJ, K{\"o}tter R.
+\newblock {Identification and classification of hubs in brain networks}.
+\newblock PLoS ONE. 2007;2(10):e1049.
+
+\bibitem{Lein:2007jn}
+Lein E, Hawrylycz MJ, Ao N, Ayres M, Bensinger A, Bernard A, et~al.
+\newblock {Genome-wide atlas of gene expression in the adult mouse brain}.
+\newblock Nature. 2007;445(7124):168--176.
+
+\bibitem{Shen:2012ua}
+Shen EH, Overly CC, Jones AR.
+\newblock {The Allen Human Brain Atlas: comprehensive gene expression mapping
+  of the human brain}.
+\newblock Trends Neurosci. 2012;32(12):711--714.
+
+\bibitem{Tasic:2016jp}
+Tasic B, Menon V, Nguyen TN, Kim TK, Jarsky T, Yao Z, et~al.
+\newblock {Adult mouse cortical cell taxonomy revealed by single cell
+  transcriptomics}.
+\newblock Nat Neurosci. 2016;19(2):335--346.
 
 \end{thebibliography}
