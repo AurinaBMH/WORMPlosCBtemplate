@@ -88,10 +88,10 @@
 \usepackage{textcomp,marvosym}
 
 % cite package, to clean up citations in the main text. Do not remove.
-\usepackage{cite}
+% \usepackage{cite}
 
 % Added natbib for citet commands:
-\usepackage{natbib}
+\usepackage[numbers]{natbib}
 
 % Added url for urls:
 \usepackage{url}
@@ -147,6 +147,7 @@
 
 % Use the PLoS provided BiBTeX style
 \bibliographystyle{plos2015}
+% \bibliographystyle{plainnat}
 
 % Remove brackets from numbering in List of References
 \makeatletter
@@ -256,7 +257,7 @@ Text
 
     \item{Hubs plus gene expression}
     \begin{itemize}
-    \item{groundbreaking (and also breathtaking) work by Ben and Alex \cite{Fulcher2015}}
+    \item{groundbreaking (\& breathtaking) work by Ben and Alex \cite{Fulcher2015}}
     \item{Different types of connections - different expression}
     \end{itemize}
     \item{Summary}
@@ -369,6 +370,10 @@ $\Phi_\mathrm{norm} > 1$ indicates the rich-club organization of the network, wi
 %The phenomenon of the rich-club organisation in \textit{C. elegans} connectome was originally demonstrated by Towlson et al. \cite{Towlson2013} in an undirected binary version of the connectome where data for both chemical and electrical synapses were combined.
 %As a result, a small number of high degree nodes forming a rich club was identified.
 
+\textbf{Non-overlapping modules}\\
+[[TODO: Aurina?]]
+
+
 % METHODS: gene expression
 \subsection*{Gene expression}
 
@@ -414,7 +419,13 @@ In contrast, other measures such as Jaccard index, Yule's Q, Yule's Y are highly
 % Simple matching coefficient, on the other hand, shows a steady increase with increasing ratio.
 We therefore selected $r_\phi$ to analyze in this work, which was insensitive to the proportion of genes expressed in each neuron.
 
-As well as $r_\phi$, we also developed a new index that distinguishes matching of positive gene expression from negative gene expression that quantifies that probability that two binary strings will contain at least as many positive matches, $n_{11}$, as observed (see Supplementary Information).
+In the binary and sparse gene expression data analyzed here (with a minority of genes being positively expressed in each neuron), we wanted to distinguish biologically relevant cases where genes are expressed together, $n_{11}$, from the dominant case where a gene is not expressed, $n_{00}$.
+To this end, we developed a new index that quantifies that probability that two binary strings will contain at least as many `positive matches', $n_{11}$, as observed (see Supplementary Information).
+\begin{equation}
+    P(m) = \binom{n_2}{m} \binom{N-n_2}{n_1-m} / \binom{N}{n_1},
+\end{equation}
+for two binary expression vectors, $x_i$, $y_i$, of length $N$, containing $n_1$ and $n_2$ 1s, respectively ($n_2 \leq n_1$), with $m$ matches ($n_{11}$).
+Our index, $r_\xi$, computes the probability of at least this many matches as $r_\xi = 1 - \sum_{x=0}^m P(x)$.
 This showed ([[biases?]]) which gave similar results [[TODO: check that behavior is indeed similar]].
 
 Previous work has emphasized the importance of spatial effects in driving patterns of gene expression, for example, with gene coexpression exhibiting spatial autocorrelation in the mouse brain \cite{Fulcher:2016ck} and human cortex \cite{Krienen:2016eq, Pantazatos:2016ir}.
@@ -439,18 +450,19 @@ To interpret differences in gene coexpression between different types of node pa
 % To this end, we first assigned a gene coexpression contribution (GCC) score to each inter-region pair, $(i,j)$, for each gene, $a$, as $\mathrm{GCC}_{ij}^{(a)}$, that quantifies the contribution of each gene to the coexpression score for a given pair of brain regions ($i$ and $j$).
 In previous work involving continuous expression data, we developed a score for each gene that quantified its contribution, at each edge, $(i,j)$, to the overall Pearson correlation across all genes \cite{Fulcher:2016ck}.
 However, with the current binary expression data, expression of a given gene, $a$, across brain regions, $i$: $g^{(a)}_i$, can take three possible combinations of coexpression at each edge, $(i,j)$:
-(i) \emph{both expressed} $g^{(a)}_i = 1$ and $g^{(a)}_j = 1$;
-(ii) \emph{mismatched} $g^{(a)}_i = 1$ and $g^{(a)}_j = 0$ or $g^{(a)}_i = 0$ and $g^{(a)}_j = 1$;
-(iii) \emph{neither expressed} $g^{(a)}_i = 0$ and $g^{(a)}_j = 0$.
+(i) \emph{both expressed}: $g^{(a)}_i = 1$ and $g^{(a)}_j = 1$;
+(ii) \emph{mismatched}: $g^{(a)}_i = 1$ and $g^{(a)}_j = 0$ or $g^{(a)}_i = 0$ and $g^{(a)}_j = 1$; or
+(iii) \emph{neither expressed}: $g^{(a)}_i = 0$ and $g^{(a)}_j = 0$.
 Our measure attempts to score individual genes by their coexpression type in different types of inter-region pairs (e.g., connected versus unconnected pairs, or rich/feeder/peripheral connections).
-In particular, we were interested in quantifying increases in a gene being expressed in both regions of a given class of inter-region pairs, which we computed as a cumulative binomial probability of obtaining at least $m$ matches ($g^{(a)}_i = 1$ and $g^{(a)}_j = 1$) being observed empirically:
+In particular, we were interested in quantifying increases in a gene, $a$, being expressed in both regions of a given class of inter-region pairs, which we computed as a cumulative binomial probability of obtaining at least $m$ matches ($g^{(a)}_i = 1$ and $g^{(a)}_j = 1$) being observed empirically:
 \begin{eqnarray}
 	\label{eq:CBinomialProbability}
-     P(X > m) = 1 - \sum_{i=0}^{m}\binom{n}{i} p^{i}(1-p^{n-i}),
+     \nu^{(a)} = P(X > m) = 1 - \sum_{i=0}^{m}\binom{n}{i} p^{i}(1-p^{n-i}),
 \end{eqnarray}
-where $p$ is the probability of the given connection class (as $n_\mathrm{class}/M$ for $n_\mathrm{class}$ connections out of $M$ possible pairs), and $n$ is the maximum number of possible matches.
+where $p$ is the probability of the given class of inter-region pairs ($p = n_\mathrm{class}/M$ for $n_\mathrm{class}$ connections out of $M$ possible pairs), and $n$ is the maximum number of possible matches.
+This provides us with a score, $\nu^{(a)}$ for each gene, $a$, that gives higher values to genes that shows a greater number of matches in the inter-region class of interest than expected by chance.
 For example, when comparing differences in binary coexpression between pairs of brain regions that are structurally connected and pairs that are unconnected, Eq.~\eqref{eq:CBinomialProbability} has $p$ as the proportion of all possible connections that exist, and captures the probability of genes being expressed together in connected pairs of brain regions at least as frequently as observed.
-When comparing links involving hubs compared to those between nonhubs, $p$ is the proportion of connections that involve hubs.
+When comparing links involving hubs compared to those between nonhubs, $p$ is the proportion of connections involving hubs.
 
 % For each gene, we first determined the pattern of matching expression profiles (a match meaning that a gene is expressed by both neurons) between each pair of neurons resulting in a binary 279 x 279 matrix.
 % Then, for each gene we calculated a cumulative binomial probability of getting more matches $(X)$ than in the empirical data $(m)$ on a particular connection type (see eq. \ref{eq:CBinomialProbability}).
@@ -459,25 +471,15 @@ To ensure that each gene contributed a meaningful score, we required more than o
 [[AURINA: is this correct? So \emph{more than 1 match} means we require at least 2 matches??]]
 % When calculating GCC for connected links more then one match for a gene overall was required (as a result 577 genes out of 948 left); when calculating GCC for the links involving hubs (rich and feeder links) more than one match was required on connected links (as a result 390 out of 948 genes left).
 % Otherwise, no information about the contribution of a specific gene to the overall coexpression pattern could be extracted.
-\textbf{(NOTE: not literally true as both on and off matches equally contribute to an increase in coexpression, - need to find a way how to explain, why non-expression matches are not taken into account here).}
+% \textbf{(NOTE: not literally true as both on and off matches equally contribute to an increase in coexpression, - need to find a way how to explain, why non-expression matches are not taken into account here).}
 
-These GCC scores were then used to perform gene score resampling (GSR) analysis, which examines if genes with low GCC scores are statistically over-represented in any functional category.
-
-The above mentioned analysis was done using 3.0.2 of ErmineJ \cite{Gillis2010}.
-Gene annotations were assigned from GO \cite{Ashburner2000} using an annotation file from GEMMA \cite{Zoubarev2012}.
-\texttt{Generic\_worm\_noParents.an.txt.gz} downloaded using a build-in option within ErmineJ software on February 10 2017.
-GO terms and definitions were obtained in RDF XML file format downloaded from \url{archive.geneontology.org/latest-termdb/go_daily-termdb.rdf-xml.gz} on February 10 2017.
-In the analysis we were considering gene set sizes in the range 5–100, taking the mean score in a GO group to summarize it.
+For a given enrichment analysis, after computing a probability score for each genes using Eq.~\eqref{eq:CBinomialProbability}, we then took logarithms of the probability scores, $\log_{10}\nu^{(a)}$, and used them to perform gene score resampling (GSR) analysis using version 3.0.2 of \emph{ErmineJ} software \cite{Gillis2010} using biological process Gene Ontology (GO) annotations \cite{Ashburner2000} obtained from GEMMA \cite{Zoubarev2012} (\texttt{Generic\_worm\_noParents.an.txt.gz} downloaded on February 10 2017).
+% downloaded using a build-in option within ErmineJ software 
+[[AURINA: did we only look for biological processes, or also cellular components, or molecular pathways?]]
+Rather than setting an arbitrary threshold on the score, this analysis allows us to use the continuous log-transformed probability scores, and compute the probability that the mean score in each GO group is larger than expected from a random assignment of scores to the genes in the list.
+Gene Ontology terms and definitions were obtained in RDF XML file format downloaded from \url{archive.geneontology.org/latest-termdb/go_daily-termdb.rdf-xml.gz} on February 10 2017.
+We included ontology terms containing between 5 and 100 annotations, using full resampling with $10^{7}$ iterations.
 % {archive.geneontology.org/latest-termdb/go \textunderscore daily-termdb.rdf-xml.gz}
-Full resampling with $10^{7}$ iterations was used.
-
-\textbf{Lineage distance.}\\
-
-\textbf{Non-overlapping modules.}\\
-
-\textbf{Overlapping modules.}
-
-
 
 % Place figure captions after the first paragraph in which they are cited.
 % \begin{figure}[!h]
