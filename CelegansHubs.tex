@@ -491,14 +491,20 @@ We included ontology terms containing between 5 and 100 annotations, using full 
 % Results and Discussion can be combined.
 \section*{Results}
 
-A schematic overview of our analysis is shown in Fig.~\ref{fig:SchematicRepresentation}.
-We show binary expression data, the binary topology of the directed synaptic connectome, and our aim to investigate relationships between the pairwise patterns of synaptic connectivity and gene coexpression.
+A schematic overview of our analysis is shown in Fig.~\ref{fig:SchematicRepresentation}, which includes the directed binary synaptic connectome and gene expression of each region across [[X]] genes.
+In this work, our aim is to investigate and quantify patterns in the pairwise synaptic connectivity and pairwise similarity in gene expression (gene coexpression).
+Consistent with previous results in the mouse \cite{Fulcher:2016ck}, we show that synaptically connected neurons display more similar gene expression than those that are unconnected, and that, amongst connected regions, those involving hub neurons show more similar gene expression.
 
 \begin{figure}[t]
   \centering
     \includegraphics[width=1\textwidth]{SchematicDATA}
- \caption{{\bf Schematic representation of the work-flow}
-Connectivity matrix coded according to link type (and probably gene expression matrix: rows as it is (neuron order), columns ordered according to similarity).}
+ \caption{\textbf{Relating patterns of gene expression to synaptic connectivity of 279 neurons in the C. elegans connectome}
+ \textbf{A} Binary gene expression across the 948 genes that are expressed in at least one neuron.
+ Note that genes have been reordered to place genes with similar expression patterns close to one another.
+ \textbf{B} Binary synaptic connectivity between all pairs of neurons, colored according to type: rich (hub-hub, red), feeder (hub-nonhub, yellow), and peripheral (nonhub-nonhub, green).
+ \textbf{C}
+Connectivity matrix coded according to link type (and probably gene expression matrix: rows as it is (neuron order), columns ordered according to similarity).
+}
 \label{fig:SchematicRepresentation}
 \end{figure}
 
