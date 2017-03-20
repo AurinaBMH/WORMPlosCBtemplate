@@ -370,7 +370,7 @@ $\Phi_\mathrm{norm} > 1$ indicates the rich-club organization of the network, wi
 %The phenomenon of the rich-club organisation in \textit{C. elegans} connectome was originally demonstrated by Towlson et al. \cite{Towlson2013} in an undirected binary version of the connectome where data for both chemical and electrical synapses were combined.
 %As a result, a small number of high degree nodes forming a rich club was identified.
 
-\textbf{Non-overlapping modules}\\
+\textbf{Non-overlapping modules}
 [[TODO: Aurina?]]
 
 
@@ -503,7 +503,7 @@ Consistent with previous results in the mouse \cite{Fulcher:2016ck}, we show tha
  Note that genes have been reordered to place genes with similar expression patterns close to one another.
  \textbf{B} Binary synaptic connectivity between all pairs of neurons, colored according to type: rich (hub-hub, red), feeder (hub-nonhub, yellow), and peripheral (nonhub-nonhub, green).
  \textbf{C}
-Connectivity matrix coded according to link type (and probably gene expression matrix: rows as it is (neuron order), columns ordered according to similarity).
+[[TODO: I think it would be nice to put neuronal metadata on the edge]]
 }
 \label{fig:SchematicRepresentation}
 \end{figure}
@@ -648,7 +648,7 @@ The relationship between median coexpression and degree for connections includin
 Connections involving interneurons show a pattern of increasing average coexpression with increasing degree, however neither connections involving motor nor sensory neurons resemble this trend; even showing evidence for the opposite relationship.
 In other words, motor and sensory neurons with higher degree show less similar gene expression patterns.
 
-\begin{figure}[!h]
+\begin{figure}[h]
 \centering
     \includegraphics[width=1\textwidth]{coexpressionInvolvingCategory}
  \caption{{\bf Coexpression for different types of neurons. }
@@ -659,11 +659,13 @@ Top: Average gene coexpression as a function of degree for connections involving
 
 Next, we compare transcriptional similarity between hub interneurons and non-hub interneurons that share similar anatomical properties.
 \textbf{Compare coexpression between hub interneurons and non-hub interneurons with the same anatomy here.}
+
 \subsection*{Lineage}
-\begin{figure}[!h]
+
+\begin{figure}[h]
 \centering
     \includegraphics[width=1\textwidth]{LineageRFP}
- \caption{{\bf Coexpression for different types of neurons. }
+ \caption{\textbf{Mean lineage distance between pairs of connected hubs (rich, red), connected hub-nonhub pairs (feeder, yellow), and connected nonhub-nonhub pairs (peripheral, green) as a function of the degree threshold, $k$, at which hubs are defined.}
 Top: Average gene coexpression as a function of degree for connections involving different types of neurons. Bottom: The number of connections in each category for a range of degrees. }
  \label{Lineage}
  \end{figure}
