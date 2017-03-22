@@ -294,7 +294,7 @@ We sought to determine whether hubs in the \emph{C. elegans} connectome exhibit 
 % METHODS SECTION
 \section*{Materials and methods}
 
-Neurons making up the nervous system of the nematode worm \emph{C. elegans} can be divided into groups, commonly as: sensory neurons (support receptive function), motor neurons (cells containing neuromuscular junctions), and interneurons (all other neurons) \cite{White:1986tx}.
+Neurons making up the nervous system of the nematode worm \emph{C. elegans} can be divided into groups, commonly as: sensory neurons (support receptive function), motor neurons (cells containing neuromuscular junctions), interneurons (all other neurons) and polymodal neurons (performing more than one type of circuit function) \cite{White:1986tx}.
 
 % For figure citations, please use "Fig" instead of "Figure".
 \begin{itemize}
@@ -311,17 +311,21 @@ To investigate the relationship between hub connectivity and gene expression in 
 % METHODS: connectivity data
 \subsection*{Neuronal connectivity data}
 
-The C. elegans nervous system contains 282 nonpharyngeal neurons [[TODO: what about the others?]].
+The C. elegans nervous system consists of two distinct parts: a small pharyngeal nervous system (20 neurons), responsible for  the feeding behaviour of the animal and a large somatic nervous system (282 neurons). 
 Previous work has commonly divided them into three groups as:
 sensory neurons (support receptive function),
 motor neurons (cells containing neuromuscular junctions),
-and interneurons (all other neurons) \cite{White:1986tx}.
+interneurons (all other neurons)
+and polymodal neurons (performing more than one type of circuit function) \cite{White:1986tx}.
+
 Classification of neurons to `sensory', `motor', `interneuron' types, and as `head' or `tail', was done using the anatomical hierarchy defined in WormBase \cite{Harris:2009kd}, which we retrieved using their API, and propagated these (and other child terms of `neuron', WB:0003679) to all individual neurons. % RetreiveHierarchy.py, NeuronRegionFinder.m
 
 The neurotransmitter types of the majority of neurons in the hermaphrodite C. elegans nervous system has been mapped, revealing the dominance of cholinergic signaling \cite{Pereira:2015er}.
 We matched data from Table 2 in \citet{Pereira:2015er} to label the neurotransmitter type of all neurons.
 
-[[TODO: lineage data and processing?]]
+Lineage data was downloaded from WormAtlas (\url{http://www.wormatlas.org/neuronalwiring.html#Lineageanalysis}).
+In this dataset for each pair of neurons a common ancestor cell was identified using embryonic and  post-embryonic lineage trees \citep{Sulston1977, Sulston1983} and a total number of cell divisions from the common progenitor was calculated.  
+For the analysis data were arranged into a matrix format where lineage distance for each pair of neurons was defined. % part of Print_neuroconnect.m 
 
 Neuronal connectivity data was obtained for 279 somatic neurons (282 nonpharyngeal neurons, excluding CANL/R and VC6, for which connectivity data is unavailable) of the C. elegans nervous system, as described in \citet{Varshney2011}.
 Data were downloaded from WormAtlas (\url{http://www.wormatlas.org/neuronalwiring.html#NeuronalconnectivityII}).
@@ -331,7 +335,7 @@ The data distinguish presynaptic and postsynaptic neurons (providing connection 
 The result can be represented as a weighted, directed connectivity matrix, with weights given by the number of synapses.
 By contrast, the directionality of electrical gap junctions remains unknown, and have thus been represented as bidirectional connections.
 
-To avoid any possible differences in gene expression between chemical synapses and gap junctions, our analysis focuses just on the synaptic connectivity network, which contains a total of 1\,961 connections [[TODO: add number of synapses]].
+To avoid any possible differences in gene expression between chemical synapses and gap junctions, our analysis focuses just on the synaptic connectivity network, which contains a total of 1\,961 connections (6394 synapses).
 Note that this is in contrast to previous analysis by \citet{Towlson:2013gf}, which symmetrized chemical connections (ignoring directed information) and added electrical gap junctions as undirected connections.
 [[TODO: contextualize this section by adding references to past work -- e.g., when we say we just look at synaptic network -- has this been done in the past?]]
 
@@ -351,7 +355,7 @@ The total number of connections involving a given neuron is defined by its degre
 
 At a given $k$ threshold, neurons were classified as either `hub' (degree $>k$) or `non-hub' (degree $\leq k$).
 All edges could subsequently be classified as either `rich' (hub $\rightarrow$ hub), `feeder' (hub $\rightarrow$ non-hub or non-hub $\rightarrow$ hub), or `peripheral' (non-hub $\rightarrow$ non-hub).
-For simplicity, hub $\rightarrow$ non-hub and non-hub $\rightarrow$ hub connections were grouped as a single `feeder' category for simplicity, [[TODO: check whether gene coexpression patterns were similar for connections running in both directions]].
+For simplicity, hub $\rightarrow$ non-hub and non-hub $\rightarrow$ hub connections were grouped as a single `feeder' category for simplicity, [[TODO: check whether gene coexpression patterns were similar for connections running in both directions. DONE - outgoing feeder links are more similar then incoming feeder links see: (\url{https://www.evernote.com/shard/s94/nl/2147483647/756bddde-7bf3-4aae-8a8c-b94bdd9b0e57/})].
 
 % \paragraph{Rich-club organization}
 In order to assess rich-club organization of our networks, we used the rich-club coefficient, defined as
@@ -414,15 +418,15 @@ A maximum value $r_\phi = 1$ when $x$ and $y$ are identical such that $n_{11} + 
 
 Note that, in addition to $r_\phi$ defined above, a range of other similarity measures for binary strings exist, including the
 Jaccard index, $n_{11}/(n_{10}+n_{01}+n_{11})$,
-Yule's coefficient, $(n_{00}n_{11} - n_{01}n_{10})/(n_{00}n_{11} + n_{01}n_{10})$,
+Yule's Q coefficient, $(n_{00}n_{11} - n_{01}n_{10})/(n_{00}n_{11} + n_{01}n_{10})$,
 and the $\chi^2$ index, $N (n_{00}n_{11} - n_{01}n_{10})/(n_{1\bullet}n_{0\bullet}n_{\bullet 0}n_{\bullet 1})$ \cite{Kaufman2006}.
 % and Simple matching coefficients [[TODO: define and give reference]],
-[[TODO: if we want to distinguish Yule's Q and Yule's Y, we'll need a reference and definition]]
+
 Since the gene expression data analyzed here is sparse (X\% expression), we needed to ensure that our similarity metric was not sensitive to the proportion of genes expressed in a given neuron.
 Mean square contingency coefficient $\phi$ met this criterion best.
 [[TODO: we need to describe what test we used to determine, and perhaps show the results in supplement. I'm happy to prepare this if you remind me the code that generates]]
-In contrast, other measures such as Jaccard index, Yule's Q, Yule's Y are highly dependent on this ratio [[TODO: Aurina, I think we leave out the simple matching coefficient -- it's not standard and just shows poor results]].
-[[TODO: Aurina, if we distinguish Yules Q/Y, we need to clearly define, otherwise should we just use the Yule's coefficient defined in Kaufman?]]
+In contrast, other measures such as Jaccard index, Yule's Q are highly dependent on this ratio.
+[[TODO: Aurina, if we distinguish Yules Q/Y, we need to clearly define, otherwise should we just use the Yule's coefficient defined in Kaufman? LETS use Kaufman's (it's Yule's Q, Yule's Y is the same, but with square roots on each term]]
 % and Simple matching coefficients
 % For example, Yule's Q, Yule's Y coefficients on average tend to reach extreme values when the ratio between the number of ones and zeros in a vector is large (e.g., 1:20).
 % Simple matching coefficient, on the other hand, shows a steady increase with increasing ratio.
@@ -438,14 +442,14 @@ Our index, $r_\xi$, computes the probability of at least this many matches as $r
 This showed ([[biases?]]) which gave similar results [[TODO: check that behavior is indeed similar]].
 
 Previous work has emphasized the importance of spatial effects in driving patterns of gene expression, for example, with gene coexpression exhibiting spatial autocorrelation in the mouse brain \cite{Fulcher:2016ck} and human cortex \cite{Krienen:2016eq, Pantazatos:2016ir}.
-[[TODO: Aurina, adjust record for our PNAS paper, listed as \textbf{Fulcher2015}, but is a 2016 article...]]
-Given that connection probability is also dependent on spatial separation in mammalian brains \cite{Henderson:2014fg, Horvat:2016ia}, [[TODO: has this analysis been done in worm? If not we need to do it...]], it is important to correct for spatial effects to ensure that relationships between gene expression and connectivity are not simply the result of both properties showing spatial autocorrelation.
+[[TODO: Aurina, adjust record for our PNAS paper, listed as \textbf{Fulcher2015}, but is a 2016 article...CHANGED in my Mendeley citation key]]
+Given that connection probability is also dependent on spatial separation in mammalian brains \cite{Henderson:2014fg, Horvat:2016ia}, [[TODO: has this analysis been done in worm? If not we need to do it...SEE evernote: https://www.evernote.com/shard/s94/nl/2147483647/61e44674-7716-4153-a462-28993706d345/]], it is important to correct for spatial effects to ensure that relationships between gene expression and connectivity are not simply the result of both properties showing spatial autocorrelation.
 In C. elegans, we found no correlation between the Euclidean separation distance between a pair of neurons (based on their two dimensional coordinates) and their gene coexpression, $r_\phi$ ($r = X$, $p = Y$, cf. Fig.~[[SUPP-FIG]]).
-[[TODO: add supplementary figure on distance dependence; perhaps coloring by head/tail]]
-No clear relationship was found (plot in supplementary??), therefore no coexpression-distance corrections were applied (maybe include the plot in supplementary?).
+[[TODO: add supplementary figure on distance dependence; perhaps coloring by head/tail, SEE: https://www.evernote.com/shard/s94/nl/2147483647/4deb4e43-d986-4bea-b99f-f84f5494d17b/]]
+
 
 A total of 92 of the 118 anatomically distinct neuron classes in the hermaphrodite C. elegans have a bilateral representation, meaning that each of those neuron classes have both left and right counterparts (e.g., AVAL/AVAR).
-[[TODO: Aurina, isn't it more relevant to describe the neurons that we include in the present analysis? 118 neuron classes gives 302 neurons, but we analyze fewer, right?]]
+[[TODO: Aurina, isn't it more relevant to describe the neurons that we include in the present analysis? 118 neuron classes gives 302 neurons, but we analyze fewer, right? RIGHT: couldn't find the number of classes in somatic NS, so maybe just avoid saying 118]]
 These neurons exhibit highly correlated gene expression patterns, with a mean coexpression value $\langle r_\phi^{\mathrm{intraclass}} \rangle = 0.98$.
 [[TODO: Aurina, can you comment in the code through the text that you used to produce results like this? I think it would be good to include a standard deviation here]]
 To ensure that our analyses are not influenced by this symmetry, we excluded coexpression values within neuron classes from all analyses reported here.
@@ -836,7 +840,7 @@ Should keep this!
 % step-by-step instructions.
 %
 
-\bibliography{library,library_ben}
+\bibliography{library, library_ben}
 % \begin{thebibliography}{10}
 
 % \bibitem{bib1}
