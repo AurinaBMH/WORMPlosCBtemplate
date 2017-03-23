@@ -323,9 +323,10 @@ Classification of neurons to `sensory', `motor', `interneuron' types, and as `he
 The neurotransmitter types of the majority of neurons in the hermaphrodite C. elegans nervous system has been mapped, revealing the dominance of cholinergic signaling \cite{Pereira:2015er}.
 We matched data from Table 2 in \citet{Pereira:2015er} to label the neurotransmitter type of all neurons.
 
-Lineage data was downloaded from WormAtlas (\url{http://www.wormatlas.org/neuronalwiring.html#Lineageanalysis}).
-In this dataset for each pair of neurons a common ancestor cell was identified using embryonic and  post-embryonic lineage trees \citep{Sulston1977, Sulston1983} and a total number of cell divisions from the common progenitor was calculated.  
-For the analysis data were arranged into a matrix format where lineage distance for each pair of neurons was defined. % part of Print_neuroconnect.m 
+Lineage data are based on previously published embryonic and  post-embryonic lineage trees \citep{Sulston1977, Sulston1983}. 
+The dataset used for the analysis was downloaded from WormAtlas (\url{http://www.wormatlas.org/neuronalwiring.html#Lineageanalysis}).
+In this dataset for each pair of neurons a common ancestor cell was identified using and a total number of cell divisions from the common progenitor was calculated.  
+Downloaded data were arranged into a matrix format where lineage distance for each pair of neurons was defined. % part of Print_neuroconnect.m 
 
 Neuronal connectivity data was obtained for 279 somatic neurons (282 nonpharyngeal neurons, excluding CANL/R and VC6, for which connectivity data is unavailable) of the C. elegans nervous system, as described in \citet{Varshney2011}.
 Data were downloaded from WormAtlas (\url{http://www.wormatlas.org/neuronalwiring.html#NeuronalconnectivityII}).
@@ -340,8 +341,8 @@ Note that this is in contrast to previous analysis by \citet{Towlson:2013gf}, wh
 [[TODO: contextualize this section by adding references to past work -- e.g., when we say we just look at synaptic network -- has this been done in the past?]]
 
 Two dimensional spatial co-ordinates for 277 neurons (including VC6) were obtained from \url{www.biological-networks.org/?page_id=25}.
-Positions for 3 neurons not included in this dataset (AIBL, AIYL, SMDVL) were reconstructed based on the positions of the contralateral neurons (AIBR, AIYR, SMDVR).
-[[TODO: details on how reconstructed]]
+Positions for 3 neurons not included in this dataset (AIBL, AIYL, SMDVL) were reconstructed based on the positions of the contralateral neurons (AIBR, AIYR, SMDVR) by assigning identical coordinates for the contralateral neurons in these three pairs.
+
 
 % METHODS: rich club analysis
 \subsection*{Network analysis}
@@ -424,7 +425,7 @@ and the $\chi^2$ index, $N (n_{00}n_{11} - n_{01}n_{10})/(n_{1\bullet}n_{0\bulle
 
 Since the gene expression data analyzed here is sparse (X\% expression), we needed to ensure that our similarity metric was not sensitive to the proportion of genes expressed in a given neuron.
 Mean square contingency coefficient $\phi$ met this criterion best.
-[[TODO: we need to describe what test we used to determine, and perhaps show the results in supplement. I'm happy to prepare this if you remind me the code that generates]]
+[[TODO: we need to describe what test we used to determine, and perhaps show the results in supplement. I'm happy to prepare this if you remind me the code that generates. NOTE: I can also do that. The code is compareProportions(binaryCorrelation)]]
 In contrast, other measures such as Jaccard index, Yule's Q are highly dependent on this ratio.
 [[TODO: Aurina, if we distinguish Yules Q/Y, we need to clearly define, otherwise should we just use the Yule's coefficient defined in Kaufman? LETS use Kaufman's (it's Yule's Q, Yule's Y is the same, but with square roots on each term]]
 % and Simple matching coefficients
@@ -450,8 +451,8 @@ In C. elegans, we found no correlation between the Euclidean separation distance
 
 A total of 92 of the 118 anatomically distinct neuron classes in the hermaphrodite C. elegans have a bilateral representation, meaning that each of those neuron classes have both left and right counterparts (e.g., AVAL/AVAR).
 [[TODO: Aurina, isn't it more relevant to describe the neurons that we include in the present analysis? 118 neuron classes gives 302 neurons, but we analyze fewer, right? RIGHT: couldn't find the number of classes in somatic NS, so maybe just avoid saying 118]]
-These neurons exhibit highly correlated gene expression patterns, with a mean coexpression value $\langle r_\phi^{\mathrm{intraclass}} \rangle = 0.98$.
-[[TODO: Aurina, can you comment in the code through the text that you used to produce results like this? I think it would be good to include a standard deviation here]]
+These neurons exhibit highly correlated gene expression patterns, with a mean coexpression value $\langle r_\phi^{\mathrm{intraclass}} \rangle = 0.98 (SD\pm0.0.25)$.
+[[TODO: Aurina, can you comment in the code through the text that you used to produce results like this? I think it would be good to include a standard deviation here. CODE used - testLeftRightCoexpression.m. Distribution for these links is not normal. Median is 1;]]
 To ensure that our analyses are not influenced by this symmetry, we excluded coexpression values within neuron classes from all analyses reported here.
 
 % METHODS: gene enrichment
@@ -481,14 +482,14 @@ When comparing links involving hubs compared to those between nonhubs, $p$ is th
 % Then, for each gene we calculated a cumulative binomial probability of getting more matches $(X)$ than in the empirical data $(m)$ on a particular connection type (see eq. \ref{eq:CBinomialProbability}).
 
 To ensure that each gene contributed a meaningful score, we required more than one pair of regions $m > 1$ to exhibit matching expression ($g^{(a)}_i = 1$ and $g^{(a)}_j = 1$) in the inter-region class of interest (577 genes out of 948 satisfied this criterion for connected/unconnected analysis; 390 out of 948 genes satisfied this criterion for hub connectivity analysis).
-[[AURINA: is this correct? So \emph{more than 1 match} means we require at least 2 matches??]]
+[[AURINA: is this correct? So \emph{more than 1 match} means we require at least 2 matches??IT IS CORRECT - there are quite a few genes that have only one match on mask. Enrichment with them seems to be more noise than signal.]]
 % When calculating GCC for connected links more then one match for a gene overall was required (as a result 577 genes out of 948 left); when calculating GCC for the links involving hubs (rich and feeder links) more than one match was required on connected links (as a result 390 out of 948 genes left).
 % Otherwise, no information about the contribution of a specific gene to the overall coexpression pattern could be extracted.
 % \textbf{(NOTE: not literally true as both on and off matches equally contribute to an increase in coexpression, - need to find a way how to explain, why non-expression matches are not taken into account here).}
 
 For a given enrichment analysis, after computing a probability score for each genes using Eq.~\eqref{eq:CBinomialProbability}, we then took logarithms of the probability scores, $\log_{10}\nu^{(a)}$, and used them to perform gene score resampling (GSR) analysis using version 3.0.2 of \emph{ErmineJ} software \cite{Gillis2010} using biological process Gene Ontology (GO) annotations \cite{Ashburner2000} obtained from GEMMA \cite{Zoubarev2012} (\texttt{Generic\_worm\_noParents.an.txt.gz} downloaded on February 10 2017).
 % downloaded using a build-in option within ErmineJ software
-[[AURINA: did we only look for biological processes, or also cellular components, or molecular pathways?]]
+[[AURINA: did we only look for biological processes, or also cellular components, or molecular pathways? ONLY BIOLOGICAL PROCESSES]]
 Rather than setting an arbitrary threshold on the score, this analysis allows us to use the continuous log-transformed probability scores, and compute the probability that the mean score in each GO group is larger than expected from a random assignment of scores to the genes in the list.
 Gene Ontology terms and definitions were obtained in RDF XML file format downloaded from \url{archive.geneontology.org/latest-termdb/go_daily-termdb.rdf-xml.gz} on February 10 2017.
 We included ontology terms containing between 5 and 100 annotations, using full resampling with $10^{7}$ iterations.
