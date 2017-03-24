@@ -388,8 +388,17 @@ Rich club coefficient and null networks were generated using the rich\textunders
 %The phenomenon of the rich-club organisation in \textit{C. elegans} connectome was originally demonstrated by Towlson et al. \cite{Towlson2013} in an undirected binary version of the connectome where data for both chemical and electrical synapses were combined.
 %As a result, a small number of high degree nodes forming a rich club was identified.
 
-\textbf{Non-overlapping modules}
-[[TODO: Aurina?]]
+\textbf{Modularity}
+Modular structure of the connectome was determined applying Louvain community detection algorithm using a standard practice, implemented in Brain Connectivity Toolbox. 
+To identify the optimal modular assignment, the algorithm was repeated 1000 times resulting in a thousand community affiliation vectors. 
+Then, we calculated the agreement matrix using modularity index of each run as a weight. 
+Each element in the agreement matrix defines a relative probability for a pair of nodes to be assigned to the same module, where more weight is added for higher modularity partitions. 
+In the next step, we performed consensus clustering on the agreement matrix using 1000 repeats ($\tau=0.1$). 
+The agreement matrix is thresholded at a level $\tau$ to remove an weak elements. 
+$\tau$ threshold controls the resolution of the reclustering with low values corresponding to lower resolution. 
+Afterwards, The resulting matrix is partitioned a thousand times using the Louvain algorithm. 
+Second run of clustering produces a new agreement matrix and the process is repeated until partitions converge into a single representative partition. 
+According to this implementation, any singeleton communities are not reconnected to the network. 
 
 
 % METHODS: gene expression
@@ -409,13 +418,12 @@ Gene expression was assigned to neurons based on anatomical hierarchy obtained f
 As shown in Fig.~\ref{fig:SchematicRepresentation}A, we have a gene expression profile for each neuron that indicates which of 948 genes have been observed to be expressed in that neuron.
 Given the pairwise nature of connectivity patterns, in this work we analyzed patterns of coupled gene expression between pairs of neurons.
 % rather than the presence or absence of gene expression in any single neuron on its own.
-To this end, we computed the similarity in gene expression profiles between a pair of neurons (\textit{i},\textit{j}) using a binary analogue of the linear Pearson correlation coefficient, the mean square contingency coefficient, $r_\phi$,
+To this end, we computed the similarity in gene expression profiles between a pair of neurons (\textit{i},\textit{j}) using a binary analogue of the linear Pearson correlation coefficient, the mean square contingency coefficient, $r_\phi$ \cite{Warrens2008}. 
 \begin{equation}
     r_\phi = \frac{n_{11}n_{00} - n_{10}n_{01}}{\sqrt{n_{1\bullet}n_{0\bullet}n_{\bullet 0}n_{\bullet 1}}},
 \end{equation}
 for two vectors $x$, $y$, of length $N$, where $n_{xy}$ count the number of observations of each of the four outcomes (e.g., $n_{10} = \sum_i \delta_{x_i,1}\delta_{y_i,0}$ counts the number of times $x=1$ and $y=0$ across the length of $x$ and $y$), while the symbol $\bullet$ sums across a given variable (e.g., $n_{\bullet 0} = \sum_i \delta_{y_i,0}$ counts the number of times $y = 0$).
 A maximum value $r_\phi = 1$ when $x$ and $y$ are identical such that $n_{11} + n_{00} = N$, and a minimum value $r_\phi = -1$ when $x$ and $y$ are always mismatched such that $n_{10} + n_{01} = N$.
-[[TODO: Add a reference for this measure -- maybe some stats textbook?]]
 
 Note that, in addition to $r_\phi$ defined above, a range of other similarity measures for binary strings exist, including the
 Jaccard index, $n_{11}/(n_{10}+n_{01}+n_{11})$,
@@ -449,7 +457,7 @@ In C. elegans, we found no correlation between the Euclidean separation distance
 [[TODO: add supplementary figure on distance dependence; perhaps coloring by head/tail, SEE: https://www.evernote.com/shard/s94/nl/2147483647/4deb4e43-d986-4bea-b99f-f84f5494d17b/]]
 
 
-A total of 92 of the 118 anatomically distinct neuron classes in the hermaphrodite C. elegans have a bilateral representation, meaning that each of those neuron classes have both left and right counterparts (e.g., AVAL/AVAR).
+A total of 92 anatomically distinct neuron classes in the hermaphrodite C. elegans have a bilateral representation, meaning that each of those neuron classes have both left and right counterparts (e.g., AVAL/AVAR).
 [[TODO: Aurina, isn't it more relevant to describe the neurons that we include in the present analysis? 118 neuron classes gives 302 neurons, but we analyze fewer, right? RIGHT: couldn't find the number of classes in somatic NS, so maybe just avoid saying 118]]
 These neurons exhibit highly correlated gene expression patterns, with a mean coexpression value $\langle r_\phi^{\mathrm{intraclass}} \rangle = 0.98 (SD\pm0.0.25)$.
 [[TODO: Aurina, can you comment in the code through the text that you used to produce results like this? I think it would be good to include a standard deviation here. CODE used - testLeftRightCoexpression.m. Distribution for these links is not normal. Median is 1;]]
@@ -598,7 +606,7 @@ Median coexpression also increases slightly for feeder links from around the sam
 
  \begin{figure}[!h]
  \centering
-    \includegraphics[width=0.7\textwidth]{RichFeederPeripheral_k}
+    \includegraphics[width=0.7\textwidth]{coexpressionANDdistance}
  \caption{{\bf Mean coexpression for rich, feeder and peripheral links as a function of degree.}
 Top: degree distribution. Median gene coexpression for rich, feeder, and peripheral connections as a function of \textit{k}, with the median across all network links shown as a dashed black line and the topological rich club regime shaded grey.
 Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (Wilcoxon rank sum test; $P < 0.05$)}
@@ -625,21 +633,22 @@ It is line with the previous analysis where same GO categories were shown to be 
 \centering
 \caption{
 {\bf Enrichment.}}
-\begin{tabular}{ |c|c|c|c| }
+\begin{tabular}{ |c|c|c| }
 \thickhline
-\multicolumn{2}{c}{Connected \textit{vs} unconnected} & \multicolumn{2}{c}{Rich and feeder \textit{vs} peripheral} \\ \hline
+
 %{\bf Connected} & {} & {\bf Rich and feeder}\\ \thickhline
-GO category  & pvalue & GO category  	& p value \\ \thickhline
-glutamate receptor signalling pathway 	& $10^{-7}$ 	& glutamate receptor signalling pathway 			& $10^{-5}$\\ \hline
-ionitropic glutamate receptor signalling	& $10^{-7}$ 	& ionitropic glutamate receptor signalling		& $10^{-5}$ \\ \hline
-synaptic transmission, glutamatergic 	& $10^{-7}$	& synaptic transmission, glutamatergic 			& $10^{-5}$ \\ \hline
-neuron-neuron synaptic transmission 		& $10^{-5}$	& chemical synaptic transmission	 	 			& $10^{-5}$\\ \hline
-chemical synaptic transmission		 	& 0.00057 	& anterograde trans-synaptic signalling			& $10^{-5}$\\ \hline
-anterograde trans-synaptic signalling 	& 0.00057 	& synaptic signalling 							& $10^{-5}$\\ \hline
-synaptic signalling 						& 0.00057 	& trans-synaptic signalling	 					& $10^{-5}$\\ \hline
-trans-synaptic signalling				& 0.00057 	& neuron-neuron synaptic transmission  			& 0.00031 \\ \hline
-										&  			& cell-cell signalling				  			& 0.00086 \\ \hline
-										&  			& cell surface receptor signalling pathway 		& 0.00107 \\ \hline
+GO category  		& Connected \textit{vs} unconnected: pvalue  	& Rich and feeder \textit{vs} peripheral      \\ \thickhline
+glutamate receptor signalling pathway      	& $10^{-7}$      		&  $10^{-5}$\\ \hline
+ionitropic glutamate receptor signalling     & $10^{-7}$      		&  $10^{-5}$ \\ \hline
+synaptic transmission, glutamatergic      	& $10^{-7}$     			&  $10^{-5}$ \\ \hline
+neuron-neuron synaptic transmission          & $10^{-5}$     			&  0.00031\\ \hline
+chemical synaptic transmission               & 0.00057      			&  $10^{-5}$\\ \hline
+anterograde trans-synaptic signalling      	& 0.00057      			&  $10^{-5}$\\ \hline
+synaptic signalling                          & 0.00057      			&  $10^{-5}$\\ \hline
+trans-synaptic signalling                    & 0.00057      			&  $10^{-5}$ \\ \hline
+cell-cell signalling                         &      -           		&  0.00086 \\ \hline
+cell surface receptor signalling pathway     &       -          		&  0.00107 \\ \hline
+
 \end{tabular}
 \begin{flushleft} Table notes what GO categories were overrepresented in driving the difference between different types of links.
 \end{flushleft}
@@ -650,12 +659,42 @@ trans-synaptic signalling				& 0.00057 	& neuron-neuron synaptic transmission  	
 These findings are in line with our expectations as high degree neurons are highly involved in signalling and the majority of hubs while being cholinergic, receive input from sensory neurons the majority of which is glutamatergic. \\
 NOTE: NOTE HERE ABOUT REDUCED LIST OF GENES IN EACH ANALYSIS (577 and 390 genes for connected and R/F respectively) AND WHAT IMPACT THAT COULD HAVE ON RESULTS.
 
-\subsection*{EXTRAS}
-\begin{itemize}
-    \item{Difference between interneurons/motor/sensory neurons - effect driven by interneurons}
-    \item{Maybe include lineage data: lineage distance increases with degree for feeder links; no difference between rich and peripheral links; Sort of confirms separation into rich/feeder/peripheral links as distance increases for feeders?}
-\end{itemize}
-\subsection*{Neuron type}
+\subsection*{EXTRAS: one paragraph for each point}
+\textbf{Distance, lineage, Neuron Type plots combine to one }
+
+\textbf{Distance - not because of distance}
+\begin{figure}[!h]
+\centering
+    \includegraphics[width=0.7\textwidth]{distance_k}
+ \caption{{\bf Connection distance as a function of degree}}
+ \label{Distance}
+ \end{figure}
+
+
+\textbf{Modules - not because coexpression within modules is higher than outside}\\
+
+
+\begin{figure}[!h]
+\centering
+    \includegraphics[width=1\textwidth]{modules}
+ \caption{{\bf Modular compositions}
+1st row: 4 modules (tau=0.2). 2nd row: 5 modules (tau=0.3). 3rd row (tau=0.5). }
+ \label{Modules}
+ \end{figure}
+ 
+ 
+\textbf{Lineage - not because hubs have same lineage}
+
+\begin{figure}[h]
+\centering
+    \includegraphics[width=0.7\textwidth]{LineageRFP}
+ \caption{\textbf{Mean lineage distance between pairs of connected hubs (rich, red), connected hub-nonhub pairs (feeder, yellow), and connected nonhub-nonhub pairs (peripheral, green) as a function of the degree threshold, $k$, at which hubs are defined.}
+Top: Average gene coexpression as a function of degree for connections involving different types of neurons. Bottom: The number of connections in each category for a range of degrees. }
+ \label{Lineage}
+ \end{figure}
+ 
+ 
+\textbf{Neuron type - not because they are all interneurons}\\
 While above we demonstrated a relationship between transcriptional similarity and structural connectivity, we note that all hubs in the topological rich-club regime in the C. elegans connectome are interneurons.
 Correspondingly, we investigated whether the effect of increasing gene coexpression is specific to interneurons.
 The relationship between median coexpression and degree for connections including different types of neurons (interneurons, motor neurons and sensory neurons) is shown in Fig. \ref{NeuronTypePlot}.
@@ -674,55 +713,6 @@ Top: Average gene coexpression as a function of degree for connections involving
 Next, we compare transcriptional similarity between hub interneurons and non-hub interneurons that share similar anatomical properties.
 \textbf{Compare coexpression between hub interneurons and non-hub interneurons with the same anatomy here.}
 
-\subsection*{Lineage}
-
-\begin{figure}[h]
-\centering
-    \includegraphics[width=1\textwidth]{LineageRFP}
- \caption{\textbf{Mean lineage distance between pairs of connected hubs (rich, red), connected hub-nonhub pairs (feeder, yellow), and connected nonhub-nonhub pairs (peripheral, green) as a function of the degree threshold, $k$, at which hubs are defined.}
-Top: Average gene coexpression as a function of degree for connections involving different types of neurons. Bottom: The number of connections in each category for a range of degrees. }
- \label{Lineage}
- \end{figure}
-\subsection*{Modules}
-\textbf{Chemical BINARY}\\
-Changing tau value can get from 4 to 6 modules:\\
-4 modules: \\
-* 95\% of RC links are within one module (module 3), which is dominated by motor neurons \\
-* 5\% RC links within module 2 \\
-No RC links between modules. \\
-module 4 - small motor neuron module. \\
-
-5 modules: \\
-trends the same, 2 small modules originates. \\
-all RC links are within modules. \\
-
-6 modules:\\
-* 45 \% RC links within module 3\\
-* 5 \% and 5 \% RC links in modules 2 and 4.
-Major module (module 3) dominated by motor neurons.
-around 45 \% RC links connect different modules. \\
-as the number of modules increases, more RC links tend to connect different modules between themselves (instead of connecting nodes within a module) \\
-Modules with the most of RC links have highest coexpression despite having longest connection distances.
-
-\begin{figure}[!h]
-\centering
-    \includegraphics[width=1\textwidth]{modules}
- \caption{{\bf Modular compositions}
-1st row: 4 modules (tau=0.2). 2nd row: 5 modules (tau=0.3). 3rd row (tau=0.5). }
- \label{Modules}
- \end{figure}
-
-\textbf{Chemical WEIGHTED}\\
-for a range of tau thresholds (0.1-0.5), same result: \\
-7 modules. \\
-* 60\% RC links are within module 1\\
-* 5\% RC links are within module 3\\
-* 35 \% of RC links connect different modules between themselves. \\
-
-There are four really small modules, three of them purely motor neuron modules (5.6.7).
-Module 1 - high proportion of motor neurons! module distributed through the body.
-around 50 \% of feeder links link different modules; another half link nodes within 1 and 4 modules.
-Module 1 has highest coexpression despite having highest connection cost (longest distances)
 
 
 
