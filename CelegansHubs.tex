@@ -257,7 +257,7 @@ Text
 
     \item{Hubs plus gene expression}
     \begin{itemize}
-    \item{groundbreaking (\& breathtaking) work by Ben and Alex \cite{Fulcher2015}}
+    \item{groundbreaking (\& breathtaking) work by Ben and Alex \cite{Fulcher2016}}
     \item{Different types of connections - different expression}
     \end{itemize}
     \item{Summary}
@@ -281,13 +281,13 @@ Text
 Connectivity in brain networks is not uniformly distributed. Network elements with high node degree – i.e., a large number of connections to other areas – are called `hubs'.
 When hubs are more densely interconnected than expected by chance they form a `rich-club', the idea being that the richest members of the network (in terms of connections) are tightly connected to each other, thus forming a club.
 These densely interconnected hubs are thought to promote efficient integration between anatomically distinct areas and play an important role in brain functioning.
-It has been shown that hubs exhibit distinct transcriptional signatures in both humans \cite{Vertes2016a} and mice \cite{Fulcher2015}.
-According to \citet{Fulcher2015}, connections involving rich club hubs carry a distinctive genetic signature, which is driven by genes regulating the synthesis and breakdown of adenosine triphosphate (ATP) – the primary energetic substrate of neuronal signaling \cite{Fulcher2015}.
+It has been shown that hubs exhibit distinct transcriptional signatures in both humans \cite{Vertes2016a} and mice \cite{Fulcher2016}.
+According to \citet{Fulcher2016}, connections involving rich club hubs carry a distinctive genetic signature, which is driven by genes regulating the synthesis and breakdown of adenosine triphosphate (ATP) – the primary energetic substrate of neuronal signaling \cite{Fulcher2016}.
 These findings highlight a close relationship between metabolic expenditure and the high signaling load of hub regions in the brain, as has been previously proposed \cite{Bullmore2012}.
 
 
 We therefore have preliminary indications that the transcriptional signature of hubs may be a consistent feature of mammalian brain networks, but it is not known how distinctive this expression signature is; and in particular, whether it holds true for networks resolved at the scale of individual neurons and synapses.
-To test this possibility, we aimed to replicate findings presented in \cite{Fulcher2015} using microscale connectivity data in \emph{C. elegans} and gene expression data from \emph{WormBase}.
+To test this possibility, we aimed to replicate findings presented in \cite{Fulcher2016} using microscale connectivity data in \emph{C. elegans} and gene expression data from \emph{WormBase}.
 We sought to determine whether hubs in the \emph{C. elegans} connectome exhibit distinctive gene expression patterns.
 
 
@@ -451,7 +451,7 @@ Our index, $r_\xi$, computes the probability of at least this many matches as $r
 This showed ([[biases?]]) which gave similar results [[TODO: check that behavior is indeed similar]].
 
 Previous work has emphasized the importance of spatial effects in driving patterns of gene expression, for example, with gene coexpression exhibiting spatial autocorrelation in the mouse brain \cite{Fulcher:2016ck} and human cortex \cite{Krienen:2016eq, Pantazatos:2016ir}.
-[[TODO: Aurina, adjust record for our PNAS paper, listed as \textbf{Fulcher2015}, but is a 2016 article...CHANGED in my Mendeley citation key]]
+[[TODO: Aurina, adjust record for our PNAS paper, listed as \textbf{Fulcher2016}, but is a 2016 article...CHANGED in my Mendeley citation key]]
 Given that connection probability is also dependent on spatial separation in mammalian brains \cite{Henderson:2014fg, Horvat:2016ia}, [[TODO: has this analysis been done in worm? If not we need to do it...SEE evernote: https://www.evernote.com/shard/s94/nl/2147483647/61e44674-7716-4153-a462-28993706d345/]], it is important to correct for spatial effects to ensure that relationships between gene expression and connectivity are not simply the result of both properties showing spatial autocorrelation.
 In C. elegans, we found no correlation between the Euclidean separation distance between a pair of neurons (based on their two dimensional coordinates) and their gene coexpression, $r_\phi$ ($r = X$, $p = Y$, cf. Fig.~[[SUPP-FIG]]).
 [[TODO: add supplementary figure on distance dependence; perhaps coloring by head/tail, SEE: https://www.evernote.com/shard/s94/nl/2147483647/4deb4e43-d986-4bea-b99f-f84f5494d17b/]]
@@ -598,30 +598,22 @@ Red circles indicate values of $\Phi_{random}$ that are significantly higher tha
 \textbf{Coexpression and hub connectivity.}\\
 For the second part of our analysis, we focused on the features of rich-club organization of \textit{C. elegans} connectome by investigating the relationship between gene coexpression and neuronal connectivity in three different classes of neuron pairs.
 At each node degree, $k$ (x-axis in Fig \ref{RCdegree}), we defined each neuron as either a hub (nodes with degree $\geq k$) or a nonhub (otherwise), and then labelled each connection as rich (hub $\rightarrow$ hub), feeder (nonhub $\rightarrow$ hub or hub $\rightarrow$ nonhub), or peripheral (nonhub $\rightarrow$ nonhub).
-Then at each degree, we calculated median coexpression values for each link type (Fig. \ref{RCdegree}).
-Median was chosen instead of the mean due to non-normal coexpression value distributions.
+Due to non-normal coexpression value distributions, at each degree, we calculated median coexpression for each link type (Fig. \ref{RCdegree}).
 Coexpression is gradually increasing with degree for links involving hubs (Fig. \ref{RCdegree}).
 Rich links show consistently increasing coexpression for a range of degrees until it reaches plateau at around $k=38$ and stays constant in the topological rich club regime.
-Median coexpression also increases slightly for feeder links from around the same threshold $k=38$, while pthe curve for peripheral links remain flat through the range of degrees.
+Median coexpression also increases slightly for feeder links from around the same threshold $k=38$, while the curve for peripheral links remain flat through the range of degrees.[[NOTE: coexpression for feedin and feedout links differ - should we talk about both or focus on a combined (feed-both) case?]]
 
  \begin{figure}[!h]
  \centering
     \includegraphics[width=0.7\textwidth]{coexpressionANDdistance}
- \caption{{\bf Mean coexpression for rich, feeder and peripheral links as a function of degree.}
+ \caption{{\bf Median coexpression for rich, feeder and peripheral links as a function of degree.}
 Top: degree distribution. Median gene coexpression for rich, feeder, and peripheral connections as a function of \textit{k}, with the median across all network links shown as a dashed black line and the topological rich club regime shaded grey.
 Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (Wilcoxon rank sum test; $P < 0.05$)}
  \label{RCdegree}
  \end{figure}
 
 
-\begin{figure}[!h]
- \centering
-    \includegraphics[width=1\textwidth]{RichFeederPeripheral_k42FINAL}
- \caption{{\bf Coexpression for rich, feeder and peripheral links as a function of degree.}
-Coexpression ($\phi$) for different types of network connections, where hubs are neurons with degree $k \geq 42$. P-values are from Wilcoxon rank sum test. \\
-SHOW THIS IN SUPP}
- \label{ViolinPlots}
- \end{figure}
+
 
 To investigate which functional groups of genes contributed to the increased coexpression for links involving hubs (rich and feeder) we used a method of assigning each gene a GCC measure that quantifies the contribution of each gene (see Methods).
 
@@ -660,9 +652,14 @@ These findings are in line with our expectations as high degree neurons are high
 NOTE: NOTE HERE ABOUT REDUCED LIST OF GENES IN EACH ANALYSIS (577 and 390 genes for connected and R/F respectively) AND WHAT IMPACT THAT COULD HAVE ON RESULTS.
 
 \subsection*{EXTRAS: one paragraph for each point}
-\textbf{Distance, lineage, Neuron Type plots combine to one }
+In the following paragraphs discuss several aspects that could have lead to the increased coexpression for hub-related links. \\
 
-\textbf{Distance - not because of distance}
+\textbf{Distance} plays and important role in gene coexpression in mammalian brains, where proximal brain areas exhibit more similar gene expression patterns \citep{Fulcher2016, Krienen2016}. 
+While we found no correlation between Euclidean distance between a pair of neurons and their gene coexpression, we performed an additional analysis to ensure that the increase in coexpression for hub links is not influenced by any distance effects.
+Implementing the same methods as previously used in gene coexpression analysis at each degree threshold for each link type (rich, feeder, peripheral) we calculated the mean connection distance.
+Connection distance increased with increasing degree for both rich and feeder links while peripheral connections demonstrated no increase through the whole range of thresholds (Fig. \ref{Distance}). 
+Given this result, it is safe to say that increased coexpression for hub-related links is not determined by lower connection distance between them as the contrary is shown to be true. \\
+
 \begin{figure}[!h]
 \centering
     \includegraphics[width=0.7\textwidth]{distance_k}
@@ -670,31 +667,47 @@ NOTE: NOTE HERE ABOUT REDUCED LIST OF GENES IN EACH ANALYSIS (577 and 390 genes 
  \label{Distance}
  \end{figure}
 
+\textbf{Modular organisation} of the connectome could potentially drive gene coexpression patters, where more densely interconnected neurons within modules would also be more similar in their gene expression patters. 
+Utilising Louvain community detection algorithm (see \textit{Methods}), four sparsely interconnected modules (M1, M2, M3, M4) were detected (Fig. \ref{Modules}). 
+While first three modules (M1-M3) were diverse in neuron types and comparable in size, the fourth module (M4) consisted of only 13 densely interconnected motor neurons. 
+The majority (11 out of 13) of hubs were assigned to the M3 which spanned through the whole length of the worm body as pictured in Fig. \ref{Modules}. 
+This particular module was also rich in motor neurons which is in line with our expectations as 10 out of 11 hub neurons in this module are directly responsible for forward and backward locomotion (command interneurons). 
+The main goal of this analysis was to compare coexpression within and between modules in order to examine if neurons in the same module tend to be more genetically similar to themselves then to neurons in other modules. 
+Despite the fact that M3 showed higher coexpression than both M1 and M2, overall coexpression within modules did not exceed coexpression between modules, demonstrating that neurons belonging to the same module do not share any particular genetic similarity. 
+Therefore, higher coexpression in rich and feeder links can not be attributed to the modular organisation of the connectome. 
 
-\textbf{Modules - not because coexpression within modules is higher than outside}\\
+
 
 
 \begin{figure}[!h]
 \centering
     \includegraphics[width=1\textwidth]{modules}
  \caption{{\bf Modular compositions}
-1st row: 4 modules (tau=0.2). 2nd row: 5 modules (tau=0.3). 3rd row (tau=0.5). }
+}
  \label{Modules}
  \end{figure}
  
  
-\textbf{Lineage - not because hubs have same lineage}
+\textbf{Lineage} information presents another source of information about the genetic makeup of the \textit{C. elegans} nervous system. 
+NOTE: more details needed. While the relationship between cell lineage and gene expression was studied in other species \citep{Cui2007, Kluger2004}. 
+It has been shown in \textit{C. elegans} that cells with identical fates can be formed by different gene regulatory pathways \citep{Liu2009}, however, to the best of knowledge, no lineage distance analysis was done in relation to the network properties of the \textit{C. elegans} connectome. 
+Implementing an analogous strategy as in our previous analysis of gene coexpression, we show that lineage distance between pairs of neurons increases with degree for feeder links while no significant change is observed for rich links (Fig. \ref{Lineage}). 
+This finding suggests that the difference in lineage distance between hub and non-hub neurons increases with degree, therefore in a way confirming the relevance of this classification. 
+Contrary, peripheral links manifest stably lower lineage distance through the range of degree thresholds wit (Fig. \ref{Lineage}). 
+In addition, this shows that increase in gene coexpression with degree for rich links can not be attributed to their similarity in lineage. 
+   
 
 \begin{figure}[h]
 \centering
     \includegraphics[width=0.7\textwidth]{LineageRFP}
  \caption{\textbf{Mean lineage distance between pairs of connected hubs (rich, red), connected hub-nonhub pairs (feeder, yellow), and connected nonhub-nonhub pairs (peripheral, green) as a function of the degree threshold, $k$, at which hubs are defined.}
-Top: Average gene coexpression as a function of degree for connections involving different types of neurons. Bottom: The number of connections in each category for a range of degrees. }
+Top: Degree distribution. Bottom: Median lineage distance for rich, feeder, and peripheral connections as a function of \textit{k}, with the median across all network links shown as a dashed black line and the topological rich club regime shaded grey.
+Circles indicate a statistically significant change in lineage distance in a given link type relative to the rest of the network (Wilcoxon rank sum test; $P < 0.05$)}
  \label{Lineage}
  \end{figure}
  
  
-\textbf{Neuron type - not because they are all interneurons}\\
+\textbf{Neuron class} could also contribute to gene expression patterns observed in \textit{C. elegans} connectome.
 While above we demonstrated a relationship between transcriptional similarity and structural connectivity, we note that all hubs in the topological rich-club regime in the C. elegans connectome are interneurons.
 Correspondingly, we investigated whether the effect of increasing gene coexpression is specific to interneurons.
 The relationship between median coexpression and degree for connections including different types of neurons (interneurons, motor neurons and sensory neurons) is shown in Fig. \ref{NeuronTypePlot}.
@@ -710,11 +723,10 @@ Top: Average gene coexpression as a function of degree for connections involving
  \end{figure}
 Top: Average gene coexpression as a function of degree for connections involving different types of neurons. Bottom: The number of connections in each category for a range of degrees.
 
-Next, we compare transcriptional similarity between hub interneurons and non-hub interneurons that share similar anatomical properties.
-\textbf{Compare coexpression between hub interneurons and non-hub interneurons with the same anatomy here.}
-
-
-
+Next, we compare transcriptional similarity between hub interneurons and non-hub interneurons (AVFL, AVFR, AVHL, AVHR, AVKL, AVKR, AVJL, AVJR) that share similar anatomical properties in order to ensure that increase in coexpression for rich links is not determined by the fact that the majority of hub neurons belong to the same anatomical neuron type (???HOW TO CALL COMMAND INTERNEURONS???). 
+In order to compare transcriptional similarity between all pairs of neurons we ignore the existence (or absence) of connections between these neurons, 
+As shown in Fig. \ref{NeuronTypePlot}, hub interneurons manifest significantly higher gene coexpression than non-hub interneurons despite sharing same anatomical properties. 
+Therefore, increased coexpression in rich links can not be attributed solely to them belonging to the same functional category.  
 
 
 %%
@@ -783,18 +795,51 @@ Conclusion text.
 
 
 % Include only the SI item label in the paragraph heading. Use the \nameref{label} command to cite SI items in the text.
+
 \paragraph*{S1 Fig.}
 {\bf Coexpression between reciprocally connected, unidirectionally connected and unconnected neurons.} P-values are from Wilcoxon rank sum test.
 \begin{figure}[!h]
 \label{S1_Fig}
 \centering
-    \includegraphics[width=1\textwidth]{RecUnidirUncon}
+    \includegraphics[width=0.7\textwidth]{RecUnidirUncon}
 \end{figure}
 
 
 \paragraph*{S2 Fig.}
+{\bf Coexpression for rich, feeder and peripheral links as a function of degree.}
+\begin{figure}[!h]
 \label{S2_Fig}
-{\bf Lorem ipsum.} Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
+\centering
+    \includegraphics[width=1\textwidth]{RichFeederPeripheral_k42FINAL}
+\end{figure}
+
+
+\paragraph*{S3 Fig.}
+{\bf Coexpression as a function of distance}
+\begin{figure}[!h]
+\label{S3_Fig}
+\centering
+    \includegraphics[width=1\textwidth]{CoexpDist}
+\end{figure}
+
+
+\paragraph*{S4 Fig.}
+{\bf Connection probability as a function of distance}
+\begin{figure}[!h]
+\label{S4_Fig}
+\centering
+    \includegraphics[width=0.7\textwidth]{ProbDist}
+\end{figure}
+
+
+\paragraph*{S5 Fig.}
+{\bf Weighted and mixed rich club}
+\begin{figure}[!h]
+\label{S4_Fig}
+\centering
+    \includegraphics[width=1\textwidth]{RCcurveFINAL2}
+\end{figure}
+
 
 \paragraph*{S1 File.}
 \label{S1_File}
