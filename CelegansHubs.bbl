@@ -21,6 +21,65 @@ Varadan V, Miller DM, Anastassiou D.
 \newblock Bioinformatics. 2006;22(14):e497--506.
 \newblock doi:{10.1093/bioinformatics/btl224}.
 
+\bibitem{Fulcher2016}
+Fulcher BD, Fornito A.
+\newblock {A transcriptional signature of hub connectivity in the mouse
+  connectome.}
+\newblock Proceedings of the National Academy of Sciences of the United States
+  of America. 2016;113(5):1513302113--.
+\newblock doi:{10.1073/pnas.1513302113}.
+
+\bibitem{Towlson:2013gf}
+Towlson EK, V{\'e}rtes PE, Ahnert SE.
+\newblock {The rich club of the C. elegans neuronal connectome}.
+\newblock J Neurosci. 2013;33(15):6380--6387.
+
+\bibitem{Shih:2015cu}
+Shih CT, Sporns O, Yuan SL, Su TS, Lin YJ, Chuang CC, et~al.
+\newblock {Connectomics-Based Analysis of Information Flow in the Drosophila
+  Brain}.
+\newblock Curr Biol. 2015;.
+
+\bibitem{Fulcher:2016ck}
+Fulcher BD, Fornito A.
+\newblock {A transcriptional signature of hub connectivity in the mouse
+  connectome}.
+\newblock Proc Natl Acad Sci USA. 2016;113(5):1435--1440.
+
+\bibitem{vandenHeuvel:2015ie}
+van~den Heuvel MP, Scholtens LH, de~Reus MA.
+\newblock {Topological organization of connectivity strength in the rat
+  connectome}.
+\newblock Brain Struct Funct. 2015; p. 1--18.
+
+\bibitem{ZamoraLopez:2010hy}
+Zamora-L{\'o}pez G, Zhou C, Kurths J.
+\newblock {Cortical Hubs Form a Module for Multisensory Integration on Top of
+  the Hierarchy of Cortical Networks}.
+\newblock Front Neuroinf. 2010;4:1.
+
+\bibitem{deReus:2013cy}
+de~Reus MA, van~den Heuvel MP.
+\newblock {Rich Club Organization and Intermodule Communication in the Cat
+  Connectome}.
+\newblock J Neurosci. 2013;33(32):12929--12939.
+
+\bibitem{Harriger:2012bb}
+Harriger L, van~den Heuvel MP, Sporns O.
+\newblock {Rich Club Organization of Macaque Cerebral Cortex and Its Role in
+  Network Communication}.
+\newblock PLoS ONE. 2012;7(9):e46497.
+
+\bibitem{vandenHeuvel:2011he}
+van~den Heuvel MP, Sporns O.
+\newblock {Rich-Club Organization of the Human Connectome}.
+\newblock J Neurosci. 2011;31(44):15775--15786.
+
+\bibitem{vandenHeuvel:2012kh}
+van~den Heuvel MP, Kahn RS, Go{\~n}i J, Sporns O.
+\newblock {High-cost, high-capacity backbone for global brain communication}.
+\newblock Proc Natl Acad Sci USA. 2012;109(28):11372--11377.
+
 \bibitem{Vertes2016a}
 V{\'{e}}rtes PE, Rittman T, Whitaker KJ, Romero-Garcia R, V{\'{a}}{\v{s}}a F,
   Kitzbichler MG, et~al.
@@ -35,6 +94,23 @@ Bullmore E, Sporns O.
 \newblock {The economy of brain network organization.}
 \newblock Nature Reviews Neuroscience. 2012;13(5):336--49.
 \newblock doi:{10.1038/nrn3214}.
+
+\bibitem{White:1986tx}
+White JG, Southgate E, Thomson JN.
+\newblock {The structure of the nervous system of the nematode Caenorhabditis
+  elegans}.
+\newblock {\ldots} Trans R Soc Lond B Biol {\ldots}. 1986;.
+
+\bibitem{Harris:2009kd}
+Harris TW, Antoshechkin I, Bieri T, Blasiar D, Chan J, Chen WJ, et~al.
+\newblock {WormBase: a comprehensive resource for nematode research}.
+\newblock Nucleic Acids Research. 2009;38:D463--D467.
+
+\bibitem{Pereira:2015er}
+Pereira L, Kratsios P, Serrano-Saiz E, Sheftel H, Mayo AE, Hall DH, et~al.
+\newblock {A cellular and regulatory map of the cholinergic nervous system of
+  C. elegans}.
+\newblock eLife. 2015;4:e12432.
 
 \bibitem{Sulston1977}
 Sulston JE, Horvitz HR.
@@ -54,6 +130,12 @@ Varshney LR, Chen BL, Paniagua E, Hall DH, Chklovskii DB.
 \newblock PLoS computational biology. 2011;7(2):e1001066.
 \newblock doi:{10.1371/journal.pcbi.1001066}.
 
+\bibitem{Schroter:2017eo}
+Schr{\"o}ter M, Paulsen O, Bullmore E.
+\newblock {Micro-connectomics: probing the organization of neuronal networks at
+  the cellular scale}.
+\newblock Nat Rev Neurosci. 2017; p. 1--16.
+
 \bibitem{Rubinov2010}
 Rubinov M, Sporns O.
 \newblock {Complex network measures of brain connectivity: Uses and
@@ -67,6 +149,31 @@ Warrens MJ.
   Not Depend on the Marginal Distributions.}
 \newblock Psychometrika. 2008;73(4):777--789.
 \newblock doi:{10.1007/s11336-008-9070-3}.
+
+\bibitem{Krienen:2016eq}
+Krienen FM, Yeo BTT, Ge T, Buckner RL, Sherwood CC.
+\newblock {Transcriptional profiles of supragranular-enriched genes associate
+  with corticocortical network architecture in the human brain.}
+\newblock Proc Natl Acad Sci USA. 2016;113(4):E469--78.
+
+\bibitem{Pantazatos:2016ir}
+Pantazatos SP, Li X.
+\newblock {Commentary: BRAIN NETWORKS. Correlated gene expression supports
+  synchronous activity in brain networks. Science 348, 1241-4.}
+\newblock bioRxiv. 2016; p. 079202.
+
+\bibitem{Henderson:2014fg}
+Henderson JA, Robinson PA.
+\newblock {Relations Between the Geometry of Cortical Gyrification and
+  White-Matter Network Architecture}.
+\newblock Brain Conn. 2014;4(2):112--130.
+
+\bibitem{Horvat:2016ia}
+Horv{\'a}t S, G{\u{a}}m{\u{a}}nuț R, Ercsey-Ravasz M, Magrou L,
+  G{\u{a}}m{\u{a}}nuț B, Van~Essen DC, et~al.
+\newblock {Spatial Embedding and Wiring Cost Constrain the Functional Layout of
+  the Cortical Network of Rodents and Primates}.
+\newblock PLoS Biol. 2016;14(7):e1002512.
 
 \bibitem{Ashburner2000}
 Ashburner M, Ball CA, Blake JA, Botstein D, Butler H, Cherry JM, et~al.
@@ -88,13 +195,10 @@ Zoubarev A, Hamer KM, Keshav KD, {Luke Mccarthy} E, Santos JRC, Van~rossum T,
 \newblock Bioinformatics. 2012;28(17):2272--2273.
 \newblock doi:{10.1093/bioinformatics/bts430}.
 
-\bibitem{Fulcher2016}
-Fulcher BD, Fornito A.
-\newblock {A transcriptional signature of hub connectivity in the mouse
-  connectome.}
-\newblock Proceedings of the National Academy of Sciences of the United States
-  of America. 2016;113(5):1513302113--.
-\newblock doi:{10.1073/pnas.1513302113}.
+\bibitem{Sporns:2007ea}
+Sporns O, Honey CJ, K{\"o}tter R.
+\newblock {Identification and classification of hubs in brain networks}.
+\newblock PLoS ONE. 2007;2(10):e1049.
 
 \bibitem{Krienen2016}
 Krienen FM, Yeo BTT, Ge T, Buckner RL, Sherwood CC.
@@ -103,5 +207,25 @@ Krienen FM, Yeo BTT, Ge T, Buckner RL, Sherwood CC.
 \newblock Proceedings of the National Academy of Sciences.
   2016;113(4):E469--78.
 \newblock doi:{10.1073/pnas.1510903113}.
+
+\bibitem{Cui2007}
+Cui Q, Yu Z, Purisima EO, Wang E, Li X, Schwarz P, et~al.
+\newblock {MicroRNA regulation and interspecific variation of gene expression}.
+\newblock Trends in Genetics. 2007;23(8):372--375.
+\newblock doi:{10.1016/j.tig.2007.04.003}.
+
+\bibitem{Kluger2004}
+Kluger Y, Tuck DP, Chang JT, Nakayama Y, Poddar R, Kohya N, et~al.
+\newblock {Lineage specificity of gene expression patterns.}
+\newblock Proceedings of the National Academy of Sciences of the United States
+  of America. 2004;101(17):6508--6513.
+\newblock doi:{10.1073/pnas.0401136101}.
+
+\bibitem{Liu2009}
+Liu X, Long F, Peng H, Aerni SJ, Jiang M, S{\'{a}}nchez-Blanco A, et~al.
+\newblock {Analysis of Cell Fate from Single-Cell Gene Expression Profiles in
+  C. elegans}.
+\newblock Cell. 2009;139(3):623--633.
+\newblock doi:{10.1016/j.cell.2009.08.044}.
 
 \end{thebibliography}

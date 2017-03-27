@@ -2,73 +2,59 @@ This is BibTeX, Version 0.99d (TeX Live 2015)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: CelegansHubs.aux
 The style file: plos2015.bst
-White space in argument---line 87 of file CelegansHubs.aux
- : \bibdata{library,
- :                   library_ben}
-I'm skipping whatever remains of this command
-Database file #1: library.bib
-Warning--I didn't find a database entry for "Fulcher2015"
-Warning--I didn't find a database entry for "Towlson:2013gf"
-Warning--I didn't find a database entry for "Shih:2015cu"
-Warning--I didn't find a database entry for "Fulcher:2016ck"
-Warning--I didn't find a database entry for "vandenHeuvel:2015ie"
-Warning--I didn't find a database entry for "ZamoraLopez:2010hy"
-Warning--I didn't find a database entry for "deReus:2013cy"
-Warning--I didn't find a database entry for "Harriger:2012bb"
-Warning--I didn't find a database entry for "vandenHeuvel:2011he"
-Warning--I didn't find a database entry for "vandenHeuvel:2012kh"
-Warning--I didn't find a database entry for "White:1986tx"
-Warning--I didn't find a database entry for "Harris:2009kd"
-Warning--I didn't find a database entry for "Pereira:2015er"
-Warning--I didn't find a database entry for "Schroter:2017eo"
-Warning--I didn't find a database entry for "Krienen:2016eq"
-Warning--I didn't find a database entry for "Pantazatos:2016ir"
-Warning--I didn't find a database entry for "Henderson:2014fg"
-Warning--I didn't find a database entry for "Horvat:2016ia"
-Warning--I didn't find a database entry for "Sporns:2007ea"
+Database file #1: library_ben.bib
+Repeated entry---line 67 of file library_ben.bib
+ : @article{Shih:2015cu
+ :                     ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 228 of file library_ben.bib
+ : @article{deReus:2013cy
+ :                       ,
+I'm skipping whatever remains of this entry
+Database file #2: library.bib
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 15 entries,
+You've used 36 entries,
             3058 wiz_defined-function locations,
-            807 strings with 13949 characters,
-and the built_in function-call counts, 69199 in all, are:
-= -- 8273
-> -- 236
-< -- 0
-+ -- 366
-- -- 59
-* -- 6889
-:= -- 7598
-add.period$ -- 73
-call.type$ -- 15
+            912 strings with 18821 characters,
+and the built_in function-call counts, 118444 in all, are:
+= -- 14412
+> -- 592
+< -- 3
++ -- 545
+- -- 148
+* -- 11234
+:= -- 12950
+add.period$ -- 160
+call.type$ -- 36
 change.case$ -- 0
 chr.to.int$ -- 0
-cite$ -- 15
-duplicate$ -- 2673
-empty$ -- 7148
-format.name$ -- 73
-if$ -- 15708
+cite$ -- 36
+duplicate$ -- 6144
+empty$ -- 11919
+format.name$ -- 183
+if$ -- 27078
 int.to.chr$ -- 0
-int.to.str$ -- 15
-missing$ -- 149
-newline$ -- 91
-num.names$ -- 15
-pop$ -- 206
+int.to.str$ -- 36
+missing$ -- 357
+newline$ -- 199
+num.names$ -- 36
+pop$ -- 554
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 236
+skip$ -- 607
 stack$ -- 0
-substring$ -- 18601
-swap$ -- 388
-text.length$ -- 0
+substring$ -- 29439
+swap$ -- 917
+text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 161
-width$ -- 17
-write$ -- 193
-(There was 1 error message)
+while$ -- 389
+width$ -- 38
+write$ -- 428
+(There were 2 error messages)

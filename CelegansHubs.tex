@@ -576,7 +576,7 @@ The extended tail of the degree distribution presented in \ref{fig:SchematicRepr
 At each degree \textit{k} nodes in the network were classified as hubs (degree $>\textit{k}$) or non-hubs (degree $\leq\textit{k}$) and consequently all links between them separated into three categories: rich (hub $\rightarrow$ hub), feeder (hub $\rightarrow$ non-hub or non-hub $\rightarrow$ hub) and peripheral (non-hub $\rightarrow$ non-hub).
 
 
-In this work we use a directed binary connectivity matrix of chemical synapses provided by \citet{Varshney2011} for 279 non-pharingeal neurons (nodes) and 1961 connections between them (edges) and show a rich-club organisation of the chemical synapse network (see \textit{Materials and Methods}).
+In this work we use a directed binary connectivity matrix of chemical synapses provided by \citep{Varshney2011} for 279 non-pharingeal neurons (nodes) and 1961 connections between them (edges) and show a rich-club organisation of the chemical synapse network (see \textit{Materials and Methods}).
 Rich-club organisation manifests across a continuous range of degrees $41<k<58$ ($P<0.05$, shaded grey area in Fig.\ref{RCcoef}) as normalised rich-club coefficient $\Phi_{norm}>1$.
 This indicates that when nodes are defined as hubs (degree $>\textit{k}$) in this range, they are more densely interconnected than expected by chance.
 Rich club in the chemical synapse network consists of 13 high degree neurons with degree $42 \leq k \leq 98$. \\
@@ -584,7 +584,7 @@ Rich club in the chemical synapse network consists of 13 high degree neurons wit
 
 \begin{figure}[!h]
    \centering
-    \includegraphics[width=1\textwidth]{RCcurveFINAL3}
+    \includegraphics[width=0.7\textwidth]{RCcurveFINAL3}
  \caption{{\bf Rich-club organisation of the connectome.} \\
 A: Topological rich-club. B: Mixed rich-club. C: Weighted rich-club. \\
 Normalized rich club coefficient, $\Phi_{random}$ as a function of the degree, \textit{k}, at which hubs (regions with degree $\geq \textit{k}$) are defined. (permutation test; $P<0.05$).
@@ -660,12 +660,12 @@ Implementing the same methods as previously used in gene coexpression analysis a
 Connection distance increased with increasing degree for both rich and feeder links while peripheral connections demonstrated no increase through the whole range of thresholds (Fig. \ref{Distance}). 
 Given this result, it is safe to say that increased coexpression for hub-related links is not determined by lower connection distance between them as the contrary is shown to be true. \\
 
-\begin{figure}[!h]
-\centering
-    \includegraphics[width=0.7\textwidth]{distance_k}
- \caption{{\bf Connection distance as a function of degree}}
- \label{Distance}
- \end{figure}
+%\begin{figure}[!h]
+%\centering
+ %   \includegraphics[width=0.7\textwidth]{distance_k}
+ %\caption{{\bf Connection distance as a function of degree}}
+ %\label{Distance}
+ %\end{figure}
 
 \textbf{Modular organisation} of the connectome could potentially drive gene coexpression patters, where more densely interconnected neurons within modules would also be more similar in their gene expression patters. 
 Utilising Louvain community detection algorithm (see \textit{Methods}), four sparsely interconnected modules (M1, M2, M3, M4) were detected (Fig. \ref{Modules}). 
@@ -681,14 +681,29 @@ Therefore, higher coexpression in rich and feeder links can not be attributed to
 
 \begin{figure}[!h]
 \centering
-    \includegraphics[width=1\textwidth]{modules}
- \caption{{\bf Modular compositions}
+    \includegraphics[width=1\textwidth]{Extras}
+ \caption{{\bf Plots for extras}\\
+\textbf{A: Connection distance}
+Top: Degree distribution. 
+Bottom: Median lineage distance for rich, feeder, and peripheral connections as a function of \textit{k}, with the median across all network links shown as a dashed black line and the topological rich club regime shaded grey.
+Circles indicate a statistically significant change in lineage distance in a given link type relative to the rest of the network (Wilcoxon rank sum test; $P < 0.05$). \\
+\textbf{B: Modular organisation}. 
+Composition of each module according to neuron type. 
+Modular organisation of the connectome. 
+Coexpression distributions within and between modules.   \\
+\textbf{C: Lineage distance} 
+Top: Degree distribution. Bottom: Mean lineage distance for rich, feeder, and peripheral connections as a function of \textit{k}, with the median across all network links shown as a dashed black line and the topological rich club regime shaded grey.
+Circles indicate a statistically significant change in lineage distance in a given link type relative to the rest of the network (one-sided Welch’s t-test; $P < 0.05$) \\
+\textbf{D: Coexpression for different types of neurons. }
+Top: Median gene coexpression as a function of degree for connections involving different types of neurons. 
+Bottom: The number of connections in each category for a range of degrees.
+Coexpression distributions for hub and non-hub interneurons. \\
 }
  \label{Modules}
  \end{figure}
  
  
-\textbf{Lineage} information presents another source of information about the genetic makeup of the \textit{C. elegans} nervous system. 
+\textbf{Lineage} distance between pairs of neurons presents another source of information about the genetic makeup of the \textit{C. elegans} nervous system. 
 NOTE: more details needed. While the relationship between cell lineage and gene expression was studied in other species \citep{Cui2007, Kluger2004}. 
 It has been shown in \textit{C. elegans} that cells with identical fates can be formed by different gene regulatory pathways \citep{Liu2009}, however, to the best of knowledge, no lineage distance analysis was done in relation to the network properties of the \textit{C. elegans} connectome. 
 Implementing an analogous strategy as in our previous analysis of gene coexpression, we show that lineage distance between pairs of neurons increases with degree for feeder links while no significant change is observed for rich links (Fig. \ref{Lineage}). 
@@ -697,14 +712,12 @@ Contrary, peripheral links manifest stably lower lineage distance through the ra
 In addition, this shows that increase in gene coexpression with degree for rich links can not be attributed to their similarity in lineage. 
    
 
-\begin{figure}[h]
-\centering
-    \includegraphics[width=0.7\textwidth]{LineageRFP}
- \caption{\textbf{Mean lineage distance between pairs of connected hubs (rich, red), connected hub-nonhub pairs (feeder, yellow), and connected nonhub-nonhub pairs (peripheral, green) as a function of the degree threshold, $k$, at which hubs are defined.}
-Top: Degree distribution. Bottom: Median lineage distance for rich, feeder, and peripheral connections as a function of \textit{k}, with the median across all network links shown as a dashed black line and the topological rich club regime shaded grey.
-Circles indicate a statistically significant change in lineage distance in a given link type relative to the rest of the network (Wilcoxon rank sum test; $P < 0.05$)}
- \label{Lineage}
- \end{figure}
+%\begin{figure}[h]
+%\centering
+ %   \includegraphics[width=0.7\textwidth]{LineageRFP}
+ %\caption{\textbf{}
+ %\label{Lineage}
+ %\end{figure}
  
  
 \textbf{Neuron class} could also contribute to gene expression patterns observed in \textit{C. elegans} connectome.
@@ -714,13 +727,12 @@ The relationship between median coexpression and degree for connections includin
 Connections involving interneurons show a pattern of increasing average coexpression with increasing degree, however neither connections involving motor nor sensory neurons resemble this trend; even showing evidence for the opposite relationship.
 In other words, motor and sensory neurons with higher degree show less similar gene expression patterns.
 
-\begin{figure}[h]
-\centering
-    \includegraphics[width=1\textwidth]{coexpressionInvolvingCategory}
- \caption{{\bf Coexpression for different types of neurons. }
-Top: Average gene coexpression as a function of degree for connections involving different types of neurons. Bottom: The number of connections in each category for a range of degrees.}
- \label{NeuronTypePlot}
- \end{figure}
+%\begin{figure}[h]
+%\centering
+ %   \includegraphics[width=1\textwidth]{coexpressionInvolvingCategory}
+% \caption{}
+% \label{NeuronTypePlot}
+% \end{figure}
 
 
 Next, we compare transcriptional similarity between hub interneurons and non-hub interneurons (AVFL, AVFR, AVHL, AVHR, AVKL, AVKR, AVJL, AVJR) that share similar anatomical properties in order to ensure that increase in coexpression for rich links is not determined by the fact that the majority of hub neurons belong to the same anatomical neuron type (???HOW TO CALL COMMAND INTERNEURONS???). 
@@ -835,27 +847,45 @@ Conclusion text.
 \paragraph*{S5 Fig.}
 {\bf Weighted and mixed rich club}
 \begin{figure}[!h]
-\label{S4_Fig}
+\label{S5_Fig}
 \centering
     \includegraphics[width=1\textwidth]{RCcurveFINAL2}
 \end{figure}
 
 
-\paragraph*{S1 File.}
-\label{S1_File}
-{\bf Lorem ipsum.}  Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
+\paragraph*{S6 Fig.}
+{\bf Neuron type and neurontarnsmitter as a function of degree}
+\begin{figure}[!h]
+\label{S6_Fig}
+\centering
+    \includegraphics[width=0.7\textwidth]{TypeTransmitterDegree}
+\end{figure}
 
-\paragraph*{S1 Video.}
-\label{S1_Video}
-{\bf Lorem ipsum.}  Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
+\paragraph*{S7 Fig.}
+{\bf Average coexpression for rich, feeder and peripheral links as a function of degree.}
+Top: degree distribution. Average gene coexpression for rich, feeder, and peripheral connections as a function of \textit{k}, with the mean across all network links shown as a dashed black line and the topological rich club regime shaded grey.
+Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (one-sided Welch’s t-test; $P < 0.05$)
+\begin{figure}[!h]
+\label{S7_Fig}
+\centering
+    \includegraphics[width=0.7\textwidth]{CoX0Mean}
+\end{figure}
 
-\paragraph*{S1 Appendix.}
-\label{S1_Appendix}
-{\bf Lorem ipsum.} Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
+%\paragraph*{S1 File.}
+%\label{S1_File}
+%{\bf Lorem ipsum.}  Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
 
-\paragraph*{S1 Table.}
-\label{S1_Table}
-{\bf Lorem ipsum.} Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
+%\paragraph*{S1 Video.}
+%\label{S1_Video}
+%{\bf Lorem ipsum.}  Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
+
+%\paragraph*{S1 Appendix.}
+%\label{S1_Appendix}
+%{\bf Lorem ipsum.} Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
+
+%\paragraph*{S1 Table.}
+%\label{S1_Table}
+%{\bf Lorem ipsum.} Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
 
 \section*{Acknowledgments}
 Thanks to Alex Fornito, for being a big deal.\\
@@ -876,7 +906,8 @@ Should keep this!
 % step-by-step instructions.
 %
 
-\bibliography{library, library_ben}
+
+\bibliography{library_ben,library}
 % \begin{thebibliography}{10}
 
 % \bibitem{bib1}
