@@ -447,7 +447,7 @@ To this end, we developed a new index based around that probability, $P(m)$, tha
     P(m) = \binom{n_2}{m} \binom{N-n_2}{n_1-m} / \binom{N}{n_1},
 \end{equation}
 for two binary expression vectors, $x_i$, $y_i$, of length $N$, containing $n_1$ and $n_2$ 1s, respectively ($n_2 \leq n_1$), with $m$ matches ($n_{11}$).
-Our index, $r_\xi$, computes the probability of at least this many matches as $r_\xi = 1 - \sum_{x=0}^{m-1} P(x)$.
+Our index, $r_\xi$, computes the probability of fewer than this many matches as $r_\xi = \sum_{x=0}^{m-1} P(x)$.
 This showed ([[biases?]]) which gave similar results [[TODO: check that behavior is indeed similar]].
 
 Previous work has emphasized the importance of spatial effects in driving patterns of gene expression, for example, with gene coexpression exhibiting spatial autocorrelation in the mouse brain \cite{Fulcher:2016ck} and human cortex \cite{Krienen:2016eq, Pantazatos:2016ir}.
