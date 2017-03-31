@@ -24,6 +24,7 @@
 *.synctex.gz
 *.bst
 *.cls
-*.pdf
 *.lb
+*eps-converted-to.pdf
 template
+CElegansHubs.pdf
