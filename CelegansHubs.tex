@@ -587,16 +587,16 @@ Yellow circles indicate where the Euclidean distance between connected pairs of 
 
 %% for now figres are old - just to define where the figure is
 First, we investigated how gene coexpression relates to connectivity by examining it between connected and unconnected neuron pairs.
-As it is shown in Fig \ref{fig:ConUncon}, connected pairs of neurons have more similar expression profiles than unconnected pairs (Wilcoxon rank-sum test, $P < 10^{-50}$). Furthermore, there is no difference in gene coexpression between reciprocally and unidirectionally connected neurons while coexpression in both of these groups is higher than between unconnected neurons (see Fig \ref{S3 Fig}). \\
+As it is shown in Fig \ref{fig:RCdegree} A, connected pairs of neurons have more similar expression profiles than unconnected pairs (Wilcoxon rank-sum test, $P < 10^{-50}$). Furthermore, there is no difference in gene coexpression between reciprocally and unidirectionally connected neurons while coexpression in both of these groups is higher than between unconnected neurons (see Fig \ref{S3 Fig}). \\
 % coexpConnUncon script
-\begin{figure}[!h]
-   \centering
-    \includegraphics[width=0.9\textwidth]{ConUncon.pdf}
- \caption{{\bf Coexpression between connected and unconnected neurons.}
-Distribution of transcriptional similarity between connected and unconnected neurons.
-$P<10^{-50}$, Wilcoxon rank sum test.}
- \label{fig:ConUncon}
-\end{figure}
+%\begin{figure}[!h]
+%   \centering
+%    \includegraphics[width=0.9\textwidth]{ConUncon.pdf}
+% \caption{{\bf Coexpression between connected and unconnected neurons.}
+%Distribution of transcriptional similarity between connected and unconnected neurons.
+%$P<10^{-50}$, Wilcoxon rank sum test.}
+% \label{fig:ConUncon}
+%\end{figure}
 To investigate which functional groups of genes contributed to the difference in transcriptional coupling between connected and unconnected neurons, we used a method of assigning each gene coexpression contribution (GCC) score that quantifies the contribution of each gene to the overall coexpression between neuron pairs (see Methods).  \\
 
 %% comment on enrichment analysis. No write up can be done before deciding on options.
@@ -608,7 +608,7 @@ These findings are in line with our expectations as they confirm that genes that
 
 \textbf{Coexpression and hub connectivity.}\\
 For the second part of our analysis, we focused on the features of rich-club organization of \textit{C. elegans} connectome by investigating the relationship between gene coexpression and neuronal connectivity in three different classes of neuron pairs.
-At each node degree, $k$ (x-axis in Fig \ref{RCdegree}), we defined each neuron as either a hub (nodes with degree $\geq k$) or a nonhub (otherwise), and then labelled each connection as rich (hub $\rightarrow$ hub), feeder (nonhub $\rightarrow$ hub or hub $\rightarrow$ nonhub), or peripheral (nonhub $\rightarrow$ nonhub).
+At each node degree, $k$ (x-axis in Fig \ref{RCdegree} B), we defined each neuron as either a hub (nodes with degree $\geq k$) or a nonhub (otherwise), and then labelled each connection as rich (hub $\rightarrow$ hub), feeder (nonhub $\rightarrow$ hub or hub $\rightarrow$ nonhub), or peripheral (nonhub $\rightarrow$ nonhub).
 Due to non-normal coexpression value distributions, at each degree, we calculated median coexpression for each link type (Fig. \ref{RCdegree}).
 Coexpression is gradually increasing with degree for links involving hubs (Fig. \ref{RCdegree}).
 Rich links show consistently increasing coexpression for a range of degrees until it reaches plateau at around $k=38$ and stays constant in the topological rich club regime.
@@ -619,8 +619,10 @@ Peripheral links, on the other hand, did not show any change through the range o
  \begin{figure}[!h]
  \centering
     \includegraphics[width=1\textwidth]{MeanCoexpression.pdf}
- \caption{{\bf Median coexpression for rich, feeder and peripheral links as a function of degree.}
-Top: degree distribution. Median gene coexpression for rich, feeder, and peripheral connections as a function of \textit{k}, with the median across all network links shown as a dashed black line and the topological rich club regime shaded grey.
+ \caption{{\bf Coexpression and topology}
+\textbf{A: }Distribution of transcriptional similarity between connected and unconnected neurons.
+$P<10^{-50}$, Wilcoxon rank sum test. 
+\textbf{B: }Top: degree distribution. Middle: proportion of link types at each degree threshold. Bottom: Mean gene coexpression for rich, feeder, and peripheral connections as a function of \textit{k}, with the mean across all network links shown as a dashed black line and the topological rich club regime shaded grey.
 Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (Wilcoxon rank sum test; $P < 0.05$)}
  \label{RCdegree}
  \end{figure}
