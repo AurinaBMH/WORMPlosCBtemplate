@@ -615,9 +615,15 @@ Using directed connectivity information to split connections into unidirectional
  %  \caption{{\bf Coexpression between connected and unconnected neurons.}
 \textbf{A} Distribution of transcriptional similarity between connected ([[XX]] pairs) and unconnected ([[XX]] pairs) pairs of neurons as a violin plot, with the mean of each distribution shown as a horizontal line.
 Coexpression, $r_\phi$ is increased in connected pairs of neurons ($P < 10^{-50}$, Wilcoxon rank sum test).
-\textbf{B} Top: degree distribution. Median gene coexpression for rich, feeder, and peripheral connections as a function of $k$, with the median across all network links shown as a dashed black line and the topological rich club regime shaded grey.
-Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (Wilcoxon rank sum test; $P < 0.05$).
-[[TODO: A: add $r_\phi$ to ylabel B: Remove box from degree distribution, Change y-label to `Median gene coexpression']]
+\textbf{B}
+\emph{Top}: Degree distribution.
+\emph{Middle}: proportion of connections that are `rich' (hub$\rightarrow$hub, red), `feed-in' (nonhub$\rightarrow$hub, yellow), `feed-out' (hub$\rightarrow$nonhub, orange), and `peripheral' (nonhub$\rightarrow$nonhub, blue) as a function of the degree threshold, $k$, used to define hubs.
+Note that at high $k$, most neurons are labeled as nonhubs, and hence the vast majority of connections are `peripheral'.
+\emph{Lower}: Median Pearson gene coexpression, $r_\phi$, for each connection type as a function of $k$.
+The median coexpression across all network links shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. Fig.~\ref{fig:topology_rich}) is shaded gray.
+Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (Wilcoxon rank sum test; $P < 0.05$).\\
+[[TODO: A: add $r_\phi$ to ylabel. Perhaps we want to use different colors (confusing: we shouldn't use red for both connected and rich within the same plot; same for blue, should be just peripheral, not peripheral and unconnected)\\
+B: Remove box from degree distribution, Change y-label to `Median gene coexpression', fonts are small, and inconsistent sizes between subplots. I think we should crop the curves when there are fewer than X connections remaining -- in this case it's a bit ridiculous to show that constant feed-out/feed-in/peripheral coexpression when there are only two neurons left as hubs]]
 }
  \label{fig:coExp}
 \end{figure}
@@ -628,10 +634,10 @@ Having established an increase in gene coexpression in connected pairs of brain 
 Given the importance of hub neurons across species [[Ref]], and previous results in the mesoscale mouse connectome \cite{Fulcher:2016ck}, we expect increased coexpression in connections involving hubs.
 To investigate this effect, we first labeled each neuron as either a hub (nodes with degree $> k$) or a nonhub (degree $\leq k$), for a given hub threshold, $k$, and then labeled each connection as either `rich' (hub $\rightarrow$ hub), `feed-in' (nonhub $\rightarrow$ hub), `feed-out' (hub $\rightarrow$ nonhub), or `peripheral' (nonhub $\rightarrow$ nonhub).
 [[TODO: Establish whether we're computing pairs of hubs (e.g., for `rich'), or for every connection between any pair of hubs -- i.e., do reciprocal connections contribute twice to the distribution at each $k$?]]
-The median coexpression for each of these four connection types described above is plotted in Fig.~\ref{fig:coExp}B, with circles indicating statistically significant increases of a given connection type (relative to all other connections) [[TODO: Why are we suddenly doing medians? subplot A is mean, right? Is median a better summary of the distribution than mean? Mean would raise fewer flags if results are similar]].
-We see that gene coexpression in rich connections increases with degree, reaching a plateau through the topological rich-club regime (shaded in Fig.~\ref{fig:coExp}).
-Rich links show consistently increasing coexpression for a range of degrees until it reaches plateau at around $k=38$ and stays constant in the topological rich club regime.
-We observed a difference in gene coexpression between feed-in and feed-out links, where feed-out links manifested increased coexpression for a broad range of degrees while feed-in links showed only a slight increase for very high hub thresholds.
+The median coexpression for each of these four connection types described above is plotted in Fig.~\ref{fig:coExp}B, with circles indicating statistically significant increases of a given connection type (relative to all other connections) [[TODO: Why are we suddenly doing medians? subplot A is mean, right? Is median a better summary of the distribution than mean? Depending on distributions, the mean MAY raise fewer flags if results are similar using mean]].
+We see that gene coexpression in rich connections increases with degree, reaching a plateau through the topological rich-club regime where hubs are densely interconnected (shaded in Fig.~\ref{fig:coExp}B).
+Interestingly, we see a split between feed-in and feed-out connections, with feed-out connections showing increased gene coexpression through the topological rich-club regime, while feed-in and peripheral connections show the lowest levels of coexpression.
+% We observed a difference in gene coexpression between feed-in and feed-out links, where feed-out links manifested increased coexpression for a broad range of degrees while feed-in links showed only a slight increase for very high hub thresholds.
 Peripheral links, on the other hand, did not show any change through the range of degrees.
 
 
