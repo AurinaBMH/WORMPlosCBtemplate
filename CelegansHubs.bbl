@@ -171,8 +171,8 @@ Pantazatos SP, Li X.
 
 \bibitem{Henderson:2014fg}
 Henderson JA, Robinson PA.
-\newblock {Relations Between the Geometry of Cortical Gyrification and
-  White-Matter Network Architecture}.
+\newblock Relations Between the Geometry of Cortical Gyrification and
+  White-Matter Network Architecture.
 \newblock Brain Conn. 2014;4(2):112--130.
 
 \bibitem{Horvat:2016ia}
@@ -202,10 +202,17 @@ Zoubarev A, Hamer KM, Keshav KD, {Luke Mccarthy} E, Santos JRC, Van~rossum T,
 \newblock Bioinformatics. 2012;28(17):2272--2273.
 \newblock doi:{10.1093/bioinformatics/bts430}.
 
-\bibitem{Sporns:2007ea}
-Sporns O, Honey CJ, K{\"o}tter R.
-\newblock {Identification and classification of hubs in brain networks}.
-\newblock PLoS ONE. 2007;2(10):e1049.
+\bibitem{Roberts2016}
+Roberts JA, Perry A, Lord AR, Roberts G, Mitchell PB, Smith RE, et~al.
+\newblock {The contribution of geometry to the human connectome.}
+\newblock NeuroImage. 2016;124(Pt A):379--93.
+\newblock doi:{10.1016/j.neuroimage.2015.09.009}.
+
+\bibitem{Goulas:2016hr}
+Goulas A, Uylings HBM, Hilgetag CC.
+\newblock {Principles of ipsilateral and contralateral cortico-cortical
+  connectivity in the mouse}.
+\newblock Brain Struct Funct. 2016;252:1--15.
 
 \bibitem{Krienen2016}
 Krienen FM, Yeo BTT, Ge T, Buckner RL, Sherwood CC.
