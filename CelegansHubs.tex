@@ -610,7 +610,7 @@ Using directed connectivity information to split connections into unidirectional
 % ------------------------------------------------------------------------------
  \begin{figure}[h]
  \centering
-    \includegraphics[width=1\textwidth]{MeanCoexpression.pdf}
+    \includegraphics[width=1\textwidth]{MeanCoexpression2.pdf}
  \caption{{\bf Gene coexpression varies as a function of connectivity, and as a function of connection type, with connections involving hubs being most similar.}
  %  \caption{{\bf Coexpression between connected and unconnected neurons.}
 \textbf{A} Distribution of transcriptional similarity between connected ([[XX]] pairs) and unconnected ([[XX]] pairs) pairs of neurons as a violin plot, with the mean of each distribution shown as a horizontal line.
@@ -622,9 +622,8 @@ Note that at high $k$, most neurons are labeled as nonhubs, and hence the vast m
 \emph{Lower}: Median Pearson gene coexpression, $r_\phi$, for each connection type as a function of $k$.
 The median coexpression across all network links shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. Fig.~\ref{fig:topology_rich}) is shaded gray.
 Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (Wilcoxon rank sum test; $P < 0.05$).\\
-[[TODO: A: add $r_\phi$ to ylabel. Perhaps we want to use different colors (confusing: we shouldn't use red for both connected and rich within the same plot; same for blue, should be just peripheral, not peripheral and unconnected)\\
-B: Remove box from degree distribution, Change y-label to `Median gene coexpression', fonts are small, and inconsistent sizes between subplots. I think we should crop the curves when there are fewer than X connections remaining -- in this case it's a bit ridiculous to show that constant feed-out/feed-in/peripheral coexpression when there are only two neurons left as hubs]]
-}
+[[TODO: A: add $r_\phi$ to ylabel. Perhaps we want to use different colors (confusing: we shouldn't use red for both connected and rich within the same plot; same for blue, should be just peripheral, not peripheral and unconnected).
+B: Remove box from degree distribution, Change y-label to `Median gene coexpression', fonts are small, and inconsistent sizes between subplots. I think we should crop the curves when there are fewer than X connections remaining -- in this case it's a bit ridiculous to show that constant feed-out/feed-in/peripheral coexpression when there are only two neurons left as hubs]]}
  \label{fig:coExp}
 \end{figure}
 % ------------------------------------------------------------------------------
@@ -719,7 +718,7 @@ Therefore, higher coexpression in rich and feeder links can not be attributed to
 % scripts
 \begin{figure}[!h]
 \centering
-    \includegraphics[width=0.8\textwidth]{Modules.pdf}
+    \includegraphics[width=1\textwidth]{Modules.pdf}
  \caption{{\bf Plots for extras}\\
 %\textbf{A: Connection distance}
 %Top: Degree distribution.
@@ -882,20 +881,14 @@ Unlike data from macroscopic mammalian brains of mouse \cite{Fulcher:2016ck} and
 
 
 % coexpRecUnidirUncon script
-\paragraph*{S3 Fig.}
-{\bf Coexpression between reciprocally connected, unidirectionally connected and unconnected neurons.} $P$-values are from Wilcoxon rank sum test.
-\begin{figure}[h]
-\label{S3_Fig}
-\centering
-    \includegraphics[width=0.7\textwidth]{RecUnidirUncon}
-\end{figure}
 
-\paragraph*{S4 Fig.}
+
+\paragraph*{S3 Fig.}
 {\bf Coexpression for rich, feeder and peripheral links as a function of degree.}
 \begin{figure}[!h]
 \label{S4_Fig}
 \centering
-    \includegraphics[width=1\textwidth]{RichFeederPeripheral_k42FINAL}
+    \includegraphics[width=1\textwidth]{Distributions.pdf}
 \end{figure}
 
 % networkRC script
@@ -908,13 +901,13 @@ Unlike data from macroscopic mammalian brains of mouse \cite{Fulcher:2016ck} and
 \end{figure}
 
 % propTypesDegree(C) script
-\paragraph*{S6 Fig.}
-{\bf Neuron type and neurotransmitter as a function of degree}
-\begin{figure}[!h]
-\label{S7_Fig}
-\centering
-    \includegraphics[width=0.7\textwidth]{TypeTransmitterDegree}
-\end{figure}
+%\paragraph*{S6 Fig.}
+%{\bf Neuron type and neurotransmitter as a function of degree}
+%\begin{figure}[!h]
+%\label{S7_Fig}
+%\centering
+%    \includegraphics[width=0.7\textwidth]{TypeTransmitterDegree}
+%\end{figure}
 
 % RichClub script
 \paragraph*{S7 Fig.}
