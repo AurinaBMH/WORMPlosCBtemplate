@@ -582,9 +582,10 @@ Most of the analyses performed here compare variation as a function of the hub t
 
 % <<distance, geometric effects>>
 Recent work has shown that many aspects of connectome organization can be partially accounted for by geometric effects, that treat the connectome not just as an abstracted graph topology, but as a spatially-embedded object \cite{Henderson:2014fg, Roberts2016, Horvat:2016ia}.
-In Fig.~\ref{fig:topology_rich}B, we plot the mean distance between all pairs of connected hubs at each degree threshold, $k$, again finding an increase with $k$ through to the topological rich-club regime.
-Given that the connection probability decreases with distance (particularly up to ~0.2\,mm, see Fig.~\ref{fig:S_distDep}A)
-(exponentially in mouse \cite{Fulcher:2016ck})
+In Fig.~\ref{fig:topology_rich}B, we plot the mean distance between all pairs of connected hubs at each degree threshold, $k$, finding an increase in mean hub-hub connection distance with $k$, through to the extent of the topological rich-club regime.
+This increase can be attributed to a relative increase in connections between the head and tail in hub-hub connections relative to other connection types [[TODO: should we show evidence in the supps?]].
+Despite an increase in hub-hub connection density across longer distances, connection probability decreases with distance in C. elegans (see Fig.~\ref{fig:S_distDep}A, particularly for head-head and tail-tail connections, up to $\approx 0.2$\,mm, and body-body connections up to $\approx 0.4$\,mm, and head-tail and tail-head connections, from $\approx 1.0-1.2$\,mm), mirroring recent results in mouse \cite{Goulas:2016hr, Fulcher:2016ck}, and other rodents and primates \cite{Horvat:2016ia}.
+Taken together, our results demonstrate that hub-hub connections in C. elegans are dense, and extend over significantly longer distances than other types of connections in the synaptic connectome, consistent with the idea of the rich club as a costly but central backbone for neuronal communication \cite{vandenHeuvel:2012kh}.
 
 
 % In connectomes across species and scales, degree is distributed unequally, with a small number of highly connected brain regions, known as hubs \cite{Sporns:2007ea}, that are themselves more densely connected between themselves, forming a so-called `rich club' \cite{deReus:2013cy, ZamoraLopez:2010hy, Shih:2015cu, vandenHeuvel:2012kh, vandenHeuvel:2011he}.
@@ -848,10 +849,10 @@ Conclusion text.
 
 % <<runFigureGenerators>>: <<probabilityVSdistance, coexpressionDistance>>
 \begin{figure}[h]
-\label{fig:S_distDep}
 \centering
     \includegraphics[width=1\textwidth]{distanceDependence.eps}
 \caption{
+\label{fig:S_distDep}
 \textbf{Separation distance affects connection probability but not gene coexpression}
 \textbf{A}
 The connection probability is estimated in 50 equiprobable distance bins, shown as circles (bin centers) and lines (bin extent).
