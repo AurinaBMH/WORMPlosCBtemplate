@@ -25,6 +25,6 @@
 *.bst
 *.cls
 *.lb
-# *eps-converted-to.pdf
+*eps-converted-to.pdf
 template
 CElegansHubs.pdf
