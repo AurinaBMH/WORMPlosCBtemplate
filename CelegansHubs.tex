@@ -540,24 +540,10 @@ Neurons have been ordered by their position, from head (upper) to tail (lower).
 
 % \paragraph{Rich club organization of the connectome}
 
+% <<hubs>>
 First, we analyze the topological properties of the C. elegans connectome, represented here as a directed, binary connectivity matrix of the 1961 chemical synapses between 279 non-pharingeal neurons \cite{Varshney2011}, focusing particularly on hub connectivity.
 The degree distribution of the C. elegans chemical connectome is shown in Fig.~\ref{fig:topology_rich}A, where neurons have been distinguish according to type: 68 sensory neurons, 85 interneurons, 108 motor neurons, and 18 neurons that have multiple annotations (annotations from WORMBASE[[TODO: add reference]]).
 Consistent with previous work [[]], we see a positively-skewed degree distribution containing an extended tail of high-degree hubs, the majority of which are interneurons [[characterized in previous work as control INs]].
-
-We quantified the extend to which hubs are densely interconnected by computing the normalized rich-club coefficient, $\Phi_\mathrm{norm}$, with $\Phi_\mathrm{norm} > 1$ indicating rich-club organization of the network.
-The variation in $\Phi_\mathrm{norm}$ across a range of thresholds, $k$ (at which hubs are defined, as neurons with degree $>k$), is shown in Fig.~\ref{fig:topology_rich}B, with red circles indicating a significant increase in link density among hubs relatively to 1\,000 degree-preserving nulls (permutation test, $P < 0.05$) [[check whether randmio\_dir only preserves degree]].
-The plot reveals rich-club organization at the upper tail of the degree distribution, particularly for thresholds $41 < k < 58$, shaded gray in Fig.\ref{fig:topology_rich}B.
-% This indicates that when nodes are defined as hubs (degree $>\textit{k}$) in this range, they are more densely interconnected than expected by chance.
-Most of the analyses performed here compare variation as a function of the hub threshold, $k$, but for analyses requiring a fixed hub definition, we define hubs as the 13 neurons with $k > 41$ [[TODO: compare to Towlson]].
-% Rich club in the chemical synapse network consists of 13 high degree neurons with degree $42 \leq k \leq 98$.
-
-[[maybe include a list with degrees and definitions in SUPP (like in Towlson's paper?). Are our hubs similar of different? Why?).]]
-
-
-
-% In connectomes across species and scales, degree is distributed unequally, with a small number of highly connected brain regions, known as hubs \cite{Sporns:2007ea}, that are themselves more densely connected between themselves, forming a so-called `rich club' \cite{deReus:2013cy, ZamoraLopez:2010hy, Shih:2015cu, vandenHeuvel:2012kh, vandenHeuvel:2011he}.
-% The same is true in the C. elegans neuronal nervous system, analyzed in the past as an undirected binary connectome including both chemical and electrical synapses \cite{Towlson:2013gf}, which exhibits highly connected, and densely interconnected hub neurons.
-
 
 % ------------------------------------------------------------------------------
 % <<TopologyFigures.m>>
@@ -583,6 +569,27 @@ Yellow circles indicate where the Euclidean distance between connected pairs of 
  \label{fig:topology_rich}
  \end{figure}
 % ------------------------------------------------------------------------------
+
+% <<rich-club organization>>
+We quantified the extend to which hubs are densely interconnected by computing the normalized rich-club coefficient, $\Phi_\mathrm{norm}$, with $\Phi_\mathrm{norm} > 1$ indicating rich-club organization of the network.
+The variation in $\Phi_\mathrm{norm}$ across a range of thresholds, $k$ (at which hubs are defined, as neurons with degree $>k$), is shown in Fig.~\ref{fig:topology_rich}B, with red circles indicating a significant increase in link density among hubs relatively to 1\,000 degree-preserving nulls (permutation test, $P < 0.05$) [[check whether randmio\_dir only preserves degree]].
+The plot reveals rich-club organization at the upper tail of the degree distribution, particularly for thresholds $41 < k < 58$, referred to here as the `topological rich-club regime', shaded gray in Fig.\ref{fig:topology_rich}B.
+% This indicates that when nodes are defined as hubs (degree $>\textit{k}$) in this range, they are more densely interconnected than expected by chance.
+Most of the analyses performed here compare variation as a function of the hub threshold, $k$, but for analyses requiring a fixed hub definition, we define hubs as the 13 neurons with $k > 41$ [[TODO: compare to Towlson]].
+% Rich club in the chemical synapse network consists of 13 high degree neurons with degree $42 \leq k \leq 98$.
+
+[[maybe include a list with degrees and definitions in SUPP (like in Towlson's paper?). Are our hubs similar of different? Why?).]]
+
+% <<distance, geometric effects>>
+Recent work has shown that many aspects of connectome organization can be partially accounted for by geometric effects, that treat the connectome not just as an abstracted graph topology, but as a spatially-embedded object \cite{Henderson:2014fg, Roberts2016, Horvat:2016ia}.
+In Fig.~\ref{fig:topology_rich}B, we plot the mean distance between all pairs of connected hubs at each degree threshold, $k$, again finding an increase with $k$ through to the topological rich-club regime.
+Given that the connection probability decreases with distance (Fig.~\ref{supp:})
+(exponentially in mouse \cite{Fulcher:2016ck})
+
+
+% In connectomes across species and scales, degree is distributed unequally, with a small number of highly connected brain regions, known as hubs \cite{Sporns:2007ea}, that are themselves more densely connected between themselves, forming a so-called `rich club' \cite{deReus:2013cy, ZamoraLopez:2010hy, Shih:2015cu, vandenHeuvel:2012kh, vandenHeuvel:2011he}.
+% The same is true in the C. elegans neuronal nervous system, analyzed in the past as an undirected binary connectome including both chemical and electrical synapses \cite{Towlson:2013gf}, which exhibits highly connected, and densely interconnected hub neurons.
+
 
 
 %%
@@ -838,15 +845,28 @@ Conclusion text.
 
 \paragraph*{S2 Fig.}
 {\bf Coexpression as a function of distance}
-\begin{figure}[!h]
-\label{S2_Fig}
+
+% <<runFigureGenerators>>: <<probabilityVSdistance, coexpressionDistance>>
+\begin{figure}[h]
+\label{fig:S_distDep}
 \centering
     \includegraphics[width=1\textwidth]{distanceDependence.eps}
+\caption{
+\textbf{Separation distance affects connection probability but not gene coexpression}
+\textbf{A}
+The connection probability is estimated in 50 equiprobable distance bins, shown as circles (bin centers) and lines (bin extent).
+A decreasing relationship is evident up to a separation distance of approximately 0.2\,mm.
+The slight increase at large distances ($\approx 1$\,mm) may be due to the importance of head-tail connections relative to connections between the body and the head or tail.
+\textbf{B}
+Pearson gene coexpression, $r_\phi$, is plotted as a function of separation distance for all pairs of neurons
+}
 \end{figure}
+
+
 % coexpRecUnidirUncon script
 \paragraph*{S3 Fig.}
-{\bf Coexpression between reciprocally connected, unidirectionally connected and unconnected neurons.} P-values are from Wilcoxon rank sum test.
-\begin{figure}[!h]
+{\bf Coexpression between reciprocally connected, unidirectionally connected and unconnected neurons.} $P$-values are from Wilcoxon rank sum test.
+\begin{figure}[h]
 \label{S3_Fig}
 \centering
     \includegraphics[width=0.7\textwidth]{RecUnidirUncon}
@@ -906,8 +926,8 @@ Circles indicate a statistically significant increase in gene coexpression in a 
 %{\bf Lorem ipsum.} Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
 
 \section*{Acknowledgments}
-Thanks to Alex Fornito, for being a big deal.\\
-Should keep this!
+Thanks to Alex Fornito, for being a big deal.
+
 \nolinenumbers
 
 % Either type in your references using
