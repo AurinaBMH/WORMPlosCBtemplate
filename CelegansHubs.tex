@@ -639,7 +639,33 @@ We see that gene coexpression in rich connections increases with degree, reachin
 Interestingly, we see a split between feed-in and feed-out connections, with feed-out connections showing increased gene coexpression through the topological rich-club regime, while feed-in and peripheral connections show the lowest levels of coexpression.
 % We observed a difference in gene coexpression between feed-in and feed-out links, where feed-out links manifested increased coexpression for a broad range of degrees while feed-in links showed only a slight increase for very high hub thresholds.
 
-These results, using partial binary expression estimates in 948 genes in a neuronal connectome, are broadly consistent with results in 213 regions of the mesoscale mouse connectome with over 17\,000 genes, in which we see an increase in coexpression in connected pairs of neurons, and in hub-hub connections.
+These results, using partial binary expression estimates in 948 genes in a neuronal connectome, are broadly consistent with results in 213 regions of the mesoscale mouse connectome with over 17\,000 genes, in which we see an increase in coexpression in connected pairs of neurons, and the greatest coexpression amongst hub-hub connections and the lowest coexpression amongst nonhub-nonhub connections.
+In contrast to the mouse connectome, however, in which hubs were distributed across a broad range of anatomical divisions, hubs in C. elegans are [[mostly. There is one motor neuron in there, right?]] interneurons \cite{Towlson:2013gf} (cf. Fig.~\ref{fig:topology_rich}A).
+To determine the specificity of the effect between different neuron types, we split our coexpression analysis into connections involving: (i) interneurons, (ii) sensory neurons, and (iii) motor neurons, computing the median coexpression within each class of connections as a function of the degree of the given neuron type [[TODO: is this true? It's kind of complicated to explain -- is it right that for a given k threshold we include, say, sensory neurons of degree greater than $k$ and their connections to all other neurons in the `sensory' category? Or do we include all neurons with degree $>k$ and compute the median of those connections that involve both the high-degree neurons AND neurons of the given class? This would be another choice. Perhaps it's the latter that's plotted?]], as shown in Fig.~\ref{fig:interneuron_dep}A.
+Note that the three categories are not mutually exclusive; for example, the `interneuron' class includes connections between any interneuron and any other neuron.
+We find that connections involving interneurons are unique in their increasing [[average]][[median? See comments above about whether to use mean throughout... Need to inspect the distributions to motivate the right choice]] coexpression with increasing degree, $k$.
+Connections involving motor neurons, and connections involving sensory neurons, do not show any clear increase with degree.
+
+\begin{figure}[h]
+\centering
+   \includegraphics[width=1\textwidth]{TypeDegree.pdf}
+ \caption{
+\textbf{The increase in coexpression with degree is specific to high-degree interneurons, and hub interneurons have higher coexpression than nonhub interneurons}
+\textbf{A} \emph{Upper}: The number of connections in each category for a range of degrees.
+\emph{Lower}: Average gene coexpression as a function of degree for connections involving different types of neurons.
+\textbf{B} Coexpression distributions for hub and non-hub interneurons.
+[[TODO: Did we exclude multimodal neurons from this analysis?? Can we do a statistical comparison between these distributions and add something here on that?]]
+[[TODO: A: the vertical axis in lower subplot should state `median gene coexpression']]
+ \label{fig:interneuron_dep}
+}
+\end{figure}
+
+Given the distinction of interneurons in driving the gene coexpression relationship with degree, $k$, we next verified whether hubs showed a unique transcriptional signature among this neuronal subtype.
+We compared gene coexpression between all pairs of hub interneurons [[TODO: what $k$ threshold?]] and between all pairs of nonhub interneurons (AVFL, AVFR, AVHL, AVHR, AVKL, AVKR, AVJL, AVJR) [[TODO: what does this list represent? Not clear from the sentence structure]], as shown in Fig.~\ref{fig:interneuron_dep}B.
+% that share similar anatomical properties in order to ensure that increase in coexpression for rich links is not determined by the fact that the majority of hub neurons belong to the same anatomical neuron type (???HOW TO CALL COMMAND INTERNEURONS???).
+% In order to compare transcriptional similarity between all pairs of neurons we ignore the existence (or absence) of connections between these neurons,
+Pairs of hub interneurons display significantly higher gene coexpression than pairs of nonhub interneurons ([[TODO: statistical test, p-value, etc.]]).
+Thus, the increase in coexpression amongst hub interneurons is not simply due to most hubs being interneurons;  even amongst interneurons, [[TODO: isn't this obvious from plot A? It's very similar -- at high degree, we're only looking at hub interneuron pairs, which are more similar than others. Not sure B adds much -- we could just quantify the difference at a given $k$ threshold to put a statistic to it...?]].
 
 
 \subsection*{Functional enrichment}
@@ -757,29 +783,6 @@ In addition, this shows that increase in gene coexpression with degree for rich 
  %\caption{\textbf{}
  %\label{Lineage}
  %\end{figure}
-
-
-\textbf{Neuron class} could also contribute to gene expression patterns observed in \textit{C. elegans} connectome.
-While above we demonstrated a relationship between transcriptional similarity and structural connectivity, we note that all hubs in the topological rich-club regime in the C. elegans connectome are interneurons.
-Correspondingly, we investigated whether the effect of increasing gene coexpression is specific to interneurons.
-The relationship between median coexpression and degree for connections including different types of neurons (interneurons, motor neurons and sensory neurons) is shown in Fig. \ref{NeuronTypePlot}.
-Connections involving interneurons show a pattern of increasing average coexpression with increasing degree, however neither connections involving motor nor sensory neurons resemble this trend; even showing evidence for the opposite relationship.
-In other words, motor and sensory neurons with higher degree show less similar gene expression patterns.
-
-\begin{figure}[h]
-\centering
-   \includegraphics[width=1\textwidth]{TypeDegree.pdf}
- \caption{\textbf{A} Top: The number of connections in each category for a range of degrees.
-Bottom: Average gene coexpression as a function of degree for connections involving different types of neurons.
-\textbf{B} Coexpression distributions for hub and non-hub interneurons. }
- \label{NeuronTypePlot}
- \end{figure}
-
-
-Next, we compare transcriptional similarity between hub interneurons and non-hub interneurons (AVFL, AVFR, AVHL, AVHR, AVKL, AVKR, AVJL, AVJR) that share similar anatomical properties in order to ensure that increase in coexpression for rich links is not determined by the fact that the majority of hub neurons belong to the same anatomical neuron type (???HOW TO CALL COMMAND INTERNEURONS???).
-In order to compare transcriptional similarity between all pairs of neurons we ignore the existence (or absence) of connections between these neurons,
-As shown in Fig. \ref{NeuronTypePlot}, hub interneurons manifest significantly higher gene coexpression than non-hub interneurons despite sharing same anatomical properties.
-Therefore, increased coexpression in rich links can not be attributed solely to them belonging to the same functional category.
 
 
 %%
