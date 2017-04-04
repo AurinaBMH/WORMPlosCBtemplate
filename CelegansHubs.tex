@@ -667,53 +667,7 @@ We compared gene coexpression between all pairs of hub interneurons [[TODO: what
 Pairs of hub interneurons display significantly higher gene coexpression than pairs of nonhub interneurons ([[TODO: statistical test, p-value, etc.]]).
 Thus, the increase in coexpression amongst hub interneurons is not simply due to most hubs being interneurons;  even amongst interneurons, [[TODO: isn't this obvious from plot A? It's very similar -- at high degree, we're only looking at hub interneuron pairs, which are more similar than others. Not sure B adds much -- we could just quantify the difference at a given $k$ threshold to put a statistic to it...?]].
 
-
-\subsection*{Functional enrichment}
-
-%% comment on enrichment analysis. No write up can be done before deciding on options.
-
-To investigate which functional groups of genes contributed to the difference in transcriptional coupling between connected and unconnected neurons, we used a method of assigning each gene coexpression contribution (GCC) score that quantifies the contribution of each gene to the overall coexpression between neuron pairs (see Methods).  \\
-
-The majority of the significant ($P < 0.05$) GO categories are related to neuronal connectivity and communication, as listed in Table~\ref{table1} (1st column: GO category).
-These findings are in line with our expectations as they confirm that genes that are more likely to be expressed in a pair of connected neurons are in fact related to neuronal connectivity and communication.\\
-
-To investigate which functional groups of genes contributed to the increased coexpression for links involving hubs (rich and feeder) we again we used a method of scoring genes according to their contribution towards increased coexpression (see Methods).
-
-Enrichment analysis show that the majority of the significant ($P < 0.05$) GO categories are related to glutamate signaling, neuronal connectivity and communication.
-It is line with the previous analysis where same GO categories were shown to be significant in differentiating connected from unconnected neurons.
-%% combine enrichment tables into one
-\begin{table}[!ht]
-\begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
-\centering
-\caption{
-{\bf Enrichment.}}
-\begin{tabular}{ |c|c|c| }
-\thickhline
-
-%{\bf Connected} & {} & {\bf Rich and feeder}\\ \thickhline
-GO category  		& Connected \textit{vs} unconnected: pvalue  	& Rich and feeder \textit{vs} peripheral      \\ \thickhline
-glutamate receptor signalling pathway      	& $10^{-7}$      		&  $10^{-5}$\\ \hline
-ionitropic glutamate receptor signalling     & $10^{-7}$      		&  $10^{-5}$ \\ \hline
-synaptic transmission, glutamatergic      	& $10^{-7}$     			&  $10^{-5}$ \\ \hline
-neuron-neuron synaptic transmission          & $10^{-5}$     			&  0.00031\\ \hline
-chemical synaptic transmission               & 0.00057      			&  $10^{-5}$\\ \hline
-anterograde trans-synaptic signalling      	& 0.00057      			&  $10^{-5}$\\ \hline
-synaptic signalling                          & 0.00057      			&  $10^{-5}$\\ \hline
-trans-synaptic signalling                    & 0.00057      			&  $10^{-5}$ \\ \hline
-cell-cell signalling                         &      -           		&  0.00086 \\ \hline
-cell surface receptor signalling pathway     &       -          		&  0.00107 \\ \hline
-
-\end{tabular}
-\begin{flushleft} Table notes what GO categories were overrepresented in driving the difference between different types of links.
-\end{flushleft}
-\label{table1}
-\end{adjustwidth}
-\end{table}
-
-These findings are in line with our expectations as high degree neurons are highly involved in signaling and the majority of hubs while being cholinergic, receive input from sensory neurons the majority of which is glutamatergic. \\
-[[NOTE: NOTE HERE ABOUT REDUCED LIST OF GENES IN EACH ANALYSIS (577 and 390 genes for connected and R/F respectively).]]
-
-\subsection*{EXTRAS: one paragraph for each point}
+\subsection*{Hubs and modules}
 In the following paragraphs discuss several aspects that could have lead to the increased coexpression for hub-related links. \\
 
 \textbf{Distance} plays and important role in gene coexpression in mammalian brains, where proximal brain areas exhibit more similar gene expression patterns \citep{Fulcher2016, Krienen2016}.
@@ -775,6 +729,52 @@ Implementing an analogous strategy as in our previous analysis of gene coexpress
 This finding suggests that the difference in lineage distance between hub and non-hub neurons increases with degree, therefore in a way confirming the relevance of this classification.
 Contrary, peripheral links manifest stably lower lineage distance through the range of degree thresholds wit (Fig. \ref{Lineage}).
 In addition, this shows that increase in gene coexpression with degree for rich links can not be attributed to their similarity in lineage.
+
+
+\subsection*{Functional enrichment}
+
+%% comment on enrichment analysis. No write up can be done before deciding on options.
+
+To investigate which functional groups of genes contributed to the difference in transcriptional coupling between connected and unconnected neurons, we used a method of assigning each gene coexpression contribution (GCC) score that quantifies the contribution of each gene to the overall coexpression between neuron pairs (see Methods).  \\
+
+The majority of the significant ($P < 0.05$) GO categories are related to neuronal connectivity and communication, as listed in Table~\ref{table1} (1st column: GO category).
+These findings are in line with our expectations as they confirm that genes that are more likely to be expressed in a pair of connected neurons are in fact related to neuronal connectivity and communication.\\
+
+To investigate which functional groups of genes contributed to the increased coexpression for links involving hubs (rich and feeder) we again we used a method of scoring genes according to their contribution towards increased coexpression (see Methods).
+
+Enrichment analysis show that the majority of the significant ($P < 0.05$) GO categories are related to glutamate signaling, neuronal connectivity and communication.
+It is line with the previous analysis where same GO categories were shown to be significant in differentiating connected from unconnected neurons.
+%% combine enrichment tables into one
+\begin{table}[!ht]
+\begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
+\centering
+\caption{
+{\bf Enrichment.}}
+\begin{tabular}{ |c|c|c| }
+\thickhline
+
+%{\bf Connected} & {} & {\bf Rich and feeder}\\ \thickhline
+GO category  		& Connected \textit{vs} unconnected: pvalue  	& Rich and feeder \textit{vs} peripheral      \\ \thickhline
+glutamate receptor signalling pathway      	& $10^{-7}$      		&  $10^{-5}$\\ \hline
+ionitropic glutamate receptor signalling     & $10^{-7}$      		&  $10^{-5}$ \\ \hline
+synaptic transmission, glutamatergic      	& $10^{-7}$     			&  $10^{-5}$ \\ \hline
+neuron-neuron synaptic transmission          & $10^{-5}$     			&  0.00031\\ \hline
+chemical synaptic transmission               & 0.00057      			&  $10^{-5}$\\ \hline
+anterograde trans-synaptic signalling      	& 0.00057      			&  $10^{-5}$\\ \hline
+synaptic signalling                          & 0.00057      			&  $10^{-5}$\\ \hline
+trans-synaptic signalling                    & 0.00057      			&  $10^{-5}$ \\ \hline
+cell-cell signalling                         &      -           		&  0.00086 \\ \hline
+cell surface receptor signalling pathway     &       -          		&  0.00107 \\ \hline
+
+\end{tabular}
+\begin{flushleft} Table notes what GO categories were overrepresented in driving the difference between different types of links.
+\end{flushleft}
+\label{table1}
+\end{adjustwidth}
+\end{table}
+
+These findings are in line with our expectations as high degree neurons are highly involved in signaling and the majority of hubs while being cholinergic, receive input from sensory neurons the majority of which is glutamatergic. \\
+[[NOTE: NOTE HERE ABOUT REDUCED LIST OF GENES IN EACH ANALYSIS (577 and 390 genes for connected and R/F respectively).]]
 
 
 %\begin{figure}[h]
