@@ -384,7 +384,7 @@ Statistical significance for $\Phi_{norm}$ was estimated by computing P value di
 Rich club coefficient and null networks were generated using the rich\textunderscore club\textunderscore bd and randmio\textunderscore dir functions from the Brain Connectivity Toolbox \cite{Rubinov2010} respectively.
 
 % NOTE THAT TOWLSON USED UNDIRECTED (CHEMICAL+ELECTRICAL) network. WE USE DIRECTED CHEMICAL. (should probably put this into results - not in methids).
-%The phenomenon of the rich-club organisation in \textit{C. elegans} connectome was originally demonstrated by Towlson et al. \cite{Towlson2013} in an undirected binary version of the connectome where data for both chemical and electrical synapses were combined.
+%The phenomenon of the rich-club organization in \textit{C. elegans} connectome was originally demonstrated by Towlson et al. \cite{Towlson2013} in an undirected binary version of the connectome where data for both chemical and electrical synapses were combined.
 %As a result, a small number of high degree nodes forming a rich club was identified.
 
 \textbf{Modularity}
@@ -565,7 +565,7 @@ At each degree \textit{k} nodes in the network were classified as hubs (degree $
 
 
 In this work we use a directed binary connectivity matrix of chemical synapses provided by \citep{Varshney2011} for 279 non-pharingeal neurons (nodes) and 1961 connections between them (edges) and show a rich-club organization of the chemical synapse network (see \textit{Materials and Methods}).
-Rich-club organisation manifests across a continuous range of degrees $41<k<58$ ($P<0.05$, shaded grey area in Fig.\ref{RCcoef}) as normalized rich-club coefficient $\Phi_{norm}>1$.
+Rich-club organization manifests across a continuous range of degrees $41<k<58$ ($P<0.05$, shaded grey area in Fig.\ref{RCcoef}) as normalized rich-club coefficient $\Phi_{norm}>1$.
 This indicates that when nodes are defined as hubs (degree $>\textit{k}$) in this range, they are more densely interconnected than expected by chance.
 Rich club in the chemical synapse network consists of 13 high degree neurons with degree $42 \leq k \leq 98$. \\
 \textbf{(NOTE: maybe include a list with degrees and definitions in SUPP (like in Towlson's paper?)).}
@@ -588,7 +588,7 @@ Normalized rich club coefficient, $\Phi_\mathrm{norm}$, as a function of the deg
 $\Phi_\mathrm{norm} > 1$ indicates that hubs are more densely interconnected among each other than expected by chance.
 (permutation test; $P<0.05$).
 Red circles indicate values of $\Phi_{random}$ that are significantly higher than an ensemble of 1000 null networks.\\
-\textbf{NOTE: plot three curves in one plot (with different colours) and shade grey the overlapping area. } }
+\textbf{NOTE: plot three curves in one plot (with different colors) and shade grey the overlapping area. } }
  \label{RCcoef}
  \end{figure}
 
@@ -665,15 +665,15 @@ Given this result, it is safe to say that increased coexpression for hub-related
  %\label{Distance}
  %\end{figure}
 
-\textbf{Modular organisation} of the connectome could potentially drive gene coexpression patters, where more densely interconnected neurons within modules would also be more similar in their gene expression patters. 
+\textbf{Modular organization} of the connectome could potentially drive gene coexpression patters, where more densely interconnected neurons within modules would also be more similar in their gene expression patters. 
 Utilising Louvain community detection algorithm (see \textit{Methods}), four sparsely interconnected modules (M1, M2, M3, M4) were detected (Fig. \ref{Modules}). 
-[[NOTE: maybe not worth characterising modules, just say: coexpression within modules is not higher than coexpression between modules on one sentence and distributions? When hub neurons are excluded, M2 and M3 coexpression is higher than M1, but no difference between M2 and M3]])
+[[NOTE: maybe not worth characterizing modules, just say: coexpression within modules is not higher than coexpression between modules on one sentence and distributions? When hub neurons are excluded, M2 and M3 coexpression is higher than M1, but no difference between M2 and M3]])
 While first three modules (M1-M3) were diverse in neuron types and comparable in size, the fourth module (M4) consisted of only 13 densely interconnected motor neurons. 
 The majority (11 out of 13) of hubs were assigned to the M3 which spanned through the whole length of the worm body as pictured in Fig. \ref{Modules}. 
 This particular module was also rich in motor neurons which is in line with our expectations as 10 out of 11 hub neurons in this module are directly responsible for forward and backward locomotion (command interneurons). 
 The main goal of this analysis was to compare coexpression within and between modules in order to examine if neurons assigned to the same module are more genetically similar than neurons in other modules. 
 Coexpression within modules did not exceed coexpression between modules, demonstrating that neurons that belong to the same module do not share any particular genetic similarity. 
-Therefore, higher coexpression in rich and feeder links can not be attributed to the modular organisation of the connectome despite most hubs being assigned to the same module. 
+Therefore, higher coexpression in rich and feeder links can not be attributed to the modular organization of the connectome despite most hubs being assigned to the same module. 
 
 % RichClub (lineage and distance)
 % communityCoexpression
@@ -682,15 +682,15 @@ Therefore, higher coexpression in rich and feeder links can not be attributed to
 % scripts
 \begin{figure}[!h]
 \centering
-    \includegraphics[width=1\textwidth]{Extras.pdf}
+    \includegraphics[width=1\textwidth]{Extras.png}
  \caption{{\bf Plots for extras}\\
 \textbf{A: Connection distance}
 Top: Degree distribution. 
 Bottom: Median lineage distance for rich, feeder, and peripheral connections as a function of \textit{k}, with the median across all network links shown as a dashed black line and the topological rich club regime shaded grey.
 Circles indicate a statistically significant change in lineage distance in a given link type relative to the rest of the network (Wilcoxon rank sum test; $P < 0.05$). \\
-\textbf{B: Modular organisation}. 
+\textbf{B: Modular organization}. 
 Composition of each module according to neuron type. 
-Modular organisation of the connectome. 
+Modular organization of the connectome. 
 Coexpression distributions within and between modules.   \\
 \textbf{C: Lineage distance} 
 Top: Degree distribution. Bottom: Mean lineage distance for rich, feeder, and peripheral connections as a function of \textit{k}, with the median across all network links shown as a dashed black line and the topological rich club regime shaded grey.
