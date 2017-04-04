@@ -583,7 +583,7 @@ Most of the analyses performed here compare variation as a function of the hub t
 % <<distance, geometric effects>>
 Recent work has shown that many aspects of connectome organization can be partially accounted for by geometric effects, that treat the connectome not just as an abstracted graph topology, but as a spatially-embedded object \cite{Henderson:2014fg, Roberts2016, Horvat:2016ia}.
 In Fig.~\ref{fig:topology_rich}B, we plot the mean distance between all pairs of connected hubs at each degree threshold, $k$, again finding an increase with $k$ through to the topological rich-club regime.
-Given that the connection probability decreases with distance (Fig.~\ref{supp:})
+Given that the connection probability decreases with distance (particularly up to ~0.2\,mm, see Fig.~\ref{fig:S_distDep}A)
 (exponentially in mouse \cite{Fulcher:2016ck})
 
 
@@ -855,10 +855,14 @@ Conclusion text.
 \textbf{Separation distance affects connection probability but not gene coexpression}
 \textbf{A}
 The connection probability is estimated in 50 equiprobable distance bins, shown as circles (bin centers) and lines (bin extent).
-A decreasing relationship is evident up to a separation distance of approximately 0.2\,mm.
-The slight increase at large distances ($\approx 1$\,mm) may be due to the importance of head-tail connections relative to connections between the body and the head or tail.
+A decreasing relationship is evident up to a separation distance of approximately 0.2\,mm (driven by tail-tail and head-head connections), with a longer-range decrease up to $\approx$0.5\,mm due to body-body connections.
+The increase at large distances ($\approx 1$\,mm) is due to head-tail connections, which also show a decay with distance, from $\approx 1$\,mm through to $\approx$1.2\,mm.
+connections between body and head and body and tail showed no clear distance dependence.
+[[should we show relationships by type here? It's in the Evernote: https://www.evernote.com/l/AF5h5EZ0dxZBU6RiKJk3BtNFs36tLrE4h0U]].
 \textbf{B}
-Pearson gene coexpression, $r_\phi$, is plotted as a function of separation distance for all pairs of neurons
+Pearson gene coexpression, $r_\phi$, is plotted as a function of separation distance for all pairs of neurons, labeled according to within-head (orange), within-tail (gray), and all other connections (aqua).
+Unlike data from macroscopic mammalian brains of mouse \cite{Fulcher:2016ck} and human (\cite{Krienen:2016eq}), there is no clear spatial dependence in these neuronal data.
+[[TODO: Did we check this is really true when we actually look across distance bins?]]
 }
 \end{figure}
 
