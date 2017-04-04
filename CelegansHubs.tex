@@ -512,6 +512,8 @@ We included ontology terms containing between 5 and 100 annotations, using full 
 
 We aim to quantify patterns in the pairwise synaptic connectivity of C. elegans that relate to patterns in the pairwise similarity in gene expression (gene coexpression).
 A schematic overview of our data is shown in Fig.~\ref{fig:SchematicRepresentation}, which includes the directed binary synaptic connectome (Fig.~\ref{fig:SchematicRepresentation}A), binary gene expression across 948 genes (Fig.~\ref{fig:SchematicRepresentation}B), and resulting gene coexpression between all pairs of neurons (Fig.~\ref{fig:SchematicRepresentation}C).
+Edges in the connectome are colored according to how they connect hubs ($k > 42$) and non-hubs ($k \leq 42$), as `rich' (hub $\rightarrow$ hub), `feed-in' (nonhub $\rightarrow$ hub), `feed-out' (nonhub $\rightarrow$ hub), and `peripheral' (nonhub $\rightarrow$ nonhub).
+
 We present our analysis in three parts:
 (i) we analyze the synaptic connectivity properties, demonstrating a rich-club organization of hubs, despite their increased separation distances,
 (ii) we show that gene coexpression is increased in connected pairs of neurons (relative to unconnected pairs), and varies also as a function of edge type, with the most similar gene expression patterns found in pairs of connected hub neurons, an effect that is specific to interneurons (mirroring previous results in mouse \cite{Fulcher:2016ck}),
@@ -529,6 +531,56 @@ We present our analysis in three parts:
 Note: all matrices are reordered according to neuron position: head to tail.}
 \label{fig:SchematicRepresentation}
 \end{figure}
+
+
+%%
+\subsection*{Hub connectivity in the C. elegans connectome}
+%% INTRODUCE RICH CLUB  hene and focus on the difference between rich/feeder/peripheral links below
+
+% \paragraph{Rich club organization of the connectome}
+
+First, we analyze the topological properties of the C. elegans connectome, represented here as a directed, binary connectivity matrix of the 1961 chemical synapses between 279 non-pharingeal neurons \cite{Varshney2011}, focusing particularly on hub connectivity.
+The degree distribution of the C. elegans chemical connectome is shown in Fig.~\ref{fig:topology_rich}A, where neurons have been distinguish according to type: 68 sensory neurons, 85 interneurons, 108 motor neurons, and 18 neurons that have multiple annotations (annotations from WORMBASE[[TODO: add reference]]).
+Consistent with previous work [[]], we see a positively-skewed degree distribution containing an extended tail of high-degree hubs, the majority of which are interneurons [[characterized in previous work as control INs]].
+
+We quantified the extend to which hubs are densely interconnected by computing the normalized rich-club coefficient, $\Phi_\mathrm{norm}$, with $\Phi_\mathrm{norm} > 1$ indicating rich-club organization of the network.
+The variation in $\Phi_\mathrm{norm}$ across a range of thresholds, $k$ (at which hubs are defined as neurons with degree $>k$), is shown in Fig.~\ref{fig:topology_rich}B, with red circles indicating a significant increase in link density among hubs relatively to 1\,000 degree-preserving nulls (permutation test, $P < 0.05$) [[check whether randmio\_dir only preserves degree]].
+The plot reveals rich-club organization at the upper tail of the degree distribution, particularly for thresholds $41 < k < 58$, shaded grey in Fig.\ref{fig:topology_rich}B.
+% This indicates that when nodes are defined as hubs (degree $>\textit{k}$) in this range, they are more densely interconnected than expected by chance.
+We define rich-club hubs here as the 13 neurons with $k > 41$.
+% Rich club in the chemical synapse network consists of 13 high degree neurons with degree $42 \leq k \leq 98$.
+
+[[maybe include a list with degrees and definitions in SUPP (like in Towlson's paper?). Are our hubs similar of different? Why?).]]
+
+In connectomes across species and scales, degree is distributed unequally, with a small number of highly connected brain regions, known as hubs \cite{Sporns:2007ea}, that are themselves more densely connected between themselves, forming a so-called `rich club' \cite{deReus:2013cy, ZamoraLopez:2010hy, Shih:2015cu, vandenHeuvel:2012kh, vandenHeuvel:2011he}.
+The same is true in the C. elegans neuronal nervous system, analyzed in the past as an undirected binary connectome including both chemical and electrical synapses \cite{Towlson:2013gf}, which exhibits highly connected, and densely interconnected hub neurons.
+
+
+% ------------------------------------------------------------------------------
+% <<TopologyFigures.m>>
+% ------------------------------------------------------------------------------
+\begin{figure}[h]
+   \centering
+    \includegraphics[width=0.9\textwidth]{topology_rich.eps}
+    % \includegraphics[width=0.7\textwidth]{RCcurve.eps}
+ \caption{\textbf{Rich-club organization of the connectome}.
+% A: Topological rich-club. B: Mixed rich-club. C: Weighted rich-club.
+\textbf{A} Degree distribution of the binary chemical connectome, where neurons are labeled according to four categories:
+(i) interneuron (85 neurons, red),
+(ii) sensory (68 neurons, yellow),
+(iii) motor (108 neurons, green), or
+(iv) multiple assignments (18 neurons, blue).
+An extended tail of high-degree neurons can be seen, which are mostly interneurons.
+\textbf{B}
+Normalized rich club coefficient, $\Phi_\mathrm{norm}$ (red), as a function of the degree, $k$, at which hubs are defined (as neurons with degree $>k$).
+Also shown is the mean Euclidean separation distance (yellow) between connected hub regions (across degree thresholds, $k$).
+$\Phi_\mathrm{norm} > 1$ indicates that hubs are more densely interconnected among each other than expected by chance, with red circles indicate values of $\Phi_\mathrm{norm}$ that are significantly higher than an ensemble of 1\,000 degree-matched null networks ($P < 0.05$).
+Yellow circles indicate where the Euclidean distance between connected pairs of hubs is significantly greater than the Euclidean distance for all other pairs of connected regions (Welch's $t$-test, $P < 0.05$).
+}
+ \label{fig:topology_rich}
+ \end{figure}
+% ------------------------------------------------------------------------------
+
 
 %%
 \subsection*{Coexpression and connectivity}
@@ -552,49 +604,6 @@ To investigate which functional groups of genes contributed to the difference in
 
 The majority of the significant ($P < 0.05$) GO categories are related to neuronal connectivity and communication, as listed in Table~\ref{table1} (1st column: GO category).
 These findings are in line with our expectations as they confirm that genes that are more likely to be expressed in a pair of connected neurons are in fact related to neuronal connectivity and communication.\\
-
-
-%%
-\subsection*{Properties of hub connectivity}
-%% INTRODUCE RICH CLUB  hene and focus on the difference between rich/feeder/peripheral links below
-\textbf{Rich club organization of the connectome}\\
-
-In connectomes across species and scales, degree is distributed unequally, with a small number of highly connected brain regions, known as hubs \cite{Sporns:2007ea}, that are themselves more densely connected between themselves, forming a so-called `rich club' \cite{deReus:2013cy, ZamoraLopez:2010hy, Shih:2015cu, vandenHeuvel:2012kh, vandenHeuvel:2011he}.
-The same is true in the C. elegans neuronal nervous system, analyzed in the past as an undirected binary connectome including both chemical and electrical synapses \cite{Towlson:2013gf}, which exhibits highly connected, and densely interconnected hub neurons.
-As
-
-
-The extended tail of the degree distribution presented in \ref{fig:SchematicRepresentation} indicates the existence of a small number of highly connected nodes.
-At each degree \textit{k} nodes in the network were classified as hubs (degree $>\textit{k}$) or non-hubs (degree $\leq\textit{k}$) and consequently all links between them separated into three categories: rich (hub $\rightarrow$ hub), feeder (hub $\rightarrow$ non-hub or non-hub $\rightarrow$ hub) and peripheral (non-hub $\rightarrow$ non-hub).
-
-
-In this work we use a directed binary connectivity matrix of chemical synapses provided by \citep{Varshney2011} for 279 non-pharingeal neurons (nodes) and 1961 connections between them (edges) and show a rich-club organization of the chemical synapse network (see \textit{Materials and Methods}).
-Rich-club organization manifests across a continuous range of degrees $41<k<58$ ($P<0.05$, shaded grey area in Fig.\ref{RCcoef}) as normalized rich-club coefficient $\Phi_{norm}>1$.
-This indicates that when nodes are defined as hubs (degree $>\textit{k}$) in this range, they are more densely interconnected than expected by chance.
-Rich club in the chemical synapse network consists of 13 high degree neurons with degree $42 \leq k \leq 98$. \\
-\textbf{(NOTE: maybe include a list with degrees and definitions in SUPP (like in Towlson's paper?)).}
-
-% networkRC script
-\begin{figure}[!h]
-   \centering
-    \includegraphics[width=0.9\textwidth]{topology_rich.eps}
-    % \includegraphics[width=0.7\textwidth]{RCcurve.eps}
- \caption{\textbf{Rich-club organization of the connectome}.
-% A: Topological rich-club. B: Mixed rich-club. C: Weighted rich-club.
-\textbf{A} Degree distribution of the binary chemical connectome, where neurons are labeled according to four categories:
-(i) interneuron (85 neurons, red),
-(ii) sensory (68 neurons, yellow),
-(iii) motor (108 neurons, green), or
-(iv) multiple assignments (18 neurons, blue).
-An extended tail of high-degree neurons can be seen, which are mostly interneurons.
-\textbf{B}
-Normalized rich club coefficient, $\Phi_\mathrm{norm}$ (red), as a function of the degree, $k$, at which hubs are defined (as neurons with degree $>k$).
-Also shown is the mean Euclidean separation distance (yellow) between connected hub regions (across degree thresholds, $k$).
-$\Phi_\mathrm{norm} > 1$ indicates that hubs are more densely interconnected among each other than expected by chance, with red circles indicate values of $\Phi_\mathrm{norm}$ that are significantly higher than an ensemble of 1\,000 degree-matched null networks ($P < 0.05$).
-Yellow circles indicate where the Euclidean distance between connected pairs of hubs is significantly greater than the Euclidean distance for all other pairs of connected regions (Welch's $t$-test, $P < 0.05$).
-}
- \label{RCcoef}
- \end{figure}
 
 
 \textbf{Coexpression and hub connectivity.}\\
