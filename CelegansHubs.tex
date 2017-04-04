@@ -596,28 +596,33 @@ Taken together, our results demonstrate that hub-hub connections in C. elegans a
 %%
 \subsection*{Coexpression and connectivity}
 
-%% for now figres are old - just to define where the figure is
-First, we investigated how gene coexpression relates to connectivity by examining it between connected and unconnected neuron pairs.
-As it is shown in Fig \ref{fig:ConUncon}, connected pairs of neurons have more similar expression profiles than unconnected pairs (Wilcoxon rank-sum test, $P < 10^{-50}$). Furthermore, there is no difference in gene coexpression between reciprocally and unidirectionally connected neurons while coexpression in both of these groups is higher than between unconnected neurons (see Fig \ref{S3 Fig}). \\
-% coexpConnUncon script
-\begin{figure}[!h]
-   \centering
-    \includegraphics[width=0.9\textwidth]{ConUncon.pdf}
- \caption{{\bf Coexpression between connected and unconnected neurons.}
-Distribution of transcriptional similarity between connected and unconnected neurons.
-$P<10^{-50}$, Wilcoxon rank sum test.}
- \label{fig:ConUncon}
+Having characterized the topological and geometric properties of connectivity, in particular the rich-club organization of hub neurons, we next investigate how connectivity properties relate to patterns of neuronal gene expression.
+Being a pairwise analysis, we compare pairwise synaptic connectivity to pairwise similarity in gene expression (using a binary Pearson correlation measure, $r_\phi$, to define gene coexpression, see Methods).
+We first investigated whether gene coexpression relates to synaptic connectivity by comparing the distribution of $r_\phi$ computed for all connected pairs of neurons, and for all unconnected pairs of neurons, as shown in Fig.~\ref{fig:coExp}A.
+We find that connected pairs of neurons have more similar expression profiles than unconnected pairs (Wilcoxon rank-sum test, $P < 10^{-50}$).
+Using directed connectivity information to split connections into unidirectional ($X \rightarrow Y$) and reciprocal ($X \leftrightarrow Y$) subtypes, we found no difference in coexpression as a function of connection reciprocity, but both groups showed an increase in coexpression relative to unconnected pairs of neurons (see Fig.~\textbf{[[]]}).
+
+
+% ------------------------------------------------------------------------------
+% <<coexpConnUncon.m>>
+% <<RichClubMedian.m>>
+% ------------------------------------------------------------------------------
+ \begin{figure}[h]
+ \centering
+    \includegraphics[width=1\textwidth]{MeanCoexpression.pdf}
+ \caption{{\bf Gene coexpression varies as a function of connectivity, and as a function of connection type, with connections involving hubs being most similar.}
+ %  \caption{{\bf Coexpression between connected and unconnected neurons.}
+\textbf{A} Distribution of transcriptional similarity between connected ([[XX]] pairs) and unconnected ([[XX]] pairs) pairs of neurons as a violin plot, with the mean of each distribution shown as a horizontal line.
+Coexpression, $r_\phi$ is increased in connected pairs of neurons ($P < 10^{-50}$, Wilcoxon rank sum test).
+\textbf{B} Top: degree distribution. Median gene coexpression for rich, feeder, and peripheral connections as a function of $k$, with the median across all network links shown as a dashed black line and the topological rich club regime shaded grey.
+Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (Wilcoxon rank sum test; $P < 0.05$).
+[[TODO: A: add $r_\phi$ to ylabel B: Remove box from degree distribution]]
+}
+ \label{fig:coExp}
 \end{figure}
-To investigate which functional groups of genes contributed to the difference in transcriptional coupling between connected and unconnected neurons, we used a method of assigning each gene coexpression contribution (GCC) score that quantifies the contribution of each gene to the overall coexpression between neuron pairs (see Methods).  \\
+% ------------------------------------------------------------------------------
 
-%% comment on enrichment analysis. No write up can be done before deciding on options.
-
-
-The majority of the significant ($P < 0.05$) GO categories are related to neuronal connectivity and communication, as listed in Table~\ref{table1} (1st column: GO category).
-These findings are in line with our expectations as they confirm that genes that are more likely to be expressed in a pair of connected neurons are in fact related to neuronal connectivity and communication.\\
-
-
-\textbf{Coexpression and hub connectivity.}\\
+% HUB CONNECTIVITY
 For the second part of our analysis, we focused on the features of rich-club organization of \textit{C. elegans} connectome by investigating the relationship between gene coexpression and neuronal connectivity in three different classes of neuron pairs.
 At each node degree, $k$ (x-axis in Fig \ref{RCdegree}), we defined each neuron as either a hub (nodes with degree $\geq k$) or a nonhub (otherwise), and then labelled each connection as rich (hub $\rightarrow$ hub), feeder (nonhub $\rightarrow$ hub or hub $\rightarrow$ nonhub), or peripheral (nonhub $\rightarrow$ nonhub).
 Due to non-normal coexpression value distributions, at each degree, we calculated median coexpression for each link type (Fig. \ref{RCdegree}).
@@ -626,20 +631,19 @@ Rich links show consistently increasing coexpression for a range of degrees unti
 We observed a difference in gene coexpression between feed-in and feed-out links, where feed-out links manifested increased coexpression for a broad range of degrees while feed-in links showed only a slight increase for very high hub thresholds.
 Peripheral links, on the other hand, did not show any change through the range of degrees.
 
-% RichClubMedian script
- \begin{figure}[!h]
- \centering
-    \includegraphics[width=1\textwidth]{MeanCoexpression.pdf}
- \caption{{\bf Median coexpression for rich, feeder and peripheral links as a function of degree.}
-Top: degree distribution. Median gene coexpression for rich, feeder, and peripheral connections as a function of \textit{k}, with the median across all network links shown as a dashed black line and the topological rich club regime shaded grey.
-Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (Wilcoxon rank sum test; $P < 0.05$)}
- \label{RCdegree}
- \end{figure}
 
+\subsection*{Enrichment}
+
+%% comment on enrichment analysis. No write up can be done before deciding on options.
+
+To investigate which functional groups of genes contributed to the difference in transcriptional coupling between connected and unconnected neurons, we used a method of assigning each gene coexpression contribution (GCC) score that quantifies the contribution of each gene to the overall coexpression between neuron pairs (see Methods).  \\
+
+The majority of the significant ($P < 0.05$) GO categories are related to neuronal connectivity and communication, as listed in Table~\ref{table1} (1st column: GO category).
+These findings are in line with our expectations as they confirm that genes that are more likely to be expressed in a pair of connected neurons are in fact related to neuronal connectivity and communication.\\
 
 To investigate which functional groups of genes contributed to the increased coexpression for links involving hubs (rich and feeder) we again we used a method of scoring genes according to their contribution towards increased coexpression (see Methods).
 
-Enrichment analysis show that the majority of the significant ($P < 0.05$) GO categories are related to glutamate signalling, neuronal connectivity and communication.
+Enrichment analysis show that the majority of the significant ($P < 0.05$) GO categories are related to glutamate signaling, neuronal connectivity and communication.
 It is line with the previous analysis where same GO categories were shown to be significant in differentiating connected from unconnected neurons.
 %% combine enrichment tables into one
 \begin{table}[!ht]
@@ -896,7 +900,7 @@ Unlike data from macroscopic mammalian brains of mouse \cite{Fulcher:2016ck} and
 
 % propTypesDegree(C) script
 \paragraph*{S6 Fig.}
-{\bf Neuron type and neurontarnsmitter as a function of degree}
+{\bf Neuron type and neurotransmitter as a function of degree}
 \begin{figure}[!h]
 \label{S7_Fig}
 \centering
