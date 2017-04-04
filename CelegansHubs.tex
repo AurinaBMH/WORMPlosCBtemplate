@@ -564,8 +564,8 @@ The extended tail of the degree distribution presented in \ref{fig:SchematicRepr
 At each degree \textit{k} nodes in the network were classified as hubs (degree $>\textit{k}$) or non-hubs (degree $\leq\textit{k}$) and consequently all links between them separated into three categories: rich (hub $\rightarrow$ hub), feeder (hub $\rightarrow$ non-hub or non-hub $\rightarrow$ hub) and peripheral (non-hub $\rightarrow$ non-hub).
 
 
-In this work we use a directed binary connectivity matrix of chemical synapses provided by \citep{Varshney2011} for 279 non-pharingeal neurons (nodes) and 1961 connections between them (edges) and show a rich-club organization of the chemical synapse network (see \textit{Materials and Methods}).
-Rich-club organisation manifests across a continuous range of degrees $41<k<58$ ($P<0.05$, shaded grey area in Fig.\ref{RCcoef}) as normalized rich-club coefficient $\Phi_{norm}>1$.
+In this work we use a directed binary connectivity matrix of chemical synapses provided by \citep{Varshney2011} for 279 non-pharingeal neurons (nodes) and 1961 connections between them (edges) and show a rich-club organisation of the chemical synapse network (see \textit{Materials and Methods}).
+Rich-club organisation manifests across a continuous range of degrees $41<k<58$ ($P<0.05$, shaded grey area in Fig.\ref{RCcoef}) as normalised rich-club coefficient $\Phi_{norm}>1$.
 This indicates that when nodes are defined as hubs (degree $>\textit{k}$) in this range, they are more densely interconnected than expected by chance.
 Rich club in the chemical synapse network consists of 13 high degree neurons with degree $42 \leq k \leq 98$. \\
 \textbf{(NOTE: maybe include a list with degrees and definitions in SUPP (like in Towlson's paper?)).}
@@ -573,17 +573,9 @@ Rich club in the chemical synapse network consists of 13 high degree neurons wit
 % networkRC script
 \begin{figure}[!h]
    \centering
-    \includegraphics[width=0.9\textwidth]{topology_rich.eps}
-    % \includegraphics[width=0.7\textwidth]{RCcurve.eps}
- \caption{\textbf{Rich-club organization of the connectome}.
-% A: Topological rich-club. B: Mixed rich-club. C: Weighted rich-club.
-\textbf{A} Degree distribution of the binary chemical connectome, where neurons are labeled according to four categories:
-(i) interneuron (85 neurons, red),
-(ii) sensory (68 neurons, yellow),
-(iii) motor (108 neurons, green), or
-(iv) multiple assignments (18 neurons, blue).
-An extended tail of high-degree neurons is evident as a 
-\textbf{B}
+    \includegraphics[width=0.7\textwidth]{RCcurve.eps}
+ \caption{{\bf Rich-club organisation of the connectome.} \\
+A: Topological rich-club. B: Mixed rich-club. C: Weighted rich-club. \\
 Normalized rich club coefficient, $\Phi_{random}$ as a function of the degree, \textit{k}, at which hubs (regions with degree $\geq \textit{k}$) are defined. (permutation test; $P<0.05$).
 $\Phi_{norm}>1$ indicates that hubs are more densely interconnected among each other than expected by chance.
 Red circles indicate values of $\Phi_{random}$ that are significantly higher than an ensemble of 1000 null networks.\\
@@ -681,23 +673,23 @@ Therefore, higher coexpression in rich and feeder links can not be attributed to
 % scripts
 \begin{figure}[!h]
 \centering
-    \includegraphics[width=1\textwidth]{Extras.pdf}
+    \includegraphics[width=0.8\textwidth]{Modules.pdf}
  \caption{{\bf Plots for extras}\\
-\textbf{A: Connection distance}
-Top: Degree distribution. 
-Bottom: Median lineage distance for rich, feeder, and peripheral connections as a function of \textit{k}, with the median across all network links shown as a dashed black line and the topological rich club regime shaded grey.
-Circles indicate a statistically significant change in lineage distance in a given link type relative to the rest of the network (Wilcoxon rank sum test; $P < 0.05$). \\
+%\textbf{A: Connection distance}
+%Top: Degree distribution. 
+%Bottom: Median lineage distance for rich, feeder, and peripheral connections as a function of \textit{k}, with the %median across all network links shown as a dashed black line and the topological rich club regime shaded grey.
+%Circles indicate a statistically significant change in lineage distance in a given link type relative to the rest %of the network (Wilcoxon rank sum test; $P < 0.05$). \\
 \textbf{B: Modular organisation}. 
-Composition of each module according to neuron type. 
-Modular organisation of the connectome. 
-Coexpression distributions within and between modules.   \\
-\textbf{C: Lineage distance} 
-Top: Degree distribution. Bottom: Mean lineage distance for rich, feeder, and peripheral connections as a function of \textit{k}, with the median across all network links shown as a dashed black line and the topological rich club regime shaded grey.
-Circles indicate a statistically significant change in lineage distance in a given link type relative to the rest of the network (one-sided Welch’s t-test; $P < 0.05$) \\
-\textbf{D: Coexpression for different types of neurons. }
-Top: Median gene coexpression as a function of degree for connections involving different types of neurons. 
-Bottom: The number of connections in each category for a range of degrees.
-Coexpression distributions for hub and non-hub interneurons. \\
+%Composition of each module according to neuron type. 
+%Modular organisation of the connectome. 
+%Coexpression distributions within and between modules.   \\
+%\textbf{C: Lineage distance} 
+%Top: Degree distribution. Bottom: Mean lineage distance for rich, feeder, and peripheral connections as a function %of \textit{k}, with the median across all network links shown as a dashed black line and the topological rich club regime shaded grey.
+%Circles indicate a statistically significant change in lineage distance in a given link type relative to the rest of the network (one-sided Welch’s t-test; $P < 0.05$) \\
+%\textbf{D: Coexpression for different types of neurons. }
+%Top: Median gene coexpression as a function of degree for connections involving different types of neurons. 
+%Bottom: The number of connections in each category for a range of degrees.
+%Coexpression distributions for hub and non-hub interneurons. \\
 }
  \label{Modules}
  \end{figure}
@@ -727,12 +719,14 @@ The relationship between median coexpression and degree for connections includin
 Connections involving interneurons show a pattern of increasing average coexpression with increasing degree, however neither connections involving motor nor sensory neurons resemble this trend; even showing evidence for the opposite relationship.
 In other words, motor and sensory neurons with higher degree show less similar gene expression patterns.
 
-%\begin{figure}[h]
-%\centering
- %   \includegraphics[width=1\textwidth]{coexpressionInvolvingCategory}
-% \caption{}
-% \label{NeuronTypePlot}
-% \end{figure}
+\begin{figure}[h]
+\centering
+   \includegraphics[width=1\textwidth]{TypeDegree.pdf}
+ \caption{\textbf{A} Top: The number of connections in each category for a range of degrees.
+Bottom: Average gene coexpression as a function of degree for connections involving different types of neurons. 
+\textbf{B} Coexpression distributions for hub and non-hub interneurons. }
+ \label{NeuronTypePlot}
+ \end{figure}
 
 
 Next, we compare transcriptional similarity between hub interneurons and non-hub interneurons (AVFL, AVFR, AVHL, AVHR, AVKL, AVKR, AVJL, AVJR) that share similar anatomical properties in order to ensure that increase in coexpression for rich links is not determined by the fact that the majority of hub neurons belong to the same anatomical neuron type (???HOW TO CALL COMMAND INTERNEURONS???). 
