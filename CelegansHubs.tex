@@ -531,18 +531,16 @@ Note: all matrices are reordered according to neuron position: head to tail.}
 
 %% for now figres are old - just to define where the figure is
 First, we investigated how gene coexpression relates to connectivity by examining it between connected and unconnected neuron pairs.
-As it is shown in Fig \ref{fig:ConUncon}, connected pairs of neurons have more similar expression profiles than unconnected pairs (Wilcoxon rank-sum test, $P < 10^{-50}$). Furthermore, there is no difference in gene coexpression between reciprocally and unidirectionally connected neurons while coexpression in both of these groups is higher than between unconnected neurons (see Fig \ref{S3 Fig}).
-
+As it is shown in Fig \ref{fig:ConUncon}, connected pairs of neurons have more similar expression profiles than unconnected pairs (Wilcoxon rank-sum test, $P < 10^{-50}$). Furthermore, there is no difference in gene coexpression between reciprocally and unidirectionally connected neurons while coexpression in both of these groups is higher than between unconnected neurons (see Fig \ref{S3 Fig}). \\
 % coexpConnUncon script
 \begin{figure}[!h]
    \centering
-    \includegraphics[width=0.9\textwidth]{ConUncon.eps}
+    \includegraphics[width=0.9\textwidth]{ConUncon.pdf}
  \caption{{\bf Coexpression between connected and unconnected neurons.}
 Distribution of transcriptional similarity between connected and unconnected neurons.
 $P<10^{-50}$, Wilcoxon rank sum test.}
  \label{fig:ConUncon}
 \end{figure}
-
 To investigate which functional groups of genes contributed to the difference in transcriptional coupling between connected and unconnected neurons, we used a method of assigning each gene coexpression contribution (GCC) score that quantifies the contribution of each gene to the overall coexpression between neuron pairs (see Methods).  \\
 
 %% comment on enrichment analysis. No write up can be done before deciding on options.
@@ -607,7 +605,7 @@ Peripheral links, on the other hand, did not show any change through the range o
 % RichClubMedian script
  \begin{figure}[!h]
  \centering
-    \includegraphics[width=0.7\textwidth]{MedianCoexpression.eps}
+    \includegraphics[width=1\textwidth]{MeanCoexpression.pdf}
  \caption{{\bf Median coexpression for rich, feeder and peripheral links as a function of degree.}
 Top: degree distribution. Median gene coexpression for rich, feeder, and peripheral connections as a function of \textit{k}, with the median across all network links shown as a dashed black line and the topological rich club regime shaded grey.
 Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (Wilcoxon rank sum test; $P < 0.05$)}
@@ -684,7 +682,7 @@ Therefore, higher coexpression in rich and feeder links can not be attributed to
 % scripts
 \begin{figure}[!h]
 \centering
-    \includegraphics[width=1\textwidth]{Extras.png}
+    \includegraphics[width=1\textwidth]{Extras.pdf}
  \caption{{\bf Plots for extras}\\
 \textbf{A: Connection distance}
 Top: Degree distribution. 
@@ -816,7 +814,7 @@ Conclusion text.
 \begin{figure}[!h]
 \label{S1_Fig}
 \centering
-    \includegraphics[width=1\textwidth]{CoexpressionMeasures.eps}
+    \includegraphics[width=1\textwidth]{CoexpressionMeasures.pdf}
 \end{figure}
 
 
