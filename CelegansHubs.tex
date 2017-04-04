@@ -598,7 +598,7 @@ Taken together, our results demonstrate that hub-hub connections in C. elegans a
 
 % ---connectivity/coexpression---
 Having characterized the topological and geometric properties of connectivity, in particular the rich-club organization of hub neurons, we next investigate how connectivity properties relate to patterns of neuronal gene expression.
-Being a pairwise analysis, we compare pairwise synaptic connectivity to pairwise similarity in gene expression (using a binary Pearson correlation measure, $r_\phi$, to define gene coexpression, see Methods).
+Being a pairwise analysis, we compare pairwise synaptic connectivity to pairwise similarity in gene expression (using a binary Pearson correlation measure, $r_\phi$, to define gene coexpression, and excluding coexpression values between homologous left/right neuron pairs, see Methods).
 We first investigated whether gene coexpression relates to synaptic connectivity by comparing the distribution of $r_\phi$ computed for all connected pairs of neurons, and for all unconnected pairs of neurons, as shown in Fig.~\ref{fig:coExp}A.
 We find that connected pairs of neurons have more similar expression profiles than unconnected pairs (Wilcoxon rank-sum test, $P < 10^{-50}$).
 Using directed connectivity information to split connections into unidirectional ($X \rightarrow Y$) and reciprocal ($X \leftrightarrow Y$) subtypes, we found no difference in coexpression as a function of connection reciprocity, but both groups showed an increase in coexpression relative to unconnected pairs of neurons (see Fig.~\textbf{[[]]}).
@@ -638,7 +638,8 @@ The median coexpression for each of these four connection types described above 
 We see that gene coexpression in rich connections increases with degree, reaching a plateau through the topological rich-club regime where hubs are densely interconnected (shaded in Fig.~\ref{fig:coExp}B).
 Interestingly, we see a split between feed-in and feed-out connections, with feed-out connections showing increased gene coexpression through the topological rich-club regime, while feed-in and peripheral connections show the lowest levels of coexpression.
 % We observed a difference in gene coexpression between feed-in and feed-out links, where feed-out links manifested increased coexpression for a broad range of degrees while feed-in links showed only a slight increase for very high hub thresholds.
-Peripheral links, on the other hand, did not show any change through the range of degrees.
+
+These results, using partial binary expression estimates in 948 genes in a neuronal connectome, are broadly consistent with results in 213 regions of the mesoscale mouse connectome with over 17\,000 genes, in which we see an increase in coexpression in connected pairs of neurons, and in hub-hub connections.
 
 
 \subsection*{Functional enrichment}
@@ -683,8 +684,8 @@ cell surface receptor signalling pathway     &       -          		&  0.00107 \\ 
 \end{adjustwidth}
 \end{table}
 
-These findings are in line with our expectations as high degree neurons are highly involved in signalling and the majority of hubs while being cholinergic, receive input from sensory neurons the majority of which is glutamatergic. \\
-NOTE: NOTE HERE ABOUT REDUCED LIST OF GENES IN EACH ANALYSIS (577 and 390 genes for connected and R/F respectively).
+These findings are in line with our expectations as high degree neurons are highly involved in signaling and the majority of hubs while being cholinergic, receive input from sensory neurons the majority of which is glutamatergic. \\
+[[NOTE: NOTE HERE ABOUT REDUCED LIST OF GENES IN EACH ANALYSIS (577 and 390 genes for connected and R/F respectively).]]
 
 \subsection*{EXTRAS: one paragraph for each point}
 In the following paragraphs discuss several aspects that could have lead to the increased coexpression for hub-related links. \\
