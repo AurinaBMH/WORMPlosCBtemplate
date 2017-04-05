@@ -894,13 +894,14 @@ This showed ([[biases?]]) which gave similar results [[TODO: check that behavior
 Given the sparsity of expression annotation in the data analyzed here, we performed numerical tests to ensure that the coexpression measure used here was not highly sensitive to the proportion of genes expressed in each neuron (i.e., that there was no systematic bias in coexpression with the number of expressed genes in each neuron).
 To evaluate each measure, generated random binary vectors of length 948 containing different proportions of ones seen in our data, ranging from the minimum, 1, to a maximum, 150, [[Is this actually the max in our data?]].
 For all pairwise combinations of proportions, we computed the coexpression measure, taking an average across 1\,000 permutations, and then recording the resulting mean correlation value, plotted in Fig.~\ref{fig:S_propOnes}.
-We see that the Pearson correlation (Fig.~\ref{fig:S_propOnes}A)
-The Pearson binary correlation, mean square contingency coefficient, $r_\phi$, best met this criterion.
-In contrast, other measures such as Jaccard and Yule's index are highly dependent on this ratio (see S1 Fig.).% done with compareProportions script
+Because all vectors are independent random binary strings, the mean coexpression value should be zero in the absence of bias.
+We see that the Pearson correlation (Fig.~\ref{fig:S_propOnes}A) shows no systematic bias to the proportion of ones in the vector (varying within $\approx 10^{-3}$), whereas Yule's Q coefficient shows a negative bias for small annotation proportions (Fig.~\ref{fig:S_propOnes}B), while the Jaccard index shows a strong positive bias across the full range (Fig.~\ref{fig:S_propOnes}C).
+Based on these numerical experiments, we selected Pearson's mean square contingency coefficient, $r_\phi$, here, to ensure that changes in coexpression were due to matching structure and not simply the number of gene annotations.
+% In contrast, other measures such as Jaccard and Yule's index are highly dependent on this ratio (see S1 Fig.).% done with compareProportions script
 % and Simple matching coefficients
 % For example, Yule's Q, Yule's Y coefficients on average tend to reach extreme values when the ratio between the number of ones and zeros in a vector is large (e.g., 1:20).
 % Simple matching coefficient, on the other hand, shows a steady increase with increasing ratio.
-We therefore selected $r_\phi$ to analyze in this work, which was insensitive to the proportion of genes expressed in each neuron.
+% We therefore selected $r_\phi$ to analyze in this work, which was insensitive to the proportion of genes expressed in each neuron.
 
 
 
@@ -915,7 +916,8 @@ We therefore selected $r_\phi$ to analyze in this work, which was insensitive to
 \centering
     \includegraphics[width=1\textwidth]{CoexpressionMeasures.pdf}
 \caption{
-[[TODO: Add A, B, C labels, and add our new positive match measure.]]
+\textbf{Dependence of binary coexpression metrics to the proportion of positive annotations}
+[[TODO: Add A, B, C labels, add our new positive match measure, provide better titles.]]
 }
 \end{figure}
 
