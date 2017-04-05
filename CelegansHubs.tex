@@ -423,14 +423,15 @@ Gene expression was assigned to neurons based on anatomical hierarchy obtained f
 As shown in Fig.~\ref{fig:SchematicRepresentation}A, we have a gene expression profile for each neuron that indicates which of 948 genes have been observed to be expressed in that neuron.
 Given the pairwise nature of connectivity patterns, in this work we analyzed patterns of coupled gene expression between pairs of neurons.
 % rather than the presence or absence of gene expression in any single neuron on its own.
-To this end, we computed the similarity in gene expression profiles between a pair of neurons (\textit{i},\textit{j}) using a binary analogue of the linear Pearson correlation coefficient, the mean square contingency coefficient, $r_\phi$ \cite{Warrens2008}.
+To this end, we computed the similarity in gene expression profiles between a pair of neurons, $(i,j)$, using a binary analogue of the linear Pearson correlation coefficient, the mean square contingency coefficient, $r_\phi$ \cite{Warrens2008},
 \begin{equation}
     r_\phi = \frac{n_{11}n_{00} - n_{10}n_{01}}{\sqrt{n_{1\bullet}n_{0\bullet}n_{\bullet 0}n_{\bullet 1}}},
 \end{equation}
 for two vectors $x$, $y$, of length $N$, where $n_{xy}$ count the number of observations of each of the four outcomes (e.g., $n_{10} = \sum_i \delta_{x_i,1}\delta_{y_i,0}$ counts the number of times $x=1$ and $y=0$ across the length of $x$ and $y$), while the symbol $\bullet$ sums across a given variable (e.g., $n_{\bullet 0} = \sum_i \delta_{y_i,0}$ counts the number of times $y = 0$).
 A maximum value $r_\phi = 1$ when $x$ and $y$ are identical such that $n_{11} + n_{00} = N$, and a minimum value $r_\phi = -1$ when $x$ and $y$ are always mismatched such that $n_{10} + n_{01} = N$.
-
-
+Note that we also developed a new metric, based on positive matching probabilities, and compared two other binary correlation metrics, Yule's Q coefficient, and the Jaccard index (see supplementary information).
+Due to the sparsity of gene annotations, and the wide range of annotation proportions, we tested for bias in each index across the range of annotation proportions (see supplementary information, Fig.~\ref{fig:S_propOnes}), and selected $r_\phi$, which showed the smallest bias.
+This choice ensures that increases in coexpression are not driven by differences in the number of gene annotations for a given pair of neurons.
 
 Previous work has emphasized the importance of spatial effects in driving patterns of gene expression, whereby proximal brain areas typically exhibit more similar gene expression patterns \citep{Pantazatos:2016ir, Krienen2016, Fulcher:2016ck}.
 Given that connection probability depends on spatial separation in mammalian brains \cite{Henderson:2014fg, Horvat:2016ia, Wang:2016gg}, and in C. elegans (cf. Fig.~\ref{fig:S_distDep}), it is important to correct for spatial effects to ensure that relationships between gene expression and connectivity are not simply the result of both properties showing spatial autocorrelation.
@@ -572,8 +573,6 @@ Taken together, our results demonstrate that hub-hub connections in C. elegans a
 
 % In connectomes across species and scales, degree is distributed unequally, with a small number of highly connected brain regions, known as hubs \cite{Sporns:2007ea}, that are themselves more densely connected between themselves, forming a so-called `rich club' \cite{deReus:2013cy, ZamoraLopez:2010hy, Shih:2015cu, vandenHeuvel:2012kh, vandenHeuvel:2011he}.
 % The same is true in the C. elegans neuronal nervous system, analyzed in the past as an undirected binary connectome including both chemical and electrical synapses \cite{Towlson:2013gf}, which exhibits highly connected, and densely interconnected hub neurons.
-
-
 
 %%
 \subsection*{Coexpression and connectivity}
