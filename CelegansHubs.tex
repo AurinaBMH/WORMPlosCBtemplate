@@ -594,7 +594,6 @@ Using directed connectivity information to split connections into unidirectional
  \centering
     \includegraphics[width=1\textwidth]{MeanCoexpression2.pdf}
  \caption{{\bf Gene coexpression varies as a function of connectivity, and as a function of connection type, with connections involving hubs being most similar.}
- %  \caption{{\bf Coexpression between connected and unconnected neurons.}
 \textbf{A} Distribution of transcriptional similarity between connected ([[XX]] pairs) and unconnected ([[XX]] pairs) pairs of neurons as a violin plot, with the mean of each distribution shown as a horizontal line.
 Coexpression, $r_\phi$ is increased in connected pairs of neurons ($P < 10^{-50}$, Wilcoxon rank sum test).
 \textbf{B}
@@ -603,9 +602,11 @@ Coexpression, $r_\phi$ is increased in connected pairs of neurons ($P < 10^{-50}
 Note that at high $k$, most neurons are labeled as nonhubs, and hence the vast majority of connections are `peripheral'.
 \emph{Lower}: Median Pearson gene coexpression, $r_\phi$, for each connection type as a function of $k$.
 The median coexpression across all network links shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. Fig.~\ref{fig:topology_rich}) is shaded gray.
-Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (Wilcoxon rank sum test; $P < 0.05$).\\
+Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (Wilcoxon rank sum test; $P < 0.05$).
 [[TODO: A: add $r_\phi$ to ylabel. Perhaps we want to use different colors (confusing: we shouldn't use red for both connected and rich within the same plot; same for blue, should be just peripheral, not peripheral and unconnected).
-B: Remove box from degree distribution, Change y-label to `Median gene coexpression', fonts are small, and inconsistent sizes between subplots. I think we should crop the curves when there are fewer than X connections remaining -- in this case it's a bit ridiculous to show that constant feed-out/feed-in/peripheral coexpression when there are only two neurons left as hubs]]}
+B: Remove box from degree distribution, Change y-label to `Median gene coexpression', fonts are small, and inconsistent sizes between subplots.
+I think we should crop the curves when there are fewer than X connections remaining -- in this case it's a bit ridiculous to show that constant feed-out/feed-in/peripheral coexpression when there are only two neurons
+left as hubs]]}
  \label{fig:coExp}
 \end{figure}
 % ------------------------------------------------------------------------------
@@ -725,28 +726,27 @@ To investigate which functional groups of genes contributed to the increased coe
 
 Enrichment analysis show that the majority of the significant ($P < 0.05$) GO categories are related to glutamate signaling, neuronal connectivity and communication.
 It is line with the previous analysis where same GO categories were shown to be significant in differentiating connected from unconnected neurons.
-%% combine enrichment tables into one
-\begin{table}[!ht]
+
+%% Combined enrichment table
+\begin{table}[t]
 \begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
 \centering
 \caption{
 {\bf Enrichment.}}
 \begin{tabular}{ |c|c|c| }
 \thickhline
-
 %{\bf Connected} & {} & {\bf Rich and feeder}\\ \thickhline
-GO category  		& Connected \textit{vs} unconnected: pvalue  	& Rich and feeder \textit{vs} peripheral      \\ \thickhline
-glutamate receptor signalling pathway      	& $10^{-7}$      		&  $10^{-5}$\\ \hline
-ionitropic glutamate receptor signalling     & $10^{-7}$      		&  $10^{-5}$ \\ \hline
+GO category  		& Connected \textit{vs} unconnected: $P$-value  	& Rich and feeder \textit{vs} peripheral      \\ \thickhline
+glutamate receptor signaling pathway      	& $10^{-7}$      		&  $10^{-5}$\\ \hline
+ionitropic glutamate receptor signaling     & $10^{-7}$      		&  $10^{-5}$ \\ \hline
 synaptic transmission, glutamatergic      	& $10^{-7}$     			&  $10^{-5}$ \\ \hline
 neuron-neuron synaptic transmission          & $10^{-5}$     			&  0.00031\\ \hline
 chemical synaptic transmission               & 0.00057      			&  $10^{-5}$\\ \hline
-anterograde trans-synaptic signalling      	& 0.00057      			&  $10^{-5}$\\ \hline
-synaptic signalling                          & 0.00057      			&  $10^{-5}$\\ \hline
-trans-synaptic signalling                    & 0.00057      			&  $10^{-5}$ \\ \hline
-cell-cell signalling                         &      -           		&  0.00086 \\ \hline
-cell surface receptor signalling pathway     &       -          		&  0.00107 \\ \hline
-
+anterograde trans-synaptic signaling      	& 0.00057      			&  $10^{-5}$\\ \hline
+synaptic signaling                          & 0.00057      			&  $10^{-5}$\\ \hline
+trans-synaptic signaling                    & 0.00057      			&  $10^{-5}$ \\ \hline
+cell-cell signaling                         &      -           		&  0.00086 \\ \hline
+cell surface receptor signaling pathway     &       -          		&  0.00107 \\ \hline
 \end{tabular}
 \begin{flushleft} Table notes what GO categories were overrepresented in driving the difference between different types of links.
 \end{flushleft}
@@ -754,7 +754,8 @@ cell surface receptor signalling pathway     &       -          		&  0.00107 \\ 
 \end{adjustwidth}
 \end{table}
 
-These findings are in line with our expectations as high degree neurons are highly involved in signaling and the majority of hubs while being cholinergic, receive input from sensory neurons the majority of which is glutamatergic. \\
+These findings are in line with our expectations as high degree neurons are highly involved in signaling and the majority of hubs while being cholinergic, receive input from sensory neurons the majority of which is glutamatergic.
+
 [[NOTE: NOTE HERE ABOUT REDUCED LIST OF GENES IN EACH ANALYSIS (577 and 390 genes for connected and R/F respectively).]]
 
 
