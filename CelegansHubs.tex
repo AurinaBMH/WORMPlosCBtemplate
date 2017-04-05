@@ -172,12 +172,6 @@
 \fancyfootoffset[L]{2.25in}
 \lfoot{\sf PLOS}
 
-
-% Make it so figures are more likely to share a page with text:
-\renewcommand{\topfraction}{0.85} % 85% rather than default 70% of the top of a text page can contain figures.
-\renewcommand{\textfraction}{0.1} % as little as 10% of a page can be text when shared with a figure.
-\renewcommand{\floatpagefraction}{0.80} % only makes a figure-only page if figure takes up more than 75% of a page
-
 %% Include all macros below
 
 \newcommand{\lorem}{{\bf LOREM}}
@@ -317,7 +311,7 @@ To investigate the relationship between hub connectivity and gene expression in 
 % METHODS: connectivity data
 \subsection*{Neuronal connectivity data}
 
-The C. elegans nervous system consists of two distinct parts: a small pharyngeal nervous system (20 neurons), responsible for  the feeding behavior of the animal and a large somatic nervous system (282 neurons).
+The C. elegans nervous system consists of two distinct parts: a small pharyngeal nervous system (20 neurons), responsible for  the feeding behaviour of the animal and a large somatic nervous system (282 neurons).
 Previous work has commonly divided them into three groups as:
 sensory neurons (support receptive function),
 motor neurons (cells containing neuromuscular junctions) and
@@ -393,7 +387,7 @@ Rich club coefficient and null networks were generated using the rich\textunders
 %The phenomenon of the rich-club organisation in \textit{C. elegans} connectome was originally demonstrated by Towlson et al. \cite{Towlson2013} in an undirected binary version of the connectome where data for both chemical and electrical synapses were combined.
 %As a result, a small number of high degree nodes forming a rich club was identified.
 
-\paragraph{Modularity}
+\textbf{Modularity}
 Modular structure of the connectome was determined applying Louvain community detection algorithm using a standard practice, implemented in Brain Connectivity Toolbox \cite{Rubinov2010}.
 To identify the optimal modular assignment, the algorithm was repeated 1000 times resulting in a thousand community affiliation vectors.
 Then, we calculated the agreement matrix using modularity index of each run as a weight.
@@ -413,7 +407,7 @@ The dataset contains binary expression profiles for 948 genes annotated to at le
 To minimize noise in the dataset we selected genes that were directly annotated to a specific neuron and labelled with the following qualifiers in the anatomy association file: certain, enriched, partial, blank.
 Each neuron on average is associated with the expression of 30 genes (range: 3 to 138 genes), while each gene is expressed on average in 9 out of 279 neurons (range: 1 to 148 neurons).
 It is important to note that, because the absence of expression data not recorded in the database, it is not possible to distinguish between the following two cases: (i) ``gene is not expressed'' and (ii) ``there is no information on whether gene is expressed''.
-Both cases are recorded and analyzed as ``0'' expression here.
+Both cases are recorded and analyzed as ``0'' expression here.\\
 
 Gene expression was assigned to neurons based on anatomical hierarchy obtained from...
 [[TODO BEN: PROBABLY SHOULD ADD INFORMATION ABOUT HIERARCHY FILE HERE as it's also from the wormbase (how/when downloaded/what queries were used]]
@@ -423,20 +417,43 @@ Gene expression was assigned to neurons based on anatomical hierarchy obtained f
 As shown in Fig.~\ref{fig:SchematicRepresentation}A, we have a gene expression profile for each neuron that indicates which of 948 genes have been observed to be expressed in that neuron.
 Given the pairwise nature of connectivity patterns, in this work we analyzed patterns of coupled gene expression between pairs of neurons.
 % rather than the presence or absence of gene expression in any single neuron on its own.
-To this end, we computed the similarity in gene expression profiles between a pair of neurons, $(i,j)$, using a binary analogue of the linear Pearson correlation coefficient, the mean square contingency coefficient, $r_\phi$ \cite{Warrens2008},
+To this end, we computed the similarity in gene expression profiles between a pair of neurons (\textit{i},\textit{j}) using a binary analogue of the linear Pearson correlation coefficient, the mean square contingency coefficient, $r_\phi$ \cite{Warrens2008}.
 \begin{equation}
     r_\phi = \frac{n_{11}n_{00} - n_{10}n_{01}}{\sqrt{n_{1\bullet}n_{0\bullet}n_{\bullet 0}n_{\bullet 1}}},
 \end{equation}
 for two vectors $x$, $y$, of length $N$, where $n_{xy}$ count the number of observations of each of the four outcomes (e.g., $n_{10} = \sum_i \delta_{x_i,1}\delta_{y_i,0}$ counts the number of times $x=1$ and $y=0$ across the length of $x$ and $y$), while the symbol $\bullet$ sums across a given variable (e.g., $n_{\bullet 0} = \sum_i \delta_{y_i,0}$ counts the number of times $y = 0$).
 A maximum value $r_\phi = 1$ when $x$ and $y$ are identical such that $n_{11} + n_{00} = N$, and a minimum value $r_\phi = -1$ when $x$ and $y$ are always mismatched such that $n_{10} + n_{01} = N$.
-Note that we also developed a new metric, based on positive matching probabilities, and compared two other binary correlation metrics, Yule's Q coefficient, and the Jaccard index (see supplementary information).
-Due to the sparsity of gene annotations, and the wide range of annotation proportions, we tested for bias in each index across the range of annotation proportions (see supplementary information, Fig.~\ref{fig:S_propOnes}), and selected $r_\phi$, which showed the smallest bias.
-This choice ensures that increases in coexpression are not driven by differences in the number of gene annotations for a given pair of neurons.
 
-Previous work has emphasized the importance of spatial effects in driving patterns of gene expression, whereby proximal brain areas typically exhibit more similar gene expression patterns \citep{Pantazatos:2016ir, Krienen2016, Fulcher:2016ck}.
-Given that connection probability depends on spatial separation in mammalian brains \cite{Henderson:2014fg, Horvat:2016ia, Wang:2016gg}, and in C. elegans (cf. Fig.~\ref{fig:S_distDep}), it is important to correct for spatial effects to ensure that relationships between gene expression and connectivity are not simply the result of both properties showing spatial autocorrelation.
-However, because we found no correlation between Euclidean distance between a pair of neurons (based on their two-dimensional coordinates) and their gene coexpression in the C. elegans nervous system (Fig.~\ref{fig:S_distDep}), no correction was necessary here.
-% In \textit{C. elegans}, we found a semi-exponential relationship between connection probability and Euclidean separation distance (based on their two dimensional coordinates) between a pair of neurons, but no correlation between the Euclidean separation distance between a pair of neurons and their gene coexpression, $r_\phi$.
+Note that, in addition to $r_\phi$ defined above, a range of other similarity measures for binary strings exist, including the
+Jaccard index, $n_{11}/(n_{10}+n_{01}+n_{11})$,
+Yule's Q coefficient, $(n_{00}n_{11} - n_{01}n_{10})/(n_{00}n_{11} + n_{01}n_{10})$,
+and the $\chi^2$ index, $N (n_{00}n_{11} - n_{01}n_{10})/(n_{1\bullet}n_{0\bullet}n_{\bullet 0}n_{\bullet 1})$ \cite{Kaufman2006}.
+% and Simple matching coefficients [[TODO: define and give reference]],
+
+Since the gene expression data analyzed here is sparse (max $15\%$ expression), we needed to ensure that our similarity metric was not sensitive to the proportion of genes expressed in a given neuron.
+To evaluate this we used numerical simulations on randomly generated binary vectors to perform the comparison between different correlation measures.
+The length of each vector was set to match then number of genes in the data (948) and the number of ones ranged from 1 to 150 according to the observed number of genes expressed in each neuron resulting in a 150x948 binary matrix.
+Vector pairwise correlations were calculated using different correlation measures and an average of 1\,000 runs was taken to summarize the behavior of each measure.
+Mean square contingency coefficient $\phi$ met this criterion best.
+In contrast, other measures such as Jaccard and Yule's index are highly dependent on this ratio (see S1 Fig.).% done with compareProportions script
+% and Simple matching coefficients
+% For example, Yule's Q, Yule's Y coefficients on average tend to reach extreme values when the ratio between the number of ones and zeros in a vector is large (e.g., 1:20).
+% Simple matching coefficient, on the other hand, shows a steady increase with increasing ratio.
+We therefore selected $r_\phi$ to analyze in this work, which was insensitive to the proportion of genes expressed in each neuron.
+
+In the binary and sparse gene expression data analyzed here (with a minority of genes being positively expressed in each neuron), we wanted to distinguish biologically relevant cases where genes are expressed together, $n_{11}$, from the dominant case where a gene is not expressed, $n_{00}$.
+To this end, we developed a new index based around that probability, $P(m)$, that two binary strings will contain $m$ `positive matches' (i.e., matching 1 with 1),
+\begin{equation}
+    P(m) = \binom{n_2}{m} \binom{N-n_2}{n_1-m} / \binom{N}{n_1},
+\end{equation}
+for two binary expression vectors, $x_i$, $y_i$, of length $N$, containing $n_1$ and $n_2$ 1s, respectively ($n_2 \leq n_1$), with $m$ matches ($n_{11}$).
+Our index, $r_\xi$, computes the probability of at least this many matches as $r_\xi = 1 - \sum_{x=0}^{m-1} P(x)$.
+This showed ([[biases?]]) which gave similar results [[TODO: check that behavior is indeed similar]].
+
+Previous work has emphasized the importance of spatial effects in driving patterns of gene expression, for example, with gene coexpression exhibiting spatial autocorrelation in the mouse brain \cite{Fulcher:2016ck} and human cortex \cite{Krienen:2016eq, Pantazatos:2016ir}.
+Given that connection probability is also dependent on spatial separation in mammalian brains \cite{Henderson:2014fg, Horvat:2016ia}, it is important to correct for spatial effects to ensure that relationships between gene expression and connectivity are not simply the result of both properties showing spatial autocorrelation.
+In \textit{C. elegans}, we found a semi-exponential relationship between connection probability and Euclidean separation distance (based on their two dimensional coordinates) between a pair of neurons, but no correlation between the Euclidean separation distance between a pair of neurons  and their gene coexpression, $r_\phi$ ($r = X$, $p = Y$, cf. (see \ref{S2 Fig})).
+
 
 A total of 92 anatomically distinct neuron classes in the hermaphrodite C. elegans have a bilateral representation, meaning that each of those neuron classes have both left and right counterparts (e.g., AVAL/AVAR).
 These neurons exhibit highly correlated gene expression patterns, with a mean coexpression value $\langle r_\phi^{\mathrm{intraclass}} \rangle = 0.98 (SD\pm0.0.25)$.
@@ -562,7 +579,7 @@ The plot reveals rich-club organization at the upper tail of the degree distribu
 Most of the analyses performed here compare variation as a function of the hub threshold, $k$, but for analyses requiring a fixed hub definition, we define hubs as the 13 neurons with $k > 41$ [[TODO: compare to Towlson]].
 % Rich club in the chemical synapse network consists of 13 high degree neurons with degree $42 \leq k \leq 98$.
 
-[[maybe include a list with degrees and definitions in SUPP (like in Towlson's paper?). Are our hubs similar of different? Why?).]]
+[[maybe include a list with degrees and definitions in SUPP (like in Towlson's paper?). Are our hubs similar of different? Why? SIMILAR, but different degree as we use a slightly different connectome).]]
 
 % <<distance, geometric effects>>
 Recent work has shown that many aspects of connectome organization can be partially accounted for by geometric effects, that treat the connectome not just as an abstracted graph topology, but as a spatially-embedded object \cite{Henderson:2014fg, Roberts2016, Horvat:2016ia}.
@@ -575,13 +592,14 @@ Taken together, our results demonstrate that hub-hub connections in C. elegans a
 % In connectomes across species and scales, degree is distributed unequally, with a small number of highly connected brain regions, known as hubs \cite{Sporns:2007ea}, that are themselves more densely connected between themselves, forming a so-called `rich club' \cite{deReus:2013cy, ZamoraLopez:2010hy, Shih:2015cu, vandenHeuvel:2012kh, vandenHeuvel:2011he}.
 % The same is true in the C. elegans neuronal nervous system, analyzed in the past as an undirected binary connectome including both chemical and electrical synapses \cite{Towlson:2013gf}, which exhibits highly connected, and densely interconnected hub neurons.
 
+
+
 %%
 \subsection*{Coexpression and connectivity}
 
 % ---connectivity/coexpression---
 Having characterized the topological and geometric properties of connectivity, in particular the rich-club organization of hub neurons, we next investigate how connectivity properties relate to patterns of neuronal gene expression.
 Being a pairwise analysis, we compare pairwise synaptic connectivity to pairwise similarity in gene expression (using a binary Pearson correlation measure, $r_\phi$, to define gene coexpression, and excluding coexpression values between homologous left/right neuron pairs, see Methods).
-
 We first investigated whether gene coexpression relates to synaptic connectivity by comparing the distribution of $r_\phi$ computed for all connected pairs of neurons, and for all unconnected pairs of neurons, as shown in Fig.~\ref{fig:coExp}A.
 We find that connected pairs of neurons have more similar expression profiles than unconnected pairs (Wilcoxon rank-sum test, $P < 10^{-50}$).
 Using directed connectivity information to split connections into unidirectional ($X \rightarrow Y$) and reciprocal ($X \leftrightarrow Y$) subtypes, we found no difference in coexpression as a function of connection reciprocity, but both groups showed an increase in coexpression relative to unconnected pairs of neurons (see Fig.~\textbf{[[]]}).
@@ -595,6 +613,7 @@ Using directed connectivity information to split connections into unidirectional
  \centering
     \includegraphics[width=1\textwidth]{MeanCoexpression2.pdf}
  \caption{{\bf Gene coexpression varies as a function of connectivity, and as a function of connection type, with connections involving hubs being most similar.}
+ %  \caption{{\bf Coexpression between connected and unconnected neurons.}
 \textbf{A} Distribution of transcriptional similarity between connected ([[XX]] pairs) and unconnected ([[XX]] pairs) pairs of neurons as a violin plot, with the mean of each distribution shown as a horizontal line.
 Coexpression, $r_\phi$ is increased in connected pairs of neurons ($P < 10^{-50}$, Wilcoxon rank sum test).
 \textbf{B}
@@ -603,11 +622,9 @@ Coexpression, $r_\phi$ is increased in connected pairs of neurons ($P < 10^{-50}
 Note that at high $k$, most neurons are labeled as nonhubs, and hence the vast majority of connections are `peripheral'.
 \emph{Lower}: Median Pearson gene coexpression, $r_\phi$, for each connection type as a function of $k$.
 The median coexpression across all network links shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. Fig.~\ref{fig:topology_rich}) is shaded gray.
-Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (Wilcoxon rank sum test; $P < 0.05$).
+Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (Wilcoxon rank sum test; $P < 0.05$).\\
 [[TODO: A: add $r_\phi$ to ylabel. Perhaps we want to use different colors (confusing: we shouldn't use red for both connected and rich within the same plot; same for blue, should be just peripheral, not peripheral and unconnected).
-B: Remove box from degree distribution, Change y-label to `Median gene coexpression', fonts are small, and inconsistent sizes between subplots.
-I think we should crop the curves when there are fewer than X connections remaining -- in this case it's a bit ridiculous to show that constant feed-out/feed-in/peripheral coexpression when there are only two neurons
-left as hubs]]}
+B: Remove box from degree distribution, Change y-label to `Median gene coexpression', fonts are small, and inconsistent sizes between subplots. I think we should crop the curves when there are fewer than X connections remaining -- in this case it's a bit ridiculous to show that constant feed-out/feed-in/peripheral coexpression when there are only two neurons left as hubs]]}
  \label{fig:coExp}
 \end{figure}
 % ------------------------------------------------------------------------------
@@ -617,7 +634,7 @@ Having established an increase in gene coexpression in connected pairs of brain 
 Given the importance of hub neurons across species [[Ref]], and previous results in the mesoscale mouse connectome \cite{Fulcher:2016ck}, we expect increased coexpression in connections involving hubs.
 To investigate this effect, we first labeled each neuron as either a hub (nodes with degree $> k$) or a nonhub (degree $\leq k$), for a given hub threshold, $k$, and then labeled each connection as either `rich' (hub $\rightarrow$ hub), `feed-in' (nonhub $\rightarrow$ hub), `feed-out' (hub $\rightarrow$ nonhub), or `peripheral' (nonhub $\rightarrow$ nonhub).
 [[TODO: Establish whether we're computing pairs of hubs (e.g., for `rich'), or for every connection between any pair of hubs -- i.e., do reciprocal connections contribute twice to the distribution at each $k$?]]
-The median coexpression for each of these four connection types described above is plotted in Fig.~\ref{fig:coExp}B, with circles indicating statistically significant increases of a given connection type (relative to all other connections) [[TODO: Why are we suddenly doing medians? subplot A is mean, right? Is median a better summary of the distribution than mean? Depending on distributions, the mean MAY raise fewer flags if results are similar using mean]].
+The median coexpression for each of these four connection types described above is plotted in Fig.~\ref{fig:coExp}B, with circles indicating statistically significant increases of a given connection type (relative to all other connections) [[TODO: Why are we suddenly doing medians? subplot A is mean, right? Is median a better summary of the distribution than mean? Depending on distributions, the mean MAY raise fewer flags if results are similar using mean. ALL plots now are done using mean. Results in general are the same. I thought to use median instead of the mean because of non-normal distributions]].
 We see that gene coexpression in rich connections increases with degree, reaching a plateau through the topological rich-club regime where hubs are densely interconnected (shaded in Fig.~\ref{fig:coExp}B).
 Interestingly, we see a split between feed-in and feed-out connections, with feed-out connections showing increased gene coexpression through the topological rich-club regime, while feed-in and peripheral connections show the lowest levels of coexpression.
 % We observed a difference in gene coexpression between feed-in and feed-out links, where feed-out links manifested increased coexpression for a broad range of degrees while feed-in links showed only a slight increase for very high hub thresholds.
@@ -650,14 +667,14 @@ We compared gene coexpression between all pairs of hub interneurons [[TODO: what
 Pairs of hub interneurons display significantly higher gene coexpression than pairs of nonhub interneurons ([[TODO: statistical test, p-value, etc.]]).
 Thus, the increase in coexpression amongst hub interneurons is not simply due to most hubs being interneurons;  even amongst interneurons, [[TODO: isn't this obvious from plot A? It's very similar -- at high degree, we're only looking at hub interneuron pairs, which are more similar than others. Not sure B adds much -- we could just quantify the difference at a given $k$ threshold to put a statistic to it...?]].
 
-
 \subsection*{Hubs and modules}
-Having demonstrated an increase in coexpression with connectivity and, amongst connections, with hub connectivity, specifically driven by interneurons, we next investigate whether other influences, namely modular organization, or lineage similarity, could drive the results above.
+In the following paragraphs discuss several aspects that could have lead to the increased coexpression for hub-related links. \\
 
-% \paragraph{Distance}).
-% Implementing the same methods as previously used in gene coexpression analysis at each degree threshold for each link type (rich, feeder, peripheral) we calculated the mean connection distance.
-% Connection distance increased with increasing degree for both rich and feeder links while peripheral connections demonstrated no increase through the whole range of thresholds (Fig.~\ref{Distance}).
-% Given this result, it is safe to say that increased coexpression for hub-related links is not determined by lower connection distance between them as the contrary is shown to be true.
+\textbf{Distance} plays and important role in gene coexpression in mammalian brains, where proximal brain areas exhibit more similar gene expression patterns \citep{Fulcher2016, Krienen2016}.
+While we found no correlation between Euclidean distance between a pair of neurons and their gene coexpression, we performed an additional analysis to ensure that the increase in coexpression for hub links is not influenced by any distance effects.
+Implementing the same methods as previously used in gene coexpression analysis at each degree threshold for each link type (rich, feeder, peripheral) we calculated the mean connection distance.
+Connection distance increased with increasing degree for both rich and feeder links while peripheral connections demonstrated no increase through the whole range of thresholds (Fig. \ref{Distance}).
+Given this result, it is safe to say that increased coexpression for hub-related links is not determined by lower connection distance between them as the contrary is shown to be true. \\
 
 %\begin{figure}[!h]
 %\centering
@@ -733,27 +750,28 @@ To investigate which functional groups of genes contributed to the increased coe
 
 Enrichment analysis show that the majority of the significant ($P < 0.05$) GO categories are related to glutamate signaling, neuronal connectivity and communication.
 It is line with the previous analysis where same GO categories were shown to be significant in differentiating connected from unconnected neurons.
-
-%% Combined enrichment table
-\begin{table}[t]
+%% combine enrichment tables into one
+\begin{table}[!ht]
 \begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
 \centering
 \caption{
 {\bf Enrichment.}}
 \begin{tabular}{ |c|c|c| }
 \thickhline
+
 %{\bf Connected} & {} & {\bf Rich and feeder}\\ \thickhline
-GO category  		& Connected \textit{vs} unconnected: $P$-value  	& Rich and feeder \textit{vs} peripheral      \\ \thickhline
-glutamate receptor signaling pathway      	& $10^{-7}$      		&  $10^{-5}$\\ \hline
-ionitropic glutamate receptor signaling     & $10^{-7}$      		&  $10^{-5}$ \\ \hline
+GO category  		& Connected \textit{vs} unconnected: pvalue  	& Rich and feeder \textit{vs} peripheral      \\ \thickhline
+glutamate receptor signalling pathway      	& $10^{-7}$      		&  $10^{-5}$\\ \hline
+ionitropic glutamate receptor signalling     & $10^{-7}$      		&  $10^{-5}$ \\ \hline
 synaptic transmission, glutamatergic      	& $10^{-7}$     			&  $10^{-5}$ \\ \hline
 neuron-neuron synaptic transmission          & $10^{-5}$     			&  0.00031\\ \hline
 chemical synaptic transmission               & 0.00057      			&  $10^{-5}$\\ \hline
-anterograde trans-synaptic signaling      	& 0.00057      			&  $10^{-5}$\\ \hline
-synaptic signaling                          & 0.00057      			&  $10^{-5}$\\ \hline
-trans-synaptic signaling                    & 0.00057      			&  $10^{-5}$ \\ \hline
-cell-cell signaling                         &      -           		&  0.00086 \\ \hline
-cell surface receptor signaling pathway     &       -          		&  0.00107 \\ \hline
+anterograde trans-synaptic signalling      	& 0.00057      			&  $10^{-5}$\\ \hline
+synaptic signalling                          & 0.00057      			&  $10^{-5}$\\ \hline
+trans-synaptic signalling                    & 0.00057      			&  $10^{-5}$ \\ \hline
+cell-cell signalling                         &      -           		&  0.00086 \\ \hline
+cell surface receptor signalling pathway     &       -          		&  0.00107 \\ \hline
+
 \end{tabular}
 \begin{flushleft} Table notes what GO categories were overrepresented in driving the difference between different types of links.
 \end{flushleft}
@@ -761,8 +779,7 @@ cell surface receptor signaling pathway     &       -          		&  0.00107 \\ \
 \end{adjustwidth}
 \end{table}
 
-These findings are in line with our expectations as high degree neurons are highly involved in signaling and the majority of hubs while being cholinergic, receive input from sensory neurons the majority of which is glutamatergic.
-
+These findings are in line with our expectations as high degree neurons are highly involved in signaling and the majority of hubs while being cholinergic, receive input from sensory neurons the majority of which is glutamatergic. \\
 [[NOTE: NOTE HERE ABOUT REDUCED LIST OF GENES IN EACH ANALYSIS (577 and 390 genes for connected and R/F respectively).]]
 
 
@@ -822,9 +839,8 @@ These findings are in line with our expectations as high degree neurons are high
     \item{First coexpression analysis in worm. Despite noisy gene expression data we get some insights into the genetic basis of connectivity on a neuronal level}
 \end{itemize}
 Discussion text
+\section*{Limitations}
 
-
-LIMITATIONS:
 \begin{itemize}
     \item{Binary gene expression data}
     \item{No way of discriminating between missing data and the absence of expression}
@@ -837,95 +853,17 @@ LIMITATIONS:
 
 Conclusion text.
 
-\section*{Acknowledgments}
-Thanks to Alex Fornito, for being a big deal.
-
-\nolinenumbers
-
-% Either type in your references using
-% \begin{thebibliography}{}
-% \bibitem{}
-% Text
-% \end{thebibliography}
-%
-% or
-%
-% Compile your BiBTeX database using our plos2015.bst
-% style file and paste the contents of your .bbl file
-% here. See http://journals.plos.org/plosone/s/latex for
-% step-by-step instructions.
-%
-
-
-\bibliography{library_ben,library}
-% \begin{thebibliography}{10}
-%\paragraph*{S1 File.}
-%\label{S1_File}
-%{\bf Lorem ipsum.}  Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
-
-%\paragraph*{S1 Video.}
-%\label{S1_Video}
-%{\bf Lorem ipsum.}  Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
-
-%\paragraph*{S1 Appendix.}
-%\label{S1_Appendix}
-%{\bf Lorem ipsum.} Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
-
-%\paragraph*{S1 Table.}
-%\label{S1_Table}
-%{\bf Lorem ipsum.} Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
-
-
-% \end{thebibliography}
-
-\newpage
 \section*{Supporting information}
 
-\subsection*{Expression similarity measures}
-
-In addition to the Pearson correlation, $r_\phi$, used throughout this work, we also compared a range of alternative similarity measures for binary strings, including the
-Jaccard index, $n_{11}/(n_{10}+n_{01}+n_{11})$,
-Yule's Q coefficient, $(n_{00}n_{11} - n_{01}n_{10})/(n_{00}n_{11} + n_{01}n_{10})$,
-and the $\chi^2$ index, $N (n_{00}n_{11} - n_{01}n_{10})/(n_{1\bullet}n_{0\bullet}n_{\bullet 0}n_{\bullet 1})$ \cite{Kaufman2006}.
-% and Simple matching coefficients [[TODO: define and give reference]],
-
-All of these standard measures are symmetric in 1/0, however, in the gene expression data used here, a minority of genes are positively expressed in each neuron (a maximum of $15\%$ of genes expressed in any single neuron); we also wanted to distinguish biologically relevant cases where genes are expressed together, $n_{11}$, from the dominant case where a gene is not expressed, $n_{00}$.
-To this end, we developed a new index based around that probability, $P(m)$, that two binary strings will contain $m$ `positive matches' (i.e., matching 1 with 1),
-\begin{equation}
-    P(m) = \binom{n_2}{m} \binom{N-n_2}{n_1-m} / \binom{N}{n_1},
-\end{equation}
-for two binary expression vectors, $x_i$, $y_i$, of length $N$, containing $n_1$ and $n_2$ 1s, respectively ($n_2 \leq n_1$), with $m$ matches ($n_{11}$).
-Our index, $r_\xi$, computes the probability of at least this many matches as $r_\xi = 1 - \sum_{x=0}^{m-1} P(x)$.
-This showed ([[biases?]]) which gave similar results [[TODO: check that behavior is indeed similar]].
-
-Given the sparsity of expression annotation in the data analyzed here, we performed numerical tests to ensure that the coexpression measure used here was not highly sensitive to the proportion of genes expressed in each neuron (i.e., that there was no systematic bias in coexpression with the number of expressed genes in each neuron).
-To evaluate each measure, generated random binary vectors of length 948 containing different proportions of ones seen in our data, ranging from the minimum, 1, to a maximum, 150, [[Is this actually the max in our data?]].
-For all pairwise combinations of proportions, we computed the coexpression measure, taking an average across 1\,000 permutations, and then recording the resulting mean correlation value, plotted in Fig.~\ref{fig:S_propOnes}.
-Because all vectors are independent random binary strings, the mean coexpression value should be zero in the absence of bias.
-We see that the Pearson correlation (Fig.~\ref{fig:S_propOnes}A) shows no systematic bias to the proportion of ones in the vector (varying within $\approx 10^{-3}$), whereas Yule's Q coefficient shows a negative bias for small annotation proportions (Fig.~\ref{fig:S_propOnes}B), while the Jaccard index shows a strong positive bias across the full range (Fig.~\ref{fig:S_propOnes}C).
-Based on these numerical experiments, we selected Pearson's mean square contingency coefficient, $r_\phi$, here, to ensure that changes in coexpression were due to matching structure and not simply the number of gene annotations.
-% In contrast, other measures such as Jaccard and Yule's index are highly dependent on this ratio (see S1 Fig.).% done with compareProportions script
-% and Simple matching coefficients
-% For example, Yule's Q, Yule's Y coefficients on average tend to reach extreme values when the ratio between the number of ones and zeros in a vector is large (e.g., 1:20).
-% Simple matching coefficient, on the other hand, shows a steady increase with increasing ratio.
-% We therefore selected $r_\phi$ to analyze in this work, which was insensitive to the proportion of genes expressed in each neuron.
-
-
-
-% ------------------------------------------------------------------------------
 
 % Include only the SI item label in the paragraph heading. Use the \nameref{label} command to cite SI items in the text.
 % compare proportions script
 \paragraph*{S1 Fig.}
 {\bf Comparing different coexpression measures.}
-\begin{figure}[h]
-\label{fig:S_propOnes}
+\begin{figure}[!h]
+\label{S1_Fig}
 \centering
     \includegraphics[width=1\textwidth]{CoexpressionMeasures.pdf}
-\caption{
-\textbf{Dependence of binary coexpression metrics to the proportion of positive annotations}
-[[TODO: Add A, B, C labels, add our new positive match measure, provide better titles.]]
-}
 \end{figure}
 
 
@@ -953,7 +891,9 @@ Unlike data from macroscopic mammalian brains of mouse \cite{Fulcher:2016ck} and
 \end{figure}
 
 
-% <<coexpRecUnidirUncon.m>>
+% coexpRecUnidirUncon script
+
+
 \paragraph*{S3 Fig.}
 {\bf Coexpression for rich, feeder and peripheral links as a function of degree.}
 \begin{figure}[!h]
@@ -962,7 +902,7 @@ Unlike data from macroscopic mammalian brains of mouse \cite{Fulcher:2016ck} and
     \includegraphics[width=1\textwidth]{Distributions.pdf}
 \end{figure}
 
-% <<networkRC.m>>
+% networkRC script
 \paragraph*{S5 Fig.}
 {\bf Weighted and mixed rich club}
 \begin{figure}[!h]
@@ -991,6 +931,64 @@ Circles indicate a statistically significant increase in gene coexpression in a 
     \includegraphics[width=1\textwidth]{coXmeanCoexpression.pdf}
 \end{figure}
 
+%\paragraph*{S1 File.}
+%\label{S1_File}
+%{\bf Lorem ipsum.}  Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
+
+%\paragraph*{S1 Video.}
+%\label{S1_Video}
+%{\bf Lorem ipsum.}  Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
+
+%\paragraph*{S1 Appendix.}
+%\label{S1_Appendix}
+%{\bf Lorem ipsum.} Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
+
+%\paragraph*{S1 Table.}
+%\label{S1_Table}
+%{\bf Lorem ipsum.} Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
+
+\section*{Acknowledgments}
+Thanks to Alex Fornito, for being a big deal.
+
+\nolinenumbers
+
+% Either type in your references using
+% \begin{thebibliography}{}
+% \bibitem{}
+% Text
+% \end{thebibliography}
+%
+% or
+%
+% Compile your BiBTeX database using our plos2015.bst
+% style file and paste the contents of your .bbl file
+% here. See http://journals.plos.org/plosone/s/latex for
+% step-by-step instructions.
+%
+
+
+\bibliography{library_ben,library}
+% \begin{thebibliography}{10}
+
+% \bibitem{bib1}
+% Conant GC, Wolfe KH.
+% \newblock {{T}urning a hobby into a job: how duplicated genes find new
+%   functions}.
+% \newblock Nat Rev Genet. 2008 Dec;9(12):938--950.
+%
+% \bibitem{bib2}
+% Ohno S.
+% \newblock Evolution by gene duplication.
+% \newblock London: George Alien \& Unwin Ltd. Berlin, Heidelberg and New York:
+%   Springer-Verlag.; 1970.
+%
+% \bibitem{bib3}
+% Magwire MM, Bayer F, Webster CL, Cao C, Jiggins FM.
+% \newblock {{S}uccessive increases in the resistance of {D}rosophila to viral
+%   infection through a transposon insertion followed by a {D}uplication}.
+% \newblock PLoS Genet. 2011 Oct;7(10):e1002337.
+
+% \end{thebibliography}
 
 
 
