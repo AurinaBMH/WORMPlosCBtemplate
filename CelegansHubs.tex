@@ -538,16 +538,17 @@ Consistent with previous work [[]], we see a positively-skewed degree distributi
  \caption{\textbf{Rich-club organization of the connectome}.
 % A: Topological rich-club. B: Mixed rich-club. C: Weighted rich-club.
 \textbf{A} Degree distribution of the binary chemical connectome, where neurons are labeled according to four categories:
-(i) interneuron (85 neurons, red),
-(ii) sensory (68 neurons, yellow),
-(iii) motor (108 neurons, green), or
-(iv) multiple assignments (18 neurons, blue).
+(i) interneuron (85 neurons, orange),
+(ii) sensory (68 neurons, green),
+(iii) motor (108 neurons, blue), or
+(iv) multiple assignments (18 neurons, yellow).
 An extended tail of high-degree neurons can be seen, which are mostly interneurons.
 \textbf{B}
 Normalized rich club coefficient, $\Phi_\mathrm{norm}$ (red), as a function of the degree, $k$, at which hubs are defined (as neurons with degree $>k$).
 Also shown is the mean Euclidean separation distance (yellow) between connected hub regions (across degree thresholds, $k$).
 $\Phi_\mathrm{norm} > 1$ indicates that hubs are more densely interconnected among each other than expected by chance, with red circles indicate values of $\Phi_\mathrm{norm}$ that are significantly higher than an ensemble of 1\,000 degree-matched null networks ($P < 0.05$).
 Yellow circles indicate where the Euclidean distance between connected pairs of hubs is significantly greater than the Euclidean distance for all other pairs of connected regions (Welch's $t$-test, $P < 0.05$).
+[[TODO: maybe avoid yellow to mean two different things within the same plot... Could either change distance or the multiple assignment color]]
 }
  \label{fig:topology_rich}
  \end{figure}
@@ -633,7 +634,7 @@ Connections involving motor neurons, and connections involving sensory neurons, 
    \includegraphics[width=1\textwidth]{TypeDegree.pdf}
  \caption{
 \textbf{The increase in coexpression with degree is specific to high-degree interneurons, and hub interneurons have higher coexpression than nonhub interneurons}
-\textbf{A} \emph{Upper}: The number of connections in each category for a range of degrees.
+\textbf{A} \emph{Upper}: The number of connections involving interneurons (orange), sensory neurons (green), and motor neurons (blue) across degree threshold, $k$ [[TODO: Aurina, is it correct that sensory is green and motor is blue?]].
 \emph{Lower}: Average gene coexpression as a function of degree for connections involving different types of neurons.
 \textbf{B} Coexpression distributions for hub and non-hub interneurons.
 [[TODO: Did we exclude multimodal neurons from this analysis?? Can we do a statistical comparison between these distributions and add something here on that?]]
@@ -665,15 +666,17 @@ Having demonstrated an increase in coexpression with connectivity and, amongst c
  %\label{Distance}
  %\end{figure}
 
-\textbf{Modular organization} of the connectome could potentially drive gene coexpression patters, where more densely interconnected neurons within modules would also be more similar in their gene expression patters.
-Utilizing Louvain community detection algorithm (see \textit{Methods}), four sparsely interconnected modules (M1, M2, M3, M4) were detected (Fig. \ref{Modules}).
-[[NOTE: maybe not worth characterizing modules, just say: coexpression within modules is not higher than coexpression between modules on one sentence and distributions? When hub neurons are excluded, M2 and M3 coexpression is higher than M1, but no difference between M2 and M3]])
-While first three modules (M1-M3) were diverse in neuron types and comparable in size, the fourth module (M4) consisted of only 13 densely interconnected motor neurons.
-The majority (11 out of 13) of hubs were assigned to the M3 which spanned through the whole length of the worm body as pictured in Fig. \ref{Modules}.
+The nervous system of \emph{C. elegans} is modular [[Refs?]], containing densely connected groups of neurons that are relatively sparsely connected to other neurons.
+Could the modular membership of hub neurons drive their increased gene coexpression patterns?
+We used the Louvain community detection algorithm (see \textit{Methods}) to extract four modules (labeled M1, M2, M3, M4) from the binary C. elegans synaptic connectome, shown in Fig.~\ref{fig:modules}.
+The algorithm picks up three comparably sized modules (M1-M3), each containing diverse neuron types, as well as a smaller fourth module (M4), which contained 13 motor neurons.
+Of the 13 hubs with $k \geq 42$, the majority (11) were assigned to M3, which spanned the length of the worm body, as pictured in Fig.~\ref{fig:modules}.
 This particular module was also rich in motor neurons which is in line with our expectations as 10 out of 11 hub neurons in this module are directly responsible for forward and backward locomotion (command interneurons).
 The main goal of this analysis was to compare coexpression within and between modules in order to examine if neurons assigned to the same module are more genetically similar than neurons in other modules.
 Coexpression within modules did not exceed coexpression between modules, demonstrating that neurons that belong to the same module do not share any particular genetic similarity.
 Therefore, higher coexpression in rich and feeder links can not be attributed to the modular organization of the connectome despite most hubs being assigned to the same module.
+
+[[NOTE: maybe not worth characterizing modules, just say: coexpression within modules is not higher than coexpression between modules on one sentence and distributions? When hub neurons are excluded, M2 and M3 coexpression is higher than M1, but no difference between M2 and M3]])
 
 % RichClub (lineage and distance)
 % communityCoexpression
@@ -683,15 +686,18 @@ Therefore, higher coexpression in rich and feeder links can not be attributed to
 \begin{figure}[!h]
 \centering
     \includegraphics[width=1\textwidth]{Modules.pdf}
- \caption{{\bf Plots for extras}\\
+ \caption{
+ \textbf{Increased coexpression of hub neurons are not driven by their module membership}
 %\textbf{A: Connection distance}
 %Top: Degree distribution.
 %Bottom: Median lineage distance for rich, feeder, and peripheral connections as a function of \textit{k}, with the %median across all network links shown as a dashed black line and the topological rich club regime shaded grey.
 %Circles indicate a statistically significant change in lineage distance in a given link type relative to the rest %of the network (Wilcoxon rank sum test; $P < 0.05$). \\
-\textbf{B: Modular organization}.
+\textbf{A} Connectome organized by module, with all connections labeled by type: rich (red), feed-in (yellow), feed-out (orange), and peripheral (blue).
+\textbf{B} Distributions of coexpression within and between modules reveal no mean difference.
+\textbf{C} Not sure what this plot is of. I assume rich links within modules?
 %Composition of each module according to neuron type.
 %Modular organisation of the connectome.
-%Coexpression distributions within and between modules.   \\
+%Coexpression distributions within and between modules.
 %\textbf{C: Lineage distance}
 %Top: Degree distribution. Bottom: Mean lineage distance for rich, feeder, and peripheral connections as a function %of \textit{k}, with the median across all network links shown as a dashed black line and the topological rich club regime shaded grey.
 %Circles indicate a statistically significant change in lineage distance in a given link type relative to the rest of the network (one-sided Welch’s t-test; $P < 0.05$) \\
@@ -699,9 +705,10 @@ Therefore, higher coexpression in rich and feeder links can not be attributed to
 %Top: Median gene coexpression as a function of degree for connections involving different types of neurons.
 %Bottom: The number of connections in each category for a range of degrees.
 %Coexpression distributions for hub and non-hub interneurons. \\
+[[TODO: Label modules (large), but also neuron types, neurotransmitters, etc. along the rows]]
 }
- \label{Modules}
- \end{figure}
+ \label{fig:modules}
+\end{figure}
 
 
 \textbf{Lineage} distance between pairs of neurons presents another source of information about the genetic makeup of the \textit{C. elegans} nervous system.
