@@ -711,14 +711,14 @@ Therefore, higher coexpression in rich and feeder links can not be attributed to
 \end{figure}
 
 
-\textbf{Lineage} distance between pairs of neurons presents another source of information about the genetic makeup of the \textit{C. elegans} nervous system.
-NOTE: more details needed. While the relationship between cell lineage and gene expression was studied in other species \citep{Cui2007, Kluger2004}.
+Lineage distance between pairs of neurons presents another source of information about the genetic makeup of the \textit{C. elegans} nervous system.
 It has been shown in \textit{C. elegans} that cells with identical fates can be formed by different gene regulatory pathways \citep{Liu2009}, however, to the best of knowledge, no lineage distance analysis was done in relation to the network properties of the \textit{C. elegans} connectome.
 Implementing an analogous strategy as in our previous analysis of gene coexpression, we show that lineage distance between pairs of neurons increases with degree for feeder links while no significant change is observed for rich links (Fig. \ref{Lineage}).
 This finding suggests that the difference in lineage distance between hub and non-hub neurons increases with degree, therefore in a way confirming the relevance of this classification.
 Contrary, peripheral links manifest stably lower lineage distance through the range of degree thresholds wit (Fig. \ref{Lineage}).
 In addition, this shows that increase in gene coexpression with degree for rich links can not be attributed to their similarity in lineage.
 
+Is it possible to say that connections within ACh are more similar when they involve hubs?
 
 \subsection*{Functional enrichment}
 
@@ -821,16 +821,31 @@ These findings are in line with our expectations as high degree neurons are high
 \begin{itemize}
     \item{First coexpression analysis in worm. Despite noisy gene expression data we get some insights into the genetic basis of connectivity on a neuronal level}
 \end{itemize}
-Discussion text
 
+% COMPARE TO MOUSE
+Compared to our previous work in the mesoscale mouse connectome \cite{Fulcher:2016ck}, the present findings in a near-fully mapped neuronal chemical connectome show similarities and differences.
+Despite the incredible difference in spatial scale (from each node containing $\tilde 10^5$ neurons in mouse, to just a single neuron in worm), we found a similar basic qualitative signal of increased coexpression in connected pairs of neurons, and amongst connected pairs, the most similar expression signatures in pairs of connected hub neurons.
+These overall findings were specific to connections involving interneurons, i.e., were not found in motor or sensory neurons, being driven by the relatively expression similarity of high-degree interneuron hubs, were not driven by similarity in lineage, neurotransmitter type, or modular membership, and were robust to a range of data processing choices (including connectome type, and coexpression measure).
+These findings come despite sparsely annotated, binary gene expression data, with less than 5\% coverage of the full genome, with preliminary enrichment analysis indicating a role for glutamate in both connectivity and hub-connectivity.
+Our results indicate that even in a highly specialized neuronal nervous system, costly hub-hub connections display a distinctive transcriptional signature that may reflect their unique functional role in the network.
+Further work across different species and scales may shed light on deeper principles of how connectomes organize to facilitate efficient biological functioning.
+
+
+differ significantly (being a neuronal connectome), and with so few neurons, each highly specialized, it may be hard to pick up broad expression patterns that are network topology-specific.
+Quite different to the case in mouse, where regions were spread across the brain, and so effects of regional specialization of function, cytoarchitecture, gene expression were averaged, and the remaining hub-related signal could be isolated.
+
+
+% LINEAGE
+[[TODO: add details on lineage]] While the relationship between cell lineage and gene expression was studied in other species \citep{Cui2007, Kluger2004}.
 
 LIMITATIONS:
 \begin{itemize}
-    \item{Binary gene expression data}
-    \item{No way of discriminating between missing data and the absence of expression}
-    \item{only around 5 percent of genes in the genome available}
-    \item{annotation problems: different qualifiers, loosing sensitivity/specificity if including too much or too little - need to balance}
-
+    \item Did the best we had with sparsely-annotated binary gene expression data
+    \item No way of discriminating between missing data and the absence of expression
+    \item only around 5 percent of genes in the genome available
+    \item annotation problems: different qualifiers, loosing sensitivity/specificity if including too much or too little - need to balance
+    \item Future work may have actual high-throughput RNAseq gene data for all neurons, could do this analysis properly!
+    \item Would surely allow more subtle understanding of how gene expression varies with connectivity roles
 \end{itemize}
 
 \section*{Conclusion}
