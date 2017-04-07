@@ -3,7 +3,7 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: CelegansHubs.aux
 The style file: plos2015.bst
 White space in argument---line 78 of file CelegansHubs.aux
- : \citation{Bassett2010a,Pavlovic2014,Kim2014a
+ : \citation{Kim2014a,Bassett2010a,Pavlovic2014
  :                                              }
 I'm skipping whatever remains of this command
 Database file #1: library_ben.bib
@@ -16,50 +16,51 @@ Repeated entry---line 248 of file library_ben.bib
  :                       ,
 I'm skipping whatever remains of this entry
 Database file #2: library.bib
+Warning--I didn't find a database entry for "Kim2014a"
 Warning--I didn't find a database entry for "Bassett2010a"
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 40 entries,
+You've used 39 entries,
             3058 wiz_defined-function locations,
-            947 strings with 20069 characters,
-and the built_in function-call counts, 127432 in all, are:
-= -- 15559
-> -- 668
+            942 strings with 19750 characters,
+and the built_in function-call counts, 125080 in all, are:
+= -- 15265
+> -- 648
 < -- 3
-+ -- 583
-- -- 167
-* -- 12010
-:= -- 13923
-add.period$ -- 179
-call.type$ -- 40
++ -- 573
+- -- 162
+* -- 11802
+:= -- 13667
+add.period$ -- 174
+call.type$ -- 39
 change.case$ -- 0
 chr.to.int$ -- 0
-cite$ -- 40
-duplicate$ -- 6856
-empty$ -- 12769
-format.name$ -- 206
-if$ -- 29165
+cite$ -- 39
+duplicate$ -- 6680
+empty$ -- 12544
+format.name$ -- 200
+if$ -- 28621
 int.to.chr$ -- 0
-int.to.str$ -- 40
-missing$ -- 400
-newline$ -- 222
-num.names$ -- 40
-pop$ -- 620
+int.to.str$ -- 39
+missing$ -- 389
+newline$ -- 216
+num.names$ -- 39
+pop$ -- 603
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 674
+skip$ -- 658
 stack$ -- 0
-substring$ -- 31290
-swap$ -- 1019
+substring$ -- 30794
+swap$ -- 991
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 435
-width$ -- 42
-write$ -- 478
+while$ -- 424
+width$ -- 41
+write$ -- 465
 (There were 3 error messages)
