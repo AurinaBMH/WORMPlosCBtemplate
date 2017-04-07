@@ -652,7 +652,7 @@ Thus, the increase in coexpression amongst hub interneurons is not simply due to
 
 
 \subsection*{Hubs and modules}
-Having demonstrated an increase in coexpression with connectivity and, amongst connections, with hub connectivity, specifically driven by interneurons, we next investigate whether other influences, namely modular organization, or lineage similarity, could drive the results above.
+Having demonstrated an increase in coexpression with connectivity and, amongst connections, with hub connectivity, we next investigate whether other influences, namely modular organization, lineage similarity, or neurotransmitter type, could explain our results.
 
 % \paragraph{Distance}).
 % Implementing the same methods as previously used in gene coexpression analysis at each degree threshold for each link type (rich, feeder, peripheral) we calculated the mean connection distance.
@@ -666,10 +666,10 @@ Having demonstrated an increase in coexpression with connectivity and, amongst c
  %\label{Distance}
  %\end{figure}
 
-The nervous system of \emph{C. elegans} is modular [[Refs?]], containing densely connected groups of neurons that are relatively sparsely connected to other neurons.
-Could the modular membership of hub neurons drive their increased gene coexpression patterns?
-We used the Louvain community detection algorithm (see \textit{Methods}) to extract four modules (labeled M1, M2, M3, M4) from the binary C. elegans synaptic connectome, shown in Fig.~\ref{fig:modules}.
-The algorithm picks up three comparably sized modules (M1-M3), each containing diverse neuron types, as well as a smaller fourth module (M4), which contained 13 motor neurons.
+The nervous system of \emph{C. elegans} is modular [[Refs on previous work?]], containing densely connected groups of neurons that are relatively sparsely connected to other neurons.
+Could gene expression differences between modules drive the increased gene coexpression of hubs?
+To test this possibility, we used the Louvain community detection algorithm (see \textit{Methods}) to extract modules from the binary C. elegans synaptic connectome, which we label M1--M4, shown in Fig.~\ref{fig:modules}.
+The algorithm detects three comparably sized modules (M1-M3), each containing diverse neuron types, as well as a smaller fourth module (M4), which contains 13 motor neurons.
 Of the 13 hubs with $k \geq 42$, the majority (11) were assigned to M3, which spanned the length of the worm body, as pictured in Fig.~\ref{fig:modules}.
 This particular module was also rich in motor neurons which is in line with our expectations as 10 out of 11 hub neurons in this module are directly responsible for forward and backward locomotion (command interneurons).
 The main goal of this analysis was to compare coexpression within and between modules in order to examine if neurons assigned to the same module are more genetically similar than neurons in other modules.
