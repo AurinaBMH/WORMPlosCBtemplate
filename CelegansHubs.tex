@@ -668,34 +668,38 @@ Having demonstrated an increase in coexpression with connectivity and, amongst c
  %\end{figure}
 
 The nervous system of \emph{C. elegans} is modular [[Refs on previous work?]], containing densely connected groups of neurons that are relatively sparsely connected to other neurons.
-Could gene expression differences between modules drive the increased gene coexpression of hubs?
-To test this possibility, we used the Louvain community detection algorithm (see \textit{Methods}) to extract modules from the binary C. elegans synaptic connectome, which we label M1--M4, shown in Fig.~\ref{fig:modules}.
-The algorithm detects three comparably sized modules (M1-M3), each containing diverse neuron types, as well as a smaller fourth module (M4), which contains 13 motor neurons.
-Of the 13 hubs with $k \geq 42$, the majority (11) were assigned to M3, which spanned the length of the worm body, as pictured in Fig.~\ref{fig:modules}.
-This particular module was also rich in motor neurons which is in line with our expectations as 10 out of 11 hub neurons in this module are directly responsible for forward and backward locomotion (command interneurons).
-The main goal of this analysis was to compare coexpression within and between modules in order to examine if neurons assigned to the same module are more genetically similar than neurons in other modules.
-Coexpression within modules did not exceed coexpression between modules, demonstrating that neurons that belong to the same module do not share any particular genetic similarity.
-Therefore, higher coexpression in rich and feeder links can not be attributed to the modular organization of the connectome despite most hubs being assigned to the same module.
+To test the possibility that gene expression differences of modules (e.g., between intra-modular and inter-modular connections) might drive the increased gene coexpression of hubs, we used the Louvain community detection algorithm (see \textit{Methods}) to extract modules from the binary C. elegans synaptic connectome, shown in Fig.~\ref{fig:modules}A.
+In this analysis, hubs are mostly concentrated in a single module (purple in Fig.~\ref{fig:modules}), but are also distributed across three other modules.
+% The algorithm detects three comparably sized modules (M1-M3), each containing diverse neuron types, as well as a smaller fourth module (M4), which contains 13 motor neurons.
+% Of the 13 hubs with $k \geq 42$, the majority (11) were assigned to M3, which spanned the length of the worm body, as pictured in Fig.~\ref{fig:modules}.
+The module most concentrated in hubs is diverse, containing neurons across the head, tail, and body and contains sensory, motor, and interneurons (see labels on Fig.~\ref{fig:modules}A).
+This module is particularly concentrated in motor neurons, consistent with evidence that control interneurons are directly responsible for forward and backward locomotion (command interneurons).
+% 10 out of 11 hub neurons in this module are directly responsible for 
+% The main goal of this analysis was to compare coexpression within and between modules in order to examine if neurons assigned to the same module are more genetically similar than neurons in other modules.
+Gene coexpression, $r_\phi$, was in fact slightly lower in intra-modular connections relative to inter-modular connections (Fig.~\ref{fig:modules}B, $p = 0.045$, Welch's t-test), but intra-modular connections between hubs were increased relative to other intra-modular connections (Fig.~\ref{fig:modules}C, $p = 1.3\times 10^{-10}$).
+We also computed an empirical null distribution for the mean coexpression for hub-hub links, given they span 34 intra-modular links and 32 inter-modular links; 1\,000 samples from such an intra/intermodular link distribution gives a null $r_\phi$ of $0.15 \pm 0.02$, compared to the observed value of $0.51$ ($p < 10^{-16}$).
+% Coexpression within modules did not exceed coexpression between modules, demonstrating that neurons that belong to the same module do not share any particular genetic similarity.
+The increased coexpression in connected pairs of hubs in C. elegans can therefore not be attributed to the modular organization of the connectome.
+% despite most hubs being assigned to the same module.
+% [[NOTE: maybe not worth characterizing modules, just say: coexpression within modules is not higher than coexpression between modules on one sentence and distributions? When hub neurons are excluded, M2 and M3 coexpression is higher than M1, but no difference between M2 and M3]])
 
-[[NOTE: maybe not worth characterizing modules, just say: coexpression within modules is not higher than coexpression between modules on one sentence and distributions? When hub neurons are excluded, M2 and M3 coexpression is higher than M1, but no difference between M2 and M3]])
-
-% RichClub (lineage and distance)
-% communityCoexpression
-% degreeDependence
-% plotInterneuronsDegree
-% scripts
+% ------------------------------------------------------------------------------
+% <<plot_modules.m>>
+% ------------------------------------------------------------------------------
 \begin{figure}[!h]
 \centering
-    \includegraphics[width=1.2\textwidth]{modules.eps}
+    \includegraphics[width=1.2\textwidth]{Modules.eps}
  \caption{
  \textbf{Increased coexpression of hub neurons are not driven by their module membership}
 %\textbf{A: Connection distance}
 %Top: Degree distribution.
 %Bottom: Median lineage distance for rich, feeder, and peripheral connections as a function of \textit{k}, with the %median across all network links shown as a dashed black line and the topological rich club regime shaded grey.
 %Circles indicate a statistically significant change in lineage distance in a given link type relative to the rest %of the network (Wilcoxon rank sum test; $P < 0.05$). \\
-\textbf{A} Connectome organized by module, with all connections labeled by type: rich (red), feed-in (yellow), feed-out (orange), and peripheral (blue).
-\textbf{B} Distributions of coexpression within and between modules reveal no mean difference.
-\textbf{C} Not sure what this plot is of. I assume rich links within modules?
+\textbf{A} Connectome organized by module (white squares), with all connections labeled by type: rich (red), feed-in (yellow), feed-out (orange), and peripheral (blue).
+Neuron indicators are shown to the left, including module assignment, neuron type (interneuron, orange; motor neuron, blue; sensory neuron, green; multimodal, yellow), hub indicator (red for hubs), position along the body, from head (white) to tail (black), and neuron type: head (yellow), body (orange), tail (red).
+\textbf{B} Distributions of gene coexpression, $r_\phi$, for intra-modular connections (black) and inter-modular connections (gray), shown as violin plots with the mean shown as a horizontal bar.
+The number of connections of each type is shown in parentheses.
+\textbf{C} Violin plots of the distributions of $r_\phi$ for intra-modular hub-hub connections (black) compared to other intra-modular connections (gray).
 %Composition of each module according to neuron type.
 %Modular organisation of the connectome.
 %Coexpression distributions within and between modules.
