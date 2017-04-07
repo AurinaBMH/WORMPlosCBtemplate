@@ -1,60 +1,65 @@
 This is BibTeX, Version 0.99d (TeX Live 2015)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: ./CelegansHubs.aux
+The top-level auxiliary file: CelegansHubs.aux
 The style file: plos2015.bst
+White space in argument---line 78 of file CelegansHubs.aux
+ : \citation{Bassett2010a,Pavlovic2014,Kim2014a
+ :                                              }
+I'm skipping whatever remains of this command
 Database file #1: library_ben.bib
 Repeated entry---line 67 of file library_ben.bib
  : @article{Shih:2015cu
  :                     ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 238 of file library_ben.bib
+Repeated entry---line 248 of file library_ben.bib
  : @article{deReus:2013cy
  :                       ,
 I'm skipping whatever remains of this entry
 Database file #2: library.bib
+Warning--I didn't find a database entry for "Bassett2010a"
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 38 entries,
+You've used 40 entries,
             3058 wiz_defined-function locations,
-            931 strings with 19555 characters,
-and the built_in function-call counts, 123770 in all, are:
-= -- 15088
-> -- 640
+            947 strings with 20069 characters,
+and the built_in function-call counts, 127432 in all, are:
+= -- 15559
+> -- 668
 < -- 3
-+ -- 569
-- -- 160
-* -- 11701
-:= -- 13524
-add.period$ -- 170
-call.type$ -- 38
++ -- 583
+- -- 167
+* -- 12010
+:= -- 13923
+add.period$ -- 179
+call.type$ -- 40
 change.case$ -- 0
 chr.to.int$ -- 0
-cite$ -- 38
-duplicate$ -- 6545
-empty$ -- 12424
-format.name$ -- 197
-if$ -- 28313
+cite$ -- 40
+duplicate$ -- 6856
+empty$ -- 12769
+format.name$ -- 206
+if$ -- 29165
 int.to.chr$ -- 0
-int.to.str$ -- 38
-missing$ -- 381
-newline$ -- 211
-num.names$ -- 38
-pop$ -- 590
+int.to.str$ -- 40
+missing$ -- 400
+newline$ -- 222
+num.names$ -- 40
+pop$ -- 620
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 646
+skip$ -- 674
 stack$ -- 0
-substring$ -- 30570
-swap$ -- 973
+substring$ -- 31290
+swap$ -- 1019
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 415
-width$ -- 40
-write$ -- 454
-(There were 2 error messages)
+while$ -- 435
+width$ -- 42
+write$ -- 478
+(There were 3 error messages)

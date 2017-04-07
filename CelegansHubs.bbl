@@ -157,17 +157,19 @@ Warrens MJ.
 \newblock Psychometrika. 2008;73(4):777--789.
 \newblock doi:{10.1007/s11336-008-9070-3}.
 
-\bibitem{Krienen:2016eq}
-Krienen FM, Yeo BTT, Ge T, Buckner RL, Sherwood CC.
-\newblock {Transcriptional profiles of supragranular-enriched genes associate
-  with corticocortical network architecture in the human brain.}
-\newblock Proc Natl Acad Sci USA. 2016;113(4):E469--78.
-
 \bibitem{Pantazatos:2016ir}
 Pantazatos SP, Li X.
 \newblock {Commentary: BRAIN NETWORKS. Correlated gene expression supports
   synchronous activity in brain networks. Science 348, 1241-4.}
 \newblock bioRxiv. 2016; p. 079202.
+
+\bibitem{Krienen2016}
+Krienen FM, Yeo BTT, Ge T, Buckner RL, Sherwood CC.
+\newblock {Transcriptional profiles of supragranular-enriched genes associate
+  with corticocortical network architecture in the human brain.}
+\newblock Proceedings of the National Academy of Sciences.
+  2016;113(4):E469--78.
+\newblock doi:{10.1073/pnas.1510903113}.
 
 \bibitem{Henderson:2014fg}
 Henderson JA, Robinson PA.
@@ -181,6 +183,11 @@ Horv{\'a}t S, G{\u{a}}m{\u{a}}nuț R, Ercsey-Ravasz M, Magrou L,
 \newblock {Spatial Embedding and Wiring Cost Constrain the Functional Layout of
   the Cortical Network of Rodents and Primates}.
 \newblock PLoS Biol. 2016;14(7):e1002512.
+
+\bibitem{Wang:2016gg}
+Wang XJ, Kennedy H.
+\newblock {Brain structure and dynamics across scales: in search of rules}.
+\newblock Current Opinion in Neurobiology. 2016;37:92--98.
 
 \bibitem{Ashburner2000}
 Ashburner M, Ball CA, Blake JA, Botstein D, Butler H, Cherry JM, et~al.
@@ -214,13 +221,19 @@ Goulas A, Uylings HBM, Hilgetag CC.
   connectivity in the mouse}.
 \newblock Brain Struct Funct. 2016;252:1--15.
 
-\bibitem{Krienen2016}
-Krienen FM, Yeo BTT, Ge T, Buckner RL, Sherwood CC.
-\newblock {Transcriptional profiles of supragranular-enriched genes associate
-  with corticocortical network architecture in the human brain.}
-\newblock Proceedings of the National Academy of Sciences.
-  2016;113(4):E469--78.
-\newblock doi:{10.1073/pnas.1510903113}.
+\bibitem{Pavlovic2014}
+Pavlovic DM, V{\'{e}}rtes PE, Bullmore ET, Schafer WR, Nichols TE.
+\newblock {Stochastic blockmodeling of the modules and core of the
+  Caenorhabditis elegans connectome.}
+\newblock PLoS ONE. 2014;9(7):e97584.
+\newblock doi:{10.1371/journal.pone.0097584}.
+
+\bibitem{Liu2009}
+Liu X, Long F, Peng H, Aerni SJ, Jiang M, S{\'{a}}nchez-Blanco A, et~al.
+\newblock {Analysis of Cell Fate from Single-Cell Gene Expression Profiles in
+  C. elegans}.
+\newblock Cell. 2009;139(3):623--633.
+\newblock doi:{10.1016/j.cell.2009.08.044}.
 
 \bibitem{Cui2007}
 Cui Q, Yu Z, Purisima EO, Wang E, Li X, Schwarz P, et~al.
@@ -235,11 +248,10 @@ Kluger Y, Tuck DP, Chang JT, Nakayama Y, Poddar R, Kohya N, et~al.
   of America. 2004;101(17):6508--6513.
 \newblock doi:{10.1073/pnas.0401136101}.
 
-\bibitem{Liu2009}
-Liu X, Long F, Peng H, Aerni SJ, Jiang M, S{\'{a}}nchez-Blanco A, et~al.
-\newblock {Analysis of Cell Fate from Single-Cell Gene Expression Profiles in
-  C. elegans}.
-\newblock Cell. 2009;139(3):623--633.
-\newblock doi:{10.1016/j.cell.2009.08.044}.
+\bibitem{Krienen:2016eq}
+Krienen FM, Yeo BTT, Ge T, Buckner RL, Sherwood CC.
+\newblock {Transcriptional profiles of supragranular-enriched genes associate
+  with corticocortical network architecture in the human brain.}
+\newblock Proc Natl Acad Sci USA. 2016;113(4):E469--78.
 
 \end{thebibliography}

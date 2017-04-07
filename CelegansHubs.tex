@@ -399,9 +399,9 @@ To identify the optimal modular assignment, the algorithm was repeated 1000 time
 Then, we calculated the agreement matrix using modularity index of each run as a weight.
 Each element in the agreement matrix defines a relative probability for a pair of nodes to be assigned to the same module, where more weight is added for higher modularity partitions.
 In the next step, we performed consensus clustering on the agreement matrix using 1000 repeats ($\tau=0.1$).
-The agreement matrix is thresholded at a level $\tau$ to remove an weak elements.
+The agreement matrix is thresholded at a level $\tau$ to remove any weak elements.
 $\tau$ threshold controls the resolution of the reclustering with low values corresponding to lower resolution.
-Afterwards, The resulting matrix is partitioned a thousand times using the Louvain algorithm.
+Afterwards, the resulting matrix is partitioned a thousand times using the Louvain algorithm.
 Second run of clustering produces a new agreement matrix and the process is repeated until partitions converge into a single representative partition.
 According to this implementation, any singeleton communities are not reconnected to the network.
 
@@ -624,7 +624,7 @@ Interestingly, we see a split between feed-in and feed-out connections, with fee
 
 These results, using partial binary expression estimates in 948 genes in a neuronal connectome, are broadly consistent with results in 213 regions of the mesoscale mouse connectome with over 17\,000 genes, in which we see an increase in coexpression in connected pairs of neurons, and the greatest coexpression amongst hub-hub connections and the lowest coexpression amongst nonhub-nonhub connections.
 In contrast to the mouse connectome, however, in which hubs were distributed across a broad range of anatomical divisions, hubs in C. elegans are [[mostly. There is one motor neuron in there, right?]] interneurons \cite{Towlson:2013gf} (cf. Fig.~\ref{fig:topology_rich}A).
-To determine the specificity of the effect between different neuron types, we split our coexpression analysis into connections involving: (i) interneurons, (ii) sensory neurons, and (iii) motor neurons, computing the median coexpression within each class of connections as a function of the degree of the given neuron type [[TODO: is this true? It's kind of complicated to explain -- is it right that for a given k threshold we include, say, sensory neurons of degree greater than $k$ and their connections to all other neurons in the `sensory' category? Or do we include all neurons with degree $>k$ and compute the median of those connections that involve both the high-degree neurons AND neurons of the given class? This would be another choice. Perhaps it's the latter that's plotted?]], as shown in Fig.~\ref{fig:interneuron_dep}A.
+To determine the specificity of the effect between different neuron types, we split our coexpression analysis into connections involving: (i) interneurons, (ii) sensory neurons, and (iii) motor neurons, computing the median coexpression within each class of connections as a function of the degree of the given neuron type [[TODO: is this true? It's kind of complicated to explain -- is it right that for a given k threshold we include, say, sensory neurons of degree greater than $k$ and their connections to all other neurons in the `sensory' category? Or do we include all neurons with degree $>k$ and compute the median of those connections that involve both the high-degree neurons AND neurons of the given class? This would be another choice. Perhaps it's the latter that's plotted?YES: now we include connections for 'sensory' deg>k to any other other neurons with degree >k - my code is is really complicated - probably there is much easier way to do the same]], as shown in Fig.~\ref{fig:interneuron_dep}A.
 Note that the three categories are not mutually exclusive; for example, the `interneuron' class includes connections between any interneuron and any other neuron.
 We find that connections involving interneurons are unique in their increasing [[average]][[median? See comments above about whether to use mean throughout... Need to inspect the distributions to motivate the right choice]] coexpression with increasing degree, $k$.
 Connections involving motor neurons, and connections involving sensory neurons, do not show any clear increase with degree.
@@ -667,7 +667,7 @@ Having demonstrated an increase in coexpression with connectivity and, amongst c
  %\label{Distance}
  %\end{figure}
 
-The nervous system of \emph{C. elegans} is modular [[Refs on previous work?]], containing densely connected groups of neurons that are relatively sparsely connected to other neurons.
+The nervous system of \emph{C. elegans} is modular (\cite{Bassett2010a, Pavlovic2014, Kim2014a } on previous work?]], containing densely connected groups of neurons that are relatively sparsely connected to other neurons.
 Could gene expression differences between modules drive the increased gene coexpression of hubs?
 To test this possibility, we used the Louvain community detection algorithm (see \textit{Methods}) to extract modules from the binary C. elegans synaptic connectome, which we label M1--M4, shown in Fig.~\ref{fig:modules}.
 The algorithm detects three comparably sized modules (M1-M3), each containing diverse neuron types, as well as a smaller fourth module (M4), which contains 13 motor neurons.
