@@ -533,14 +533,14 @@ Consistent with previous work [[]], we see a positively-skewed degree distributi
 % ------------------------------------------------------------------------------
 \begin{figure}[h]
    \centering
-    \includegraphics[width=0.9\textwidth]{topology_rich.eps}
+    \includegraphics[width=0.9\textwidth]{topology_rich.pdf}
     % \includegraphics[width=0.7\textwidth]{RCcurve.eps}
  \caption{\textbf{Rich-club organization of the connectome}.
 % A: Topological rich-club. B: Mixed rich-club. C: Weighted rich-club.
 \textbf{A} Degree distribution of the binary chemical connectome, where neurons are labeled according to four categories:
 (i) interneuron (85 neurons, orange),
-(ii) sensory (68 neurons, green),
-(iii) motor (108 neurons, blue), or
+(ii) sensory (68 neurons, blue),
+(iii) motor (108 neurons, green), or
 (iv) multiple assignments (18 neurons, yellow).
 An extended tail of high-degree neurons can be seen, which are mostly interneurons.
 \textbf{B}
@@ -649,7 +649,19 @@ We compared gene coexpression between all pairs of hub interneurons [[TODO: what
 % that share similar anatomical properties in order to ensure that increase in coexpression for rich links is not determined by the fact that the majority of hub neurons belong to the same anatomical neuron type (???HOW TO CALL COMMAND INTERNEURONS???).
 % In order to compare transcriptional similarity between all pairs of neurons we ignore the existence (or absence) of connections between these neurons,
 Pairs of hub interneurons display significantly higher gene coexpression than pairs of nonhub interneurons ([[TODO: statistical test, p-value, etc.]]).
-Thus, the increase in coexpression amongst hub interneurons is not simply due to most hubs being interneurons;  even amongst interneurons, [[TODO: isn't this obvious from plot A? It's very similar -- at high degree, we're only looking at hub interneuron pairs, which are more similar than others. Not sure B adds much -- we could just quantify the difference at a given $k$ threshold to put a statistic to it...?]].
+Thus, the increase in coexpression amongst hub interneurons is not simply due to most hubs being interneurons;  even amongst interneurons, [[TODO: isn't this obvious from plot A? It's very similar -- at high degree, we're only looking at hub interneuron pairs, which are more similar than others. Not sure B adds much -- we could just quantify the difference at a given $k$ threshold to put a statistic to it...?AA: it adds inf, besause we're comparing hubs to interneurons with the same anatomical properties, not just random low degree interneurons. PLOT A says - effect driven by interneurons (other groups of neurons do not show this increase with degree), plot B says - among interneurons that are anatomically the same (hub interneurons and 8 interneurons that are not hubs), hubs have higher coexpression]].\\
+
+\textbf{Birth time}. 
+All hubs are born early in the \textit{C. elegans} development \cite{Varier2011}, therefore we next verified that the increase in coexpression between them can not be explained by the similarity in birth time. 
+For this purpose, we separated neurons that are formed early (during the first 1000 min) in the development into two types, namely hubs and non-hubs, and compared coexpression within each of those groups \ref{BirthTimeHubs}. 
+Links between hubs show significantly increased coexpression and consequently confirm that even between the neurons that were born roughly at the same time, hubs exhibit a unique transcriptional pattern.
+\begin{figure}[t]
+  \centering
+    \includegraphics[width=0.5\textwidth]{BirthTimeHubs.pdf}
+ \caption{\textbf{Coexpression between early born hubs and early born non-hubs. } ($P < 10^{-28}$, Wilcoxon rank sum test)
+}
+\label{fig:BirthTimeHubs}
+\end{figure}
 
 
 \subsection*{Hubs and modules}
