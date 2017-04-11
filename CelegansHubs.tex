@@ -525,7 +525,7 @@ Neurons have been ordered by their position, from head (upper) to tail (lower).
 
 % <<hubs>>
 First, we analyze the topological properties of the C. elegans connectome, represented here as a directed, binary connectivity matrix of the 1961 chemical synapses between 279 non-pharingeal neurons \cite{Varshney2011}, focusing particularly on hub connectivity.
-The degree distribution of the C. elegans chemical connectome is shown in Fig.~\ref{fig:topology_rich}A, where neurons have been distinguish according to type: 68 sensory neurons, 85 interneurons, 108 motor neurons, and 18 neurons that have multiple annotations (annotations from WORMBASE[[TODO: add reference]]).
+The degree distribution of the C. elegans chemical connectome is shown in Fig.~\ref{fig:topology_rich}A, where neurons have been distinguish according to type: 68 sensory neurons, 85 interneurons, 108 motor neurons, and 18 neurons that have multiple annotations (annotations from WormBase (\url{ftp://ftp.wormbase.org/pub/wormbase/releases/WS256/ONTOLOGY/anatomy_association.WS256.wb}, release WS256, date 6th Feb 2017 AA: already referenced WormBase in the beginning). 
 Consistent with previous work [[]], we see a positively-skewed degree distribution containing an extended tail of high-degree hubs, the majority of which are interneurons [[characterized in previous work as control INs]].
 
 % ------------------------------------------------------------------------------
@@ -584,7 +584,7 @@ Being a pairwise analysis, we compare pairwise synaptic connectivity to pairwise
 
 We first investigated whether gene coexpression relates to synaptic connectivity by comparing the distribution of $r_\phi$ computed for all connected pairs of neurons, and for all unconnected pairs of neurons, as shown in Fig.~\ref{fig:coExp}A.
 We find that connected pairs of neurons have more similar expression profiles than unconnected pairs (Wilcoxon rank-sum test, $P < 10^{-50}$).
-Using directed connectivity information to split connections into unidirectional ($X \rightarrow Y$) and reciprocal ($X \leftrightarrow Y$) subtypes, we found no difference in coexpression as a function of connection reciprocity, but both groups showed an increase in coexpression relative to unconnected pairs of neurons (see Fig.~\textbf{[[]]}).
+Using directed connectivity information to split connections into unidirectional ($X \rightarrow Y$) and reciprocal ($X \leftrightarrow Y$) subtypes, we found no difference in coexpression as a function of connection reciprocity, but both groups showed an increase in coexpression relative to unconnected pairs of neurons (see Fig.~\ref{fig:S3_Fig} ).
 
 
 % ------------------------------------------------------------------------------
@@ -604,7 +604,7 @@ Note that at high $k$, most neurons are labeled as nonhubs, and hence the vast m
 \emph{Lower}: Median Pearson gene coexpression, $r_\phi$, for each connection type as a function of $k$.
 The median coexpression across all network links shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. Fig.~\ref{fig:topology_rich}) is shaded gray.
 Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (Wilcoxon rank sum test; $P < 0.05$).
-[[TODO: A: add $r_\phi$ to ylabel. Perhaps we want to use different colors (confusing: we shouldn't use red for both connected and rich within the same plot; same for blue, should be just peripheral, not peripheral and unconnected).
+[[TODO: A: add $r_\phi$ to ylabel.).
 B: Remove box from degree distribution, Change y-label to `Median gene coexpression', fonts are small, and inconsistent sizes between subplots.
 I think we should crop the curves when there are fewer than X connections remaining -- in this case it's a bit ridiculous to show that constant feed-out/feed-in/peripheral coexpression when there are only two neurons
 left as hubs]]}
@@ -623,7 +623,7 @@ Interestingly, we see a split between feed-in and feed-out connections, with fee
 % We observed a difference in gene coexpression between feed-in and feed-out links, where feed-out links manifested increased coexpression for a broad range of degrees while feed-in links showed only a slight increase for very high hub thresholds.
 
 These results, using partial binary expression estimates in 948 genes in a neuronal connectome, are broadly consistent with results in 213 regions of the mesoscale mouse connectome with over 17\,000 genes, in which we see an increase in coexpression in connected pairs of neurons, and the greatest coexpression amongst hub-hub connections and the lowest coexpression amongst nonhub-nonhub connections.
-In contrast to the mouse connectome, however, in which hubs were distributed across a broad range of anatomical divisions, hubs in C. elegans are [[mostly. There is one motor neuron in there, right?]] interneurons \cite{Towlson:2013gf} (cf. Fig.~\ref{fig:topology_rich}A).
+In contrast to the mouse connectome, however, in which hubs were distributed across a broad range of anatomical divisions, hubs in C. elegans are [[mostly. There is one motor neuron in there, right?AA: with threshold k>41, all interneurons]] interneurons \cite{Towlson:2013gf} (cf. Fig.~\ref{fig:topology_rich}A).
 To determine the specificity of the effect between different neuron types, we split our coexpression analysis into connections involving: (i) interneurons, (ii) sensory neurons, and (iii) motor neurons, computing the median coexpression within each class of connections as a function of the degree of the given neuron type [[TODO: is this true? It's kind of complicated to explain -- is it right that for a given k threshold we include, say, sensory neurons of degree greater than $k$ and their connections to all other neurons in the `sensory' category? Or do we include all neurons with degree $>k$ and compute the median of those connections that involve both the high-degree neurons AND neurons of the given class? This would be another choice. Perhaps it's the latter that's plotted?YES: now we include connections for 'sensory' deg>k to any other other neurons with degree >k - my code is is really complicated - probably there is much easier way to do the same]], as shown in Fig.~\ref{fig:interneuron_dep}A.
 Note that the three categories are not mutually exclusive; for example, the `interneuron' class includes connections between any interneuron and any other neuron.
 We find that connections involving interneurons are unique in their increasing [[average]][[median? See comments above about whether to use mean throughout... Need to inspect the distributions to motivate the right choice]] coexpression with increasing degree, $k$.
@@ -634,7 +634,7 @@ Connections involving motor neurons, and connections involving sensory neurons, 
    \includegraphics[width=1\textwidth]{TypeDegree.pdf}
  \caption{
 \textbf{The increase in coexpression with degree is specific to high-degree interneurons, and hub interneurons have higher coexpression than nonhub interneurons.}
-\textbf{A} \emph{Upper}: The number of connections involving interneurons (orange), sensory neurons (green), and motor neurons (blue) across degree threshold, $k$ [[TODO: Aurina, is it correct that sensory is green and motor is blue?]].
+\textbf{A} \emph{Upper}: The number of connections involving interneurons (orange), sensory neurons (green), and motor neurons (blue) across degree threshold, $k$ [[TODO: Aurina, is it correct that sensory is green and motor is blue?AA: NO - motor are green, sensory blue (I changed RC degree distribution colors in the PlotRichClub.m script accordingly)]].
 \emph{Lower}: Average gene coexpression as a function of degree for connections involving different types of neurons.
 \textbf{B} Coexpression distributions for all pairs of hub interneurons (red) and all pairs of non-hub interneurons (gray).
 [[TODO: Did we exclude multimodal neurons from this analysis?? Can we do a statistical comparison between these distributions and add something here on that?]]
@@ -989,7 +989,7 @@ Unlike data from macroscopic mammalian brains of mouse \cite{Fulcher:2016ck} and
 \paragraph*{S3 Fig.}
 {\bf Coexpression for rich, feeder and peripheral links as a function of degree.}
 \begin{figure}[!h]
-\label{S4_Fig}
+\label{S3_Fig}
 \centering
     \includegraphics[width=1\textwidth]{Distributions.pdf}
 \end{figure}
@@ -998,7 +998,7 @@ Unlike data from macroscopic mammalian brains of mouse \cite{Fulcher:2016ck} and
 \paragraph*{S5 Fig.}
 {\bf Weighted and mixed rich club}
 \begin{figure}[!h]
-\label{S6_Fig}
+\label{S5_Fig}
 \centering
     \includegraphics[width=1\textwidth]{WeightedMixedRC.pdf}
 \end{figure}
@@ -1018,7 +1018,7 @@ Unlike data from macroscopic mammalian brains of mouse \cite{Fulcher:2016ck} and
 Top: degree distribution. Average gene coexpression for rich, feeder, and peripheral connections as a function of \textit{k}, with the mean across all network links shown as a dashed black line and the topological rich club regime shaded grey.
 Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (one-sided Welch’s t-test; $P < 0.05$)
 \begin{figure}[!h]
-\label{S8_Fig}
+\label{S7_Fig}
 \centering
     \includegraphics[width=1\textwidth]{coXmeanCoexpression.pdf}
 \end{figure}
