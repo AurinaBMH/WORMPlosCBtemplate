@@ -652,7 +652,7 @@ Pairs of hub interneurons display significantly higher gene coexpression than pa
 Thus, the increase in coexpression amongst hub interneurons is not simply due to most hubs being interneurons;  even amongst interneurons, [[TODO: isn't this obvious from plot A? It's very similar -- at high degree, we're only looking at hub interneuron pairs, which are more similar than others. Not sure B adds much -- we could just quantify the difference at a given $k$ threshold to put a statistic to it...?AA: it adds inf, besause we're comparing hubs to interneurons with the same anatomical properties, not just random low degree interneurons. PLOT A says - effect driven by interneurons (other groups of neurons do not show this increase with degree), plot B says - among interneurons that are anatomically the same (hub interneurons and 8 interneurons that are not hubs), hubs have higher coexpression]].\\
 
 \textbf{Birth time}. 
-All hubs are born early in the \textit{C. elegans} development \cite{Varier2011}, therefore we next verified that the increase in coexpression between them can not be explained by the similarity in birth time. 
+All hubs are born early in the \textit{C. elegans} development \cite{Varier2011} (see Fig \ref{fig:S6_Fig}), therefore we next verified that the increase in coexpression between them can not be explained by the similarity in birth time. 
 For this purpose, we separated neurons that are formed early (during the first 1000 min) in the development into two types, namely hubs and non-hubs, and compared coexpression within each of those groups (Fig \ref{fig:BirthTimeHubs}). 
 Links between hubs show significantly increased coexpression and consequently confirm that even between the neurons that were born roughly at the same time, hubs exhibit a unique transcriptional pattern.
 \begin{figure}[t]
@@ -1001,6 +1001,15 @@ Unlike data from macroscopic mammalian brains of mouse \cite{Fulcher:2016ck} and
 \label{S5_Fig}
 \centering
     \includegraphics[width=1\textwidth]{WeightedMixedRC.pdf}
+\end{figure}
+
+% <<RichClub.m>>
+\paragraph*{S6 Fig.}
+{\bf Mean birth time difference as a function of degree for different link types}
+\begin{figure}[!h]
+\label{S6_Fig}
+\centering
+    \includegraphics[width=1\textwidth]{MeanBirthTimes.pdf}
 \end{figure}
 
 % propTypesDegree(C) script
