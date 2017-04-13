@@ -435,7 +435,13 @@ This choice ensures that increases in coexpression are not driven by differences
 
 Previous work has emphasized the importance of spatial effects in driving patterns of gene expression, whereby proximal brain areas typically exhibit more similar gene expression patterns \citep{Pantazatos:2016ir, Krienen2016, Fulcher:2016ck}.
 Given that connection probability depends on spatial separation in mammalian brains \cite{Henderson:2014fg, Horvat:2016ia, Wang:2016gg}, and in C. elegans (cf. Fig.~\ref{fig:S_distDep}), it is important to correct for spatial effects to ensure that relationships between gene expression and connectivity are not simply the result of both properties showing spatial autocorrelation.
-However, because we found no correlation between Euclidean distance between a pair of neurons (based on their two-dimensional coordinates) and their gene coexpression in the C. elegans nervous system (Fig.~\ref{fig:S_distDep}), no correction was necessary here.
+We found a decreasing relationship between the separation distance of neuron pairs and gene coexpression, $r_\phi$ for the spatially close networks of neurons within the head and within the tail of C. elegans (Fig.~\ref{fig:S_distCoexp}A,B), but not for pairs of neurons involving the body (Fig.~\ref{fig:S_distCoexp}C) [[add some interpretation in terms of the function of body neurons as potentially distinct from those in the head and tail]].
+This result, using sparsely-annotated binary expression data in a highly specialized neuronal nervous system, mirrors that found in the bulk regions of macroscopic mammalian brains of mouse \cite{Fulcher:2016ck} and human \cite{Krienen:2016eq}.
+The result was not isolated to just a single class of connections within the head, with an approximately exponential relationship was evident for pairs of interneurons, pairs of sensory neurons, pairs of motor neurons, and motor-interneuron pairs (Fig.~\ref{fig:S_distCoexp}).
+Although an exponential form fits the mean coexpression as a function of separation distance well, correcting at the level of individual pairs of neurons relationship is not symmetric about the trend line such that correcting as residuals (as \citet{Fulcher:2016ck}) leave artifacts.
+Future data that allow more accurate and continuous measurement of gene coexpression, may allow more accurate spatial correction to be applied more accurately.
+[[TODO: add some comment verifying that, despite issues, if we do correct within the head and tail for the spatial relationship we get similar results, cf. \emph{CoExpressionDistanceCorrect}]]
+% However, because we found no correlation between Euclidean distance between a pair of neurons (based on their two-dimensional coordinates) and their gene coexpression in the C. elegans nervous system (Fig.~\ref{fig:S_distDep}), no correction was necessary here.
 % In \textit{C. elegans}, we found a semi-exponential relationship between connection probability and Euclidean separation distance (based on their two dimensional coordinates) between a pair of neurons, but no correlation between the Euclidean separation distance between a pair of neurons and their gene coexpression, $r_\phi$.
 
 A total of 92 anatomically distinct neuron classes in the hermaphrodite C. elegans have a bilateral representation, meaning that each of those neuron classes have both left and right counterparts (e.g., AVAL/AVAR).
@@ -649,7 +655,7 @@ We compared gene coexpression between all pairs of hub interneurons [[TODO: what
 % that share similar anatomical properties in order to ensure that increase in coexpression for rich links is not determined by the fact that the majority of hub neurons belong to the same anatomical neuron type (???HOW TO CALL COMMAND INTERNEURONS???).
 % In order to compare transcriptional similarity between all pairs of neurons we ignore the existence (or absence) of connections between these neurons,
 Pairs of hub interneurons display significantly higher gene coexpression than pairs of nonhub interneurons ([[TODO: statistical test, p-value, etc.]]).
-Thus, the increase in coexpression amongst hub interneurons is not simply due to most hubs being interneurons;  even amongst interneurons, [[TODO: isn't this obvious from plot A? It's very similar -- at high degree, we're only looking at hub interneuron pairs, which are more similar than others. Not sure B adds much -- we could just quantify the difference at a given $k$ threshold to put a statistic to it...?AA: it adds inf, besause we're comparing hubs to interneurons with the same anatomical properties, not just random low degree interneurons. PLOT A says - effect driven by interneurons (other groups of neurons do not show this increase with degree), plot B says - among interneurons that are anatomically the same (hub interneurons and 8 interneurons that are not hubs), hubs have higher coexpression]].\\
+Thus, the increase in coexpression amongst hub interneurons is not simply due to most hubs being interneurons;  even amongst interneurons, [[TODO: isn't this obvious from plot A? It's very similar -- at high degree, we're only looking at hub interneuron pairs, which are more similar than others. Not sure B adds much -- we could just quantify the difference at a given $k$ threshold to put a statistic to it...?AA: it adds inf, because we're comparing hubs to interneurons with the same anatomical properties, not just random low degree interneurons. PLOT A says - effect driven by interneurons (other groups of neurons do not show this increase with degree), plot B says - among interneurons that are anatomically the same (hub interneurons and 8 interneurons that are not hubs), hubs have higher coexpression]].\\
 
 \textbf{Birth time}. 
 All hubs are born early in the \textit{C. elegans} development \cite{Varier2011} (see Fig \ref{fig:S6_Fig}), therefore we next verified that the increase in coexpression between them can not be explained by the similarity in birth time. 
@@ -970,19 +976,32 @@ Based on these numerical experiments, we selected Pearson's mean square continge
     \includegraphics[width=1\textwidth]{distanceDependence.eps}
 \caption{
 \label{fig:S_distDep}
-\textbf{Separation distance affects connection probability but not gene coexpression}
+\textbf{Connection probability decreases with the separation distance between neurons.}
 \textbf{A}
 The connection probability is estimated in 50 equiprobable distance bins, shown as circles (bin centers) and lines (bin extent).
 A decreasing relationship is evident up to a separation distance of approximately 0.2\,mm (driven by tail-tail and head-head connections), with a longer-range decrease up to $\approx$0.5\,mm due to body-body connections.
 The increase at large distances ($\approx 1$\,mm) is due to head-tail connections, which also show a decay with distance, from $\approx 1$\,mm through to $\approx$1.2\,mm.
-connections between body and head and body and tail showed no clear distance dependence.
-[[should we show relationships by type here? It's in the Evernote: https://www.evernote.com/l/AF5h5EZ0dxZBU6RiKJk3BtNFs36tLrE4h0U]].
-\textbf{B}
-Pearson gene coexpression, $r_\phi$, is plotted as a function of separation distance for all pairs of neurons, labeled according to within-head (orange), within-tail (gray), and all other connections (aqua).
-Unlike data from macroscopic mammalian brains of mouse \cite{Fulcher:2016ck} and human (\cite{Krienen:2016eq}), there is no clear spatial dependence in these neuronal data.
-[[TODO: Did we check this is really true when we actually look across distance bins?]]
+connections between body and head and body and tail showed no clear distance dependence.}
+\end{figure}
+
+% ------------------------------------------------------------------------------
+% <<coexpressionDistance(C,G)>>
+% <<CoExpressionDistanceDetail(C,G)>>
+% ------------------------------------------------------------------------------
+\begin{figure}[h]
+\centering
+    \includegraphics[width=1\textwidth]{DistanceCoexpression.pdf}
+\caption{
+\label{fig:S_distCoexp}
+\textbf{Gene coexpression decreases with separation distance within the head and tail.}
+Gene coexpression, $r_\phi$, is shown as a function of the pairwise separation distance between pairs of neurons (shown as the mean (solid) $\pm$ standard deviation (dotted) in seven equiprobable distance bins, with extent shown as horizontal bars), for \textbf{A} all pairs of neurons in the head, \textbf{B} all pairs of neurons in the tail, and \textbf{C} all other pairs (labeled).
+Scatters for all neuron pairs are added in \textbf{A} and \textbf{B}.
+An exponential relationship is fitted in \textbf{A} and \textbf{B}, revealing a decrease in $r_\phi$ with distance, as per macroscopic mammalian brains \cite{Fulcher:2016ck, Krienen:2016eq}.
+Looking within the head, we find different spatial relationships as a function of neuron type, shown for \textbf{C} pairs of interneurons, \textbf{D} pairs of motor neurons, \textbf{E} motor-interneuron pairs, \textbf{F} pairs of sensory neurons, \textbf{G} interneuron-sensory neuron pairs, and \textbf{H} motor-sensory pairs.
+[[TODO: add labels for subplots C--H, label all axes?]]
 }
 \end{figure}
+% ------------------------------------------------------------------------------
 
 
 % <<coexpRecUnidirUncon.m>>
