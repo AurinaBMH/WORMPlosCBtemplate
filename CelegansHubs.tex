@@ -967,22 +967,30 @@ Based on these numerical experiments, we selected Pearson's mean square continge
 \end{figure}
 
 
-\paragraph*{S2 Fig.}
-{\bf Coexpression as a function of distance}
+% \paragraph*{S2 Fig.}
+% {\bf Coexpression as a function of distance}
 
-% <<runFigureGenerators>>: <<probabilityVSdistance, coexpressionDistance>>
+% ------------------------------------------------------------------------------
+% <<probabilityVSdistance>>
+% ------------------------------------------------------------------------------
 \begin{figure}[h]
 \centering
-    \includegraphics[width=1\textwidth]{distanceDependence.eps}
+    \includegraphics[width=1\textwidth]{ConnectionProbability.pdf}
 \caption{
-\label{fig:S_distDep}
+\label{fig:S_connProbability}
 \textbf{Connection probability decreases with the separation distance between neurons.}
 \textbf{A}
-The connection probability is estimated in 50 equiprobable distance bins, shown as circles (bin centers) and lines (bin extent).
-A decreasing relationship is evident up to a separation distance of approximately 0.2\,mm (driven by tail-tail and head-head connections), with a longer-range decrease up to $\approx$0.5\,mm due to body-body connections.
-The increase at large distances ($\approx 1$\,mm) is due to head-tail connections, which also show a decay with distance, from $\approx 1$\,mm through to $\approx$1.2\,mm.
-connections between body and head and body and tail showed no clear distance dependence.}
+We show the probability of a connection between a pair of neurons as a function of their separation distance, estimated in 10 equiprobable distance bins, demonstrating a decrease for connections within the head (`HeadHead', aqua), connections from head $\rightarrow$ tail (`HeadTail', brown) and from tail $\rightarrow$ head (`TailHead', stone blue), connections within the tail (`TailTail', red), and connections within the body (`BodyBody', dark purple).
+Connection probability in each distance bins is shown as a circle (bin centers) and a horizontal line (bin extent).
+Exponential fits are shown dotted.
+\textbf{B}
+Plots as in A, but for connections showing minimal distance dependence: from body $\rightarrow$ head (`BodyHead', forest green), from body $\rightarrow$ tail (`BodyTail', dirt green), connections from head $\rightarrow$ body (`HeadBody', purple), and from tail $\rightarrow$ body (`TailBody', dark brown).
+% A decreasing relationship is evident up to a separation distance of approximately 0.2\,mm (driven by tail-tail and head-head connections), with a longer-range decrease up to $\approx$0.5\,mm due to body-body connections.
+% The increase at large distances ($\approx 1$\,mm) is due to head-tail connections, which also show a decay with distance, from $\approx 1$\,mm through to $\approx$1.2\,mm.
+% connections between body and head and body and tail showed no clear distance dependence.}
+\textbf{C}
 \end{figure}
+% ------------------------------------------------------------------------------
 
 % ------------------------------------------------------------------------------
 % <<coexpressionDistance(C,G)>>
