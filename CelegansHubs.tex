@@ -1030,7 +1030,34 @@ Looking within the head, we find different spatial relationships as a function o
 % ------------------------------------------------------------------------------
 
 
+% ------------------------------------------------------------------------------
+% <<FeedInOutNodes.m>>
+% ------------------------------------------------------------------------------
+\begin{figure}[h]
+\centering
+    \includegraphics[width=1\textwidth]{FeedInOutNodes.pdf}
+\caption{
+\textbf{Neuron properties vary in terms of their connectivity relationship to hub nodes}
+Using a degree threshold for hubs, $k>41$, we class all individual neurons into five mutually exclusive categories, shown schematically in the figures (for hubs, red, and nonhubs, light blue), as:
+(i) `hub' ($k>41$),
+and then classify nonhubs ($k\leq41$) as:
+(ii) `feedIn' (projects to a hub, but does not receive a projection from a hub),
+(iii) `feedOut' (receives a projection from a hub, but does project to a hub),
+(iv) `feedBoth' (receives a projection from, and projects to a hub),
+(v) `peripheral' (neither receives a projection from nor projects to a hub).
+We show the number of neurons in each of these fives classes that:
+\textbf{A} is an interneuron (orange), motor neuron (green), sensory neuron (blue), or multimodal (yellow),
+\textbf{B} is in the head (gray), body (purple), or tail (red),
+\textbf{C} uses one of nine neurotransmitter systems (labeled).
+\label{fig:S_feedInOutNodes}
+[[TODO: make this look decent -- could stretch and then put all bars into a single plot, rather than A--C.]]
+}
+\end{figure}
+% ------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------
 % <<coexpRecUnidirUncon.m>>
+% ------------------------------------------------------------------------------
 \paragraph*{S3 Fig.}
 {\bf Coexpression for rich, feeder and peripheral links as a function of degree.}
 \begin{figure}[!h]
