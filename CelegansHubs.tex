@@ -434,7 +434,7 @@ Due to the sparsity of gene annotations, and the wide range of annotation propor
 This choice ensures that increases in coexpression are not driven by differences in the number of gene annotations for a given pair of neurons.
 
 Previous work has emphasized the importance of spatial effects in driving patterns of gene expression, whereby proximal brain areas typically exhibit more similar gene expression patterns \citep{Pantazatos:2016ir, Krienen2016, Fulcher:2016ck}.
-Given that connection probability depends on spatial separation in mammalian brains \cite{Henderson:2014fg, Horvat:2016ia, Wang:2016gg}, and in C. elegans (cf. Fig.~\ref{fig:S_distDep}), it is important to correct for spatial effects to ensure that relationships between gene expression and connectivity are not simply the result of both properties showing spatial autocorrelation.
+Given that connection probability depends on spatial separation in mammalian brains \cite{Henderson:2014fg, Horvat:2016ia, Wang:2016gg}, and in C. elegans (cf. Fig.~\ref{fig:S_connProbability}A,B), it is important to correct for spatial effects to ensure that relationships between gene expression and connectivity are not simply the result of both properties showing spatial autocorrelation.
 We found a decreasing relationship between the separation distance of neuron pairs and gene coexpression, $r_\phi$ for the spatially close networks of neurons within the head and within the tail of C. elegans (Fig.~\ref{fig:S_distCoexp}A,B), but not for pairs of neurons involving the body (Fig.~\ref{fig:S_distCoexp}C) [[add some interpretation in terms of the function of body neurons as potentially distinct from those in the head and tail]].
 This result, using sparsely-annotated binary expression data in a highly specialized neuronal nervous system, mirrors that found in the bulk regions of macroscopic mammalian brains of mouse \cite{Fulcher:2016ck} and human \cite{Krienen:2016eq}.
 The result was not isolated to just a single class of connections within the head, with an approximately exponential relationship was evident for pairs of interneurons, pairs of sensory neurons, pairs of motor neurons, and motor-interneuron pairs (Fig.~\ref{fig:S_distCoexp}).
@@ -518,6 +518,7 @@ We present our analysis in three parts:
  \textbf{C} Gene coexpression matrix.
 [[TODO: I think it would be nice to put neuronal metadata on the edge]]
 Neurons have been ordered by their position, from head (upper) to tail (lower).
+[[TODO: check that we have copyright to use this proprietary worm picture in this figure]]
 }
 \label{fig:SchematicRepresentation}
 \end{figure}
@@ -560,7 +561,10 @@ Yellow circles indicate where the Euclidean distance between connected pairs of 
  \end{figure}
 % ------------------------------------------------------------------------------
 
+
+% ------------------------------------------------------------------------------
 % <<rich-club organization>>
+% ------------------------------------------------------------------------------
 We quantified the extend to which hubs are densely interconnected by computing the normalized rich-club coefficient, $\Phi_\mathrm{norm}$, with $\Phi_\mathrm{norm} > 1$ indicating rich-club organization of the network.
 The variation in $\Phi_\mathrm{norm}$ across a range of thresholds, $k$ (at which hubs are defined, as neurons with degree $>k$), is shown in Fig.~\ref{fig:topology_rich}B, with red circles indicating a significant increase in link density among hubs relatively to 1\,000 degree-preserving nulls (permutation test, $P < 0.05$) [[check whether randmio\_dir only preserves degree]].
 The plot reveals rich-club organization at the upper tail of the degree distribution, particularly for thresholds $41 < k < 58$, referred to here as the `topological rich-club regime', shaded gray in Fig.\ref{fig:topology_rich}B.
@@ -570,13 +574,14 @@ Most of the analyses performed here compare variation as a function of the hub t
 
 [[maybe include a list with degrees and definitions in SUPP (like in Towlson's paper?). Are our hubs similar of different? Why? SIMILAR, but different degree as we use a slightly different connectome).]]
 
+% ------------------------------------------------------------------------------
 % <<distance, geometric effects>>
+% ------------------------------------------------------------------------------
 Recent work has shown that many aspects of connectome organization can be partially accounted for by geometric effects, that treat the connectome not just as an abstracted graph topology, but as a spatially-embedded object \cite{Henderson:2014fg, Roberts2016, Horvat:2016ia}.
 In Fig.~\ref{fig:topology_rich}B, we plot the mean distance between all pairs of connected hubs at each degree threshold, $k$, finding an increase in mean hub-hub connection distance with $k$, through to the extent of the topological rich-club regime.
-This increase can be attributed to a relative increase in connections between the head and tail in hub-hub connections relative to other connection types [[TODO: should we show evidence in the supps?]].
-Despite an increase in hub-hub connection density across longer distances, connection probability decreases with distance in C. elegans (see Fig.~\ref{fig:S_distDep}A, particularly for head-head and tail-tail connections, up to $\approx 0.2$\,mm, and body-body connections up to $\approx 0.4$\,mm, and head-tail and tail-head connections, from $\approx 1.0-1.2$\,mm), mirroring recent results in mouse \cite{Goulas:2016hr, Fulcher:2016ck}, and other rodents and primates \cite{Horvat:2016ia}.
+This can be attributed to a relative increase in long-distance hub-hub connections between the head and tail (Fig.~\ref{fig:S_connProbability}C).
+Despite an increase in hub-hub connection density across longer distances, connection probability decreases with distance in C. elegans for connections within the head, body, and tail, and between the head and tail particularly for head-head and tail-tail connections (see Fig.~\ref{fig:S_connProbability}A,B), mirroring recent results of mesoscale mammalian brains, in mouse \cite{Goulas:2016hr, Fulcher:2016ck}, and other rodents and primates \cite{Horvat:2016ia}.
 Taken together, our results demonstrate that hub-hub connections in C. elegans are dense, and extend over significantly longer distances than other types of connections in the synaptic connectome, consistent with the idea of the rich club as a costly but central backbone for neuronal communication \cite{vandenHeuvel:2012kh}.
-
 
 % In connectomes across species and scales, degree is distributed unequally, with a small number of highly connected brain regions, known as hubs \cite{Sporns:2007ea}, that are themselves more densely connected between themselves, forming a so-called `rich club' \cite{deReus:2013cy, ZamoraLopez:2010hy, Shih:2015cu, vandenHeuvel:2012kh, vandenHeuvel:2011he}.
 % The same is true in the C. elegans neuronal nervous system, analyzed in the past as an undirected binary connectome including both chemical and electrical synapses \cite{Towlson:2013gf}, which exhibits highly connected, and densely interconnected hub neurons.
@@ -918,6 +923,8 @@ Thanks to Alex Fornito, for being a big deal.
 
 \newpage
 \section*{Supporting information}
+\setcounter{figure}{0} \renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thefigure}{S\arabic{figure}}
 
 \subsection*{Expression similarity measures}
 
@@ -953,16 +960,24 @@ Based on these numerical experiments, we selected Pearson's mean square continge
 % ------------------------------------------------------------------------------
 
 % Include only the SI item label in the paragraph heading. Use the \nameref{label} command to cite SI items in the text.
-% compare proportions script
+
+% ------------------------------------------------------------------------------
+% compare proportions for simulations to validate
+% ------------------------------------------------------------------------------
 \paragraph*{S1 Fig.}
 {\bf Comparing different coexpression measures.}
 \begin{figure}[h]
-\label{fig:S_propOnes}
 \centering
     \includegraphics[width=1\textwidth]{CoexpressionMeasures.pdf}
 \caption{
+\label{fig:S_propOnes}
 \textbf{Dependence of binary coexpression metrics to the proportion of positive annotations}
-[[TODO: Add A, B, C labels, add our new positive match measure, provide better titles.]]
+Given the sparse binary annotation of genes to neurons, we investigated bias in each measure across 1\,000 pairs of random binary vectors, each with a fixed proportion of ones.
+Here we plot the mean correlation between the two vectors, averaged over 1\,000 runs, for 946-long vectors with between 0--0.16 proportion of ones [[TODO: how many voxels?]].
+Bias is indicated by a systematic trend in correlation values, not due to actual matching, but driven simply by the proportion of positive annotations for a pair of vectors.
+\textbf{A} Pearson, $r_\phi$, the measure used throughout this work, shows no systematic bias (note the color axis scale, 10$^{-3}$)
+\textbf{B} [[Yule's Q?]], and \textbf{C} Jaccard correlation measures both exhibit a strong systematic bias.
+[[TODO: Add A, B, C labels, add our new positive match measure, provide better titles, use appropriate color bars/scales]]
 }
 \end{figure}
 
@@ -991,6 +1006,7 @@ Plots as in A, but for connections showing minimal distance dependence: from bod
 \textbf{C}
 Distribution of hub-hub connections (`rich', red), and all other connections (`non-rich', i.e., feeder and peripheral, gray) across anatomical divisions (described above), defining hubs as those with degree, $k > 41$.
 The increased separation distance between hubs is driven by a relative increase in connection density between the head and tail.
+}
 \end{figure}
 % ------------------------------------------------------------------------------
 
