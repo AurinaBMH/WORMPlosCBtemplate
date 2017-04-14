@@ -361,7 +361,7 @@ The total number of connections involving a given neuron is defined by its degre
 
 At a given $k$ threshold, neurons were classified as either `hub' (degree $>k$) or `non-hub' (degree $\leq k$).
 All edges could subsequently be classified as either `rich' (hub $\rightarrow$ hub), `feeder' (hub $\rightarrow$ non-hub or non-hub $\rightarrow$ hub), or `peripheral' (non-hub $\rightarrow$ non-hub).
-For simplicity, hub $\rightarrow$ non-hub and non-hub $\rightarrow$ hub connections were grouped as a single `feeder' category for simplicity, [[TODO: check whether gene coexpression patterns were similar for connections running in both directions. DONE - outgoing feeder links are more similar then incoming feeder links see: (\url{https://www.evernote.com/shard/s94/nl/2147483647/756bddde-7bf3-4aae-8a8c-b94bdd9b0e57/})].
+For simplicity, hub $\rightarrow$ non-hub and non-hub $\rightarrow$ hub connections were grouped as a single `feeder' category for simplicity.
 
 % \paragraph{Rich-club organization}
 In order to assess rich-club organization of our networks, we used the rich-club coefficient, defined as
@@ -467,25 +467,23 @@ In particular, we were interested in quantifying increases in a gene, $a$, being
      \nu^{(a)} = P(X > m) = 1 - \sum_{i=0}^{m}\binom{n}{i} p^{i}(1-p^{n-i}),
 \end{eqnarray}
 where $p$ is the probability of the given class of inter-region pairs ($p = n_\mathrm{class}/M$ for $n_\mathrm{class}$ connections out of $M$ possible pairs), and $n$ is the maximum number of possible matches.
-This provides us with a score, $\nu^{(a)}$ for each gene, $a$, that gives higher values to genes that shows a greater number of matches in the inter-region class of interest than expected by chance.
-For example, when comparing differences in binary coexpression between pairs of brain regions that are structurally connected and pairs that are unconnected, Eq.~\eqref{eq:CBinomialProbability} has $p$ as the proportion of all possible connections that exist, and captures the probability of genes being expressed together in connected pairs of brain regions at least as frequently as observed.
+This provides us with a score, $\nu^{(a)}$ for each gene, $a$, that gives higher scores (lower p values) to genes that shows a greater number of matches in the inter-region class of interest than expected by chance.
+For example, when comparing differences in binary coexpression between pairs of neurons that are structurally connected and pairs that are unconnected, Eq.~\eqref{eq:CBinomialProbability} has $p$ as the proportion of all possible connections that exist, and captures the probability of genes being expressed together in connected pairs of neurons at least at a frequently as observed.
 When comparing links involving hubs compared to those between nonhubs, $p$ is the proportion of connections involving hubs.
 
 % For each gene, we first determined the pattern of matching expression profiles (a match meaning that a gene is expressed by both neurons) between each pair of neurons resulting in a binary 279 x 279 matrix.
 % Then, for each gene we calculated a cumulative binomial probability of getting more matches $(X)$ than in the empirical data $(m)$ on a particular connection type (see eq. \ref{eq:CBinomialProbability}).
 
 To ensure that each gene contributed a meaningful score, we required more than one pair of regions $m > 1$ to exhibit matching expression ($g^{(a)}_i = 1$ and $g^{(a)}_j = 1$) in the inter-region class of interest (577 genes out of 948 satisfied this criterion for connected/unconnected analysis; 390 out of 948 genes satisfied this criterion for hub connectivity analysis).
-[[AURINA: is this correct? So \emph{more than 1 match} means we require at least 2 matches??IT IS CORRECT - there are quite a few genes that have only one match on mask. Enrichment with them seems to be more noise than signal.]]
 % When calculating GCC for connected links more then one match for a gene overall was required (as a result 577 genes out of 948 left); when calculating GCC for the links involving hubs (rich and feeder links) more than one match was required on connected links (as a result 390 out of 948 genes left).
 % Otherwise, no information about the contribution of a specific gene to the overall coexpression pattern could be extracted.
 % \textbf{(NOTE: not literally true as both on and off matches equally contribute to an increase in coexpression, - need to find a way how to explain, why non-expression matches are not taken into account here).}
 
-For a given enrichment analysis, after computing a probability score for each genes using Eq.~\eqref{eq:CBinomialProbability}, we then took logarithms of the probability scores, $\log_{10}\nu^{(a)}$, and used them to perform gene score resampling (GSR) analysis using version 3.0.2 of \emph{ErmineJ} software \cite{Gillis2010} using biological process Gene Ontology (GO) annotations \cite{Ashburner2000} obtained from GEMMA \cite{Zoubarev2012} (\texttt{Generic\_worm\_noParents.an.txt.gz} downloaded on February 10, 2017).
+For a given enrichment analysis, after computing a probability score for each genes using Eq.~\eqref{eq:CBinomialProbability}, we then took negative logarithms of the probability scores, $\log_{10}\nu^{(a)}$, and used them to perform gene score resampling (GSR) analysis using version 3.0.2 of \emph{ErmineJ} software \cite{Gillis2010} for biological process, molecular funcion and cellular components separately using Gene Ontology (GO) annotations \cite{Ashburner2000} obtained from GEMMA \cite{Zoubarev2012} (\texttt{Generic\_worm\_noParents.an.txt.gz} downloaded on March 31, 2017).
 % downloaded using a build-in option within ErmineJ software
-[[AURINA: did we only look for biological processes, or also cellular components, or molecular pathways? were doing only ONLY BIOLOGICAL PROCESSES]JUST DOWNLOADED NEW annotation file (uploaded 2017 Feb 27 - slightly more genes are included, enrichment results change!!! for BIOLOGICAL PROCESSES only 2 glutamate related categories) see: https://www.evernote.com/shard/s94/nl/2147483647/0dad1deb-c858-4611-b2da-8337ebf85567/]
 Rather than setting an arbitrary threshold on the score, this analysis allows us to use the continuous log-transformed probability scores, and compute the probability that the mean score in each GO group is larger than expected from a random assignment of scores to the genes in the list.
-Gene Ontology terms and definitions were obtained in RDF XML file format downloaded from \url{archive.geneontology.org/latest-termdb/go_daily-termdb.rdf-xml.gz} on February 10 2017.
-We included ontology terms containing between 5 and 100 annotations, using full resampling with $10^{7}$ iterations.
+Gene Ontology terms and definitions were obtained in RDF XML file format downloaded from \url{archive.geneontology.org/latest-termdb/go_daily-termdb.rdf-xml.gz} on March 31 2017.
+We included ontology terms containing between 5 and 100 annotations, using full resampling with $10^{5}$ iterations [[can do $10^{7}$ runs if needed]].
 % {archive.geneontology.org/latest-termdb/go \textunderscore daily-termdb.rdf-xml.gz}
 
 % Place figure captions after the first paragraph in which they are cited.
@@ -621,7 +619,7 @@ Note that at high $k$, most neurons are labeled as nonhubs, and hence the vast m
 The mean coexpression across all network links shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. Fig.~\ref{fig:topology_rich}) is shaded gray.
 Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (one-sided Welch’s t test; $P < 0.05$).
 [[TODO: A: add $r_\phi$ to ylabel.).
-B: Remove box from degree distribution, Change y-label to `Median gene coexpression', fonts are small, and inconsistent sizes between subplots.
+B: Remove box from degree distribution, Change y-label to `Mean gene coexpression', fonts are small, and inconsistent sizes between subplots.
 I think we should crop the curves when there are fewer than X connections remaining -- in this case it's a bit ridiculous to show that constant feed-out/feed-in/peripheral coexpression when there are only two neurons
 left as hubs]]}
  \label{fig:coExp}
@@ -633,17 +631,17 @@ Having established an increase in gene coexpression in connected pairs of brain 
 Given the importance of hub neurons across species [[Ref]], and previous results in the mesoscale mouse connectome \cite{Fulcher:2016ck}, we expect increased coexpression in connections involving hubs.
 To investigate this effect, we first labeled each neuron as either a hub (nodes with degree $> k$) or a nonhub (degree $\leq k$), for a given hub threshold, $k$, and then labeled each connection as either `rich' (hub $\rightarrow$ hub), `feed-in' (nonhub $\rightarrow$ hub), `feed-out' (hub $\rightarrow$ nonhub), or `peripheral' (nonhub $\rightarrow$ nonhub).
 [[TODO: Establish whether we're computing pairs of hubs (e.g., for `rich'), or for every connection between any pair of hubs -- i.e., do reciprocal connections contribute twice to the distribution at each $k$?]]
-The median coexpression for each of these four connection types described above is plotted in Fig.~\ref{fig:coExp}B, with circles indicating statistically significant increases of a given connection type (relative to all other connections) [[TODO: Why are we suddenly doing medians? subplot A is mean, right? Is median a better summary of the distribution than mean? Depending on distributions, the mean MAY raise fewer flags if results are similar using mean. ALL plots now are done using mean. Results in general are the same. I thought to use median instead of the mean because of non-normal distributions]].
+The mean coexpression for each of these four connection types described above is plotted in Fig.~\ref{fig:coExp}B, with circles indicating statistically significant increases of a given connection type (relative to all other connections). 
 We see that gene coexpression in rich connections increases with degree, reaching a plateau through the topological rich-club regime where hubs are densely interconnected (shaded in Fig.~\ref{fig:coExp}B).
 Interestingly, we see a split between feed-in and feed-out connections, with feed-out connections showing increased gene coexpression through the topological rich-club regime, while feed-in and peripheral connections show the lowest levels of coexpression.
 % We observed a difference in gene coexpression between feed-in and feed-out links, where feed-out links manifested increased coexpression for a broad range of degrees while feed-in links showed only a slight increase for very high hub thresholds.
 
 These results, using partial binary expression estimates in 948 genes in a neuronal connectome, are broadly consistent with results in 213 regions of the mesoscale mouse connectome with over 17\,000 genes, in which we see an increase in coexpression in connected pairs of neurons, and the greatest coexpression amongst hub-hub connections and the lowest coexpression amongst nonhub-nonhub connections.
 In contrast to the mouse connectome, however, in which hubs were distributed across a broad range of anatomical divisions, hubs in C. elegans are [[mostly. There is one motor neuron in there, right?AA: with threshold k>41, all interneurons]] interneurons \cite{Towlson:2013gf} (cf. Fig.~\ref{fig:topology_rich}A).
-To determine the specificity of the effect between different neuron types, we split our coexpression analysis into connections involving: (i) interneurons, (ii) sensory neurons, and (iii) motor neurons, computing the median coexpression within each class of connections as a function of the degree of the given neuron type
-[[TODO: is this true? It's kind of complicated to explain -- is it right that for a given k threshold we include, say, sensory neurons of degree greater than $k$ and their connections to all other neurons in the `sensory' category? Or do we include all neurons with degree $>k$ and compute the median of those connections that involve both the high-degree neurons AND neurons of the given class? This would be another choice. Perhaps it's the latter that's plotted?YES: now we include connections for `sensory' deg>k to any other other neurons with degree >k - my code is is really complicated - probably there is much easier way to do the same]], as shown in Fig.~\ref{fig:interneuron_dep}A.
+To determine the specificity of the effect between different neuron types, we split our coexpression analysis into connections involving: (i) interneurons, (ii) sensory neurons, and (iii) motor neurons, computing the mean coexpression within each class of connections as a function of the degree of the given neuron type
+[[TODO: is this true? It's kind of complicated to explain -- is it right that for a given k threshold we include, say, sensory neurons of degree greater than $k$ and their connections to all other neurons in the `sensory' category? Or do we include all neurons with degree $>k$ and compute the mean of those connections that involve both the high-degree neurons AND neurons of the given class? This would be another choice. Perhaps it's the latter that's plotted?YES: now we include connections for `sensory' deg>k to any other other neurons with degree >k - my code is is really complicated - probably there is much easier way to do the same]], as shown in Fig.~\ref{fig:interneuron_dep}A.
 Note that the three categories are not mutually exclusive; for example, the `interneuron' class includes connections between any interneuron and any other neuron.
-We find that connections involving interneurons are unique in their increasing [[average]][[median? See comments above about whether to use mean throughout... Need to inspect the distributions to motivate the right choice]] coexpression with increasing degree, $k$.
+We find that connections involving interneurons are unique in their increasing average coexpression with increasing degree, $k$.
 Connections involving motor neurons, and connections involving sensory neurons, do not show any clear increase with degree.
 
 \begin{figure}[h]
@@ -655,7 +653,7 @@ Connections involving motor neurons, and connections involving sensory neurons, 
 \emph{Lower}: Average gene coexpression as a function of degree for connections involving different types of neurons.
 \textbf{B} Coexpression distributions for all pairs of hub interneurons (red) and all pairs of non-hub interneurons (gray).
 [[TODO: Did we exclude multimodal neurons from this analysis?? Can we do a statistical comparison between these distributions and add something here on that?]]
-[[TODO: A: the vertical axis in lower subplot should state `median gene coexpression']]
+[[TODO: A: the vertical axis in lower subplot should state `mean gene coexpression']]
 [[TODO: Both coexpression axes should be the same `Gene coexpression, $r_\phi$']]
  \label{fig:interneuron_dep}
 }
@@ -763,21 +761,19 @@ Is it possible to say that connections within ACh are more similar when they inv
 
 %% comment on enrichment analysis. No write up can be done before deciding on options.
 
-To investigate which functional groups of genes contributed to the difference in transcriptional coupling between connected and unconnected neurons, we used a method of assigning each gene coexpression contribution (GCC) score that quantifies the contribution of each gene to the overall coexpression between neuron pairs (see Methods).  \\
+To investigate which functional groups of genes contributed to the difference in transcriptional coupling between connected \textit{vs} unconnected pairs as well as different link types, we used a method of assigning each gene coexpression contribution (GCC) score that quantifies the contribution of each gene to the overall coexpression between neuron pairs (see Methods).  \\
 
-The majority of the significant ($P < 0.05$) GO categories are related to neuronal connectivity and communication, as listed in Table~\ref{table1} (1st column: GO category).
-These findings are in line with our expectations as they confirm that genes that are more likely to be expressed in a pair of connected neurons are in fact related to neuronal connectivity and communication.\\
+First, we investigated what functional groups of genes are driving the observed increase in coexpression in connected pairs of neurons compared to unconnected pairs.
+Enrichment analysis was performed separately for GO categories corresponding to biological processes, molecular function and cell components (see Methods). 
+The majority of the significant ($P < 0.05$) GO categories are related to glutamate signalling and neuronal connectivity (see S\ref{S1_Table} table).\\
 
-To investigate which functional groups of genes contributed to the increased coexpression for links involving hubs (rich and feeder) we again we used a method of scoring genes according to their contribution towards increased coexpression (see Methods).
-
-Enrichment analysis show that the majority of the significant ($P < 0.05$) GO categories are related to glutamate signaling, neuronal connectivity and communication.
-It is line with the previous analysis where same GO categories were shown to be significant in differentiating connected from unconnected neurons.
-
-%% Combined enrichment table
-
-These findings are in line with our expectations as high degree neurons are highly involved in signaling and the majority of hubs while being cholinergic, receive input from sensory neurons the majority of which is glutamatergic.
-
-[[NOTE: NOTE HERE ABOUT REDUCED LIST OF GENES IN EACH ANALYSIS (577 and 390 genes for connected and R/F respectively).]]
+Next, we examined which functional groups of genes contributed to the increased coexpression for links involving hubs (rich and feeder). 
+In this case enrichment analysis showed a broader range of functional categories, involving both broader functional groups such as ion channel activity, transmembrane transporters and synaptic cell components as well as glutamate signalling (see S\ref{S2_Table} table).
+Taking into account that hub neurons are involved in a very intense information transfer due to their integrational function, increased number communication and signal propagation related gene groups for hub-related links is in line with our expectation.
+It is worth noting that neurons in \textit{C. elegans} connectome are predominantly cholinergic (see \ref{fig:S_feedInOutNodes}, C). 
+However, the majority of neurons that send connections to hubs are sensory and glutamatergic (see \ref{fig:S_feedInOutNodes}, A, C), therefore it can explain the over-representation of glutamate receptor related categories that we find in the enrichment analysis.
+Overall, event with a very limited gene data, we are able to demonstrate that genes that are more likely to be expressed in pairs of connected as well as hub-related neurons are indeed involved in neuron signalling and communication. 
+\\
 
 
 %\begin{figure}[h]
@@ -942,11 +938,12 @@ Based on these numerical experiments, we selected Pearson's mean square continge
 %% enrichment table for connected links
 % results generated using ermineJ, all categories tested separately. significante threshold pcorrected<0.05. Results arranged using 
 \paragraph*{S1 Table.}
-\label{S1_Table}
+
 {\bf Enrichment results for connected \textit{vs} unconnected neurons.} 
 \begin{table}[]
 \centering
 \caption{Biological process, molecular function and cellular component GO categories of genes showing significantly increased coexpression in connected pairs of neurons over unconnected pairs}
+\label{S1_Table}
 \begin{tabular}{llcc}
 \hline
 \multicolumn{1}{|l|}{\textbf{GO category}} & \multicolumn{1}{l|}{\textbf{Description}}          & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}No. \\ of genes\end{tabular}}} & \multicolumn{1}{c|}{\textbf{P-value}} \\ \hline
@@ -965,12 +962,11 @@ GO:00987                                 & postsynapse                          
 
 % rich feeder vs peripheral
 \paragraph*{S2 Table.}
-\label{S2_Table}
 {\bf Enrichment results for rich and feeder \textit{vs} peripheral links.}
 \begin{table}[]
 \centering
 \caption{Biological process, molecular function and cellular component GO categories of genes showing significantly increased coexpression in rich and feeder over peripheral links}
-\label{my-label}
+\label{S2_Table}
 \begin{tabular}{llcc}
 \hline
 \multicolumn{1}{|l|}{\textbf{GO category}} & \multicolumn{1}{l|}{\textbf{Description}}                  & \multicolumn{1}{l|}{\textbf{\begin{tabular}[c]{@{}l@{}}No.\\  of genes\end{tabular}}} & \multicolumn{1}{l|}{\textbf{P-value}} \\ \hline
