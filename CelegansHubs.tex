@@ -555,7 +555,7 @@ Normalized rich club coefficient, $\Phi_\mathrm{norm}$ (red), as a function of t
 Also shown is the mean Euclidean separation distance (yellow) between connected hub regions (across degree thresholds, $k$).
 $\Phi_\mathrm{norm} > 1$ indicates that hubs are more densely interconnected among each other than expected by chance, with red circles indicate values of $\Phi_\mathrm{norm}$ that are significantly higher than an ensemble of 1\,000 degree-matched null networks ($P < 0.05$).
 Yellow circles indicate where the Euclidean distance between connected pairs of hubs is significantly greater than the Euclidean distance for all other pairs of connected regions (Welch's $t$-test, $P < 0.05$).
-[[TODO: maybe avoid yellow to mean two different things within the same plot... Could either change distance or the multiple assignment color]]
+[[TODO: Avoid yellow to mean two different things within the same plot (either change distance or the multiple assignment color), Add right-side vertical-axis to give units for distance.]]
 }
  \label{fig:topology_rich}
  \end{figure}
@@ -567,7 +567,7 @@ Yellow circles indicate where the Euclidean distance between connected pairs of 
 % ------------------------------------------------------------------------------
 We quantified the extend to which hubs are densely interconnected by computing the normalized rich-club coefficient, $\Phi_\mathrm{norm}$, with $\Phi_\mathrm{norm} > 1$ indicating rich-club organization of the network.
 The variation in $\Phi_\mathrm{norm}$ across a range of thresholds, $k$ (at which hubs are defined, as neurons with degree $>k$), is shown in Fig.~\ref{fig:topology_rich}B, with red circles indicating a significant increase in link density among hubs relatively to 1\,000 degree-preserving nulls (permutation test, $P < 0.05$) [[check whether randmio\_dir only preserves degree]].
-The plot reveals rich-club organization at the upper tail of the degree distribution, particularly for thresholds $41 < k < 58$, referred to here as the `topological rich-club regime', shaded gray in Fig.\ref{fig:topology_rich}B.
+The plot reveals rich-club organization at the upper tail of the degree distribution, particularly for thresholds $41 < k < 58$, referred to here as the `topological rich-club regime', shaded gray in Fig.~\ref{fig:topology_rich}B.
 % This indicates that when nodes are defined as hubs (degree $>\textit{k}$) in this range, they are more densely interconnected than expected by chance.
 Most of the analyses performed here compare variation as a function of the hub threshold, $k$, but for analyses requiring a fixed hub definition, we define hubs as the 13 neurons with $k > 41$ [[TODO: compare to Towlson]].
 % Rich club in the chemical synapse network consists of 13 high degree neurons with degree $42 \leq k \leq 98$.
@@ -578,9 +578,11 @@ Most of the analyses performed here compare variation as a function of the hub t
 % <<distance, geometric effects>>
 % ------------------------------------------------------------------------------
 Recent work has shown that many aspects of connectome organization can be partially accounted for by geometric effects, that treat the connectome not just as an abstracted graph topology, but as a spatially-embedded object \cite{Henderson:2014fg, Roberts2016, Horvat:2016ia}.
+Unlike network analyses of brains, where all neurons are confined to a single, spatially contiguous organ, here we analyze connections across the entire nervous system of C. elegans, which contains interneurons, sensory neurons, and motor neurons across spatially distinct areas, from a dense cluster of 147 neurons in the head (all within 130\,$\mu m$), 105 sparser, mostly motor neurons (75\%) in the body (spanning 1.02\,mm), and a relatively dense cluster of 27 neurons in the tail (all within 90\,$\mu$m of each other), see Fig.~\ref{fig:S_neuronsSpace} for a plot of all neurons in space.
+% <<cf. NeuronTypeStats.m to run these numbers>>
 In Fig.~\ref{fig:topology_rich}B, we plot the mean distance between all pairs of connected hubs at each degree threshold, $k$, finding an increase in mean hub-hub connection distance with $k$, through to the extent of the topological rich-club regime.
 This can be attributed to a relative increase in long-distance hub-hub connections between the head and tail (Fig.~\ref{fig:S_connProbability}C).
-Despite an increase in hub-hub connection density across longer distances, connection probability decreases with distance in C. elegans for connections within the head, body, and tail, and between the head and tail particularly for head-head and tail-tail connections (see Fig.~\ref{fig:S_connProbability}A,B), mirroring recent results of mesoscale mammalian brains, in mouse \cite{Goulas:2016hr, Fulcher:2016ck}, and other rodents and primates \cite{Horvat:2016ia}.
+Despite an increase in hub-hub connection density across longer distances, connection probability decreases with distance in C. elegans for connections within the head, body, and tail, and between the head and tail (see Figs.~\ref{fig:S_connProbability}A,B), mirroring recent results of mesoscale mammalian brains, in mouse \cite{Goulas:2016hr, Fulcher:2016ck}, and other rodents and primates \cite{Horvat:2016ia}.
 Taken together, our results demonstrate that hub-hub connections in C. elegans are dense, and extend over significantly longer distances than other types of connections in the synaptic connectome, consistent with the idea of the rich club as a costly but central backbone for neuronal communication \cite{vandenHeuvel:2012kh}.
 
 % In connectomes across species and scales, degree is distributed unequally, with a small number of highly connected brain regions, known as hubs \cite{Sporns:2007ea}, that are themselves more densely connected between themselves, forming a so-called `rich club' \cite{deReus:2013cy, ZamoraLopez:2010hy, Shih:2015cu, vandenHeuvel:2012kh, vandenHeuvel:2011he}.
@@ -1050,7 +1052,22 @@ We show the number of neurons in each of these fives classes that:
 \textbf{B} is in the head (gray), body (purple), or tail (red),
 \textbf{C} uses one of nine neurotransmitter systems (labeled).
 \label{fig:S_feedInOutNodes}
-[[TODO: make this look decent -- could stretch and then put all bars into a single plot, rather than A--C. NOTE: representation on top of bars looks misleading for peripheral, maybe make both blue and add arrows?Labels not visible for B]]
+[[TODO: make this look decent -- could stretch and then put all bars into a single plot, rather than A--C. Come up with new names for nodes that don't confuse with edge names. Labels not visible for B]]
+}
+\end{figure}
+% ------------------------------------------------------------------------------
+
+
+% ------------------------------------------------------------------------------
+\begin{figure}[h]
+\centering
+    \includegraphics[width=1\textwidth]{SpatialPlot.png}
+\caption{
+\textbf{Spatial distribution of rich links, and neuron types across the C. elegans nervous system}.
+Neurons are colored by type: interneurons (orange), sensory neurons (blue), motor neurons (green), and multimodal (yellow).
+Hub-hub links are shown, and zoom-in plots of head and tail are shown as dotted rectangles in the lower plot.
+All pairs of horizontal and vertical axes are in scale with each other.
+\label{fig:S_neuronsSpace}
 }
 \end{figure}
 % ------------------------------------------------------------------------------
