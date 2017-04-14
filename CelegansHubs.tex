@@ -637,7 +637,8 @@ Interestingly, we see a split between feed-in and feed-out connections, with fee
 
 These results, using partial binary expression estimates in 948 genes in a neuronal connectome, are broadly consistent with results in 213 regions of the mesoscale mouse connectome with over 17\,000 genes, in which we see an increase in coexpression in connected pairs of neurons, and the greatest coexpression amongst hub-hub connections and the lowest coexpression amongst nonhub-nonhub connections.
 In contrast to the mouse connectome, however, in which hubs were distributed across a broad range of anatomical divisions, hubs in C. elegans are [[mostly. There is one motor neuron in there, right?AA: with threshold k>41, all interneurons]] interneurons \cite{Towlson:2013gf} (cf. Fig.~\ref{fig:topology_rich}A).
-To determine the specificity of the effect between different neuron types, we split our coexpression analysis into connections involving: (i) interneurons, (ii) sensory neurons, and (iii) motor neurons, computing the median coexpression within each class of connections as a function of the degree of the given neuron type [[TODO: is this true? It's kind of complicated to explain -- is it right that for a given k threshold we include, say, sensory neurons of degree greater than $k$ and their connections to all other neurons in the `sensory' category? Or do we include all neurons with degree $>k$ and compute the median of those connections that involve both the high-degree neurons AND neurons of the given class? This would be another choice. Perhaps it's the latter that's plotted?YES: now we include connections for 'sensory' deg>k to any other other neurons with degree >k - my code is is really complicated - probably there is much easier way to do the same]], as shown in Fig.~\ref{fig:interneuron_dep}A.
+To determine the specificity of the effect between different neuron types, we split our coexpression analysis into connections involving: (i) interneurons, (ii) sensory neurons, and (iii) motor neurons, computing the median coexpression within each class of connections as a function of the degree of the given neuron type
+[[TODO: is this true? It's kind of complicated to explain -- is it right that for a given k threshold we include, say, sensory neurons of degree greater than $k$ and their connections to all other neurons in the `sensory' category? Or do we include all neurons with degree $>k$ and compute the median of those connections that involve both the high-degree neurons AND neurons of the given class? This would be another choice. Perhaps it's the latter that's plotted?YES: now we include connections for `sensory' deg>k to any other other neurons with degree >k - my code is is really complicated - probably there is much easier way to do the same]], as shown in Fig.~\ref{fig:interneuron_dep}A.
 Note that the three categories are not mutually exclusive; for example, the `interneuron' class includes connections between any interneuron and any other neuron.
 We find that connections involving interneurons are unique in their increasing [[average]][[median? See comments above about whether to use mean throughout... Need to inspect the distributions to motivate the right choice]] coexpression with increasing degree, $k$.
 Connections involving motor neurons, and connections involving sensory neurons, do not show any clear increase with degree.
@@ -678,7 +679,8 @@ Links between hubs show significantly increased coexpression and consequently co
 
 
 \subsection*{Hubs and modules}
-Having demonstrated an increase in coexpression with connectivity and, amongst connections, with hub connectivity, we next investigate whether other influences, namely modular organization, lineage similarity, or neurotransmitter type, could explain our results.
+Having demonstrated an increase in gene coexpression with connectivity and, amongst connections, with hub connectivity, we next investigate whether other anatomical, neurotransmitter, or connectomic organizational influences might contribute to our results.
+% , namely modular organization, lineage similarity, or neurotransmitter type, could explain our results.
 
 % \paragraph{Distance}).
 % Implementing the same methods as previously used in gene coexpression analysis at each degree threshold for each link type (rich, feeder, peripheral) we calculated the mean connection distance.
@@ -692,7 +694,8 @@ Having demonstrated an increase in coexpression with connectivity and, amongst c
  %\label{Distance}
  %\end{figure}
 
-The nervous system of \emph{C. elegans} is modular [\cite{Kim2014a,Bassett2010a,Pavlovic2014  }], containing densely connected groups of neurons that are relatively sparsely connected to other neurons.
+We first consider the modular organization of the C. elegans connectome.
+Like many other connectomes, the C. elegans nervous system contains densely connected groups of neurons that are relatively sparsely connected to other neurons \cite{Kim2014, Bassett2010, Pavlovic2014}.
 To test the possibility that gene expression differences of modules (e.g., between intra-modular and inter-modular connections) might drive the increased gene coexpression of hubs, we used the Louvain community detection algorithm (see \textit{Methods}) to extract modules from the binary C. elegans synaptic connectome, shown in Fig.~\ref{fig:modules}A.
 In this analysis, hubs are mostly concentrated in a single module (purple in Fig.~\ref{fig:modules}), but are also distributed across three other modules.
 % The algorithm detects three comparably sized modules (M1-M3), each containing diverse neuron types, as well as a smaller fourth module (M4), which contains 13 motor neurons.
@@ -1013,8 +1016,8 @@ The increased separation distance between hubs is driven by a relative increase 
 % ------------------------------------------------------------------------------
 
 % ------------------------------------------------------------------------------
-% <<coexpressionDistance(C,G)>>
-% <<CoExpressionDistanceDetail(C,G)>>
+% <<plot_coexpDistance.m>>
+% [[coexpressionDistance(C,G),CoExpressionDistanceDetail(C,G)]]
 % ------------------------------------------------------------------------------
 \begin{figure}[h]
 \centering
@@ -1022,9 +1025,9 @@ The increased separation distance between hubs is driven by a relative increase 
 \caption{
 \label{fig:S_distCoexp}
 \textbf{Gene coexpression decreases with separation distance within the head and tail.}
-Gene coexpression, $r_\phi$, is shown as a function of the pairwise separation distance between pairs of neurons (shown as the mean (solid) $\pm$ standard deviation (dotted) in seven equiprobable distance bins, with extent shown as horizontal bars), for \textbf{A} all pairs of neurons in the head, \textbf{B} all pairs of neurons in the tail, and \textbf{C} all other pairs (labeled).
+Gene coexpression, $r_\phi$ (in all cases excluding left-right homologous pairs of neurons), is shown as a function of the pairwise separation distance between pairs of neurons (shown as the mean (solid) $\pm$ standard deviation (dotted) in seven equiprobable distance bins, with extent shown as horizontal bars), for \textbf{A} all pairs of neurons in the head, \textbf{B} all pairs of neurons in the tail, and \textbf{C} all other pairs (labeled).
 Scatters for all neuron pairs are added in \textbf{A} and \textbf{B}.
-An exponential relationship is fitted in \textbf{A} and \textbf{B}, revealing a decrease in $r_\phi$ with distance, as per macroscopic mammalian brains \cite{Fulcher:2016ck, Krienen:2016eq}.
+An exponential relationship, $f(x) = A\exp(-Bx)+C$, is fitted in \textbf{A} and \textbf{B}, revealing a slight decreasing trend in $r_\phi$ with distance, as per macroscopic mammalian brains \cite{Fulcher:2016ck, Krienen:2016eq}.
 Looking within the head, we find different spatial relationships as a function of neuron type, shown for \textbf{C} pairs of interneurons, \textbf{D} pairs of motor neurons, \textbf{E} motor-interneuron pairs, \textbf{F} pairs of sensory neurons, \textbf{G} interneuron-sensory neuron pairs, and \textbf{H} motor-sensory pairs.
 [[TODO: add labels for subplots C--H, label all axes?]]
 }
