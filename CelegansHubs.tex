@@ -774,31 +774,6 @@ Enrichment analysis show that the majority of the significant ($P < 0.05$) GO ca
 It is line with the previous analysis where same GO categories were shown to be significant in differentiating connected from unconnected neurons.
 
 %% Combined enrichment table
-\begin{table}[t]
-\begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
-\centering
-\caption{
-{\bf Enrichment.}}
-\begin{tabular}{ |c|c|c| }
-\thickhline
-%{\bf Connected} & {} & {\bf Rich and feeder}\\ \thickhline
-GO category  		& Connected \textit{vs} unconnected: $P$-value  	& Rich and feeder \textit{vs} peripheral      \\ \thickhline
-glutamate receptor signaling pathway      	& $10^{-7}$      		&  $10^{-5}$\\ \hline
-ionitropic glutamate receptor signaling     & $10^{-7}$      		&  $10^{-5}$ \\ \hline
-synaptic transmission, glutamatergic      	& $10^{-7}$     			&  $10^{-5}$ \\ \hline
-neuron-neuron synaptic transmission          & $10^{-5}$     			&  0.00031\\ \hline
-chemical synaptic transmission               & 0.00057      			&  $10^{-5}$\\ \hline
-anterograde trans-synaptic signaling      	& 0.00057      			&  $10^{-5}$\\ \hline
-synaptic signaling                          & 0.00057      			&  $10^{-5}$\\ \hline
-trans-synaptic signaling                    & 0.00057      			&  $10^{-5}$ \\ \hline
-cell-cell signaling                         &      -           		&  0.00086 \\ \hline
-cell surface receptor signaling pathway     &       -          		&  0.00107 \\ \hline
-\end{tabular}
-\begin{flushleft} Table notes what GO categories were overrepresented in driving the difference between different types of links.
-\end{flushleft}
-\label{table1}
-\end{adjustwidth}
-\end{table}
 
 These findings are in line with our expectations as high degree neurons are highly involved in signaling and the majority of hubs while being cholinergic, receive input from sensory neurons the majority of which is glutamatergic.
 
@@ -925,9 +900,7 @@ Thanks to Alex Fornito, for being a big deal.
 %\label{S1_Appendix}
 %{\bf Lorem ipsum.} Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
 
-%\paragraph*{S1 Table.}
-%\label{S1_Table}
-%{\bf Lorem ipsum.} Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
+
 
 
 % \end{thebibliography}
@@ -966,9 +939,86 @@ Based on these numerical experiments, we selected Pearson's mean square continge
 % Simple matching coefficient, on the other hand, shows a steady increase with increasing ratio.
 % We therefore selected $r_\phi$ to analyze in this work, which was insensitive to the proportion of genes expressed in each neuron.
 
+%% enrichment table for connected links
+% results generated using ermineJ, all categories tested separately. significante threshold pcorrected<0.05. Results arranged using 
+\paragraph*{S1 Table.}
+\label{S1_Table}
+{\bf Enrichment results for connected \textit{vs} unconnected neurons.} 
+\begin{table}[]
+\centering
+\caption{Biological process, molecular function and cellular component GO categories of genes showing significantly increased coexpression in connected pairs of neurons over unconnected pairs}
+\begin{tabular}{llcc}
+\hline
+\multicolumn{1}{|l|}{\textbf{GO category}} & \multicolumn{1}{l|}{\textbf{Description}}          & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}No. \\ of genes\end{tabular}}} & \multicolumn{1}{c|}{\textbf{P-value}} \\ \hline
+\multicolumn{4}{l}{\textit{Biological processes}}                                                                                                                                                                                  \\
+GO:0035235                                 & ionotropic glutamate receptor signaling pathway    & 7                                                                                        & $6.82^{-10}$                              \\
+GO:00072                                 & glutamate receptor signaling pathway               & 9                                                                                        & 0.0034                               \\
+\multicolumn{4}{l}{\textit{Molecular function}}                                                                                                                                                                                    \\
+GO:0005                                 & ionotropic glutamate receptor activity             & 7                                                                                        & $1.73^{-10}$                              \\
+GO:0008                                & glutamate receptor activity                        & 9                                                                                        & 0.0017                              \\
+GO:00052                                & extracellular-glutamate-gated ion channel activity & 9                                                                                        & 0.0132                           \\
+\multicolumn{4}{l}{\textit{Cellular components}}                                                                                                                                                                                    \\
+GO:00300                                & cell junction                                      & 55                                                                                       & 0.0235                              \\
+GO:00987                                 & postsynapse                                        & 19                                                                                       & 0.0161                            
+\end{tabular}
+\end{table}
+
+% rich feeder vs peripheral
+\paragraph*{S2 Table.}
+\label{S2_Table}
+{\bf Enrichment results for rich and feeder \textit{vs} peripheral links.}
+\begin{table}[]
+\centering
+\caption{Biological process, molecular function and cellular component GO categories of genes showing significantly increased coexpression in rich and feeder over peripheral links}
+\label{my-label}
+\begin{tabular}{llcc}
+\hline
+\multicolumn{1}{|l|}{\textbf{GO category}} & \multicolumn{1}{l|}{\textbf{Description}}                  & \multicolumn{1}{l|}{\textbf{\begin{tabular}[c]{@{}l@{}}No.\\  of genes\end{tabular}}} & \multicolumn{1}{l|}{\textbf{P-value}} \\ \hline
+\multicolumn{4}{l}{\textit{Biological processes}}                                                                                                                                                                                          \\
+GO:0035235                                 & ionotropic glutamate receptor signaling pathway            & 7                                                                                        & 0.0174                                \\
+GO:0007215                                 & glutamate receptor signaling pathway                       & 9                                                                                        & 0.0406                                \\
+\multicolumn{4}{l}{\textit{Molecular function}}                                                                                                                                                                                            \\
+GO:0022824                                 & transmitter-gated ion channel activity                     & 13                                                                                       & 0.0014                                \\
+GO:0022835                                 & transmitter-gated channel activity                         & 13                                                                                       & 0.0014                                \\
+GO:0004970                                 & ionotropic glutamate receptor activity                     & 7                                                                                        & 0.0021                                \\
+GO:0005230                                 & extracellular ligand-gated ion channel activity            & 19                                                                                       & 0.0019                                \\
+GO:0008066                                 & glutamate receptor activity                                & 9                                                                                        & 0.0057                                \\
+GO:0005231                                 & excitatory extracellular ligand-gated ion channel activity & 14                                                                                       & 0.0054                                \\
+GO:0099094                                 & ligand-gated cation channel activity                       & 11                                                                                       & 0.0163                                \\
+GO:0030594                                 & neurotransmitter receptor activity                         & 23                                                                                       & 0.0176                                \\
+GO:0015075                                 & ion transmembrane transporter activity                     & 53                                                                                       & 0.0163                                \\
+GO:0005234                                 & extracellular-glutamate-gated ion channel activity         & 8                                                                                        & 0.0151                                \\
+GO:0038023                                 & signaling receptor activity                                & 63                                                                                       & 0.0140                                \\
+GO:0022891                                 & substrate-specific transmembrane transporter activity      & 55                                                                                       & 0.0226                                \\
+GO:0022892                                 & substrate-specific transporter activity                    & 55                                                                                       & 0.0207                                \\
+GO:0008324                                 & cation transmembrane transporter activity                  & 41                                                                                       & 0.0249                                \\
+GO:0004888                                 & transmembrane signaling receptor activity                  & 60                                                                                       & 0.0292                                \\
+GO:0015276                                 & ligand-gated ion channel activity                          & 27                                                                                       & 0.0327                                \\
+GO:0022834                                 & ligand-gated channel activity                              & 27                                                                                       & 0.0306                                \\
+GO:0022857                                 & transmembrane transporter activity                         & 65                                                                                       & 0.0314                                \\
+GO:0005215                                 & transporter activity                                       & 66                                                                                       & 0.0407                                \\
+GO:0004872                                 & receptor activity                                          & 74                                                                                       & 0.0433                                \\
+GO:0060089                                 & molecular transducer activity                              & 74                                                                                       & 0.0433                                \\
+GO:0005216                                 & ion channel activity                                       & 48                                                                                       & 0.0466                                \\
+GO:0022838                                 & substrate-specific channel activity                        & 50                                                                                       & 0.0473                                \\
+GO:0022890                                 & inorganic cation transmembrane transporter activity        & 39                                                                                       & 0.0485                                \\
+\multicolumn{4}{l}{\textit{Cellular components}}                                                                                                                                                                                           \\
+GO:0098794                                 & postsynapse                                                & 14                                                                                       & 1.04e-10                              \\
+GO:0045202                                 & synapse                                                    & 43                                                                                       & 0.0005                                \\
+GO:0044456                                 & synapse part                                               & 31                                                                                       & 0.0007                                \\
+GO:0045211                                 & postsynaptic membrane                                      & 11                                                                                       & 0.0034                                \\
+GO:0030054                                 & cell junction                                              & 39                                                                                       & 0.0108                                \\
+GO:0097060                                 & synaptic membrane                                          & 15                                                                                       & 0.0166                                \\
+GO:0098802                                 & plasma membrane receptor complex                           & 8                                                                                        & 0.0250                                \\
+GO:0043235                                 & receptor complex                                           & 9                                                                                        & 0.0392                               
+\end{tabular}
+\end{table}
 
 
-% ------------------------------------------------------------------------------
+
+
+
+  ------------------------------------------------------------------------------
 
 % Include only the SI item label in the paragraph heading. Use the \nameref{label} command to cite SI items in the text.
 
