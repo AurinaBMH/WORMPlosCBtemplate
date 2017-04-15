@@ -323,7 +323,7 @@ sensory neurons (support receptive function),
 motor neurons (cells containing neuromuscular junctions) and
 interneurons (all other neurons) \cite{White:1986tx}.
 
-Classification of neurons to `sensory', `motor', `interneuron' types, and as `head' or `tail', was done using the anatomical hierarchy defined in WormBase \cite{Harris:2009kd}, which we retrieved using their API, and propagated these (and other child terms of `neuron', WB:0003679) to all individual neurons. [[TODO: how and where from hierarchy file was downloaded?]]% RetreiveHierarchy.py, NeuronRegionFinder.m
+Classification of neurons to `sensory', `motor', `interneuron' types, and as `head' or `tail', was done using the anatomical hierarchy defined in WormBase \cite{Harris:2009kd}, which we retrieved using their API, and propagated these (and other child terms of `neuron', WB:0003679) to all individual neurons. Some head neurons (12: ALA, AVFL, AVFR, AVG, RIFL, RIFR, RIGL, RIGR, SABD, SABVL, SABVR, SMDVL) were mislabelled as non-head, therefore we manually corrected these cases by matching the assignment against the annotations provided in the http://www.wormatlas.org/ website. [[TODO: how and where from hierarchy file was downloaded?]]% RetreiveHierarchy.py, NeuronRegionFinder.m
 
 The neurotransmitter types of the majority of neurons in the hermaphrodite C. elegans nervous system has been mapped, revealing the dominance of cholinergic signaling \cite{Pereira:2015er}.
 We matched data from Table 2 in \citet{Pereira:2015er} to label the neurotransmitter type of all neurons.
