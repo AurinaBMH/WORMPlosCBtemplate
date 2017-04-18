@@ -413,12 +413,13 @@ We repeated this procedure until all elements in the agreement matrix had a valu
 The module assignments of this final agreement matrix represent a consensus estimate of the community structure of the network.
 [[TODO: check these details but its about right from memory. My only concern is that if you weighted the values in the agreement matrix by the quality of the partition, the interpretation of tau becomes tricky - in the unweighted case, it is simply the proportion of runs in which two nodes are in the same module. in the weighted case, its less clear]]
 
+
 % METHODS: gene expression
 \subsection*{Gene expression}
 Gene expression in C. elegans neurons is measured as a binary indicator from individual experiments, and compiled into a unified data resource on WormBase \cite{Harris:2009kd}.
 The database is regularly updated; here we used release WS256 (\url{ftp://ftp.wormbase.org/pub/wormbase/releases/WS256/ONTOLOGY/anatomy_association.WS256.wb}, in which 948 genes were expressed in at least one neuron.
 % downloaded on 6th Feb 2017
-Expression annotations are made directly to individual neurons, and indirectly to groups or broader classes of neurons (e.g., `head', `interneuron', etc.) [[TODO: add some detail about this? We investigated and compared annotation types in some detail.]], with different levels of certainty: `certain' (means what?), `enriched' (means what?), `partial' (means what?), and `blank' (means what?) [[TODO: Aurina, what do all of these mean? Are there more possible annotations? We must describe here how these labels are ascribed.]].
+Expression annotations are made directly to individual neurons, and indirectly to groups or broader classes of neurons (e.g., `head', `interneuron', etc.) [[TODO: add some detail about this? We investigated and compared annotation types in some detail.]], with different levels of certainty: `certain' (means what?), `enriched' (means what?), `partial' (means what?), and `blank' (means what?) [[TODO: Aurina, what do all of these mean? Are there more possible annotations? We must describe here how these labels are ascribed, and our justifying for including these data -- e.g., why include `blank' genes. Must be clear how the decision to label `on' versus `off' is made in all cases, and our justification for our choices...]]
 The main analyses presented here are of expression data that is annotated directly to individual neurons, and with one of the following qualifiers: `certain', `enriched', `partial', or `blank' [[TODO: Aurina, check? We need to justify why we picked these categories to include]].
 
 The resulting binary expression data for 279 neurons and 948 genes is shown as a matrix in Fig.~\ref{fig:SchematicRepresentation}A.
