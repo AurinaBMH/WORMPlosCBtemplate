@@ -341,26 +341,27 @@ To avoid any possible differences in gene expression between chemical synapses a
 
 Note the previous work has used different processed versions of this data, including just synaptic connections as here (e.g., after thresholding them \cite{Kashtan:2004ev}), a combination of synaptic connections and gap junctions together \cite{Azulay:2016cg, Kim:2016gl}, or combining synaptic and gap junctions and then symmetrizing unidirectional synaptic connections to be bidirectional \cite{Towlson:2013gf, Kim:2014bu, Pavlovic:2014gx}.
 
-Two dimensional spatial co-ordinates for 277 neurons (including VC6) were obtained from \url{www.biological-networks.org/?page_id=25}.
-Positions for 3 neurons not included in this dataset (AIBL, AIYL, SMDVL) were reconstructed based on the positions of the contralateral neurons (AIBR, AIYR, SMDVR) by assigning identical coordinates for the contralateral neurons in these three pairs according to Varier (2011) \cite{Varier2011}.
+Spatial information about neurons was obtained for 277 neurons (including VC6 [[TODO: Aurina, why mention this?]]) as two dimensional spatial coordinates from \url{www.biological-networks.org/?page_id=25}.
+Coordinates for three neurons (AIBL, AIYL, SMDVL) were missing in this dataset, and were reconstructed based on the positions of the contralateral neurons (AIBR, AIYR, SMDVR) by assigning identical coordinates for the contralateral neurons in these three pairs according to Varier \cite{Varier2011} [[TODO: Explain the precedent for doing this]]. [[TODO: Aurina, provide details on how these were `reconstructed']].
 
 % The C. elegans nervous system consists of two distinct parts: a small pharyngeal nervous system (20 neurons), responsible for  the feeding behavior of the animal and a large somatic nervous system (282 neurons).
 
-Neurons were labeled by various criteria, the first of which being their type, as:
+In order to relate our topological and gene expression results to other information about individual neurons or pairs of neurons, we assembled diverse publicly available data for \emph{C. elegans}.
+Neurons were first labeled by their type, as:
 (i) `sensory' neuron (support receptive function),
 (ii) `motor' neuron (cells containing neuromuscular junctions),
 (iii) `interneuron' (all other neurons), or
 (iv) polymodal neuron (obtaining multiple assignments of the above categories) \cite{White:1986tx}.
 Neurons were also assigned labels based on their anatomical location, as:
 (i) `head', (ii) `tail', or (iii) `body'.
-Both of these assignments were achieved using the anatomical hierarchy defined in WormBase \cite{Harris:2009kd}, which we retrieved using their API, and propagated these (and other child terms of `neuron', WB:0003679) to all individual neurons.
+Both of these assignments were achieved using the hierarchy defined in WormBase \cite{Harris:2009kd}, which we retrieved using the WormBase API and propagated each term down the hierarchy to label individual neurons.
+% (and other child terms of `neuron', WB:0003679)
 Note that some head neurons (12: ALA, AVFL, AVFR, AVG, RIFL, RIFR, RIGL, RIGR, SABD, SABVL, SABVR, SMDVL) were not labeled as head in this file, and were thus manually corrected by matching the assignment against the annotations provided in the http://www.wormatlas.org/ website.
 % [[TODO: how and where from hierarchy file was downloaded?]]% RetreiveHierarchy.py, NeuronRegionFinder.m
-We labeled the neurotransmitter type of neurons by matching to data in Table 2 of Pereira et al. \cite{Pereira:2015er}.
+The neurotransmitter systems used by each neuron was labeled by matching to data in Table 2 of Pereira et al. \cite{Pereira:2015er}.
 % to label the neurotransmitter type of all neurons.
 % in the hermaphrodite C. elegans nervous system has been mapped, revealing the dominance of cholinergic signaling \cite{Pereira:2015er}.
-
-Lineage similarity for pairs of neurons was obtained from previously published embryonic and  post-embryonic lineage trees \citep{Sulston1977, Sulston1983}; data were downloaded from WormAtlas (\url{http://www.wormatlas.org/neuronalwiring.html#Lineageanalysis}).
+Lineage similarity for all pairs of neurons was obtained from previously published embryonic and  post-embryonic lineage trees \citep{Sulston1977, Sulston1983}; data were downloaded from WormAtlas (\url{http://www.wormatlas.org/neuronalwiring.html#Lineageanalysis}).
 In this dataset for each pair of neurons a common ancestor cell was identified using and a total number of cell divisions from the common progenitor was calculated.
 % Downloaded data were arranged into a matrix format where lineage distance for each pair of neurons was defined. % part of Print_neuroconnect.m
 
@@ -368,42 +369,33 @@ In this dataset for each pair of neurons a common ancestor cell was identified u
 % METHODS: rich club analysis
 \subsection*{Network analysis}
 
-In this section, we describe the methods used to characterize the \emph{C. elegans} structural connectome, represented as a graph with neurons as nodes and synaptic connections as edges \cite{Schroter:2017eo}, which will later allow us to compare gene coexpression as a function of connectivity structure.
+In this section, we describe the methods used to characterize the \emph{C. elegans} structural connectome, represented as a graph with neurons as nodes and synaptic connections as edges \cite{Schroter:2017eo}.
 
 % \paragraph{Degree}
 The number of regions that a neuron projects to is its out-degree, $k_\mathrm{out}$, and the number of regions that project to a given neuron is its in-degree, $k_\mathrm{in}$.
 The total number of connections involving a given neuron is defined by its degree, $k = k_\mathrm{in} + k_\mathrm{out}$.
 % Weighted analogues of these degree measures involve counting the number of synaptic connections that a neuron makes to other regions (weighted out-degree, $k^w_\mathrm{out}$), that are afferent to it (weighted in-degree, $k^w_\mathrm{in}$), or the combination, weighted degree, $k^w = k^w_\mathrm{in} + k^w_\mathrm{out}$.
 
-At a given $k$ threshold, neurons were classified as either `hub' (degree $>k$) or `non-hub' (degree $\leq k$).
-All edges could subsequently be classified as either `rich' (hub $\rightarrow$ hub), `feeder' (hub $\rightarrow$ non-hub or non-hub $\rightarrow$ hub), or `peripheral' (non-hub $\rightarrow$ non-hub).
-For simplicity, hub $\rightarrow$ non-hub and non-hub $\rightarrow$ hub connections were grouped as a single `feeder' category for simplicity.
+At a given degree threshold, $k$, neurons were classified as either `hub' (degree $>k$) or `non-hub' (degree $\leq k$).
+All edges could subsequently be classified as either `rich' (hub $\rightarrow$ hub), `feed-in' (non-hub $\rightarrow$ hub), `feed-out' (hub $\rightarrow$ non-hub), or `peripheral' (non-hub $\rightarrow$ non-hub).
+% For simplicity, hub $\rightarrow$ non-hub and non-hub $\rightarrow$ hub connections were grouped as a single `feeder' category for simplicity.
 
-% \paragraph{Rich-club organization}
-In order to assess rich-club organization of our networks, we used the rich-club coefficient, defined as
-\begin{eqnarray} \label{eq:RCcoef}
-    \mathrm{\Phi(\textit{k})} = \dfrac{2M_{>\textit{k}}}{N_{>\textit{k}}(N_{>\textit{k}}-1)},
-\end{eqnarray}
-where $N_{>\textit{k}}$ is the number of nodes with degree $>\textit{k}$ and $M_{>\textit{k}}$ is the number of edges between them.
-
-When hubs in the network are more densely interconnected than expected by chance, they form a rich-club - a sub-network of high degree nodes that share a disproportionally high number of connections between themselves.
-
-In order to examine whether high degree nodes then to preferentially connect to other high degree nodes, at each degree \textit{k} we calculated a rich-club coefficient (see eq. \ref{eq:RCcoef}).
-
-It quantifies the tendency of nodes with degree $\geq k$ to preferentially connect to each other by calculating how many edges are present between nodes of degree at least \textit{k}, normalized by how many edges there could be between these nodes in a complete graph.
-Rich club coefficient monotonically increases with degree as only nodes with degree >\textit{k} are retained and this alone yields a higher expected density of a sub-graph, therefore a normalized rich-club coefficient (\ref{eq:RCnormcoef}) is used in order to define, whether this increase in the empirical network is higher that could be expected by chance alone.
-
-\begin{eqnarray}
-	\label{eq:RCnormcoef}
-     \Phi_\mathrm{norm}(k) = \dfrac{\Phi(k)}{\Phi_\mathrm{random}(k)},
-	 \end{eqnarray}
-where $\Phi_\mathrm{random}(k)$ is the average value of $\Phi(k)$ across random networks.
-$\Phi_\mathrm{norm}>1$ indicates the rich-club organization of the network.
-
-In order to calculate the normalized rich club coefficient $\Phi_\mathrm{norm}$ we computed a 1\,000 random networks rewiring each edge an average of 50 times per null network and evaluated the ratio between rich club coefficient in the empirical $\Phi(k)$ and random $\Phi_{random}(k)$ resulting in $\Phi_\mathrm{norm}(k)$ at each degree threshold.
-Statistical significance for $\Phi_{norm}$ was estimated by computing P value directly from the empirical null distribution under the null hypothesis $\Phi(k) \leq \Phi_\mathrm{random}(k)$.
-
-Rich club coefficient and null networks were generated using the rich\textunderscore club\textunderscore bd and randmio\textunderscore dir functions from the Brain Connectivity Toolbox \cite{Rubinov2010} respectively.
+\paragraph{Rich-club organization}
+To measure whether hubs are densely interconnected, we used the rich-club coefficient, $\phi(k)$ \cite{Colizza:2006kz}:
+\begin{equation}
+    \label{eqn:rich_club}
+    \phi(k) = \frac{2E_{>k}}{N_{>k}(N_{>k}-1)},
+\end{equation}
+where $N_{>k}$ is the number of nodes with degree $>k$ and $E_{>k}$ counts the number of edges between them.
+The rich-club coefficient, $\phi(k)$, thus measures the link density in the subgraph containing nodes with degree $>k$.
+However, $\phi(k)$ is expected to increase with $k$ for general networks, since retaining nodes with higher degree will yield a higher expected link density in the subgraph containing nodes with degree $>k$.
+Consequently, we compared $\phi(k)$ measured from the C. elegans connectome, to that obtained from an ensemble of randomized null networks, $\phi_\mathrm{rand}(k)$ \cite{Colizza:2006kz}.
+An ensemble of 1\,000 null networks were generated, constructed by shuffling the links in the empirical network while retaining the degree distribution of nodes in the network \cite{Maslov:2002hi} (rewiring each edge an average of 50 times per null network) using the \texttt{randmio\_dir} function from the {\it Brain Connectivity Toolbox} \cite{Rubinov:2010jd}.
+We then computed the normalized rich-club coefficient, $\Phi_\mathrm{norm}(k)$, as the ratio of the rich-club coefficient of the empirical network to the mean rich-club coefficient of the ensemble of randomized networks:
+\begin{equation}
+    \Phi_\mathrm{norm}(k) = \phi(k)/\langle \phi_\mathrm{rand}(k) \rangle.
+\end{equation}
+$\Phi_\mathrm{norm} > 1$ indicates the rich-club organization of the network, with statistical significant deviations assessed by computing a $P$-value directly from the empirical null distribution, $\phi_\mathrm{rand}(k)$, as a permutation test under the null hypothesis $\phi(k) \leq \phi_\mathrm{rand}(k)$ \cite{vandenHeuvel:2011he}.
 
 % NOTE THAT TOWLSON USED UNDIRECTED (CHEMICAL+ELECTRICAL) network. WE USE DIRECTED CHEMICAL. (should probably put this into results - not in methids).
 %The phenomenon of the rich-club organisation in \textit{C. elegans} connectome was originally demonstrated by Towlson et al. \cite{Towlson2013} in an undirected binary version of the connectome where data for both chemical and electrical synapses were combined.
@@ -423,13 +415,18 @@ According to this implementation, any singeleton communities are not reconnected
 
 % METHODS: gene expression
 \subsection*{Gene expression}
-Gene expression signatures for each neuron were obtained from the publicly available WormBase database (release WS256 downloaded on 6th Feb 2017 from \url{ftp://ftp.wormbase.org/pub/wormbase/releases/WS256/ONTOLOGY/anatomy_association.WS256.wb}).
-The dataset contains binary expression profiles for 948 genes annotated to at least one neuron.
-To minimize noise in the dataset we selected genes that were directly annotated to a specific neuron and labelled with the following qualifiers in the anatomy association file: certain, enriched, partial, blank.
-Each neuron on average is associated with the expression of 30 genes (range: 3 to 138 genes), while each gene is expressed on average in 9 out of 279 neurons (range: 1 to 148 neurons).
-It is important to note that, because the absence of expression data not recorded in the database, it is not possible to distinguish between the following two cases: (i) ``gene is not expressed'' and (ii) ``there is no information on whether gene is expressed''.
-Both cases are recorded and analyzed as ``0'' expression here.
+Gene expression in C. elegans neurons is measured as a binary indicator from individual experiments, and compiled into a unified data resource on WormBase \cite{Harris:2009kd}.
+The database is regularly updated; here we used release WS256 (\url{ftp://ftp.wormbase.org/pub/wormbase/releases/WS256/ONTOLOGY/anatomy_association.WS256.wb}, in which 948 genes were expressed in at least one neuron.
+% downloaded on 6th Feb 2017
+Expression annotations are made directly to individual neurons, and indirectly to groups or broader classes of neurons (e.g., `head', `interneuron', etc.) [[TODO: add some detail about this? We investigated and compared annotation types in some detail.]], with different levels of certainty: `certain' (means what?), `enriched' (means what?), `partial' (means what?), and `blank' (means what?) [[TODO: Aurina, what do all of these mean? Are there more possible annotations? We must describe here how these labels are ascribed.]].
+The main analyses presented here are of expression data that is annotated directly to individual neurons, and with one of the following qualifiers: `certain', `enriched', `partial', or `blank' [[TODO: Aurina, check? We need to justify why we picked these categories to include]].
 
+The resulting binary expression data for 279 neurons and 948 genes is shown as a matrix in Fig.~\ref{fig:SchematicRepresentation}A.
+An average of 30 genes are expressed in each neuron (range: 3 to 138 genes); each gene is expressed in an average of 9 neurons (range: 1 to 148 neurons).
+
+As well as being unable to distinguish relative expression levels between neurons, we also cannot distinguish between the following two cases: (i) ``gene is not expressed'' and (ii) ``there is no information on whether gene is expressed'', which are both represented as a ``0'' in the expression data at hand.
+
+% Could add information about indirect annotations
 Gene expression was assigned to neurons based on anatomical hierarchy obtained from...
 [[TODO BEN: PROBABLY SHOULD ADD INFORMATION ABOUT HIERARCHY FILE HERE as it's also from the Wormbase (how/when downloaded/what queries were used]]
 
@@ -874,12 +871,20 @@ LIMITATIONS:
     \item Would surely allow more subtle understanding of how gene expression varies with connectivity roles
 \end{itemize}
 
+% Binary expression data
+Compared to continuous expression information provided from techniques like RNA sequencing, \emph{in situ} hybridization, or microarray with whole-brain coverage using a systematic experimental procedure \cite{Lein:2007jn, Shen:2012ua, Tasic:2016jp}, the data analyzed here presents numerous challenges.
+With access to only a relatively limited coverage of the genome [[TODO: how many worm genes in total? Add proportion of worm genes represented]], the enrichment results provided here are severely constrained in scope.
+Further, using the current data, we are unable to distinguish expression levels between neurons that express a given gene, and we are unable to distinguish missing data, from negative data (both are represented as `0' in our data).
+Future work systematically mapping gene expression in a unified experimental paradigm would allow a more subtle and comprehensive analysis of gene expression and function.
+
+
 \section*{Conclusion}
 
 Conclusion text.
 
 \section*{Acknowledgments}
 Thanks to Alex Fornito, for being a big deal.
+We thank WormBase.
 
 \nolinenumbers
 
