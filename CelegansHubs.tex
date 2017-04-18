@@ -638,19 +638,21 @@ We find that connected pairs of neurons have more similar expression profiles th
  \centering
     \includegraphics[width=1\textwidth]{MeanCoexpression.pdf}
  \caption{{\bf Gene coexpression varies as a function of connectivity, and as a function of connection type, with connections involving hubs being most similar.}
-\textbf{A} Distribution of transcriptional similarity between connected (1940 pairs) and unconnected (36749 pairs) pairs of neurons as a violin plot, with the median of each distribution shown as a horizontal line. Connections between symmertical (left/right) pairs of neurons are excluded from the analysis.
+\textbf{A} Distribution of transcriptional similarity between connected (1940 pairs) and unconnected (36\,749 pairs) pairs of neurons as a violin plot, with the median of each distribution shown as a horizontal line. Connections between symmetrical (left/right) pairs of neurons are excluded from the analysis.
 Coexpression, $r_\phi$ is increased in connected pairs of neurons ($P < 10^{-50}$, Wilcoxon rank sum test).
 \textbf{B}
 \emph{Top}: Degree distribution.
 \emph{Middle}: proportion of connections that are `rich' (hub$\rightarrow$hub, red), `feed-in' (nonhub$\rightarrow$hub, yellow), `feed-out' (hub$\rightarrow$nonhub, orange), and `peripheral' (nonhub$\rightarrow$nonhub, blue) as a function of the degree threshold, $k$, used to define hubs.
 Note that at high $k$, most neurons are labeled as nonhubs, and hence the vast majority of connections are `peripheral'.
-\emph{Lower}: Mean Pearson gene coexpression, $r_\phi$, for each connection type as a function of $k$.
-The mean coexpression across all network links shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. Fig.~\ref{fig:topology_rich}) is shaded gray.
+\emph{Lower}: Mean gene coexpression, $r_\phi$, for each connection type as a function of $k$.
+The mean coexpression across all network links is shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. Fig.~\ref{fig:topology_rich}) is shaded gray.
 Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (one-sided Welch’s t test; $P < 0.05$).
-[[TODO: A: add $r_\phi$ to ylabel.).
+[[TODO: A: add $r_\phi$ to ylabel.
 B: Remove box from degree distribution, Change y-label to `Mean gene coexpression', fonts are small, and inconsistent sizes between subplots.
 I think we should crop the curves when there are fewer than X connections remaining -- in this case it's a bit ridiculous to show that constant feed-out/feed-in/peripheral coexpression when there are only two neurons
-left as hubs]]}
+left as hubs]]
+[[TODO: AF: Use colors in A. Use black for distribution in B.]]
+}
  \label{fig:coExp}
 \end{figure}
 % ------------------------------------------------------------------------------
@@ -660,7 +662,7 @@ Having established an increase in gene coexpression in connected pairs of brain 
 Given the importance of hub neurons across species [[Ref]], and previous results in the mesoscale mouse connectome \cite{Fulcher:2016ck}, we expect increased coexpression in connections involving hubs.
 To investigate this effect, we first labeled each neuron as either a hub (nodes with degree $> k$) or a nonhub (degree $\leq k$), for a given hub threshold, $k$, and then labeled each connection as either `rich' (hub $\rightarrow$ hub), `feed-in' (nonhub $\rightarrow$ hub), `feed-out' (hub $\rightarrow$ nonhub), or `peripheral' (nonhub $\rightarrow$ nonhub).
 [[TODO: Establish whether we're computing pairs of hubs (e.g., for `rich'), or for every connection between any pair of hubs -- i.e., do reciprocal connections contribute twice to the distribution at each $k$?]]
-The mean coexpression for each of these four connection types described above is plotted in Fig.~\ref{fig:coExp}B, with circles indicating statistically significant increases of a given connection type (relative to all other connections). 
+The mean coexpression for each of these four connection types is plotted in Fig.~\ref{fig:coExp}B, with circles indicating statistically significant increases of a given connection type (relative to all other connections). 
 We see that gene coexpression in rich connections increases with degree, reaching a plateau through the topological rich-club regime where hubs are densely interconnected (shaded in Fig.~\ref{fig:coExp}B).
 Interestingly, we see a split between feed-in and feed-out connections, with feed-out connections showing increased gene coexpression through the topological rich-club regime, while feed-in and peripheral connections show the lowest levels of coexpression.
 % We observed a difference in gene coexpression between feed-in and feed-out links, where feed-out links manifested increased coexpression for a broad range of degrees while feed-in links showed only a slight increase for very high hub thresholds.
@@ -669,7 +671,7 @@ These results, using partial binary expression estimates in 948 genes in a neuro
 In contrast to the mouse connectome, however, in which hubs were distributed across a broad range of anatomical divisions, hubs in C. elegans are [[mostly. There is one motor neuron in there, right?AA: with threshold k>41, all interneurons]] interneurons \cite{Towlson:2013gf} (cf. Fig.~\ref{fig:topology_rich}A).
 To determine the specificity of the effect between different neuron types, we split our coexpression analysis into connections involving: (i) interneurons, (ii) sensory neurons, and (iii) motor neurons, computing the mean coexpression within each class of connections as a function of the degree of the given neuron type
 [[TODO: is this true? It's kind of complicated to explain -- is it right that for a given k threshold we include, say, sensory neurons of degree greater than $k$ and their connections to all other neurons in the `sensory' category? Or do we include all neurons with degree $>k$ and compute the mean of those connections that involve both the high-degree neurons AND neurons of the given class? This would be another choice. Perhaps it's the latter that's plotted?YES: now we include connections for `sensory' deg>k to any other other neurons with degree >k - my code is is really complicated - probably there is much easier way to do the same]], as shown in Fig.~\ref{fig:interneuron_dep}A.
-Note that the three categories are not mutually exclusive; for example, the `interneuron' class includes connections between any interneuron and any other neuron.
+Note that the three categories are not mutually exclusive; for example, the `interneuron' class includes connections between an interneuron and any other neuron.
 We find that connections involving interneurons are unique in their increasing average coexpression with increasing degree, $k$.
 Connections involving motor neurons, and connections involving sensory neurons, do not show any clear increase with degree.
 
@@ -684,19 +686,21 @@ Connections involving motor neurons, and connections involving sensory neurons, 
 [[TODO: Did we exclude multimodal neurons from this analysis?? Can we do a statistical comparison between these distributions and add something here on that?]]
 [[TODO: A: the vertical axis in lower subplot should state `mean gene coexpression']]
 [[TODO: Both coexpression axes should be the same `Gene coexpression, $r_\phi$']]
+[[TODO: AF: Plot makes it seem like there are no edges for $k>35$ -- Aurina can you try the log plotting I suggested -- will have to be three separate lines in semilogy]]
  \label{fig:interneuron_dep}
 }
 \end{figure}
 
-Given the distinction of interneurons in driving the gene coexpression relationship with degree, $k$, we next verified whether hubs showed a unique transcriptional signature among this neuronal subtype.
+Having found that interneurons drive the gene coexpression relationship with degree, $k$, we next verified whether hubs showed a unique transcriptional signature among this neuronal subtype.
 We compared gene coexpression between all pairs of hub interneurons [[TODO: what $k$ threshold?]] and between all pairs of nonhub interneurons (AVFL, AVFR, AVHL, AVHR, AVKL, AVKR, AVJL, AVJR) [[TODO: what does this list represent? Not clear from the sentence structure]], as shown in Fig.~\ref{fig:interneuron_dep}B.
 % that share similar anatomical properties in order to ensure that increase in coexpression for rich links is not determined by the fact that the majority of hub neurons belong to the same anatomical neuron type (???HOW TO CALL COMMAND INTERNEURONS???).
 % In order to compare transcriptional similarity between all pairs of neurons we ignore the existence (or absence) of connections between these neurons,
 Pairs of hub interneurons display significantly higher gene coexpression than pairs of nonhub interneurons ([[TODO: statistical test, p-value, etc.]]).
-Thus, the increase in coexpression amongst hub interneurons is not simply due to most hubs being interneurons;  even amongst interneurons, [[TODO: isn't this obvious from plot A? It's very similar -- at high degree, we're only looking at hub interneuron pairs, which are more similar than others. Not sure B adds much -- we could just quantify the difference at a given $k$ threshold to put a statistic to it...?AA: it adds inf, because we're comparing hubs to interneurons with the same anatomical properties, not just random low degree interneurons. PLOT A says - effect driven by interneurons (other groups of neurons do not show this increase with degree), plot B says - among interneurons that are anatomically the same (hub interneurons and 8 interneurons that are not hubs), hubs have higher coexpression]].\\
+Thus, the increase in coexpression amongst hub interneurons is not simply due to most hubs being interneurons;  even amongst interneurons, [[TODO: isn't this obvious from plot A? It's very similar -- at high degree, we're only looking at hub interneuron pairs, which are more similar than others. Not sure B adds much -- we could just quantify the difference at a given $k$ threshold to put a statistic to it...?AA: it adds inf, because we're comparing hubs to interneurons with the same anatomical properties, not just random low degree interneurons. PLOT A says - effect driven by interneurons (other groups of neurons do not show this increase with degree), plot B says - among interneurons that are anatomically the same (hub interneurons and 8 interneurons that are not hubs), hubs have higher coexpression. Aurina -- can you rephrase to make this all clear in the main text. AF was confused.]].
 
-\textbf{Birth time}. 
-All hubs are born early in the \textit{C. elegans} development \cite{Varier2011} (see Fig \ref{fig:S6_Fig}), therefore we next verified that the increase in coexpression between them can not be explained by the similarity in birth time. 
+\paragraph{Birth time}
+[[TODO: Add rationale for this analysis]]
+[[TODO: Aurina, can you check this? Alex added: ``As first demonstrated by Towlson et al. \cite{Towlson:2013gf}'']], hubs are born early in the \textit{C. elegans} development \cite{Varier2011} (see Fig \ref{fig:S6_Fig}), therefore we next verified that the increase in coexpression between them can not be explained by the similarity in birth time. 
 For this purpose, we separated neurons that are formed early (during the first 1000 min) in the development into two types, namely hubs and non-hubs, and compared coexpression within each of those groups (Fig \ref{fig:BirthTimeHubs}). 
 Links between hubs show significantly increased coexpression and consequently confirm that even between the neurons that were born roughly at the same time, hubs exhibit a unique transcriptional pattern.
 \begin{figure}[t]
@@ -709,7 +713,7 @@ Links between hubs show significantly increased coexpression and consequently co
 
 
 \subsection*{Hubs and modules}
-Having demonstrated an increase in gene coexpression with connectivity and, amongst connections, with hub connectivity, we next investigate whether other anatomical, neurotransmitter, or connectomic organizational influences might contribute to our results.
+Having demonstrated that gene coexpression is elevated for connected regions, and particularly for connected pairs of hubs, we next investigate whether other anatomical, neurotransmitter, or connectomic organizational influences might contribute to our results.
 % , namely modular organization, lineage similarity, or neurotransmitter type, could explain our results.
 
 % \paragraph{Distance}).
@@ -727,11 +731,12 @@ Having demonstrated an increase in gene coexpression with connectivity and, amon
 We first consider the modular organization of the C. elegans connectome.
 Like many other connectomes, the C. elegans nervous system contains densely connected groups of neurons that are relatively sparsely connected to other neurons \cite{Kim2014, Bassett2010, Pavlovic2014}.
 To test the possibility that gene expression differs between modules (e.g., each module may display a characteristic gene expression that drives high intra-modular coexpression) and thus might drive the increased gene coexpression of hubs, we used the Louvain community detection algorithm to extract modules from the binary C. elegans synaptic connectome, shown in Fig.~\ref{fig:modules}A (using consensus clustering, see \textit{Methods} for details).
-In this analysis, hubs are mostly concentrated in a single module (purple in Fig.~\ref{fig:modules}), but are also distributed across three other modules.
+The community partition that we obtained from this algorithm placed hubs predominantly in a single module (purple in Fig.~\ref{fig:modules}).
+% In this analysis, hubs are mostly concentrated in a single module (purple in Fig.~\ref{fig:modules}), but are also distributed across three other modules.
 % The algorithm detects three comparably sized modules (M1-M3), each containing diverse neuron types, as well as a smaller fourth module (M4), which contains 13 motor neurons.
 % Of the 13 hubs with $k \geq 42$, the majority (11) were assigned to M3, which spanned the length of the worm body, as pictured in Fig.~\ref{fig:modules}.
 The module most concentrated in hubs is diverse, containing neurons across the head, tail, and body and contains sensory, motor, and interneurons (see labels on Fig.~\ref{fig:modules}A).
-This module is particularly concentrated in motor neurons, consistent with evidence that control interneurons are directly responsible for forward and backward locomotion (command interneurons).
+This module is comprised primarily of motor neurons, consistent with evidence that control interneurons are directly responsible for forward and backward locomotion (command interneurons).
 % 10 out of 11 hub neurons in this module are directly responsible for
 % The main goal of this analysis was to compare coexpression within and between modules in order to examine if neurons assigned to the same module are more genetically similar than neurons in other modules.
 Gene coexpression, $r_\phi$, was in fact slightly lower in intra-modular connections relative to inter-modular connections (Fig.~\ref{fig:modules}B, $p = 0.045$, Welch's t-test), but intra-modular connections between hubs were increased relative to other intra-modular connections (Fig.~\ref{fig:modules}C, $p = 1.3\times 10^{-10}$).
@@ -741,6 +746,8 @@ The increased coexpression in connected pairs of hubs in C. elegans can therefor
 % despite most hubs being assigned to the same module.
 % [[NOTE: maybe not worth characterizing modules, just say: coexpression within modules is not higher than coexpression between modules on one sentence and distributions? When hub neurons are excluded, M2 and M3 coexpression is higher than M1, but no difference between M2 and M3]])
 
+[[TODO: this section required more justification. Why would we expect modules to drive hub effect? why is looking at modules in this context interesting? Unclear what the nulls are and how they were generated.]]
+
 % ------------------------------------------------------------------------------
 % <<plot_modules.m>>
 % ------------------------------------------------------------------------------
@@ -748,7 +755,7 @@ The increased coexpression in connected pairs of hubs in C. elegans can therefor
 \centering
     \includegraphics[width=1.2\textwidth]{Modules.eps}
  \caption{
- \textbf{Increased coexpression of hub neurons are not driven by their module membership}
+ \textbf{Increased coexpression of hub neurons is not driven by their module membership}
 %\textbf{A: Connection distance}
 %Top: Degree distribution.
 %Bottom: Median lineage distance for rich, feeder, and peripheral connections as a function of \textit{k}, with the %median across all network links shown as a dashed black line and the topological rich club regime shaded grey.
@@ -772,6 +779,7 @@ The number of connections of each type is shown in parentheses.
 %Top: Median gene coexpression as a function of degree for connections involving different types of neurons.
 %Bottom: The number of connections in each category for a range of degrees.
 %Coexpression distributions for hub and non-hub interneurons. \\
+[[TODO: Add labels for colors in matrix, bigger text]]
 }
  \label{fig:modules}
 \end{figure}
@@ -780,7 +788,7 @@ The number of connections of each type is shown in parentheses.
 Lineage distance between pairs of neurons presents another source of information about the genetic makeup of the \textit{C. elegans} nervous system.
 It has been shown in \textit{C. elegans} that cells with identical fates can be formed by different gene regulatory pathways \citep{Liu2009}, however, to the best of knowledge, no lineage distance analysis was done in relation to the network properties of the \textit{C. elegans} connectome.
 Implementing an analogous strategy as in our previous analysis of gene coexpression, we show that lineage distance between pairs of neurons increases with degree for feeder links while no significant change is observed for rich links (Fig. \ref{Lineage}).
-This finding suggests that the difference in lineage distance between hub and non-hub neurons increases with degree, therefore in a way confirming the relevance of this classification.
+This finding suggests that the difference in lineage distance between hub and non-hub neurons increases with degree, [[therefore in a way confirming the relevance of this classification]][[TODO: Clarify???]].
 Contrary, peripheral links manifest stably lower lineage distance through the range of degree thresholds wit (Fig. \ref{Lineage}).
 In addition, this shows that increase in gene coexpression with degree for rich links can not be attributed to their similarity in lineage.
 
