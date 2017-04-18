@@ -432,21 +432,24 @@ As well as being unable to distinguish relative expression levels between neuron
 % METHODS: gene coexpression
 \subsection*{Gene coexpression}
 As shown in Fig.~\ref{fig:SchematicRepresentation}A, we have a gene expression profile for each neuron that indicates which of 948 genes have been observed to be expressed in that neuron.
-Given the pairwise nature of connectivity patterns, in this work we analyzed patterns of coupled gene expression between pairs of neurons.
+Our primary aim in this work is to understanding how gene expression related to pairwise patterns of connectivity.
+We therefore analyzed patterns of coupled gene expression between pairs of neurons.
 % rather than the presence or absence of gene expression in any single neuron on its own.
-To this end, we computed the similarity in gene expression profiles between a pair of neurons, $(i,j)$, using a binary analogue of the linear Pearson correlation coefficient, the mean square contingency coefficient, $r_\phi$ \cite{Warrens2008},
-\begin{equation}
+To this end, we computed the similarity in gene expression profiles between a pair of neurons, $(i,j)$, using a binary analogue of the linear Pearson correlation coefficient, the mean square contingency coefficient, $r_\phi$ \cite{Warrens2008}, [[AF: replace labeling using $\phi$ because of RC coefficient... But this is standard notation... What instead? Could use $\rho$?]]
+\begin{equation} \label{eq:rphi}
     r_\phi = \frac{n_{11}n_{00} - n_{10}n_{01}}{\sqrt{n_{1\bullet}n_{0\bullet}n_{\bullet 0}n_{\bullet 1}}},
 \end{equation}
-for two vectors $x$, $y$, of length $N$, where $n_{xy}$ count the number of observations of each of the four outcomes (e.g., $n_{10} = \sum_i \delta_{x_i,1}\delta_{y_i,0}$ counts the number of times $x=1$ and $y=0$ across the length of $x$ and $y$), while the symbol $\bullet$ sums across a given variable (e.g., $n_{\bullet 0} = \sum_i \delta_{y_i,0}$ counts the number of times $y = 0$).
-A maximum value $r_\phi = 1$ when $x$ and $y$ are identical such that $n_{11} + n_{00} = N$, and a minimum value $r_\phi = -1$ when $x$ and $y$ are always mismatched such that $n_{10} + n_{01} = N$.
-Note that we also developed a new metric, based on positive matching probabilities, and compared two other binary correlation metrics, Yule's Q coefficient, and the Jaccard index (see supplementary information).
-Due to the sparsity of gene annotations, and the wide range of annotation proportions, we tested for bias in each index across the range of annotation proportions (see supplementary information, Fig.~\ref{fig:S_propOnes}), and selected $r_\phi$, which showed the smallest bias.
-This choice ensures that increases in coexpression are not driven by differences in the number of gene annotations for a given pair of neurons.
+for two vectors $x$, $y$, of length $L$, where $n_{xy}$ count the number of observations of each of the four outcomes (e.g., $n_{10} = \sum_i \delta_{x_i,1}\delta_{y_i,0}$ counts the number of times $x=1$ and $y=0$ across the length of $x$ and $y$), while the symbol $\bullet$ sums across a given variable (e.g., $n_{\bullet 0} = \sum_i \delta_{y_i,0}$ counts the number of times $y = 0$).
+A maximum value $r_\phi = 1$ when $x$ and $y$ are identical such that $n_{11} + n_{00} = L$, and a minimum value $r_\phi = -1$ when $x$ and $y$ are always mismatched such that $n_{10} + n_{01} = L$.
+
+Measures of correlation between binary vectors can be biased the relative proportion of ones between two vectors.
+The gene expression data from WormBase is sparse (in part due to incomplete annotation data), with neurons ranging from between 3 to 138 expressed genes (from a total of 948 genes).
+To ensure that our measure of gene coexpression between neurons was not biased by differences in the relative proportions of expression annotations, we conducted a sensitivity analysis in which we compared $r_\phi$ metric (Eq.~\ref{eq:rphi}), with two other binary correlation metrics, Yule's Q coefficient, and the Jaccard index, as well as a new metric developed here, based on positive matching probabilities (described in Supplementary Information).
+The only metric that did not show a systematic bias on random binary vectors as a function of the proportion of ones was $r_\phi$ (see Fig.~\ref{fig:S_propOnes}), which was therefore used as a coexpression metric in this work, ensuring that increases in coexpression are driven by relative similarity in expression patterns, and not simply by differences in the number of gene annotations for a given pair of neurons.
 
 Previous work has emphasized the importance of spatial effects in driving patterns of gene expression, whereby proximal brain areas typically exhibit more similar gene expression patterns \citep{Pantazatos:2016ir, Krienen2016, Fulcher:2016ck}.
 Given that connection probability depends on spatial separation in mammalian brains \cite{Henderson:2014fg, Horvat:2016ia, Wang:2016gg, Markov:2013jo}, and in \emph{C. elegans} \cite{Azulay:2016cg} (cf. Fig.~\ref{fig:S_connProbability}A,B), it is important to correct for spatial effects to ensure that relationships between gene expression and connectivity are not simply the result of both properties showing spatial autocorrelation.
-We found a decreasing relationship between the separation distance of neuron pairs and gene coexpression, $r_\phi$ for the spatially close networks of neurons within the head and within the tail of C. elegans (Fig.~\ref{fig:S_distCoexp}A,B), but not for pairs of neurons involving the body (Fig.~\ref{fig:S_distCoexp}C) [[add some interpretation in terms of the function of body neurons as potentially distinct from those in the head and tail]].
+We found a decreasing relationship between the separation distance of neuron pairs and gene coexpression, $r_\phi$ for the spatially close networks of neurons within the head and within the tail of \emph{C. elegans} (Fig.~\ref{fig:S_distCoexp}A,B), but not for pairs of neurons involving the body (Fig.~\ref{fig:S_distCoexp}C) [[add some interpretation in terms of the function of body neurons as potentially distinct from those in the head and tail]].
 This result, using sparsely-annotated binary expression data in a highly specialized neuronal nervous system, mirrors that found in the bulk regions of macroscopic mammalian brains of mouse \cite{Fulcher:2016ck} and human \cite{Krienen:2016eq}.
 The result was not isolated to just a single class of connections within the head, with an approximately exponential relationship was evident for pairs of interneurons, pairs of sensory neurons, pairs of motor neurons, and motor-interneuron pairs (Fig.~\ref{fig:S_distCoexp}).
 Although an exponential form fits the mean coexpression as a function of separation distance well, correcting at the level of individual pairs of neurons relationship is not symmetric about the trend line such that correcting as residuals (as \citet{Fulcher:2016ck}) leave artifacts.
@@ -455,12 +458,12 @@ Future data that allow more accurate and continuous measurement of gene coexpres
 % However, because we found no correlation between Euclidean distance between a pair of neurons (based on their two-dimensional coordinates) and their gene coexpression in the C. elegans nervous system (Fig.~\ref{fig:S_distDep}), no correction was necessary here.
 % In \textit{C. elegans}, we found a semi-exponential relationship between connection probability and Euclidean separation distance (based on their two dimensional coordinates) between a pair of neurons, but no correlation between the Euclidean separation distance between a pair of neurons and their gene coexpression, $r_\phi$.
 
-A total of 92 anatomically distinct neuron classes in the hermaphrodite C. elegans have a bilateral representation, meaning that each of those neuron classes have both left and right counterparts (e.g., AVAL/AVAR).
+A total of 92 anatomically distinct neuron classes in the hermaphrodite \emph{C. elegans} have a bilateral representation, meaning that each of those neuron classes have both left and right counterparts (e.g., AVAL/AVAR).
 These neurons exhibit highly correlated gene expression patterns, with a mean coexpression value $\langle r_\phi^{\mathrm{intraclass}} \rangle = 0.98 (SD\pm0.0.25)$.
 [[CODE used - testLeftRightCoexpression.m. Distribution for these links is not normal. Median is 1;]]
 To ensure that our analyses are not influenced by this symmetry, we excluded coexpression values within neuron classes from all analyses reported here.
 
-% METHODS: gene enrichment
+
 \subsection*{Gene enrichment analysis}
 To interpret differences in gene coexpression between different types of node pairs, we used enrichment analysis to identify functionally annotated groups of genes from the Gene Ontology (GO) \cite{Ashburner2000}.
 %  that contribute to the increased coexpression between:
