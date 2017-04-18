@@ -550,13 +550,18 @@ Neurons have been ordered by their position, from head (upper) to tail (lower).
 %%
 \subsection*{Hub connectivity in the C. elegans connectome}
 %% INTRODUCE RICH CLUB  hene and focus on the difference between rich/feeder/peripheral links below
-
+[[TODO: AF: Shorten section, focusing on reproducing Towlson]]
 % \paragraph{Rich club organization of the connectome}
 
 % <<hubs>>
 First, we analyze the topological properties of the C. elegans connectome, represented here as a directed, binary connectivity matrix of the 1961 chemical synapses between 279 non-pharingeal neurons \cite{Varshney2011}, focusing particularly on hub connectivity.
-The degree distribution of the C. elegans chemical connectome is shown in Fig.~\ref{fig:topology_rich}A, where neurons have been distinguish according to type: 68 sensory neurons, 85 interneurons, 108 motor neurons, and 18 neurons that have multiple annotations. 
-Consistent with previous work [[]], we see a positively-skewed degree distribution containing an extended tail of high-degree hubs, the majority of which are interneurons [[characterized in previous work as control INs]].
+The degree distribution of the C. elegans chemical connectome is shown in Fig.~\ref{fig:topology_rich}A, where neurons have been distinguish according to type: 68 sensory neurons, 85 interneurons, 108 motor neurons, and 18 multimodal neurons.
+Consistent with previous work \cite{Towlson:2013gf}, we see a positively-skewed degree distribution containing an extended tail of high-degree hubs, the majority of which are interneurons [[characterized in previous work as control INs]].
+
+% Here we confirm the high connectivity, centrality and wiring cost of hub connections in the C elegans connectome, as previoulsy shown by Towlson et al () and as also found in the macaue (Harriger) and human (van den Huevel-PNAS) brains.
+% We show RC organization... and show hubs are interneurions...
+% We show cost and centrality (may be worth including a curve for betweenness)
+
 
 % ------------------------------------------------------------------------------
 % <<TopologyFigures.m>>
@@ -572,13 +577,15 @@ Consistent with previous work [[]], we see a positively-skewed degree distributi
 (ii) sensory (68 neurons, blue),
 (iii) motor (108 neurons, green), or
 (iv) multiple assignments (18 neurons, yellow).
-An extended tail of high-degree neurons can be seen, which are mostly interneurons.
+An extended tail containing neurons with relatively high degree is evident in the distribution.
+Most of these neurons are interneurons.
 \textbf{B}
 Normalized rich club coefficient, $\Phi_\mathrm{norm}$ (red), as a function of the degree, $k$, at which hubs are defined (as neurons with degree $>k$).
 Also shown is the mean Euclidean separation distance (yellow) between connected hub regions (across degree thresholds, $k$).
 $\Phi_\mathrm{norm} > 1$ indicates that hubs are more densely interconnected among each other than expected by chance, with red circles indicate values of $\Phi_\mathrm{norm}$ that are significantly higher than an ensemble of 1\,000 degree-matched null networks ($P < 0.05$).
 Yellow circles indicate where the Euclidean distance between connected pairs of hubs is significantly greater than the Euclidean distance for all other pairs of connected regions (Welch's $t$-test, $P < 0.05$).
-[[TODO: Avoid yellow to mean two different things within the same plot (either change distance or the multiple assignment color), Add right-side vertical-axis to give units for distance.]]
+[[TODO: Avoid yellow to mean two different things within the same plot (either change distance or the multiple assignment color) AF: yeah use light blue, cyan or magenta/violet instead of yellow. Also suggest replacing red with one of these, since red is used in coexpression plot to represent something different.]]
+[[TODO: Add right-side vertical-axis to give units for distance.]]
 }
  \label{fig:topology_rich}
  \end{figure}
@@ -592,16 +599,17 @@ We quantified the extend to which hubs are densely interconnected by computing t
 The variation in $\Phi_\mathrm{norm}$ across a range of thresholds, $k$ (at which hubs are defined, as neurons with degree $>k$), is shown in Fig.~\ref{fig:topology_rich}B, with red circles indicating a significant increase in link density among hubs relatively to 1\,000 degree-preserving nulls (permutation test, $P < 0.05$) [[check whether randmio\_dir only preserves degree]].
 The plot reveals rich-club organization at the upper tail of the degree distribution, particularly for thresholds $41 < k < 58$, referred to here as the `topological rich-club regime', shaded gray in Fig.~\ref{fig:topology_rich}B.
 % This indicates that when nodes are defined as hubs (degree $>\textit{k}$) in this range, they are more densely interconnected than expected by chance.
-Most of the analyses performed here compare variation as a function of the hub threshold, $k$, but for analyses requiring a fixed hub definition, we define hubs as the 13 neurons with $k > 41$ [[TODO: compare to Towlson]].
+Most of the analyses presented below examine how different topological and genomic properties vary as a function of the hub threshold, $k$, but for analyses requiring a fixed hub definition, we define hubs as the 13 neurons with $k > 41$ [[TODO: compare to Towlson]].
 % Rich club in the chemical synapse network consists of 13 high degree neurons with degree $42 \leq k \leq 98$.
 
-[[maybe include a list with degrees and definitions in SUPP (like in Towlson's paper?). Are our hubs similar of different? Why? SIMILAR, but different degree as we use a slightly different connectome).]]
+[[TODO: maybe include a list with degrees and definitions in SUPP (like in Towlson's paper?). Are our hubs similar of different? Why? SIMILAR, but different degree as we use a slightly different connectome).]]
+[[TODO: AF: Also note whether RC curve same or different to Towlson.]]
 
 % ------------------------------------------------------------------------------
 % <<distance, geometric effects>>
 % ------------------------------------------------------------------------------
-Recent work has shown that many aspects of connectome organization can be partially accounted for by geometric effects, that treat the connectome not just as an abstracted graph topology, but as a spatially-embedded object \cite{Henderson:2014fg, Roberts2016, Horvat:2016ia}.
-Unlike network analyses of brains, where all neurons are confined to a single, spatially contiguous organ, here we analyze connections across the entire nervous system of C. elegans, which contains interneurons, sensory neurons, and motor neurons across spatially distinct areas, from a dense cluster of 147 neurons in the head (all within 130\,$\mu m$), 105 sparser, mostly motor neurons (75\%) in the body (spanning 1.02\,mm), and a relatively dense cluster of 27 neurons in the tail (all within 90\,$\mu$m of each other), see Fig.~\ref{fig:S_neuronsSpace} for a plot of all neurons in space.
+Recent work has shown that many aspects of connectome organization can be partially accounted for by geometric effects, by treating the connectome as a spatially-embedded object \cite{Henderson:2014fg, Roberts2016, Horvat:2016ia}.
+Unlike network analyses of brains, where all neurons are confined to a single, spatially contiguous organ, neurons of the C elegans nervous system are distributed throughout the entire organism, forming a dense cluster of 147 neurons in the head (all within 130\,$\mu m$), 105 sparser, mostly motor neurons (75\%) in the body (spanning 1.02\,mm), and a relatively dense cluster of 27 neurons in the tail (all within 90\,$\mu$m of each other), see Fig.~\ref{fig:S_neuronsSpace} for a plot of all neurons in space.
 % <<cf. NeuronTypeStats.m to run these numbers>>
 In Fig.~\ref{fig:topology_rich}B, we plot the mean distance between all pairs of connected hubs at each degree threshold, $k$, finding an increase in mean hub-hub connection distance with $k$, through to the extent of the topological rich-club regime.
 This can be attributed to a relative increase in long-distance hub-hub connections between the head and tail (Fig.~\ref{fig:S_connProbability}C).
@@ -616,12 +624,11 @@ Taken together, our results demonstrate that hub-hub connections in C. elegans a
 
 % ---connectivity/coexpression---
 Having characterized the topological and geometric properties of connectivity, in particular the rich-club organization of hub neurons, we next investigate how connectivity properties relate to patterns of neuronal gene expression.
-Being a pairwise analysis, we compare pairwise synaptic connectivity to pairwise similarity in gene expression (using a binary Pearson correlation measure, $r_\phi$, to define gene coexpression, and excluding coexpression values between homologous left/right neuron pairs, see Methods).
+Being a pairwise analysis, we compare pairwise synaptic connectivity to pairwise similarity in gene expression using the mean square contingency coefficient, $r_\phi$ (see Methods).
+% , to define gene coexpression, and excluding coexpression values between homologous left/right neuron pairs, see Methods).
 
-We first investigated whether gene coexpression relates to synaptic connectivity by comparing the distribution of $r_\phi$ computed for all connected pairs of neurons, and for all unconnected pairs of neurons, as shown in Fig.~\ref{fig:coExp}A.
-We find that connected pairs of neurons have more similar expression profiles than unconnected pairs (Wilcoxon rank-sum test, $P < 10^{-50}$).
-Using directed connectivity information to split connections into unidirectional ($X \rightarrow Y$) and reciprocal ($X \leftrightarrow Y$) subtypes, we found no difference in coexpression as a function of connection reciprocity, but both groups showed an increase in coexpression relative to unconnected pairs of neurons (see Fig.~\ref{fig:S3_Fig} ).
-
+We first investigate whether gene coexpression relates to synaptic connectivity by comparing the distribution of $r_\phi$ computed for all connected pairs of neurons, and for all unconnected pairs of neurons, shown in Fig.~\ref{fig:coExp}A.
+We find that connected pairs of neurons have more similar expression profiles than unconnected pairs (Wilcoxon rank-sum test, $P < 10^{-50}$), with no difference between unidirectional ($X \rightarrow Y$) and reciprocal ($X \leftrightarrow Y$) connections (see Fig.~\ref{fig:S3_Fig}).
 
 % ------------------------------------------------------------------------------
 % <<coexpConnUncon.m>>
