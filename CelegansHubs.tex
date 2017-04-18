@@ -315,7 +315,7 @@ We sought to determine whether hubs in the \emph{C. elegans} connectome exhibit 
 % METHODS SECTION
 \section*{Materials and methods}
 
-Neurons making up the nervous system of the nematode worm \emph{C. elegans} can be divided into groups, commonly as: sensory neurons (support receptive function), motor neurons (cells containing neuromuscular junctions), interneurons (all other neurons) and polymodal neurons (performing more than one type of circuit function) \cite{White:1986tx}.
+Neurons making up the nervous system of the nematode worm \emph{C. elegans} can be divided into groups, commonly as: sensory neurons (support receptive function), motor neurons (cells containing neuromuscular junctions), interneurons (all other neurons), and polymodal neurons (performing more than one type of circuit function) \cite{White:1986tx}.
 
 % For figure citations, please use "Fig" instead of "Figure".
 \begin{itemize}
@@ -356,6 +356,7 @@ Neurons were also assigned labels based on their anatomical location, as:
 (i) `head', (ii) `tail', or (iii) `body'.
 Both of these assignments were achieved using the hierarchy defined in WormBase \cite{Harris:2009kd}, which we retrieved using the WormBase API and propagated each term down the hierarchy to label individual neurons.
 % (and other child terms of `neuron', WB:0003679)
+% RetreiveHierarchy.py, NeuronRegionFinder.m
 Note that some head neurons (12: ALA, AVFL, AVFR, AVG, RIFL, RIFR, RIGL, RIGR, SABD, SABVL, SABVR, SMDVL) were not labeled as head in this file, and were thus manually corrected by matching the assignment against the annotations provided in the http://www.wormatlas.org/ website.
 % [[TODO: how and where from hierarchy file was downloaded?]]% RetreiveHierarchy.py, NeuronRegionFinder.m
 The neurotransmitter systems used by each neuron was labeled by matching to data in Table 2 of Pereira et al. \cite{Pereira:2015er}.
@@ -380,7 +381,7 @@ At a given degree threshold, $k$, neurons were classified as either `hub' (degre
 All edges could subsequently be classified as either `rich' (hub $\rightarrow$ hub), `feed-in' (non-hub $\rightarrow$ hub), `feed-out' (hub $\rightarrow$ non-hub), or `peripheral' (non-hub $\rightarrow$ non-hub).
 % For simplicity, hub $\rightarrow$ non-hub and non-hub $\rightarrow$ hub connections were grouped as a single `feeder' category for simplicity.
 
-\paragraph{Rich-club organization}
+% \paragraph{Rich-club organization}
 To measure whether hubs are densely interconnected, we used the rich-club coefficient, $\phi(k)$ \cite{Colizza:2006kz}:
 \begin{equation}
     \label{eqn:rich_club}
@@ -401,7 +402,7 @@ $\Phi_\mathrm{norm} > 1$ indicates the rich-club organization of the network, wi
 %The phenomenon of the rich-club organisation in \textit{C. elegans} connectome was originally demonstrated by Towlson et al. \cite{Towlson2013} in an undirected binary version of the connectome where data for both chemical and electrical synapses were combined.
 %As a result, a small number of high degree nodes forming a rich club was identified.
 
-\paragraph{Modularity}
+% \paragraph{Modularity}
 Modular structure of the connectome was determined applying Louvain community detection algorithm using a standard practice, implemented in Brain Connectivity Toolbox \cite{Rubinov2010}.
 To identify the optimal modular assignment, the algorithm was repeated 10\,000 times resulting in a thousand community affiliation vectors.
 Then, we calculated the agreement matrix using modularity index of each run as a weight.
@@ -424,11 +425,9 @@ The main analyses presented here are of expression data that is annotated direct
 The resulting binary expression data for 279 neurons and 948 genes is shown as a matrix in Fig.~\ref{fig:SchematicRepresentation}A.
 An average of 30 genes are expressed in each neuron (range: 3 to 138 genes); each gene is expressed in an average of 9 neurons (range: 1 to 148 neurons).
 
-As well as being unable to distinguish relative expression levels between neurons, we also cannot distinguish between the following two cases: (i) ``gene is not expressed'' and (ii) ``there is no information on whether gene is expressed'', which are both represented as a ``0'' in the expression data at hand.
+As well as being unable to distinguish relative expression levels between neurons, we also cannot distinguish between the following two cases: (i) ``gene is not expressed'' and (ii) ``there is no information on whether gene is expressed'', which are both represented as a ``0'' in the expression data used here.
 
 % Could add information about indirect annotations
-Gene expression was assigned to neurons based on anatomical hierarchy obtained from...
-[[TODO BEN: PROBABLY SHOULD ADD INFORMATION ABOUT HIERARCHY FILE HERE as it's also from the Wormbase (how/when downloaded/what queries were used]]
 
 % METHODS: gene coexpression
 \subsection*{Gene coexpression}
