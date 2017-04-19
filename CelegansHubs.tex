@@ -497,7 +497,7 @@ A total of 577 genes out of 948 satisfied this criterion for connected/unconnect
 % Otherwise, no information about the contribution of a specific gene to the overall coexpression pattern could be extracted.
 % \textbf{(NOTE: not literally true as both on and off matches equally contribute to an increase in coexpression, - need to find a way how to explain, why non-expression matches are not taken into account here).}
 
-For a given enrichment analysis, after computing a probability score for each genes using Eq.~\eqref{eq:CBinomialProbability}, we then took negative logarithms of the probability scores, $\log_{10}\nu^{(a)}$, and used them to perform gene score resampling (GSR) analysis using version 3.0.2 of \emph{ErmineJ} software \cite{Gillis2010} for biological process, molecular funcion and cellular components separately using Gene Ontology (GO) annotations \cite{Ashburner2000} obtained from GEMMA \cite{Zoubarev2012} (\texttt{Generic\_worm\_noParents.an.txt.gz} downloaded on March 31, 2017).
+For a given enrichment analysis, after computing a probability score for each genes using Eq.~\eqref{eq:CBinomialProbability}, we then took negative logarithms of the probability scores, $\log_{10}\nu^{(a)}$, and used them to perform gene score resampling (GSR) analysis using version 3.0.2 of \emph{ErmineJ} software \cite{Gillis2010} for biological process, molecular function and cellular components separately using Gene Ontology (GO) annotations \cite{Ashburner2000} obtained from GEMMA \cite{Zoubarev2012} (\texttt{Generic\_worm\_noParents.an.txt.gz} downloaded on March 31, 2017).
 % downloaded using a build-in option within ErmineJ software
 Rather than setting an arbitrary threshold on the score, this analysis allows us to use the continuous log-transformed probability scores, and compute the probability that the mean score in each GO group is larger than expected from a random assignment of scores to the genes in the list.
 Gene Ontology terms and definitions were obtained in RDF XML file format downloaded from \url{archive.geneontology.org/latest-termdb/go_daily-termdb.rdf-xml.gz} on March 31 2017.
@@ -546,12 +546,12 @@ Neurons have been ordered by their position, from head (upper) to tail (lower).
 %%
 \subsection*{Hub connectivity in the C. elegans connectome}
 %% INTRODUCE RICH CLUB  hene and focus on the difference between rich/feeder/peripheral links below
-[[TODO: AF: Shorten section, focusing on reproducing Towlson]]
+[[TODO: Shorten section, focusing on reproducing Towlson]]
 % \paragraph{Rich club organization of the connectome}
 
 % <<hubs>>
-First, we analyze the topological properties of the C. elegans connectome, represented here as a directed, binary connectivity matrix of the 1961 chemical synapses between 279 non-pharingeal neurons \cite{Varshney2011}, focusing particularly on hub connectivity.
-The degree distribution of the C. elegans chemical connectome is shown in Fig.~\ref{fig:topology_rich}A, where neurons have been distinguish according to type: 68 sensory neurons, 85 interneurons, 108 motor neurons, and 18 multimodal neurons.
+First, we analyze the topological properties of the \emph{C. elegans} connectome, represented here as a directed, binary connectivity matrix of the 1961 chemical synapses between 279 non-pharingeal neurons \cite{Varshney2011}, focusing particularly on hub connectivity.
+The degree distribution of the \emph{C. elegans} synaptic connectome is shown in Fig.~\ref{fig:topology_rich}A, where neurons have been distinguish according to type: 68 sensory neurons, 85 interneurons, 108 motor neurons, and 18 multimodal neurons.
 Consistent with previous work \cite{Towlson:2013gf}, we see a positively-skewed degree distribution containing an extended tail of high-degree hubs, the majority of which are interneurons [[characterized in previous work as control INs]].
 
 % Here we confirm the high connectivity, centrality and wiring cost of hub connections in the C elegans connectome, as previoulsy shown by Towlson et al () and as also found in the macaue (Harriger) and human (van den Huevel-PNAS) brains.
@@ -605,12 +605,12 @@ Most of the analyses presented below examine how different topological and genom
 % <<distance, geometric effects>>
 % ------------------------------------------------------------------------------
 Recent work has shown that many aspects of connectome organization can be partially accounted for by geometric effects, by treating the connectome as a spatially-embedded object \cite{Henderson:2014fg, Roberts2016, Horvat:2016ia}.
-Unlike network analyses of brains, where all neurons are confined to a single, spatially contiguous organ, neurons of the C elegans nervous system are distributed throughout the entire organism, forming a dense cluster of 147 neurons in the head (all within 130\,$\mu m$), 105 sparser, mostly motor neurons (75\%) in the body (spanning 1.02\,mm), and a relatively dense cluster of 27 neurons in the tail (all within 90\,$\mu$m of each other), see Fig.~\ref{fig:S_neuronsSpace} for a plot of all neurons in space.
+Unlike network analyses of brains, where all neurons are confined to a single, spatially contiguous organ, neurons of the \emph{C. elegans} nervous system are distributed throughout the entire organism, forming a dense cluster of 147 neurons in the head (all within 130\,$\mu m$), 105 sparser, mostly motor neurons (75\%) in the body (spanning 1.02\,mm), and a relatively dense cluster of 27 neurons in the tail (all within 90\,$\mu$m of each other), see Fig.~\ref{fig:S_neuronsSpace} for a plot of all neurons in space.
 % <<cf. NeuronTypeStats.m to run these numbers>>
 In Fig.~\ref{fig:topology_rich}B, we plot the mean distance between all pairs of connected hubs at each degree threshold, $k$, finding an increase in mean hub-hub connection distance with $k$, through to the extent of the topological rich-club regime.
 This can be attributed to a relative increase in long-distance hub-hub connections between the head and tail (Fig.~\ref{fig:S_connProbability}C).
-Despite an increase in hub-hub connection density across longer distances, connection probability decreases with distance in C. elegans for connections within the head, body, and tail, and between the head and tail (see Figs.~\ref{fig:S_connProbability}A,B), mirroring recent results of mesoscale mammalian brains, in mouse \cite{Goulas:2016hr, Fulcher:2016ck}, and other rodents and primates \cite{Horvat:2016ia}.
-Taken together, our results demonstrate that hub-hub connections in C. elegans are dense, and extend over significantly longer distances than other types of connections in the synaptic connectome, consistent with the idea of the rich club as a costly but central backbone for neuronal communication \cite{vandenHeuvel:2012kh}.
+Despite an increase in hub-hub connection density across longer distances, connection probability decreases with distance in \emph{C. elegans} for connections within the head, body, and tail, and between the head and tail (see Figs.~\ref{fig:S_connProbability}A,B), mirroring recent results of mesoscale mammalian brains, in mouse \cite{Goulas:2016hr, Fulcher:2016ck}, and other rodents and primates \cite{Horvat:2016ia}.
+Taken together, our results demonstrate that hub-hub connections in \emph{C. elegans} are dense, and extend over significantly longer distances than other types of connections in the synaptic connectome, consistent with the idea of the rich club as a costly but central backbone for neuronal communication \cite{vandenHeuvel:2012kh}.
 
 % In connectomes across species and scales, degree is distributed unequally, with a small number of highly connected brain regions, known as hubs \cite{Sporns:2007ea}, that are themselves more densely connected between themselves, forming a so-called `rich club' \cite{deReus:2013cy, ZamoraLopez:2010hy, Shih:2015cu, vandenHeuvel:2012kh, vandenHeuvel:2011he}.
 % The same is true in the C. elegans neuronal nervous system, analyzed in the past as an undirected binary connectome including both chemical and electrical synapses \cite{Towlson:2013gf}, which exhibits highly connected, and densely interconnected hub neurons.
@@ -620,7 +620,7 @@ Taken together, our results demonstrate that hub-hub connections in C. elegans a
 
 % ---connectivity/coexpression---
 Having characterized the topological and geometric properties of connectivity, in particular the rich-club organization of hub neurons, we next investigate how connectivity properties relate to patterns of neuronal gene expression.
-Being a pairwise analysis, we compare pairwise synaptic connectivity to pairwise similarity in gene expression using the mean square contingency coefficient, $r_\phi$ (see Methods).
+Being a pairwise analysis, we compare pairwise synaptic connectivity to pairwise similarity in gene expression using the mean square contingency coefficient, $r_\phi$ (see \emph{Methods}).
 % , to define gene coexpression, and excluding coexpression values between homologous left/right neuron pairs, see Methods).
 
 We first investigate whether gene coexpression relates to synaptic connectivity by comparing the distribution of $r_\phi$ computed for all connected pairs of neurons, and for all unconnected pairs of neurons, shown in Fig.~\ref{fig:coExp}A.
