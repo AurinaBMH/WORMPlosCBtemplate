@@ -729,24 +729,27 @@ Having demonstrated that gene coexpression is elevated for connected regions, an
  %\end{figure}
 
 We first consider the modular organization of the C. elegans connectome.
-Like many other connectomes, the C. elegans nervous system contains densely connected groups of neurons that are relatively sparsely connected to other neurons \cite{Kim2014, Bassett2010, Pavlovic2014}.
-To test the possibility that gene expression differs between modules (e.g., each module may display a characteristic gene expression that drives high intra-modular coexpression) and thus might drive the increased gene coexpression of hubs, we used the Louvain community detection algorithm to extract modules from the binary C. elegans synaptic connectome, shown in Fig.~\ref{fig:modules}A (using consensus clustering, see \textit{Methods} for details).
-The community partition that we obtained from this algorithm placed hubs predominantly in a single module (purple in Fig.~\ref{fig:modules}).
+Like many other connectomes, the C. elegans nervous system contains modules, groups of neurons that are densely interconnected \cite{Kim2014, Bassett2010}, and modules can also be found of similarly connected neurons that correspond to specific functional circuits \cite{Achacoso:1992ay, Pavlovic2014}.
+Given the more uniform functional role assumed of neurons within a module (and hence characteristic gene expression), we test the possibility that hubs belonging to the same module (which carries a characteristic gene expression profile) may drive the increased gene coexpression of hub-hub connections characterized above.
+ and thus might drive the increased gene coexpression of hubs, we used the Louvain community detection algorithm to extract modules from the binary \emph{C. elegans} synaptic connectome (using consensus clustering, see \textit{Methods}).
+The four resulting modules are shown in Fig.~\ref{fig:modules}A, in which hubs are predominantly placed in a single module (labeled green in the module indicator column), that contained sensory, motor, and interneurons spanning the head, tail, and body (see other indicator columns in Fig.~\ref{fig:modules}A).
 % In this analysis, hubs are mostly concentrated in a single module (purple in Fig.~\ref{fig:modules}), but are also distributed across three other modules.
 % The algorithm detects three comparably sized modules (M1-M3), each containing diverse neuron types, as well as a smaller fourth module (M4), which contains 13 motor neurons.
 % Of the 13 hubs with $k \geq 42$, the majority (11) were assigned to M3, which spanned the length of the worm body, as pictured in Fig.~\ref{fig:modules}.
-The module most concentrated in hubs is diverse, containing neurons across the head, tail, and body and contains sensory, motor, and interneurons (see labels on Fig.~\ref{fig:modules}A).
-This module is comprised primarily of motor neurons, consistent with evidence that control interneurons are directly responsible for forward and backward locomotion (command interneurons).
+% As evident from the column labels to the left of the matrix, the hub-concentrated module is diverse, containing neurons across the head, tail, and body, as well as sensory, motor, and interneurons (see labels on Fig.~\ref{fig:modules}A).
+% This module is comprised primarily of motor neurons, consistent with evidence that control interneurons are directly responsible for forward and backward locomotion (command interneurons).
 % 10 out of 11 hub neurons in this module are directly responsible for
 % The main goal of this analysis was to compare coexpression within and between modules in order to examine if neurons assigned to the same module are more genetically similar than neurons in other modules.
-Gene coexpression, $r_\phi$, was in fact slightly lower in intra-modular connections relative to inter-modular connections (Fig.~\ref{fig:modules}B, $p = 0.045$, Welch's t-test), but intra-modular connections between hubs were increased relative to other intra-modular connections (Fig.~\ref{fig:modules}C, $p = 1.3\times 10^{-10}$).
+The expectation that gene coexpression, $r_\phi$, was increased within modules was not corroborated by the data.
+In fact, gene coexpression was slightly lower for connections within modules than for connections between modules (Fig.~\ref{fig:modules}B, $p = 0.045$, Welch's $t$-test).
+Accordingly, looking within modules, we still found a significant increase in coexpression for hub-hub connections, with intra-modular connections between hubs were increased relative to other intra-modular connections (Welch's $t$-test, $p = 1.3\times 10^{-10}$).
 We also computed an empirical null distribution for the mean coexpression for hub-hub links, given they span 34 intra-modular links and 32 inter-modular links; 1\,000 samples from such an intra/intermodular link distribution gives a null $r_\phi$ of $0.15 \pm 0.02$, compared to the observed value of $0.51$ ($p < 10^{-16}$).
 % Coexpression within modules did not exceed coexpression between modules, demonstrating that neurons that belong to the same module do not share any particular genetic similarity.
-The increased coexpression in connected pairs of hubs in C. elegans can therefore not be attributed to the modular organization of the connectome.
+% The increased coexpression in connected pairs of hubs in \emph{C. elegans} can therefore not be attributed to the modular organization of the connectome.
 % despite most hubs being assigned to the same module.
 % [[NOTE: maybe not worth characterizing modules, just say: coexpression within modules is not higher than coexpression between modules on one sentence and distributions? When hub neurons are excluded, M2 and M3 coexpression is higher than M1, but no difference between M2 and M3]])
 
-[[TODO: this section required more justification. Why would we expect modules to drive hub effect? why is looking at modules in this context interesting? Unclear what the nulls are and how they were generated.]]
+% [[TODO: this section required more justification. Why would we expect modules to drive hub effect? why is looking at modules in this context interesting? Unclear what the nulls are and how they were generated.]]
 
 % ------------------------------------------------------------------------------
 % <<plot_modules.m>>
@@ -1192,8 +1195,8 @@ All pairs of horizontal and vertical axes are in scale with each other.
 \centering
     \includegraphics[width=1\textwidth]{Distributions.pdf}
     \caption{
-\textbf{Left}: Distribution of transcriptional similarity between reciprocally connected (219 pairs), unidirectionally connected (1721) and  and unconnected (36749 pairs) pairs of neurons as a violin plot, with the median of each distribution shown as a horizontal line.
-Connections between symmertical (left/right) pairs of neurons are excluded from the analysis. Coexpression values for 
+\textbf{Left}: Distribution of transcriptional similarity between reciprocally connected (219 pairs), unidirectionally connected (1721) and  and unconnected (36\,749 pairs) pairs of neurons as a violin plot, with the median of each distribution shown as a horizontal line.
+Connections between symmetrical (left/right) pairs of neurons are excluded from the analysis. Coexpression values for 
 Coexpression, $r_\phi$ is increased in connected (reciprocally and unidirectionally) pairs of neurons ($P < 10^{-50}$, Wilcoxon rank sum test)
 \textbf{Right}: Distribution of transcriptional similarity for rich, feed-in, feed-out and peripheral links, where hubs are neurons with degree $k>41$.
 [[TODO-AA:color inside of the distributions, change y axis to Gene coexpression, $r_\phi$, change $k>42$ to $k>41$.
@@ -1217,9 +1220,10 @@ Add $p$ values on the plot (sure, where significant)
 (iv) multimodal (18 neurons, yellow).
 An extended tail of high-degree neurons can be seen, which are mostly interneurons.
 \textbf{B}
-Normalized weighted (topology fixed and weights randomised in the null model - orange) $\Phi_\mathrm{normWeighted}$ and mixed (both topology and weights mixed in the null model - green) $\Phi_\mathrm{normMixed}$ rich club coefficient as a function of the degree, $k$, at which hubs are defined (as neurons with degree $>k$).
+Normalized weighted (topology fixed and weights randomized in the null model - orange) $\Phi_\mathrm{normWeighted}$ and mixed (both topology and weights mixed in the null model - green) $\Phi_\mathrm{normMixed}$ rich club coefficient as a function of the degree, $k$, at which hubs are defined (as neurons with degree $>k$).
 Circles indicate values of $\Phi_\mathrm{norm}$ that are significantly higher than an ensemble of 1\,000 degree-matched null networks ($P < 0.05$).
-(Welch's $t$-test, $P < 0.05$).}
+(Welch's $t$-test, $P < 0.05$).
+}
 \end{figure}
 
 % <<RichClub.m>>
