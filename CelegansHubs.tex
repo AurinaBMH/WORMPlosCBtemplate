@@ -812,13 +812,13 @@ Next, we examined differences between connections in terms of their relationship
 As well as glutamate signaling, we also found a broader range of functional categories, involving  ion channel activity, transmembrane transporters and synaptic cell components (see Table~\ref{tab:hub_enrichment}).
 
 Although 11 out of the 13 hubs ($k > 41$) are cholinergic, and the remaining two use glutamate (Fig.~\ref{fig:S_feedInOutNodes}C), we found enrichment in glutamate signaling in comparing connections involving hubs to those between nonhubs.
- % with ACh being the most broadly used neurotransmitter in general \cite{Pereira:2015er}
+% with ACh being the most broadly used neurotransmitter in general \cite{Pereira:2015er}
 % It is worth noting that although both analyses above highlighted enrichment of glutamate, even though acetylcholine (ACh) is the most broadly used neurotransmitter in \textit{C. elegans} \cite{Pereira:2015er}, and most hubs ($k > 41$) are cholinergic (Fig.~\ref{fig:S_feedInOutNodes}C).
 Looking closer at the neurotransmitters used by each neuron, we found that nonhub neurons that project to hubs (but do not receive projections back) are mostly sensory or interneurons (82\%), with the most common neurotransmitter being glutamate (41\%), whereas neurons that receive inputs from hubs (but do not project to hubs) are mostly motor neurons (84\%) and are cholinergic (93\%), as shown in Fig.~\ref{fig:S_feedInOutNodes}A,C.
-Thus, although hubs are themselves cholinergic
-This may explain the overrepresentation of glutamate receptor related categories that we find in the enrichment analysis.
-Overall, event with a very limited gene data, we are able to demonstrate that genes that are more likely to be expressed in pairs of connected as well as hub-related neurons are indeed involved in neuron signaling and communication. 
-
+Thus, although hubs are themselves mostly cholinergic, they receive inputs from glutamatergic neurons, which may explain their over-representation in two biological processes related to glutamate receptors: ionotropic glutamate receptor signaling pathway (GO:0035235) and glutamate receptor signaling pathway (GO:0007215).
+[[TODO-AA: Still kind of surprising we don't get cholinergic, since ACh is still the dominant neurotransmitter for connections involving hubs. Can you look at cholinergic categories -- do we even have gene coverage to get power to find them??]]
+% This may explain the overrepresentation of glutamate receptor related categories that we find in the enrichment analysis.
+Thus, despite minimal gene coverage, we developed a new method that was able to find interpretable patterns in the existing binary expression data for \emph{C. elegans}, providing clues as to function of genes that may drive molecular differences between topologically different pairs of neurons.
 
 %\begin{figure}[h]
 %\centering
@@ -1191,9 +1191,16 @@ All pairs of horizontal and vertical axes are in scale with each other.
 \label{S3_Fig}
 \centering
     \includegraphics[width=1\textwidth]{Distributions.pdf}
-    \caption{\textbf{Left}: Distribution of transcriptional similarity between reciprocally connected (219 pairs), unidirectionally connected (1721) and  and unconnected (36749 pairs) pairs of neurons as a violin plot, with the median of each distribution shown as a horizontal line. Connections between symmertical (left/right) pairs of neurons are excluded from the analysis. Coexpression values for 
+    \caption{
+\textbf{Left}: Distribution of transcriptional similarity between reciprocally connected (219 pairs), unidirectionally connected (1721) and  and unconnected (36749 pairs) pairs of neurons as a violin plot, with the median of each distribution shown as a horizontal line.
+Connections between symmertical (left/right) pairs of neurons are excluded from the analysis. Coexpression values for 
 Coexpression, $r_\phi$ is increased in connected (reciprocally and unidirectionally) pairs of neurons ($P < 10^{-50}$, Wilcoxon rank sum test)
-\textbf{Right}: Distribution of transcriptional similarity for rich, feed-in, feed-out and peripheral links, where hubs are neurons with degree $k>41$. TODO[[color inside of the distributions, change y axis to Gene coexpression, change k to $k>41$. add p values on the plot]]}
+\textbf{Right}: Distribution of transcriptional similarity for rich, feed-in, feed-out and peripheral links, where hubs are neurons with degree $k>41$.
+[[TODO-AA:color inside of the distributions, change y axis to Gene coexpression, $r_\phi$, change $k>42$ to $k>41$.
+Label subplots as A and B.
+Add $p$ values on the plot (sure, where significant)
+]]
+}
 \end{figure}
 
 % <<networkRC.m>>
