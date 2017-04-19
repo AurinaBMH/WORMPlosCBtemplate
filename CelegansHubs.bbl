@@ -101,6 +101,25 @@ White JG, Southgate E, Thomson JN.
   elegans}.
 \newblock {\ldots} Trans R Soc Lond B Biol {\ldots}. 1986;.
 
+\bibitem{Varshney2011}
+Varshney LR, Chen BL, Paniagua E, Hall DH, Chklovskii DB.
+\newblock {Structural properties of the Caenorhabditis elegans neuronal
+  network.}
+\newblock PLoS computational biology. 2011;7(2):e1001066.
+\newblock doi:{10.1371/journal.pcbi.1001066}.
+
+\bibitem{Kashtan:2004ev}
+Kashtan N, Itzkovitz S, Milo R, Alon U.
+\newblock {Topological generalizations of network motifs}.
+\newblock Phys Rev E. 2004;70(3):031909.
+
+\bibitem{Varier2011}
+Varier S, Kaiser M, Koh W, Meuli R, Honey C.
+\newblock {Neural Development Features: Spatio-Temporal Development of the
+  Caenorhabditis elegans Neuronal Network}.
+\newblock PLoS Computational Biology. 2011;7(1):e1001044.
+\newblock doi:{10.1371/journal.pcbi.1001044}.
+
 \bibitem{Harris:2009kd}
 Harris TW, Antoshechkin I, Bieri T, Blasiar D, Chan J, Chen WJ, et~al.
 \newblock {WormBase: a comprehensive resource for nematode research}.
@@ -123,25 +142,27 @@ Sulston JE, Schierenberg E, White JG, Thomson JN.
 \newblock {The embryonic cell lineage of the nematode Caenorhabditis elegans.}
 \newblock Developmental biology. 1983;100(1):64--119.
 
-\bibitem{Varshney2011}
-Varshney LR, Chen BL, Paniagua E, Hall DH, Chklovskii DB.
-\newblock {Structural properties of the Caenorhabditis elegans neuronal
-  network.}
-\newblock PLoS computational biology. 2011;7(2):e1001066.
-\newblock doi:{10.1371/journal.pcbi.1001066}.
-
-\bibitem{Varier2011}
-Varier S, Kaiser M, Koh W, Meuli R, Honey C.
-\newblock {Neural Development Features: Spatio-Temporal Development of the
-  Caenorhabditis elegans Neuronal Network}.
-\newblock PLoS Computational Biology. 2011;7(1):e1001044.
-\newblock doi:{10.1371/journal.pcbi.1001044}.
-
 \bibitem{Schroter:2017eo}
 Schr{\"o}ter M, Paulsen O, Bullmore E.
 \newblock {Micro-connectomics: probing the organization of neuronal networks at
   the cellular scale}.
 \newblock Nat Rev Neurosci. 2017; p. 1--16.
+
+\bibitem{Colizza:2006kz}
+Colizza V, Flammini A, Serrano M, Vespignani A.
+\newblock {Detecting rich-club ordering in complex networks}.
+\newblock Nat Phys. 2006;2(2):110--115.
+
+\bibitem{Maslov:2002hi}
+Maslov S, Sneppen K.
+\newblock {Specificity and stability in topology of protein networks}.
+\newblock Science. 2002;296:910--913.
+
+\bibitem{Rubinov:2010jd}
+Rubinov M, Sporns O.
+\newblock {Complex network measures of brain connectivity: Uses and
+  interpretations}.
+\newblock NeuroImage. 2010;52(3):1059--1069.
 
 \bibitem{Rubinov2010}
 Rubinov M, Sporns O.
@@ -189,6 +210,17 @@ Wang XJ, Kennedy H.
 \newblock {Brain structure and dynamics across scales: in search of rules}.
 \newblock Current Opinion in Neurobiology. 2016;37:92--98.
 
+\bibitem{Markov:2013jo}
+Markov NT, Ercsey-Ravasz M, Van~Essen DC, Knoblauch K, Toroczkai Z, Kennedy H.
+\newblock {Cortical High-Density Counterstream Architectures}.
+\newblock Science. 2013;342(6158):1238406--1238406.
+
+\bibitem{Krienen:2016eq}
+Krienen FM, Yeo BTT, Ge T, Buckner RL, Sherwood CC.
+\newblock {Transcriptional profiles of supragranular-enriched genes associate
+  with corticocortical network architecture in the human brain.}
+\newblock Proc Natl Acad Sci USA. 2016;113(4):E469--78.
+
 \bibitem{Ashburner2000}
 Ashburner M, Ball CA, Blake JA, Botstein D, Butler H, Cherry JM, et~al.
 \newblock {Gene Ontology: Tool for The Unification of Biology}.
@@ -221,6 +253,35 @@ Goulas A, Uylings HBM, Hilgetag CC.
   connectivity in the mouse}.
 \newblock Brain Struct Funct. 2016;252:1--15.
 
+\bibitem{Kim2014}
+Kim JS, Kaiser M.
+\newblock {From Caenorhabditis elegans to the human connectome: a specific
+  modular organization increases metabolic, functional and developmental
+  efficiency.}
+\newblock Philosophical transactions of the Royal Society of London Series B,
+  Biological sciences. 2014;369(1653).
+\newblock doi:{10.1098/rstb.2013.0529}.
+
+\bibitem{Bassett2010}
+Bassett DS, Greenfield DL, Meyer-Lindenberg A, Weinberger DR, Moore SW,
+  Bullmore ET.
+\newblock {Efficient Physical Embedding of Topologically Complex Information
+  Processing Networks in Brains and Computer Circuits}.
+\newblock PLoS computational biology. 2010;6(4):e1000748.
+\newblock doi:{10.1371/journal.pcbi.1000748}.
+
+\bibitem{Achacoso:1992ay}
+Achacoso T, Yamamoto W.
+\newblock AY's Neuroanatomy of C. elegans for Computation.
+\newblock CRC Press, Boca Raton, FL; 1992.
+
+\bibitem{Pavlovic2014}
+Pavlovic DM, V{\'{e}}rtes PE, Bullmore ET, Schafer WR, Nichols TE.
+\newblock {Stochastic blockmodeling of the modules and core of the
+  Caenorhabditis elegans connectome.}
+\newblock PLoS ONE. 2014;9(7):e97584.
+\newblock doi:{10.1371/journal.pone.0097584}.
+
 \bibitem{Liu2009}
 Liu X, Long F, Peng H, Aerni SJ, Jiang M, S{\'{a}}nchez-Blanco A, et~al.
 \newblock {Analysis of Cell Fate from Single-Cell Gene Expression Profiles in
@@ -241,10 +302,21 @@ Kluger Y, Tuck DP, Chang JT, Nakayama Y, Poddar R, Kohya N, et~al.
   of America. 2004;101(17):6508--6513.
 \newblock doi:{10.1073/pnas.0401136101}.
 
-\bibitem{Krienen:2016eq}
-Krienen FM, Yeo BTT, Ge T, Buckner RL, Sherwood CC.
-\newblock {Transcriptional profiles of supragranular-enriched genes associate
-  with corticocortical network architecture in the human brain.}
-\newblock Proc Natl Acad Sci USA. 2016;113(4):E469--78.
+\bibitem{Lein:2007jn}
+Lein E, Hawrylycz MJ, Ao N, Ayres M, Bensinger A, Bernard A, et~al.
+\newblock {Genome-wide atlas of gene expression in the adult mouse brain}.
+\newblock Nature. 2007;445(7124):168--176.
+
+\bibitem{Shen:2012ua}
+Shen EH, Overly CC, Jones AR.
+\newblock {The Allen Human Brain Atlas: comprehensive gene expression mapping
+  of the human brain}.
+\newblock Trends Neurosci. 2012;32(12):711--714.
+
+\bibitem{Tasic:2016jp}
+Tasic B, Menon V, Nguyen TN, Kim TK, Jarsky T, Yao Z, et~al.
+\newblock {Adult mouse cortical cell taxonomy revealed by single cell
+  transcriptomics}.
+\newblock Nat Neurosci. 2016;19(2):335--346.
 
 \end{thebibliography}

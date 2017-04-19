@@ -252,14 +252,14 @@ ALEX:
 
 \begin{itemize}
     \item Nervous systems are complex
-    \item complexity commonly studied using graphs
-    \item generality of graphs allows nervous systems to be modeled using a common framework across scales and species
-    \item this work has shown that nervous systems are modular, has hubs, and hubs are connected forming an RC
+    \item Complexity commonly studied using graphs
+    \item Generality of graphs allows nervous systems to be modeled using a common framework across scales and species
+    \item This work has shown that nervous systems are modular, has hubs, and hubs are connected forming an RC
     \item RC important for integration, but also costly
-    \item In particular, conservation of hub connectivity across scales and species implies genetic influences
-    \item this has been confirmed in mouse by Fulcher, and human by Vertes (cf. Fornito heritability work)
-    \item C elegans is attractive model to extend these results as connectome mapped completely at synapse and neuron level. We also have detailed information on neuron birth times, cell lineage, neuron type... etc that can help determine whether genomic similarity is driven by one of these factors
-    \item In this work, we collated all these diverse data to test hypothesis that elevated expression coupling of hubs would be apparent at microscale, and to identify what specifically drives this result.
+    % \item In particular, conservation of hub connectivity across scales and species implies genetic influences
+    % \item this has been confirmed in mouse by Fulcher, and human by Vertes (cf. Fornito heritability work)
+    % \item C elegans is attractive model to extend these results as connectome mapped completely at synapse and neuron level. We also have detailed information on neuron birth times, cell lineage, neuron type... etc that can help determine whether genomic similarity is driven by one of these factors
+    % \item In this work, we collated all these diverse data to test hypothesis that elevated expression coupling of hubs would be apparent at microscale, and to identify what specifically drives this result.
 \end{itemize}
 
 
@@ -273,58 +273,50 @@ ALEX:
     \item{Structure-expression}
     \begin{itemize}
     \item{Datasets in different scales: mouse/rat, human (also heritability), developmental, large-scale datasets}
-    \item{Kaufman example \cite{Kaufman2006}, Baruch 2008 \cite{Baruch2008b}, Varadan 2006 \cite{Varadan2006} also relevant.}
     \end{itemize}
-
-    \item{Hubs plus gene expression}
-    \begin{itemize}
-    \item{groundbreaking (\& breathtaking) work by Ben and Alex \cite{Fulcher2016}}
-    \item{Different types of connections - different expression}
-    \end{itemize}
-    \item{Summary}
-
  \end{enumerate}
 
 
 % Introduce the structural connectome, characterization of its properties, focusing on worm, but also linking to other species to make the point of consistency
 The complex pattern of axonal connections between neural elements of nervous systems provides key insights into the physical constraints underlying a functionally optimized system.
-Mapping the network of structural connections between neural elements, from the scale of neurons in model organisms like \emph{C. elegans}, through to mesoscale brain regions using tract tracing in rodents, through to non-invasive MRI imaging in human subjects, has revealed a surprising consistency of organizational properties, suggesting a common set of selection pressures under which efficient neural systems have evolved.
+Mapping the network of structural connections between neural elements, from the scale of neurons in model organisms like \emph{C. elegans}, to mesoscale brain regions using tract tracing in rodents, to non-invasive MRI imaging in human subjects, has revealed a surprising consistency of organizational properties, suggesting a common set of selection pressures under which efficient neural systems have evolved.
 In this work, the brain network, or `connectome', is abstracted to a graph representation, in which neural elements are represented as nodes (e.g., neurons in \emph{C. elegans}, or macroscopic brain regions in human), with edges connecting pairs of elements that have an axonal connection; in this way allowing very different species, measurements, and scales of neuronal networks to be represented in a consistent and unified way.
 As well as showing a modular network structure, that can often be interpreted in terms of distinct functional brain networks, connectomes have been consistently shown to exhibit a non-uniform distribution of connectivity across the network, leading to the existence of highly connected `hub' nodes.
 Hubs have also been shown to be strongly interconnected, forming an integrated `rich club' that may be crucial for facilitating efficient integration of information between more specialized processing modules.
 Prior work has characterized the rich club organization of the neuronal connectome of the \emph{C. elegans} nervous system \cite{Towlson:2013gf}, \emph{Drosophila} \cite{Shih:2015cu}, mouse \cite{Fulcher:2016ck}, rat \cite{vandenHeuvel:2015ie}, 53 \cite{ZamoraLopez:2010hy} or 65 areas \cite{deReus:2013cy} of the cat cortex, 242 macaque cortical regions \cite{Harriger:2012bb}, and in 82 brain regions \cite{vandenHeuvel:2011he} and 1\,170 human cortical areas \cite{vandenHeuvel:2012kh}.
+Although hub connectivity is costly (with strong, long-range projections), it is thought to provide a functional benefit in facilitating efficient integration of diverse neural systems \cite{VandenHeuvel2012}.
+The consistency of this structural feature across the connectomes of so many species, and scales suggests that it may be subject to genetic control.
 % I DON'T BELIEVE IN THIS ONE SO LEAVING IT OUT: pigeon \cite{Shanahan:2013ej},
 
 % Introduce gene expression work and prior work relating them
-With the availability of gene expression data in the worm,
+Although much effort has characterized structural network topology across species and scales, the recent availability of gene expression data for neural systems has allowed the structural network features described above to be related to molecular information, allowing the field of macroscale connectomics to provide microscale understanding and vice versa \cite{vandenHeuvel:2017ex}.
+Initial work was done in \emph{C. elegans}, showing that the expression of a small number of genes can be used to predict connectivity between pairs of neurons using statistical approaches \cite{Varadan:2006ek, Kaufman2006, Baruch2008b}.
+Later work, utilizing detailed gene expression data in mouse from the Allen Institute \cite{Lein:2007jn} revealed similar patterns in mouse \cite{Fakhry:2015kl, Ji:2014jw}, and that pairs of brain regions with similar gene expression patterns tend show more similar connectivity profiles \cite{French2011}.
+% Fakhry:2015dg
+% that connected pairs of brain regions display more similar gene expression profiles \cite{French2011},
+Looked further into types of connections, we showed in mouse that pairs of connected hubs have the most similar gene expression profiles, and that hub connectivity is associated with the correlated expression of genes related to oxidative energy metabolism \cite{Fulcher:2016ck} (a result mirrored at the regional level in human \cite{Vertes2016a}).
+% These findings highlight a close relationship between metabolic expenditure and the high signaling load of hub regions in the brain, as has been previously proposed \cite{Bullmore2012}.
+Like the cross-species consistency of hub connectivity, these results hint that structural connectivity and gene expression may also be consistently related.
+\emph{C. elegans} is attractive model to extend these results to the microscale, being the only connectome fully mapped at the level of individual synapses and neurons, avoiding statistical estimation of connectomes from tract-tracing experiments \cite{Ypma:2016em}, or the choice of a discrete parcellation for a continuous brain.
+In \emph{C. elegans}, we also have detailed information on neuron birth times, cell lineage, neurotransmitters, neuron type, etc. that can help delineate the effect of cell type properties on our findings in greater depth.
+In this work, we collated all these diverse data to test the hypothesis that elevated expression coupling of hubs would be apparent at microscale, and to identify what genes, or other factors, drive the result.
 
 % Introduce hub connectivity-expression hypothesis
-Connectivity in brain networks is not uniformly distributed. Network elements with high node degree – i.e., a large number of connections to other areas – are called `hubs'.
-When hubs are more densely interconnected than expected by chance they form a `rich-club', the idea being that the richest members of the network (in terms of connections) are tightly connected to each other, thus forming a club.
-These densely interconnected hubs are thought to promote efficient integration between anatomically distinct areas and play an important role in brain functioning.
-It has been shown that hubs exhibit distinct transcriptional signatures in both humans \cite{Vertes2016a} and mice \cite{Fulcher2016}.
-According to \citet{Fulcher2016}, connections involving rich club hubs carry a distinctive genetic signature, which is driven by genes regulating the synthesis and breakdown of adenosine triphosphate (ATP) – the primary energetic substrate of neuronal signaling \cite{Fulcher2016}.
-These findings highlight a close relationship between metabolic expenditure and the high signaling load of hub regions in the brain, as has been previously proposed \cite{Bullmore2012}.
-
-
-We therefore have preliminary indications that the transcriptional signature of hubs may be a consistent feature of mammalian brain networks, but it is not known how distinctive this expression signature is; and in particular, whether it holds true for networks resolved at the scale of individual neurons and synapses.
-To test this possibility, we aimed to replicate findings presented in \cite{Fulcher2016} using microscale connectivity data in \emph{C. elegans} and gene expression data from \emph{WormBase}.
-We sought to determine whether hubs in the \emph{C. elegans} connectome exhibit distinctive gene expression patterns.
+% Connectivity in brain networks is not uniformly distributed. Network elements with high node degree – i.e., a large number of connections to other areas – are called `hubs'.
+% When hubs are more densely interconnected than expected by chance they form a `rich-club', the idea being that the richest members of the network (in terms of connections) are tightly connected to each other, thus forming a club.
+% These densely interconnected hubs are thought to promote efficient integration between anatomically distinct areas and play an important role in brain functioning.
+% It has been shown that hubs exhibit distinct transcriptional signatures in both humans \cite{Vertes2016a} and mice \cite{Fulcher2016}.
+% According to \citet{Fulcher2016}, connections involving rich club hubs carry a distinctive genetic signature, which is driven by genes regulating the synthesis and breakdown of adenosine triphosphate (ATP) – the primary energetic substrate of neuronal signaling \cite{Fulcher2016}.
+% These findings highlight a close relationship between metabolic expenditure and the high signaling load of hub regions in the brain, as has been previously proposed \cite{Bullmore2012}.
+% We therefore have preliminary indications that the transcriptional signature of hubs may be a consistent feature of mammalian brain networks, but it is not known how distinctive this expression signature is; and in particular, whether it holds true for networks resolved at the scale of individual neurons and synapses.
+% To test this possibility, we aimed to replicate findings presented in \cite{Fulcher2016} using microscale connectivity data in \emph{C. elegans} and gene expression data from \emph{WormBase}.
+% We sought to determine whether hubs in the \emph{C. elegans} connectome exhibit distinctive gene expression patterns.
 
 
 % METHODS SECTION
 \section*{Materials and methods}
 
 Neurons making up the nervous system of the nematode worm \emph{C. elegans} can be divided into groups, commonly as: sensory neurons (support receptive function), motor neurons (cells containing neuromuscular junctions), interneurons (all other neurons), and polymodal neurons (performing more than one type of circuit function) \cite{White:1986tx}.
-
-% For figure citations, please use "Fig" instead of "Figure".
-\begin{itemize}
-    \item{Connectivity data: types of synapses, weighted/binary, degree; Rich club analysis, how neurons are annotated}
-    \item{Expression data: where data comes from, processing (options: annotations, qualifiers)}
-    \item{Lineage data: where and when downloaded from, how defined. What for used in here}
-    \item{Coexpression metric: how did we choose? How different measures depend on the number of genes; The effect of coexpression/space: can not be corrected for; Excluding left/right homolog gene expression from calculations}
-    \item{Enrichment: software (ermineJ), how to score genes (maybe define gene scoring within results as scoring for connected and unconnected and rich/feeder vs peripheral is different)}
-\end{itemize}
 
 % METHODS: Outline (add what it's about)
 To investigate the relationship between hub connectivity and gene expression in a micro-scale network we coupled two publicly available datasets containing synaptic-level connectivity network and gene expression signatures for the somatic nervous system of the \textit{C. elegans} hermaphrodite.
@@ -391,7 +383,7 @@ To measure whether hubs are densely interconnected, we used the rich-club coeffi
 where $N_{>k}$ is the number of nodes with degree $>k$ and $E_{>k}$ counts the number of edges between them.
 The rich-club coefficient, $\phi(k)$, thus measures the link density in the subgraph containing nodes with degree $>k$.
 However, $\phi(k)$ is expected to increase with $k$ for general networks, since retaining nodes with higher degree will yield a higher expected link density in the subgraph containing nodes with degree $>k$.
-Consequently, we compared $\phi(k)$ measured from the C. elegans connectome, to that obtained from an ensemble of randomized null networks, $\phi_\mathrm{rand}(k)$ \cite{Colizza:2006kz}.
+Consequently, we compared $\phi(k)$ measured from the \emph{C. elegans} connectome, to that obtained from an ensemble of randomized null networks, $\phi_\mathrm{rand}(k)$ \cite{Colizza:2006kz}.
 An ensemble of 1\,000 null networks were generated, constructed by shuffling the links in the empirical network while retaining the degree distribution of nodes in the network \cite{Maslov:2002hi} (rewiring each edge an average of 50 times per null network) using the \texttt{randmio\_dir} function from the {\it Brain Connectivity Toolbox} \cite{Rubinov:2010jd}.
 We then computed the normalized rich-club coefficient, $\Phi_\mathrm{norm}(k)$, as the ratio of the rich-club coefficient of the empirical network to the mean rich-club coefficient of the ensemble of randomized networks:
 \begin{equation}
@@ -518,7 +510,7 @@ We included ontology terms containing between 5 and 100 annotations, using full 
 % Results and Discussion can be combined.
 \section*{Results}
 
-We aim to quantify patterns in the pairwise synaptic connectivity of C. elegans that relate to patterns in the pairwise similarity in gene expression (gene coexpression).
+We aim to quantify patterns in the pairwise synaptic connectivity of \emph{C. elegans} that relate to patterns in the pairwise similarity in gene expression (gene coexpression).
 A schematic overview of our data is shown in Fig.~\ref{fig:SchematicRepresentation}, which includes the directed binary synaptic connectome (Fig.~\ref{fig:SchematicRepresentation}A), binary gene expression across 948 genes (Fig.~\ref{fig:SchematicRepresentation}B), and resulting gene coexpression between all pairs of neurons (Fig.~\ref{fig:SchematicRepresentation}C).
 Edges in the connectome are colored according to how they connect hubs ($k > 42$) and non-hubs ($k \leq 42$), as `rich' (hub $\rightarrow$ hub), `feed-in' (nonhub $\rightarrow$ hub), `feed-out' (nonhub $\rightarrow$ hub), and `peripheral' (nonhub $\rightarrow$ nonhub).
 
@@ -741,9 +733,11 @@ The four resulting modules are shown in Fig.~\ref{fig:modules}A, in which hubs a
 % 10 out of 11 hub neurons in this module are directly responsible for
 % The main goal of this analysis was to compare coexpression within and between modules in order to examine if neurons assigned to the same module are more genetically similar than neurons in other modules.
 The expectation that gene coexpression, $r_\phi$, was increased within modules was not corroborated by the data.
-In fact, gene coexpression was slightly lower for connections within modules than for connections between modules (Fig.~\ref{fig:modules}B, $p = 0.045$, Welch's $t$-test).
+In fact, gene coexpression was slightly lower for connections within modules than for connections between modules, as shown in Fig.~\ref{fig:modules}B ($p = 0.045$, Welch's $t$-test).
+This result is not due to the deterministic Louvain algorithm; indeed we found an even larger decrease in intramodular coexpression using nine module partition of neurons derived from an Erd\"os-R\'enyi Mixture Model ($p = 2\times10^{-6}$) \cite{Pavlovic2014}.
 Accordingly, looking within modules, we still found a significant increase in coexpression for hub-hub connections, with intra-modular connections between hubs were increased relative to other intra-modular connections (Welch's $t$-test, $p = 1.3\times 10^{-10}$).
-We also computed an empirical null distribution for the mean coexpression for hub-hub links, given they span 34 intra-modular links and 32 inter-modular links; 1\,000 samples from such an intra/intermodular link distribution gives a null $r_\phi$ of $0.15 \pm 0.02$, compared to the observed value of $0.51$ ($p < 10^{-16}$).
+We also computed an empirical null distribution for the mean coexpression for the 34 intramodular and 32 intramodular hub-hub links, by taking 1\,000 random samples from these two link types, yielding a null $r_\phi$ of $0.15 \pm 0.02$, compared to the observed value of $0.51$ ($p < 10^{-16}$).
+We thus find that the increase in coexpression for hub-hub connections is not driven by the similar modular membership.
 % Coexpression within modules did not exceed coexpression between modules, demonstrating that neurons that belong to the same module do not share any particular genetic similarity.
 % The increased coexpression in connected pairs of hubs in \emph{C. elegans} can therefore not be attributed to the modular organization of the connectome.
 % despite most hubs being assigned to the same module.
@@ -789,10 +783,11 @@ The number of connections of each type is shown in parentheses.
 
 
 Lineage distance between pairs of neurons presents another source of information about the genetic makeup of the \textit{C. elegans} nervous system.
-It has been shown in \textit{C. elegans} that cells with identical fates can be formed by different gene regulatory pathways \cite{Liu2009}, however, to the best of knowledge, no lineage distance analysis was done in relation to the network properties of the \textit{C. elegans} connectome.
+It has been shown that cells with identical fates can be formed by different gene regulatory pathways \cite{Liu2009}.
+% however, to the best of knowledge, no lineage distance analysis was done in relation to the network properties of the \textit{C. elegans} connectome.
 Implementing an analogous strategy as in our previous analysis of gene coexpression, we show that lineage distance between pairs of neurons increases with degree for feeder links while no significant change is observed for rich links (Fig.~\ref{Lineage}).
 This finding suggests that the difference in lineage distance between hub and nonhub neurons increases with degree, [[therefore in a way confirming the relevance of this classification]][[TODO: Clarify???]].
-Contrary, peripheral links manifest stably lower lineage distance through the range of degree thresholds wit (Fig. \ref{Lineage}).
+Contrary, peripheral links manifest stably lower lineage distance through the range of degree thresholds wit (Fig.~\ref{Lineage}).
 In addition, this shows that increase in gene coexpression with degree for rich links can not be attributed to their similarity in lineage.
 
 Is it possible to say that connections within ACh are more similar when they involve hubs?
@@ -805,7 +800,7 @@ Having determined that pairs of neurons with different connectivity exhibit diff
 Despite lacking full genome coverage, and incomplete binary expression data, we developed a method to assign a gene coexpression contribution (GCC) score to each gene that quantifies its contribution to a given coexpression pattern (related to the probability of a gene being expressed together in a given set of neuron pairs compared to an alternative set).
 We then performing an enrichment analysis using gene ontology categories for biological processes, molecular function and cell components, separately (see Methods).
 Previous results in mouse \cite{Fulcher:2016ck}, using over 17\,000 genes, indicated that genes driving an increase in coexpression between connected pairs of neurons are enriched in genes related to basic neuronal function, whereas those driving an increase in connections involving hub neurons are enriched in oxidative energy metabolism (a result corroborated at a regional level in human \cite{Vertes2016a}).
-However, [[TODO_AA: outline limitations in our data: we don't have gene coverage to check these things. What are results, and put name of script commented]].
+However, [[TODO-AA: outline limitations in our data: we don't have gene coverage to check these things. What are results, and put name of script commented]].
 [[Tweak the following to provide some hypothesis in light of data limitations:]]
 Given that hub neurons are thought to be highly integrative, and disproportionately involved in mediating signal traffic \cite{Towlson:2013gf}, increased number communication and signal propagation related gene groups for hub-related links is in line with our expectation.
 
@@ -995,9 +990,9 @@ Based on these numerical experiments, we selected Pearson's mean square continge
 \begin{table}[]
 \centering
 \caption{
-[[TODO_AA: Give a brief description of what was done to get this enriched list.
+[[TODO-AA: Give a brief description of what was done to get this enriched list.
 Give brief pointer to method, explain each column (e.g., is num of genes the total, or just how many were in our analysis), and say that analysis was done in ermineJ, with FDR-corrected p-values, etc.]]
-[[TODO_AA: Sort each group by increasing $p$-values]]
+[[TODO-AA: Sort each group by increasing $p$-values]]
 Biological process, molecular function and cellular component GO categories of genes showing significantly increased coexpression in connected pairs of neurons over unconnected pairs.
 }
 \label{tab:connected}
@@ -1023,10 +1018,9 @@ GO:00987                                 & postsynapse                          
 \begin{table}[]
 \centering
 \caption{Biological process, molecular function and cellular component GO categories of genes showing significantly increased coexpression in rich and feeder over peripheral links
-[[TODO_AA: Sort each group by increasing $p$-values]]
-[[TODO_AA: Give a brief description of what was done to get this enriched list.
-Give brief pointer to method, explain each column (e.g., is num of genes the total, or just how many were in our analysis), and say that analysis was done in ermineJ, with FDR-corrected p-values, etc. -- can refer the reader to the above table (e.g., Method and table are as described in Table~X except ...)]]
-}
+[[TODO-AA: Sort each group by increasing $p$-values]]
+[[TODO-AA: Give a brief description of what was done to get this enriched list.
+Give brief pointer to method, explain each column (e.g., is num of genes the total, or just how many were in our analysis), and say that analysis was done in ermineJ, with FDR-corrected p-values, etc. -- can refer the reader to the above table (e.g., Method and table are as described in Table~X except ...)]]}
 \label{tab:hub_enrichment}
 \begin{tabular}{llcc}
 \hline
@@ -1092,7 +1086,7 @@ Here we plot the mean correlation between the two vectors, averaged over 1\,000 
 Bias is indicated by a systematic trend in correlation values, not due to actual matching, but driven simply by the proportion of positive annotations for a pair of vectors.
 \textbf{A} Pearson, $r_\phi$, the measure used throughout this work, shows no systematic bias (note the color axis scale, 10$^{-3}$)
 \textbf{B} [[Yule's Q? YES]], and \textbf{C} Jaccard correlation measures both exhibit a strong systematic bias.
-[[TODO_AA   : Add A, B, C labels, add our new positive match measure, provide better titles, use appropriate color bars/scales]]
+[[TODO-AA: Add A, B, C labels, add our new positive match measure, provide better titles, use appropriate color bars/scales]]
 }
 \end{figure}
 
