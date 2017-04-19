@@ -786,9 +786,9 @@ The number of connections of each type is shown in parentheses.
 
 
 Lineage distance between pairs of neurons presents another source of information about the genetic makeup of the \textit{C. elegans} nervous system.
-It has been shown in \textit{C. elegans} that cells with identical fates can be formed by different gene regulatory pathways \citep{Liu2009}, however, to the best of knowledge, no lineage distance analysis was done in relation to the network properties of the \textit{C. elegans} connectome.
-Implementing an analogous strategy as in our previous analysis of gene coexpression, we show that lineage distance between pairs of neurons increases with degree for feeder links while no significant change is observed for rich links (Fig. \ref{Lineage}).
-This finding suggests that the difference in lineage distance between hub and non-hub neurons increases with degree, [[therefore in a way confirming the relevance of this classification]][[TODO: Clarify???]].
+It has been shown in \textit{C. elegans} that cells with identical fates can be formed by different gene regulatory pathways \cite{Liu2009}, however, to the best of knowledge, no lineage distance analysis was done in relation to the network properties of the \textit{C. elegans} connectome.
+Implementing an analogous strategy as in our previous analysis of gene coexpression, we show that lineage distance between pairs of neurons increases with degree for feeder links while no significant change is observed for rich links (Fig.~\ref{Lineage}).
+This finding suggests that the difference in lineage distance between hub and nonhub neurons increases with degree, [[therefore in a way confirming the relevance of this classification]][[TODO: Clarify???]].
 Contrary, peripheral links manifest stably lower lineage distance through the range of degree thresholds wit (Fig. \ref{Lineage}).
 In addition, this shows that increase in gene coexpression with degree for rich links can not be attributed to their similarity in lineage.
 
@@ -798,19 +798,26 @@ Is it possible to say that connections within ACh are more similar when they inv
 
 %% comment on enrichment analysis. No write up can be done before deciding on options.
 
-To investigate which functional groups of genes contributed to the difference in transcriptional coupling between connected \textit{vs} unconnected pairs as well as different link types, we used a method of assigning each gene coexpression contribution (GCC) score that quantifies the contribution of each gene to the overall coexpression between neuron pairs (see Methods).  \\
+Having determined that pairs of neurons with different connectivity exhibit different levels of coexpression, we investigated which functional groups of genes contributed to these differences.
+Despite lacking full genome coverage, and incomplete binary expression data, we developed a method to assign a gene coexpression contribution (GCC) score to each gene that quantifies its contribution to a given coexpression pattern (related to the probability of a gene being expressed together in a given set of neuron pairs compared to an alternative set).
+We then performing an enrichment analysis using gene ontology categories for biological processes, molecular function and cell components, separately (see Methods).
+Previous results in mouse \cite{Fulcher:2016ck}, using over 17\,000 genes, indicated that genes driving an increase in coexpression between connected pairs of neurons are enriched in genes related to basic neuronal function, whereas those driving an increase in connections involving hub neurons are enriched in oxidative energy metabolism (a result corroborated at a regional level in human \cite{Vertes2016a}).
+However, [[TODO_AA: outline limitations in our data: we don't have gene coverage to check these things. What are results, and put name of script commented]].
+[[Tweak the following to provide some hypothesis in light of data limitations:]]
+Given that hub neurons are thought to be highly integrative, and disproportionately involved in mediating signal traffic \cite{Towlson:2013gf}, increased number communication and signal propagation related gene groups for hub-related links is in line with our expectation.
 
-First, we investigated what functional groups of genes are driving the observed increase in coexpression in connected pairs of neurons compared to unconnected pairs.
-Enrichment analysis was performed separately for GO categories corresponding to biological processes, molecular function and cell components (see Methods). 
-The majority of the significant ($P < 0.05$) GO categories are related to glutamate signalling and neuronal connectivity (see S\ref{S1_Table} table).\\
+First, we estimated which functional groups of genes drive increased coexpression in connected pairs of neurons compared to unconnected pairs.
+As listed in Table~\ref{tab:connected}, the majority of statistically significant GO categories are related to glutamate signaling and neuronal connectivity ($p_\mathrm{corrected} < 0.05$).
+Next, we examined differences between connections in terms of their relationship to hub neurons, investigating which functional groups of genes contributed to the increased coexpression for links involving hubs (combining `rich' and `feeder' links together, for statistical power).
+As well as glutamate signaling, we also found a broader range of functional categories, involving  ion channel activity, transmembrane transporters and synaptic cell components (see Table~\ref{tab:hub_enrichment}).
 
-Next, we examined which functional groups of genes contributed to the increased coexpression for links involving hubs (rich and feeder). 
-In this case enrichment analysis showed a broader range of functional categories, involving both broader functional groups such as ion channel activity, transmembrane transporters and synaptic cell components as well as glutamate signalling (see S\ref{S2_Table} table).
-Taking into account that hub neurons are involved in a very intense information transfer due to their integrational function, increased number communication and signal propagation related gene groups for hub-related links is in line with our expectation.
-It is worth noting that neurons in \textit{C. elegans} connectome are predominantly cholinergic (see \ref{fig:S_feedInOutNodes}, C). 
-However, the majority of neurons that send connections to hubs are sensory and glutamatergic (see \ref{fig:S_feedInOutNodes}, A, C), therefore it can explain the over-representation of glutamate receptor related categories that we find in the enrichment analysis.
-Overall, event with a very limited gene data, we are able to demonstrate that genes that are more likely to be expressed in pairs of connected as well as hub-related neurons are indeed involved in neuron signalling and communication. 
-\\
+Although 11 out of the 13 hubs ($k > 41$) are cholinergic, and the remaining two use glutamate (Fig.~\ref{fig:S_feedInOutNodes}C), we found enrichment in glutamate signaling in comparing connections involving hubs to those between nonhubs.
+ % with ACh being the most broadly used neurotransmitter in general \cite{Pereira:2015er}
+% It is worth noting that although both analyses above highlighted enrichment of glutamate, even though acetylcholine (ACh) is the most broadly used neurotransmitter in \textit{C. elegans} \cite{Pereira:2015er}, and most hubs ($k > 41$) are cholinergic (Fig.~\ref{fig:S_feedInOutNodes}C).
+Looking closer at the neurotransmitters used by each neuron, we found that nonhub neurons that project to hubs (but do not receive projections back) are mostly sensory or interneurons (82\%), with the most common neurotransmitter being glutamate (41\%), whereas neurons that receive inputs from hubs (but do not project to hubs) are mostly motor neurons (84\%) and are cholinergic (93\%), as shown in Fig.~\ref{fig:S_feedInOutNodes}A,C.
+Thus, although hubs are themselves cholinergic
+This may explain the overrepresentation of glutamate receptor related categories that we find in the enrichment analysis.
+Overall, event with a very limited gene data, we are able to demonstrate that genes that are more likely to be expressed in pairs of connected as well as hub-related neurons are indeed involved in neuron signaling and communication. 
 
 
 %\begin{figure}[h]
@@ -819,9 +826,6 @@ Overall, event with a very limited gene data, we are able to demonstrate that ge
  %\caption{\textbf{}
  %\label{Lineage}
  %\end{figure}
-
-
-%%
 
 % Place tables after the first paragraph in which they are cited.
 % \begin{table}[!ht]
@@ -982,16 +986,21 @@ Based on these numerical experiments, we selected Pearson's mean square continge
 
 %% enrichment table for connected links
 % results generated using ermineJ, all categories tested separately. significante threshold pcorrected<0.05. Results arranged using 
-\paragraph*{S1 Table.}
+\paragraph*{S1 Table}
 
 {\bf Enrichment results for connected \textit{vs} unconnected neurons.} 
 \begin{table}[]
 \centering
-\caption{Biological process, molecular function and cellular component GO categories of genes showing significantly increased coexpression in connected pairs of neurons over unconnected pairs}
-\label{S1_Table}
+\caption{
+[[TODO_AA: Give a brief description of what was done to get this enriched list.
+Give brief pointer to method, explain each column (e.g., is num of genes the total, or just how many were in our analysis), and say that analysis was done in ermineJ, with FDR-corrected p-values, etc.]]
+[[TODO_AA: Sort each group by increasing $p$-values]]
+Biological process, molecular function and cellular component GO categories of genes showing significantly increased coexpression in connected pairs of neurons over unconnected pairs.
+}
+\label{tab:connected}
 \begin{tabular}{llcc}
 \hline
-\multicolumn{1}{|l|}{\textbf{GO category}} & \multicolumn{1}{l|}{\textbf{Description}}          & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}No. \\ of genes\end{tabular}}} & \multicolumn{1}{c|}{\textbf{P-value}} \\ \hline
+\multicolumn{1}{|l|}{\textbf{GO category}} & \multicolumn{1}{l|}{\textbf{Description}}          & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}No. \\ of genes\end{tabular}}} & \multicolumn{1}{c|}{\textbf{$P$-value (corrected)}} \\ \hline
 \multicolumn{4}{l}{\textit{Biological processes}}                                                                                                                                                                                  \\
 GO:0035235                                 & ionotropic glutamate receptor signaling pathway    & 7                                                                                        & $6.82^{-10}$                              \\
 GO:00072                                 & glutamate receptor signaling pathway               & 9                                                                                        & 0.0034                               \\
@@ -1010,8 +1019,12 @@ GO:00987                                 & postsynapse                          
 {\bf Enrichment results for rich and feeder \textit{vs} peripheral links.}
 \begin{table}[]
 \centering
-\caption{Biological process, molecular function and cellular component GO categories of genes showing significantly increased coexpression in rich and feeder over peripheral links}
-\label{S2_Table}
+\caption{Biological process, molecular function and cellular component GO categories of genes showing significantly increased coexpression in rich and feeder over peripheral links
+[[TODO_AA: Sort each group by increasing $p$-values]]
+[[TODO_AA: Give a brief description of what was done to get this enriched list.
+Give brief pointer to method, explain each column (e.g., is num of genes the total, or just how many were in our analysis), and say that analysis was done in ermineJ, with FDR-corrected p-values, etc. -- can refer the reader to the above table (e.g., Method and table are as described in Table~X except ...)]]
+}
+\label{tab:hub_enrichment}
 \begin{tabular}{llcc}
 \hline
 \multicolumn{1}{|l|}{\textbf{GO category}} & \multicolumn{1}{l|}{\textbf{Description}}                  & \multicolumn{1}{l|}{\textbf{\begin{tabular}[c]{@{}l@{}}No.\\  of genes\end{tabular}}} & \multicolumn{1}{l|}{\textbf{P-value}} \\ \hline
@@ -1054,14 +1067,11 @@ GO:0098802                                 & plasma membrane receptor complex   
 GO:0043235                                 & receptor complex                                           & 9                                                                                        & 0.0392                               
 \end{tabular}
 \end{table}
+\clearpage
 
-
-
-
-
-  ------------------------------------------------------------------------------
-
+% ------------------------------------------------------------------------------
 % Include only the SI item label in the paragraph heading. Use the \nameref{label} command to cite SI items in the text.
+% ------------------------------------------------------------------------------
 
 % ------------------------------------------------------------------------------
 % compare proportions for simulations to validate
@@ -1079,7 +1089,7 @@ Here we plot the mean correlation between the two vectors, averaged over 1\,000 
 Bias is indicated by a systematic trend in correlation values, not due to actual matching, but driven simply by the proportion of positive annotations for a pair of vectors.
 \textbf{A} Pearson, $r_\phi$, the measure used throughout this work, shows no systematic bias (note the color axis scale, 10$^{-3}$)
 \textbf{B} [[Yule's Q? YES]], and \textbf{C} Jaccard correlation measures both exhibit a strong systematic bias.
-[[TODO: Add A, B, C labels, add our new positive match measure, provide better titles, use appropriate color bars/scales]]
+[[TODO_AA   : Add A, B, C labels, add our new positive match measure, provide better titles, use appropriate color bars/scales]]
 }
 \end{figure}
 
@@ -1139,8 +1149,8 @@ Looking within the head, we find different spatial relationships as a function o
 \centering
     \includegraphics[width=1\textwidth]{FeedInOutNodes.pdf}
 \caption{
-\textbf{Neuron properties vary in terms of their connectivity relationship to hub nodes}
-Using a degree threshold for hubs, $k>41$, we class all individual neurons into five mutually exclusive categories, shown schematically in the figures (for hubs, red, and nonhubs, light blue), as:
+\textbf{Neuron properties vary in terms of their connectivity relationship to hub nodes.}
+Using a degree threshold for hubs, $k > 41$, we class all individual neurons into five mutually exclusive categories, shown schematically in the figures (for hubs, red, and nonhubs, light blue), as:
 (i) `hub' ($k>41$),
 and then classify nonhubs ($k\leq41$) as:
 (ii) `feedIn' (projects to a hub, but does not receive a projection from a hub),
