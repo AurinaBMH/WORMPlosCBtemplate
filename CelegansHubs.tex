@@ -399,12 +399,14 @@ $\Phi_\mathrm{norm} > 1$ indicates the rich-club organization of the network, wi
 %The phenomenon of the rich-club organisation in \textit{C. elegans} connectome was originally demonstrated by Towlson et al. \cite{Towlson2013} in an undirected binary version of the connectome where data for both chemical and electrical synapses were combined.
 %As a result, a small number of high degree nodes forming a rich club was identified.
 
-% \paragraph{Modularity}
+\paragraph{Modularity}
 The modular structure of the connectome was determined applying the Louvain community detection algorithm using a standard practice, implemented in the Brain Connectivity Toolbox \cite{Rubinov2010}.
-To identify the optimal modular assignment, the algorithm was repeated 10\,000 times [[TODO: is this correct? Not 1\,000?]] resulting in a thousand community affiliation vectors [[TODO: provide some context wrt algorithmic degeneracy]].
-The results of these 1\,000 partitions were aggregated into a single agreement matrix, in which each element encoded the frequency with which a given pair of nodes was classified in the same module across runs.
+To identify the optimal modular assignment, the algorithm was repeated 1\,000 times resulting in a thousand community affiliation vectors.
+Like all methods that optimise the measure of modularity, Louvain community detection algorithm is constrained within the intrinsic limits of modularity maximization, therefore unique partitions differ in their node assignments. 
+In order to cope with those stochastic fluctuations, we use the consensus clustering approach \cite{Lancichinetti2012a} which produces a stable partition using information from multiple runs of the modularity detection algorithm. 
+Therefore, the results of these 1\,000 partitions were aggregated into a single agreement matrix, in which each element encoded the frequency with which a given pair of nodes was classified in the same module across runs.
 These frequencies were weighted by the quality of each individual partition, as quantified by the Q-statistic (Newman), such that partitions with higher Q contributed more strongly to the final values in the agreement matrix.
-We then applied a consensus clustering approach to this agreement matrix, as described by L + F ().
+We then applied a consensus clustering approach to this agreement matrix, as described by Lancichinetti and Fortunato \cite{Lancichinetti2012a}.
 Specifically, we first applied a threshold tau = 0.1 to the matrix, ran the Louvain algorithm 1000 times, computed a new agreement matrix and thresholded the data again.
 We repeated this procedure until all elements in the agreement matrix had a value of either 1 (i.e., the pair of nodes was always classified in the same module) or 0 (i.e., the pair of nodes was never classified in the same module).
 The module assignments of this final agreement matrix represent a consensus estimate of the community structure of the network.
