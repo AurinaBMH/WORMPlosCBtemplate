@@ -337,8 +337,8 @@ To avoid any possible differences in gene expression between chemical synapses a
 
 Note the previous work has used different processed versions of this data, including just synaptic connections as here (e.g., after thresholding them \cite{Kashtan:2004ev}), a combination of synaptic connections and gap junctions together \cite{Azulay:2016cg, Kim:2016gl}, or combining synaptic and gap junctions and then symmetrizing unidirectional synaptic connections to be bidirectional \cite{Towlson:2013gf, Kim:2014bu, Pavlovic:2014gx}.
 
-Spatial information about neurons was obtained for 277 neurons (including VC6 [[TODO: Aurina, why mention this?]]) as two dimensional spatial coordinates from \url{www.biological-networks.org/?page_id=25}.
-Coordinates for three neurons (AIBL, AIYL, SMDVL) were missing in this dataset, and were reconstructed based on the positions of the contralateral neurons (AIBR, AIYR, SMDVR) by assigning identical coordinates for the contralateral neurons in these three pairs according to Varier \cite{Varier2011} [[TODO: Explain the precedent for doing this]]. [[TODO: Aurina, provide details on how these were `reconstructed']].
+Spatial information about neurons was obtained for 277 neurons (including VC6 [[TODO: Aurina, why mention this? AA - this neuron doesn't have obvious connections, therefore not included in the connectome, but we have coordinates for it]]) as two dimensional spatial coordinates from \url{www.biological-networks.org/?page_id=25}.
+Coordinates for three neurons (AIBL, AIYL, SMDVL) were missing in this dataset, and were reconstructed based on the positions of the contralateral neurons (AIBR, AIYR, SMDVR) by assigning identical coordinates for the contralateral neurons in these three pairs according to Varier \cite{Varier2011} [[TODO: Explain the precedent for doing this]].
 
 % The C. elegans nervous system consists of two distinct parts: a small pharyngeal nervous system (20 neurons), responsible for  the feeding behavior of the animal and a large somatic nervous system (282 neurons).
 
@@ -361,7 +361,7 @@ The neurotransmitter systems used by each neuron was labeled by matching to data
 Lineage similarity for all pairs of neurons was obtained from previously published embryonic and  post-embryonic lineage trees \cite{Sulston1977, Sulston1983}; data were downloaded from WormAtlas (\url{http://www.wormatlas.org/neuronalwiring.html#Lineageanalysis}).
 In this dataset for each pair of neurons a common ancestor cell was identified using and a total number of cell divisions from the common progenitor was calculated.
 % Downloaded data were arranged into a matrix format where lineage distance for each pair of neurons was defined. % part of Print_neuroconnect.m
-[[TODO: Aurina -- can we go through all of this to clarify all of the data sources -- wormMine, wormBase, WormAtlas, etc. I'm a bit confused]]
+[[TODO: Aurina -- genes: wormbase, connectivity, lineage, birth times: wormatlas. can we go through all of this to clarify all of the data sources -- wormMine, wormBase, WormAtlas, etc. I'm a bit confused]]
 
 % METHODS: rich club analysis
 \subsection*{Network analysis}
@@ -407,10 +407,10 @@ In order to cope with those stochastic fluctuations, we use the consensus cluste
 Therefore, the results of these 1\,000 partitions were aggregated into a single agreement matrix, in which each element encoded the frequency with which a given pair of nodes was classified in the same module across runs.
 These frequencies were weighted by the quality of each individual partition, as quantified by the Q-statistic (Newman), such that partitions with higher Q contributed more strongly to the final values in the agreement matrix.
 We then applied a consensus clustering approach to this agreement matrix, as described by Lancichinetti and Fortunato \cite{Lancichinetti2012a}.
-Specifically, we first applied a threshold tau = 0.1 to the matrix, ran the Louvain algorithm 1000 times, computed a new agreement matrix and thresholded the data again.
+Specifically, we first applied a threshold $\tau = 0.1$ to the matrix, ran the Louvain algorithm 1000 times, computed a new agreement matrix and thresholded the data again.
 We repeated this procedure until all elements in the agreement matrix had a value of either 1 (i.e., the pair of nodes was always classified in the same module) or 0 (i.e., the pair of nodes was never classified in the same module).
 The module assignments of this final agreement matrix represent a consensus estimate of the community structure of the network.
-[[TODO: check these details but its about right from memory. My only concern is that if you weighted the values in the agreement matrix by the quality of the partition, the interpretation of tau becomes tricky - in the unweighted case, it is simply the proportion of runs in which two nodes are in the same module. in the weighted case, its less clear]]
+[[TODO: check these details but its about right from memory. AA - details seem to be ok. My only concern is that if you weighted the values in the agreement matrix by the quality of the partition, the interpretation of tau becomes tricky - in the unweighted case, it is simply the proportion of runs in which two nodes are in the same module. in the weighted case, its less clear]]
 
 
 % METHODS: gene expression
@@ -777,7 +777,7 @@ The number of connections of each type is shown in parentheses.
 
 \paragraph{Birth time}
 [[TODO: Add rationale for this analysis]]
-[[TODO: Aurina, can you check this? Alex added: ``As first demonstrated by Towlson et al. \cite{Towlson:2013gf}'']], hubs are born early in the \textit{C. elegans} development \cite{Varier2011} (see Fig \ref{fig:S6_Fig}), therefore we next verified that the increase in coexpression between them can not be explained by the similarity in birth time. 
+[[TODO: Aurina, can you check this? Alex added: ``As first demonstrated by Towlson et al. \cite{Towlson:2013gf}'']], hubs are born early in the \textit{C. elegans} development \cite{Varier2011} (see Fig \ref{fig:BirthTimesk}), therefore we next verified that the increase in coexpression between them can not be explained by the similarity in birth time. 
 For this purpose, we separated neurons that are formed early (during the first 1000 min) in the development into two types, namely hubs and non-hubs, and compared coexpression within each of those groups (Fig \ref{fig:BirthTimeHubs}). 
 Links between hubs show significantly increased coexpression and consequently confirm that even between the neurons that were born roughly at the same time, hubs exhibit a unique transcriptional pattern.
 
@@ -822,7 +822,7 @@ Although 11 out of the 13 hubs ($k > 41$) are cholinergic, and the remaining two
 % It is worth noting that although both analyses above highlighted enrichment of glutamate, even though acetylcholine (ACh) is the most broadly used neurotransmitter in \textit{C. elegans} \cite{Pereira:2015er}, and most hubs ($k > 41$) are cholinergic (Fig.~\ref{fig:S_feedInOutNodes}C).
 Looking closer at the neurotransmitters used by each neuron, we found that nonhub neurons that project to hubs (but do not receive projections back) are mostly sensory or interneurons (82\%), with the most common neurotransmitter being glutamate (41\%), whereas neurons that receive inputs from hubs (but do not project to hubs) are mostly motor neurons (84\%) and are cholinergic (93\%), as shown in Fig.~\ref{fig:S_feedInOutNodes}A,C.
 Thus, although hubs are themselves mostly cholinergic, they receive inputs from glutamatergic neurons, which may explain their over-representation in two biological processes related to glutamate receptors: ionotropic glutamate receptor signaling pathway (GO:0035235) and glutamate receptor signaling pathway (GO:0007215).
-[[TODO-AA: Still kind of surprising we don't get cholinergic, since ACh is still the dominant neurotransmitter for connections involving hubs. Can you look at cholinergic categories -- do we even have gene coverage to get power to find them??]]
+[[TODO-AA: Still kind of surprising we don't get cholinergic, since ACh is still the dominant neurotransmitter for connections involving hubs. Can you look at cholinergic categories -- do we even have gene coverage to get power to find them??AA: on our gene list (from 900) genes related to Ach are either Ach-gated channels or Ach receptors, so it's not about hubs, it's more about neurons that receive inputs from hubs. For reduced lists of genes there is even less Ach-related genes left. ]]
 % This may explain the overrepresentation of glutamate receptor related categories that we find in the enrichment analysis.
 Thus, despite minimal gene coverage, we developed a new method that was able to find interpretable patterns in the existing binary expression data for \emph{C. elegans}, providing clues as to function of genes that may drive molecular differences between topologically different pairs of neurons.
 
@@ -1090,18 +1090,17 @@ GO:0043235                                 & receptor complex                   
 \label{fig:S_propOnes}
 \textbf{Dependence of binary coexpression metrics to the proportion of positive annotations}
 Given the sparse binary annotation of genes to neurons, we investigated bias in each measure across 1\,000 pairs of random binary vectors, each with a fixed proportion of ones.
-Here we plot the mean correlation between the two vectors, averaged over 1\,000 runs, for 948-long vectors with between 0--0.16 proportion of ones [[TODO: how many voxels?matrix is 100x100]].
+Here we plot the mean correlation between the two vectors, averaged over 1\,000 runs, for 948-long vectors with between 0--0.16 proportion of ones (matrix size is 150x150, therefore the number of ones ranges from 1 to 150).
 Bias is indicated by a systematic trend in correlation values, not due to actual matching, but driven simply by the proportion of positive annotations for a pair of vectors.
 \textbf{A} Pearson, $r_\phi$, the measure used throughout this work, shows no systematic bias (note the color axis scale, 10$^{-3}$)
-\textbf{B} [[Yule's Q? YES]], and \textbf{C} Jaccard correlation measures both exhibit a strong systematic bias.
+\textbf{B} Yule's Q, and \textbf{C} Jaccard correlation measures both exhibit a strong systematic bias.
 [[TODO-AA: Add A, B, C labels, add our new positive match measure, provide better titles, use appropriate color bars/scales]]
 }
 \end{figure}
 
 
-% \paragraph*{S2 Fig.}
-% {\bf Coexpression as a function of distance}
-
+\paragraph*{S2 Fig.}
+{\bf Connection probability decreases with the separation distance between neurons}
 % ------------------------------------------------------------------------------
 % <<probabilityVSdistance>>
 % ------------------------------------------------------------------------------
@@ -1131,6 +1130,8 @@ The increased separation distance between hubs is driven by a relative increase 
 % <<plot_coexpDistance.m>>
 % [[coexpressionDistance(C,G),CoExpressionDistanceDetail(C,G)]]
 % ------------------------------------------------------------------------------
+\paragraph*{S3 Fig.}
+{\bf Gene coexpression decreases with separation distance within the head and tail.}
 \begin{figure}[h]
 \centering
     \includegraphics[width=1\textwidth]{DistanceCoexpression.pdf}
@@ -1150,6 +1151,8 @@ Looking within the head, we find different spatial relationships as a function o
 % ------------------------------------------------------------------------------
 % <<FeedInOutNodes.m>>
 % ------------------------------------------------------------------------------
+\paragraph*{S4 Fig.}
+{\bf Neuron properties vary in therms of their connectivity relationship to hub nodes. }
 \begin{figure}[h]
 \centering
     \includegraphics[width=1\textwidth]{FeedInOutNodes.pdf}
@@ -1174,6 +1177,8 @@ We show the number of neurons in each of these fives classes that:
 
 
 % ------------------------------------------------------------------------------
+\paragraph*{S5 Fig.}
+{\bf Spatial distribution of rich links, and neuron types across the C. elegans nervous system. }
 \begin{figure}[h]
 \centering
     \includegraphics[width=1\textwidth]{SpatialPlot.png}
@@ -1190,10 +1195,11 @@ All pairs of horizontal and vertical axes are in scale with each other.
 % ------------------------------------------------------------------------------
 % <<coexpRecUnidirUncon.m>>
 % ------------------------------------------------------------------------------
-\paragraph*{S3 Fig.}
+
+\paragraph*{S6 Fig.}
 {\bf Coexpression for rich, feeder and peripheral links as a function of degree.}
 \begin{figure}[!h]
-\label{S3_Fig}
+\label{RFPdistributions}
 \centering
     \includegraphics[width=1\textwidth]{Distributions.pdf}
     \caption{
@@ -1209,10 +1215,10 @@ Add $p$ values on the plot (sure, where significant)
 \end{figure}
 
 % <<networkRC.m>>
-\paragraph*{S5 Fig.}
+\paragraph*{S7 Fig.}
 {\bf Weighted and mixed rich club}
 \begin{figure}[!h]
-\label{S5_Fig}
+\label{WeightedRC}
 \centering
     \includegraphics[width=1\textwidth]{WeightedMixedRC.pdf}
     \caption{\textbf{A} Degree distribution of the binary chemical connectome, where neurons are labeled according to four categories:
@@ -1229,10 +1235,26 @@ Circles indicate values of $\Phi_\mathrm{norm}$ that are significantly higher th
 \end{figure}
 
 % <<RichClub.m>>
-\paragraph*{S6 Fig.}
+\paragraph*{S8 Fig.}
+{\bf Mean lineage distance as a function of degree for different link types}
+\begin{figure}[!h]
+\label{Lineagek}
+\centering
+    \includegraphics[width=1\textwidth]{Lineage.pdf}
+    \caption{\emph{Top}: Degree distribution.
+\emph{Middle}: proportion of connections that are `rich' (hub$\rightarrow$hub, red), `feed-in' (nonhub$\rightarrow$hub, yellow), `feed-out' (hub$\rightarrow$nonhub, orange), and `peripheral' (nonhub$\rightarrow$nonhub, blue) as a function of the degree threshold, $k$, used to define hubs.
+Note that at high $k$, most neurons are labeled as nonhubs, and hence the vast majority of connections are `peripheral'.
+\emph{Lower}: Mean lineage distance for each connection type as a function of $k$.
+Lineage distance across all network links shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. Fig.~\ref{fig:topology_rich}) is shaded gray.
+Circles indicate a statistically significant increase or decrease in birth time difference in a given link type relative to the rest of the network (two-sided Welch’s t test; $P < 0.05$).
+}
+\end{figure}
+% <<RichClub.m>>
+
+\paragraph*{S9 Fig.}
 {\bf Mean birth time difference as a function of degree for different link types}
 \begin{figure}[!h]
-\label{S6_Fig}
+\label{BirthTimesk}
 \centering
     \includegraphics[width=1\textwidth]{MeanBirthTimes.pdf}
     \caption{\emph{Top}: Degree distribution.
@@ -1254,10 +1276,10 @@ Circles indicate a statistically significant increase or decrease in birth time 
 %\end{figure}
 
 % RichClub script
-\paragraph*{S7 Fig.}
+\paragraph*{S10 Fig.}
 {\bf Average coexpression for rich, feeder and peripheral links as a function of degree.}
 \begin{figure}[!h]
-\label{S7_Fig}
+\label{RFPposmatches}
 \centering
     \includegraphics[width=1\textwidth]{coXmeanCoexpression.pdf}
 \caption{\emph{Top}: Degree distribution.
