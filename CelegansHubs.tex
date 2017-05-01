@@ -200,7 +200,7 @@
 \\
 Aurina Arnatkevi\u{c}i\={u}t\.{e}\textsuperscript{1\Yinyang},
 Ben D. Fulcher\textsuperscript{1\Yinyang},
-Alex Fornito\textsuperscript{1}\\
+Alex Fornito\textsuperscript{1}*\\
 \bigskip
 \textbf{1} Brain and Mental Health Laboratory, Monash Institute of Cognitive and Clinical Neurosciences, School of Psychological Sciences, Monash University, 770 Blackburn Rd, Clayton, 3168, VIC, Australia.
 \\
@@ -229,74 +229,77 @@ Alex Fornito\textsuperscript{1}\\
 % \textpilcrow Membership list can be found in the Acknowledgments section.
 
 % Use the asterisk to denote corresponding authorship and provide email address in note below.
-* correspondingauthor@institute.edu
+* alex.fornito@monash.edu
 
 \end{flushleft}
 % Please keep the abstract below 300 words
 \section*{Abstract}
-Text
+WE $\heartsuit$ CAENORHABDITIS ELEGANS
 
 
 % Please keep the Author Summary between 150 and 200 words
 % Use first person. PLOS ONE authors please skip this step.
 % Author Summary not valid for PLOS ONE submissions.
 \section*{Author summary}
-Text
+WE $\heartsuit$ WORMS
 
 \linenumbers
 
 % Use "Eq" instead of "Equation" for equation citations.
 \section*{Introduction}
 
-ALEX:
-
-\begin{itemize}
-    \item Nervous systems are complex
-    \item Complexity commonly studied using graphs
-    \item Generality of graphs allows nervous systems to be modeled using a common framework across scales and species
-    \item This work has shown that nervous systems are modular, has hubs, and hubs are connected forming an RC
-    \item RC important for integration, but also costly
-    % \item In particular, conservation of hub connectivity across scales and species implies genetic influences
-    % \item this has been confirmed in mouse by Fulcher, and human by Vertes (cf. Fornito heritability work)
-    % \item C elegans is attractive model to extend these results as connectome mapped completely at synapse and neuron level. We also have detailed information on neuron birth times, cell lineage, neuron type... etc that can help determine whether genomic similarity is driven by one of these factors
-    % \item In this work, we collated all these diverse data to test hypothesis that elevated expression coupling of hubs would be apparent at microscale, and to identify what specifically drives this result.
-\end{itemize}
-
-
-\begin{enumerate}
-    \item{Structural network properties}
-    \begin{itemize}
-    \item{rich-club, hubs, conservation cross-scale/species/methods}
-    \item{Prior work in worm: different types of connectomes - wired/unwired, hubs}
-    \end{itemize}
-
-    \item{Structure-expression}
-    \begin{itemize}
-    \item{Datasets in different scales: mouse/rat, human (also heritability), developmental, large-scale datasets}
-    \end{itemize}
- \end{enumerate}
+% ALEX:
+%
+% \begin{itemize}
+%     \item Nervous systems are complex
+%     \item Complexity commonly studied using graphs
+%     \item Generality of graphs allows nervous systems to be modeled using a common framework across scales and species
+%     \item This work has shown that nervous systems are modular, has hubs, and hubs are connected forming an RC
+%     \item RC important for integration, but also costly
+%     % \item In particular, conservation of hub connectivity across scales and species implies genetic influences
+%     % \item this has been confirmed in mouse by Fulcher, and human by Vertes (cf. Fornito heritability work)
+%     % \item C elegans is attractive model to extend these results as connectome mapped completely at synapse and neuron level. We also have detailed information on neuron birth times, cell lineage, neuron type... etc that can help determine whether genomic similarity is driven by one of these factors
+%     % \item In this work, we collated all these diverse data to test hypothesis that elevated expression coupling of hubs would be apparent at microscale, and to identify what specifically drives this result.
+% \end{itemize}
+%
+%
+% \begin{enumerate}
+%     \item{Structural network properties}
+%     \begin{itemize}
+%     \item{rich-club, hubs, conservation cross-scale/species/methods}
+%     \item{Prior work in worm: different types of connectomes - wired/unwired, hubs}
+%     \end{itemize}
+%
+%     \item{Structure-expression}
+%     \begin{itemize}
+%     \item{Datasets in different scales: mouse/rat, human (also heritability), developmental, large-scale datasets}
+%     \end{itemize}
+%  \end{enumerate}
 
 
 % Introduce the structural connectome, characterization of its properties, focusing on worm, but also linking to other species to make the point of consistency
-The complex pattern of axonal connections between neural elements of nervous systems provides key insights into the physical constraints underlying a functionally optimized system.
+The axonal wiring between elements of nervous systems displays an incredible complexity, with the web of connections between neural elements providing insights into how cognitive function might have evolved under physical and energetic constraints.
+The network, or `connectome', can be represented as a graph, in which neural elements are represented as nodes (e.g., neurons in \emph{C. elegans}, or macroscopic brain regions in human), with edges connecting pairs of elements that have an axonal connection.
+This allows very different species, measurements, and scales of neuronal networks to be represented in a consistent and unified way.
 Mapping the network of structural connections between neural elements, from the scale of neurons in model organisms like \emph{C. elegans}, to mesoscale brain regions using tract tracing in rodents, to non-invasive MRI imaging in human subjects, has revealed a surprising consistency of organizational properties, suggesting a common set of selection pressures under which efficient neural systems have evolved.
-In this work, the brain network, or `connectome', is abstracted to a graph representation, in which neural elements are represented as nodes (e.g., neurons in \emph{C. elegans}, or macroscopic brain regions in human), with edges connecting pairs of elements that have an axonal connection; in this way allowing very different species, measurements, and scales of neuronal networks to be represented in a consistent and unified way.
-As well as showing a modular network structure, that can often be interpreted in terms of distinct functional brain networks, connectomes have been consistently shown to exhibit a non-uniform distribution of connectivity across the network, leading to the existence of highly connected `hub' nodes.
-Hubs have also been shown to be strongly interconnected, forming an integrated `rich club' that may be crucial for facilitating efficient integration of information between more specialized processing modules.
+As well as showing a modular network structure, that can often be interpreted in terms of distinctive functional brain networks, connectomes have been consistently shown to exhibit a non-uniform distribution of connectivity across the network, containing a small number of highly connected `hub' nodes.
+Hubs have also been shown to be densely interconnected with each other, forming an integrated `rich club' that is costly to develop (containing stronger, longer-distance projections) but delivers functional benefits by facilitating efficient integration of information between more specialized processing modules \cite{VandenHeuvel2012}.
+% Rich-club connectivity has also been shown to be costly to develop, with stronger and longer-distance projections that are thought to deliver functional benefits through the integration of diverse neural systems \cite{VandenHeuvel2012}.
 Prior work has characterized the rich club organization of the neuronal connectome of the \emph{C. elegans} nervous system \cite{Towlson:2013gf}, \emph{Drosophila} \cite{Shih:2015cu}, mouse \cite{Fulcher:2016ck}, rat \cite{vandenHeuvel:2015ie}, 53 \cite{ZamoraLopez:2010hy} or 65 areas \cite{deReus:2013cy} of the cat cortex, 242 macaque cortical regions \cite{Harriger:2012bb}, and in 82 brain regions \cite{vandenHeuvel:2011he} and 1\,170 human cortical areas \cite{vandenHeuvel:2012kh}.
-Although hub connectivity is costly (with strong, long-range projections), it is thought to provide a functional benefit in facilitating efficient integration of diverse neural systems \cite{VandenHeuvel2012}.
-The consistency of this structural feature across the connectomes of so many species, and scales suggests that it may be subject to genetic control.
+The consistency of hubs and rich-club connectivity structural across the connectomes of so many species and scales suggests that it may be subject to genetic control.
 % I DON'T BELIEVE IN THIS ONE SO LEAVING IT OUT: pigeon \cite{Shanahan:2013ej},
 
 % Introduce gene expression work and prior work relating them
-Although much effort has characterized structural network topology across species and scales, the recent availability of gene expression data for neural systems has allowed the structural network features described above to be related to molecular information, allowing the field of macroscale connectomics to provide microscale understanding and vice versa \cite{vandenHeuvel:2017ex}.
-Initial work was done in \emph{C. elegans}, showing that the expression of a small number of genes can be used to predict connectivity between pairs of neurons using statistical approaches \cite{Varadan:2006ek, Kaufman2006, Baruch2008b}.
-Later work, utilizing detailed gene expression data in mouse from the Allen Institute \cite{Lein:2007jn} revealed similar patterns in mouse \cite{Fakhry:2015kl, Ji:2014jw}, and that pairs of brain regions with similar gene expression patterns tend show more similar connectivity profiles \cite{French2011}.
+The recent availability of spatial gene expression and other molecular-level data across a range of neural systems has allowed structural connectome properties to be related across spatial scales to molecular information \cite{vandenHeuvel:2017ex}.
+% , facilitating cross-scale understanding between the fields of macroscale connectomics and microscale neuroscience \cite{vandenHeuvel:2017ex}.
+Initial statistical work done using binary gene expression annotations in \emph{C. elegans} showed that the expression of a small number of genes can be used to predict connectivity between pairs of neurons \cite{Varadan:2006ek, Kaufman2006, Baruch2008b}.
+Later work, utilizing detailed quantitative gene expression data in mouse from the Allen Mouse Brain Atlas \cite{Lein:2007jn} revealed a relationship between gene expression and connectivity in mouse \cite{Fakhry:2015kl, Ji:2014jw}, with pairs of brain regions with similar gene expression patterns also displaying similar connectivity profiles \cite{French2011}.
 % Fakhry:2015dg
 % that connected pairs of brain regions display more similar gene expression profiles \cite{French2011},
-Looked further into types of connections, we showed in mouse that pairs of connected hubs have the most similar gene expression profiles, and that hub connectivity is associated with the correlated expression of genes related to oxidative energy metabolism \cite{Fulcher:2016ck} (a result mirrored at the regional level in human \cite{Vertes2016a}).
+Looking further into different types of connections in mouse, Fulcher and Fornito showed that pairs of connected hubs have the most similar gene expression profiles, and that hub connectivity is associated with the correlated expression of genes related to oxidative energy metabolism \cite{Fulcher:2016ck}.
+Similar findings have been reported at the regional level in the human cortex, with integrative hub regions (with high inter-modular degree and long connection distance) being associated with expression of genes regulating oxidative metabolism and mitochondria \cite{Vertes2016a}, consistent with their high metabolic cost \cite{Collin:2014kq, Tomasi:2013kl}.
 % These findings highlight a close relationship between metabolic expenditure and the high signaling load of hub regions in the brain, as has been previously proposed \cite{Bullmore2012}.
-Like the cross-species consistency of hub connectivity, these results hint that structural connectivity and gene expression may also be consistently related.
+As well as being a highly conserved structural feature, these studies hint that hub connectivity may also be consistently related to metabolic demand, with the picture of highly connected hubs being both metabolically costly, both to construct and to run.
 \emph{C. elegans} is attractive model to extend these results to the microscale, being the only connectome fully mapped at the level of individual synapses and neurons, avoiding statistical estimation of connectomes from tract-tracing experiments \cite{Ypma:2016em}, or the choice of a discrete parcellation for a continuous brain.
 In \emph{C. elegans}, we also have detailed information on neuron birth times, cell lineage, neurotransmitters, neuron type, etc. that can help delineate the effect of cell type properties on our findings in greater depth.
 In this work, we collated all these diverse data to test the hypothesis that elevated expression coupling of hubs would be apparent at microscale, and to identify what genes, or other factors, drive the result.
