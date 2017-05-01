@@ -776,14 +776,20 @@ The number of connections of each type is shown in parentheses.
 
 
 \paragraph{Birth time}
-[[TODO: Add rationale for this analysis]]
-[[TODO: Aurina, can you check this? Alex added: ``As first demonstrated by Towlson et al. \cite{Towlson:2013gf}'']], hubs are born early in the \textit{C. elegans} development \cite{Varier2011} (see Fig \ref{fig:BirthTimesk}), therefore we next verified that the increase in coexpression between them can not be explained by the similarity in birth time. 
-For this purpose, we separated neurons that are formed early (during the first 1000 min) in the development into two types, namely hubs and non-hubs, and compared coexpression within each of those groups (Fig \ref{fig:BirthTimeHubs}). 
-Links between hubs show significantly increased coexpression and consequently confirm that even between the neurons that were born roughly at the same time, hubs exhibit a unique transcriptional pattern.
+[[TODO: Add rationale for this analysis. 
+[[AA: Towlson directly separated nodes into hubs/non-hubs, but Varier first said that "Early stages are also crucial for the formation of highly connected neurons (hubs)" so I'd say they are the primary source??? OR could cite both without saying "first"]]\\
+
+The formation of neurons in \textit{C. elegans} nervous system can be separated into two distinct time periods: before hatching (neuron birth time $< 550$ min) and after hatching (neuron birth time $> 1200$ min) with an around 700min gap between them when no neuron formation is happening.  
+As was previously demonstrated all hubs are born early in the \textit{C. elegans} development \cite{Varier2011,Towlson2013}. 
+Therefore, we next considered whether the increase in coexpression between hub neurons is influenced by the similarity in their birth time. 
+To test this hypothesis we separated all neurons from the first formation period into two groups based on their degree: early-born hub neurons (birth time$<1000$ min, degree$>41$) and early-born non-hub neurons (birth time$<1000$ min, degree$\leq41$) and compared coexpression between those groups (Fig \ref{fig:BirthTimeHubs}).
+
+Even among early born neurons, connections between hubs have significantly increased coexpression compared to connections between non0hubs from the same time period. 
+Therefore, we confirm that increased coexpression in hub neurons can not be explained by their similarity in birth time and that hubs exhibit a unique transcriptional pattern.
 
 \begin{figure}[t]
   \centering
-    \includegraphics[width=0.5\textwidth]{BirthTimeHubs.pdf}
+    \includegraphics[width=0.5\textwidth]{BirthTimeHubs.eps}
  \caption{\textbf{Coexpression between early born hubs and early born non-hubs. COULD DO BORN EARLY OR BORN TOGETHER} ($P < 10^{-28}$, Wilcoxon rank sum test) or we could chow birth time diff curves and this one side by side (like with coexpression?))
 }
 \label{fig:BirthTimeHubs}
