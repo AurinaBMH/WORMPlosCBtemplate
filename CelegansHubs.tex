@@ -670,8 +670,7 @@ Interestingly, we see a split between feed-in and feed-out connections, with fee
 
 These results, using partial binary expression estimates in 948 genes in a neuronal connectome, are broadly consistent with results in 213 regions of the mesoscale mouse connectome with over 17\,000 genes, in which we see an increase in coexpression in connected pairs of neurons, and the greatest coexpression amongst hub-hub connections and the lowest coexpression amongst nonhub-nonhub connections.
 In contrast to the mouse connectome, however, in which hubs were distributed across a broad range of anatomical divisions, hubs in C. elegans are [[mostly. There is one motor neuron in there, right?AA: with threshold k>41, all interneurons]] interneurons \cite{Towlson:2013gf} (cf. Fig.~\ref{fig:topology_rich}A).
-To determine the specificity of the effect between different neuron types, we split our coexpression analysis into connections involving: (i) interneurons, (ii) sensory neurons, and (iii) motor neurons, computing the mean coexpression within each class of connections as a function of the degree of the given neuron type
-[[TODO: is this true? It's kind of complicated to explain -- is it right that for a given $k$ threshold we include, say, sensory neurons of degree greater than $k$ and their connections to all other neurons in the `sensory' category? Or do we include all neurons with degree $>k$ and compute the mean of those connections that involve both the high-degree neurons AND neurons of the given class? This would be another choice. Perhaps it's the latter that's plotted?YES: now we include connections for `sensory' deg$>k$ to any other other neurons with degree >k - my code is is really complicated - probably there is much easier way to do the same]], as shown in Fig.~\ref{fig:interneuron_dep}A.
+To determine the specificity of the effect between different neuron types, we split our coexpression analysis into connections involving: (i) interneurons, (ii) sensory neurons, and (iii) motor neurons, computing the mean coexpression for links where at least one neuron is of a given neuron type and both neurons have a degree higher than \textit{k}, as shown in Fig.~\ref{fig:interneuron_dep}A.
 Note that the three categories are not mutually exclusive; for example, the `interneuron' class includes connections between an interneuron and any other neuron.
 We find that connections involving interneurons are unique in their increasing average coexpression with increasing degree, $k$.
 Connections involving motor neurons, and connections involving sensory neurons, do not show any clear increase with degree.
@@ -681,7 +680,7 @@ Connections involving motor neurons, and connections involving sensory neurons, 
    \includegraphics[width=1\textwidth]{TypeDegree.pdf}
  \caption{
 \textbf{The increase in coexpression with degree is specific to high-degree interneurons, and hub interneurons have higher coexpression than nonhub interneurons.}
-\textbf{A} \emph{Upper}: The number of connections involving interneurons (orange), sensory neurons (green), and motor neurons (blue) across degree threshold, $k$ [[TODO: Aurina, is it correct that sensory is green and motor is blue?AA: NO - motor are green, sensory blue (I changed RC degree distribution colors in the PlotRichClub.m script accordingly)]].
+\textbf{A} \emph{Upper}: The number of connections involving interneurons (orange), sensory neurons (blue), and motor neurons (green) across degree threshold, $k$.
 \emph{Lower}: Average gene coexpression as a function of degree for connections involving different types of neurons.
 \textbf{B} Coexpression distributions for all pairs of hub interneurons (red) and all pairs of non-hub interneurons (gray).
 [[TODO: Did we exclude multimodal neurons from this analysis?? Can we do a statistical comparison between these distributions and add something here on that?]]
@@ -693,10 +692,10 @@ Connections involving motor neurons, and connections involving sensory neurons, 
 \end{figure}
 
 Having found that interneurons drive the gene coexpression relationship with degree, $k$, we next verified whether hubs showed a unique transcriptional signature among this neuronal subtype.
-We compared gene coexpression between all pairs of hub interneurons [[TODO: what $k$ threshold?]] and between all pairs of nonhub interneurons (AVFL, AVFR, AVHL, AVHR, AVKL, AVKR, AVJL, AVJR) [[TODO: what does this list represent? Not clear from the sentence structure]], as shown in Fig.~\ref{fig:interneuron_dep}B.
-% that share similar anatomical properties in order to ensure that increase in coexpression for rich links is not determined by the fact that the majority of hub neurons belong to the same anatomical neuron type (???HOW TO CALL COMMAND INTERNEURONS???).
+We compared gene coexpression between all pairs of hub interneurons ($\textit{k}>41$, n=13) and between all pairs of nonhub interneurons that share similar anatomical properties to hub interneurons (AVFL, AVFR, AVHL, AVHR, AVKL, AVKR, AVJL, AVJR, n=8) in order to ensure that increase in coexpression for rich links is not determined by the fact that the majority of hub neurons belong to the same anatomical neuron type.  As shown in Fig.~\ref{fig:interneuron_dep}B, 
+% that share similar anatomical properties  (???HOW TO CALL COMMAND INTERNEURONS???).
 % In order to compare transcriptional similarity between all pairs of neurons we ignore the existence (or absence) of connections between these neurons,
-Pairs of hub interneurons display significantly higher gene coexpression than pairs of nonhub interneurons ([[TODO: statistical test, p-value, etc.]]).
+pairs of hub interneurons display significantly higher gene coexpression than pairs of nonhub interneurons ([[TODO: statistical test, p-value, etc.]]).
 Thus, the increase in coexpression amongst hub interneurons is not simply due to most hubs being interneurons;  even amongst interneurons, [[TODO: isn't this obvious from plot A? It's very similar -- at high degree, we're only looking at hub interneuron pairs, which are more similar than others. Not sure B adds much -- we could just quantify the difference at a given $k$ threshold to put a statistic to it...?AA: it adds inf, because we're comparing hubs to interneurons with the same anatomical properties, not just random low degree interneurons. PLOT A says - effect driven by interneurons (other groups of neurons do not show this increase with degree), plot B says - among interneurons that are anatomically the same (hub interneurons and 8 interneurons that are not hubs), hubs have higher coexpression. Aurina -- can you rephrase to make this all clear in the main text. AF was confused.]].
 
 \subsection*{Other influences}
@@ -782,13 +781,13 @@ The number of connections of each type is shown in parentheses.
 [[TODO: Add rationale for this analysis. 
 [[AA: Towlson directly separated nodes into hubs/non-hubs, but Varier first said that "Early stages are also crucial for the formation of highly connected neurons (hubs)" so I'd say they are the primary source??? OR could cite both without saying "first"]]\\
 
-The formation of neurons in \textit{C. elegans} nervous system can be separated into two distinct time periods: before hatching (neuron birth time $< 550$ min) and after hatching (neuron birth time $> 1200$ min) with an around 700min gap between them when no neuron formation is happening.  
+The formation of neurons in \textit{C. elegans} nervous system is separated into two distinct time periods: before hatching (neuron birth time $< 550$ min) and after hatching (neuron birth time $> 1200$ min) with an around 700min gap between them when no neurones are formed.  
 As was previously demonstrated all hubs are born early in the \textit{C. elegans} development \cite{Varier2011,Towlson2013}. 
 Therefore, we next considered whether the increase in coexpression between hub neurons is influenced by the similarity in their birth time. 
-To test this hypothesis we separated all neurons from the first formation period into two groups based on their degree: early-born hub neurons (birth time$<1000$ min, degree$>41$) and early-born non-hub neurons (birth time$<1000$ min, degree$\leq41$) and compared coexpression between those groups (Fig \ref{fig:BirthTimeHubs}).
+To test this hypothesis we separated all neurons that were formed before hatching into two groups based on their degree: early-born hub neurons (birth time$<1000$ min, degree$>41$) and early-born non-hub neurons (birth time$<1000$ min, degree$\leq41$) and compared coexpression between those groups (Fig \ref{fig:BirthTimeHubs}).
 
-Even among early born neurons, connections between hubs have significantly increased coexpression compared to connections between non0hubs from the same time period. 
-Therefore, we confirm that increased coexpression in hub neurons can not be explained by their similarity in birth time and that hubs exhibit a unique transcriptional pattern.
+Even among early born neurons, connections between hubs have significantly increased coexpression compared to connections between non-hubs from the same time period (add p value, ranksum value). 
+Therefore, we confirm that increased coexpression between hub neurons can not be explained by their similarity in birth time and that hubs exhibit a unique transcriptional pattern.
 
 \begin{figure}[t]
   \centering
