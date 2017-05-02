@@ -633,7 +633,7 @@ We find that connected pairs of neurons have more similar expression profiles th
 
 % ------------------------------------------------------------------------------
 % <<coexpConnUncon.m>>
-% <<RichClubMedian.m>>
+% <<RichClub.m>>
 % ------------------------------------------------------------------------------
  \begin{figure}[h]
  \centering
@@ -648,8 +648,7 @@ Note that at high $k$, most neurons are labeled as nonhubs, and hence the vast m
 \emph{Lower}: Mean gene coexpression, $r_\phi$, for each connection type as a function of $k$.
 The mean coexpression across all network links is shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. Fig.~\ref{fig:topology_rich}) is shaded gray.
 Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (one-sided Welch’s t test; $P < 0.05$).
-[[TODO: A: add $r_\phi$ to ylabel.
-B: Remove box from degree distribution, Change y-label to `Mean gene coexpression', fonts are small, and inconsistent sizes between subplots.
+[[TODO: fonts are small, and inconsistent sizes between subplots.
 I think we should crop the curves when there are fewer than X connections remaining -- in this case it's a bit ridiculous to show that constant feed-out/feed-in/peripheral coexpression when there are only two neurons
 left as hubs]]
 [[TODO: AF: Use colors in A. Use black for distribution in B.]]
@@ -675,21 +674,24 @@ Note that the three categories are not mutually exclusive; for example, the `int
 We find that connections involving interneurons are unique in their increasing average coexpression with increasing degree, $k$.
 Connections involving motor neurons, and connections involving sensory neurons, do not show any clear increase with degree.
 
+% ------------------------------------------------------------------------------
+% <<plot_neuronType.m>>
+% ------------------------------------------------------------------------------
+
 \begin{figure}[h]
 \centering
-   \includegraphics[width=1\textwidth]{TypeDegree.pdf}
+   \includegraphics[width=1\textwidth]{DegreeType.pdf}
  \caption{
 \textbf{The increase in coexpression with degree is specific to high-degree interneurons, and hub interneurons have higher coexpression than nonhub interneurons.}
 \textbf{A} \emph{Upper}: The number of connections involving interneurons (orange), sensory neurons (blue), and motor neurons (green) across degree threshold, $k$.
 \emph{Lower}: Average gene coexpression as a function of degree for connections involving different types of neurons.
 \textbf{B} Coexpression distributions for all pairs of hub interneurons (red) and all pairs of non-hub interneurons (gray).
 [[TODO: Did we exclude multimodal neurons from this analysis?? Can we do a statistical comparison between these distributions and add something here on that?]]
-[[TODO: A: the vertical axis in lower subplot should state `mean gene coexpression']]
-[[TODO: Both coexpression axes should be the same `Gene coexpression, $r_\phi$']]
-[[TODO: AF: Plot makes it seem like there are no edges for $k>35$ -- Aurina can you try the log plotting I suggested -- will have to be three separate lines in semilogy]]
- \label{fig:interneuron_dep}
 }
+ \label{fig:interneuron_dep}
+
 \end{figure}
+
 
 Having found that interneurons drive the gene coexpression relationship with degree, $k$, we next verified whether hubs showed a unique transcriptional signature among this neuronal subtype.
 We compared gene coexpression between all pairs of hub interneurons ($\textit{k}>41$, n=13) and between all pairs of nonhub interneurons that share similar anatomical properties to hub interneurons (AVFL, AVFR, AVHL, AVHR, AVKL, AVKR, AVJL, AVJR, n=8) in order to ensure that increase in coexpression for rich links is not determined by the fact that the majority of hub neurons belong to the same anatomical neuron type.  As shown in Fig.~\ref{fig:interneuron_dep}B, 
@@ -741,7 +743,7 @@ We thus find that the increase in coexpression for hub-hub connections is not dr
 % [[TODO: this section required more justification. Why would we expect modules to drive hub effect? why is looking at modules in this context interesting? Unclear what the nulls are and how they were generated.]]
 
 % ------------------------------------------------------------------------------
-% <<plot_modules.m>>
+% <<plot_modules.m, plot_birthTime.m, plot_lineage.m>>
 % ------------------------------------------------------------------------------
 \begin{figure}[!h]
 \centering
@@ -779,23 +781,23 @@ The number of connections of each type is shown in parentheses.
 \end{figure}
 
 
-\paragraph{Birth time}
+\paragraph{Birth time.}
 The formation of neurons in \textit{C. elegans} nervous system is separated into two distinct time periods: before hatching (neuron birth time $< 550$ min) and after hatching (neuron birth time $> 1200$ min) with an around 700min gap between them when no neurons are formed.  
 As was previously demonstrated all hubs are born early in the \textit{C. elegans} development \cite{Varier2011,Towlson2013}. 
 Therefore, we next considered whether the increase in coexpression between hub neurons is influenced by the similarity in their birth time. 
-To test this hypothesis we separated all neurons that were formed before hatching into two groups based on their degree: early-born hub neurons (birth time$<550$ min, degree$>41$) and early-born non-hub neurons (birth time$<550$ min, degree$\leq41$) and compared coexpression between those groups (Fig~\ref{fig:OtherInfluences} D).
+To test this hypothesis we separated all neurons that were formed before hatching into two groups based on their degree: early-born hub neurons (birth time$<550$ min, degree$>41$) and early-born non-hub neurons (birth time$<550$ min, degree$\leq41$) and compared coexpression between those groups (Fig\ref{fig:OtherInfluences} D).
 
-Even among early born neurons, connections between hubs (rich) show significantly increased coexpression compared to all other connections (non-rich) (add p value, ranksum value). 
+Even among early born neurons, connections between hubs (rich) show significantly increased coexpression compared to all other connections (non-rich: feedin, feedput, peripheral) (add p value, ranksum value). 
 Therefore, we confirm that increased coexpression between hub neurons is not driven by the similarity in their birth times. 
 
 
-\paragraph{Lineage similarity}
+\paragraph{Lineage distance.}
 Lineage distance between pairs of neurons presents another source of information about the genetic makeup of the \textit{C. elegans} nervous system which could potentially influence the observed increase in coexpression between hub neurons. 
 It has been shown that cells with identical fates can be formed by different gene regulatory pathways \cite{Liu2009}, however to the best of knowledge the relationship between neuron lineage distance and gene expression patterns has not been investigated yet.
 Implementing an analogous strategy as in our previous analysis of gene coexpression, we show that lineage distance between pairs of neurons increases with degree for feeder links while no significant change is observed for rich links (Fig.~\ref{fig:Lineagek}).
 This finding suggests hub and non-hub neurons are more different in lineage when the hub threshold is high, i.e. when so-called hubs actually have high degree. 
-Contrary, peripheral links manifest stably lower lineage distance through the range of degree thresholds wit (Fig.~\ref{fig:Lineagek}).\\
-As shown in Fig.~\ref{fig:OtherInfluences}E, there is no difference in lineage distances between rich and non-rich (feedin, feedput, peripheral, $P = 0.23$, Wilcoxon rank sum test) meaning that the increase in gene coexpression with degree for rich links can not be attributed to their similarity in lineage.
+Contrary, peripheral links manifest stably lower lineage distance through the range of degree thresholds (Fig.\ref{fig:Lineagek}).\\
+As shown in Fig.\ref{fig:OtherInfluences}E, there is no difference in lineage distances between rich and non-rich (feedin, feedput, peripheral, $P = 0.23$, Wilcoxon rank sum test) meaning that the increase in gene coexpression with degree for rich links can not be attributed to their similarity in lineage.
 
 \subsection*{Functional enrichment}
 
@@ -803,8 +805,8 @@ As shown in Fig.~\ref{fig:OtherInfluences}E, there is no difference in lineage d
 
 Having determined that pairs of neurons with different connectivity exhibit different levels of coexpression, we investigated which functional groups of genes contributed to these differences.
 Despite lacking full genome coverage, and incomplete binary expression data, we developed a method to assign a gene coexpression contribution (GCC) score to each gene that quantifies its contribution to a given coexpression pattern (related to the probability of a gene being expressed together in a given set of neuron pairs compared to an alternative set).
-We then performing an enrichment analysis using gene ontology categories for biological processes, molecular function and cell components, separately (see Methods).
-Previous results in mouse \cite{Fulcher:2016ck}, using over 17\,000 genes, indicated that genes driving an increase in coexpression between connected pairs of neurons are enriched in genes related to basic neuronal function, whereas those driving an increase in connections involving hub neurons are enriched in oxidative energy metabolism (a result corroborated at a regional level in human \cite{Vertes2016a}).
+We then performing an enrichment analysis using gene ontology categories for biological processes (see Methods).
+Previous results in mouse \cite{Fulcher:2016ck}, using over 17\,000 genes, indicated that genes driving an increase in coexpression between connected pairs of neurons are enriched in GO categories related to basic neuronal function, whereas those driving an increase in connections involving hub neurons are enriched in oxidative energy metabolism (a result corroborated at a regional level in human \cite{Vertes2016a}).
 However, [[TODO-AA: outline limitations in our data: we don't have gene coverage to check these things. What are results, and put name of script commented]].
 [[Tweak the following to provide some hypothesis in light of data limitations:]]
 Given that hub neurons are thought to be highly integrative, and disproportionately involved in mediating signal traffic \cite{Towlson:2013gf}, increased number communication and signal propagation related gene groups for hub-related links is in line with our expectation.
@@ -1087,11 +1089,10 @@ GO:0043235                                 & receptor complex                   
 \label{fig:S_propOnes}
 \textbf{Dependence of binary coexpression metrics to the proportion of positive annotations}
 Given the sparse binary annotation of genes to neurons, we investigated bias in each measure across 1\,000 pairs of random binary vectors, each with a fixed proportion of ones.
-Here we plot the mean correlation between the two vectors, averaged over 1\,000 runs, for 948-long vectors with between 0--0.16 proportion of ones (matrix size is 150x150, therefore the number of ones ranges from 1 to 150).
+Here we plot the mean correlation between the two vectors, averaged over 1\,000 runs (100 runs for positive match measure due to computational costs), for 948-long vectors with between 0--0.16 proportion of ones (matrix size is 150x150, therefore the number of ones ranges from 1 to 150).
 Bias is indicated by a systematic trend in correlation values, not due to actual matching, but driven simply by the proportion of positive annotations for a pair of vectors.
 \textbf{A} Pearson, $r_\phi$, the measure used throughout this work, shows no systematic bias (note the color axis scale, 10$^{-3}$)
-\textbf{B} Yule's Q, \textbf{C} Jaccard and \textbf{D} Possitive match correlation measures all exhibit a strong systematic bias.
-[[TODO-AA: Add A, B, C labels, add our new positive match measure, provide better titles, use appropriate color bars/scales]]
+\textbf{B} Jaccard, \textbf{C} Yule's Q and \textbf{D} Positive match correlation measures all exhibit a strong systematic bias.
 }
 \end{figure}
 
@@ -1190,7 +1191,7 @@ All pairs of horizontal and vertical axes are in scale with each other.
 % ------------------------------------------------------------------------------
 
 % ------------------------------------------------------------------------------
-% <<coexpRecUnidirUncon.m>>
+% <<plot_disstributionsSUPP.m>>
 % ------------------------------------------------------------------------------
 
 \paragraph*{S6 Fig.}
@@ -1235,7 +1236,7 @@ Circles indicate values of $\Phi_\mathrm{norm}$ that are significantly higher th
 \paragraph*{S8 Fig.}
 {\bf Mean lineage distance as a function of degree for different link types}
 \begin{figure}[!h]
-\label{Lineagek}
+
 \centering
     \includegraphics[width=1\textwidth]{Lineage.pdf}
     \caption{\emph{Top}: Degree distribution.
@@ -1245,6 +1246,7 @@ Note that at high $k$, most neurons are labeled as nonhubs, and hence the vast m
 Lineage distance across all network links shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. Fig.~\ref{fig:topology_rich}) is shaded gray.
 Circles indicate a statistically significant increase or decrease in birth time difference in a given link type relative to the rest of the network (two-sided Welch’s t test; $P < 0.05$).
 }
+\label{Lineagek}
 \end{figure}
 % <<RichClub.m>>
 
