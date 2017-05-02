@@ -719,7 +719,7 @@ We first consider the modular organization of the C. elegans connectome.
 Like many other connectomes, the C. elegans nervous system contains modules, groups of neurons that are densely interconnected \cite{Kim2014, Bassett2010}, and modules can also be found of similarly connected neurons that correspond to specific functional circuits \cite{Achacoso:1992ay, Pavlovic2014}.
 Given the more uniform functional role assumed of neurons within a module (and hence characteristic gene expression), we test the possibility that hubs belonging to the same module (which carries a characteristic gene expression profile) may drive the increased gene coexpression of hub-hub connections characterized above.
  and thus might drive the increased gene coexpression of hubs, we used the Louvain community detection algorithm to extract modules from the binary \emph{C. elegans} synaptic connectome (using consensus clustering, see \textit{Methods}).
-The four resulting modules are shown in Fig.~\ref{fig:modules}A, in which hubs are predominantly placed in a single module (labeled green in the module indicator column), that contained sensory, motor, and interneurons spanning the head, tail, and body (see other indicator columns in Fig.~\ref{fig:modules}A).
+The four resulting modules are shown in Fig.~\ref{fig:OtherInfluences}A, in which hubs are predominantly placed in a single module (labeled green in the module indicator column), that contained sensory, motor, and interneurons spanning the head, tail, and body (see other indicator columns in Fig.~\ref{fig:OtherInfluences}A).
 % In this analysis, hubs are mostly concentrated in a single module (purple in Fig.~\ref{fig:modules}), but are also distributed across three other modules.
 % The algorithm detects three comparably sized modules (M1-M3), each containing diverse neuron types, as well as a smaller fourth module (M4), which contains 13 motor neurons.
 % Of the 13 hubs with $k \geq 42$, the majority (11) were assigned to M3, which spanned the length of the worm body, as pictured in Fig.~\ref{fig:modules}.
@@ -728,9 +728,9 @@ The four resulting modules are shown in Fig.~\ref{fig:modules}A, in which hubs a
 % 10 out of 11 hub neurons in this module are directly responsible for
 % The main goal of this analysis was to compare coexpression within and between modules in order to examine if neurons assigned to the same module are more genetically similar than neurons in other modules.
 The expectation that gene coexpression, $r_\phi$, was increased within modules was not corroborated by the data.
-In fact, gene coexpression was slightly lower for connections within modules than for connections between modules, as shown in Fig.~\ref{fig:modules}B ($p = 0.045$, Welch's $t$-test).
+In fact, gene coexpression was slightly lower for connections within modules than for connections between modules, as shown in Fig.~\ref{fig:OtherInfluences}B ($p = 0.045$, Welch's $t$-test).
 This result is not due to the deterministic Louvain algorithm; indeed we found an even larger decrease in intramodular coexpression using nine module partition of neurons derived from an Erd\"os-R\'enyi Mixture Model ($p = 2\times10^{-6}$) \cite{Pavlovic2014}.
-Accordingly, looking within modules, we still found a significant increase in coexpression for hub-hub connections, with intra-modular connections between hubs were increased relative to other intra-modular connections (Welch's $t$-test, $p = 1.3\times 10^{-10}$).
+Accordingly, looking within modules, we still found a significant increase in coexpression for hub-hub connections, with intra-modular connections between hubs were increased relative to other intra-modular connections (Fig.~\ref{fig:OtherInfluences}C, Welch's $t$-test, $p = 1.3\times 10^{-10}$).
 We also computed an empirical null distribution for the mean coexpression for the 34 intramodular and 32 intramodular hub-hub links, by taking 1\,000 random samples from these two link types, yielding a null $r_\phi$ of $0.15 \pm 0.02$, compared to the observed value of $0.51$ ($p < 10^{-16}$).
 We thus find that the increase in coexpression for hub-hub connections is not driven by the similar modular membership.
 % Coexpression within modules did not exceed coexpression between modules, demonstrating that neurons that belong to the same module do not share any particular genetic similarity.
@@ -745,7 +745,7 @@ We thus find that the increase in coexpression for hub-hub connections is not dr
 % ------------------------------------------------------------------------------
 \begin{figure}[!h]
 \centering
-    \includegraphics[width=1.2\textwidth]{Modules.eps}
+    \includegraphics[width=1\textwidth]{extras.pdf}
  \caption{
  \textbf{Increased coexpression of hub neurons is not driven by their module membership}
 %\textbf{A: Connection distance}
@@ -758,9 +758,12 @@ Neuron indicators are shown to the left:
 (ii) neuron type (interneuron, orange; motor, green; sensory, blue; multimodal, yellow),
 (iii) hub indicator (red for hubs), and
 (iv) spatial position: head (gray), body (purple), tail (red).
-\textbf{B} Distributions of gene coexpression, $r_\phi$, for intra-modular connections (black) and inter-modular connections (gray), shown as violin plots with the mean shown as a horizontal bar.
+\textbf{B} Distributions of gene coexpression, $r_\phi$, for intra-modular connections (black) and inter-modular connections (gray), shown as violin plots with the median shown as a horizontal bar.
 The number of connections of each type is shown in parentheses.
-% \textbf{C} Violin plots of the distributions of $r_\phi$ for intra-modular hub-hub connections (black) compared to other intra-modular connections (gray).
+\textbf{C} Distributions of gene coexpression, $r_\phi$, for intra-modular rich (red) and non-rich (blue) connections, shown as violin plots with the median shown as a horizontal bar.
+The number of connections of each type is shown in parentheses.
+\textbf{D} Distributions of gene coexpression, $r_\phi$, for early born hubs (rich links, red) and non-hubs (non-rich links, blue) shown as violin plots with the median shown as a horizontal bar. ($P < 10^{-28}$, Wilcoxon rank sum test).
+\textbf{E} Distributions of lineage distance between rich links (red) and non-rich links (blue) shown as histograms. ($P = 0.23$, Wilcoxon rank sum test).
 %Composition of each module according to neuron type.
 %Modular organisation of the connectome.
 %Coexpression distributions within and between modules.
@@ -771,42 +774,28 @@ The number of connections of each type is shown in parentheses.
 %Top: Median gene coexpression as a function of degree for connections involving different types of neurons.
 %Bottom: The number of connections in each category for a range of degrees.
 %Coexpression distributions for hub and non-hub interneurons. \\
-[[TODO: Add labels for colors in matrix, bigger text]]
 }
- \label{fig:modules}
+ \label{fig:OtherInfluences}
 \end{figure}
 
 
 \paragraph{Birth time}
-[[TODO: Add rationale for this analysis. 
-[[AA: Towlson directly separated nodes into hubs/non-hubs, but Varier first said that "Early stages are also crucial for the formation of highly connected neurons (hubs)" so I'd say they are the primary source??? OR could cite both without saying "first"]]\\
-
-The formation of neurons in \textit{C. elegans} nervous system is separated into two distinct time periods: before hatching (neuron birth time $< 550$ min) and after hatching (neuron birth time $> 1200$ min) with an around 700min gap between them when no neurones are formed.  
+The formation of neurons in \textit{C. elegans} nervous system is separated into two distinct time periods: before hatching (neuron birth time $< 550$ min) and after hatching (neuron birth time $> 1200$ min) with an around 700min gap between them when no neurons are formed.  
 As was previously demonstrated all hubs are born early in the \textit{C. elegans} development \cite{Varier2011,Towlson2013}. 
 Therefore, we next considered whether the increase in coexpression between hub neurons is influenced by the similarity in their birth time. 
-To test this hypothesis we separated all neurons that were formed before hatching into two groups based on their degree: early-born hub neurons (birth time$<1000$ min, degree$>41$) and early-born non-hub neurons (birth time$<1000$ min, degree$\leq41$) and compared coexpression between those groups (Fig \ref{fig:BirthTimeHubs}).
+To test this hypothesis we separated all neurons that were formed before hatching into two groups based on their degree: early-born hub neurons (birth time$<550$ min, degree$>41$) and early-born non-hub neurons (birth time$<550$ min, degree$\leq41$) and compared coexpression between those groups (Fig~\ref{fig:OtherInfluences} D).
 
-Even among early born neurons, connections between hubs have significantly increased coexpression compared to connections between non-hubs from the same time period (add p value, ranksum value). 
-Therefore, we confirm that increased coexpression between hub neurons can not be explained by their similarity in birth time and that hubs exhibit a unique transcriptional pattern.
+Even among early born neurons, connections between hubs (rich) show significantly increased coexpression compared to all other connections (non-rich) (add p value, ranksum value). 
+Therefore, we confirm that increased coexpression between hub neurons is not driven by the similarity in their birth times. 
 
-\begin{figure}[t]
-  \centering
-    \includegraphics[width=0.5\textwidth]{BirthTimeHubs.eps}
- \caption{\textbf{Coexpression between early born hubs and early born non-hubs. COULD DO BORN EARLY OR BORN TOGETHER} ($P < 10^{-28}$, Wilcoxon rank sum test) or we could chow birth time diff curves and this one side by side (like with coexpression?))
-}
-\label{fig:BirthTimeHubs}
-\end{figure}
 
 \paragraph{Lineage similarity}
-Lineage distance between pairs of neurons presents another source of information about the genetic makeup of the \textit{C. elegans} nervous system.
-It has been shown that cells with identical fates can be formed by different gene regulatory pathways \cite{Liu2009}.
-% however, to the best of knowledge, no lineage distance analysis was done in relation to the network properties of the \textit{C. elegans} connectome.
-Implementing an analogous strategy as in our previous analysis of gene coexpression, we show that lineage distance between pairs of neurons increases with degree for feeder links while no significant change is observed for rich links (Fig.~\ref{Lineage}).
-This finding suggests that the difference in lineage distance between hub and nonhub neurons increases with degree, [[therefore in a way confirming the relevance of this classification]][[TODO: Clarify???]].
-Contrary, peripheral links manifest stably lower lineage distance through the range of degree thresholds wit (Fig.~\ref{Lineage}).
-In addition, this shows that increase in gene coexpression with degree for rich links can not be attributed to their similarity in lineage.
-
-Is it possible to say that connections within ACh are more similar when they involve hubs?
+Lineage distance between pairs of neurons presents another source of information about the genetic makeup of the \textit{C. elegans} nervous system which could potentially influence the observed increase in coexpression between hub neurons. 
+It has been shown that cells with identical fates can be formed by different gene regulatory pathways \cite{Liu2009}, however to the best of knowledge the relationship between neuron lineage distance and gene expression patterns has not been investigated yet.
+Implementing an analogous strategy as in our previous analysis of gene coexpression, we show that lineage distance between pairs of neurons increases with degree for feeder links while no significant change is observed for rich links (Fig.~\ref{fig:Lineagek}).
+This finding suggests hub and non-hub neurons are more different in lineage when the hub threshold is high, i.e. when so-called hubs actually have high degree. 
+Contrary, peripheral links manifest stably lower lineage distance through the range of degree thresholds wit (Fig.~\ref{fig:Lineagek}).\\
+As shown in Fig.~\ref{fig:OtherInfluences}E, there is no difference in lineage distances between rich and non-rich (feedin, feedput, peripheral, $P = 0.23$, Wilcoxon rank sum test) meaning that the increase in gene coexpression with degree for rich links can not be attributed to their similarity in lineage.
 
 \subsection*{Functional enrichment}
 
@@ -1101,7 +1090,7 @@ Given the sparse binary annotation of genes to neurons, we investigated bias in 
 Here we plot the mean correlation between the two vectors, averaged over 1\,000 runs, for 948-long vectors with between 0--0.16 proportion of ones (matrix size is 150x150, therefore the number of ones ranges from 1 to 150).
 Bias is indicated by a systematic trend in correlation values, not due to actual matching, but driven simply by the proportion of positive annotations for a pair of vectors.
 \textbf{A} Pearson, $r_\phi$, the measure used throughout this work, shows no systematic bias (note the color axis scale, 10$^{-3}$)
-\textbf{B} Yule's Q, and \textbf{C} Jaccard correlation measures both exhibit a strong systematic bias.
+\textbf{B} Yule's Q, \textbf{C} Jaccard and \textbf{D} Possitive match correlation measures all exhibit a strong systematic bias.
 [[TODO-AA: Add A, B, C labels, add our new positive match measure, provide better titles, use appropriate color bars/scales]]
 }
 \end{figure}
