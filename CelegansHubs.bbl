@@ -280,6 +280,12 @@ Zoubarev A, Hamer KM, Keshav KD, {Luke Mccarthy} E, Santos JRC, Van~rossum T,
 \newblock Bioinformatics. 2012;28(17):2272--2273.
 \newblock doi:{10.1093/bioinformatics/bts430}.
 
+\bibitem{Towlson2013}
+Towlson EK, V{\'{e}}rtes PE, Ahnert SE, Schafer WR, Bullmore ET.
+\newblock {The rich club of the C. elegans neuronal connectome.}
+\newblock Journal of Neuroscience. 2013;33(15):6380--7.
+\newblock doi:{10.1523/JNEUROSCI.3784-12.2013}.
+
 \bibitem{Roberts2016}
 Roberts JA, Perry A, Lord AR, Roberts G, Mitchell PB, Smith RE, et~al.
 \newblock {The contribution of geometry to the human connectome.}
@@ -320,12 +326,6 @@ Pavlovic DM, V{\'{e}}rtes PE, Bullmore ET, Schafer WR, Nichols TE.
   Caenorhabditis elegans connectome.}
 \newblock PLoS ONE. 2014;9(7):e97584.
 \newblock doi:{10.1371/journal.pone.0097584}.
-
-\bibitem{Towlson2013}
-Towlson EK, V{\'{e}}rtes PE, Ahnert SE, Schafer WR, Bullmore ET.
-\newblock {The rich club of the C. elegans neuronal connectome.}
-\newblock Journal of Neuroscience. 2013;33(15):6380--7.
-\newblock doi:{10.1523/JNEUROSCI.3784-12.2013}.
 
 \bibitem{Liu2009}
 Liu X, Long F, Peng H, Aerni SJ, Jiang M, S{\'{a}}nchez-Blanco A, et~al.
