@@ -806,13 +806,14 @@ Having determined that pairs of neurons with different connectivity exhibit diff
 Despite lacking full genome coverage, and incomplete binary expression data, we developed a method to assign a gene coexpression contribution (GCC) score to each gene that quantifies its contribution to a given coexpression pattern (related to the probability of a gene being expressed together in a given set of neuron pairs compared to an alternative set).
 We then performing an enrichment analysis using gene ontology categories for biological processes (see Methods).
 Previous results in mouse \cite{Fulcher:2016ck}, using over 17\,000 genes, indicated that genes driving an increase in coexpression between connected pairs of neurons are enriched in GO categories related to basic neuronal function, whereas those driving an increase in connections involving hub neurons are enriched in oxidative energy metabolism (a result corroborated at a regional level in human \cite{Vertes2016a}).
-However, due to limitations in gene expression, we did not have the representation of these particular GO categories with only one gene ('unc-32') being representative of the specific GO categories related to hub connectivity in mouse. 
-Therefore, we were not able to directly test the hypothesis presented by Fulcher et al.\cite{Fulcher2016}.
-Nevertheless, we were interested to see if any connectivity and metabolism related categories will be enriched in the corresponding link types.  
+However, due to limitations in gene expression data, we did not have the representation of these particular GO categories with only one gene ('unc-32') being assigned to the specific GO categories related to hub connectivity in mouse. 
+While we were not able to directly test the hypothesis presented by Fulcher et al.\cite{Fulcher2016}, we were interested to see if any connectivity and metabolism related categories will be enriched in the corresponding link types. 
+Due to gene expression data specificity in all the following analyses we present top 15 GO categories enriched in a particular link type compared to other links. 
 % GO categories were filtered using <<searchGOcategories.m>> function. 
 
 First, we estimated which functional groups of genes drive increased coexpression in connected pairs of neurons compared to unconnected pairs.
-As listed in Table~\ref{tab:connected}, the majority of statistically significant GO categories are related to glutamate signaling and neuronal connectivity ($p_\mathrm{corrected} < 0.05$).
+As listed in Table~\ref{tab:connected}, the majority of TOP GO categories are related to glutamate signaling and neuronal connectivity ($p < 0.05$).\\
+
 Next, we examined differences between connections in terms of their relationship to hub neurons, investigating which functional groups of genes contributed to the increased coexpression for links involving hubs (combining `rich' and `feeder' links together, for statistical power).
 As well as glutamate signaling, we also found a broader range of functional categories, involving  ion channel activity, transmembrane transporters and synaptic cell components (see Table~\ref{tab:hub_enrichment}).
 
@@ -820,7 +821,15 @@ Although 11 out of the 13 hubs ($k > 41$) are cholinergic, and the remaining two
 % with ACh being the most broadly used neurotransmitter in general \cite{Pereira:2015er}
 % It is worth noting that although both analyses above highlighted enrichment of glutamate, even though acetylcholine (ACh) is the most broadly used neurotransmitter in \textit{C. elegans} \cite{Pereira:2015er}, and most hubs ($k > 41$) are cholinergic (Fig.~\ref{fig:S_feedInOutNodes}C).
 Looking closer at the neurotransmitters used by each neuron, we found that nonhub neurons that project to hubs (but do not receive projections back) are mostly sensory or interneurons (82\%), with the most common neurotransmitter being glutamate (41\%), whereas neurons that receive inputs from hubs (but do not project to hubs) are mostly motor neurons (84\%) and are cholinergic (93\%), as shown in Fig.~\ref{fig:S_feedInOutNodes}A,C.
-Thus, although hubs are themselves mostly cholinergic, they receive inputs from glutamatergic neurons, which may explain their over-representation in two biological processes related to glutamate receptors: ionotropic glutamate receptor signaling pathway (GO:0035235) and glutamate receptor signaling pathway (GO:0007215).
+Thus, although hubs are themselves mostly cholinergic, they receive inputs from glutamatergic neurons, which may explain their over-representation in two biological processes related to glutamate receptors: ionotropic glutamate receptor signaling pathway (GO:0035235) and glutamate receptor signaling pathway (GO:0007215).\\
+
+Given this finding we then performed the enrichment analysis separately for feed-in and feed-out links as opposed to all other links in the network. 
+In this analysis we expected some enrichment in ACh and metabolism related categories for feed-out links due to the cholinergic nature of hub neurons as well as high metabolic load on those links. 
+On the other hand, both metabolic and glutamate signaling related categories were expected for feed-in links. 
+In fact, for both feed-in and feed-out links chemical transmission, metabolism and cholinergic synaptic transmission GO categories were represented among the top 15 categories ($p < 0.05$) while no glutamate signaling GO categories were found.
+This could be explained by the fact that only glutamate receptor signaling , but not direct glutamate release GO categories were represented in this particular dataset (no glutamate GO category with at least 5 genes). 
+
+ l
 [[TODO-AA: Still kind of surprising we don't get cholinergic, since ACh is still the dominant neurotransmitter for connections involving hubs. Can you look at cholinergic categories -- do we even have gene coverage to get power to find them??AA: on our gene list (from 900) genes related to Ach are either Ach-gated channels or Ach receptors, so it's not about hubs, it's more about neurons that receive inputs from hubs. For reduced lists of genes there is even less Ach-related genes left. ]]
 % This may explain the overrepresentation of glutamate receptor related categories that we find in the enrichment analysis.
 Thus, despite minimal gene coverage, we developed a new method that was able to find interpretable patterns in the existing binary expression data for \emph{C. elegans}, providing clues as to function of genes that may drive molecular differences between topologically different pairs of neurons.
