@@ -806,9 +806,10 @@ Having determined that pairs of neurons with different connectivity exhibit diff
 Despite lacking full genome coverage, and incomplete binary expression data, we developed a method to assign a gene coexpression contribution (GCC) score to each gene that quantifies its contribution to a given coexpression pattern (related to the probability of a gene being expressed together in a given set of neuron pairs compared to an alternative set).
 We then performing an enrichment analysis using gene ontology categories for biological processes (see Methods).
 Previous results in mouse \cite{Fulcher:2016ck}, using over 17\,000 genes, indicated that genes driving an increase in coexpression between connected pairs of neurons are enriched in GO categories related to basic neuronal function, whereas those driving an increase in connections involving hub neurons are enriched in oxidative energy metabolism (a result corroborated at a regional level in human \cite{Vertes2016a}).
-However, [[TODO-AA: outline limitations in our data: we don't have gene coverage to check these things. What are results, and put name of script commented]].
-[[Tweak the following to provide some hypothesis in light of data limitations:]]
-Given that hub neurons are thought to be highly integrative, and disproportionately involved in mediating signal traffic \cite{Towlson:2013gf}, increased number communication and signal propagation related gene groups for hub-related links is in line with our expectation.
+However, due to limitations in gene expression, we did not have the representation of these particular GO categories with only one gene ('unc-32') being representative of the specific GO categories related to hub connectivity in mouse. 
+Therefore, we were not able to directly test the hypothesis presented by Fulcher et al.\cite{Fulcher2016}.
+Nevertheless, we were interested to see if any connectivity and metabolism related categories will be enriched in the corresponding link types.  
+% GO categories were filtered using <<searchGOcategories.m>> function. 
 
 First, we estimated which functional groups of genes drive increased coexpression in connected pairs of neurons compared to unconnected pairs.
 As listed in Table~\ref{tab:connected}, the majority of statistically significant GO categories are related to glutamate signaling and neuronal connectivity ($p_\mathrm{corrected} < 0.05$).
