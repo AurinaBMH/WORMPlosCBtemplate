@@ -541,7 +541,7 @@ We present our analysis in three parts:
   \centering
     \includegraphics[width=1\textwidth]{schematic.pdf}
  \caption{\textbf{Schematic data representation}
- \textbf{A} Binary synaptic connectivity between all pairs of neurons, colored according to type: rich, feeder, and peripheral.
+ \textbf{A} Binary synaptic connectivity between all pairs of neurons, colored according to type: rich (red), feed-in (yellow), feed-out (orange) and peripheral (blue).
   \textbf{B} Binary gene expression across the 948 genes that are expressed in at least one neuron.
  \textbf{C} Gene coexpression matrix, computed for all pairs of neurons as the mean square contingency coefficient, $r_\phi$.
 Neurons have been ordered by their position, from head (upper) to tail (lower).
@@ -761,13 +761,14 @@ Neuron indicators are shown to the left:
 (ii) neuron type (interneuron, orange; motor, green; sensory, blue; multimodal, yellow),
 (iii) hub indicator (red for hubs), and
 (iv) spatial position: head (gray), body (purple), tail (red).
-\textbf{B} Distributions of gene coexpression, $r_\phi$, for intra-modular connections (black) and inter-modular connections (gray), shown as violin plots with the median shown as a horizontal bar.
+\textbf{B} Distributions of gene coexpression, $r_\phi$, for intra-modular connections (black) and inter-modular connections (gray), shown as violin plots with the mean shown as a horizontal bar ($p = 0.045$, Welch's $t$-test).
 The number of connections of each type is shown in parentheses.
-\textbf{C} Distributions of gene coexpression, $r_\phi$, for intra-modular rich (red) and non-rich (blue) connections, shown as violin plots with the median shown as a horizontal bar.
+\textbf{C} Distributions of gene coexpression, $r_\phi$, for intra-modular rich (red) and non-rich (blue) connections, shown as violin plots with the mean shown as a horizontal bar (Welch's $t$-test, $p = 1.3\times 10^{-10}$).
 The number of connections of each type is shown in parentheses.
-\textbf{D} Distributions of gene coexpression, $r_\phi$, for early born hubs (rich links, red) and non-hubs (non-rich links, blue) shown as violin plots with the median shown as a horizontal bar. ($P < 10^{-28}$, Wilcoxon rank sum test).
+\textbf{D} Distributions of gene coexpression, $r_\phi$, for early born hubs (rich links, red) and non-hubs (non-rich links, blue) shown as violin plots with the mean shown as a horizontal bar. ($P < 10^{-28}$, Wilcoxon rank sum test).
 \textbf{E} Distributions of lineage distance between rich links (red) and non-rich links (blue) shown as histograms. ($P = 0.91$, Wilcoxon rank sum test).
 [[TODO: could add neurotransmitter type as a bar code in modules]]
+[[colors for distributions will be changed, distributions filled]]
 %Composition of each module according to neuron type.
 %Modular organisation of the connectome.
 %Coexpression distributions within and between modules.
@@ -817,7 +818,7 @@ While we were not able to directly test the hypothesis presented by Fulcher et a
 %Due to gene expression data specificity in all the following analyses we present top 15 GO categories enriched in a particular link type compared to other links. 
 
 First, we estimated which functional groups of genes drive increased coexpression in connected pairs of neurons compared to unconnected pairs.
-As listed in Table~\ref{enrichmentCON}, TOP GO categories ($p_{uncorrected} < 0.05$) are related to glutamate receptor signalling, memory/learning and ion transport supporting the idea that connected pairs of neurons tend to express genes associated with neuronal connectivity compared to unconnected neuron pairs.\\
+As listed in Table~\ref{enrichmentCON}, top GO categories ($p_{uncorrected} < 0.05$) are related to glutamate receptor signalling, memory/learning and ion transport supporting the idea that connected pairs of neurons tend to express genes associated with neuronal connectivity compared to unconnected neuron pairs.\\
 
 Next, we examined differences between connections in terms of their relationship to hub neurons, investigating which functional groups of genes contributed to the increased coexpression for links between hubs (`rich') compared to all other links in the network.
 The main GO categories that we find overrepresented among hub neurons are related to glutamate receptor signalling, transport, locomotion as well as neurotransmitter metabolic processes (see Table~\ref{enrichmentRICH}).
