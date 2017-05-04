@@ -340,8 +340,8 @@ To avoid any possible differences in gene expression between chemical synapses a
 
 Note the previous work has used different processed versions of this data, including just synaptic connections as here (e.g., after thresholding them \cite{Kashtan:2004ev}), a combination of synaptic connections and gap junctions together \cite{Azulay:2016cg, Kim:2016gl}, or combining synaptic and gap junctions and then symmetrizing unidirectional synaptic connections to be bidirectional \cite{Towlson:2013gf, Kim:2014bu, Pavlovic:2014gx}.
 
-Spatial information about neurons was obtained for 277 neurons (including VC6 [[TODO: Aurina, why mention this? AA - this neuron doesn't have obvious connections, therefore not included in the connectome, but we have coordinates for it]]) as two dimensional spatial coordinates from \url{www.biological-networks.org/?page_id=25}.
-Coordinates for three neurons (AIBL, AIYL, SMDVL) were missing in this dataset, and were reconstructed based on the positions of the contralateral neurons (AIBR, AIYR, SMDVR) by assigning identical coordinates for the contralateral neurons in these three pairs according to Varier \cite{Varier2011} [[TODO: Explain the precedent for doing this]].
+Spatial information about neurons was obtained for 277 neurons (including VC6 which makes connections only through neuro-muscular junctions) [[TODO: Aurina, why mention this? AA - this neuron doesn't have obvious connections, therefore not included in the connectome, but we have coordinates for it, otherwise, numbers do not add]]) as two dimensional spatial coordinates from \url{www.biological-networks.org/?page_id=25}.
+Coordinates for three neurons (AIBL, AIYL, SMDVL) were missing in this dataset, and were reconstructed based on the positions of the contralateral neurons (AIBR, AIYR, SMDVR) by assigning identical coordinates for the contralateral neurons in these three pairs according to Varier \cite{Varier2011} [[TODO: Explain the precedent for doing this. AA: Varier 2011 does not explain why they do it.]].
 
 % The C. elegans nervous system consists of two distinct parts: a small pharyngeal nervous system (20 neurons), responsible for  the feeding behavior of the animal and a large somatic nervous system (282 neurons).
 
@@ -356,7 +356,7 @@ Neurons were also assigned labels based on their anatomical location, as:
 These assignments were obtained from release WS256 of WormBase, \url{ftp://ftp.wormbase.org/pub/wormbase/releases/WS256/ONTOLOGY/anatomy_association.WS256.wb}, with annotations to individual neurons achieved from the hierarchy defined in WormBase \cite{Harris:2009kd}, which we retrieved using the WormBase API (wormmine) and propagated each term down the hierarchy to label individual neurons.
 % (and other child terms of `neuron', WB:0003679)
 % RetreiveHierarchy.py, NeuronRegionFinder.m
-Note that some head neurons (12: ALA, AVFL, AVFR, AVG, RIFL, RIFR, RIGL, RIGR, SABD, SABVL, SABVR, SMDVL) were not labeled as head in this file, and were thus manually corrected by matching the assignment against the annotations provided at WormBase (http://www.wormatlas.org/).
+Note that some head neurons (12: ALA, AVFL, AVFR, AVG, RIFL, RIFR, RIGL, RIGR, SABD, SABVL, SABVR, SMDVL) were not labeled as head in this file, and were thus manually corrected by matching the assignment against the annotations provided at WormAtlas (http://www.wormatlas.org/).
 % [[TODO: how and where from hierarchy file was downloaded?]]% RetreiveHierarchy.py, NeuronRegionFinder.m
 The neurotransmitter systems used by each neuron was labeled by matching to data in Table 2 of Pereira et al. \cite{Pereira:2015er}.
 % to label the neurotransmitter type of all neurons.
@@ -413,7 +413,7 @@ We then applied a consensus clustering approach to this agreement matrix, as des
 Specifically, we first applied a threshold $\tau = 0.1$ to the matrix, ran the Louvain algorithm 1000 times, computed a new agreement matrix and thresholded the data again.
 We repeated this procedure until all elements in the agreement matrix had a value of either 1 (i.e., the pair of nodes was always classified in the same module) or 0 (i.e., the pair of nodes was never classified in the same module).
 The module assignments of this final agreement matrix represent a consensus estimate of the community structure of the network.
-[[TODO: check these details but its about right from memory. AA - details seem to be ok. My only concern is that if you weighted the values in the agreement matrix by the quality of the partition, the interpretation of tau becomes tricky - in the unweighted case, it is simply the proportion of runs in which two nodes are in the same module. in the weighted case, its less clear]]
+
 
 
 % METHODS: gene expression
@@ -423,7 +423,7 @@ The database is regularly updated; here we used release WS256 (\url{ftp://ftp.wo
 % downloaded on 6th Feb 2017
 Expression annotations are made directly (when annotated genes are directly expressed in certain neurons), and indirectly to groups or broader classes of neurons (e.g., `head', `interneuron', etc.) (when genes are expressed in some neurons for a certain hierarchical category of cells), with different qualifiers defining levels of certainty: `certain' (gene A was observed to be expressed in cell Y), `enriched' (gene A has been found enriched in a certain dataset through microarray, RNAseq or proteomic analysis), `partial' (gene A was observed to be expressed in some cells of a group of cells that include Y), and `blank' (data from studies before 2005) and ‘uncertain’ (gene A was sometimes observed to be expressed in cell Y or gene A was observed to be expressed in a cell that could be Y).
 If a gene is expressed under a specific qualifier for a specific neuron, it is assigned a value of 1, in all other cases 0 values are assigned. 
-In this particular dataset we are unable to distinguish relative gene expression levels between neurons as well as between the following two cases: (i) ``gene is not expressed'' and (ii) ``there is no information on whether gene is expressed'', which are both represented as a ``0''.\\
+In this particular dataset we are unable to distinguish relative gene expression levels between neurons as well as the following two cases: (i) ``gene is not expressed'' and (ii) ``there is no information on whether gene is expressed'', which are both represented as a ``0''.\\
 
 The analyses presented here are of expression data that is annotated directly to individual neurons with one of the following qualifiers: `certain', `enriched', `partial', or `blank'. We chose to not include indirectly annotated genes as well as genes qualified as 'uncertain' in order to as much as possible avoid false-positive gene assignments.  
 
@@ -451,7 +451,7 @@ The gene expression data from WormBase is sparse (in part due to incomplete anno
 To ensure that our measure of gene coexpression between neurons was not biased by differences in the relative proportions of expression annotations, we conducted a sensitivity analysis in which we compared $r_\phi$ metric (Eq.~\ref{eq:rphi}), with two other binary correlation metrics, Yule's Q coefficient, and the Jaccard index, as well as a new metric developed here, based on positive matching probabilities (described in Supplementary Information).
 The only metric that did not show a systematic bias on random binary vectors as a function of the proportion of ones was $r_\phi$ (see Fig.~\ref{fig:S_propOnes}), which was therefore used as a coexpression metric in this work, ensuring that increases in coexpression are driven by relative similarity in expression patterns, and not simply by differences in the number of gene annotations for a given pair of neurons.
 
-A total of 92 anatomically distinct neuron classes are bilateral, that is, they contain both left [[TODO: left what? Is there a correct terminology?]] and right counterparts (e.g., AVAL/AVAR).
+A total of 92 anatomically distinct neuron classes are bilateral, that is, they contain both left [[TODO: left what? Is there a correct terminology?AA: haven't seen a name for that]] and right counterparts (e.g., AVAL/AVAR).
 These neurons exhibit highly correlated gene expression patterns, with a mean coexpression value $\langle r_\phi^{\mathrm{intraclass}} \rangle = 0.98 (SD\pm0.0.25)$.
 % [[CODE used - testLeftRightCoexpression.m. Distribution for these links is not normal. Median is 1;]]
 To ensure that our analyses are not influenced by the high coexpression between bilateral pairs of neurons of the same class, we excluded coexpression values within neuron classes from all coexpression analyses.
@@ -465,8 +465,11 @@ It is thus important to correct for spatial effects to ensure that relationships
 Gene coexpression, $r_\phi$, decreased with the separation distance between pairs of neurons for the spatially close networks of neurons within the head and within the tail of \emph{C. elegans} (Fig.~\ref{fig:S_distCoexp}A,B), but not for pairs of neurons involving the body (Fig.~\ref{fig:S_distCoexp}C) [[add some interpretation in terms of the function of body neurons as potentially distinct from those in the head and tail]].
 This result, using sparsely-annotated binary expression data in a highly specialized neuronal nervous system, mirrors that found in the bulk regions of macroscopic mammalian brains of mouse \cite{Fulcher:2016ck} and human \cite{Krienen:2016eq}.
 The result was not isolated to just a single class of connections within the head, with an approximately exponential relationship exhibited by pairs of interneurons, pairs of sensory neurons, pairs of motor neurons, and motor-interneuron pairs (Fig.~\ref{fig:S_distCoexp}).
-Although an exponential form fits the mean coexpression as a function of separation distance well, the trend is driven by spatially close pairs of neurons with high coexpression, such that taking residuals after subtracting the trend line (as \cite{Fulcher:2016ck} for mouse data) leaves artifacts.
-Future data that allow more accurate and continuous measurement of gene coexpression, may allow more accurate spatial correction to be applied more accurately.
+Although distance slightly influenced gene coexpression especially for very closely positioned neurons within the head, exponential form could not explain the relationship. 
+Considering that the effect was not pronounced and no standard correction could be applied, we use original uncorrected gene coexpression data for all the further analyses. 
+% Although an exponential form fits the mean coexpression as a function of separation distance well, the trend is driven by spatially close pairs of neurons with high coexpression, such that taking residuals after subtracting the trend line (as \cite{Fulcher:2016ck} for mouse data) leaves artefacts.
+[[AA: using data without L/R pairs, exp fit fails]].
+Future data that allow more accurate and continuous measurement of gene coexpression, may allow spatial correction to be applied more accurately.
 [[TODO: add some comment verifying that, despite issues, if we do correct within the head and tail for the spatial relationship we get similar results, cf. \emph{CoExpressionDistanceCorrect}]]
 % However, because we found no correlation between Euclidean distance between a pair of neurons (based on their two-dimensional coordinates) and their gene coexpression in the C. elegans nervous system (Fig.~\ref{fig:S_distDep}), no correction was necessary here.
 % In \textit{C. elegans}, we found a semi-exponential relationship between connection probability and Euclidean separation distance (based on their two dimensional coordinates) between a pair of neurons, but no correlation between the Euclidean separation distance between a pair of neurons and their gene coexpression, $r_\phi$.
@@ -663,7 +666,7 @@ left as hubs]]
 Having established an increase in gene coexpression in connected pairs of brain regions (relative to unconnected pairs), we next investigated whether coexpression varied between different types of connections, focusing particularly on the role of densely interconnected hub nodes characterized above.
 Given the importance of hub neurons across species [[Ref]], and previous results in the mesoscale mouse connectome \cite{Fulcher:2016ck}, we expect increased coexpression in connections involving hubs.
 To investigate this effect, we first labeled each neuron as either a hub (nodes with degree $> k$) or a nonhub (degree $\leq k$), for a given hub threshold, $k$, and then labeled each connection as either `rich' (hub $\rightarrow$ hub), `feed-in' (nonhub $\rightarrow$ hub), `feed-out' (hub $\rightarrow$ nonhub), or `peripheral' (nonhub $\rightarrow$ nonhub).
-[[TODO: Establish whether we're computing pairs of hubs (e.g., for `rich'), or for every connection between any pair of hubs -- i.e., do reciprocal connections contribute twice to the distribution at each $k$? as in original mouse analysis - all connections, but we take mean, so the mean doesn't change in either way]]
+[[TODO: Establish whether we're computing pairs of hubs (e.g., for `rich'), or for every connection between any pair of hubs -- i.e., do reciprocal connections contribute twice to the distribution at each $k$? AA: as in original mouse analysis - all connections, but we take mean, so the mean doesn't change in either way]]
 The mean coexpression for each of these four connection types is plotted in Fig.~\ref{fig:coExp}B, with circles indicating statistically significant increases of a given connection type (relative to all other connections). 
 We see that gene coexpression in rich connections increases with degree, reaching a plateau through the topological rich-club regime where hubs are densely interconnected (shaded in Fig.~\ref{fig:coExp}B).
 Interestingly, we see a split between feed-in and feed-out connections, with feed-out connections showing increased gene coexpression through the topological rich-club regime, while feed-in and peripheral connections show the lowest levels of coexpression.
@@ -806,7 +809,8 @@ Having determined that pairs of neurons with different connectivity exhibit diff
 Despite lacking full genome coverage, and incomplete binary expression data, we developed a method to assign a gene coexpression contribution (GCC) score to each gene that quantifies its contribution to a given coexpression pattern (related to the probability of a gene being expressed together in a given set of neuron pairs compared to an alternative set).
 We then performing an enrichment analysis using gene ontology categories for biological processes (see Methods).
 Previous results in mouse \cite{Fulcher:2016ck}, using over 17\,000 genes, indicated that genes driving an increase in coexpression between connected pairs of neurons are enriched in GO categories related to basic neuronal function, whereas those driving an increase in connections involving hub neurons are enriched in oxidative energy metabolism (a result corroborated at a regional level in human \cite{Vertes2016a}).
-However, due to limitations in gene expression data, we did not have the representation of these particular GO categories with only one gene ('unc-32') being assigned to the specific GO categories related to hub connectivity in mouse. 
+In this particular gene expression dataset we did not have the representation of these particular GO categories that were related to hub connectivity in mouse, with only one gene ('unc-32') related to GO:22222 (name) previously found in mouse. 
+ 
 While we were not able to directly test the hypothesis presented by Fulcher et al.\cite{Fulcher2016}, we were interested to see if any connectivity and metabolism related categories will be enriched in the corresponding link types. 
 Due to gene expression data specificity in all the following analyses we present top 15 GO categories enriched in a particular link type compared to other links. 
 % GO categories were filtered using <<searchGOcategories.m>> function. 
@@ -915,7 +919,7 @@ LIMITATIONS:
 
 % Binary expression data
 Compared to continuous expression information provided from techniques like RNA sequencing, \emph{in situ} hybridization, or microarray with whole-brain coverage using a systematic experimental procedure \cite{Lein:2007jn, Shen:2012ua, Tasic:2016jp}, the data analyzed here presents numerous challenges.
-With access to only a relatively limited coverage of the genome [[TODO: how many worm genes in total? Add proportion of worm genes represented]], the enrichment results provided here are severely constrained in scope.
+With access to only a relatively limited coverage of the genome (948 out of >19 000 genes \cite{Hillier2005} annotated in the current dataset) [[TODO: how many worm genes in total? Add proportion of worm genes represented "19,735 protein-coding genes—with >90\% directly supported by experimental evidence—and >1300 noncoding RNA genes \cite{Hillier2005}"]], the enrichment results provided here are severely constrained in scope.
 Further, using the current data, we are unable to distinguish expression levels between neurons that express a given gene, and we are unable to distinguish missing data, from negative data (both are represented as `0' in our data).
 Future work systematically mapping gene expression in a unified experimental paradigm would allow a more subtle and comprehensive analysis of gene expression and function.
 
@@ -1178,7 +1182,7 @@ Gene coexpression, $r_\phi$ (in all cases excluding left-right homologous pairs 
 Scatters for all neuron pairs are added in \textbf{A} and \textbf{B}.
 An exponential relationship, $f(x) = A\exp(-Bx)+C$, is fitted in \textbf{A} and \textbf{B}, revealing a slight decreasing trend in $r_\phi$ with distance, as per macroscopic mammalian brains \cite{Fulcher:2016ck, Krienen:2016eq}.
 Looking within the head, we find different spatial relationships as a function of neuron type, shown for \textbf{C} pairs of interneurons, \textbf{D} pairs of motor neurons, \textbf{E} motor-interneuron pairs, \textbf{F} pairs of sensory neurons, \textbf{G} interneuron-sensory neuron pairs, and \textbf{H} motor-sensory pairs.
-[[TODO: add labels for subplots C--H, label all axes?]]
+[[TODO: add labels for subplots C--H, label all axes? Chenge axis label to Gene coexpression, $r_\phi$ ]]
 }
 \end{figure}
 % ------------------------------------------------------------------------------
