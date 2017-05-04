@@ -809,34 +809,37 @@ Having determined that pairs of neurons with different connectivity exhibit diff
 Despite lacking full genome coverage, and incomplete binary expression data, we developed a method to assign a gene coexpression contribution (GCC) score to each gene that quantifies its contribution to a given coexpression pattern (related to the probability of a gene being expressed together in a given set of neuron pairs compared to an alternative set).
 We then performing an enrichment analysis using gene ontology categories for biological processes (see Methods).
 Previous results in mouse \cite{Fulcher:2016ck}, using over 17\,000 genes, indicated that genes driving an increase in coexpression between connected pairs of neurons are enriched in GO categories related to basic neuronal function, whereas those driving an increase in connections involving hub neurons are enriched in oxidative energy metabolism (a result corroborated at a regional level in human \cite{Vertes2016a}).
-In this particular gene expression dataset we did not have the representation of these particular GO categories that were related to hub connectivity in mouse, with only one gene ('unc-32') related to GO:22222 (name) previously found in mouse. 
- 
-While we were not able to directly test the hypothesis presented by Fulcher et al.\cite{Fulcher2016}, we were interested to see if any connectivity and metabolism related categories will be enriched in the corresponding link types. 
-Due to gene expression data specificity in all the following analyses we present top 15 GO categories enriched in a particular link type compared to other links. 
+In this particular gene expression dataset we did not have the representation of the particular GO categories that were related to hub connectivity in mouse (only one gene ('unc-32') was attributed to GO:0015991 (ATP hydrolysis coupled proton transport), no genes attributed for any other category).
+
 % GO categories were filtered using <<searchGOcategories.m>> function. 
 
+While we were not able to directly test the hypothesis presented by Fulcher et al.\cite{Fulcher2016}, we aimed to identify if any connectivity and metabolism related categories will be enriched in the corresponding link types. 
+%Due to gene expression data specificity in all the following analyses we present top 15 GO categories enriched in a particular link type compared to other links. 
+
 First, we estimated which functional groups of genes drive increased coexpression in connected pairs of neurons compared to unconnected pairs.
-As listed in Table~\ref{tab:connected}, the majority of TOP GO categories are related to glutamate signaling and neuronal connectivity ($p < 0.05$).\\
+As listed in Table~\ref{enrichmentCON}, TOP GO categories ($p_{uncorrected} < 0.05$) are related to glutamate receptor signalling, memory/learning and ion transport supporting the idea that connected pairs of neurons tend to express genes associated with neuronal connectivity compared to unconnected neuron pairs.\\
 
-Next, we examined differences between connections in terms of their relationship to hub neurons, investigating which functional groups of genes contributed to the increased coexpression for links involving hubs (combining `rich' and `feeder' links together, for statistical power).
-As well as glutamate signaling, we also found a broader range of functional categories, involving  ion channel activity, transmembrane transporters and synaptic cell components (see Table~\ref{tab:hub_enrichment}).
+Next, we examined differences between connections in terms of their relationship to hub neurons, investigating which functional groups of genes contributed to the increased coexpression for links between hubs (`rich') compared to all other links in the network.
+The main GO categories that we find overrepresented among hub neurons are related to glutamate receptor signalling, transport, locomotion as well as neurotransmitter metabolic processes (see Table~\ref{enrichmentRICH}).
+%These findings are in line with our expectations as hub neurons receive input from sensory neurons, the majority of which are glutamatergic. 
+%As a result, hubs are required to have glutamate receptors the enrichment in these categories is the most pronounced (even after the correction, false discovery rate $< 0.05$). 
+Enrichment in locomotion related categories is also in agreement with available data as the majority of hubs belong to the category of command interneurons which has an established function of controlling forward and backward locomotion behaviour. 
+Moreover, we find an increase in GO category (GO:0042133) which is related to neurotransmitter metabolic process which generally consistent with the findings in mouse. 
 
-Although 11 out of the 13 hubs ($k > 41$) are cholinergic, and the remaining two use glutamate (Fig.~\ref{fig:S_feedInOutNodes}C), we found enrichment in glutamate signaling in comparing connections involving hubs to those between nonhubs.
+Although 11 out of the 13 hubs ($k > 41$) are cholinergic, and the remaining two use glutamate as their neurotransmitter (Fig.~\ref{fig:S_feedInOutNodes}C), we found enrichment in glutamate receptor signalling when comparing connections between hubs to those not involving hubs. 
 % with ACh being the most broadly used neurotransmitter in general \cite{Pereira:2015er}
 % It is worth noting that although both analyses above highlighted enrichment of glutamate, even though acetylcholine (ACh) is the most broadly used neurotransmitter in \textit{C. elegans} \cite{Pereira:2015er}, and most hubs ($k > 41$) are cholinergic (Fig.~\ref{fig:S_feedInOutNodes}C).
 Looking closer at the neurotransmitters used by each neuron, we found that nonhub neurons that project to hubs (but do not receive projections back) are mostly sensory or interneurons (82\%), with the most common neurotransmitter being glutamate (41\%), whereas neurons that receive inputs from hubs (but do not project to hubs) are mostly motor neurons (84\%) and are cholinergic (93\%), as shown in Fig.~\ref{fig:S_feedInOutNodes}A,C.
-Thus, although hubs are themselves mostly cholinergic, they receive inputs from glutamatergic neurons, which may explain their over-representation in two biological processes related to glutamate receptors: ionotropic glutamate receptor signaling pathway (GO:0035235) and glutamate receptor signaling pathway (GO:0007215).\\
+Thus, although hubs are themselves mostly cholinergic, they receive inputs from glutamatergic neurons, which may explain their over-representation in two biological processes related to glutamate receptors: ionotropic glutamate receptor signaling pathway (GO:0035235) and glutamate receptor signalling pathway (GO:0007215).\\
 
 Given this finding we then performed the enrichment analysis separately for feed-in and feed-out links as opposed to all other links in the network. 
 In this analysis we expected some enrichment in ACh and metabolism related categories for feed-out links due to the cholinergic nature of hub neurons as well as high metabolic load on those links. 
-On the other hand, both metabolic and glutamate signaling related categories were expected for feed-in links. 
-In fact, for both feed-in and feed-out links chemical transmission, metabolism and cholinergic synaptic transmission GO categories were represented among the top 15 categories ($p < 0.05$) while no glutamate signaling GO categories were found.
-This could be explained by the fact that only glutamate receptor signaling , but not direct glutamate release GO categories were represented in this particular dataset (no glutamate GO category with at least 5 genes). 
+Both metabolic and glutamate signalling related categories were expected for feed-in links. 
+It is worth keeping in mind that only one Ach related GO category (GO:0007271) was represented in the current gene expression data while it at all lack the representation of any glutamate release categories (there is no GO category with at least 5 genes available). 
+As a result, both feed-in and feed-out links show the over-representation in chemical transmission, metabolism and cholinergic synaptic transmission related genes (see Table.~\ref{enrichmentFeedIN} and \ref{enrichmentFeedOUT})).  
 
- l
-[[TODO-AA: Still kind of surprising we don't get cholinergic, since ACh is still the dominant neurotransmitter for connections involving hubs. Can you look at cholinergic categories -- do we even have gene coverage to get power to find them??AA: on our gene list (from 900) genes related to Ach are either Ach-gated channels or Ach receptors, so it's not about hubs, it's more about neurons that receive inputs from hubs. For reduced lists of genes there is even less Ach-related genes left. ]]
 % This may explain the overrepresentation of glutamate receptor related categories that we find in the enrichment analysis.
-Thus, despite minimal gene coverage, we developed a new method that was able to find interpretable patterns in the existing binary expression data for \emph{C. elegans}, providing clues as to function of genes that may drive molecular differences between topologically different pairs of neurons.
+Thus, despite minimal gene coverage ($5\%$ of the total genome), we developed a new method that was able to find interpretable patterns in the existing binary expression data for \emph{C. elegans}, providing clues as to function of genes that may drive molecular differences between topologically different pairs of neurons.
 
 %\begin{figure}[h]
 %\centering
@@ -1011,11 +1014,14 @@ Based on these numerical experiments, we selected Pearson's mean square continge
 % \usepackage{booktabs}
 \begin{table}[]
 \centering
-\caption{My caption}
+\caption{Hub neurons of the \textit{C. elegans} connectome. 
+Hubs are defined as neurons with k>41. For each
+hub, we list the neuron name, degree, k, location and function. 
+Entries have been sorted (descending) by degree.}
 \label{tab:HubList}
 \begin{tabular}{lll}
 \hline
-Neuron & Degree, k & Function                                                     \\ \hline
+\textbf{Neuron} & \textbf{Degree, \textit{k}} & \textbf{Function}                                                     \\ \hline
 AVAR   & 98        & Head interneuron, role in locomotor decisions                \\
 AVAL   & 90        & Head interneuron, role in locomotor decisions                \\
 AVBL   & 60        & Head interneuron, role in locomotor decisions                \\
@@ -1034,86 +1040,123 @@ RIAL   & 42        & Head interneuron                                           
 
 
 \paragraph*{S2 Table}
-
 {\bf Enrichment results for connected \textit{vs} unconnected neurons.} 
 \begin{table}[]
 \centering
-\caption{
-[[TODO-AA: Give a brief description of what was done to get this enriched list.
-Give brief pointer to method, explain each column (e.g., is num of genes the total, or just how many were in our analysis), and say that analysis was done in ermineJ, with FDR-corrected p-values, etc.]]
-[[TODO-AA: Sort each group by increasing $p$-values]]
-Biological process, molecular function and cellular component GO categories of genes showing significantly increased coexpression in connected pairs of neurons over unconnected pairs.
-}
-\label{tab:connected}
-\begin{tabular}{llcc}
+\caption{Biological processes GO categories showing increased gene coexpression for connected neurons compared to unconnected neurons. 
+Categories that remain significant after false discovery rate ($FDR < 0.05$) correction are underlined.
+Entries have been sorted (descending) by P value. }
+\label{enrichmentCON}
+\begin{tabular}{llll}
 \hline
-\multicolumn{1}{|l|}{\textbf{GO category}} & \multicolumn{1}{l|}{\textbf{Description}}          & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}No. \\ of genes\end{tabular}}} & \multicolumn{1}{c|}{\textbf{$P$-value (corrected)}} \\ \hline
-\multicolumn{4}{l}{\textit{Biological processes}}                                                                                                                                                                                  \\
-GO:0035235                                 & ionotropic glutamate receptor signaling pathway    & 7                                                                                        & $6.82^{-10}$                              \\
-GO:00072                                 & glutamate receptor signaling pathway               & 9                                                                                        & 0.0034                               \\
-\multicolumn{4}{l}{\textit{Molecular function}}                                                                                                                                                                                    \\
-GO:0005                                 & ionotropic glutamate receptor activity             & 7                                                                                        & $1.73^{-10}$                              \\
-GO:0008                                & glutamate receptor activity                        & 9                                                                                        & 0.0017                              \\
-GO:00052                                & extracellular-glutamate-gated ion channel activity & 9                                                                                        & 0.0132                           \\
-\multicolumn{4}{l}{\textit{Cellular components}}                                                                                                                                                                                    \\
-GO:00300                                & cell junction                                      & 55                                                                                       & 0.0235                              \\
-GO:00987                                 & postsynapse                                        & 19                                                                                       & 0.0161                            
+\textbf{GOcategory} & \textbf{Description}                            & \textbf{No. of genes} & \textbf{P value} \\\hline
+\underline{GO:0035235}     		& ionotropic glutamate receptor signaling pathway & 7                 & 1e-12         \\
+\underline{GO:0007215}          	& glutamate receptor signaling pathway            & 9                 & 1e-05         \\
+GO:0007613          & memory                                          & 5                 & 0.00484       \\
+GO:0055085          & transmembrane transport                         & 87                & 0.0056        \\
+GO:0034220          & ion transmembrane transport                     & 73                & 0.00569       \\
+GO:0006811          & ion transport                                   & 93                & 0.00676       \\
+GO:0007166          & cell surface receptor signaling pathway         & 48                & 0.008         \\
+GO:0046958          & nonassociative learning                         & 8                 & 0.01232       \\
+GO:0046959          & habituation                                     & 8                 & 0.01232       \\
+GO:0006972          & hyperosmotic response                           & 8                 & 0.01348       \\
+GO:0016311          & dephosphorylation                               & 5                 & 0.01751       \\
+GO:0007626          & locomotory behavior                             & 17                & 0.01871       \\
+GO:0009268          & response to pH                                  & 6                 & 0.01903       \\
+GO:0006970          & response to osmotic stress                      & 11                & 0.0202        \\
+GO:0019538          & protein metabolic process                       & 95                & 0.02088      
 \end{tabular}
 \end{table}
 
 % rich feeder vs peripheral
 \paragraph*{S3 Table.}
-{\bf Enrichment results for rich and feeder \textit{vs} peripheral links.}
+{\bf Enrichment results for rich \textit{vs} all other (feed-in, feed-out, peripheral) links.}
 \begin{table}[]
 \centering
-\caption{Biological process, molecular function and cellular component GO categories of genes showing significantly increased coexpression in rich and feeder over peripheral links
-[[TODO-AA: Sort each group by increasing $p$-values]]
-[[TODO-AA: Give a brief description of what was done to get this enriched list.
-Give brief pointer to method, explain each column (e.g., is num of genes the total, or just how many were in our analysis), and say that analysis was done in ermineJ, with FDR-corrected p-values, etc. -- can refer the reader to the above table (e.g., Method and table are as described in Table~X except ...)]]}
-\label{tab:hub_enrichment}
-\begin{tabular}{llcc}
+\caption{Biological processes GO categories showing increased gene coexpression for rich links compared to all other links (feed-in, feed-out, peripheral). 
+Categories that remain significant after false discovery rate ($FDR < 0.05$) correction are underlined.}
+\label{enrichmentRICH}
+\begin{tabular}{llll}
 \hline
-\multicolumn{1}{|l|}{\textbf{GO category}} & \multicolumn{1}{l|}{\textbf{Description}}                  & \multicolumn{1}{l|}{\textbf{\begin{tabular}[c]{@{}l@{}}No.\\  of genes\end{tabular}}} & \multicolumn{1}{l|}{\textbf{P-value}} \\ \hline
-\multicolumn{4}{l}{\textit{Biological processes}}                                                                                                                                                                                          \\
-GO:0035235                                 & ionotropic glutamate receptor signaling pathway            & 7                                                                                        & 0.0174                                \\
-GO:0007215                                 & glutamate receptor signaling pathway                       & 9                                                                                        & 0.0406                                \\
-\multicolumn{4}{l}{\textit{Molecular function}}                                                                                                                                                                                            \\
-GO:0022824                                 & transmitter-gated ion channel activity                     & 13                                                                                       & 0.0014                                \\
-GO:0022835                                 & transmitter-gated channel activity                         & 13                                                                                       & 0.0014                                \\
-GO:0004970                                 & ionotropic glutamate receptor activity                     & 7                                                                                        & 0.0021                                \\
-GO:0005230                                 & extracellular ligand-gated ion channel activity            & 19                                                                                       & 0.0019                                \\
-GO:0008066                                 & glutamate receptor activity                                & 9                                                                                        & 0.0057                                \\
-GO:0005231                                 & excitatory extracellular ligand-gated ion channel activity & 14                                                                                       & 0.0054                                \\
-GO:0099094                                 & ligand-gated cation channel activity                       & 11                                                                                       & 0.0163                                \\
-GO:0030594                                 & neurotransmitter receptor activity                         & 23                                                                                       & 0.0176                                \\
-GO:0015075                                 & ion transmembrane transporter activity                     & 53                                                                                       & 0.0163                                \\
-GO:0005234                                 & extracellular-glutamate-gated ion channel activity         & 8                                                                                        & 0.0151                                \\
-GO:0038023                                 & signaling receptor activity                                & 63                                                                                       & 0.0140                                \\
-GO:0022891                                 & substrate-specific transmembrane transporter activity      & 55                                                                                       & 0.0226                                \\
-GO:0022892                                 & substrate-specific transporter activity                    & 55                                                                                       & 0.0207                                \\
-GO:0008324                                 & cation transmembrane transporter activity                  & 41                                                                                       & 0.0249                                \\
-GO:0004888                                 & transmembrane signaling receptor activity                  & 60                                                                                       & 0.0292                                \\
-GO:0015276                                 & ligand-gated ion channel activity                          & 27                                                                                       & 0.0327                                \\
-GO:0022834                                 & ligand-gated channel activity                              & 27                                                                                       & 0.0306                                \\
-GO:0022857                                 & transmembrane transporter activity                         & 65                                                                                       & 0.0314                                \\
-GO:0005215                                 & transporter activity                                       & 66                                                                                       & 0.0407                                \\
-GO:0004872                                 & receptor activity                                          & 74                                                                                       & 0.0433                                \\
-GO:0060089                                 & molecular transducer activity                              & 74                                                                                       & 0.0433                                \\
-GO:0005216                                 & ion channel activity                                       & 48                                                                                       & 0.0466                                \\
-GO:0022838                                 & substrate-specific channel activity                        & 50                                                                                       & 0.0473                                \\
-GO:0022890                                 & inorganic cation transmembrane transporter activity        & 39                                                                                       & 0.0485                                \\
-\multicolumn{4}{l}{\textit{Cellular components}}                                                                                                                                                                                           \\
-GO:0098794                                 & postsynapse                                                & 14                                                                                       & 1.04e-10                              \\
-GO:0045202                                 & synapse                                                    & 43                                                                                       & 0.0005                                \\
-GO:0044456                                 & synapse part                                               & 31                                                                                       & 0.0007                                \\
-GO:0045211                                 & postsynaptic membrane                                      & 11                                                                                       & 0.0034                                \\
-GO:0030054                                 & cell junction                                              & 39                                                                                       & 0.0108                                \\
-GO:0097060                                 & synaptic membrane                                          & 15                                                                                       & 0.0166                                \\
-GO:0098802                                 & plasma membrane receptor complex                           & 8                                                                                        & 0.0250                                \\
-GO:0043235                                 & receptor complex                                           & 9                                                                                        & 0.0392                               
+\textbf{GOcategory} & \textbf{Description}                                                                                               & \textbf{No. of genes} & \textbf{P value} \\ \hline
+\underline{GO:0007215}          & glutamate receptor signaling pathway                                                                               & 9                 & 1e-12         \\
+\underline{GO:0035235}          & ionotropic glutamate receptor signaling pathway                                                                    & 7                 & 1e-12         \\
+GO:0034220          & ion transmembrane transport                                                                                        & 54                & 0.0025        \\
+GO:0007166          & cell surface receptor signaling pathway                                                                            & 35                & 0.00307       \\
+GO:0055085          & transmembrane transport                                                                                            & 65                & 0.00358       \\
+GO:0006811          & ion transport                                                                                                      & 69                & 0.00537       \\
+GO:0046958          & nonassociative learning                                                                                            & 8                 & 0.01227       \\
+GO:0046959          & habituation                                                                                                        & 8                 & 0.01227       \\
+GO:0051493          & regulation of cytoskeleton organization                                                                            & 5                 & 0.01595       \\
+GO:0007626          & locomotory behavior                                                                                                & 14                & 0.02023       \\
+GO:0040012          & regulation of locomotion                                                                                           & 46                & 0.02664       \\
+GO:0006810          & transport                                                                                                          & 97                & 0.04009       \\
+GO:0042133          & neurotransmitter metabolic process                                                                                 & 6                 & 0.04144       \\
+GO:0045893          & \begin{tabular}[c]{@{}l@{}}positive regulation of transcription, \\ DNA-templated\end{tabular}                     & 24                & 0.05002       \\
+GO:0045935          & \begin{tabular}[c]{@{}l@{}}positive regulation of nucleobase-containing\\  compound metabolic process\end{tabular} & 25                & 0.05002      
 \end{tabular}
 \end{table}
-\clearpage
+
+\paragraph*{S4 Table.}
+{\bf Enrichment results for feed-in \textit{vs} all other (rich, feed-out, peripheral) links.}
+\begin{table}[]
+\centering
+\caption{Biological processes GO categories showing increased gene coexpression for feed-in links compared to all other links (rich, feed-out, peripheral).}
+\label{enrichmentFeedIN}
+\begin{tabular}{llll}
+\hline
+\textbf{GOcategory} & \textbf{Description}                          & \textbf{No. of genes} & \textbf{P value} \\ \hline
+GO:0042133          & neurotransmitter metabolic process            & 6                 & 0.00097       \\
+GO:0044712          & single-organism catabolic process             & 5                 & 0.00339       \\
+GO:0097164          & ammonium ion metabolic process                & 9                 & 0.00375       \\
+GO:0007271          & synaptic transmission, cholinergic            & 15                & 0.00764       \\
+GO:0001505          & regulation of neurotransmitter levels         & 17                & 0.00939       \\
+GO:0007163          & establishment or maintenance of cell polarity & 5                 & 0.01387       \\
+GO:0030010          & establishment of cell polarity                & 5                 & 0.01387       \\
+GO:0051301          & cell division                                 & 7                 & 0.02053       \\
+GO:0018108          & peptidyl-tyrosine phosphorylation             & 6                 & 0.02339       \\
+GO:0018212          & peptidyl-tyrosine modification                & 6                 & 0.02339       \\
+GO:0044248          & cellular catabolic process                    & 10                & 0.02709       \\
+GO:1901575          & organic substance catabolic process           & 30                & 0.03061       \\
+GO:0008283          & cell proliferation                            & 6                 & 0.03673       \\
+GO:0007267          & cell-cell signaling                           & 38                & 0.03769       \\
+GO:0009056          & catabolic process                             & 32                & 0.03858      
+\end{tabular}
+\end{table}
+
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage[normalem]{ulem}
+% \useunder{\uline}{\ul}{}
+\paragraph*{S5 Table.}
+{\bf Enrichment results for feed-out \textit{vs} all other (rich, feed-in, peripheral) links.}
+\begin{table}[]
+\centering
+\caption{Biological processes GO categories showing increased gene coexpression for feed-out links compared to all other links (rich, feed-in, peripheral). 
+Categories that remain significant after false discovery rate ($FDR < 0.05$)  correction are underlined.}
+\label{enrichmentFeedOUT}
+\begin{tabular}{llll}
+\hline
+\textbf{GOcategory} & \textbf{Description}                          & \textbf{No. of genes} & \textbf{P value} \\ \hline
+\underline{GO:0001505}    & regulation of neurotransmitter levels & 17                & 9e-05         \\
+\underline{GO:0015696}    & ammonium transport                    & 5                 & 0.0002        \\
+\underline{GO:0007268}    & chemical synaptic transmission        & 31                & 0.00033       \\
+\underline{GO:0098916}    & anterograde trans-synaptic signaling  & 31                & 0.00033       \\
+\underline{GO:0099536}    & synaptic signaling                    & 31                & 0.00033       \\
+\underline{GO:0099537}    & trans-synaptic signaling              & 31                & 0.00033       \\
+\underline{GO:0071705}    & nitrogen compound transport           & 6                 & 0.00039       \\
+\underline{GO:0042133}    & neurotransmitter metabolic process    & 6                 & 0.00053       \\
+\underline{GO:0007271}    & synaptic transmission, cholinergic    & 15                & 0.00089       \\
+\underline{GO:0007267}    & cell-cell signaling                   & 38                & 0.00098       \\
+GO:0097164          & ammonium ion metabolic process        & 9                 & 0.00161       \\
+GO:0065008          & regulation of biological quality      & 66                & 0.00251       \\
+GO:0043051          & regulation of pharyngeal pumping      & 7                 & 0.00561       \\
+GO:0040012          & regulation of locomotion              & 46                & 0.00938       \\
+GO:0006811          & ion transport                         & 69                & 0.01018      
+\end{tabular}
+\end{table}
+
 
 % ------------------------------------------------------------------------------
 % Include only the SI item label in the paragraph heading. Use the \nameref{label} command to cite SI items in the text.
