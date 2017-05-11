@@ -331,7 +331,6 @@ We then go on to describe the gene expression data, how we measure expression si
 
 % METHODS: connectivity data
 \subsection*{Neuronal connectivity data}
-
 Neuronal connectivity data for the adult hermaphrodite nematode \emph{C. elegans} was first mapped by White et al.~\cite{White:1986tx}, and then revised by Chen et al. \cite{Chen:2006ie} and by Varshney et al.~\cite{Varshney2011} through detailed electron microscopy.
 Here we analyze data from Varshney et al.~\cite{Varshney2011} for 279 somatic neurons (282 nonpharyngeal neurons, excluding CANL, CANR, and VC6, for which connectivity data is unavailable [[TODO: Aurina, VC6 does have data available, right, it just only makes connections via neuromuscular junctions is the reason we exclude. But is it that CANL/R don't have data available? Or they just don't make connections? Should distinguish missing data from absence of connections]]), downloaded from WormAtlas (\url{http://www.wormatlas.org/neuronalwiring.html#NeuronalconnectivityII}).
 Connectivity information is available both for electrical gap junctions and chemical synapses, which are further distinguished by presynaptic and postsynaptic neurons (providing connection direction information), as well as the number of synapses (providing connection weight information).
@@ -341,7 +340,7 @@ To avoid any possible differences in gene expression between chemical synapses a
 Note that previous work has used different processed versions of this data, including just synaptic connections as here (e.g., after thresholding them \cite{Kashtan:2004ev}), a combination of synaptic connections and gap junctions together \cite{Azulay:2016cg, Kim:2016gl}, or combining synaptic and gap junctions and then symmetrizing unidirectional synaptic connections to be bidirectional \cite{Towlson:2013gf, Kim:2014bu, Pavlovic:2014gx}.
 [[TODO: Some statement that our core results hold for different representations of the neuronal connectome]].
 
-Two dimensional spatial coordinates for neurons were obtained as \textt{celegans277.mat} from the Dynamic Connectome Lab \url{www.biological-networks.org/?page_id=25}.
+Two dimensional spatial coordinates for neurons were obtained as \texttt{celegans277.mat} from the Dynamic Connectome Lab \url{www.biological-networks.org/?page_id=25}.
 % 277 neurons (including VC6, which makes connections only through neuro-muscular junctions) [[TODO: Aurina, why mention this? AA - this neuron doesn't have obvious connections, therefore not included in the connectome, but we have coordinates for it, otherwise, numbers do not add]])
 Coordinates for three neurons (AIBL, AIYL, SMDVL) were missing in this dataset, and were reconstructed based on the positions of the contralateral neurons (AIBR, AIYR, SMDVR) by assigning identical coordinates for the contralateral neurons in these three pairs. [[according to X? Not in Varier and Kaiser. Should explain the precedent for doing this -- can we somehow check whether these contralateral neurons close?]].
 
@@ -354,8 +353,8 @@ Neurons were first labeled by their type, as:
 (iii) `interneuron' (all other neurons), or
 (iv) `polymodal' (obtaining multiple assignments of the above categories) \cite{White:1986tx}.
 Neurons were also assigned labels based on their anatomical location, as:
-(i) `head', (ii) `tail', or (iii) `body' using data from release WS256 of WormBase \cite{Harris:2009kd}, \url{ftp://ftp.wormbase.org/pub/wormbase/releases/WS256/ONTOLOGY/anatomy_association.WS256.wb}.
-These annotations were assigned to individual neurons using the anatomical hierarchy defined in WormBase, which we retrieved using the WormBase API (wormmine), propagating each term down the hierarchy to individual neurons.
+(i) `head', (ii) `tail', or (iii) `body' using data from release WS256 of WormBase \cite{Harris:2009kd}, (\url{ftp://ftp.wormbase.org/pub/wormbase/releases/WS256/ONTOLOGY/anatomy_association.WS256.wb}).
+These annotations were assigned to individual neurons using the anatomical hierarchy defined in WormBase, which we retrieved using the WormBase API (wormmine) \cite{\cite{Harris:2009kd}}, propagating each term down the hierarchy to individual neurons.
 % (and other child terms of `neuron', WB:0003679)
 % RetreiveHierarchy.py, NeuronRegionFinder.m
 Note that twelve head neurons (ALA, AVFL, AVFR, AVG, RIFL, RIFR, RIGL, RIGR, SABD, SABVL, SABVR, SMDVL) were not labeled as `head' on WormBase, but were manually corrected by us, by matching the assignment against the annotations provided at WormAtlas \cite{WormAtlas}.
@@ -371,33 +370,33 @@ In this dataset for each pair of neurons a common ancestor cell was identified u
 % METHODS: rich club analysis
 \subsection*{Network analysis}
 
-In this section, we describe the methods used to characterize the \emph{C. elegans} synaptic connectome, represented as a graph with neurons as nodes and synaptic connections as edges.
+In this section, we describe the methods used to characterize the \emph{C. elegans} synaptic connectome, represented as a graph with neurons as nodes and synaptic connections as directed edges from the presynaptic neuron to the postsynaptic neuron.
 % \cite{Schroter:2017eo}.
 
-% \paragraph{Degree}
-The number of regions that a neuron projects to is its \emph{out-degree}, $k_\mathrm{out}$, and the number of regions that project to a given neuron is its \emph{in-degree}, $k_\mathrm{in}$.
-The total number of connections involving a given neuron is defined by its degree, $k = k_\mathrm{in} + k_\mathrm{out}$.
+\paragraph{Degree}
+Neuronal connectivity is most simply quantified by counting the number of neurons that a given neuron projects to, known as its \emph{out-degree}, $k_\mathrm{out}$, or by counting the number of neurons that a given neuron receives projections from, known as its \emph{in-degree}, $k_\mathrm{in}$.
+% The number of regions that a neuron projects to is its \emph{out-degree}, $k_\mathrm{out}$, and the number of regions that project to a given neuron is its \emph{in-degree}, $k_\mathrm{in}$.
+These quantities can be summed to give the total number of connections involving a given neuron, its \emph{degree}, $k = k_\mathrm{in} + k_\mathrm{out}$.
 % Weighted analogues of these degree measures involve counting the number of synaptic connections that a neuron makes to other regions (weighted out-degree, $k^w_\mathrm{out}$), that are afferent to it (weighted in-degree, $k^w_\mathrm{in}$), or the combination, weighted degree, $k^w = k^w_\mathrm{in} + k^w_\mathrm{out}$.
-
-At a given degree threshold, $k$, neurons were classified as either `hub' (degree $>k$) or `non-hub' (degree $\leq k$).
+At a given degree threshold, $k$, we classified each neuron as either a `hub' (degree $>k$) or a `non-hub' (degree $\leq k$).
 All edges could subsequently be classified as either `rich' (hub $\rightarrow$ hub), `feed-in' (non-hub $\rightarrow$ hub), `feed-out' (hub $\rightarrow$ non-hub), or `peripheral' (non-hub $\rightarrow$ non-hub).
-Note that, in the absence of directed connectivity information, previous analyses involving rich clubs has mostly grouped `feed-in' and `feed-out' as a single `feeder' category, but here we distinguish the two connection types.
+Note that the directed connectivity information here has allowed us to distinguish `feeder' connections as either `feed-in' or `feed-out', rather than grouping them as `feeder', as is necessary in undirected connectomes.
 % For simplicity, hub $\rightarrow$ non-hub and non-hub $\rightarrow$ hub connections were grouped as a single `feeder' category for simplicity.
 
-% \paragraph{Rich-club organization}
-To measure whether hubs are densely interconnected, we used the rich-club coefficient, $\phi(k)$ \cite{Colizza:2006kz}:
+\paragraph{Rich-club organization}
+We used the rich-club coefficient, $\phi(k)$ \cite{Colizza:2006kz}, to quantify the interconnectivity of hub neurons:
 \begin{equation}
     \label{eqn:rich_club}
     \phi(k) = \frac{2E_{>k}}{N_{>k}(N_{>k}-1)},
 \end{equation}
-where $N_{>k}$ is the number of nodes with degree $>k$ and $E_{>k}$ counts the number of edges between them.
-The rich-club coefficient, $\phi(k)$, thus measures the link density in the subgraph containing nodes with degree $>k$.
-However, $\phi(k)$ is expected to increase with $k$ for general networks, since retaining nodes with higher degree will yield a higher expected link density in the subgraph containing nodes with degree $>k$.
-Consequently, we compared $\phi(k)$ measured from the \emph{C. elegans} connectome, to that obtained from an ensemble of randomized null networks, $\phi_\mathrm{rand}(k)$ \cite{Colizza:2006kz}.
-An ensemble of 1\,000 null networks were generated, constructed by shuffling the links in the empirical network while retaining the degree distribution of nodes in the network \cite{Maslov:2002hi} (rewiring each edge an average of 50 times per null network) using the \texttt{randmio\_dir} function from the {\it Brain Connectivity Toolbox} \cite{Rubinov:2010jd}.
-We then computed the normalized rich-club coefficient, $\Phi_\mathrm{norm}(k)$, as the ratio of the rich-club coefficient of the empirical network to the mean rich-club coefficient of the ensemble of randomized networks:
+where $N_{>k}$ is the number of nodes with degree $>k$, and $E_{>k}$ counts the number of edges between them.
+The rich-club coefficient, $\phi(k)$, measures the link density in the subgraph containing nodes with degree $>k$, and is expected to increase with $k$ regardless of network structure, since nodes with higher degree make more connections in general, yielding a higher expected link density in the subgraph containing nodes with degree $>k$.
+To account for this effect, we compared $\phi(k)$ measured from the \emph{C. elegans} connectome, to that obtained from an ensemble of randomized null networks, $\phi_\mathrm{rand}(k)$ \cite{Colizza:2006kz}.
+An ensemble of 1\,000 null networks were generated by shuffling the links in the empirical network while retaining the degree distribution of nodes in the network \cite{Maslov:2002hi} (rewiring each edge an average of 50 times per null network) using the \texttt{randmio\_dir} function from the {\it Brain Connectivity Toolbox} \cite{Rubinov:2010jd}.
+The normalized rich-club coefficient, $\Phi_\mathrm{norm}(k)$, was then computed as the ratio of the rich-club coefficient of the empirical network to the mean rich-club coefficient of the ensemble of randomized networks:
 \begin{equation}
-    \Phi_\mathrm{norm}(k) = \phi(k)/\langle \phi_\mathrm{rand}(k) \rangle.
+    \label{eqn:rich_club_norm}
+    \Phi_\mathrm{norm}(k) = \frac{\phi(k)}{\langle \phi_\mathrm{rand}(k) \rangle}.
 \end{equation}
 $\Phi_\mathrm{norm} > 1$ indicates the rich-club organization of the network, with statistical significant deviations assessed by computing a $P$-value directly from the empirical null distribution, $\phi_\mathrm{rand}(k)$, as a permutation test under the null hypothesis $\phi(k) \leq \phi_\mathrm{rand}(k)$ \cite{vandenHeuvel:2011he}.
 
@@ -406,16 +405,16 @@ $\Phi_\mathrm{norm} > 1$ indicates the rich-club organization of the network, wi
 %As a result, a small number of high degree nodes forming a rich club was identified.
 
 \paragraph{Modularity}
-The modular structure of the connectome was determined applying the Louvain community detection algorithm using a standard practice, implemented in the Brain Connectivity Toolbox \cite{Rubinov2010}.
-To identify the optimal modular assignment, the algorithm was repeated 1\,000 times resulting in a thousand community affiliation vectors.
-Like all methods that optimise the measure of modularity, Louvain community detection algorithm is constrained within the intrinsic limits of modularity maximization, therefore unique partitions differ in their node assignments. 
-In order to cope with those stochastic fluctuations, we use the consensus clustering approach \cite{Lancichinetti2012a} which produces a stable partition using information from multiple runs of the modularity detection algorithm. 
-Therefore, the results of these 1\,000 partitions were aggregated into a single agreement matrix, in which each element encoded the frequency with which a given pair of nodes was classified in the same module across runs.
-These frequencies were weighted by the quality of each individual partition, as quantified by the Q-statistic (Newman), such that partitions with higher Q contributed more strongly to the final values in the agreement matrix.
-We then applied a consensus clustering approach to this agreement matrix, as described by Lancichinetti and Fortunato \cite{Lancichinetti2012a}.
-Specifically, we first applied a threshold $\tau = 0.1$ to the matrix, ran the Louvain algorithm 1000 times, computed a new agreement matrix and thresholded the data again.
-We repeated this procedure until all elements in the agreement matrix had a value of either 1 (i.e., the pair of nodes was always classified in the same module) or 0 (i.e., the pair of nodes was never classified in the same module).
-The module assignments of this final agreement matrix represent a consensus estimate of the community structure of the network.
+The modular structure of the connectome was determined applying the Louvain community detection algorithm \cite{Blondel:2008do}, using the \texttt{community\_louvain} implementation in the Brain Connectivity Toolbox \cite{Rubinov2010} with $\tau = 0.1$.
+To identify the optimal modular assignment, the algorithm was repeated 1\,000 times, with the final assignments of nodes to modules given as either (i) the solution with maximal modularity, $Q$, or (ii) using a consensus clustering approach \cite{Lancichinetti2012a}, where each partition was weighted by its modularity, $Q$ (using the \texttt{agreement\_weighted} and \texttt{consensus\_und} functions of the Brain Connectivity Toolbox \cite{Rubinov2010}).
+% which produces a stable partition using information from multiple runs of the modularity detection algorithm.
+% Therefore, the results of these 1\,000 partitions were aggregated into a single agreement matrix, in which each element encoded the frequency with which a given pair of nodes was classified in the same module across runs.
+% These frequencies were weighted by the quality of each individual partition, as quantified by the Q-statistic (Newman), such that partitions with higher Q contributed more strongly to the final values in the agreement matrix.
+% We then applied a consensus clustering approach to this agreement matrix, as described by Lancichinetti and Fortunato \cite{Lancichinetti2012a}.
+% Like all methods that optimize the measure of modularity, Louvain community detection algorithm is constrained within the intrinsic limits of modularity maximization, therefore unique partitions differ in their node assignments.
+% Specifically, we first applied a threshold $\tau = 0.1$ to the matrix, ran the Louvain algorithm 1000 times, computed a new agreement matrix and thresholded the data again.
+% We repeated this procedure until all elements in the agreement matrix had a value of either 1 (i.e., the pair of nodes was always classified in the same module) or 0 (i.e., the pair of nodes was never classified in the same module).
+% The module assignments of this final agreement matrix represent a consensus estimate of the community structure of the network.
 
 
 
@@ -426,9 +425,9 @@ The database is regularly updated; here we used release WS256 (\url{ftp://ftp.wo
 % downloaded on 6th Feb 2017
 Expression annotations are made directly (when annotated genes are directly expressed in certain neurons), and indirectly to groups or broader classes of neurons (e.g., `head', `interneuron', etc.) (when genes are expressed in some neurons for a certain hierarchical category of cells), with different qualifiers defining levels of certainty: `certain' (gene A was observed to be expressed in cell Y), `enriched' (gene A has been found enriched in a certain dataset through microarray, RNAseq or proteomic analysis), `partial' (gene A was observed to be expressed in some cells of a group of cells that include Y), and `blank' (data from studies before 2005) and ‘uncertain’ (gene A was sometimes observed to be expressed in cell Y or gene A was observed to be expressed in a cell that could be Y).
 If a gene is expressed under a specific qualifier for a specific neuron, it is assigned a value of 1, in all other cases 0 values are assigned. 
-In this particular dataset we are unable to distinguish relative gene expression levels between neurons as well as the following two cases: (i) ``gene is not expressed'' and (ii) ``there is no information on whether gene is expressed'', which are both represented as a ``0''.\\
+In this particular dataset we are unable to distinguish relative gene expression levels between neurons as well as the following two cases: (i) ``gene is not expressed'' and (ii) ``there is no information on whether gene is expressed'', which are both represented as a ``0''.
 
-The analyses presented here are of expression data that is annotated directly to individual neurons with one of the following qualifiers: `certain', `enriched', `partial', or `blank'. We chose to not include indirectly annotated genes as well as genes qualified as 'uncertain' in order to as much as possible avoid false-positive gene assignments.  
+The analyses presented here are of expression data that is annotated directly to individual neurons with one of the following qualifiers: `certain', `enriched', `partial', or `blank'. We chose to not include indirectly annotated genes as well as genes qualified as `uncertain' in order to as much as possible avoid false-positive gene assignments.  
 
 The resulting binary expression data for 279 neurons and 948 genes is shown as a matrix in Fig.~\ref{fig:SchematicRepresentation}A.
 An average of 30 genes are expressed in each neuron (range: 3 to 138 genes); each gene is expressed in an average of 9 neurons (range: 1 to 148 neurons).

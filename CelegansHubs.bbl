@@ -1,5 +1,21 @@
 \begin{thebibliography}{10}
 
+\bibitem{vandenHeuvel:2016eg}
+van~den Heuvel MP, Bullmore ET, Sporns O.
+\newblock {Comparative Connectomics}.
+\newblock Trends in Cognitive Sciences. 2016;0(0).
+
+\bibitem{Henderson:2014fg}
+Henderson JA, Robinson PA.
+\newblock Relations Between the Geometry of Cortical Gyrification and
+  White-Matter Network Architecture.
+\newblock Brain Conn. 2014;4(2):112--130.
+
+\bibitem{Roberts:2016il}
+Roberts JA, Perry A, Lord AR, Roberts G, Mitchell PB, Smith RE, et~al.
+\newblock {The contribution of geometry to the human connectome}.
+\newblock NeuroImage. 2016;124:379--393.
+
 \bibitem{VandenHeuvel2012}
 van~den Heuvel MP, Kahn RS, Goni J, Sporns O.
 \newblock {High-cost, high-capacity backbone for global brain communication}.
@@ -89,17 +105,17 @@ Lein E, Hawrylycz MJ, Ao N, Ayres M, Bensinger A, Bernard A, et~al.
 \newblock {Genome-wide atlas of gene expression in the adult mouse brain}.
 \newblock Nature. 2007;445(7124):168--176.
 
-\bibitem{Fakhry:2015kl}
-Fakhry A, Ji S.
-\newblock {High-resolution prediction of mouse brain connectivity using gene
-  expression patterns}.
-\newblock Methods. 2015;73:71--78.
-
 \bibitem{Ji:2014jw}
 Ji S, Fakhry A, Deng H.
 \newblock {Integrative analysis of the connectivity and gene expression atlases
   in the mouse brain}.
 \newblock NeuroImage. 2014;84:245--253.
+
+\bibitem{Fakhry:2015kl}
+Fakhry A, Ji S.
+\newblock {High-resolution prediction of mouse brain connectivity using gene
+  expression patterns}.
+\newblock Methods. 2015;73:71--78.
 
 \bibitem{French2011}
 French L, Pavlidis P.
@@ -152,17 +168,15 @@ Kashtan N, Itzkovitz S, Milo R, Alon U.
 \newblock {Topological generalizations of network motifs}.
 \newblock Phys Rev E. 2004;70(3):031909.
 
-\bibitem{Varier2011}
-Varier S, Kaiser M, Koh W, Meuli R, Honey C.
-\newblock {Neural Development Features: Spatio-Temporal Development of the
-  Caenorhabditis elegans Neuronal Network}.
-\newblock PLoS Computational Biology. 2011;7(1):e1001044.
-\newblock doi:{10.1371/journal.pcbi.1001044}.
-
 \bibitem{Harris:2009kd}
 Harris TW, Antoshechkin I, Bieri T, Blasiar D, Chan J, Chen WJ, et~al.
 \newblock {WormBase: a comprehensive resource for nematode research}.
 \newblock Nucleic Acids Research. 2009;38:D463--D467.
+
+\bibitem{WormAtlas}
+Altun ZF, Herndon LA, Wolkow CA, Crocker C, Lints R, Hall DH. WormAtlas;
+  2002--2017.
+\newblock Available from: \url{http://www.wormatlas.org}.
 
 \bibitem{Pereira:2015er}
 Pereira L, Kratsios P, Serrano-Saiz E, Sheftel H, Mayo AE, Hall DH, et~al.
@@ -181,12 +195,6 @@ Sulston JE, Schierenberg E, White JG, Thomson JN.
 \newblock {The embryonic cell lineage of the nematode Caenorhabditis elegans.}
 \newblock Developmental biology. 1983;100(1):64--119.
 
-\bibitem{Schroter:2017eo}
-Schr{\"o}ter M, Paulsen O, Bullmore E.
-\newblock {Micro-connectomics: probing the organization of neuronal networks at
-  the cellular scale}.
-\newblock Nat Rev Neurosci. 2017; p. 1--16.
-
 \bibitem{Colizza:2006kz}
 Colizza V, Flammini A, Serrano M, Vespignani A.
 \newblock {Detecting rich-club ordering in complex networks}.
@@ -202,6 +210,11 @@ Rubinov M, Sporns O.
 \newblock {Complex network measures of brain connectivity: Uses and
   interpretations}.
 \newblock NeuroImage. 2010;52(3):1059--1069.
+
+\bibitem{Blondel:2008do}
+Blondel VD, Guillaume JL, Lambiotte R, Lefebvre E.
+\newblock {Fast unfolding of communities in large networks}.
+\newblock J Stat Mech. 2008;2008(10):P10008.
 
 \bibitem{Rubinov2010}
 Rubinov M, Sporns O.
@@ -230,12 +243,6 @@ Krienen FM, Yeo BTT, Ge T, Buckner RL, Sherwood CC.
 \newblock Proceedings of the National Academy of Sciences.
   2016;113(4):E469--78.
 \newblock doi:{10.1073/pnas.1510903113}.
-
-\bibitem{Henderson:2014fg}
-Henderson JA, Robinson PA.
-\newblock Relations Between the Geometry of Cortical Gyrification and
-  White-Matter Network Architecture.
-\newblock Brain Conn. 2014;4(2):112--130.
 
 \bibitem{Horvat:2016ia}
 Horv{\'a}t S, G{\u{a}}m{\u{a}}nuț R, Ercsey-Ravasz M, Magrou L,
@@ -327,12 +334,27 @@ Pavlovic DM, V{\'{e}}rtes PE, Bullmore ET, Schafer WR, Nichols TE.
 \newblock PLoS ONE. 2014;9(7):e97584.
 \newblock doi:{10.1371/journal.pone.0097584}.
 
+\bibitem{Varier2011}
+Varier S, Kaiser M, Koh W, Meuli R, Honey C.
+\newblock {Neural Development Features: Spatio-Temporal Development of the
+  Caenorhabditis elegans Neuronal Network}.
+\newblock PLoS Computational Biology. 2011;7(1):e1001044.
+\newblock doi:{10.1371/journal.pcbi.1001044}.
+
 \bibitem{Liu2009}
 Liu X, Long F, Peng H, Aerni SJ, Jiang M, S{\'{a}}nchez-Blanco A, et~al.
 \newblock {Analysis of Cell Fate from Single-Cell Gene Expression Profiles in
   C. elegans}.
 \newblock Cell. 2009;139(3):623--633.
 \newblock doi:{10.1016/j.cell.2009.08.044}.
+
+\bibitem{Fulcher2016}
+Fulcher BD, Fornito A.
+\newblock {A transcriptional signature of hub connectivity in the mouse
+  connectome.}
+\newblock Proceedings of the National Academy of Sciences of the United States
+  of America. 2016;113(5):1513302113--.
+\newblock doi:{10.1073/pnas.1513302113}.
 
 \bibitem{Cui2007}
 Cui Q, Yu Z, Purisima EO, Wang E, Li X, Schwarz P, et~al.

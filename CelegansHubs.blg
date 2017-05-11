@@ -1,70 +1,76 @@
 This is BibTeX, Version 0.99d (TeX Live 2015)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: CelegansHubs.aux
+The top-level auxiliary file: ./CelegansHubs.aux
 The style file: plos2015.bst
+White space in argument---line 51 of file ./CelegansHubs.aux
+ : \citation{\cite
+ :                 {Harris:2009kd}}
+I'm skipping whatever remains of this command
 Database file #1: library_ben.bib
-Repeated entry---line 191 of file library_ben.bib
+Repeated entry---line 201 of file library_ben.bib
  : @article{Shih:2015cu
  :                     ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 270 of file library_ben.bib
+Repeated entry---line 280 of file library_ben.bib
  : @article{Lein:2007jn
  :                     ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 372 of file library_ben.bib
+Repeated entry---line 414 of file library_ben.bib
  : @article{deReus:2013cy
  :                       ,
 I'm skipping whatever remains of this entry
 Database file #2: library.bib
+Warning--I didn't find a database entry for "Misic:2014it"
 Warning--I didn't find a database entry for "Chen:2006ie"
 Warning--I didn't find a database entry for "Azulay:2016cg"
 Warning--I didn't find a database entry for "Kim:2016gl"
 Warning--I didn't find a database entry for "Kim:2014bu"
 Warning--I didn't find a database entry for "Pavlovic:2014gx"
 Warning--I didn't find a database entry for "Lancichinetti2012a"
+Warning--I didn't find a database entry for "Hillier2005"
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 58 entries,
+You've used 62 entries,
             3058 wiz_defined-function locations,
-            1069 strings with 26139 characters,
-and the built_in function-call counts, 179212 in all, are:
-= -- 21792
-> -- 940
-< -- 3
-+ -- 730
-- -- 235
-* -- 16896
-:= -- 19617
-add.period$ -- 252
-call.type$ -- 58
+            1097 strings with 26961 characters,
+and the built_in function-call counts, 188068 in all, are:
+= -- 22934
+> -- 1016
+< -- 2
++ -- 778
+- -- 254
+* -- 17665
+:= -- 20561
+add.period$ -- 267
+call.type$ -- 62
 change.case$ -- 0
 chr.to.int$ -- 0
-cite$ -- 58
-duplicate$ -- 9439
-empty$ -- 18015
-format.name$ -- 292
-if$ -- 40979
+cite$ -- 62
+duplicate$ -- 10186
+empty$ -- 18854
+format.name$ -- 315
+if$ -- 43044
 int.to.chr$ -- 0
-int.to.str$ -- 58
-missing$ -- 573
-newline$ -- 314
-num.names$ -- 58
-pop$ -- 909
+int.to.str$ -- 62
+missing$ -- 614
+newline$ -- 334
+num.names$ -- 62
+pop$ -- 973
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 934
+skip$ -- 991
 stack$ -- 0
-substring$ -- 44242
-swap$ -- 1455
-text.length$ -- 3
+substring$ -- 46035
+swap$ -- 1548
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 620
-width$ -- 60
-write$ -- 679
-(There were 3 error messages)
+while$ -- 659
+width$ -- 64
+write$ -- 723
+(There were 4 error messages)
