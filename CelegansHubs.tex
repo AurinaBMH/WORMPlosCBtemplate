@@ -278,29 +278,30 @@ WE $\heartsuit$ WORMS
 
 
 % Introduce the structural connectome, characterization of its properties, focusing on worm, but also linking to other species to make the point of consistency
-The axonal wiring between elements of nervous systems displays an incredible complexity, with the web of connections between neural elements providing insights into how cognitive function might have evolved under physical and energetic constraints.
+The incredibly complexity of the web of axonal connections between elements of nervous systems provides insights into how cognitive function might have evolved under physical and energetic constraints.
 The network, or `connectome', can be represented as a graph, in which neural elements are represented as nodes (e.g., neurons in \emph{C. elegans}, or macroscopic brain regions in human), with edges connecting pairs of elements that have an axonal connection.
-This allows very different species, measurements, and scales of neuronal networks to be represented in a consistent and unified way.
-Mapping the network of structural connections between neural elements, from the scale of neurons in model organisms like \emph{C. elegans}, to mesoscale brain regions using tract tracing in rodents, to non-invasive MRI imaging in human subjects, has revealed a surprising consistency of organizational properties, suggesting a common set of selection pressures under which efficient neural systems have evolved.
-As well as showing a modular network structure, that can often be interpreted in terms of distinctive functional brain networks, connectomes have been consistently shown to exhibit a non-uniform distribution of connectivity across the network, containing a small number of highly connected `hub' nodes.
-Hubs have also been shown to be densely interconnected with each other, forming an integrated `rich club' that is costly to develop (containing stronger, longer-distance projections) but delivers functional benefits by facilitating efficient integration of information between more specialized processing modules \cite{VandenHeuvel2012}.
+This representation allows very different species, measurements, and scales of neuronal networks to be represented in a consistent and unified way.
+Comparing connectomes across organisms, from the scale of neurons in model organisms like \emph{C. elegans}, mesoscale brain regions using tract tracing in rodents, to non-invasive MRI imaging in human subjects, has revealed a surprising consistency of organizational properties, suggesting a common set of selection pressures under which efficient neural systems have evolved \cite{vandenHeuvel:2016eg}.
+Connectomes consistently display a number of features, including modular structure a non-uniform distribution of connectivity across the network, containing a small number of highly connected `hub' nodes, features that can only partially be accounted for by spatial constraints \cite{Henderson:2014fg, Roberts:2016il}.
+These hubs have been shown to be strongly and densely interconnected with each other, forming an integrated `rich club' that is costly to develop (containing stronger, longer-distance projections) but delivers functional benefits by facilitating efficient integration of information between more specialized processing modules \cite{VandenHeuvel2012}.
 % Rich-club connectivity has also been shown to be costly to develop, with stronger and longer-distance projections that are thought to deliver functional benefits through the integration of diverse neural systems \cite{VandenHeuvel2012}.
-Prior work has characterized the rich club organization of the neuronal connectome of the \emph{C. elegans} nervous system \cite{Towlson:2013gf}, \emph{Drosophila} \cite{Shih:2015cu}, mouse \cite{Fulcher:2016ck}, rat \cite{vandenHeuvel:2015ie}, 53 \cite{ZamoraLopez:2010hy} or 65 areas \cite{deReus:2013cy} of the cat cortex, 242 macaque cortical regions \cite{Harriger:2012bb}, and in 82 brain regions \cite{vandenHeuvel:2011he} and 1\,170 human cortical areas \cite{vandenHeuvel:2012kh}.
+Prior work has characterized the rich-club organization of the neuronal connectome of the \emph{C. elegans} nervous system \cite{Towlson:2013gf}, \emph{Drosophila} \cite{Shih:2015cu}, mouse \cite{Fulcher:2016ck}, rat \cite{vandenHeuvel:2015ie}, 53 \cite{ZamoraLopez:2010hy} or 65 areas \cite{deReus:2013cy} of the cat cortex, 242 macaque cortical regions \cite{Harriger:2012bb}, and in 82 brain regions \cite{vandenHeuvel:2011he} and 1\,170 human cortical areas \cite{vandenHeuvel:2012kh}.
 The consistency of hubs and rich-club connectivity structural across the connectomes of so many species and scales suggests that it may be subject to genetic control.
 % I DON'T BELIEVE IN THIS ONE SO LEAVING IT OUT: pigeon \cite{Shanahan:2013ej},
 
 % Introduce gene expression work and prior work relating them
-The recent availability of spatial gene expression and other molecular-level data across a range of neural systems has allowed structural connectome properties to be related across spatial scales to molecular information \cite{vandenHeuvel:2017ex}.
+The recent availability of gene expression data in the brain has allowed structural connectome properties to be related to molecular information \cite{vandenHeuvel:2017ex}.
 % , facilitating cross-scale understanding between the fields of macroscale connectomics and microscale neuroscience \cite{vandenHeuvel:2017ex}.
 Initial statistical work done using binary gene expression annotations in \emph{C. elegans} showed that the expression of a small number of genes can be used to predict connectivity between pairs of neurons \cite{Varadan:2006ek, Kaufman2006, Baruch2008b}.
-Later work, utilizing detailed quantitative gene expression data in mouse from the Allen Mouse Brain Atlas \cite{Lein:2007jn} revealed a relationship between gene expression and connectivity in mouse \cite{Fakhry:2015kl, Ji:2014jw}, with pairs of brain regions with similar gene expression patterns also displaying similar connectivity profiles \cite{French2011}.
+Later work, utilizing detailed quantitative gene expression data in mouse from the Allen Mouse Brain Atlas \cite{Lein:2007jn} revealed a relationship between gene expression and connectivity in mouse \cite{Ji:2014jw, Fakhry:2015kl}, with pairs of brain regions with similar gene expression patterns also displaying similar connectivity profiles (using connectivity data from rat) \cite{French2011}.
 % Fakhry:2015dg
 % that connected pairs of brain regions display more similar gene expression profiles \cite{French2011},
-Looking further into different types of connections in mouse, Fulcher and Fornito showed that pairs of connected hubs have the most similar gene expression profiles, and that hub connectivity is associated with the correlated expression of genes related to oxidative energy metabolism \cite{Fulcher:2016ck}.
-Similar findings have been reported at the regional level in the human cortex, with integrative hub regions (with high inter-modular degree and long connection distance) being associated with expression of genes regulating oxidative metabolism and mitochondria \cite{Vertes2016a}, consistent with their high metabolic cost \cite{Collin:2014kq, Tomasi:2013kl}.
+Comparing different types of connections in mouse, Fulcher and Fornito showed that pairs of connected hubs have the most similar gene expression profiles, and that hub connectivity is associated with the correlated expression of genes related to oxidative energy metabolism \cite{Fulcher:2016ck}.
+Similar findings have been reported at the regional level in the human cortex, with integrative hub regions (with high inter-modular degree and long connection distance) being associated with expression of genes regulating oxidative metabolism and mitochondria \cite{Vertes2016a}.
+Both results are consistent with the high metabolic cost of hubs \cite{Collin:2014kq, Tomasi:2013kl}, which may be due to the high signal traffic they're thought to mediate \cite{vandenHeuvel:2012kh, Misic:2014it}, painting a picture of hubs as a highly conserved and metabolically costly feature of structural brain networks.
 % These findings highlight a close relationship between metabolic expenditure and the high signaling load of hub regions in the brain, as has been previously proposed \cite{Bullmore2012}.
-As well as being a highly conserved structural feature, these studies hint that hub connectivity may also be consistently related to metabolic demand, with the picture of highly connected hubs being both metabolically costly, both to construct and to run.
-\emph{C. elegans} is attractive model to extend these results to the microscale, being the only connectome fully mapped at the level of individual synapses and neurons, avoiding statistical estimation of connectomes from tract-tracing experiments \cite{Ypma:2016em}, or the choice of a discrete parcellation for a continuous brain.
+% As well as being a highly conserved structural feature, these studies hint that hub connectivity may also be consistently related to metabolic demand, with the picture of highly connected hubs being both metabolically costly, both to construct and to run.
+\emph{C. elegans} is attractive model to extend these results to the microscale, being the only connectome fully mapped at the level of individual synapses and neurons, thus avoiding statistical estimation of connectomes from tract-tracing experiments \cite{Ypma:2016em}, inference of axonal connectivity from diffusion MRI, or the need to form a discrete parcellation of a continuous brain.
 In \emph{C. elegans}, we also have detailed information on neuron birth times, cell lineage, neurotransmitters, neuron type, etc. that can help delineate the effect of cell type properties on our findings in greater depth.
 In this work, we collated all these diverse data to test the hypothesis that elevated expression coupling of hubs would be apparent at microscale, and to identify what genes, or other factors, drive the result.
 
@@ -319,9 +320,9 @@ In this work, we collated all these diverse data to test the hypothesis that ele
 % METHODS SECTION
 \section*{Materials and methods}
 
-In this work, we couple synaptic connectivity to gene expression signatures for the somatic nervous system of the adult \textit{C. elegans} hermaphrodite.
-We first describe the neural connectivity data used to construct a connectome and the methods we use to quantify connectome structure.
-We then go on to describe the binary gene expression data, how we measure expression similarity between pairs of neurons (coexpression), and our method for scoring genes for functional enrichment analysis.
+In this work, we investigate relationships between synaptic connectivity and gene expression in the somatic nervous system of the adult \textit{C. elegans} hermaphrodite.
+We first describe the neural connectivity data used to construct a connectome and the methods used to quantify connectome structure.
+We then go on to describe the gene expression data, how we measure expression similarity between pairs of neurons (coexpression), and our method for scoring genes for performing functional enrichment analysis.
 
 % Neurons making up the nervous system of the nematode worm \emph{C. elegans} can be divided into groups, commonly as: sensory neurons (support receptive function), motor neurons (cells containing neuromuscular junctions), interneurons (all other neurons), and polymodal neurons (performing more than one type of circuit function) \cite{White:1986tx}.
 
@@ -331,17 +332,18 @@ We then go on to describe the binary gene expression data, how we measure expres
 % METHODS: connectivity data
 \subsection*{Neuronal connectivity data}
 
-Neuronal connectivity data for the adult hermaphrodite nematode \emph{C. elegans} was first mapped by White et al. \cite{White:1986tx}, and then revised by Chen et al. \cite{Chen:2006ie} and by Varshney et al. \cite{Varshney2011} through detailed electron microscopy.
-Here we analyze data from Varshney et al. \cite{Varshney2011} for 279 somatic neurons (282 nonpharyngeal neurons, excluding CANL, CANR, and VC6, for which connectivity data is unavailable), downloaded from WormAtlas (\url{http://www.wormatlas.org/neuronalwiring.html#NeuronalconnectivityII}).
+Neuronal connectivity data for the adult hermaphrodite nematode \emph{C. elegans} was first mapped by White et al.~\cite{White:1986tx}, and then revised by Chen et al. \cite{Chen:2006ie} and by Varshney et al.~\cite{Varshney2011} through detailed electron microscopy.
+Here we analyze data from Varshney et al.~\cite{Varshney2011} for 279 somatic neurons (282 nonpharyngeal neurons, excluding CANL, CANR, and VC6, for which connectivity data is unavailable [[TODO: Aurina, VC6 does have data available, right, it just only makes connections via neuromuscular junctions is the reason we exclude. But is it that CANL/R don't have data available? Or they just don't make connections? Should distinguish missing data from absence of connections]]), downloaded from WormAtlas (\url{http://www.wormatlas.org/neuronalwiring.html#NeuronalconnectivityII}).
 Connectivity information is available both for electrical gap junctions and chemical synapses, which are further distinguished by presynaptic and postsynaptic neurons (providing connection direction information), as well as the number of synapses (providing connection weight information).
 % The result can be represented as a weighted, directed connectivity matrix, with weights given by the number of synapses.
 % By contrast, the directionality of electrical gap junctions remains unknown, and have thus been represented as bidirectional connections.
 To avoid any possible differences in gene expression between chemical synapses and gap junctions, our analysis focuses just on the synaptic connectivity network, which contains a total of 1\,961 connections (6\,394 synapses).
+Note that previous work has used different processed versions of this data, including just synaptic connections as here (e.g., after thresholding them \cite{Kashtan:2004ev}), a combination of synaptic connections and gap junctions together \cite{Azulay:2016cg, Kim:2016gl}, or combining synaptic and gap junctions and then symmetrizing unidirectional synaptic connections to be bidirectional \cite{Towlson:2013gf, Kim:2014bu, Pavlovic:2014gx}.
+[[TODO: Some statement that our core results hold for different representations of the neuronal connectome]].
 
-Note the previous work has used different processed versions of this data, including just synaptic connections as here (e.g., after thresholding them \cite{Kashtan:2004ev}), a combination of synaptic connections and gap junctions together \cite{Azulay:2016cg, Kim:2016gl}, or combining synaptic and gap junctions and then symmetrizing unidirectional synaptic connections to be bidirectional \cite{Towlson:2013gf, Kim:2014bu, Pavlovic:2014gx}.
-
-Spatial information about neurons was obtained for 277 neurons (including VC6 which makes connections only through neuro-muscular junctions) [[TODO: Aurina, why mention this? AA - this neuron doesn't have obvious connections, therefore not included in the connectome, but we have coordinates for it, otherwise, numbers do not add]]) as two dimensional spatial coordinates from \url{www.biological-networks.org/?page_id=25}.
-Coordinates for three neurons (AIBL, AIYL, SMDVL) were missing in this dataset, and were reconstructed based on the positions of the contralateral neurons (AIBR, AIYR, SMDVR) by assigning identical coordinates for the contralateral neurons in these three pairs according to Varier \cite{Varier2011} [[TODO: Explain the precedent for doing this. AA: Varier 2011 does not explain why they do it.]].
+Two dimensional spatial coordinates for neurons were obtained as \textt{celegans277.mat} from the Dynamic Connectome Lab \url{www.biological-networks.org/?page_id=25}.
+% 277 neurons (including VC6, which makes connections only through neuro-muscular junctions) [[TODO: Aurina, why mention this? AA - this neuron doesn't have obvious connections, therefore not included in the connectome, but we have coordinates for it, otherwise, numbers do not add]])
+Coordinates for three neurons (AIBL, AIYL, SMDVL) were missing in this dataset, and were reconstructed based on the positions of the contralateral neurons (AIBR, AIYR, SMDVR) by assigning identical coordinates for the contralateral neurons in these three pairs. [[according to X? Not in Varier and Kaiser. Should explain the precedent for doing this -- can we somehow check whether these contralateral neurons close?]].
 
 % The C. elegans nervous system consists of two distinct parts: a small pharyngeal nervous system (20 neurons), responsible for  the feeding behavior of the animal and a large somatic nervous system (282 neurons).
 
@@ -350,18 +352,18 @@ Neurons were first labeled by their type, as:
 (i) `sensory' neuron (support receptive function),
 (ii) `motor' neuron (cells containing neuromuscular junctions),
 (iii) `interneuron' (all other neurons), or
-(iv) polymodal neuron (obtaining multiple assignments of the above categories) \cite{White:1986tx}.
+(iv) `polymodal' (obtaining multiple assignments of the above categories) \cite{White:1986tx}.
 Neurons were also assigned labels based on their anatomical location, as:
-(i) `head', (ii) `tail', or (iii) `body'.
-These assignments were obtained from release WS256 of WormBase, \url{ftp://ftp.wormbase.org/pub/wormbase/releases/WS256/ONTOLOGY/anatomy_association.WS256.wb}, with annotations to individual neurons achieved from the hierarchy defined in WormBase \cite{Harris:2009kd}, which we retrieved using the WormBase API (wormmine) and propagated each term down the hierarchy to label individual neurons.
+(i) `head', (ii) `tail', or (iii) `body' using data from release WS256 of WormBase \cite{Harris:2009kd}, \url{ftp://ftp.wormbase.org/pub/wormbase/releases/WS256/ONTOLOGY/anatomy_association.WS256.wb}.
+These annotations were assigned to individual neurons using the anatomical hierarchy defined in WormBase, which we retrieved using the WormBase API (wormmine), propagating each term down the hierarchy to individual neurons.
 % (and other child terms of `neuron', WB:0003679)
 % RetreiveHierarchy.py, NeuronRegionFinder.m
-Note that some head neurons (12: ALA, AVFL, AVFR, AVG, RIFL, RIFR, RIGL, RIGR, SABD, SABVL, SABVR, SMDVL) were not labeled as head in this file, and were thus manually corrected by matching the assignment against the annotations provided at WormAtlas (http://www.wormatlas.org/).
+Note that twelve head neurons (ALA, AVFL, AVFR, AVG, RIFL, RIFR, RIGL, RIGR, SABD, SABVL, SABVR, SMDVL) were not labeled as `head' on WormBase, but were manually corrected by us, by matching the assignment against the annotations provided at WormAtlas \cite{WormAtlas}.
 % [[TODO: how and where from hierarchy file was downloaded?]]% RetreiveHierarchy.py, NeuronRegionFinder.m
 The neurotransmitter systems used by each neuron was labeled by matching to data in Table 2 of Pereira et al. \cite{Pereira:2015er}.
 % to label the neurotransmitter type of all neurons.
 % in the hermaphrodite C. elegans nervous system has been mapped, revealing the dominance of cholinergic signaling \cite{Pereira:2015er}.
-Lineage similarity for all pairs of neurons was obtained from previously published embryonic and  post-embryonic lineage trees \cite{Sulston1977, Sulston1983}; data were downloaded from WormAtlas (\url{http://www.wormatlas.org/neuronalwiring.html#Lineageanalysis}).
+Lineage similarity for all pairs of neurons was obtained from previously published embryonic and  post-embryonic lineage trees \cite{Sulston1977, Sulston1983}; data were downloaded from WormAtlas (\url{http://www.wormatlas.org/neuronalwiring.html#Lineageanalysis}) \cite{WormAtlas}.
 In this dataset for each pair of neurons a common ancestor cell was identified using and a total number of cell divisions from the common progenitor was calculated.
 % Downloaded data were arranged into a matrix format where lineage distance for each pair of neurons was defined. % part of Print_neuroconnect.m
 [[TODO: Aurina -- genes: wormbase, connectivity, lineage, birth times: wormatlas. can we go through all of this to clarify all of the data sources -- wormMine, wormBase, WormAtlas, etc. I'm a bit confused]]
@@ -369,10 +371,11 @@ In this dataset for each pair of neurons a common ancestor cell was identified u
 % METHODS: rich club analysis
 \subsection*{Network analysis}
 
-In this section, we describe the methods used to characterize the \emph{C. elegans} structural connectome, represented as a graph with neurons as nodes and synaptic connections as edges \cite{Schroter:2017eo}.
+In this section, we describe the methods used to characterize the \emph{C. elegans} synaptic connectome, represented as a graph with neurons as nodes and synaptic connections as edges.
+% \cite{Schroter:2017eo}.
 
 % \paragraph{Degree}
-The number of regions that a neuron projects to is its out-degree, $k_\mathrm{out}$, and the number of regions that project to a given neuron is its in-degree, $k_\mathrm{in}$.
+The number of regions that a neuron projects to is its \emph{out-degree}, $k_\mathrm{out}$, and the number of regions that project to a given neuron is its \emph{in-degree}, $k_\mathrm{in}$.
 The total number of connections involving a given neuron is defined by its degree, $k = k_\mathrm{in} + k_\mathrm{out}$.
 % Weighted analogues of these degree measures involve counting the number of synaptic connections that a neuron makes to other regions (weighted out-degree, $k^w_\mathrm{out}$), that are afferent to it (weighted in-degree, $k^w_\mathrm{in}$), or the combination, weighted degree, $k^w = k^w_\mathrm{in} + k^w_\mathrm{out}$.
 
