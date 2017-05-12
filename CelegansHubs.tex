@@ -336,7 +336,7 @@ Here we analyze data from Varshney et al.~\cite{Varshney2011} for 279 somatic ne
 Connectivity information is available both for electrical gap junctions and chemical synapses, which are further distinguished by presynaptic and postsynaptic neurons (providing connection direction information), as well as the number of synapses (providing connection weight information).
 % The result can be represented as a weighted, directed connectivity matrix, with weights given by the number of synapses.
 % By contrast, the directionality of electrical gap junctions remains unknown, and have thus been represented as bidirectional connections.
-To avoid any possible differences in gene expression between chemical synapses and gap junctions, our analysis focuses just on the synaptic connectivity network, which contains a total of 1\,961 connections (6\,394 synapses).
+To avoid any possible differences in gene expression between chemical synapses and gap junctions, our analysis focuses just on the synaptic connectivity network, which contains a total of 1\,961 pairs of connected neurons, spanning a total of 2\,194 directed connections (and a total of 6\,394 individual synapses).
 Note that previous work has used different processed versions of this data, including just synaptic connections as here (e.g., after thresholding them \cite{Kashtan:2004ev}), a combination of synaptic connections and gap junctions together \cite{Azulay:2016cg, Kim:2016gl}, or combining synaptic and gap junctions and then symmetrizing unidirectional synaptic connections to be bidirectional \cite{Towlson:2013gf, Kim:2014bu, Pavlovic:2014gx}.
 [[TODO: Some statement that our core results hold for different representations of the neuronal connectome]].
 
@@ -477,33 +477,32 @@ Due to the large artifacts introduced, we chose not to correct for the small spa
 % In \textit{C. elegans}, we found a semi-exponential relationship between connection probability and Euclidean separation distance (based on their two dimensional coordinates) between a pair of neurons, but no correlation between the Euclidean separation distance between a pair of neurons and their gene coexpression, $r_\phi$.
 
 \subsection*{Gene enrichment analysis}
-To determine whether certain sets of genes drive pattern of coupled expression between pairs of neurons, we used enrichment analysis to identify functionally annotated groups of genes from the Gene Ontology (GO) \cite{Ashburner2000}.
+To determine whether certain sets of genes drive specific patterns of coupled expression between pairs of neurons (e.g., differences between connected and unconnected pairs of neurons, or between rich/feeder/peripheral connections), we used enrichment analysis to identify functionally annotated groups of genes from the Gene Ontology (GO) \cite{Ashburner2000}.
 %  that contribute to the increased coexpression between:
 % (i) connected pairs of neurons as compared to unconnected pairs as well as
 % (ii) connections involving hubs (rich and feeder) compared to connections that do not involve hubs (peripheral).
 % To this end, we first assigned a gene coexpression contribution (GCC) score to each inter-region pair, $(i,j)$, for each gene, $a$, as $\mathrm{GCC}_{ij}^{(a)}$, that quantifies the contribution of each gene to the coexpression score for a given pair of brain regions ($i$ and $j$).
-In previous work involving continuous expression data, we developed a score for each gene that quantified its contribution, at each edge, $(i,j)$, to the overall Pearson correlation across all genes \cite{Fulcher:2016ck}.
-With the current binary expression data, expression of a given gene, $a$, across brain regions, $i$, can take three possible combinations of coexpression at each edge, $(i,j)$:
-(i) \emph{both expressed}: $g^{(a)}_i = 1$ and $g^{(a)}_j = 1$;
-(ii) \emph{mismatched}: $g^{(a)}_i = 1$ and $g^{(a)}_j = 0$ or $g^{(a)}_i = 0$ and $g^{(a)}_j = 1$; or
-(iii) \emph{neither expressed}: $g^{(a)}_i = 0$ and $g^{(a)}_j = 0$.
-Our measure attempts to score individual genes by their patterns of expression in different types of inter-region pairs (e.g., connected versus unconnected pairs, or rich/feeder/peripheral connections).
-In particular, for a given connection class, such as the set of all pairs of connected neurons, we quantified whether a given gene, $a$, is more likely to be expressed in both neurons of that class than expected by chance.
-This was computed as a cumulative binomial probability of obtaining at least $m$ matches ($g^{(a)}_i = 1$ and $g^{(a)}_j = 1$) observed empirically:
+In previous work involving continuous expression data, we developed a score for each gene that quantified its contribution, at each edge, $(i,j)$, to the overall Pearson correlation across all genes, and then compared the distribution of these scores between different classes of edges \cite{Fulcher:2016ck}.
+% With the current binary expression data, expression of a given gene, $a$, across brain regions, $i$, can take three possible combinations of coexpression at each edge, $(i,j)$:
+% (i) \emph{both expressed}: $g^{(a)}_i = 1$ and $g^{(a)}_j = 1$;
+% (ii) \emph{mismatched}: $g^{(a)}_i = 1$ and $g^{(a)}_j = 0$ or $g^{(a)}_i = 0$ and $g^{(a)}_j = 1$; or
+% (iii) \emph{neither expressed}: $g^{(a)}_i = 0$ and $g^{(a)}_j = 0$.
+% e.g., differences between connected and unconnected pairs of neurons, or between rich/feeder/peripheral connections
+% expression of a given gene, $a$, across brain regions, $i$, can take three possible combinations of coexpression at each edge, $(i,j)$
+With the current binary expression data, $g$, we took an alternate approach of directly quantifying whether an individual gene, $a$, is more likely to be expressed together (i.e., $g^{(a)}_i = 1$ and $g^{(a)}_j = 1$) in both neurons ($i$ and $j$) of a given class of edges $\{(i,j)\}$, providing us with a score, $\nu^{(a)}$, for each gene, $a$, that is higher for genes that exhibit a greater number of matches in the edge class of interest than expected by chance.
+Gene scores, $\vu^{(a)}$, were calculated as the probability of obtaining more than the observed $m$ matches ($g^{(a)}_i = 1$ and $g^{(a)}_j = 1$) observed empirically:
 \begin{eqnarray}
 	\label{eq:CBinomialProbability}
-     \nu^{(a)} = P(X > m) = 1 - \sum_{i=0}^{m}\binom{n}{i} p^{i}(1-p^{n-i}),
+     \nu^{(a)} = P_{>m} = 1 - \sum_{i=0}^{m}\binom{n}{i} p^{i}(1-p^{n-i}),
 \end{eqnarray}
 where $p$ is the probability of the given class of inter-region pairs ($p = n_\mathrm{class}/M$ for $n_\mathrm{class}$ connections out of $M$ possible pairs), and $n$ is the maximum number of possible matches.
-This provides us with a score, $\nu^{(a)}$, for each gene, $a$, that is higher for genes that shows a greater number of matches in the inter-region class of interest than expected by chance.
-
-To take a concrete example, when comparing differences in binary coexpression between pairs of neurons that are structurally connected and pairs that are unconnected, $p$ is computed as the proportion of all possible connections that exist, whereas when comparing links involving hubs compared to those between nonhubs, $p$ is the proportion of connections involving hubs.
+Concretely, when comparing differences in coexpression between directed pairs of neurons that contain a structural connection to directed pairs of neurons that do not, $p = 0.028$ is the edge density of the connectome, and for each gene, $n$ is the number of pairs of neurons $(i,j)$ for which $g^{(a)}_i = 1$ and $g^{(a)}_j = 1$; [[TODO: Aurina, can you check these numbers?]], and $m$ is the number of pairs of neurons $(i,j)$ for which $g^{(a)}_i = 1$ and $g^{(a)}_j = 1$ that are also connected.
+When comparing links involving hubs to those between nonhubs, $p$ is the proportion of connections involving hubs (XX), the maximum number of matches, $n$, is the number of directed pairs of neurons, $(i,j)$, for which $g^{(a)}_i = 1$ and $g^{(a)}_j = 1$ and are also connected.
 % , and captures the probability of genes being expressed together in connected pairs of neurons at least as frequently as observed
-
 % For each gene, we first determined the pattern of matching expression profiles (a match meaning that a gene is expressed by both neurons) between each pair of neurons resulting in a binary 279 x 279 matrix.
 % Then, for each gene we calculated a cumulative binomial probability of getting more matches $(X)$ than in the empirical data $(m)$ on a particular connection type (see eq. \ref{eq:CBinomialProbability}).
 
-To ensure that each gene contributed a meaningful score, we required more than one pair of regions $m > 1$ to exhibit matching expression ($g^{(a)}_i = 1$ and $g^{(a)}_j = 1$) in the inter-region class of interest.
+To ensure that each gene contributed a meaningful score, we required at least two neuron pairs to exhibit matching expression ($g^{(a)}_i = 1$ and $g^{(a)}_j = 1$) in the inter-region class of interest (i.e., $m \geq 2$).}
 A total of 577 genes out of 948 satisfied this criterion for connected/unconnected analysis; 390 out of 948 genes satisfied this criterion for hub connectivity analysis.
 % When calculating GCC for connected links more then one match for a gene overall was required (as a result 577 genes out of 948 left); when calculating GCC for the links involving hubs (rich and feeder links) more than one match was required on connected links (as a result 390 out of 948 genes left).
 % Otherwise, no information about the contribution of a specific gene to the overall coexpression pattern could be extracted.
