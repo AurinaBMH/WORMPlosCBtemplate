@@ -340,9 +340,10 @@ To avoid any possible differences in gene expression between chemical synapses a
 Note that previous work has used different processed versions of this data, including just synaptic connections as here (e.g., after thresholding them \cite{Kashtan:2004ev}), a combination of synaptic connections and gap junctions together \cite{Azulay:2016cg, Kim:2016gl}, or combining synaptic and gap junctions and then symmetrizing unidirectional synaptic connections to be bidirectional \cite{Towlson:2013gf, Kim:2014bu, Pavlovic:2014gx}.
 [[TODO: Some statement that our core results hold for different representations of the neuronal connectome]].
 
-Two dimensional spatial coordinates for neurons were obtained as \texttt{celegans277.mat} from the Dynamic Connectome Lab \url{www.biological-networks.org/?page_id=25}.
+Two dimensional spatial coordinates for neurons were obtained as \texttt{celegans277.mat} from the Dynamic Connectome Lab \url{www.biological-networks.org/?page_id=25} \cite{choe2004}.
 % 277 neurons (including VC6, which makes connections only through neuro-muscular junctions) [[TODO: Aurina, why mention this? AA - this neuron doesn't have obvious connections, therefore not included in the connectome, but we have coordinates for it, otherwise, numbers do not add]])
-Coordinates for three neurons (AIBL, AIYL, SMDVL) were missing in this dataset, and were reconstructed based on the positions of the contralateral neurons (AIBR, AIYR, SMDVR) by assigning identical coordinates for the contralateral neurons in these three pairs. [[according to X? Not in Varier and Kaiser. Should explain the precedent for doing this -- can we somehow check whether these contralateral neurons close?]].
+Coordinates for three neurons (AIBL, AIYL, SMDVL) were missing in this dataset, and were reconstructed by assigning identical two-dimensional positions to the bilateral neurons (AIBR, AIYR, SMDVR) \cite{Varier2011}.
+[[TODO: Should we infer 3-d coordinates as Varier do, in order to make distances better behaved??]].
 
 % The C. elegans nervous system consists of two distinct parts: a small pharyngeal nervous system (20 neurons), responsible for  the feeding behavior of the animal and a large somatic nervous system (282 neurons).
 
@@ -406,7 +407,8 @@ $\Phi_\mathrm{norm} > 1$ indicates the rich-club organization of the network, wi
 
 \paragraph{Modularity}
 The modular structure of the connectome was determined applying the Louvain community detection algorithm \cite{Blondel:2008do}, using the \texttt{community\_louvain} implementation in the Brain Connectivity Toolbox \cite{Rubinov2010} with $\tau = 0.1$.
-To identify the optimal modular assignment, the algorithm was repeated 1\,000 times, with the final assignments of nodes to modules given as either (i) the solution with maximal modularity, $Q$, or (ii) using a consensus clustering approach \cite{Lancichinetti2012a}, where each partition was weighted by its modularity, $Q$ (using the \texttt{agreement\_weighted} and \texttt{consensus\_und} functions of the Brain Connectivity Toolbox \cite{Rubinov2010}).
+To identify the optimal modular assignment, the algorithm was repeated 1\,000 times, with the final assignments of nodes to modules given using a consensus clustering approach \cite{Lancichinetti2012a}, where each partition was weighted by its modularity, $Q$, using the \texttt{agreement\_weighted} and \texttt{consensus\_und} functions of the Brain Connectivity Toolbox \cite{Rubinov2010}.
+We also compared results using the solution with maximal modularity, $Q$.
 % which produces a stable partition using information from multiple runs of the modularity detection algorithm.
 % Therefore, the results of these 1\,000 partitions were aggregated into a single agreement matrix, in which each element encoded the frequency with which a given pair of nodes was classified in the same module across runs.
 % These frequencies were weighted by the quality of each individual partition, as quantified by the Q-statistic (Newman), such that partitions with higher Q contributed more strongly to the final values in the agreement matrix.
@@ -420,20 +422,18 @@ To identify the optimal modular assignment, the algorithm was repeated 1\,000 ti
 
 % METHODS: gene expression
 \subsection*{Gene expression}
-Gene expression in C. elegans neurons is measured as a binary indicator from individual experiments, and compiled into a unified data resource on WormBase \cite{Harris:2009kd}.
-The database is regularly updated; here we used release WS256 (\url{ftp://ftp.wormbase.org/pub/wormbase/releases/WS256/ONTOLOGY/anatomy_association.WS256.wb}, in which 948 genes were expressed in at least one neuron.
+Neuronal gene expression is measured here as a binary indicator, using data from many individual experiments compiled into a unified data resource on WormBase \cite{Harris:2009kd}; here we used release WS256 of this data (available at \url{ftp://ftp.wormbase.org/pub/wormbase/releases/WS256/ONTOLOGY/anatomy_association.WS256.wb}).
 % downloaded on 6th Feb 2017
-Expression annotations are made directly (when annotated genes are directly expressed in certain neurons), and indirectly to groups or broader classes of neurons (e.g., `head', `interneuron', etc.) (when genes are expressed in some neurons for a certain hierarchical category of cells), with different qualifiers defining levels of certainty: `certain' (gene A was observed to be expressed in cell Y), `enriched' (gene A has been found enriched in a certain dataset through microarray, RNAseq or proteomic analysis), `partial' (gene A was observed to be expressed in some cells of a group of cells that include Y), and `blank' (data from studies before 2005) and ‘uncertain’ (gene A was sometimes observed to be expressed in cell Y or gene A was observed to be expressed in a cell that could be Y).
-If a gene is expressed under a specific qualifier for a specific neuron, it is assigned a value of 1, in all other cases 0 values are assigned. 
-In this particular dataset we are unable to distinguish relative gene expression levels between neurons as well as the following two cases: (i) ``gene is not expressed'' and (ii) ``there is no information on whether gene is expressed'', which are both represented as a ``0''.
-
-The analyses presented here are of expression data that is annotated directly to individual neurons with one of the following qualifiers: `certain', `enriched', `partial', or `blank'. We chose to not include indirectly annotated genes as well as genes qualified as `uncertain' in order to as much as possible avoid false-positive gene assignments.  
-
-The resulting binary expression data for 279 neurons and 948 genes is shown as a matrix in Fig.~\ref{fig:SchematicRepresentation}A.
+Here we analyze only annotations made `directly' to individual neurons, and excluded `uncertain' annotations (see Supplementary Information for details).
+% (when genes are expressed in some neurons for a certain hierarchical category of cells)
+The data therefore provide indications of which genes are expressed in a given neuron (which we denote as `1').
+% If a gene is expressed under a specific qualifier for a specific neuron, it is assigned a value of 1, in all other cases 0 values are assigned.
+Note that the data do not distinguish: (i) ``gene is not expressed'' and (ii) ``there is no information on whether gene is expressed'', both of which are represented as a `0'.
+Expression annotations can be represented as a binary $N \times G$ matrix, containing $N=279$ neurons, and $G = 948$ genes (the total number of genes that were expressed in at least one neuron).
+This matrix is plotted in Fig.~\ref{fig:SchematicRepresentation}B.
 An average of 30 genes are expressed in each neuron (range: 3 to 138 genes); each gene is expressed in an average of 9 neurons (range: 1 to 148 neurons).
 
-
-% Could add information about indirect annotations
+Compared to continuous expression measurements of over 17\,000 genes in the mouse brain \cite{Lein:2007jn}, which includes permits more subtle analysis \cite{Fulcher:2016ck, Ji:2014jw, Fakhry:2015kl, French2011}, the key challenge of working with these expression data are its minimal coverage of the full worm genome (contains $>20\,000$ genes), binary expression indicators, and inability to distinguish missing data from lack of expression.
 
 % METHODS: gene coexpression
 \subsection*{Gene coexpression}
@@ -978,6 +978,21 @@ We thank WormBase.
 \section*{Supporting information}
 \setcounter{figure}{0} \renewcommand{\thefigure}{S\arabic{figure}}
 \renewcommand{\thefigure}{S\arabic{figure}}
+
+\subsection*{Expression annotations from WormBase}
+
+Neuronal gene expression is measured as a binary indicator on WormBase \cite{Harris:2009kd}, as the collation of many individual experiments.
+
+Expression annotations are made either `directly' to individual neurons (when an experiment indicates expression in individual neurons), or `indirectly' to broader classes of neurons like `interneuron' or `head' (meaning that some members of that class exhibit expression of that gene).
+In order to maintain specificity of annotations, we only analyzed `direct' annotations here.
+
+Annotations of gene $G$ to neuron $N$ are also made with varying levels of certainty:
+`certain' ($G$ was observed to be expressed in $N$),
+`enriched' ($G$ has been found enriched in a certain dataset through microarray, RNAseq or proteomic analysis),
+`partial' ($G$ was observed to be expressed in some cells of a group of neurons that include $N$),
+`blank' (data from studies before 2005),
+or `uncertain' ($G$ was sometimes observed to be expressed in $N$, or $G$ was observed to be expressed in a cell that could be $N$).
+Our analysis did not include annotations labeled as `uncertain', to avoid including false positives.
 
 \subsection*{Expression similarity measures}
 
