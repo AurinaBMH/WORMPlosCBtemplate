@@ -677,9 +677,11 @@ Specifically, both connectomes display:
 (iii) intermediate coexpression in feeder connections, and
 and (iv) lowest coexpression in peripheral connections.
 
-\subsection*{Other influences}
-While hubs of the mouse connectome are broadly distributed across anatomical divisions, hub neurons in \emph{C. elegans} are interneurons concentrated in the head (10) and tail.
-Having demonstrated that gene coexpression is elevated for connected regions, and particularly for connected pairs of hubs, we next investigate whether other anatomical, neuron type, neurotransmitter type, or modular organizational effects might contribute to our results.
+\subsection*{Robustness}
+While hubs of the mouse connectome are broadly distributed across anatomical divisions, the 13 hub neurons in \emph{C. elegans} ($k > 41$) are all interneurons, born early in development, cholinergic, and are mostly in a single network module.
+% and concentrated in the head (10/13),
+% Having demonstrated that gene coexpression is elevated for connected regions, and particularly for connected pairs of hubs,
+We thus investigated whether any of these types of anatomical, neuron type, neurotransmitter type, or modular organizational effects might contribute to our results.
 
 % , namely modular organization, lineage similarity, or neurotransmitter type, could explain our results.
 
@@ -818,7 +820,7 @@ Having determined that pairs of neurons with different connectivity exhibit diff
 Despite lacking full genome coverage, and incomplete binary expression data, we developed a method to assign a gene coexpression contribution (GCC) score to each gene that quantifies its contribution to a given coexpression pattern (related to the probability of a gene being expressed together in a given set of neuron pairs compared to an alternative set).
 We then performing an enrichment analysis using gene ontology categories for biological processes (see Methods).
 Previous results in mouse \cite{Fulcher:2016ck}, using over 17\,000 genes, indicated that genes driving an increase in coexpression between connected pairs of neurons are enriched in GO categories related to basic neuronal function, whereas those driving an increase in connections involving hub neurons are enriched in oxidative energy metabolism (a result corroborated at a regional level in human \cite{Vertes2016a}).
-In this particular gene expression dataset we did not have the representation of the particular GO categories that were related to hub connectivity in mouse (only one gene ('unc-32') was attributed to GO:0015991 (ATP hydrolysis coupled proton transport), no genes attributed for any other category).
+In this particular gene expression dataset we did not have the representation of the particular GO categories that were related to hub connectivity in mouse (only one gene (`unc-32') was attributed to GO:0015991 (ATP hydrolysis coupled proton transport), no genes attributed for any other category).
 
 % GO categories were filtered using <<searchGOcategories.m>> function. 
 
@@ -826,25 +828,25 @@ While we were not able to directly test the hypothesis presented by Fulcher et a
 %Due to gene expression data specificity in all the following analyses we present top 15 GO categories enriched in a particular link type compared to other links. 
 
 First, we estimated which functional groups of genes drive increased coexpression in connected pairs of neurons compared to unconnected pairs.
-As listed in Table~\ref{enrichmentCON}, top GO categories ($p_{uncorrected} < 0.05$) are related to glutamate receptor signalling, memory/learning and ion transport supporting the idea that connected pairs of neurons tend to express genes associated with neuronal connectivity compared to unconnected neuron pairs.\\
+As listed in Table~\ref{enrichmentCON}, top GO categories ($p_{uncorrected} < 0.05$) are related to glutamate receptor signaling, memory/learning and ion transport supporting the idea that connected pairs of neurons tend to express genes associated with neuronal connectivity compared to unconnected neuron pairs.
 
 Next, we examined differences between connections in terms of their relationship to hub neurons, investigating which functional groups of genes contributed to the increased coexpression for links between hubs (`rich') compared to all other links in the network.
-The main GO categories that we find overrepresented among hub neurons are related to glutamate receptor signalling, transport, locomotion as well as neurotransmitter metabolic processes (see Table~\ref{enrichmentRICH}).
+The main GO categories that we find overrepresented among hub neurons are related to glutamate receptor signaling, transport, locomotion as well as neurotransmitter metabolic processes (see Table~\ref{enrichmentRICH}).
 %These findings are in line with our expectations as hub neurons receive input from sensory neurons, the majority of which are glutamatergic. 
 %As a result, hubs are required to have glutamate receptors the enrichment in these categories is the most pronounced (even after the correction, false discovery rate $< 0.05$). 
-Enrichment in locomotion related categories is also in agreement with available data as the majority of hubs belong to the category of command interneurons which has an established function of controlling forward and backward locomotion behaviour. 
+Enrichment in locomotion related categories is also in agreement with available data as the majority of hubs belong to the category of command interneurons which has an established function of controlling forward and backward locomotion behavior. 
 Moreover, we find an increase in GO category (GO:0042133) which is related to neurotransmitter metabolic process which generally consistent with the findings in mouse. 
 
-Although 11 out of the 13 hubs ($k > 41$) are cholinergic, and the remaining two use glutamate as their neurotransmitter (Fig.~\ref{fig:S_feedInOutNodes}C), we found enrichment in glutamate receptor signalling when comparing connections between hubs to those not involving hubs. 
+Although 11 out of the 13 hubs ($k > 41$) are cholinergic, and the remaining two use glutamate as their neurotransmitter (Fig.~\ref{fig:S_feedInOutNodes}C), we found enrichment in glutamate receptor signaling when comparing connections between hubs to those not involving hubs. 
 % with ACh being the most broadly used neurotransmitter in general \cite{Pereira:2015er}
 % It is worth noting that although both analyses above highlighted enrichment of glutamate, even though acetylcholine (ACh) is the most broadly used neurotransmitter in \textit{C. elegans} \cite{Pereira:2015er}, and most hubs ($k > 41$) are cholinergic (Fig.~\ref{fig:S_feedInOutNodes}C).
 Looking closer at the neurotransmitters used by each neuron, we found that nonhub neurons that project to hubs (but do not receive projections back) are mostly sensory or interneurons (82\%), with the most common neurotransmitter being glutamate (41\%), whereas neurons that receive inputs from hubs (but do not project to hubs) are mostly motor neurons (84\%) and are cholinergic (93\%), as shown in Fig.~\ref{fig:S_feedInOutNodes}A,C.
-Thus, although hubs are themselves mostly cholinergic, they receive inputs from glutamatergic neurons, which may explain their over-representation in two biological processes related to glutamate receptors: ionotropic glutamate receptor signaling pathway (GO:0035235) and glutamate receptor signalling pathway (GO:0007215).\\
+Thus, although hubs are themselves mostly cholinergic, they receive inputs from glutamatergic neurons, which may explain their over-representation in two biological processes related to glutamate receptors: ionotropic glutamate receptor signaling pathway (GO:0035235) and glutamate receptor signaling pathway (GO:0007215).
 
 Given this finding we then performed the enrichment analysis separately for feed-in and feed-out links as opposed to all other links in the network. 
 In this analysis we expected some enrichment in ACh and metabolism related categories for feed-out links due to the cholinergic nature of hub neurons as well as high metabolic load on those links. 
-Both metabolic and glutamate signalling related categories were expected for feed-in links. 
-It is worth keeping in mind that only one Ach related GO category (GO:0007271) was represented in the current gene expression data while it at all lack the representation of any glutamate release categories (there is no GO category with at least 5 genes available). 
+Both metabolic and glutamate signaling related categories were expected for feed-in links. 
+It is worth keeping in mind that only one acetylcholine-related GO category (GO:0007271) was represented in the current gene expression data while it at all lack the representation of any glutamate release categories (there is no GO category with at least 5 genes available). 
 As a result, both feed-in and feed-out links show the over-representation in chemical transmission, metabolism and cholinergic synaptic transmission related genes (see Table.~\ref{enrichmentFeedIN} and \ref{enrichmentFeedOUT})).  
 
 % This may explain the overrepresentation of glutamate receptor related categories that we find in the enrichment analysis.
@@ -931,7 +933,7 @@ LIMITATIONS:
 
 % Binary expression data
 Compared to continuous expression information provided from techniques like RNA sequencing, \emph{in situ} hybridization, or microarray with whole-brain coverage using a systematic experimental procedure \cite{Lein:2007jn, Shen:2012ua, Tasic:2016jp}, the data analyzed here presents numerous challenges.
-With access to only a relatively limited coverage of the genome (948 out of >19 000 genes \cite{Hillier2005} annotated in the current dataset) [[TODO: how many worm genes in total? Add proportion of worm genes represented "19,735 protein-coding genes—with >90\% directly supported by experimental evidence—and >1300 noncoding RNA genes \cite{Hillier2005}"]], the enrichment results provided here are severely constrained in scope.
+With access to only a relatively limited coverage of the genome (948 out of >19 000 genes \cite{Hillier2005} annotated in the current dataset) [[TODO: how many worm genes in total? Add proportion of worm genes represented ``19,735 protein-coding genes—with >90\% directly supported by experimental evidence—and >1300 noncoding RNA genes \cite{Hillier2005}'']], the enrichment results provided here are severely constrained in scope.
 Further, using the current data, we are unable to distinguish expression levels between neurons that express a given gene, and we are unable to distinguish missing data, from negative data (both are represented as `0' in our data).
 Future work systematically mapping gene expression in a unified experimental paradigm would allow a more subtle and comprehensive analysis of gene expression and function.
 
@@ -941,7 +943,7 @@ Future work systematically mapping gene expression in a unified experimental par
 Conclusion text.
 
 \section*{Acknowledgments}
-Thanks to Alex Fornito, for being a big deal.
+Thanks to Alex Fornito for being a big deal.
 We thank WormBase.
 
 \nolinenumbers
@@ -974,8 +976,6 @@ We thank WormBase.
 %\paragraph*{S1 Appendix.}
 %\label{S1_Appendix}
 %{\bf Lorem ipsum.} Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
-
-
 
 
 % \end{thebibliography}
