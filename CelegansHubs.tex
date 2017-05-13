@@ -678,10 +678,10 @@ Specifically, both connectomes display:
 and (iv) lowest coexpression in peripheral connections.
 
 \subsection*{Robustness}
-While hubs of the mouse connectome are broadly distributed across anatomical divisions, the 13 hub neurons in \emph{C. elegans} ($k > 41$) are all interneurons, born early in development, cholinergic, and are mostly in a single network module.
+While hubs of the mouse connectome are broadly distributed across anatomical divisions, the 13 hub neurons in \emph{C. elegans} ($k > 41$) are all interneurons, all born early in development \cite{Varier2011}, are mostly cholinergic (11/13) \cite{Pereira:2015er}, and are mostly in a single network module.
 % and concentrated in the head (10/13),
 % Having demonstrated that gene coexpression is elevated for connected regions, and particularly for connected pairs of hubs,
-We thus investigated whether any of these types of anatomical, neuron type, neurotransmitter type, or modular organizational effects might contribute to our results.
+We thus investigated whether any of these types of homogeneities amongst hub neurons could contribute to our finding of increased gene coexpression, $r_\phi$.
 
 % , namely modular organization, lineage similarity, or neurotransmitter type, could explain our results.
 
@@ -697,12 +697,15 @@ We thus investigated whether any of these types of anatomical, neuron type, neur
  %\label{Distance}
  %\end{figure}
 
-
 \paragraph{Neuron type}
-As previously noted, hubs in \emph{C. elegans} are interneurons \cite{Towlson:2013gf} (cf. Fig.~\ref{fig:topology_rich}A).
-To determine the specificity of the effect between different neuron types, we split our coexpression analysis into connections involving: (i) interneurons, (ii) sensory neurons, and (iii) motor neurons, computing the mean coexpression for links where at least one neuron is of a given neuron type and both neurons have a degree higher than \textit{k}, as shown in Fig.~\ref{fig:interneuron_dep}A.
-Note that the three categories are not mutually exclusive; for example, the `interneuron' class includes connections between an interneuron and any other neuron.
-We find that connections involving interneurons are unique in their increasing average coexpression with increasing degree, $k$, while connections involving motor neurons, and connections involving sensory neurons, do not show any clear increase with degree.
+Neurons in \emph{C. elegans} can be divided into sensory neurons, motor neurons, interneurons, and multifunctional neurons, of which hubs ($k > 41$) are all interneurons \cite{Towlson:2013gf} (cf. Fig.~\ref{fig:topology_rich}A).
+To determine whether the increase in gene coexpression in rich connections was specific to one of these neuron types, we split our coexpression analysis into connections involving: (i) interneurons, (ii) sensory neurons, and (iii) motor neurons.
+As in Fig.~\ref{fig:coExp}, we plotting the mean coexpression for hub-hub connections involving each of the three main neuron types as a function of $k$, as shown in Fig.~\ref{fig:interneuron_dep}A.
+For the curve labeled `sensory' neurons, for example, each point is $\langle r_\phi \rangle$, computed across all connections involving sensory neurons (i.e., at least one neuron of a connected pair is a sensory neuron), for which both neurons have degree $>k$.
+% Thus, the three categories are not mutually exclusive; for example, the `interneuron' class includes connections between an interneuron and any other neuron.
+The plot shows that the increase in hub-hub gene coexpression with degree is driven by interneurons; connections involving motor neurons, and connections involving sensory neurons, do not show a similar increase.
+% , which are unique in their increasing average coexpression with increasing degree
+% Thus, interneurons drive the gene coexpression relationship with degree, $k$,
 
 % ------------------------------------------------------------------------------
 % <<plot_neuronType.m>>
@@ -715,24 +718,29 @@ We find that connections involving interneurons are unique in their increasing a
 \textbf{A} \emph{Upper}: The number of connections involving interneurons (orange), sensory neurons (blue), and motor neurons (green) across degree threshold, $k$ represented as $log_{10}$(number of links).
 \emph{Lower}: Average gene coexpression as a function of degree for connections involving different types of neurons.
 \textbf{B} Coexpression distributions for all pairs of hub interneurons (red) and all pairs of non-hub interneurons (gray) ($P = 0.0045$, Wilcoxon rank sum test).
-[[TODO: Did we exclude multimodal neurons from this analysis?? Can we do a statistical comparison between these distributions and add something here on that?]]
+[[TODO: Did we exclude multimodal neurons from this analysis??]]
 }
  \label{fig:interneuron_dep}
 \end{figure}
 
-
-Having found that interneurons drive the gene coexpression relationship with degree, $k$, we next verified whether hubs showed a unique transcriptional signature among this neuronal subtype.
-We compared gene coexpression between all pairs of hub interneurons ($\textit{k}>41$, n=13) and between all pairs of nonhub interneurons that share similar anatomical properties to hub interneurons (AVFL, AVFR, AVHL, AVHR, AVKL, AVKR, AVJL, AVJR, n=8) in order to ensure that increase in coexpression for rich links is not determined by the fact that the majority of hub neurons belong to the same anatomical neuron type. 
-In order to compare transcriptional similarity between all pairs of neurons we ignore the existence (or absence) of connections between these neurons.  
-As shown in Fig.~\ref{fig:interneuron_dep}B, pairs of hub interneurons display significantly higher gene coexpression than pairs of nonhub interneurons ($P = 0.0045$, Wilcoxon rank sum test).
-Thus, the increase in coexpression amongst hub interneurons is not simply due to most hubs being interneurons as even amongst interneurons sharing same anatomical properties hub inrerneurons exhibit significantly increased coexpression.
+[[MAKE LESS VAGUE]]:\\
+% Having found that interneurons drive the gene coexpression relationship with degree, $k$,
+We next sought to verify whether hubs show a unique transcriptional signature amongst interneurons of the same anatomy (i.e., XXX).
+We compared gene coexpression between all pairs of hub interneurons ($\textit{k}>41$, $n=13$) and between all pairs of nonhub interneurons with similar anatomical properties to hub interneurons (AVFL, AVFR, AVHL, AVHR, AVKL, AVKR, AVJL, AVJR, $n=8$) in order to ensure that increase in coexpression for rich links is not determined by the fact that the majority of hub neurons belong to the same anatomical neuron type.
+Ignoring the presence of absence of connections between neurons,
+To determine whether hub neurons of this anatomical type showed more similar expression patterns than nonhubs of the same type, we computed the gene coexpression, $r_\phi$, between all pairs of hub neurons and all pairs of non-hub neurons (ignoring their connectivity for this analysis).
+As shown in Fig.~\ref{fig:interneuron_dep}B, pairs of hub interneurons exhibit significantly higher gene coexpression than pairs of nonhub interneurons ($P = 0.0045$, Wilcoxon rank sum test).
+Thus, the increase in coexpression amongst hub interneurons is not simply due to most hubs being interneurons as even amongst interneurons sharing same anatomical properties hub interneurons exhibit significantly increased coexpression.
 
 \paragraph{Modular organization}
-We first consider the modular organization of the C. elegans connectome.
-Like many other connectomes, the C. elegans nervous system contains modules, groups of neurons that are densely interconnected \cite{Kim2014, Bassett2010}, and modules can also be found of similarly connected neurons that correspond to specific functional circuits \cite{Achacoso:1992ay, Pavlovic2014}.
-Given the more uniform functional role assumed of neurons within a module (and hence characteristic gene expression), we test the possibility that hubs belonging to the same module (which carries a characteristic gene expression profile) may drive the increased gene coexpression of hub-hub connections characterized above.
- and thus might drive the increased gene coexpression of hubs, we used the Louvain community detection algorithm to extract modules from the binary \emph{C. elegans} synaptic connectome (using consensus clustering, see \textit{Methods}).
-The four resulting modules are shown in Fig.~\ref{fig:OtherInfluences}A, in which hubs are predominantly placed in a single module (labeled green in the module indicator column), that contained sensory, motor, and interneurons spanning the head, tail, and body (see other indicator columns in Fig.~\ref{fig:OtherInfluences}A).
+The \emph{C. elegans} neuronal nervous system contains modules.
+Modules of \emph{C. elegans} have been analyzed in terms of groups of neurons that are densely interconnected, and relatively sparsely interconnected to other groups of neurons \cite{Kim2014, Bassett2010}, or groups of neurons that exhibit similar connectivity patterns to each other \cite{Achacoso:1992ay, Pavlovic2014}.
+% , which can correspond to specific functional circuits
+A common assumption is that connectome modules correspond to specific functional circuits and hence characteristic gene expression, and thus it may be hypothesized that neurons belonging to the same module might exhibit similar gene expression patterns.
+% , driven by the characteristic gene expression of that module.
+To test the possibility that hubs belonging to the same module may drive the increased gene coexpression of hub-hub connections characterized above, we used the Louvain community detection algorithm \cite{Blondel:2008do} to extract modules from the binary \emph{C. elegans} synaptic connectome using consensus clustering (see \textit{Methods}).
+The four resulting modules are shown in Fig.~\ref{fig:OtherInfluences}A, in which 11/13 hubs belong to the module labeled green.
+This is a diverse module, containing sensory, motor, and interneurons and spanning neurons in the head, tail, and body (see other indicator columns to the left of Fig.~\ref{fig:OtherInfluences}A).
 % In this analysis, hubs are mostly concentrated in a single module (purple in Fig.~\ref{fig:modules}), but are also distributed across three other modules.
 % The algorithm detects three comparably sized modules (M1-M3), each containing diverse neuron types, as well as a smaller fourth module (M4), which contains 13 motor neurons.
 % Of the 13 hubs with $k \geq 42$, the majority (11) were assigned to M3, which spanned the length of the worm body, as pictured in Fig.~\ref{fig:modules}.
@@ -740,12 +748,15 @@ The four resulting modules are shown in Fig.~\ref{fig:OtherInfluences}A, in whic
 % This module is comprised primarily of motor neurons, consistent with evidence that control interneurons are directly responsible for forward and backward locomotion (command interneurons).
 % 10 out of 11 hub neurons in this module are directly responsible for
 % The main goal of this analysis was to compare coexpression within and between modules in order to examine if neurons assigned to the same module are more genetically similar than neurons in other modules.
-The expectation that gene coexpression, $r_\phi$, was increased within modules was not corroborated by the data.
-In fact, gene coexpression was slightly lower for connections within modules than for connections between modules, as shown in Fig.~\ref{fig:OtherInfluences}B (BEN: why do ttest? e do ranksum test for all other distributions (as they're not normal - should be consistent)$p = 0.045$, Welch's $t$-test).
-This result is not due to the deterministic Louvain algorithm; indeed we found an even larger decrease in intramodular coexpression using nine module partition of neurons derived from an Erd\"os-R\'enyi Mixture Model ($p = 2\times10^{-6}$) \cite{Pavlovic2014}.
-Accordingly, looking within modules, we still found a significant increase in coexpression for hub-hub connections, with intra-modular connections between hubs were increased relative to other intra-modular connections (Fig.~\ref{fig:OtherInfluences}C, Welch's $t$-test, $p = 1.3\times 10^{-10}$).
-We also computed an empirical null distribution for the mean coexpression for the 34 intramodular and 32 intramodular hub-hub links, by taking 1\,000 random samples from these two link types, yielding a null $r_\phi$ of $0.15 \pm 0.02$, compared to the observed value of $0.51$ ($p < 10^{-16}$).
-We thus find that the increase in coexpression for hub-hub connections is not driven by the similar modular membership.
+% The expectation that gene coexpression, $r_\phi$, was increased within modules was not observed.
+In contrast to our expectations, there was no significant difference in gene coexpression for connections within modules compared to those between modules ($p = 0.69$, Wilcoxon rank sum test), as shown in Fig.~\ref{fig:OtherInfluences}B.
+% CoexpressionDistributionsModules(C,G,'intraInter',true,'consensus');
+This result is not due to the deterministic Louvain algorithm; no differences were found using a previous nine-module partition of neurons derived from an Erd\"os-R\'enyi Mixture Model ($p = 0.68$, Wilcoxon rank sum test) \cite{Pavlovic2014}.
+% CoexpressionDistributionsModules(C,G,'intraInter',true,'ERMM');
+Coexpression was increased for hub-hub connections within modules, with intramodular connections between hubs were increased relative to other intramodular connections (Fig.~\ref{fig:OtherInfluences}C, $p = 4.4\times 10^{-29}$, Wilcoxon rank sum test).
+% CoexpressionDistributionsModules(C,G,'hubIntra',true,'consensus');
+We also computed an empirical null distribution for the mean coexpression for the 55 intramodular and 2 intermodular hub-hub links, by taking 1\,000 random samples from these two link types, yielding a null $r_\phi$ of $0.13 \pm 0.02$, compared to the observed value of $0.51$ ($p < 10^{-16}$).
+The increase in hub-hub coexpression is thus not driven by their similar modular membership.
 % Coexpression within modules did not exceed coexpression between modules, demonstrating that neurons that belong to the same module do not share any particular genetic similarity.
 % The increased coexpression in connected pairs of hubs in \emph{C. elegans} can therefore not be attributed to the modular organization of the connectome.
 % despite most hubs being assigned to the same module.
