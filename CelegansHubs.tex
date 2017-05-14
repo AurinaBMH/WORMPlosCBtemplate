@@ -850,25 +850,31 @@ Previous results in mouse indicated that genes driving an increase in coexpressi
 \cite{Fulcher:2016ck, Ji:2014jw, Fakhry:2015kl, French:2011cz}.
 For \emph{C. elegans}, the top GO categories are listed in Table~\ref{enrichmentCON}.
 Two categories related to glutamate receptor signaling are significant at a false discovery rate (FDR < $0.05$): `ionotropic glutamate receptor signaling pathway' and `glutamate receptor signaling pathway'.
-Other top GO categories include memory ($p_\mathrm{uncorrected} = 0.005$), `ion transport' ($p_\mathrm{uncorrected} = 0.007$), and `nonassociative learning' ($p_\mathrm{uncorrected} = 0.01$).
+Other top GO categories include memory ($p_\mathrm{uncorrected} = 0.005$), `ion transport' ($p_\mathrm{uncorrected} = 0.007$), `nonassociative learning' ($p_\mathrm{uncorrected} = 0.01$), `locomotory behavior' ($p = 0.02$), and `protein metabolic process' ($p_\mathrm{uncorrected} = 0.02$).
 [[supporting the idea that connected pairs of neurons tend to express genes associated with neuronal connectivity compared to unconnected neuron pairs.]]
 
-Hub connectivity those driving an increase in connections involving hub neurons are enriched in oxidative energy metabolism (a result corroborated at a regional level in human \cite{Vertes2016a}).
-In this particular gene expression dataset we did not have the representation of the particular GO categories that were related to hub connectivity in mouse (only one gene (`unc-32') was attributed to GO:0015991 (ATP hydrolysis coupled proton transport), no genes attributed for any other category).
+We next investigate gene enrichment in connections involving hubs relative to peripheral connections.
+Our previous work in mouse revealed enrichment in genes involved in oxidative energy metabolism \cite{Fulcher:2016ck} (a result corroborated at a regional level in human \cite{Vertes2016a}).
+However, in our \emph{C. elegans} gene expression dataset, only one of our 948 genes was annotated to the GO categories related to hub connectivity in mouse (\emph{unc-32} is annotated to ATP hydrolysis coupled proton transport, GO:0015991).
 % GO categories were filtered using <<searchGOcategories.m>> function. 
-While we were not able to directly test the hypothesis presented by Fulcher et al.\cite{Fulcher2016}, we aimed to identify if any connectivity and metabolism related categories will be enriched in the corresponding link types. 
-%Due to gene expression data specificity in all the following analyses we present top 15 GO categories enriched in a particular link type compared to other links. 
-
-
-
-Next, we examined differences between connections in terms of their relationship to hub neurons, investigating which functional groups of genes contributed to the increased coexpression for links between hubs (`rich') compared to all other links in the network.
-The main GO categories that we find overrepresented among hub neurons are related to glutamate receptor signaling, transport, locomotion as well as neurotransmitter metabolic processes (see Table~\ref{enrichmentRICH}).
+Thus, although a direct test of mouse and human results is no possible, we aimed to identify if any metabolism-related categories might be enriched in hub connections in \emph{C. elegans}, providing some support for the idea that hubs are energetically costly elements of the connectome.
+%Due to gene expression data specificity in all the following analyses we present top 15 GO categories enriched in a particular link type compared to other links.
+The top enriched GO categories are listed in Table~\ref{enrichmentRICH}.
+The same two glutamate signaling categories found above for the connectivity were, again, the only two categories to be significantly enriched ($p<0.05$, FDR corrected).
+Other top categories are also similar to the connectivity signature, including `nonassociative learning' ($p_\mathrm{uncorrected} = 0.01$), and `locomotory behavior' ($p_\mathrm{uncorrected} = 0.02$).
+Metabolic processes were also among the most enriched categories, including `neurotransmitter metabolic process' ($p_\mathrm{uncorrected} = 0.04$), and `positive regulation of nucleobase-containing compound metabolic process' ($p_\mathrm{uncorrected} = 0.05$).
 %These findings are in line with our expectations as hub neurons receive input from sensory neurons, the majority of which are glutamatergic. 
-%As a result, hubs are required to have glutamate receptors the enrichment in these categories is the most pronounced (even after the correction, false discovery rate $< 0.05$). 
-Enrichment in locomotion related categories is also in agreement with available data as the majority of hubs belong to the category of command interneurons which has an established function of controlling forward and backward locomotion behavior. 
-Moreover, we find an increase in GO category (GO:0042133) which is related to neurotransmitter metabolic process which generally consistent with the findings in mouse. 
+%As a result, hubs are required to have glutamate receptors the enrichment in these categories is the most pronounced (even after the correction, false discovery rate $< 0.05$).
 
-Although 11 out of the 13 hubs ($k > 41$) are cholinergic, and the remaining two use glutamate as their neurotransmitter (Fig.~\ref{fig:S_feedInOutNodes}C), we found enrichment in glutamate receptor signaling when comparing connections between hubs to those not involving hubs. 
+Although our data do not support strong confidence in enrichment, the results fit broadly with expectations.
+For example, the majority of hubs are command interneurons, which has an established function of controlling forward and backward locomotion.
+ % enrichment of genes related to locomotory behavior aligns with expectations.
+Furthermore, although we couldn't test the exact gene categories from mouse or human, enrichment of related metabolic processes associated with connectivity and hub connectivity hints at an increase in energy demand as a function of connectivity.
+% Moreover, we find an increase in GO category (GO:0042133) which is related to neurotransmitter metabolic process which generally consistent with the findings in mouse.
+
+The significant enrichment of glutamate receptor signaling for both connectivity, and hub connectivity was somewhat surprising, as only 26\% of neurons with known neurotransmitter type are glutamatergic (whereas 55\% are cholinergic), and only 2 of the 13 hubs ($k > 41$) are glutamatergic; the remaining 11 are cholinergic (Fig.~\ref{fig:S_feedInOutNodes}C).
+% [k,sortedLabels] = NeurotransmitterAnal(C,false); mean(sortedLabels(sortedLabels~='Unknown (orphan)')=='ACh')
+% we found enrichment in glutamate receptor signaling when comparing connections between hubs to those not involving hubs.
 % with ACh being the most broadly used neurotransmitter in general \cite{Pereira:2015er}
 % It is worth noting that although both analyses above highlighted enrichment of glutamate, even though acetylcholine (ACh) is the most broadly used neurotransmitter in \textit{C. elegans} \cite{Pereira:2015er}, and most hubs ($k > 41$) are cholinergic (Fig.~\ref{fig:S_feedInOutNodes}C).
 Looking closer at the neurotransmitters used by each neuron, we found that nonhub neurons that project to hubs (but do not receive projections back) are mostly sensory or interneurons (82\%), with the most common neurotransmitter being glutamate (41\%), whereas neurons that receive inputs from hubs (but do not project to hubs) are mostly motor neurons (84\%) and are cholinergic (93\%), as shown in Fig.~\ref{fig:S_feedInOutNodes}A,C.
@@ -1096,15 +1102,17 @@ RIAL   & 42        & Head interneuron                                           
 {\bf Enrichment results for connected \textit{vs} unconnected neurons.} 
 \begin{table}[]
 \centering
-\caption{Biological processes GO categories showing increased gene coexpression for connected neurons compared to unconnected neurons. 
-Categories that remain significant after false discovery rate ($FDR < 0.05$) correction are underlined.
-Entries have been sorted (descending) by P value. }
+\caption{
+Biological processes GO categories showing increased gene coexpression for connected neurons compared to unconnected neurons. 
+Categories that remain significant after false discovery rate ($P_\mathrm{FDR} < 0.05$) correction are shown boldface.
+Entries have been sorted (descending) by uncorrected $P$-value.
+}
 \label{enrichmentCON}
 \begin{tabular}{llll}
 \hline
-\textbf{GOcategory} & \textbf{Description}                            & \textbf{No. of genes} & \textbf{P value} \\\hline
-\underline{GO:0035235}     		& ionotropic glutamate receptor signaling pathway & 7                 & 1e-12         \\
-\underline{GO:0007215}          	& glutamate receptor signaling pathway            & 9                 & 1e-05         \\
+\textbf{GO Category} & \textbf{Description}    & \textbf{No. of genes} & \textbf{$P$-value} \\ \hline
+\textbf{GO:0035235}     		& \textbf{ionotropic glutamate receptor signaling pathway} & 7                 & 1e-12         \\
+\textbf{GO:0007215}          	& \textbf{glutamate receptor signaling pathway}            & 9                 & 1e-05         \\ \hline
 GO:0007613          & memory                                          & 5                 & 0.00484       \\
 GO:0055085          & transmembrane transport                         & 87                & 0.0056        \\
 GO:0034220          & ion transmembrane transport                     & 73                & 0.00569       \\
@@ -1126,14 +1134,17 @@ GO:0019538          & protein metabolic process                       & 95      
 {\bf Enrichment results for rich \textit{vs} all other (feed-in, feed-out, peripheral) links.}
 \begin{table}[]
 \centering
-\caption{Biological processes GO categories showing increased gene coexpression for rich links compared to all other links (feed-in, feed-out, peripheral). 
-Categories that remain significant after false discovery rate ($FDR < 0.05$) correction are underlined.}
+\caption{
+Biological processes GO categories showing increased gene coexpression for rich links compared to all other links.
+% (feed-in, feed-out, peripheral)
+Categories that remain significant after false discovery rate ($FDR < 0.05$) correction are shown boldface.
+}
 \label{enrichmentRICH}
 \begin{tabular}{llll}
 \hline
-\textbf{GOcategory} & \textbf{Description}                                                                                               & \textbf{No. of genes} & \textbf{P value} \\ \hline
-\underline{GO:0007215}          & glutamate receptor signaling pathway                                                                               & 9                 & 1e-12         \\
-\underline{GO:0035235}          & ionotropic glutamate receptor signaling pathway                                                                    & 7                 & 1e-12         \\
+\textbf{GO Category} & \textbf{Description}                                                                                               & \textbf{No. of genes} & \textbf{$P$-value} \\ \hline
+\textbf{GO:0007215}          & \textbf{glutamate receptor signaling pathway}                                                                               & 9                 & 1e-12         \\
+\textbf{GO:0035235}          & \textbf{ionotropic glutamate receptor signaling pathway}                                                                    & 7                 & 1e-12         \\
 GO:0034220          & ion transmembrane transport                                                                                        & 54                & 0.0025        \\
 GO:0007166          & cell surface receptor signaling pathway                                                                            & 35                & 0.00307       \\
 GO:0055085          & transmembrane transport                                                                                            & 65                & 0.00358       \\
