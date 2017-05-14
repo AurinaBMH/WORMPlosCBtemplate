@@ -278,8 +278,9 @@ WE $\heartsuit$ WORMS
 
 
 % Introduce the structural connectome, characterization of its properties, focusing on worm, but also linking to other species to make the point of consistency
-The incredibly complexity of the web of axonal connections between elements of nervous systems provides insights into how cognitive function might have evolved under physical and energetic constraints.
-The network, or `connectome', can be represented as a graph, in which neural elements are represented as nodes (e.g., neurons in \emph{C. elegans}, or macroscopic brain regions in human), with edges connecting pairs of elements that have an axonal connection.
+Structure in the complex web of the axonal connections between neurons may contain clues to understanding how biological function has evolved from a physical system.
+% under physical and energetic constraints.
+The network of connections, or `connectome', can be represented as a graph, in which neural elements are represented as nodes (e.g., individual neurons, as in \emph{C. elegans}, or macroscopic brain regions, as in human), with edges representing axonal projections from one node to another.
 This representation allows very different species, measurements, and scales of neuronal networks to be represented in a consistent and unified way.
 Comparing connectomes across organisms, from the scale of neurons in model organisms like \emph{C. elegans}, mesoscale brain regions using tract tracing in rodents, to non-invasive MRI imaging in human subjects, has revealed a surprising consistency of organizational properties, suggesting a common set of selection pressures under which efficient neural systems have evolved \cite{vandenHeuvel:2016eg}.
 Connectomes consistently display a number of features, including modular structure a non-uniform distribution of connectivity across the network, containing a small number of highly connected `hub' nodes, features that can only partially be accounted for by spatial constraints \cite{Henderson:2014fg, Roberts:2016il}.
@@ -296,7 +297,7 @@ Initial statistical work done using binary gene expression annotations in \emph{
 Later work, utilizing detailed quantitative gene expression data in mouse from the Allen Mouse Brain Atlas \cite{Lein:2007jn} revealed a relationship between gene expression and connectivity in mouse \cite{Ji:2014jw, Fakhry:2015kl}, with pairs of brain regions with similar gene expression patterns also displaying similar connectivity profiles (using connectivity data from rat) \cite{French2011}.
 % Fakhry:2015dg
 % that connected pairs of brain regions display more similar gene expression profiles \cite{French2011},
-Comparing different types of connections in mouse, Fulcher and Fornito showed that pairs of connected hubs have the most similar gene expression profiles, and that hub connectivity is associated with the correlated expression of genes related to oxidative energy metabolism \cite{Fulcher:2016ck}.
+Comparing different types of connections in mouse, we have demonstrated that pairs of connected hubs have the most similar gene expression profiles, and that hub connectivity is associated with the correlated expression of genes related to oxidative energy metabolism \cite{Fulcher:2016ck}.
 Similar findings have been reported at the regional level in the human cortex, with integrative hub regions (with high inter-modular degree and long connection distance) being associated with expression of genes regulating oxidative metabolism and mitochondria \cite{Vertes2016a}.
 Both results are consistent with the high metabolic cost of hubs \cite{Collin:2014kq, Tomasi:2013kl}, which may be due to the high signal traffic they're thought to mediate \cite{vandenHeuvel:2012kh, Misic:2014it}, painting a picture of hubs as a highly conserved and metabolically costly feature of structural brain networks.
 % These findings highlight a close relationship between metabolic expenditure and the high signaling load of hub regions in the brain, as has been previously proposed \cite{Bullmore2012}.
@@ -332,7 +333,7 @@ We then go on to describe the gene expression data, how we measure expression si
 % METHODS: connectivity data
 \subsection*{Neuronal connectivity data}
 Neuronal connectivity data for the adult hermaphrodite nematode \emph{C. elegans} was first mapped by White et al.~\cite{White:1986tx}, and then revised by Chen et al. \cite{Chen:2006ie} and by Varshney et al.~\cite{Varshney2011} through detailed electron microscopy.
-Here we analyze data from Varshney et al.~\cite{Varshney2011} for 279 somatic neurons (282 nonpharyngeal neurons, excluding CANL, CANR, and VC6, for which connectivity data is unavailable [[TODO: Aurina, VC6 does have data available, right, it just only makes connections via neuromuscular junctions is the reason we exclude. But is it that CANL/R don't have data available? Or they just don't make connections? Should distinguish missing data from absence of connections]]), downloaded from WormAtlas (\url{http://www.wormatlas.org/neuronalwiring.html#NeuronalconnectivityII}).
+Here we analyze data from Varshney et al.~\cite{Varshney2011} for 279 somatic neurons (282 nonpharyngeal neurons, excluding CANL, CANR, and VC6, for which connectivity data is unavailable [[TODO: Aurina, VC6 does have data available, right, it just only makes connections via neuromuscular junctions is the reason we exclude. But is it that CANL/R don't have data available? Or they just don't make connections? Should distinguish missing data from absence of connections]]), downloaded from WormAtlas (\url{www.wormatlas.org/neuronalwiring.html#NeuronalconnectivityII}).
 Connectivity information is available both for electrical gap junctions and chemical synapses, which are further distinguished by presynaptic and postsynaptic neurons (providing connection direction information), as well as the number of synapses (providing connection weight information).
 % The result can be represented as a weighted, directed connectivity matrix, with weights given by the number of synapses.
 % By contrast, the directionality of electrical gap junctions remains unknown, and have thus been represented as bidirectional connections.
@@ -355,7 +356,7 @@ Neurons were first labeled by their type, as:
 (iv) `polymodal' (obtaining multiple assignments of the above categories) \cite{White:1986tx}.
 Neurons were also assigned labels based on their anatomical location, as:
 (i) `head', (ii) `tail', or (iii) `body' using data from release WS256 of WormBase \cite{Harris:2009kd}, (\url{ftp://ftp.wormbase.org/pub/wormbase/releases/WS256/ONTOLOGY/anatomy_association.WS256.wb}).
-These annotations were assigned to individual neurons using the anatomical hierarchy defined in WormBase, which we retrieved using the WormBase API (wormmine) \cite{\cite{Harris:2009kd}}, propagating each term down the hierarchy to individual neurons.
+These annotations were assigned to individual neurons using the anatomical hierarchy defined in WormBase, which we retrieved using the WormBase python API (WormMine: \url{intermine.wormbase.org}) \cite{Harris:2009kd}, propagating each term down the hierarchy to individual neurons.
 % (and other child terms of `neuron', WB:0003679)
 % RetreiveHierarchy.py, NeuronRegionFinder.m
 Note that twelve head neurons (ALA, AVFL, AVFR, AVG, RIFL, RIFR, RIGL, RIGR, SABD, SABVL, SABVR, SMDVL) were not labeled as `head' on WormBase, but were manually corrected by us, by matching the assignment against the annotations provided at WormAtlas \cite{WormAtlas}.
@@ -366,7 +367,7 @@ The neurotransmitter systems used by each neuron was labeled by matching to data
 Lineage similarity for all pairs of neurons was obtained from previously published embryonic and post-embryonic lineage trees \cite{Sulston1977, Sulston1983}; data were downloaded from WormAtlas (\url{http://www.wormatlas.org/neuronalwiring.html#Lineageanalysis}) \cite{WormAtlas}.
 In this dataset for each pair of neurons a common ancestor cell was identified using and a total number of cell divisions from the common progenitor was calculated.
 % Downloaded data were arranged into a matrix format where lineage distance for each pair of neurons was defined. % part of Print_neuroconnect.m
-[[TODO: Aurina -- genes: wormbase, connectivity, lineage, birth times: wormatlas. can we go through all of this to clarify all of the data sources -- wormMine, wormBase, WormAtlas, etc. I'm a bit confused]]
+% [[TODO: Aurina -- genes: wormbase, connectivity, lineage, birth times: wormatlas. can we go through all of this to clarify all of the data sources -- wormMine, wormBase, WormAtlas, etc. I'm a bit confused]]
 
 % METHODS: rich club analysis
 \subsection*{Network analysis}
@@ -808,7 +809,7 @@ Neuron indicators are shown to the left:
 \end{figure}
 
 
-\paragraph{Birth time.}
+\paragraph{Birth time}
 The formation of neurons in \textit{C. elegans} nervous system is separated into two distinct time periods: before hatching (birth time $<550$ min) and after hatching (birth time $>1200$ min), with no neurons formed during intermediate times \cite{Varier2011}.
 % with an around 700min gap between them when no neurons are formed.
 Because all \emph{C. elegans} hub neurons are born prior to hatching \cite{Varier2011, Towlson2013}, and neurons with similar birth times may share connectivity and other properties, we investigated whether the increase in coexpression between hub neurons is influenced by the similarity in their birth time.
@@ -817,7 +818,7 @@ As shown in Fig.~\ref{fig:OtherInfluences}D, even among early-born neurons, conn
 Hub neurons are thus distinctively similar in their expression patterns, even amongst early-born neurons.
 % We conclude that the increased coexpression between hub neurons is not driven by the similarity in their birth times.
 
-\paragraph{Lineage distance.}
+\paragraph{Lineage distance}
 The lineage distance for a pair of cells is defined as the sum of total divisions to the most recent common ancestor cells \cite{Pavlovic:2014gx, Sulston1977, Sulston1983}.
 Lineage presents another source of information about the genetic makeup of the \textit{C. elegans} nervous system that could influence the observed increase in coexpression between hub neurons.
 It may be the case, for example, that hub neurons are derived from similar cell lines, which may drive their increased coexpression.
@@ -852,19 +853,19 @@ Previous results in mouse indicated that genes driving an increase in coexpressi
 \cite{Fulcher:2016ck, Ji:2014jw, Fakhry:2015kl, French:2011cz}.
 For \emph{C. elegans}, the top GO categories are listed in Table~\ref{enrichmentCON}.
 Two categories related to glutamate receptor signaling are significant at a false discovery rate (FDR < $0.05$): `ionotropic glutamate receptor signaling pathway' and `glutamate receptor signaling pathway'.
-Other top GO categories include memory ($p_\mathrm{uncorrected} = 0.005$), `ion transport' ($p_\mathrm{uncorrected} = 0.007$), `nonassociative learning' ($p_\mathrm{uncorrected} = 0.01$), `locomotory behavior' ($p = 0.02$), and `protein metabolic process' ($p_\mathrm{uncorrected} = 0.02$).
+Other top GO categories include memory ($p_\mathrm{uncorr} = 0.005$), `ion transport' ($p_\mathrm{uncorr} = 0.007$), `nonassociative learning' ($p_\mathrm{uncorr} = 0.01$), `locomotory behavior' ($p = 0.02$), and `protein metabolic process' ($p_\mathrm{uncorr} = 0.02$).
 [[supporting the idea that connected pairs of neurons tend to express genes associated with neuronal connectivity compared to unconnected neuron pairs.]]
 
 We next investigate gene enrichment in connections involving hubs relative to peripheral connections.
 Our previous work in mouse revealed enrichment in genes involved in oxidative energy metabolism \cite{Fulcher:2016ck} (a result corroborated at a regional level in human \cite{Vertes2016a}).
-However, in our \emph{C. elegans} gene expression dataset, only one of our 948 genes was annotated to the GO categories related to hub connectivity in mouse (\emph{unc-32} is annotated to ATP hydrolysis coupled proton transport, GO:0015991).
+However, in our \emph{C. elegans} gene expression dataset, only one of our 948 genes was annotated to the GO categories related to hub connectivity in mouse (\emph{unc-32} is annotated to GO:0015991: `ATP hydrolysis coupled proton transport').
 % GO categories were filtered using <<searchGOcategories.m>> function. 
 Thus, although a direct test of mouse and human results is no possible, we aimed to identify if any metabolism-related categories might be enriched in hub connections in \emph{C. elegans}, providing some support for the idea that hubs are energetically costly elements of the connectome.
 %Due to gene expression data specificity in all the following analyses we present top 15 GO categories enriched in a particular link type compared to other links.
 The top enriched GO categories are listed in Table~\ref{enrichmentRICH}.
 The same two glutamate signaling categories found above for the connectivity were, again, the only two categories to be significantly enriched ($p<0.05$, FDR corrected).
-Other top categories are also similar to the connectivity signature, including `nonassociative learning' ($p_\mathrm{uncorrected} = 0.01$), and `locomotory behavior' ($p_\mathrm{uncorrected} = 0.02$).
-Metabolic processes were also among the most enriched categories, including `neurotransmitter metabolic process' ($p_\mathrm{uncorrected} = 0.04$), and `positive regulation of nucleobase-containing compound metabolic process' ($p_\mathrm{uncorrected} = 0.05$).
+Other top categories are also similar to the connectivity signature, including `nonassociative learning' ($p_\mathrm{uncorr} = 0.01$), and `locomotory behavior' ($p_\mathrm{uncorr} = 0.02$).
+Metabolic processes were also among the most enriched categories, including `neurotransmitter metabolic process' ($p_\mathrm{uncorr} = 0.04$), and `positive regulation of nucleobase-containing compound metabolic process' ($p_\mathrm{uncorr} = 0.05$).
 %These findings are in line with our expectations as hub neurons receive input from sensory neurons, the majority of which are glutamatergic. 
 %As a result, hubs are required to have glutamate receptors the enrichment in these categories is the most pronounced (even after the correction, false discovery rate $< 0.05$).
 
@@ -884,7 +885,7 @@ Looking closer at the neurotransmitter type of each neuron, we found that nonhub
 Thus, although hubs are themselves mostly cholinergic, they receive inputs from glutamatergic neurons, which may explain their over-representation in two GO biological process categories related to glutamate receptors.
 % : `ionotropic glutamate receptor signaling pathway' and `glutamate receptor signaling pathway'.
 
-To try to disentangle differences between projections to and from hubs by nonhubs, we performed an enrichment analysis separately for feed-in and feed-out connections, expecting enrichment in cholinergic signaling for feed-out links that involve projections from cholinergic hub neurons, and glutamate signaling for feed-in links.
+To disentangle differences between projections to and from hubs by nonhubs, we performed an enrichment analysis separately for feed-in and feed-out connections, expecting enrichment in cholinergic signaling for feed-out links that involve projections from cholinergic hub neurons, and glutamate signaling for feed-in links.
 Results are shown in Table~\ref{enrichmentFeedIN} and Table~\ref{enrichmentFeedOUT} for feed-in and feed-out connections, respectively.
 The list of top categories for both connection types contained `neurotransmitter metabolic process', and `synaptic transmission, cholinergic'.
 [[Still need to discuss with Aurina to make a story out of this...]]
@@ -1351,7 +1352,6 @@ All pairs of horizontal and vertical axes are in scale with each other.
 \paragraph*{S6 Fig.}
 {\bf Coexpression for rich, feeder and peripheral links as a function of degree.}
 \begin{figure}[h]
-\label{fig:S_RFPdistributions}
 \centering
     \includegraphics[width=1\textwidth]{Distributions.pdf}
     \caption{
@@ -1363,6 +1363,7 @@ Coexpression, $r_\phi$ is increased in connected (reciprocally and unidirectiona
 [[TODO: color inside of the distributions
 Add $p<0.05$ values on the plot where significant.
 ]]
+\label{fig:S_RFPdistributions}
 }
 \end{figure}
 
