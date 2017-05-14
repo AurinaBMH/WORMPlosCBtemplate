@@ -834,19 +834,32 @@ Contrary, peripheral links manifest stably lower lineage distance through the ra
 
 %% comment on enrichment analysis. No write up can be done before deciding on options.
 
-Having determined that pairs of neurons with different connectivity exhibit different levels of coexpression, we investigated which functional groups of genes contributed to these differences.
-Despite lacking full genome coverage, and incomplete binary expression data, we developed a method to assign a gene coexpression contribution (GCC) score to each gene that quantifies its contribution to a given coexpression pattern (related to the probability of a gene being expressed together in a given set of neuron pairs compared to an alternative set).
-We then performing an enrichment analysis using gene ontology categories for biological processes (see Methods).
-Previous results in mouse \cite{Fulcher:2016ck}, using over 17\,000 genes, indicated that genes driving an increase in coexpression between connected pairs of neurons are enriched in GO categories related to basic neuronal function, whereas those driving an increase in connections involving hub neurons are enriched in oxidative energy metabolism (a result corroborated at a regional level in human \cite{Vertes2016a}).
+% Having determined that pairs of neurons with different connectivity exhibit different levels of coexpression,
+Having established the robustness of the relationship between hub connectivity and gene expression, we next investigate which functional groups of genes contributed to the observed differences in gene coexpression.
+We developed a method to assign a gene coexpression contribution score to each gene that quantifies the contribution of each gene to a given coexpression pattern, and these scores were then used to perform an enrichment analysis using gene ontology (GO) categories for biological processes \cite{Ashburner2000, Gillis2010} (see Methods).
+% (related to the probability of a gene being expressed together in a given set of neuron pairs compared to an alternative set).
+We note that, compared to previous studies of gene functional enrichment, performing similar analyses with \emph{C. elegans} data pose additional challenges, namely our expression data are:
+(i) binary, making robust quantification difficult,
+(ii) sparse and incomplete, posing statistical problems for quantifying a signal in genes with limited neuronal expression,
+and (iii), cover less than 5\% of the protein coding genes in \emph{C. elegans}, so that many GO categories can not be tested due to insufficient coverage of relevant genes.
+% , and thus (i)  many GO categories are not able to be tested.
+Nevertheless, we developed new methods to quantify the patterns, and performed enrichment analysis to provide an indication of functional enrichment for different connections from the data available.
+
+First, we estimated which functional groups of genes drive increased coexpression in connected pairs of neurons compared to unconnected pairs.
+Previous results in mouse indicated that genes driving an increase in coexpression between connected pairs of neurons are enriched in GO categories related to neuronal, synaptic, and axonal structure and function
+\cite{Fulcher:2016ck, Ji:2014jw, Fakhry:2015kl, French:2011cz}.
+For \emph{C. elegans}, the top GO categories are listed in Table~\ref{enrichmentCON}.
+Two categories related to glutamate receptor signaling are significant at a false discovery rate (FDR < $0.05$): `ionotropic glutamate receptor signaling pathway' and `glutamate receptor signaling pathway'.
+Other top GO categories include memory ($p_\mathrm{uncorrected} = 0.005$), `ion transport' ($p_\mathrm{uncorrected} = 0.007$), and `nonassociative learning' ($p_\mathrm{uncorrected} = 0.01$).
+[[supporting the idea that connected pairs of neurons tend to express genes associated with neuronal connectivity compared to unconnected neuron pairs.]]
+
+Hub connectivity those driving an increase in connections involving hub neurons are enriched in oxidative energy metabolism (a result corroborated at a regional level in human \cite{Vertes2016a}).
 In this particular gene expression dataset we did not have the representation of the particular GO categories that were related to hub connectivity in mouse (only one gene (`unc-32') was attributed to GO:0015991 (ATP hydrolysis coupled proton transport), no genes attributed for any other category).
-
 % GO categories were filtered using <<searchGOcategories.m>> function. 
-
 While we were not able to directly test the hypothesis presented by Fulcher et al.\cite{Fulcher2016}, we aimed to identify if any connectivity and metabolism related categories will be enriched in the corresponding link types. 
 %Due to gene expression data specificity in all the following analyses we present top 15 GO categories enriched in a particular link type compared to other links. 
 
-First, we estimated which functional groups of genes drive increased coexpression in connected pairs of neurons compared to unconnected pairs.
-As listed in Table~\ref{enrichmentCON}, top GO categories ($p_{uncorrected} < 0.05$) are related to glutamate receptor signaling, memory/learning and ion transport supporting the idea that connected pairs of neurons tend to express genes associated with neuronal connectivity compared to unconnected neuron pairs.
+
 
 Next, we examined differences between connections in terms of their relationship to hub neurons, investigating which functional groups of genes contributed to the increased coexpression for links between hubs (`rich') compared to all other links in the network.
 The main GO categories that we find overrepresented among hub neurons are related to glutamate receptor signaling, transport, locomotion as well as neurotransmitter metabolic processes (see Table~\ref{enrichmentRICH}).
