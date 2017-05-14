@@ -407,12 +407,12 @@ $\Phi_\mathrm{norm} > 1$ indicates the rich-club organization of the network, wi
 
 \paragraph{Modularity}
 The modular structure of the connectome was determined applying the Louvain community detection algorithm \cite{Blondel:2008do}, using the \texttt{community\_louvain} implementation in the Brain Connectivity Toolbox \cite{Rubinov2010} with $\tau = 0.1$.
-To identify the optimal modular assignment, the algorithm was repeated 1\,000 times, with the final assignments of nodes to modules given using a consensus clustering approach \cite{Lancichinetti2012a}, where each partition was weighted by its modularity, $Q$, using the \texttt{agreement\_weighted} and \texttt{consensus\_und} functions of the Brain Connectivity Toolbox \cite{Rubinov2010}.
+To identify the optimal modular assignment, the algorithm was repeated 1\,000 times, with the final assignments of nodes to modules given using a consensus clustering approach \cite{Lancichinetti2012}, where each partition was weighted by its modularity, $Q$, using the \texttt{agreement\_weighted} and \texttt{consensus\_und} functions of the Brain Connectivity Toolbox \cite{Rubinov2010}.
 We also compared results using the solution with maximal modularity, $Q$.
 % which produces a stable partition using information from multiple runs of the modularity detection algorithm.
 % Therefore, the results of these 1\,000 partitions were aggregated into a single agreement matrix, in which each element encoded the frequency with which a given pair of nodes was classified in the same module across runs.
 % These frequencies were weighted by the quality of each individual partition, as quantified by the Q-statistic (Newman), such that partitions with higher Q contributed more strongly to the final values in the agreement matrix.
-% We then applied a consensus clustering approach to this agreement matrix, as described by Lancichinetti and Fortunato \cite{Lancichinetti2012a}.
+% We then applied a consensus clustering approach to this agreement matrix, as described by Lancichinetti and Fortunato \cite{Lancichinetti2012}.
 % Like all methods that optimize the measure of modularity, Louvain community detection algorithm is constrained within the intrinsic limits of modularity maximization, therefore unique partitions differ in their node assignments.
 % Specifically, we first applied a threshold $\tau = 0.1$ to the matrix, ran the Louvain algorithm 1000 times, computed a new agreement matrix and thresholded the data again.
 % We repeated this procedure until all elements in the agreement matrix had a value of either 1 (i.e., the pair of nodes was always classified in the same module) or 0 (i.e., the pair of nodes was never classified in the same module).
@@ -452,7 +452,8 @@ To ensure that our measure of gene coexpression between neurons is not biased by
 The only metric that did not show a systematic bias on random binary vectors as a function of the proportion of ones was $r_\phi$ (see Fig.~\ref{fig:S_propOnes}), which is used here to ensure that increases in coexpression are driven by relative similarity in expression patterns, and not simply by differences in the number of gene annotations for a given pair of neurons.
 
 % A total of 92 anatomically distinct neuron classes are bilateral, that is, they contain both left and right counterparts (e.g., AVAL/AVAR).
-The 92 bilateral pairs of neurons (e.g., AVAL/AVAR, CEPVL/CEPVR, etc.) exhibit highly correlated gene expression patterns, with a mean coexpression value $\langle r_\phi^{\mathrm{intraclass}} \rangle = 0.98 (SD\pm0.0.25)$.
+The 92 bilateral pairs of neurons (e.g., AVAL/AVAR, CEPVL/CEPVR, etc.) mostly exhibit highly correlated gene expression patterns, with all bilateral pairs exhibiting $r_\phi > 0.8$, and 96\% of pairs exhibiting $r_\phi > 0.95$.
+% mean coexpression value $\langle r_\phi^{\mathrm{intraclass}} \rangle = 0.98$ (median $=1$).
 % [[CODE used - testLeftRightCoexpression.m. Distribution for these links is not normal. Median is 1;]]
 To ensure that our analyses are not influenced by the high coexpression between bilateral pairs of neurons of the same class, we excluded coexpression values within neuron classes from all coexpression analyses.
 
@@ -632,7 +633,7 @@ Being a pairwise analysis, we compare pairwise synaptic connectivity to pairwise
 
 First we investigate whether gene coexpression relates to synaptic connectivity by comparing the distribution of $r_\phi$ computed for all connected pairs of neurons, and for all unconnected pairs of neurons, shown in Fig.~\ref{fig:coExp}A.
 We find that connected pairs of neurons have more similar expression profiles than unconnected pairs (Wilcoxon rank-sum test, $P < 10^{-50}$), mirroring results in the mesoscale mouse connectome \cite{Fulcher:2016ck}.
-However, unlike in the mouse brain, we found no differences in gene coexpression, $r_\phi$, between unidirectional ($X \rightarrow Y$) and reciprocal ($X \leftrightarrow Y$) connections (see Fig.~\ref{fig:S3_Fig}).
+However, unlike in the mouse brain, we found no differences in gene coexpression, $r_\phi$, between unidirectional ($X \rightarrow Y$) and reciprocal ($X \leftrightarrow Y$) connections (see Fig.~\ref{fig:S_RFPdistributions}).
 
 % ------------------------------------------------------------------------------
 % <<coexpConnUncon.m>>
@@ -669,6 +670,7 @@ To study this effect, for a given hub threshold, $k$, we first labeled each neur
 The mean coexpression for each of these four connection types is plotted in Fig.~\ref{fig:coExp}B, with circles indicating statistically significant increases of a given connection type (relative to all other connections, $P < 0.05$, Welch's $t$-test). 
 Gene coexpression in rich connections increases with degree, reaching a plateau through the topological rich-club regime where hubs are densely interconnected (shaded gray in Fig.~\ref{fig:coExp}B).
 Feed-out connections exhibit increased gene coexpression through the topological rich-club regime, while feed-in and peripheral connections show the lowest levels of coexpression.
+While mean coexpression is plotted in Fig.~\ref{fig:coExp}B, full distributions at a lower hub threshold of $k > 41$ are shown in Fig.~\ref{fig:S_RFPdistributions}.
 
 These results, using incomplete binary gene expression measurements across just 948 genes in a microscale neuronal connectome, are broadly consistent with results in 213 regions of the mesoscale mouse connectome with over 17\,000 genes.
 Specifically, both connectomes display:
@@ -825,9 +827,9 @@ We thus cannot attribute the transcriptional similarity of connected hub neurons
 [[not sure this is relevant/fits the story. Could remove:]]\\
 Looking closer, we find that lineage distance increases with degree for feeder links while no significant change is observed for rich links (Fig.~\ref{fig:Lineagek}).
 This finding suggests hub and non-hub neurons are more different in lineage when the hub threshold is high, i.e. when so-called hubs actually have high degree. 
-Contrary, peripheral links manifest stably lower lineage distance through the range of degree thresholds (Fig.\ref{fig:Lineagek}).
+Contrary, peripheral links manifest stably lower lineage distance through the range of degree thresholds (Fig.~\ref{fig:Lineagek}).
 
-[[delete?:]]\\
+[[delete?:]]
 [[It has been shown that cells with identical fates can be formed by different gene regulatory pathways \cite{Liu2009} [[relevance?]], however to the best of knowledge the relationship between neuron lineage distance and gene expression patterns has not been investigated yet [[move to discussion?]].]]
 
 \subsection*{Functional enrichment}
@@ -866,28 +868,31 @@ Metabolic processes were also among the most enriched categories, including `neu
 %These findings are in line with our expectations as hub neurons receive input from sensory neurons, the majority of which are glutamatergic. 
 %As a result, hubs are required to have glutamate receptors the enrichment in these categories is the most pronounced (even after the correction, false discovery rate $< 0.05$).
 
-Although our data do not support strong confidence in enrichment, the results fit broadly with expectations.
-For example, the majority of hubs are command interneurons, which has an established function of controlling forward and backward locomotion.
- % enrichment of genes related to locomotory behavior aligns with expectations.
+% Although our data provide indications of which functional gene categories may be relevant, rather than strong statistical confidence,
+Our results are broadly consistent with expectations.
+For example, as the majority of hubs are command interneurons, which control forward and backward locomotion, enrichment of genes related to locomotory behavior is sensible.
 Furthermore, although we couldn't test the exact gene categories from mouse or human, enrichment of related metabolic processes associated with connectivity and hub connectivity hints at an increase in energy demand as a function of connectivity.
 % Moreover, we find an increase in GO category (GO:0042133) which is related to neurotransmitter metabolic process which generally consistent with the findings in mouse.
 
-The significant enrichment of glutamate receptor signaling for both connectivity, and hub connectivity was somewhat surprising, as only 26\% of neurons with known neurotransmitter type are glutamatergic (whereas 55\% are cholinergic), and only 2 of the 13 hubs ($k > 41$) are glutamatergic; the remaining 11 are cholinergic (Fig.~\ref{fig:S_feedInOutNodes}C).
+The significant enrichment of glutamate receptor signaling for both connectivity and hub connectivity analyses was somewhat surprising, as only 26\% of neurons with known neurotransmitter type are glutamatergic (whereas 55\% are cholinergic), and only 2 of the 13 hubs ($k > 41$) are glutamatergic; the remaining 11 are cholinergic (Fig.~\ref{fig:S_feedInOutNodes}C).
+This may be due to the fact that only a single acetylcholine-related GO category (GO:0007271: `synaptic transmission, cholinergic') was represented in the current gene expression data (CONTAINING HOW MANY GENES?), and no glutamate release categories were represented [[]].
 % [k,sortedLabels] = NeurotransmitterAnal(C,false); mean(sortedLabels(sortedLabels~='Unknown (orphan)')=='ACh')
 % we found enrichment in glutamate receptor signaling when comparing connections between hubs to those not involving hubs.
 % with ACh being the most broadly used neurotransmitter in general \cite{Pereira:2015er}
 % It is worth noting that although both analyses above highlighted enrichment of glutamate, even though acetylcholine (ACh) is the most broadly used neurotransmitter in \textit{C. elegans} \cite{Pereira:2015er}, and most hubs ($k > 41$) are cholinergic (Fig.~\ref{fig:S_feedInOutNodes}C).
-Looking closer at the neurotransmitters used by each neuron, we found that nonhub neurons that project to hubs (but do not receive projections back) are mostly sensory or interneurons (82\%), with the most common neurotransmitter being glutamate (41\%), whereas neurons that receive inputs from hubs (but do not project to hubs) are mostly motor neurons (84\%) and are cholinergic (93\%), as shown in Fig.~\ref{fig:S_feedInOutNodes}A,C.
-Thus, although hubs are themselves mostly cholinergic, they receive inputs from glutamatergic neurons, which may explain their over-representation in two biological processes related to glutamate receptors: ionotropic glutamate receptor signaling pathway (GO:0035235) and glutamate receptor signaling pathway (GO:0007215).
+Looking closer at the neurotransmitter type of each neuron, we found that nonhub neurons that project to hubs (but do not receive projections back) are mostly sensory or interneurons (82\%), with the most common neurotransmitter being glutamate (41\%), whereas neurons that receive inputs from hubs (but do not project to hubs) are mostly motor neurons (84\%) and are cholinergic (93\%), as shown in Fig.~\ref{fig:S_feedInOutNodes}A,C.
+Thus, although hubs are themselves mostly cholinergic, they receive inputs from glutamatergic neurons, which may explain their over-representation in two GO biological process categories related to glutamate receptors.
+% : `ionotropic glutamate receptor signaling pathway' and `glutamate receptor signaling pathway'.
 
-Given this finding we then performed the enrichment analysis separately for feed-in and feed-out links as opposed to all other links in the network. 
-In this analysis we expected some enrichment in ACh and metabolism related categories for feed-out links due to the cholinergic nature of hub neurons as well as high metabolic load on those links. 
-Both metabolic and glutamate signaling related categories were expected for feed-in links. 
-It is worth keeping in mind that only one acetylcholine-related GO category (GO:0007271) was represented in the current gene expression data while it at all lack the representation of any glutamate release categories (there is no GO category with at least 5 genes available). 
-As a result, both feed-in and feed-out links show the over-representation in chemical transmission, metabolism and cholinergic synaptic transmission related genes (see Table.~\ref{enrichmentFeedIN} and \ref{enrichmentFeedOUT})).  
+To try to disentangle differences between projections to and from hubs by nonhubs, we performed an enrichment analysis separately for feed-in and feed-out connections, expecting enrichment in cholinergic signaling for feed-out links that involve projections from cholinergic hub neurons, and glutamate signaling for feed-in links.
+Results are shown in Table~\ref{enrichmentFeedIN} and Table~\ref{enrichmentFeedOUT} for feed-in and feed-out connections, respectively.
+The list of top categories for both connection types contained `neurotransmitter metabolic process', and `synaptic transmission, cholinergic'.
+[[Still need to discuss with Aurina to make a story out of this...]]
+% Both feed-in and feed-out links were enriched in chemical transmission, metabolism and cholinergic synaptic transmission related genes (see Table.~\ref{enrichmentFeedIN} and \ref{enrichmentFeedOUT})).
+
 
 % This may explain the overrepresentation of glutamate receptor related categories that we find in the enrichment analysis.
-Thus, despite minimal gene coverage ($5\%$ of the total genome), we developed a new method that was able to find interpretable patterns in the existing binary expression data for \emph{C. elegans}, providing clues as to function of genes that may drive molecular differences between topologically different pairs of neurons.
+Thus, despite minimal gene coverage (5\% of the total genome), we developed a new method that was able to find interpretable patterns in the existing binary expression data for \emph{C. elegans}, providing clues as to function of genes that may drive molecular differences between topologically different pairs of neurons.
 
 %\begin{figure}[h]
 %\centering
@@ -1131,13 +1136,13 @@ GO:0019538          & protein metabolic process                       & 95      
 
 % rich feeder vs peripheral
 \paragraph*{S3 Table.}
-{\bf Enrichment results for rich \textit{vs} all other (feed-in, feed-out, peripheral) links.}
+% \textbf{GEnrichment results for rich \textit{vs} all other (feed-in, feed-out, peripheral) links.}
 \begin{table}[]
 \centering
 \caption{
-Biological processes GO categories showing increased gene coexpression for rich links compared to all other links.
+GO category enrichment for genes exhibiting greater positive coexpression in connections involving hubs compared to connections between nonhubs.
 % (feed-in, feed-out, peripheral)
-Categories that remain significant after false discovery rate ($FDR < 0.05$) correction are shown boldface.
+Categories that remain significant after false discovery rate ($FDR < 0.05$) correction are shown in boldface.
 }
 \label{enrichmentRICH}
 \begin{tabular}{llll}
@@ -1345,8 +1350,8 @@ All pairs of horizontal and vertical axes are in scale with each other.
 
 \paragraph*{S6 Fig.}
 {\bf Coexpression for rich, feeder and peripheral links as a function of degree.}
-\begin{figure}[!h]
-\label{RFPdistributions}
+\begin{figure}[h]
+\label{fig:S_RFPdistributions}
 \centering
     \includegraphics[width=1\textwidth]{Distributions.pdf}
     \caption{
@@ -1397,7 +1402,7 @@ Note that at high $k$, most neurons are labeled as nonhubs, and hence the vast m
 Lineage distance across all network links shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. Fig.~\ref{fig:topology_rich}) is shaded gray.
 Circles indicate a statistically significant increase or decrease in birth time difference in a given link type relative to the rest of the network (two-sided Welch’s t test; $P < 0.05$).
 }
-\label{Lineagek}
+\label{fig:Lineagek}
 \end{figure}
 % <<RichClub.m>>
 

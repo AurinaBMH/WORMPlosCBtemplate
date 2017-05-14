@@ -144,6 +144,12 @@ Tomasi D, Wang GJ, Volkow ND.
 \newblock {Energetic cost of brain functional connectivity}.
 \newblock Proc Natl Acad Sci USA. 2013;110(33):13642--13647.
 
+\bibitem{Misic:2014it}
+Mi{\v s}i{\'c} B, Sporns O, McIntosh AR.
+\newblock {Communication Efficiency and Congestion of Signal Traffic in
+  Large-Scale Brain Networks}.
+\newblock PLoS Comp Biol. 2014;10(1):e1003427.
+
 \bibitem{Ypma:2016em}
 Ypma RJF, Bullmore E.
 \newblock {Statistical Analysis of Tract-Tracing Experiments Demonstrates a
@@ -156,6 +162,11 @@ White JG, Southgate E, Thomson JN.
   elegans}.
 \newblock {\ldots} Trans R Soc Lond B Biol {\ldots}. 1986;.
 
+\bibitem{Chen:2006ie}
+Chen BL, Hall DH, Chklovskii DB.
+\newblock {Wiring optimization can relate neuronal structure and function}.
+\newblock Proc Natl Acad Sci USA. 2006;103(12):4723--4728.
+
 \bibitem{Varshney2011}
 Varshney LR, Chen BL, Paniagua E, Hall DH, Chklovskii DB.
 \newblock {Structural properties of the Caenorhabditis elegans neuronal
@@ -167,6 +178,44 @@ Varshney LR, Chen BL, Paniagua E, Hall DH, Chklovskii DB.
 Kashtan N, Itzkovitz S, Milo R, Alon U.
 \newblock {Topological generalizations of network motifs}.
 \newblock Phys Rev E. 2004;70(3):031909.
+
+\bibitem{Azulay:2016cg}
+Azulay A, Itskovits E, Zaslaver A.
+\newblock {The C. elegans Connectome Consists of Homogenous Circuits with
+  Defined Functional Roles}.
+\newblock PLoS Comp Biol. 2016;12(9):e1005021.
+
+\bibitem{Kim:2016gl}
+Kim S, Kim H, Kralik JD, Jeong J.
+\newblock {Vulnerability-Based Critical Neurons, Synapses, and Pathways in the
+  Caenorhabditis elegans Connectome}.
+\newblock PLoS Comp Biol. 2016;12(8):e1005084.
+
+\bibitem{Kim:2014bu}
+Kim JS, Kaiser M.
+\newblock {From Caenorhabditis elegans to the human connectome: a specific
+  modular organization increases metabolic, functional and developmental
+  efficiency}.
+\newblock Phil Trans Roy Soc B. 2014;369(1653):20130529--20130529.
+
+\bibitem{Pavlovic:2014gx}
+Pavlovic DM, V{\'e}rtes PE, Bullmore ET, Schafer WR, Nichols TE.
+\newblock {Stochastic Blockmodeling of the Modules and Core of the
+  Caenorhabditis elegans Connectome}.
+\newblock PLoS ONE. 2014;9(7):e97584.
+
+\bibitem{choe2004}
+Choe Y, McCormick B, Koh W.
+\newblock Network connectivity analysis on the temporally augmented C. elegans
+  web: A pilot study.
+\newblock In: Soc Neurosci Abstr. vol.~30; 2004.
+
+\bibitem{Varier2011}
+Varier S, Kaiser M, Koh W, Meuli R, Honey C.
+\newblock {Neural Development Features: Spatio-Temporal Development of the
+  Caenorhabditis elegans Neuronal Network}.
+\newblock PLoS Computational Biology. 2011;7(1):e1001044.
+\newblock doi:{10.1371/journal.pcbi.1001044}.
 
 \bibitem{Harris:2009kd}
 Harris TW, Antoshechkin I, Bieri T, Blasiar D, Chan J, Chen WJ, et~al.
@@ -223,18 +272,18 @@ Rubinov M, Sporns O.
 \newblock NeuroImage. 2010;52(3):1059--1069.
 \newblock doi:{10.1016/j.neuroimage.2009.10.003}.
 
+\bibitem{Lancichinetti2012}
+Lancichinetti A, Fortunato S, Thomson JN, Brenner S, Moon S.
+\newblock {Consensus clustering in complex networks}.
+\newblock Scientific Reports. 2012;2:547--579.
+\newblock doi:{10.1038/srep00336}.
+
 \bibitem{Warrens2008}
 Warrens MJ.
 \newblock {On Association Coefficients for 2x2 Tables and Properties That Do
   Not Depend on the Marginal Distributions.}
 \newblock Psychometrika. 2008;73(4):777--789.
 \newblock doi:{10.1007/s11336-008-9070-3}.
-
-\bibitem{Pantazatos:2016ir}
-Pantazatos SP, Li X.
-\newblock {Commentary: BRAIN NETWORKS. Correlated gene expression supports
-  synchronous activity in brain networks. Science 348, 1241-4.}
-\newblock bioRxiv. 2016; p. 079202.
 
 \bibitem{Krienen2016}
 Krienen FM, Yeo BTT, Ge T, Buckner RL, Sherwood CC.
@@ -243,6 +292,19 @@ Krienen FM, Yeo BTT, Ge T, Buckner RL, Sherwood CC.
 \newblock Proceedings of the National Academy of Sciences.
   2016;113(4):E469--78.
 \newblock doi:{10.1073/pnas.1510903113}.
+
+\bibitem{Pantazatos:2016ir}
+Pantazatos SP, Li X.
+\newblock {Commentary: BRAIN NETWORKS. Correlated gene expression supports
+  synchronous activity in brain networks. Science 348, 1241-4.}
+\newblock bioRxiv. 2016; p. 079202.
+
+\bibitem{Richiardi:2017hb}
+Richiardi J, Altmann A, Greicius M.
+\newblock {Distance Is Not Everything In Imaging Genomics Of Functional
+  Networks: Reply To A Commentary On Correlated Gene Expression Supports
+  Synchronous Activity In Brain Networks}.
+\newblock bioRxiv. 2017; p. 132746.
 
 \bibitem{Horvat:2016ia}
 Horv{\'a}t S, G{\u{a}}m{\u{a}}nuț R, Ercsey-Ravasz M, Magrou L,
@@ -278,6 +340,12 @@ Gillis J, Mistry M, Pavlidis P.
 \newblock {Gene function analysis in complex data sets using ErmineJ.}
 \newblock Nature protocols. 2010;5(6):1148--59.
 \newblock doi:{10.1038/nprot.2010.78}.
+
+\bibitem{Benjamini:1995cd}
+Benjamini Y, Hochberg Y.
+\newblock {Controlling the False Discovery Rate: A Practical and Powerful
+  Approach to Multiple Testing}.
+\newblock J Roy Stat Soc B. 1995;57(1):289--300.
 
 \bibitem{Zoubarev2012}
 Zoubarev A, Hamer KM, Keshav KD, {Luke Mccarthy} E, Santos JRC, Van~rossum T,
@@ -334,13 +402,6 @@ Pavlovic DM, V{\'{e}}rtes PE, Bullmore ET, Schafer WR, Nichols TE.
 \newblock PLoS ONE. 2014;9(7):e97584.
 \newblock doi:{10.1371/journal.pone.0097584}.
 
-\bibitem{Varier2011}
-Varier S, Kaiser M, Koh W, Meuli R, Honey C.
-\newblock {Neural Development Features: Spatio-Temporal Development of the
-  Caenorhabditis elegans Neuronal Network}.
-\newblock PLoS Computational Biology. 2011;7(1):e1001044.
-\newblock doi:{10.1371/journal.pcbi.1001044}.
-
 \bibitem{Liu2009}
 Liu X, Long F, Peng H, Aerni SJ, Jiang M, S{\'{a}}nchez-Blanco A, et~al.
 \newblock {Analysis of Cell Fate from Single-Cell Gene Expression Profiles in
@@ -348,13 +409,11 @@ Liu X, Long F, Peng H, Aerni SJ, Jiang M, S{\'{a}}nchez-Blanco A, et~al.
 \newblock Cell. 2009;139(3):623--633.
 \newblock doi:{10.1016/j.cell.2009.08.044}.
 
-\bibitem{Fulcher2016}
-Fulcher BD, Fornito A.
-\newblock {A transcriptional signature of hub connectivity in the mouse
-  connectome.}
-\newblock Proceedings of the National Academy of Sciences of the United States
-  of America. 2016;113(5):1513302113--.
-\newblock doi:{10.1073/pnas.1513302113}.
+\bibitem{French:2011cz}
+French L, Pavlidis P.
+\newblock {Relationships between gene expression and brain wiring in the adult
+  rodent brain}.
+\newblock PLoS Comp Biol. 2011;7(1):e1001049.
 
 \bibitem{Cui2007}
 Cui Q, Yu Z, Purisima EO, Wang E, Li X, Schwarz P, et~al.

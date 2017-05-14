@@ -2,7 +2,7 @@ This is BibTeX, Version 0.99d (TeX Live 2015)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: ./CelegansHubs.aux
 The style file: plos2015.bst
-White space in argument---line 51 of file ./CelegansHubs.aux
+White space in argument---line 53 of file ./CelegansHubs.aux
  : \citation{\cite
  :                 {Harris:2009kd}}
 I'm skipping whatever remains of this command
@@ -15,62 +15,57 @@ Repeated entry---line 280 of file library_ben.bib
  : @article{Lein:2007jn
  :                     ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 414 of file library_ben.bib
+Repeated entry---line 522 of file library_ben.bib
  : @article{deReus:2013cy
  :                       ,
 I'm skipping whatever remains of this entry
 Database file #2: library.bib
-Warning--I didn't find a database entry for "Misic:2014it"
-Warning--I didn't find a database entry for "Chen:2006ie"
-Warning--I didn't find a database entry for "Azulay:2016cg"
-Warning--I didn't find a database entry for "Kim:2016gl"
-Warning--I didn't find a database entry for "Kim:2014bu"
-Warning--I didn't find a database entry for "Pavlovic:2014gx"
-Warning--I didn't find a database entry for "Lancichinetti2012a"
 Warning--I didn't find a database entry for "Hillier2005"
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 62 entries,
+Warning--can't use both volume and number fields in choe2004
+Warning--empty pages in choe2004
+You've used 72 entries,
             3058 wiz_defined-function locations,
-            1097 strings with 26961 characters,
-and the built_in function-call counts, 188068 in all, are:
-= -- 22934
-> -- 1016
-< -- 2
-+ -- 778
-- -- 254
-* -- 17665
-:= -- 20561
-add.period$ -- 267
-call.type$ -- 62
-change.case$ -- 0
+            1136 strings with 28698 characters,
+and the built_in function-call counts, 203271 in all, are:
+= -- 24820
+> -- 1148
+< -- 4
++ -- 848
+- -- 287
+* -- 18898
+:= -- 22240
+add.period$ -- 306
+call.type$ -- 72
+change.case$ -- 2
 chr.to.int$ -- 0
-cite$ -- 62
-duplicate$ -- 10186
-empty$ -- 18854
-format.name$ -- 315
-if$ -- 43044
+cite$ -- 74
+duplicate$ -- 11427
+empty$ -- 20299
+format.name$ -- 358
+if$ -- 46567
 int.to.chr$ -- 0
-int.to.str$ -- 62
-missing$ -- 614
-newline$ -- 334
-num.names$ -- 62
-pop$ -- 973
+int.to.str$ -- 72
+missing$ -- 706
+newline$ -- 384
+num.names$ -- 72
+pop$ -- 1150
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 991
+skip$ -- 1144
 stack$ -- 0
-substring$ -- 46035
-swap$ -- 1548
-text.length$ -- 2
+substring$ -- 48932
+swap$ -- 1795
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 0
-while$ -- 659
-width$ -- 64
-write$ -- 723
+warning$ -- 2
+while$ -- 752
+width$ -- 74
+write$ -- 833
 (There were 4 error messages)
