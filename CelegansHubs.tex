@@ -300,30 +300,27 @@ economical connectivity, such that wiring costs (typically measured in terms of 
 a heterogeneous distribution of connections across network nodes, such that most nodes possess relatively few connections and a small proportion of nodes has a very high degree of connectivity, marking these nodes as network hubs \cite{vandenHeuvel:2013ge, Varshney:2011ju};
 and stronger interconnectivity between hub nodes than expected by chance, leading to the emergence of a so-called rich-club (i.e., the hubs are rich in terms of their connections and they form a club because they are densely interconnected with each other \cite{vandenHeuvel:2011he, ZamoraLopez:2010hy, deReus:2013cy, Towlson:2013gf, Shih:2015cu}, features that can only partially be accounted for by spatial constraints \cite{Henderson:2014fg, Roberts:2016il, Horvat:2016ia}.
 
-
 Hub connectivity and rich-club organization in particular is though to play a central role in integrating disparate functional systems in neuronal networks \cite{Fornito:2015dq, VandenHeuvel2013a, ZamoraLopez:2010hy, Crossley2014, Crossley:2013kl}.
-Hub nodes typically participate in more than one functional system, or topological module \cite{deReus:2013cy, deReus:2014cz, ZamoraLopez:2010hy}, placing them in a perfect position to integrate diverse neural processes.
+Hub nodes typically participate in more than one functional system, or topological module \cite{deReus:2013cy, deReus:2014cz, ZamoraLopez:2010hy}, placing them in a perfect position to integrate diverse neural processes [[we'll need to square this with our finding that most hubs are in the same structural module, which also contradicts previous findings of Towlson]].
 Experimental data and computational modeling also indicates that hub nodes, and the connections between them, are topologically positioned to mediate a high volume of signal traffic \cite{vandenHeuvel:2012kh, Harriger:2012bb, Misic:2014it, Misic:2015jw}.
 This integrative role comes at a cost however, with connections between hubs extending over longer distances, on average, than other types of connections, a finding reported in the human \cite{vandenHeuvel:2012kh}, mouse \cite{Fulcher:2016ck}, and nematode \cite{Towlson:2013gf}.
 Human positron emission tomography also suggests that hub nodes consume greater metabolic resources and have higher levels of blood flow than other areas \cite{Tomasi:2013kl, Collin:2014kq, Liang2013a}.
 This high metabolic cost may underlie the involvement of hub regions in a broad array of human diseases \cite{Fornito2015, Bullmore:2012vl, Crossley:2014eta}.
 
+Work linking the large-scale topological organization of brain networks to microscale measure of gene expression has suggested that this high metabolic cost of hub connectivity is associated with a distinct metabolic signature.
+Fulcher and Fornito \cite{Fulcher:2016ck} combined viral tract tracing data on connectivity between 213 regions of the right hemisphere of the mouse brain \cite{Oh2014} with in situ hybridization measures of the expression of 17\,642 genes in each of those regions.
+They found that transcriptional coupling, across the entire genome, was stronger for connected compared to unconnected brain regions and that, in general, this coupling decayed sharply with increasing anatomical distance between brain regions.
+In stark contrast to this general trend however, was the finding that connected pairs of hubs (i.e., the ``rich club'' of the brain) showed the highest levels of transcriptional coupling (compared to hub-non-hub and non-hub pairs), despite these regions being separate by longer anatomical distances, on average.
+Moreover, this coupling was driven predominantly by coupled expression of genes regulating the oxidative synthesis and metabolism of adenosine triphosphate (ATP), the primary energetic currency of neuronal signaling \cite{Lennie:2003ia, Laughlin:2003vu}.
+Vertes et al. \cite{Vertes2016a} later found evidence of a similar transcriptional signature of hub connectivity in humans. Using XX data... they found.... [[ADD SUMMARY]]);
 
-% Introduce gene expression work and prior work relating them
-The recent availability of gene expression data in the brain has allowed structural connectome properties to be related to molecular information \cite{vandenHeuvel:2017ex}.
-% , facilitating cross-scale understanding between the fields of macroscale connectomics and microscale neuroscience \cite{vandenHeuvel:2017ex}.
-Initial statistical work done using binary gene expression annotations in \emph{C. elegans} showed that the expression of a small number of genes can be used to predict connectivity between pairs of neurons \cite{Varadan:2006ek, Kaufman2006, Baruch2008b}.
-Later work, utilizing detailed quantitative gene expression data in mouse from the Allen Mouse Brain Atlas \cite{Lein:2007jn} revealed a relationship between gene expression and connectivity in mouse \cite{Ji:2014jw, Fakhry:2015kl}, with pairs of brain regions with similar gene expression patterns also displaying similar connectivity profiles (using connectivity data from rat) \cite{French2011}.
-% Fakhry:2015dg
-% that connected pairs of brain regions display more similar gene expression profiles \cite{French2011},
-Comparing different types of connections in mouse, we have demonstrated that pairs of connected hubs have the most similar gene expression profiles, and that hub connectivity is associated with the correlated expression of genes related to oxidative energy metabolism \cite{Fulcher:2016ck}.
-Similar findings have been reported at the regional level in the human cortex, with integrative hub regions (with high inter-modular degree and long connection distance) being associated with expression of genes regulating oxidative metabolism and mitochondria \cite{Vertes2016a}.
-Both results are consistent with the high metabolic cost of hubs \cite{Collin:2014kq, Tomasi:2013kl}, which may be due to the high signal traffic they're thought to mediate \cite{vandenHeuvel:2012kh, Misic:2014it}, painting a picture of hubs as a highly conserved and metabolically costly feature of structural brain networks.
-% These findings highlight a close relationship between metabolic expenditure and the high signaling load of hub regions in the brain, as has been previously proposed \cite{Bullmore2012}.
-% As well as being a highly conserved structural feature, these studies hint that hub connectivity may also be consistently related to metabolic demand, with the picture of highly connected hubs being both metabolically costly, both to construct and to run.
-\emph{C. elegans} is attractive model to extend these results to the microscale, being the only connectome fully mapped at the level of individual synapses and neurons, thus avoiding statistical estimation of connectomes from tract-tracing experiments \cite{Ypma:2016em}, inference of axonal connectivity from diffusion MRI, or the need to form a discrete parcellation of a continuous brain.
-In \emph{C. elegans}, we also have detailed information on neuron birth times, cell lineage, neurotransmitters, neuron type, etc. that can help delineate the effect of cell type properties on our findings in greater depth.
-In this work, we collated all these diverse data to test the hypothesis that elevated expression coupling of hubs would be apparent at microscale, and to identify what genes, or other factors, drive the result.
+Together, the analyses of Fulcher and Fornito \cite{Fulcher:2016ck} and Vertes et al. \cite{Vertes2016a}, which were performed using measures of mesoscale ($\mu$m to mm) and macroscale (mm to cm) connectivity, respectively, suggest that the molecular signature of hub connectivity, which is characterized by elevated coupling of the expression of genes regulating oxidative metabolism, is conserved across species and resolution scales.
+Here, we sought to test this hypothesis by examining the link between gene expression and microscale connectivity in the nematode worm \emph{C. elegans}.
+The connectome of this animal, which comprises 302 neurons and XX connections, is the only species to have its connectome mapped almost completely at the level of individual neurons and synapses using electron microscopy (EM) \cite{White:1986tx, Varshney2011}.
+We combined these data on neuronal connectivity with curated information on the binary expression patterns of 948 genes across neurons to examine the relationship between gene expression and the large-scale topological organization of the nematode nervous system.
+We also took advantage of detailed information on neuron birth times, neuronal lineage, and functional and chemical composition of neurons to understand the mechanisms through which gene expression might influence network topology.
+We show that [[XXX]].
+
 
 % Introduce hub connectivity-expression hypothesis
 % Connectivity in brain networks is not uniformly distributed. Network elements with high node degree – i.e., a large number of connections to other areas – are called `hubs'.
@@ -979,6 +976,22 @@ Further work across different species and scales may shed light on deeper princi
 differ significantly (being a neuronal connectome), and with so few neurons, each highly specialized, it may be hard to pick up broad expression patterns that are network topology-specific.
 Quite different to the case in mouse, where regions were spread across the brain, and so effects of regional specialization of function, cytoarchitecture, gene expression were averaged, and the remaining hub-related signal could be isolated.
 
+
+Being a EM connectome, avoids statistical estimation of connectomes from tract-tracing experiments \cite{Ypma:2016em}, inference of axonal connectivity from diffusion MRI, or the need to form a discrete parcellation of a continuous brain.
+
+
+% Introduce gene expression work and prior work relating them
+The recent availability of gene expression data in the brain has allowed structural connectome properties to be related to molecular information \cite{vandenHeuvel:2017ex}.
+% , facilitating cross-scale understanding between the fields of macroscale connectomics and microscale neuroscience \cite{vandenHeuvel:2017ex}.
+Initial statistical work done using binary gene expression annotations in \emph{C. elegans} showed that the expression of a small number of genes can be used to predict connectivity between pairs of neurons \cite{Varadan:2006ek, Kaufman2006, Baruch2008b}.
+Later work, utilizing detailed quantitative gene expression data in mouse from the Allen Mouse Brain Atlas \cite{Lein:2007jn} revealed a relationship between gene expression and connectivity in mouse \cite{Ji:2014jw, Fakhry:2015kl}, with pairs of brain regions with similar gene expression patterns also displaying similar connectivity profiles (using connectivity data from rat) \cite{French2011}.
+% Fakhry:2015dg
+% that connected pairs of brain regions display more similar gene expression profiles \cite{French2011},
+Comparing different types of connections in mouse, we have demonstrated that pairs of connected hubs have the most similar gene expression profiles, and that hub connectivity is associated with the correlated expression of genes related to oxidative energy metabolism \cite{Fulcher:2016ck}.
+Similar findings have been reported at the regional level in the human cortex, with integrative hub regions (with high inter-modular degree and long connection distance) being associated with expression of genes regulating oxidative metabolism and mitochondria \cite{Vertes2016a}.
+Both results are consistent with the high metabolic cost of hubs \cite{Collin:2014kq, Tomasi:2013kl}, which may be due to the high signal traffic they're thought to mediate \cite{vandenHeuvel:2012kh, Misic:2014it}, painting a picture of hubs as a highly conserved and metabolically costly feature of structural brain networks.
+% These findings highlight a close relationship between metabolic expenditure and the high signaling load of hub regions in the brain, as has been previously proposed \cite{Bullmore2012}.
+% As well as being a highly conserved structural feature, these studies hint that hub connectivity may also be consistently related to metabolic demand, with the picture of highly connected hubs being both metabolically costly, both to construct and to run.
 
 % LINEAGE
 [[TODO: add details on lineage]] While the relationship between cell lineage and gene expression was studied in other species \cite{Cui2007, Kluger2004}.
