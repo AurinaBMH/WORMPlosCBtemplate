@@ -684,15 +684,15 @@ However, unlike in the mouse brain, we found no differences in gene coexpression
  \begin{figure}[h]
  \centering
     \includegraphics[width=1\textwidth]{MeanCoexpression.pdf}
- \caption{{\bf Gene coexpression varies as a function of connectivity, and as a function of connection type, with connections involving hubs being most similar.}
-\textbf{A} Distribution of transcriptional similarity between connected and unconnected pairs of neurons as a violin plot; the mean of each distribution is shown as a horizontal line.
+ \caption{{\bf Gene coexpression varies as a function of connectedness and connection type, with the highest coexpression for connections involving hubs.}
+\textbf{A} Distribution of transcriptional similarity between connected and unconnected pairs of neurons as a violin plot, with the mean of each distribution represented by a horizontal line.
 Note that connections between bilateral pairs of neurons display high transcriptional similarity and are excluded from this analysis, leaving 1\,940 connected pairs (1\,961 - 21) and 36\,749 unconnected pairs (36\,820 - 71).
-Coexpression, $r_\phi$ is increased in connected pairs of neurons ($P < 10^{-50}$, Wilcoxon rank sum test).
+Coexpression, $r_\phi$ is increased in connected compared to unconnected pairs of neurons ($P < 10^{-50}$, Wilcoxon rank sum test).
 \textbf{B}
-\emph{Top}: Degree distribution.
+\emph{Top}: Degree distribution, $k$, of the \emph{C. elegans} synaptic connectome.
 \emph{Middle}: proportion of connections that are `rich' (hub$\rightarrow$hub, red), `feed-in' (nonhub$\rightarrow$hub, yellow), `feed-out' (hub$\rightarrow$nonhub, orange), and `peripheral' (nonhub$\rightarrow$nonhub, blue) as a function of the degree threshold, $k$, used to define hubs.
 Note that at high $k$, most neurons are labeled as nonhubs, and hence the vast majority of connections are `peripheral'.
-\emph{Lower}: Mean gene coexpression, $r_\phi$, for each connection type as a function of $k$.
+\emph{Bottom}: Mean gene coexpression, $r_\phi$, for each connection type as a function of $k$.
 The mean coexpression across all network links is shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. Fig.~\ref{fig:topology_rich}) is shaded gray.
 Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (one-sided Welch’s t test; $P < 0.05$).
 [[TODO: fonts are small, and inconsistent sizes between subplots.
@@ -723,11 +723,11 @@ Specifically, both connectomes display:
 (iv) lowest coexpression in peripheral connections.
 
 \subsection*{Potential drivers of elevated coexpression in pairs of hubs}
-While hubs of the mouse connectome are broadly distributed across anatomical divisions, the 13 hub neurons in \emph{C. elegans} ($k > 41$) are all interneurons, are all born before hatching, are mostly cholinergic (11/13), and are mostly in a single network module.
+The hubs of the mouse connectome are broadly distributed across anatomical divisions \cite{Fulcher:2016ck}, the 13 hub neurons in \emph{C. elegans} ($k > 41$) are all interneurons, are all born before hatching, are mostly cholinergic (11/13), and are mostly contained within a single network module.
 % and concentrated in the head (10/13),
 % \cite{Varier2011}, \cite{Pereira:2015er}
 % Having demonstrated that gene coexpression is elevated for connected regions, and particularly for connected pairs of hubs,
-We thus investigated whether the similarity of hub expression profiles was specific to their high connectivity, or whether it could instead be driven by these other types of homogeneities.
+We thus investigated whether the similarity of gene expression profiles between hubs was specific to their high levels of connectivity, or whether it could instead be explained by similarity in one or more of these characteristics.
 % We thus investigated whether any of these types of homogeneities amongst hub neurons could contribute to our finding of increased gene coexpression, $r_\phi$.
 % , namely modular organization, lineage similarity, or neurotransmitter type, could explain our results.
 
