@@ -634,34 +634,33 @@ Yellow circles indicate where the Euclidean distance between connected pairs of 
 % <<rich-club organization>>
 % ------------------------------------------------------------------------------
 We quantified the extend to which hubs are densely interconnected by computing the normalized rich-club coefficient, $\Phi_\mathrm{norm}$, with $\Phi_\mathrm{norm} > 1$ indicating rich-club organization of the network.
-Rich-club organization of the \emph{C. elegans} connectome was first demonstrated by Towlson et al. \cite{Towlson:2013gf}, who included gap junctions and symmetrized the directed synaptic connectivity (despite only 233 out of 1\,961 pairs of connected neurons being reciprocally connected).
-Here, we retain the directed architecture of the connectome, and define rich-club organization in relation to the sum of incoming and outgoing projections to a given neuron (total degree, $k$).
+Rich-club organization of the \emph{C. elegans} connectome was first demonstrated by Towlson et al. \cite{Towlson:2013gf}, who included gap junctions and symmetrized the directed synaptic connectivity (despite only 233 out of 1\,961 pairs of connected neurons being reciprocally connected), whereas here we retain the directed architecture of the synaptic connectome and exclude gap junctions (to prevent them contributing to a different gene expression signature).
+Accordingly, we define rich-club organization in relation to the sum of incoming and outgoing projections to a given neuron (total degree, $k$).
 % Specifically, we find that
 % Adj = GiveMeAdj(C,'zeroBinary','ch'); 
 % reciprocal: sum(sum(Adj & Adj'))/2 = 233
 % unidirectional: sum(sum(Adj & ~Adj')) = 1728
 % either: sum(sum(Adj | Adj'))/2 = 1961
-Despite using a different version of the connectome, we find similar rich-club organization to Towlson et al. \cite{Towlson:2013gf}.
-The variation in $\Phi_\mathrm{norm}$ across a range of thresholds, $k$ (at which hubs are defined, as neurons with degree $>k$), is shown in Fig.~\ref{fig:topology_rich}B, with red circles indicating a significant increase in link density among hubs relatively to 1\,000 degree-preserving nulls (permutation test, $P < 0.05$) [[check whether randmio\_dir only preserves degree: AA - degree distributions in binary, out-strength (but not in-strength) in weighted]].
+Despite using a different version of the connectome, we find an almost complete overlap in the list of hub neurons (listed in Table~\ref{tab:HubList}), and similar rich-club organization (shown in Fig.~\ref{fig:topology_rich}B).
+The figure shows the variation of $\Phi_\mathrm{norm}$ across a range of thresholds, $k$ (at which hubs are defined, as neurons with degree $>k$), with red circles indicating a significant increase in link density among hubs relatively to 1\,000 degree-preserving nulls (permutation test, $P < 0.05$) [[check whether randmio\_dir only preserves degree: AA - degree distributions in binary, out-strength (but not in-strength) in weighted]].
 The plot reveals rich-club organization at the upper tail of the degree distribution, particularly for thresholds $41 < k < 58$, referred to here as the `topological rich-club regime', and shaded gray in Fig.~\ref{fig:topology_rich}B.
 % This indicates that when nodes are defined as hubs (degree $>\textit{k}$) in this range, they are more densely interconnected than expected by chance.
 Most of the analyses presented below examine how different topological and genomic properties vary as a function of the hub threshold, $k$, but for analyses requiring a fixed hub definition, we define hubs as the 13 neurons with $k > 41$, the lowest threshold at which we see evidence for significant rich-club organization.
 
 % Rich club in the chemical synapse network consists of 13 high degree neurons with degree $42 \leq k \leq 98$.
-Our findings are in line with the results presented by Towlson et al. \cite{Towlson2013}, where a symmetrized version of \textit{C. elegans} connectome combining both chemical and electrical synapses were used. 
-Despite differences in datasets (directed \textit{vs} undirected, chemical \textit{vs} chemical and electrical), there is an almost complete overlap in the lists of hub neurons (see TableS\ref{tab:HubList}). 
-When comparing the normalized rich club coefficient $\Phi_\mathrm{norm}$ as a function of degree in both cases we notice that $\Phi_\mathrm{norm}$ reaches slightly higher values for a directed chemical synapse connectome in the topological rich-club regime ($\Phi_\mathrm{normMAX} = 1.8$), while an increase in the symmetrized connectome is not so sharp ($\Phi_\mathrm{normMAX} = 1.4$) meaning that the  rich club effect might me slightly more pronounced in a directed version of a synaptic connectome. 
+% When comparing the normalized rich club coefficient $\Phi_\mathrm{norm}$ as a function of degree in both cases we notice that $\Phi_\mathrm{norm}$ reaches slightly higher values for a directed chemical synapse connectome in the topological rich-club regime ($\Phi_\mathrm{normMAX} = 1.8$), while an increase in the symmetrized connectome is not so sharp ($\Phi_\mathrm{normMAX} = 1.4$) meaning that the  rich club effect might me slightly more pronounced in a directed version of a synaptic connectome.
 
 % ------------------------------------------------------------------------------
 % <<distance, geometric effects>>
 % ------------------------------------------------------------------------------
-Recent work has shown that many aspects of connectome organization can be partially accounted for by geometric effects, by treating the connectome as a spatially-embedded object \cite{Henderson:2014fg, Roberts2016, Horvat:2016ia}.
-Unlike network analyses of brains, where all neurons are confined to a single, spatially contiguous organ, neurons of the \emph{C. elegans} nervous system are distributed throughout the entire organism, forming a dense cluster of 147 neurons in the head (all within 130\,$\mu m$), 105 sparser, mostly motor neurons (75\%) in the body (spanning 1.02\,mm), and a relatively dense cluster of 27 neurons in the tail (all within 90\,$\mu$m of each other), see Fig.~\ref{fig:S_neuronsSpace} for a plot of all neurons in space.
+Recent work has shown that many aspects of connectome organization can be partially accounted for by geometric effects, in particular, a decreasing probability of connectivity between neural elements with increasing anatomical distance \cite{Henderson:2014fg, Roberts2016, Horvat:2016ia}.
+Unlike network analyses of mammalian brains, where all neurons are confined to a spatially contiguous organ, neurons of the \emph{C. elegans} nervous system are distributed throughout the entire organism, forming a dense cluster of 147 neurons in the head (all within 130\,$\mu m$), 105 sparser, mostly motor neurons (75\%) in the body (spanning 1.02\,mm), and a relatively dense cluster of 27 neurons in the tail (all within 90\,$\mu$m of each other), see Fig.~\ref{fig:S_neuronsSpace} for a plot of all neurons in space.
 % <<cf. NeuronTypeStats.m to run these numbers>>
-In Fig.~\ref{fig:topology_rich}B, we plot the mean distance between all pairs of connected hubs at each degree threshold, $k$, finding an increase in mean hub-hub connection distance with $k$, through to the extent of the topological rich-club regime.
-This can be attributed to a relative increase in long-distance hub-hub connections between the head and tail (Fig.~\ref{fig:S_connProbability}C).
-Despite an increase in hub-hub connection density across longer distances, connection probability decreases with distance in \emph{C. elegans} for connections within the head, body, and tail, and between the head and tail (see Figs.~\ref{fig:S_connProbability}A,B), mirroring recent results of mesoscale mammalian brains, in mouse \cite{Goulas:2016hr, Fulcher:2016ck}, and other rodents and primates \cite{Horvat:2016ia}.
-Taken together, our results demonstrate that hub-hub connections in \emph{C. elegans} are dense, and extend over significantly longer distances than other types of connections in the synaptic connectome, consistent with the idea of the rich club as a costly but central backbone for neuronal communication \cite{vandenHeuvel:2012kh}.
+In Fig.~\ref{fig:topology_rich}B, we plot the mean distance between all pairs of connected hubs at each degree threshold, $k$.
+Consistent with the analysis of Towlson et al. \cite{Towlson:2013gf}, we find an increase in mean hub-hub connection distance with $k$, through to the extent of the topological rich-club regime.
+This result can be attributed to a relative increase in long-distance hub-hub connections between the head and tail (Fig.~\ref{fig:S_connProbability}C).
+The high connection density and long mean anatomical distance of hub-hub pairs counters the general trend in the \emph{C. elegans} connectome, where the probability of connectivity between two neurons decays sharply as a function of the physical distance between them (excluding connections between the body and head, and between the body and tail, cf. Figs.~\ref{fig:S_connProbability}A,B), mirroring recent results of mesoscale mammalian brains, in mouse \cite{Goulas:2016hr, Fulcher:2016ck}, and rodents and primates \cite{Horvat:2016ia}.
+Taken together, our results demonstrate that hub-hub connections in \emph{C. elegans} are dense, and extend over significantly longer distances than other types of connections in the synaptic network of the nematode nervous system, consistent with the idea of the rich club as a central yet costly backbone for neuronal communication \cite{vandenHeuvel:2012kh}.
 
 % In connectomes across species and scales, degree is distributed unequally, with a small number of highly connected brain regions, known as hubs \cite{Sporns:2007ea}, that are themselves more densely connected between themselves, forming a so-called `rich club' \cite{deReus:2013cy, ZamoraLopez:2010hy, Shih:2015cu, vandenHeuvel:2012kh, vandenHeuvel:2011he}.
 % The same is true in the C. elegans neuronal nervous system, analyzed in the past as an undirected binary connectome including both chemical and electrical synapses \cite{Towlson:2013gf}, which exhibits highly connected, and densely interconnected hub neurons.
@@ -671,7 +670,7 @@ Taken together, our results demonstrate that hub-hub connections in \emph{C. ele
 
 % ---connectivity/coexpression---
 Having characterized the topological and geometric properties of rich-club connectivity in \emph{C. elegans}, we next investigate how axonal connectivity properties relate to gene expression patterns.
-Being a pairwise analysis, we compare pairwise synaptic connectivity to pairwise similarity in gene expression using the mean square contingency coefficient, $r_\phi$ (see \emph{Methods}).
+Being a pairwise analysis, we compare pairwise synaptic connectivity to pairwise similarity in gene expression, measured by the mean square contingency coefficient, $r_\phi$ (see \emph{Methods}).
 % , to define gene coexpression, and excluding coexpression values between homologous left/right neuron pairs, see Methods).
 
 First we investigate whether gene coexpression relates to synaptic connectivity by comparing the distribution of $r_\phi$ computed for all connected pairs of neurons, and for all unconnected pairs of neurons, shown in Fig.~\ref{fig:coExp}A.
@@ -706,23 +705,24 @@ left as hubs]]
 % ------------------------------------------------------------------------------
 
 % ---HUB coexpression---
-We next investigated whether coexpression varied between different types of connections, focusing particularly on the role of densely interconnected hub neurons characterized above, hypothesizing an increase in connections involving hubs, with hub-hub connections displaying the most similar gene expression patterns \cite{Fulcher:2016ck}.
+We next investigated whether coexpression varied between different types of connections, focusing particularly on the role of densely interconnected hub neurons.
+% characterized above, hypothesizing an increase in connections involving hubs, with hub-hub connections displaying the most similar gene expression patterns \cite{Fulcher:2016ck}.
 % Given the importance of hub neurons across species [[Ref]], and previous results in the mesoscale mouse connectome \cite{Fulcher:2016ck},
-To study this effect, for a given hub threshold, $k$, we first labeled each neuron as either a `hub' (nodes with degree $> k$) or a `nonhub' (degree $\leq k$), and then labeled each connection as either `rich' (hub $\rightarrow$ hub), `feed-in' (nonhub $\rightarrow$ hub), `feed-out' (hub $\rightarrow$ nonhub), or `peripheral' (nonhub $\rightarrow$ nonhub).
+For a given hub threshold, $k$, we first labeled each neuron as either a `hub' (nodes with degree $> k$) or a `nonhub' (degree $\leq k$), and then labeled each connection as either `rich' (hub $\rightarrow$ hub), `feed-in' (nonhub $\rightarrow$ hub), `feed-out' (hub $\rightarrow$ nonhub), or `peripheral' (nonhub $\rightarrow$ nonhub).
 % [[TODO: Establish whether we're computing pairs of hubs (e.g., for `rich'), or for every connection between any pair of hubs -- i.e., do reciprocal connections contribute twice to the distribution at each $k$? AA: as in original mouse analysis -- all connections, but we take mean, so the mean doesn't change in either way]]
 The mean coexpression for each of these four connection types is plotted in Fig.~\ref{fig:coExp}B, with circles indicating statistically significant increases of a given connection type (relative to all other connections, $P < 0.05$, Welch's $t$-test). 
 Gene coexpression in rich connections increases with degree, reaching a plateau through the topological rich-club regime where hubs are densely interconnected (shaded gray in Fig.~\ref{fig:coExp}B).
 Feed-out connections exhibit increased gene coexpression through the topological rich-club regime, while feed-in and peripheral connections show the lowest levels of coexpression.
-While mean coexpression is plotted in Fig.~\ref{fig:coExp}B, full distributions at a lower hub threshold of $k > 41$ are shown in Fig.~\ref{fig:S_RFPdistributions}.
+Full distributions of coexpression at a hub threshold of $k > 41$ are plotted in Fig.~\ref{fig:S_RFPdistributions}.
 
-These results, using incomplete binary gene expression measurements across just 948 genes in a microscale neuronal connectome, are broadly consistent with results in 213 regions of the mesoscale mouse connectome with over 17\,000 genes.
+These results, using partial binary annotations of gene expression across just 948 genes in a microscale neuronal connectome, are consistent with a prior analysis of the expression of over 17\,000 genes across 213 regions of the mesoscale mouse connectome.
 Specifically, both connectomes display:
-(i) increased coexpression in connected pairs of nodes,
-(ii) the highest coexpression in rich connections,
-(iii) intermediate coexpression in feeder connections, and
-and (iv) lowest coexpression in peripheral connections.
+(i) increased coexpression in connected pairs of nodes;
+(ii) the highest coexpression in rich connections;
+(iii) intermediate coexpression in feeder connections; and
+(iv) lowest coexpression in peripheral connections.
 
-\subsection*{Robustness}
+\subsection*{Potential drivers of elevated coexpression in pairs of hubs}
 While hubs of the mouse connectome are broadly distributed across anatomical divisions, the 13 hub neurons in \emph{C. elegans} ($k > 41$) are all interneurons, are all born before hatching, are mostly cholinergic (11/13), and are mostly in a single network module.
 % and concentrated in the head (10/13),
 % \cite{Varier2011}, \cite{Pereira:2015er}
