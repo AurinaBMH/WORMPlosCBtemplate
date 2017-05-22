@@ -594,6 +594,29 @@ Connections are colored according to how they connect hubs ($k > 41$) and non-hu
 % ------------------------------------------------------------------------------
 
 
+\subsection*{The role of geometry on coexpression and connectivity in C. elegans}
+
+\begin{figure}[h]
+  \centering
+    \includegraphics[width=\textwidth]{figs/SpatialEffectsMain.pdf}
+  \caption{
+\textbf{Connection probability and gene coexpression both decrease with separation distance within the head and tail.}
+\textbf{A}, \textbf{B}:
+The \emph{connection probability} for a pair of neurons as a function of their separation distance, estimated in 10 equiprobable distance bins, demonstrating a decrease for connections within the head (`HeadHead', aqua), connections from head $\rightarrow$ tail (`HeadTail', brown) and from tail $\rightarrow$ head (`TailHead', stone blue), connections within the tail (`TailTail', red), and connections within the body (`BodyBody', dark purple).
+Connection probability in each distance bin is shown as a circle (bin centers) and a horizontal line (bin extent).
+Exponential fits, $f(x) = a\exp(-bx)+c$ (some of which appear linear across the range of the data), are shown as dotted lines.
+\textbf{B}
+Plots as in \textbf{A}, but for connection classes between the body and head/tail: from body $\rightarrow$ head (`BodyHead', forest green), from body $\rightarrow$ tail (`BodyTail', dirt green), connections from head $\rightarrow$ body (`HeadBody', purple), and from tail $\rightarrow$ body (`TailBody', dark brown).
+% A decreasing relationship is evident up to a separation distance of approximately 0.2\,mm (driven by tail-tail and head-head connections), with a longer-range decrease up to $\approx$0.5\,mm due to body-body connections.
+% The increase at large distances ($\approx 1$\,mm) is due to head-tail connections, which also show a decay with distance, from $\approx 1$\,mm through to $\approx$1.2\,mm.
+% connections between body and head and body and tail showed no clear distance dependence.}
+\textbf{C}--\textbf{E}: \emph{Gene coexpression}, $r_\phi$ (excluding bilateral pairs of neurons), is shown as a function of the pairwise separation distance between pairs of neurons (shown as the mean (solid) $\pm$ standard deviation (dotted) in seven equiprobable distance bins, with extent shown as horizontal bars), for \textbf{C} all pairs of neurons in the head, \textbf{D} all pairs of neurons in the tail, and \textbf{E} all other (symmetric) neuron pairs (labeled).
+Scatters for all neuron pairs are added in \textbf{C} and \textbf{D}, as well as an exponential fit, $f(x) = a\exp(-bx)+c$, revealing a slight decreasing trend in $r_\phi$ with distance, as per macroscopic mammalian brains \cite{Fulcher:2016ck, Krienen:2016eq}.
+  }
+  \label{fig:figs_SpatialEffectsMain}
+\end{figure}
+
+
 %%
 \subsection*{Hub connectivity in the C. elegans connectome}
 %% INTRODUCE RICH CLUB  hene and focus on the difference between rich/feeder/peripheral links below
@@ -655,6 +678,8 @@ The figure shows the variation of $\Phi_\mathrm{norm}$ across a range of thresho
 The plot reveals rich-club organization at the upper tail of the degree distribution, particularly for thresholds $41 < k < 58$, referred to here as the `topological rich-club regime', and shaded gray in Fig.~\ref{fig:topology_rich}B.
 % This indicates that when nodes are defined as hubs (degree $>\textit{k}$) in this range, they are more densely interconnected than expected by chance.
 Most of the analyses presented below examine how different topological and genomic properties vary as a function of the hub threshold, $k$, but for analyses requiring a fixed hub definition, we define hubs as the 13 neurons with $k > 41$, the lowest threshold at which we see evidence for significant rich-club organization.
+The distribution of hubs and hub-hub connections in space across the \emph{C. elegans} connectome is shown in Fig.~\ref{fig:neuronsSpace}.
+
 
 % Rich club in the chemical synapse network consists of 13 high degree neurons with degree $42 \leq k \leq 98$.
 % When comparing the normalized rich club coefficient $\Phi_\mathrm{norm}$ as a function of degree in both cases we notice that $\Phi_\mathrm{norm}$ reaches slightly higher values for a directed chemical synapse connectome in the topological rich-club regime ($\Phi_\mathrm{normMAX} = 1.8$), while an increase in the symmetrized connectome is not so sharp ($\Phi_\mathrm{normMAX} = 1.4$) meaning that the  rich club effect might me slightly more pronounced in a directed version of a synaptic connectome.
@@ -663,7 +688,7 @@ Most of the analyses presented below examine how different topological and genom
 % <<distance, geometric effects>>
 % ------------------------------------------------------------------------------
 Recent work has shown that many aspects of connectome organization can be partially accounted for by geometric effects, in particular, a decreasing probability of connectivity between neural elements with increasing anatomical distance \cite{Henderson:2014fg, Roberts2016, Horvat:2016ia}.
-Unlike network analyses of mammalian brains, where all neurons are confined to a spatially contiguous organ, neurons of the \emph{C. elegans} nervous system are distributed throughout the entire organism, forming a dense cluster of 147 neurons in the head (all within 130\,$\mu m$), 105 sparser, mostly motor neurons (75\%) in the body (spanning 1.02\,mm), and a relatively dense cluster of 27 neurons in the tail (all within 90\,$\mu$m of each other), see Fig.~\ref{fig:S_neuronsSpace} for a plot of all neurons in space.
+Unlike network analyses of mammalian brains, where all neurons are confined to a spatially contiguous organ, neurons of the \emph{C. elegans} nervous system are distributed throughout the entire organism, forming a dense cluster of 147 neurons in the head (all within 130\,$\mu m$), 105 sparser, mostly motor neurons (75\%) in the body (spanning 1.02\,mm), and a relatively dense cluster of 27 neurons in the tail (all within 90\,$\mu$m of each other), see Fig.~\ref{fig:neuronsSpace} for a plot of all neurons in space.
 % <<cf. NeuronTypeStats.m to run these numbers>>
 In Fig.~\ref{fig:topology_rich}B, we plot the mean distance between all pairs of connected hubs at each degree threshold, $k$.
 Consistent with the analysis of Towlson et al. \cite{Towlson:2013gf}, we find an increase in mean hub-hub connection distance with $k$, through to the extent of the topological rich-club regime.
@@ -673,6 +698,26 @@ Taken together, our results demonstrate that hub-hub connections in \emph{C. ele
 
 % In connectomes across species and scales, degree is distributed unequally, with a small number of highly connected brain regions, known as hubs \cite{Sporns:2007ea}, that are themselves more densely connected between themselves, forming a so-called `rich club' \cite{deReus:2013cy, ZamoraLopez:2010hy, Shih:2015cu, vandenHeuvel:2012kh, vandenHeuvel:2011he}.
 % The same is true in the C. elegans neuronal nervous system, analyzed in the past as an undirected binary connectome including both chemical and electrical synapses \cite{Towlson:2013gf}, which exhibits highly connected, and densely interconnected hub neurons.
+
+% ------------------------------------------------------------------------------
+% \paragraph*{S5 Fig.}
+% {\bf Spatial distribution of rich links, and neuron types across the C. elegans nervous system. }
+\begin{figure}[h]
+\centering
+    \includegraphics[width=1\textwidth]{SpatialPlot.png}
+\caption{
+\textbf{Spatial distribution of neurons and hub-hub links across the C. elegans nervous system}.
+Neurons are colored by type:
+(i) interneuron (85 neurons, orange),
+(ii) sensory (68 neurons, blue),
+(iii) motor (108 neurons, green), or
+(iv) multiple assignments (18 neurons, yellow).
+Hub-hub links are shown, and zoom-in plots of head and tail are shown as dotted rectangles in the lower plot.
+All pairs of horizontal and vertical axes are in scale with each other.
+\label{fig:neuronsSpace}
+}
+\end{figure}
+% ------------------------------------------------------------------------------
 
 %%
 \subsection*{Coexpression and connectivity}
@@ -1313,8 +1358,8 @@ GO:0006811          & ion transport                         & 69                
 % ------------------------------------------------------------------------------
 % compare proportions for simulations to validate
 % ------------------------------------------------------------------------------
-\paragraph*{S1 Fig.}
-{\bf Comparing different coexpression measures.}
+% \paragraph*{S1 Fig.}
+% {\bf Comparing different coexpression measures.}
 \begin{figure}[h]
 \centering
     \includegraphics[width=1\textwidth]{CoexpressionMeasures.pdf}
@@ -1335,28 +1380,17 @@ By contrast, the remaining measures to show a dependence on the proportion of 1s
 \end{figure}
 
 
-\paragraph*{S2 Fig.}
-{\bf Connection probability decreases with the separation distance between neurons}
+% \paragraph*{S2 Fig.}
+% {\bf Connection probability decreases with the separation distance between neurons}
 % ------------------------------------------------------------------------------
 % <<probabilityVSdistance>>
 % ------------------------------------------------------------------------------
 \begin{figure}[h]
 \centering
-    \includegraphics[width=1\textwidth]{ConnectionProbability.pdf}
+    \includegraphics[width=1\textwidth]{connectionProportionDivision.eps}
 \caption{
-\label{fig:S_connProbability}
-\textbf{Connection probability decreases with the separation distance between neurons.}
-\textbf{A}
-We show the probability of a connection between a pair of neurons as a function of their separation distance, estimated in 10 equiprobable distance bins, demonstrating a decrease for connections within the head (`HeadHead', aqua), connections from head $\rightarrow$ tail (`HeadTail', brown) and from tail $\rightarrow$ head (`TailHead', stone blue), connections within the tail (`TailTail', red), and connections within the body (`BodyBody', dark purple).
-Connection probability in each distance bin is shown as a circle (bin centers) and a horizontal line (bin extent).
-Exponential fits (some of which appear linear across the range of the data) are shown as dotted lines.
-\textbf{B}
-Plots as in A, but for connections showing minimal distance dependence: from body $\rightarrow$ head (`BodyHead', forest green), from body $\rightarrow$ tail (`BodyTail', dirt green), connections from head $\rightarrow$ body (`HeadBody', purple), and from tail $\rightarrow$ body (`TailBody', dark brown).
-% A decreasing relationship is evident up to a separation distance of approximately 0.2\,mm (driven by tail-tail and head-head connections), with a longer-range decrease up to $\approx$0.5\,mm due to body-body connections.
-% The increase at large distances ($\approx 1$\,mm) is due to head-tail connections, which also show a decay with distance, from $\approx 1$\,mm through to $\approx$1.2\,mm.
-% connections between body and head and body and tail showed no clear distance dependence.}
-\textbf{C}
-Distribution of hub-hub connections (`rich', red), and all other connections (`non-rich', i.e., feeder and peripheral, gray) across anatomical divisions (described above), defining hubs as those with degree, $k > 41$, corresponding to the lowest threshold at which the \emph{C. elegans} connectome exhibits rich-club organization.
+\label{fig:S_connectionProportion}
+Distribution of hub-hub connections (`rich', red), and all other connections (`non-rich', i.e., feeder and peripheral, gray) across anatomical divisions (head, body, and tail), defining hubs as those with degree, $k > 41$, corresponding to the lowest threshold at which the \emph{C. elegans} connectome exhibits rich-club organization.
 The increased separation distance between hubs is driven by a relative increase in connection density between the head and tail.
 }
 \end{figure}
@@ -1366,19 +1400,18 @@ The increased separation distance between hubs is driven by a relative increase 
 % <<plot_coexpDistance.m>>
 % [[coexpressionDistance(C,G),CoExpressionDistanceDetail(C,G)]]
 % ------------------------------------------------------------------------------
-\paragraph*{S3 Fig.}
-{\bf Gene coexpression decreases with separation distance within the head and tail.}
+% \paragraph*{S3 Fig.}
+% {\bf Gene coexpression decreases with separation distance within the head and tail.}
 \begin{figure}[h]
 \centering
-    \includegraphics[width=1\textwidth]{DistanceCoexpression.pdf}
+    \includegraphics[width=1\textwidth]{coExpressionDistanceDetail.eps}
 \caption{
 \label{fig:S_distCoexp}
-\textbf{Gene coexpression decreases with separation distance within the head and tail.}
-Gene coexpression, $r_\phi$ (in all cases excluding left-right homologous pairs of neurons), is shown as a function of the pairwise separation distance between pairs of neurons (shown as the mean (solid) $\pm$ standard deviation (dotted) in seven equiprobable distance bins, with extent shown as horizontal bars), for \textbf{A} all pairs of neurons in the head, \textbf{B} all pairs of neurons in the tail, and \textbf{C} all other pairs (labeled).
-Scatters for all neuron pairs are added in \textbf{A} and \textbf{B}.
-An exponential relationship, $f(x) = A\exp(-Bx)+C$, is fitted in \textbf{A} and \textbf{B}, revealing a slight decreasing trend in $r_\phi$ with distance, as per macroscopic mammalian brains \cite{Fulcher:2016ck, Krienen:2016eq}.
-Looking within the head, we find different spatial relationships as a function of neuron type, shown for \textbf{C} pairs of interneurons, \textbf{D} pairs of motor neurons, \textbf{E} motor-interneuron pairs, \textbf{F} pairs of sensory neurons, \textbf{G} interneuron-sensory neuron pairs, and \textbf{H} motor-sensory pairs.
-[[TODO: add labels for subplots C--H, label all axes? Chenge axis label to Gene coexpression, $r_\phi$ ]]
+\textbf{Gene coexpression decreases with separation distance as a function of neuron type in the head.}
+Gene coexpression, $r_\phi$ (excluding bilateral pairs of neurons), is shown as a function of the pairwise separation distance between pairs of neurons (shown as the mean (solid) $\pm$ standard deviation (dotted) in seven equiprobable distance bins, with extent shown as horizontal bars), for: \textbf{A} pairs of interneurons, \textbf{B} pairs of motor neurons, \textbf{C} motor-interneuron neuron pairs, \textbf{D} pairs of sensory neurons, \textbf{E} interneuron-sensory neuron pairs, and \textbf{F} motor-sensory neuron pairs.
+% \textbf{A} all pairs of neurons in the head, \textbf{B} all pairs of neurons in the tail, and \textbf{C} all other pairs (labeled).
+% Scatters for all neuron pairs are added in \textbf{A} and \textbf{B}.
+% An exponential relationship, $f(x) = A\exp(-Bx)+C$, is fitted in \textbf{A} and \textbf{B}, revealing a slight decreasing trend in $r_\phi$ with distance, as per macroscopic mammalian brains \cite{Fulcher:2016ck, Krienen:2016eq}.
 }
 \end{figure}
 % ------------------------------------------------------------------------------
@@ -1387,14 +1420,14 @@ Looking within the head, we find different spatial relationships as a function o
 % ------------------------------------------------------------------------------
 % <<FeedInOutNodes.m>>
 % ------------------------------------------------------------------------------
-\paragraph*{S4 Fig.}
-{\bf Neuron properties vary in therms of their connectivity relationship to hub nodes. }
+% \paragraph*{S4 Fig.}
+% {\bf Neuron properties vary in therms of their connectivity relationship to hub nodes. }
 \begin{figure}[h]
 \centering
     \includegraphics[width=1\textwidth]{FeedInOutNodes.pdf}
 \caption{
 \textbf{Neuron properties vary in terms of their connectivity relationship to hub nodes.}
-Using a degree threshold for hubs, $k > 41$, we class all individual neurons into five mutually exclusive categories, shown schematically in the figures (for hubs, red, and nonhubs, light blue), as:
+Using a degree threshold for hubs, $k > 41$, we class all individual neurons into five mutually exclusive categories, shown schematically in the figures, for hubs (red) and nonhubs (light blue), as:
 (i) `hub' ($k>41$),
 and then classify nonhubs ($k\leq41$) as:
 (ii) `feedIn' (projects to a hub, but does not receive a projection from a hub),
@@ -1413,27 +1446,11 @@ We show the number of neurons in each of these fives classes that:
 
 
 % ------------------------------------------------------------------------------
-\paragraph*{S5 Fig.}
-{\bf Spatial distribution of rich links, and neuron types across the C. elegans nervous system. }
-\begin{figure}[h]
-\centering
-    \includegraphics[width=1\textwidth]{SpatialPlot.png}
-\caption{
-\textbf{Spatial distribution of rich links, and neuron types across the C. elegans nervous system}.
-Neurons are colored by type: interneurons (orange), sensory neurons (blue), motor neurons (green), and multimodal (yellow).
-Hub-hub links are shown, and zoom-in plots of head and tail are shown as dotted rectangles in the lower plot.
-All pairs of horizontal and vertical axes are in scale with each other.
-\label{fig:S_neuronsSpace}
-}
-\end{figure}
-% ------------------------------------------------------------------------------
-
-% ------------------------------------------------------------------------------
 % <<plot_disstributionsSUPP.m>>
 % ------------------------------------------------------------------------------
 
-\paragraph*{S6 Fig.}
-{\bf Coexpression for rich, feeder and peripheral links as a function of degree.}
+% \paragraph*{S6 Fig.}
+% {\bf Coexpression for rich, feeder and peripheral links as a function of degree.}
 \begin{figure}[h]
 \centering
     \includegraphics[width=1\textwidth]{Distributions.pdf}
@@ -1451,8 +1468,8 @@ Add $p<0.05$ values on the plot where significant.
 \end{figure}
 
 % <<networkRC.m>>
-\paragraph*{S7 Fig.}
-{\bf Weighted and mixed rich club}
+% \paragraph*{S7 Fig.}
+% {\bf Weighted and mixed rich club}
 \begin{figure}[!h]
 \label{WeightedRC}
 \centering
@@ -1470,11 +1487,11 @@ Circles indicate values of $\Phi_\mathrm{norm}$ that are significantly higher th
 }
 \end{figure}
 
+% ------------------------------------------------------------------------------
 % <<RichClub.m>>
-\paragraph*{S8 Fig.}
-{\bf Mean lineage distance as a function of degree for different link types}
+% \paragraph*{S8 Fig.}
+% {\bf Mean lineage distance as a function of degree for different link types}
 \begin{figure}[!h]
-
 \centering
     \includegraphics[width=1\textwidth]{Lineage.pdf}
     \caption{
@@ -1490,8 +1507,9 @@ Circles indicate a statistically significant increase or decrease in birth time 
 \end{figure}
 % <<RichClub.m>>
 
-\paragraph*{S9 Fig.}
-{\bf Mean birth time difference as a function of degree for different link types}
+% ------------------------------------------------------------------------------
+% \paragraph*{S9 Fig.}
+% {\bf Mean birth time difference as a function of degree for different link types}
 \begin{figure}[!h]
 \label{BirthTimesk}
 \centering
