@@ -574,7 +574,7 @@ We present our analysis in three parts:
 % ------------------------------------------------------------------------------
 % <<>>
 % ------------------------------------------------------------------------------
-\begin{figure}[t]
+\begin{figure}[h]
   \centering
     \includegraphics[width=1\textwidth]{schematic.pdf}
  \caption{\textbf{Schematic representation of the data used in this study.}
@@ -594,39 +594,45 @@ Connections are colored according to how they connect hubs ($k > 41$) and non-hu
 % ------------------------------------------------------------------------------
 
 
-\subsection*{The role of geometry on coexpression and connectivity in C. elegans}
+\subsection*{Hub connectivity in the C. elegans connectome}
 
+Recent work has shown that many aspects of connectome organization can be partially accounted for by geometric effects, in particular, a decreasing probability of connectivity between neural elements with increasing anatomical distance \cite{Henderson:2014fg, Roberts2016, Horvat:2016ia}.
+Unlike network analyses of mammalian brains, where all neurons are confined to a spatially contiguous organ, neurons of the \emph{C. elegans} nervous system are distributed throughout the entire organism, forming a dense cluster of 147 neurons in the head (all within 130\,$\mu m$), 105 sparser, mostly motor neurons (75\%) in the body (spanning 1.02\,mm), and a relatively dense cluster of 27 neurons in the tail (all within 90\,$\mu$m of each other), see Fig.~\ref{fig:neuronsSpace} for a plot of all neurons in space.
+The connection probability for pairs of neurons decays sharply as a function of the physical distance between them, excluding connections between the body and head, and between the body and tail, cf. Figs.~\ref{fig:spatialEffectsMain}A,B), mirroring recent results of mesoscale mammalian brains, in mouse \cite{Goulas:2016hr, Fulcher:2016ck}, and rodents and primates \cite{Horvat:2016ia}.
+
+% ------------------------------------------------------------------------------
+% <<plotSpatialEffectsMain.m>>
+% ------------------------------------------------------------------------------
 \begin{figure}[h]
   \centering
-    \includegraphics[width=\textwidth]{figs/SpatialEffectsMain.pdf}
+    \includegraphics[width=\textwidth]{connectionProbability.eps}
   \caption{
-\textbf{Connection probability and gene coexpression both decrease with separation distance within the head and tail.}
-\textbf{A}, \textbf{B}:
-The \emph{connection probability} for a pair of neurons as a function of their separation distance, estimated in 10 equiprobable distance bins, demonstrating a decrease for connections within the head (`HeadHead', aqua), connections from head $\rightarrow$ tail (`HeadTail', brown) and from tail $\rightarrow$ head (`TailHead', stone blue), connections within the tail (`TailTail', red), and connections within the body (`BodyBody', dark purple).
+\textbf{Connection probability decreases with separation distance within and between the head and tail, and within the body.}
+The \emph{connection probability} for a pair of neurons as a function of their separation distance, estimated in 10 equiprobable distance bins, demonstrating a decrease for connections within the head (aqua), connections from head$\rightarrow$tail (brown) and from tail$\rightarrow$head (stone blue), connections within the tail (red), and connections within the body (dark purple).
 Connection probability in each distance bin is shown as a circle (bin centers) and a horizontal line (bin extent).
 Exponential fits, $f(x) = a\exp(-bx)+c$ (some of which appear linear across the range of the data), are shown as dotted lines.
 \textbf{B}
-Plots as in \textbf{A}, but for connection classes between the body and head/tail: from body $\rightarrow$ head (`BodyHead', forest green), from body $\rightarrow$ tail (`BodyTail', dirt green), connections from head $\rightarrow$ body (`HeadBody', purple), and from tail $\rightarrow$ body (`TailBody', dark brown).
+Plots as in \textbf{A}, but for connection classes between the body and head/tail: from body$\rightarrow$head (forest green), from body$\rightarrow$tail (dirt green), connections from head $\rightarrow$ body (purple), and from tail$\rightarrow$body (dark brown).
+Apart from a small effect at short range for tail$\rightarrow$body connections, these connection classes show minimal distance dependence.
 % A decreasing relationship is evident up to a separation distance of approximately 0.2\,mm (driven by tail-tail and head-head connections), with a longer-range decrease up to $\approx$0.5\,mm due to body-body connections.
 % The increase at large distances ($\approx 1$\,mm) is due to head-tail connections, which also show a decay with distance, from $\approx 1$\,mm through to $\approx$1.2\,mm.
 % connections between body and head and body and tail showed no clear distance dependence.}
-\textbf{C}--\textbf{E}: \emph{Gene coexpression}, $r_\phi$ (excluding bilateral pairs of neurons), is shown as a function of the pairwise separation distance between pairs of neurons (shown as the mean (solid) $\pm$ standard deviation (dotted) in seven equiprobable distance bins, with extent shown as horizontal bars), for \textbf{C} all pairs of neurons in the head, \textbf{D} all pairs of neurons in the tail, and \textbf{E} all other (symmetric) neuron pairs (labeled).
-Scatters for all neuron pairs are added in \textbf{C} and \textbf{D}, as well as an exponential fit, $f(x) = a\exp(-bx)+c$, revealing a slight decreasing trend in $r_\phi$ with distance, as per macroscopic mammalian brains \cite{Fulcher:2016ck, Krienen:2016eq}.
   }
-  \label{fig:figs_SpatialEffectsMain}
+  \label{fig:spatialEffectsMain}
 \end{figure}
 
 
 %%
-\subsection*{Hub connectivity in the C. elegans connectome}
 %% INTRODUCE RICH CLUB  hene and focus on the difference between rich/feeder/peripheral links below
-[[TODO: Shorten section, focusing on reproducing Towlson]]
+% [[TODO: Shorten section, focusing on reproducing Towlson]]
 % \paragraph{Rich club organization of the connectome}
 
 % <<hubs>>
 % First, we analyze the topological properties of the \emph{C. elegans} connectome, represented here as a directed, binary connectivity matrix of 2194 chemical connections between 279 non-pharingeal neurons (1961 pairs of connected neurons) \cite{Varshney2011}, focusing particularly on hub connectivity.
 The degree distribution of the \emph{C. elegans} synaptic connectome is shown in Fig.~\ref{fig:topology_rich}A, where neurons are distinguished by type: 68 sensory neurons, 85 interneurons, 108 motor neurons, and 18 multimodal neurons.
-Consistent with previous work \cite{Towlson:2013gf}, we see a positively-skewed degree distribution containing an extended tail of high-degree hubs, the majority of which are interneurons controlling movement direction also known as command interneurons.
+Despite using a directed synaptic connectome (rather than a symmetrized version including gap junctions in Towlson et al.~\cite{Towlson:2013gf}), we see a positively-skewed degree distribution containing an extended tail of high-degree interneurons that overlap almost completely with the list of Towlson et al.~\cite{Towlson:2013gf} (the list of hub neurons for the connectome used here is in Table~\ref{tab:HubList}).
+These high-degree interneurons form the anatomical substrate for behaviors like coordinated locomotion and foraging \cite{tsalik2003}.
+% connectivity between interneurons in the rich club provides the anatomical basis for vital neuronal computation of behaviours, such as coordinated locomotion and foraging36,37. Forward and backward movements, for example, are generated in two functionally separate subsets of neurons in this core, potentially coordinated through reciprocal inhibi- tion37,44. Moreover, a study recently demonstrated that random search behaviour in the worm can be approx- imated by a connectome-based stochastic model of this circuit4
 
 % Here we confirm the high connectivity, centrality and wiring cost of hub connections in the C elegans connectome, as previoulsy shown by Towlson et al () and as also found in the macaue (Harriger) and human (van den Huevel-PNAS) brains.
 % We show RC organization... and show hubs are interneurions...
@@ -673,12 +679,14 @@ Accordingly, we define rich-club organization in relation to the sum of incoming
 % reciprocal: sum(sum(Adj & Adj'))/2 = 233
 % unidirectional: sum(sum(Adj & ~Adj')) = 1728
 % either: sum(sum(Adj | Adj'))/2 = 1961
-Despite using a different version of the connectome, we find an almost complete overlap in the list of hub neurons (listed in Table~\ref{tab:HubList}), and similar rich-club organization (shown in Fig.~\ref{fig:topology_rich}B).
-The figure shows the variation of $\Phi_\mathrm{norm}$ across a range of thresholds, $k$ (at which hubs are defined, as neurons with degree $>k$), with red circles indicating a significant increase in link density among hubs relatively to 1\,000 degree-preserving nulls (permutation test, $P < 0.05$) [[check whether randmio\_dir only preserves degree: AA - degree distributions in binary, out-strength (but not in-strength) in weighted]].
+Figure~\ref{fig:topology_rich}B shows the variation of the normalized rich-club coefficient, $\Phi_\mathrm{norm}$, across degree thresholds, $k$, at which hubs are defined (as neurons with degree $>k$), with red circles indicating a significant increase in link density among hubs relatively to 1\,000 degree-preserving nulls (permutation test, $P < 0.05$) [[check whether randmio\_dir only preserves degree: AA - degree distributions in binary, out-strength (but not in-strength) in weighted]].
 The plot reveals rich-club organization at the upper tail of the degree distribution, particularly for thresholds $41 < k < 58$, referred to here as the `topological rich-club regime', and shaded gray in Fig.~\ref{fig:topology_rich}B.
+This result is similar to prior analysis of Towlson et al. \cite{Towlson:2013gf}, despite using a directed synaptic connectome here rather than a symmetrized connectome including gap junctions.
+We also repeated the analysis with two different definitions of weighted rich-clubs [[CITE]], which also yielded similar results (shown in Fig.~\ref{fig:S_weightedRC}).
 % This indicates that when nodes are defined as hubs (degree $>\textit{k}$) in this range, they are more densely interconnected than expected by chance.
-Most of the analyses presented below examine how different topological and genomic properties vary as a function of the hub threshold, $k$, but for analyses requiring a fixed hub definition, we define hubs as the 13 neurons with $k > 41$, the lowest threshold at which we see evidence for significant rich-club organization.
-The distribution of hubs and hub-hub connections in space across the \emph{C. elegans} connectome is shown in Fig.~\ref{fig:neuronsSpace}.
+We use a hub definition in this work of $k > 41$, which corresponds to the lowest degree threshold at which the network displays significant rich-club organization (permutation test, $P < 0.05$).
+ % of the analyses presented below examine how different topological and genomic properties vary as a function of the hub threshold, $k$, but for analyses requiring a fixed hub definition, we define hubs as the 13 neurons with
+The distribution of hubs and hub-hub connections in two-dimensional space is shown in Fig.~\ref{fig:neuronsSpace}.
 
 
 % Rich club in the chemical synapse network consists of 13 high degree neurons with degree $42 \leq k \leq 98$.
@@ -687,14 +695,12 @@ The distribution of hubs and hub-hub connections in space across the \emph{C. el
 % ------------------------------------------------------------------------------
 % <<distance, geometric effects>>
 % ------------------------------------------------------------------------------
-Recent work has shown that many aspects of connectome organization can be partially accounted for by geometric effects, in particular, a decreasing probability of connectivity between neural elements with increasing anatomical distance \cite{Henderson:2014fg, Roberts2016, Horvat:2016ia}.
-Unlike network analyses of mammalian brains, where all neurons are confined to a spatially contiguous organ, neurons of the \emph{C. elegans} nervous system are distributed throughout the entire organism, forming a dense cluster of 147 neurons in the head (all within 130\,$\mu m$), 105 sparser, mostly motor neurons (75\%) in the body (spanning 1.02\,mm), and a relatively dense cluster of 27 neurons in the tail (all within 90\,$\mu$m of each other), see Fig.~\ref{fig:neuronsSpace} for a plot of all neurons in space.
 % <<cf. NeuronTypeStats.m to run these numbers>>
 In Fig.~\ref{fig:topology_rich}B, we plot the mean distance between all pairs of connected hubs at each degree threshold, $k$.
 Consistent with the analysis of Towlson et al. \cite{Towlson:2013gf}, we find an increase in mean hub-hub connection distance with $k$, through to the extent of the topological rich-club regime.
-This result can be attributed to a relative increase in long-distance hub-hub connections between the head and tail (Fig.~\ref{fig:S_connProbability}C).
-The high connection density and long mean anatomical distance of hub-hub pairs counters the general trend in the \emph{C. elegans} connectome, where the probability of connectivity between two neurons decays sharply as a function of the physical distance between them (excluding connections between the body and head, and between the body and tail, cf. Figs.~\ref{fig:S_connProbability}A,B), mirroring recent results of mesoscale mammalian brains, in mouse \cite{Goulas:2016hr, Fulcher:2016ck}, and rodents and primates \cite{Horvat:2016ia}.
-Taken together, our results demonstrate that hub-hub connections in \emph{C. elegans} are dense, and extend over significantly longer distances than other types of connections in the synaptic network of the nematode nervous system, consistent with the idea of the rich club as a central yet costly backbone for neuronal communication \cite{vandenHeuvel:2012kh}.
+This result can be attributed to a relative increase in long-distance hub-hub connections between the head and tail (Fig.~\ref{fig:S_connectionProportion}).
+The high connection density and long mean anatomical distance of hub-hub pairs counters the general trend in the \emph{C. elegans} connectome, where the probability of connectivity between two neurons decays sharply as a function their separation distance.
+Taken together, our results demonstrate that hub-hub connections in \emph{C. elegans} are dense and extend over significantly longer distances than other types of connections in the synaptic network of the nematode nervous system, consistent with the rich club forming a central yet costly backbone for neuronal communication \cite{vandenHeuvel:2012kh}.
 
 % In connectomes across species and scales, degree is distributed unequally, with a small number of highly connected brain regions, known as hubs \cite{Sporns:2007ea}, that are themselves more densely connected between themselves, forming a so-called `rich club' \cite{deReus:2013cy, ZamoraLopez:2010hy, Shih:2015cu, vandenHeuvel:2012kh, vandenHeuvel:2011he}.
 % The same is true in the C. elegans neuronal nervous system, analyzed in the past as an undirected binary connectome including both chemical and electrical synapses \cite{Towlson:2013gf}, which exhibits highly connected, and densely interconnected hub neurons.
@@ -713,7 +719,7 @@ Neurons are colored by type:
 (iii) motor (108 neurons, green), or
 (iv) multiple assignments (18 neurons, yellow).
 Hub-hub links are shown, and zoom-in plots of head and tail are shown as dotted rectangles in the lower plot.
-All pairs of horizontal and vertical axes are in scale with each other.
+In each plot, axes are to scale.
 \label{fig:neuronsSpace}
 }
 \end{figure}
@@ -1404,14 +1410,16 @@ The increased separation distance between hubs is driven by a relative increase 
 % {\bf Gene coexpression decreases with separation distance within the head and tail.}
 \begin{figure}[h]
 \centering
-    \includegraphics[width=1\textwidth]{coExpressionDistanceDetail.eps}
+    \includegraphics[width=1\textwidth]{DistanceCoexpression.pdf}
+    % \includegraphics[width=1\textwidth]{coExpressionDistanceDetail.eps}
 \caption{
 \label{fig:S_distCoexp}
-\textbf{Gene coexpression decreases with separation distance as a function of neuron type in the head.}
-Gene coexpression, $r_\phi$ (excluding bilateral pairs of neurons), is shown as a function of the pairwise separation distance between pairs of neurons (shown as the mean (solid) $\pm$ standard deviation (dotted) in seven equiprobable distance bins, with extent shown as horizontal bars), for: \textbf{A} pairs of interneurons, \textbf{B} pairs of motor neurons, \textbf{C} motor-interneuron neuron pairs, \textbf{D} pairs of sensory neurons, \textbf{E} interneuron-sensory neuron pairs, and \textbf{F} motor-sensory neuron pairs.
-% \textbf{A} all pairs of neurons in the head, \textbf{B} all pairs of neurons in the tail, and \textbf{C} all other pairs (labeled).
-% Scatters for all neuron pairs are added in \textbf{A} and \textbf{B}.
-% An exponential relationship, $f(x) = A\exp(-Bx)+C$, is fitted in \textbf{A} and \textbf{B}, revealing a slight decreasing trend in $r_\phi$ with distance, as per macroscopic mammalian brains \cite{Fulcher:2016ck, Krienen:2016eq}.
+\textbf{Gene coexpression decreases with separation distance within the head and tail.}
+Gene coexpression, $r_\phi$ (in all cases excluding left-right homologous pairs of neurons), is shown as a function of the pairwise separation distance between pairs of neurons (shown as the mean (solid) $\pm$ standard deviation (dotted) in seven equiprobable distance bins, with extent shown as horizontal bars), for \textbf{A} all pairs of neurons in the head, \textbf{B} all pairs of neurons in the tail, and \textbf{C} all other pairs (labeled).
+Scatters for all neuron pairs are added in \textbf{A} and \textbf{B}.
+An exponential relationship, $f(x) = a\exp(-bx)+c$, is fitted in \textbf{A} and \textbf{B}, revealing a slight decreasing trend in $r_\phi$ with distance, as per macroscopic mammalian brains \cite{Fulcher:2016ck, Krienen:2016eq}.
+Looking within the head, we find different spatial relationships as a function of neuron type, shown for \textbf{C} pairs of interneurons, \textbf{D} pairs of motor neurons, \textbf{E} motor-interneuron pairs, \textbf{F} pairs of sensory neurons, \textbf{G} interneuron-sensory neuron pairs, and \textbf{H} motor-sensory pairs.
+[[TODO: add labels for subplots C--H, label all axes? Change axis label to Gene coexpression, $r_\phi$ ]]
 }
 \end{figure}
 % ------------------------------------------------------------------------------
@@ -1424,7 +1432,7 @@ Gene coexpression, $r_\phi$ (excluding bilateral pairs of neurons), is shown as 
 % {\bf Neuron properties vary in therms of their connectivity relationship to hub nodes. }
 \begin{figure}[h]
 \centering
-    \includegraphics[width=1\textwidth]{FeedInOutNodes.pdf}
+    \includegraphics[width=1\textwidth]{FeedInOutNodesJustTwo.pdf}
 \caption{
 \textbf{Neuron properties vary in terms of their connectivity relationship to hub nodes.}
 Using a degree threshold for hubs, $k > 41$, we class all individual neurons into five mutually exclusive categories, shown schematically in the figures, for hubs (red) and nonhubs (light blue), as:
@@ -1436,10 +1444,10 @@ and then classify nonhubs ($k\leq41$) as:
 (v) `peripheral' (neither receives a projection from nor projects to a hub).
 We show the number of neurons in each of these fives classes that:
 \textbf{A} is an interneuron (orange), motor neuron (green), sensory neuron (blue), or multimodal (yellow),
-\textbf{B} is in the head (gray), body (purple), or tail (red),
-\textbf{C} uses one of nine neurotransmitter systems (labeled).
+% \textbf{B} is in the head (gray), body (purple), or tail (red),
+\textbf{B} uses one of nine neurotransmitter systems (labeled).
 \label{fig:S_feedInOutNodes}
-[[TODO: make this look decent -- could stretch and then put all bars into a single plot, rather than A--C. Come up with new names for nodes that don't confuse with edge names. Labels not visible for B]]
+[[TODO: Come up with new names for nodes that don't confuse with edge names. Labels not visible for B]]
 }
 \end{figure}
 % ------------------------------------------------------------------------------
@@ -1462,6 +1470,7 @@ Coexpression, $r_\phi$ is increased in connected (reciprocally and unidirectiona
 \emph{Right}: Distribution of transcriptional similarity for rich, feed-in, feed-out and peripheral links, where hubs are neurons with degree $k>41$.
 [[TODO: color inside of the distributions
 Add $p<0.05$ values on the plot where significant.
+Use mean instead of median (or use median throughout)
 ]]
 \label{fig:S_RFPdistributions}
 }
@@ -1470,20 +1479,21 @@ Add $p<0.05$ values on the plot where significant.
 % <<networkRC.m>>
 % \paragraph*{S7 Fig.}
 % {\bf Weighted and mixed rich club}
-\begin{figure}[!h]
-\label{WeightedRC}
+\begin{figure}[h]
+\label{fig:S_weightedRC}
 \centering
     \includegraphics[width=1\textwidth]{WeightedMixedRC.pdf}
-    \caption{\textbf{A} Degree distribution of the binary chemical connectome, where neurons are labeled according to four categories:
+    \caption{\textbf{A} Degree distribution of the binary synaptic connectome, where neurons are labeled according to four categories:
 (i) interneuron (85 neurons, orange),
 (ii) sensory (68 neurons, blue),
 (iii) motor (108 neurons, green), or
 (iv) multimodal (18 neurons, yellow).
 An extended tail of high-degree neurons can be seen, which are mostly interneurons.
 \textbf{B}
-Normalized weighted (topology fixed and weights randomized in the null model - orange) $\Phi_\mathrm{normWeighted}$ and mixed (both topology and weights mixed in the null model - green) $\Phi_\mathrm{normMixed}$ rich club coefficient as a function of the degree, $k$, at which hubs are defined (as neurons with degree $>k$).
-Circles indicate values of $\Phi_\mathrm{norm}$ that are significantly higher than an ensemble of 1\,000 degree-matched null networks ($P < 0.05$).
-(Welch's $t$-test, $P < 0.05$).
+Normalized weighted (topology fixed and weights randomized in the null model, shown orange) $\Phi_\mathrm{norm}^\mathrm{weighted}$ and mixed (both topology and weights mixed in the null model, shown green) $\Phi_\mathrm{norm}^\mathrm{mixed}$ rich club coefficient as a function of the degree, $k$, at which hubs are defined (as neurons with degree $>k$).
+Circles indicate values of $\Phi_\mathrm{norm}$ that are significantly higher than an ensemble of 1\,000 degree-matched null networks (Welch's $t$-test, $P < 0.05$).
+[[TODO: Change the labels within the plot for mixed and weighted as superscripts]]
+[[TODO: define/explain the two definitions and give references]]
 }
 \end{figure}
 
