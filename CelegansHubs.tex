@@ -398,10 +398,11 @@ In this section, we describe the methods used to characterize the \emph{C. elega
 \paragraph{Degree}
 Neuronal connectivity is most simply quantified by counting the number of neurons that a given neuron projects to, known as its \emph{out-degree}, $k_\mathrm{out}$, or by counting the number of neurons that a given neuron receives projections from, known as its \emph{in-degree}, $k_\mathrm{in}$.
 % The number of regions that a neuron projects to is its \emph{out-degree}, $k_\mathrm{out}$, and the number of regions that project to a given neuron is its \emph{in-degree}, $k_\mathrm{in}$.
-These quantities can be summed to give the total number of connections involving a given neuron, its \emph{degree}, $k = k_\mathrm{in} + k_\mathrm{out}$.
+These quantities can be summed to give the total number of connections involving a given neuron, its \emph{degree}, $k_\mathrm{tot} = k_\mathrm{in} + k_\mathrm{out}$.
+We refer to this total degree, $k_\tot$, as simply the degree, $k$ throughout this work.
 % Weighted analogues of these degree measures involve counting the number of synaptic connections that a neuron makes to other regions (weighted out-degree, $k^w_\mathrm{out}$), that are afferent to it (weighted in-degree, $k^w_\mathrm{in}$), or the combination, weighted degree, $k^w = k^w_\mathrm{in} + k^w_\mathrm{out}$.
 At a given degree threshold, $k$, we classified each neuron as either a `hub' (degree $>k$) or a `non-hub' (degree $\leq k$).
-All connections could subsequently be classified in terms of their source and target neurons, as either `rich' (hub $\rightarrow$ hub), `feed-in' (non-hub $\rightarrow$ hub), `feed-out' (hub $\rightarrow$ non-hub), or `peripheral' (non-hub $\rightarrow$ non-hub).
+All connections could subsequently be classified in terms of their source and target neurons, as either `rich' (hub $\rightarrow$ hub, or hub $\leftrightarrow$ hub), `feed-in' (non-hub $\rightarrow$ hub), `feed-out' (hub $\rightarrow$ non-hub), or `peripheral' (nonhub $\rightarrow$ nonhub, or nonhub $\leftrightarrow$ nonhub).
 Note that the directed connectivity information here has allowed us to distinguish `feeder' connections as either `feed-in' or `feed-out', rather than grouping them as `feeder', as is necessary in undirected connectomes.
 % For simplicity, hub $\rightarrow$ non-hub and non-hub $\rightarrow$ hub connections were grouped as a single `feeder' category for simplicity.
 
@@ -453,6 +454,7 @@ Note that the data do not distinguish: (i) ``gene is not expressed'' and (ii) ``
 Expression annotations can be represented as a binary $N \times G$ matrix, containing $N=279$ neurons, and $G = 948$ genes (the total number of genes that were expressed in at least one neuron).
 This matrix is plotted in Fig.~\ref{fig:SchematicRepresentation}B.
 Expression data is sparse, in part due to incomplete annotation data: an average of 30 genes are expressed in each neuron (range: 3 to 138 genes), and each gene is expressed in an average of 9 neurons (range: 1 to 148 neurons).
+% gData = [G.GeneExpData.Direct]; unique(sum(gData,1)), unique(sum(gData,2))
 
 Compared to continuous expression measurements of over 17\,000 genes in the mouse brain \cite{Lein:2007jn}, or over 20\,000 genes in the human brain \cite{Hawrylycz:2012ky}, which permit more detailed analysis \cite{Fulcher:2016ck, Ji:2014jw, Fakhry:2015kl, French2011, Vertes2016a, Parkes:2017dn}, the key challenges of working with these expression data are:
 (i) incomplete ($<5$\%) coverage of the full worm genome (which contains over 20\,000 protein-coding genes \cite{Harris:2009kd}),
@@ -463,6 +465,19 @@ Compared to continuous expression measurements of over 17\,000 genes in the mous
 % METHODS: gene coexpression
 \subsection*{Gene coexpression}
 Our primary aim in this work is to understand how patterns of expression across 948 genes in individual neurons (e.g., rows of Fig.~\ref{fig:SchematicRepresentation}B) are related to pairwise patterns of neuron-to-neuron connectivity.
+To relate our measure of gene expression for individual neurons to measures of coupled expression for pairs of neurons, we required a similarity measure for pairs of neurons that captures the probability of patterns of binary gene expression matching.
+Existing measures of binary correlation, , are symmetric between 0s and 1s, however, the gene expression data used here are sparse, with a only minority (up to a maximum of 15\%) of genes expressed in any single neuron.
+We thus required a measure that was not be biased by simple variations in the number of non-zero elements in one (or both) of the expression vectors.
+We also wanted a measure that distinguishes biologically relevant cases where genes are expressed together, $n_{11}$, from the dominant case where a gene is not expressed in both neurons, $n_{00}$.
+To this end, we developed a new index based around that probability, $P(m)$, that two binary strings will contain $m$ `positive matches' (i.e., matching 1 with 1),
+\begin{equation} \label{eqn:positiveMatch}
+    P(m) = \binom{n_2}{m} \binom{N-n_2}{n_1-m} / \binom{N}{n_1},
+\end{equation}
+for two binary expression vectors, $x_i$, $y_i$, of length $N$, containing $n_1$ and $n_2$ 1s, respectively ($n_2 \leq n_1$), with $m$ matches ($n_{11}$).
+Our index, $r_\xi$, computes the probability of at least this many matches as $r_\xi = 1 - \sum_{x=0}^{m-1} P(x)$.
+This showed ([[biases?]]) which gave similar results [[TODO: check that behavior is indeed similar]].
+
+
 To relate our measure of gene expression for individual neurons to measures of coupled expression for pairs of neurons, we computed the similarity in gene expression profiles between a pair of neurons, $(i,j)$, using a binary analogue of the linear Pearson correlation coefficient, the mean square contingency coefficient, $r_\phi$ \cite{Warrens2008},
 \begin{equation} \label{eq:rphi}
     r_\phi = \frac{n_{11}n_{00} - n_{10}n_{01}}{\sqrt{n_{1\bullet}n_{0\bullet}n_{\bullet 0}n_{\bullet 1}}},
@@ -481,12 +496,12 @@ The 92 bilateral pairs of neurons (e.g., AVAL/AVAR, CEPVL/CEPVR, etc.) mostly ex
 % [[CODE used - testLeftRightCoexpression.m. Distribution for these links is not normal. Median is 1;]]
 To ensure that our analyses are not influenced by the high coexpression between bilateral pairs of neurons of the same class, we excluded coexpression values of bilateral pairs of neurons from all coexpression analyses.
 
-\paragraph{Spatial dependencies}
+\paragraph{Spatial dependency}
 Previous work has emphasized the importance of spatial effects in driving patterns of gene expression, whereby more proximal brain areas typically exhibit more similar gene expression patterns than more distant brain areas \cite{Krienen2016, Fulcher:2016ck, Pantazatos:2016ir, Richiardi:2017hb}.
-Connection probability depends on spatial separation in mammalian brains \cite{Henderson:2014fg, Horvat:2016ia, Wang:2016gg, Markov:2013jo}, and in \emph{C. elegans} \cite{Azulay:2016cg}.
-To ensure that relationships between connectivity and gene expression are not driven by their mutual spatial dependency, it was thus important to understand spatial effects.
+Connection probability depends on spatial separation in mammalian brains \cite{Henderson:2014fg, Horvat:2016ia, Wang:2016gg, Markov:2013jo}, and in \emph{C. elegans} (cf. Fig.~S1 of \cite{Azulay:2016cg}), and delineated by anatomical connection types here (Fig.~\ref{fig:S_connProbability}A,B).
+% The probability of a pair of neurons being connected decreases as a function of their separation distance for connections within the head, connections within the tail, connections within the body, and connections between the head and tail
+To ensure that relationships between connectivity and gene expression are not driven by their mutual spatial dependency, it was thus important to understand any spatial dependency of gene coexpression, $r_\phi$.
 
-The probability of a pair of neurons being connected decreases as a function of their separation distance for connections within the head, connections within the tail, connections within the body, and connections between the head and tail (cf. Fig.~\ref{fig:S_connProbability}A,B).
 Gene coexpression, $r_\phi$, also decreases slightly with separation distance for the spatially close networks of neurons within the head (Fig.~\ref{fig:S_distCoexp}A) and within the tail (Fig.~\ref{fig:S_distCoexp}B) of \emph{C. elegans}, but not for pairs of neurons involving the body (Fig.~\ref{fig:S_distCoexp}C).
 [[TODO: Add some interpretation in terms of the function of body neurons as potentially distinct from those in the head and tail?]].
 Within the head, a decreasing (approximately exponential) underlying trend could be seen for pairs interneurons, pairs of sensory neurons, pairs of motor neurons, and motor-interneuron pairs (Figs~\ref{fig:S_distCoexp}D--H).
@@ -713,6 +728,8 @@ Taken together, our results demonstrate that hub-hub connections in \emph{C. ele
     \includegraphics[width=1\textwidth]{SpatialPlot.png}
 \caption{
 \textbf{Spatial distribution of neurons and hub-hub links across the C. elegans nervous system}.
+Neurons are positioned along the Posterior (P)-Anterior (A) (horizontal), and Ventral (V)--Dorsal (D) (vertical) axes.
+% Definitions of posterior/anterior/ventral/dorsal from Varier.
 Neurons are colored by type:
 (i) interneuron (85 neurons, orange),
 (ii) sensory (68 neurons, blue),
@@ -843,7 +860,7 @@ Thus, the increase in coexpression amongst hub interneurons is not simply due to
 \paragraph{Modular organization}
 The \emph{C. elegans} synaptic nervous system has a modular organization, in which subsets of neurons show dense interconnectivity \cite{Kim2014, Bassett2010}, or exhibit similar connectivity patterns to each other \cite{Achacoso:1992ay, Pavlovic2014}.
 % , which can correspond to specific functional circuits
-A common assumption is that connectome modules correspond to functionally specialized systems and it is therefore plausible that neurons belonging to the same module might exhibit similar gene expression patterns, as has been shown at the level of macroscopic regions in the human brain \cite{Richiardi2015}.
+A common assumption is that connectome modules correspond to functionally specialized systems and it is therefore plausible that neurons belonging to the same module might exhibit similar gene expression patterns, as has been shown for macroscopic functional networks in the human brain \cite{Richiardi2015}.
 Brain network hubs generally participate in multiple modules \cite{vandenHeuvel:2013ij, deReus:2014cz}, and their dense rich-club connectivity implies that they even form their own module that overlaps with other, more specialized systems \cite{Fornito:2015dq, deReus:2013cy, ZamoraLopez:2010hy}.
 Here we sought to determine whether our finding of increased coexpression between pairs of hub neurons in the \emph{C. elegans} connectome can be explained by its modular organization.
 % , driven by the characteristic gene expression of that module.
@@ -918,8 +935,9 @@ Neuron indicators are shown to the left:
 
 \paragraph{Birth time}
 The genesis of neurons in the \emph{C. elegans} nervous system is separated into two distinct time periods: before hatching (birth time $<550$ min) and after hatching (birth time $>1200$ min), with no neurons formed during intermediate times \cite{Varier2011}.
+Differences in birth times between pairs of neurons are dominated by the differences between these two temporal clusters of neuron birth.
 % with an around 700min gap between them when no neurons are formed.
-Because all \emph{C. elegans} hub neurons are born prior to hatching \cite{Varier2011, Towlson2013}, and neurons with similar birth times may share connectivity and other properties, we investigated whether the increase in coexpression between hub neurons is influenced by similarity in their birth time.
+Because all \emph{C. elegans} hub neurons are born prior to hatching \cite{Varier2011, Towlson2013}, and neurons both at similar times may share connectivity and other properties \cite{Schroter:2017eo}, we investigated whether the increase in coexpression between hub neurons is influenced by similarity in their birth time.
 To test this hypothesis, we focused on 201 neurons (13 hub and 188 nonhub neurons) born prior to hatching (birth time $<550$\,min) to see whether connections between hub neurons displayed increased coexpression relative to other types of connections between neurons born during this early developmental phase.
 As shown in Fig.~\ref{fig:OtherInfluences}D, even among early-born neurons, connections between hubs (rich) show significantly increased coexpression compared to all other connections (non-rich: feed-in, feed-out, peripheral, $P < 10^{-30}$, Wilcoxon rank sum test).
 Hub neurons are thus distinctively similar in their expression patterns, even amongst early-born neurons.
@@ -930,7 +948,7 @@ Hub neurons are thus distinctively similar in their expression patterns, even am
 % sum(C.BirthTime<550 & k<=41) = 188
 
 \paragraph{Lineage distance}
-[[TODO(AF->AA): should first characterise general relationship between lineage and coexpression, and then address hub effect]]
+[[TODO(AF->AA): should first characterize general relationship between lineage and coexpression, and then address hub effect]]
 The lineage distance for a pair of cells is defined as the sum of total divisions that have taken place since the most recent common ancestor cell \cite{Pavlovic:2014gx, Sulston1977, Sulston1983}.
 Lineage presents another source of information about the genetic makeup of the \textit{C. elegans} nervous system [[WHY? Give subtlety from the Schr\"oter review article]] that could influence the observed increase in coexpression between hub neurons.
 It may be the case, for example, that hub neurons are derived from similar cell lines, which may drive their increased coexpression.
@@ -1177,17 +1195,6 @@ Jaccard index, $n_{11}/(n_{10}+n_{01}+n_{11})$,
 Yule's Q coefficient, $(n_{00}n_{11} - n_{01}n_{10})/(n_{00}n_{11} + n_{01}n_{10})$,
 and the $\chi^2$ index, $N (n_{00}n_{11} - n_{01}n_{10})/(n_{1\bullet}n_{0\bullet}n_{\bullet 0}n_{\bullet 1})$ \cite{Kaufman2006}, where $n_{xy}$ counts the number of observations of each of the four binary pairwise possibilities: $n_{00}$, $n_{01}$, $n_{10}$, and $n_{11}$ (as outlined in the main text), while the symbol $\bullet$ sums across a given variable (e.g., $n_{\bullet 0} = n_{00} + n_{10}$).
 % and Simple matching coefficients [[TODO: define and give reference]],
-
-All of these standard measures are symmetric between 0s and 1s, however, the gene expression data used here are sparse, with a only minority (up to a maximum of 15\%) of genes expressed in any single neuron.
-We thus required a measure that was not be biased by simple variations in the number of non-zero elements in one (or both) of the expression vectors.
-We also wanted a measure that distinguishes biologically relevant cases where genes are expressed together, $n_{11}$, from the dominant case where a gene is not expressed in both neurons, $n_{00}$.
-To this end, we developed a new index based around that probability, $P(m)$, that two binary strings will contain $m$ `positive matches' (i.e., matching 1 with 1),
-\begin{equation} \label{eqn:positiveMatch}
-    P(m) = \binom{n_2}{m} \binom{N-n_2}{n_1-m} / \binom{N}{n_1},
-\end{equation}
-for two binary expression vectors, $x_i$, $y_i$, of length $N$, containing $n_1$ and $n_2$ 1s, respectively ($n_2 \leq n_1$), with $m$ matches ($n_{11}$).
-Our index, $r_\xi$, computes the probability of at least this many matches as $r_\xi = 1 - \sum_{x=0}^{m-1} P(x)$.
-This showed ([[biases?]]) which gave similar results [[TODO: check that behavior is indeed similar]].
 
 Given the sparsity of expression annotation in the data analyzed here, we performed numerical tests to ensure that the coexpression measure used here was not highly sensitive to the proportion of genes expressed in each neuron (i.e., that there was no systematic bias in coexpression with the number of expressed genes in each neuron).
 To evaluate each measure, we generated random binary vectors of length 948 containing different proportions of 1s seen in our data, ranging from the minimum, 1, to a maximum, 150, [[Is this actually the max in our data?]].
