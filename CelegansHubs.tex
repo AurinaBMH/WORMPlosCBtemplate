@@ -360,10 +360,10 @@ To avoid any possible differences in gene expression between chemical synapses a
 Note that previous work has used different processed versions of this data, including just synaptic connections as here (e.g., following thresholding \cite{Kashtan:2004ev}), a combination of synaptic connections and gap junctions together \cite{Azulay:2016cg, Kim:2016gl}, or combining synaptic and gap junctions and then symmetrizing unidirectional synaptic connections to be bidirectional \cite{Towlson:2013gf, Kim:2014bu, Pavlovic:2014gx}.
 [[TODO: Some statement that our core results hold for different representations of the neuronal connectome]].
 
-Two dimensional spatial coordinates for neurons were obtained as \texttt{celegans277.mat} from \url{www.biological-networks.org/?page_id=25} \cite{choe2004}.
+Two dimensional spatial coordinates for neurons were obtained as \texttt{celegans277.mat} from \url{www.biological-networks.org/?page_id=25} \cite{choe2004network}.
 % 277 neurons (including VC6, which makes connections only through neuro-muscular junctions) [[TODO: Aurina, why mention this? AA - this neuron doesn't have obvious connections, therefore not included in the connectome, but we have coordinates for it, otherwise, numbers do not add]])
-Coordinates for three neurons (AIBL, AIYL, SMDVL) were missing in this dataset, and were reconstructed by assigning identical two-dimensional positions to the bilateral neurons (AIBR, AIYR, SMDVR) \cite{Varier2011}.
-[[TODO: Should we infer 3-d coordinates as Varier do, in order to make distances better behaved??]].
+Coordinates for three neurons (AIBL, AIYL, SMDVL) were missing in this dataset, and were reconstructed by assigning identical coordinates to the corresponding bilateral neurons (AIBR, AIYR, SMDVR) \cite{Varier2011}.
+% [[TODO: Should we infer 3-d coordinates as Varier do, in order to make distances better behaved??]].
 
 % The C. elegans nervous system consists of two distinct parts: a small pharyngeal nervous system (20 neurons), responsible for  the feeding behavior of the animal and a large somatic nervous system (282 neurons).
 
@@ -381,7 +381,7 @@ These annotations were assigned to individual neurons using the anatomical hiera
 % RetreiveHierarchy.py, NeuronRegionFinder.m
 Note that twelve head neurons (ALA, AVFL, AVFR, AVG, RIFL, RIFR, RIGL, RIGR, SABD, SABVL, SABVR, SMDVL) were not labeled as `head' on WormBase, but were manually corrected by us, by matching the assignment against the annotations provided at WormAtlas \cite{WormAtlas}.
 % [[TODO: how and where from hierarchy file was downloaded?]]% RetreiveHierarchy.py, NeuronRegionFinder.m
-The neurotransmitter systems used by each neuron was labeled by matching to data in Table 2 of Pereira et al. \cite{Pereira:2015er}.
+The neurotransmitter systems used by each neuron was labeled by matching to data in Table 2 of Pereira et al.~\cite{Pereira:2015er}.
 % to label the neurotransmitter type of all neurons.
 % in the hermaphrodite C. elegans nervous system has been mapped, revealing the dominance of cholinergic signaling \cite{Pereira:2015er}.
 Lineage similarity for all pairs of neurons was obtained from previously published embryonic and post-embryonic lineage trees \cite{Sulston1977, Sulston1983}; data were downloaded from WormAtlas (\url{http://www.wormatlas.org/neuronalwiring.html#Lineageanalysis}) \cite{WormAtlas}.
@@ -399,7 +399,7 @@ In this section, we describe the methods used to characterize the \emph{C. elega
 Neuronal connectivity is most simply quantified by counting the number of neurons that a given neuron projects to, known as its \emph{out-degree}, $k_\mathrm{out}$, or by counting the number of neurons that a given neuron receives projections from, known as its \emph{in-degree}, $k_\mathrm{in}$.
 % The number of regions that a neuron projects to is its \emph{out-degree}, $k_\mathrm{out}$, and the number of regions that project to a given neuron is its \emph{in-degree}, $k_\mathrm{in}$.
 These quantities can be summed to give the total number of connections involving a given neuron, its \emph{degree}, $k_\mathrm{tot} = k_\mathrm{in} + k_\mathrm{out}$.
-We refer to this total degree, $k_\tot$, as simply the degree, $k$ throughout this work.
+We refer to this total degree, $k_\mathrm{tot}$, as simply the degree, $k$ throughout this work.
 % Weighted analogues of these degree measures involve counting the number of synaptic connections that a neuron makes to other regions (weighted out-degree, $k^w_\mathrm{out}$), that are afferent to it (weighted in-degree, $k^w_\mathrm{in}$), or the combination, weighted degree, $k^w = k^w_\mathrm{in} + k^w_\mathrm{out}$.
 At a given degree threshold, $k$, we classified each neuron as either a `hub' (degree $>k$) or a `non-hub' (degree $\leq k$).
 All connections could subsequently be classified in terms of their source and target neurons, as either `rich' (hub $\rightarrow$ hub, or hub $\leftrightarrow$ hub), `feed-in' (non-hub $\rightarrow$ hub), `feed-out' (hub $\rightarrow$ non-hub), or `peripheral' (nonhub $\rightarrow$ nonhub, or nonhub $\leftrightarrow$ nonhub).
@@ -476,7 +476,6 @@ To this end, we developed a new index based around that probability, $P(m)$, tha
 for two binary expression vectors, $x_i$, $y_i$, of length $N$, containing $n_1$ and $n_2$ 1s, respectively ($n_2 \leq n_1$), with $m$ matches ($n_{11}$).
 Our index, $r_\xi$, computes the probability of at least this many matches as $r_\xi = 1 - \sum_{x=0}^{m-1} P(x)$.
 This showed ([[biases?]]) which gave similar results [[TODO: check that behavior is indeed similar]].
-
 
 To relate our measure of gene expression for individual neurons to measures of coupled expression for pairs of neurons, we computed the similarity in gene expression profiles between a pair of neurons, $(i,j)$, using a binary analogue of the linear Pearson correlation coefficient, the mean square contingency coefficient, $r_\phi$ \cite{Warrens2008},
 \begin{equation} \label{eq:rphi}
@@ -764,14 +763,14 @@ However, unlike in the mouse brain, we found no differences in gene coexpression
  \caption{{\bf Gene coexpression varies as a function of connectedness and connection type, with the highest coexpression for connections involving hubs.}
 \textbf{A} Distribution of transcriptional similarity between connected and unconnected pairs of neurons as a violin plot, with the mean of each distribution represented by a horizontal line.
 Note that connections between bilateral pairs of neurons display high transcriptional similarity and are excluded from this analysis, leaving 1\,940 connected pairs (1\,961 - 21) and 36\,749 unconnected pairs (36\,820 - 71).
-Coexpression, $r_\phi$ is increased in connected compared to unconnected pairs of neurons ($P < 10^{-50}$, Wilcoxon rank sum test).
+Coexpression, $r_\phi$, is increased in connected compared to unconnected pairs of neurons ($P < 10^{-50}$, Wilcoxon rank sum test).
 \textbf{B}
 \emph{Top}: Degree distribution, $k$, of the \emph{C. elegans} synaptic connectome.
 \emph{Middle}: proportion of connections that are `rich' (hub$\rightarrow$hub, red), `feed-in' (nonhub$\rightarrow$hub, yellow), `feed-out' (hub$\rightarrow$nonhub, orange), and `peripheral' (nonhub$\rightarrow$nonhub, blue) as a function of the degree threshold, $k$, used to define hubs.
 Note that at high $k$, most neurons are labeled as nonhubs, and hence the vast majority of connections are `peripheral'.
 \emph{Bottom}: Mean gene coexpression, $r_\phi$, for each connection type as a function of $k$.
 The mean coexpression across all network links is shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. Fig.~\ref{fig:topology_rich}) is shaded gray.
-Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (one-sided Welch’s t test; $P < 0.05$).
+Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (one-sided Welch's $t$-test; $P < 0.05$).
 [[TODO: fonts are small, and inconsistent sizes between subplots.
 I think we should crop the curves when there are fewer than X connections remaining -- in this case it's a bit ridiculous to show that constant feed-out/feed-in/peripheral coexpression when there are only two neurons
 left as hubs]]
@@ -883,7 +882,7 @@ This result is not due to our use of the Louvain community detection algorithm, 
 % CoexpressionDistributionsModules(C,G,'intraInter',true,'ERMM');
 Focusing on pairs of neurons within the same module, we found that coexpression was higher for connected pairs of hubs than connected pairs of nonhubs, as shown in Fig.~\ref{fig:OtherInfluences}C ($p = 4.4\times 10^{-29}$, Wilcoxon rank sum test).
 % CoexpressionDistributionsModules(C,G,'hubIntra',true,'consensus');
-We also computed an empirical null distribution for the mean coexpression across random sets of 55 intramodular and 2 intermodular links by taking 1\,000 random samples from these two link types across the network, yielding a null $r_\phi$ of $0.13 \pm 0.02$, compared to the observed value of $0.51$ ($p < 10^{-16}$).
+We also computed an empirical null distribution for the mean coexpression across random sets of 55 intramodular and two intermodular links by taking 1\,000 random samples from these two link types across the network, yielding a null $r_\phi$ of $0.13 \pm 0.02$, compared to the observed value of $0.51$ ($p < 10^{-16}$).
 The increase in hub-hub coexpression is thus not driven by a general increase of coexpression for pairs of neurons within the same topological module.
 % Coexpression within modules did not exceed coexpression between modules, demonstrating that neurons that belong to the same module do not share any particular genetic similarity.
 % The increased coexpression in connected pairs of hubs in \emph{C. elegans} can therefore not be attributed to the modular organization of the connectome.
@@ -927,7 +926,7 @@ Neuron indicators are shown to the left:
 %\textbf{D: Coexpression for different types of neurons. }
 %Top: Median gene coexpression as a function of degree for connections involving different types of neurons.
 %Bottom: The number of connections in each category for a range of degrees.
-%Coexpression distributions for hub and non-hub interneurons. \\
+%Coexpression distributions for hub and non-hub interneurons.\\
 }
  \label{fig:OtherInfluences}
 \end{figure}
@@ -952,13 +951,16 @@ Hub neurons are thus distinctively similar in their expression patterns, even am
 The lineage distance for a pair of cells is defined as the sum of total divisions that have taken place since the most recent common ancestor cell \cite{Pavlovic:2014gx, Sulston1977, Sulston1983}.
 Lineage presents another source of information about the genetic makeup of the \textit{C. elegans} nervous system [[WHY? Give subtlety from the Schr\"oter review article]] that could influence the observed increase in coexpression between hub neurons.
 It may be the case, for example, that hub neurons are derived from similar cell lines, which may drive their increased coexpression.
-However, as shown in Fig.\ref{fig:OtherInfluences}E, there is no significant difference in lineage distance between rich and non-rich connections ($P = 0.23$, Wilcoxon rank sum test).
+However, as shown in Fig.~\ref{fig:OtherInfluences}E, there is no significant difference in lineage distance between rich and non-rich connections ($P = 0.23$, Wilcoxon rank sum test).
 We thus cannot attribute the transcriptional similarity of connected hub neurons to their close lineage relationship.
 
 [[not sure this is relevant/fits the story. Could remove:]]\\
 Looking closer, we find that lineage distance increases with degree for feeder links while no significant change is observed for rich links (Fig.~\ref{fig:Lineagek}).
 This finding suggests that hub and nonhub neurons have a higher lineage distance for high thresholds of $k$, i.e., when so-called hubs actually have high degree. 
 In contrast, peripheral links manifest consistently lower lineage distance through the range of degree thresholds (Fig.~\ref{fig:Lineagek}).
+
+\paragraph{Neurotransmitter system}
+
 
 \subsection*{Functional enrichment}
 
@@ -1114,7 +1116,7 @@ LIMITATIONS:
 
 % Binary expression data
 Compared to continuous expression information provided from techniques like RNA sequencing, \emph{in situ} hybridization, or microarray with whole-brain coverage using a systematic experimental procedure \cite{Lein:2007jn, Shen:2012ua, Tasic:2016jp}, the data analyzed here presents numerous challenges.
-With access to only a relatively limited coverage of the genome (948 out of >19 000 genes \cite{Hillier2005} annotated in the current dataset) [[TODO: how many worm genes in total? Add proportion of worm genes represented ``19,735 protein-coding genes—with >90\% directly supported by experimental evidence—and >1300 noncoding RNA genes \cite{Hillier2005}'']], the enrichment results provided here are severely constrained in scope.
+With access to only a relatively limited coverage of the genome (948 out of $>$19 000 genes \cite{Hillier2005} annotated in the current dataset) [[TODO: how many worm genes in total? Add proportion of worm genes represented ``19,735 protein-coding genes—with $>$90\% directly supported by experimental evidence—and $>$1300 noncoding RNA genes \cite{Hillier2005}'']], the enrichment results provided here are severely constrained in scope.
 Further, using the current data, we are unable to distinguish expression levels between neurons that express a given gene, and we are unable to distinguish missing data, from negative data (both are represented as `0' in our data).
 Future work systematically mapping gene expression in a unified experimental paradigm would allow a more subtle and comprehensive analysis of gene expression and function.
 
@@ -1217,7 +1219,7 @@ Based on these numerical experiments, we selected Pearson's mean square continge
 \centering
 \caption{Hub neurons of the \textit{C. elegans} connectome. 
 Hubs are defined as neurons with $k>41$.
-For each hub, we list the neuron name, degree, k, location and function. 
+For each hub, we list the neuron name, degree, $k$, location, and function. 
 Entries have been sorted (descending) by degree.}
 \label{tab:HubList}
 \begin{tabular}{lll}
@@ -1380,7 +1382,7 @@ GO:0006811          & ion transport                         & 69                
 \label{fig:S_propOnes}
 \textbf{Dependence of binary coexpression metrics on the proportion of positive annotations.}
 % Given the sparse binary annotation of genes to neurons, we investigated bias in each measure across 1\,000 pairs of random binary vectors, each with a fixed proportion of ones.
-Shown here is the mean correlation between pairs of random, binary vectors of length 948, with different proportions of 1s (between 0--0.16; matrix size is 150x150, therefore the number of ones ranges from 1 to 150).
+Shown here is the mean correlation between pairs of random, binary vectors of length 948, with different proportions of 1s (between 0--0.16; matrix size is 150$\times$150, therefore the number of ones ranges from 1 to 150).
 Each point is averaged over 1\,000 different pairs of random vectors (or just 100 runs in the case of the positive match measure, which is more computationally intensive to compute).
  % for 948-long vectors with between 0--0.16 proportion of ones (matrix size is 150x150, therefore the number of ones ranges from 1 to 150).
 Bias is indicated by a systematic trend in correlation values, driven simply by the proportion of positive annotations for a pair of vectors.
