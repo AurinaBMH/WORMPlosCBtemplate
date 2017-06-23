@@ -658,7 +658,7 @@ These high-degree interneurons form the anatomical substrate for behaviors like 
 % ------------------------------------------------------------------------------
 \begin{figure}[h]
    \centering
-    \includegraphics[width=0.9\textwidth]{topology_rich.pdf}
+    \includegraphics[width=0.9\textwidth]{topologicalRCall.pdf}
     % \includegraphics[width=0.7\textwidth]{RCcurve.eps}
  \caption{\textbf{Rich-club organization of the connectome}.
 % A: Topological rich-club. B: Mixed rich-club. C: Weighted rich-club.
@@ -759,7 +759,7 @@ However, unlike in the mouse brain, we found no differences in gene coexpression
 % ------------------------------------------------------------------------------
  \begin{figure}[h]
  \centering
-    \includegraphics[width=1\textwidth]{MeanCoexpression.pdf}
+    \includegraphics[width=1\textwidth]{MeanCoexpressionALL.pdf}
  \caption{{\bf Gene coexpression varies as a function of connectedness and connection type, with the highest coexpression for connections involving hubs.}
 \textbf{A} Distribution of transcriptional similarity between connected and unconnected pairs of neurons as a violin plot, with the mean of each distribution represented by a horizontal line.
 Note that connections between bilateral pairs of neurons display high transcriptional similarity and are excluded from this analysis, leaving 1\,940 connected pairs (1\,961 - 21) and 36\,749 unconnected pairs (36\,820 - 71).
@@ -835,7 +835,7 @@ The plot shows that the increase in hub-hub gene coexpression with degree is dri
 % ------------------------------------------------------------------------------
 \begin{figure}[h]
 \centering
-   \includegraphics[width=1\textwidth]{DegreeType.pdf}
+   \includegraphics[width=1\textwidth]{DegreeTypeALL.pdf}
  \caption{
 \textbf{The increase in coexpression with degree is specific to high-degree interneurons, and hub interneurons have higher coexpression than nonhub interneurons.}
 \textbf{A} \emph{Top}: The number of connections involving interneurons (orange), sensory neurons (blue), and motor neurons (green) across degree threshold, $k$ represented as $log_{10}$(number of links).
@@ -896,7 +896,7 @@ The increase in hub-hub coexpression is thus not driven by a general increase of
 % ------------------------------------------------------------------------------
 \begin{figure}[!h]
 \centering
-    \includegraphics[width=1\textwidth]{extras.pdf}
+    \includegraphics[width=1\textwidth]{extrasALL.pdf}
  \caption{
  \textbf{Increased coexpression of hub neurons is not driven by their membership of similar topological modules, similar birth times, or lineage distance.}
 %\textbf{A: Connection distance}
@@ -1224,20 +1224,23 @@ Entries have been sorted (descending) by degree.}
 \label{tab:HubList}
 \begin{tabular}{lll}
 \hline
-\textbf{Neuron} & \textbf{Degree, $k$} & \textbf{Function}                                                     \\ \hline
-AVAR   & 98        & Head interneuron, role in locomotor decisions                \\
-AVAL   & 90        & Head interneuron, role in locomotor decisions                \\
-AVBL   & 60        & Head interneuron, role in locomotor decisions                \\
-PVCL   & 59        & Tail interneuron, role in locomotor decisions                \\
-PVCR   & 58        & Tail interneuron, role in locomotor decisions                \\
-AVDR   & 57        & Head interneuron, role in locomotor decisions                \\
-DVA    & 54        & Tail sensory interneuron, role in mechanosensory integration \\
-AVBR   & 53        & Head interneuron, role in locomotor decisions                \\
-AVEL   & 52        & Head interneuron, role in locomotor decisions                \\
-AVER   & 51        & Head interneuron, role in locomotor decisions                \\
-AVDL   & 46        & Head interneuron, role in locomotor decisions                \\
-RIAR   & 44        & Head interneuron                                             \\
-RIAL   & 42        & Head interneuron                                             \\ \hline
+\textbf{Neuron} & \textbf{Degree, $k$} & \textbf{Function}                         \\ \hline
+AVAR   & 137        & Head interneuron, role in locomotor decisions                \\
+AVAL   & 134        & Head interneuron, role in locomotor decisions                \\
+AVBR   & 104        & Head interneuron, role in locomotor decisions                \\
+AVBL   & 102        & Head interneuron, role in locomotor decisions                \\
+PVCR   & 69         & Tail interneuron, role in locomotor decisions                \\
+PVCL   & 64         & Tail interneuron, role in locomotor decisions                \\
+AVDR   & 63         & Head interneuron, role in locomotor decisions 				\\
+AVER   & 63         & Head interneuron, role in locomotor decisions                \\
+AVEL   & 62         & Head interneuron, role in locomotor decisions                \\
+DVA    & 59         & Head interneuron, mechanosensory integration                \\
+RIBL   & 56         & Head interneuron                							\\
+AVKL   & 53         & Head interneuron                                             \\
+AVDL   & 52         & Head interneuron, role in locomotor decisions                 \\ 
+RIBR   & 52         & Head interneuron                                             \\
+AIBR   & 49         & Head interneuron                                             \\
+RIGL   & 49         & Head interneuron                                             \\\hline
 \end{tabular}
 \end{table}
 
@@ -1470,7 +1473,7 @@ We show the number of neurons in each of these fives classes that:
 % {\bf Coexpression for rich, feeder and peripheral links as a function of degree.}
 \begin{figure}[h]
 \centering
-    \includegraphics[width=1\textwidth]{Distributions.pdf}
+    \includegraphics[width=1\textwidth]{distributionsALL.pdf}
     \caption{
 \textbf{Coexpression for different types of connectome edges.}
 \emph{Left}: Distribution of transcriptional similarity between reciprocally connected (219 pairs), unidirectionally connected (1\,721) and  and unconnected (36\,749 pairs) pairs of neurons as a violin plot, with the median of each distribution shown as a horizontal line.
@@ -1491,7 +1494,7 @@ Use mean instead of median (or use median throughout)
 \begin{figure}[h]
 \label{fig:S_weightedRC}
 \centering
-    \includegraphics[width=1\textwidth]{WeightedMixedRC.pdf}
+    \includegraphics[width=1\textwidth]{weightedRCALL.pdf}
     \caption{\textbf{A} Degree distribution of the binary synaptic connectome, where neurons are labeled according to four categories:
 (i) interneuron (85 neurons, orange),
 (ii) sensory (68 neurons, blue),
@@ -1512,7 +1515,7 @@ Circles indicate values of $\Phi_\mathrm{norm}$ that are significantly higher th
 % {\bf Mean lineage distance as a function of degree for different link types}
 \begin{figure}[!h]
 \centering
-    \includegraphics[width=1\textwidth]{Lineage.pdf}
+    \includegraphics[width=1\textwidth]{lineageDistanceRPF.pdf}
     \caption{
     \textbf{Lineage distance between pairs of neurons for different connection types as a function of the degree at which hubs are defined, $k$.}
     \emph{Top}: Degree distribution.
@@ -1532,7 +1535,7 @@ Circles indicate a statistically significant increase or decrease in birth time 
 \begin{figure}[!h]
 \label{BirthTimesk}
 \centering
-    \includegraphics[width=1\textwidth]{MeanBirthTimes.pdf}
+    \includegraphics[width=1\textwidth]{birthTimeRPFALL.pdf}
     \caption{
 \emph{Top}: Degree distribution.
 \emph{Middle}: proportion of connections that are `rich' (hub$\rightarrow$hub, red), `feed-in' (nonhub$\rightarrow$hub, yellow), `feed-out' (hub$\rightarrow$nonhub, orange), and `peripheral' (nonhub$\rightarrow$nonhub, blue) as a function of the degree threshold, $k$, used to define hubs.
@@ -1558,7 +1561,7 @@ Circles indicate a statistically significant increase or decrease in birth time 
 \begin{figure}[!h]
 \label{RFPposmatches}
 \centering
-    \includegraphics[width=1\textwidth]{coXmeanCoexpression.pdf}
+    \includegraphics[width=1\textwidth]{meanCoexpressionCoXALL.pdf}
 \caption{
 \textbf{Gene coexpression, as measured by a positive matching probability index, Eq.~(\ref{eqn:positiveMatch}).}
 \emph{Top}: Degree distribution.
