@@ -353,18 +353,21 @@ The \emph{C. elegans} nervous system is made up of 302 neurons, divided into the
 Here we analyze the larger somatic nervous system using data from Varshney et al.~\cite{Varshney2011}, who mapped connectivity between 279 neurons (282 somatic neurons, excluding CANL/R, and VC6, which do not form synapses with other neurons).
 Data were downloaded from WormAtlas (\url{www.wormatlas.org/neuronalwiring.html#NeuronalconnectivityII}).
 % [[TODO: Aurina, VC6 does have data available, right, it just only makes connections via neuromuscular junctions is the reason we exclude. But is it that CANL/R don't have data available? Or they just don't make connections? Should distinguish missing data from absence of connections]]
-Connectivity information is available both for electrical gap junctions and chemical synapses, which are further distinguished by presynaptic and postsynaptic neurons (providing information on the direction of connectivity), as well as the number of synapses (providing information on the projection strength, or connectivity weight).
+Connectivity information is available both for electrical gap junctions and chemical synapses, where the later are further distinguished by presynaptic and postsynaptic neurons (providing information on the direction of connectivity), as well as the number of synapses (providing information on the projection strength, or connectivity weight).
 % The result can be represented as a weighted, directed connectivity matrix, with weights given by the number of synapses.
 % By contrast, the directionality of electrical gap junctions remains unknown, and have thus been represented as bidirectional connections.
-To avoid any possible differences in gene expression between chemical synapses and gap junctions, our analysis focuses just on the synaptic connectivity network, which contains a total of 1\,961 pairs of connected neurons, spanning a total of 2\,194 directed connections (and a total of 6\,394 individual synapses).
-Note that previous work has used different processed versions of this data, including just synaptic connections as here (e.g., following thresholding \cite{Kashtan:2004ev}), a combination of synaptic connections and gap junctions together \cite{Azulay:2016cg, Kim:2016gl}, or combining synaptic and gap junctions and then symmetrizing unidirectional synaptic connections to be bidirectional \cite{Towlson:2013gf, Kim:2014bu, Pavlovic:2014gx}.
+%To avoid any possible differences in gene expression between chemical synapses and gap junctions, our analysis focuses just on the synaptic connectivity network, which contains a total of 1\,961 pairs of connected neurons, spanning a total of 2\,194 directed connections (and a total of 6\,394 individual synapses).
+In order to take into account the influence of both chemical as well as gap junction connectivity, our analysis focuses on the network, where both types of connectivity are represented.
+This network contains a total of 2\,287 pairs of connected neurons, spanning a total of 2\,990 directed connections (and a total of 8\,168 individual synapses). 
+
+Note that previous work has used different processed versions of this data, including a combination of synaptic connections and gap junctions together as here \cite{Azulay:2016cg, Kim:2016gl}, just synaptic connections (e.g., following thresholding \cite{Kashtan:2004ev}), or a combination of synaptic and gap junctions that are afterwards symmetrisized to represent unidirectional synaptic connections as bidirectional \cite{Towlson:2013gf, Kim:2014bu, Pavlovic:2014gx}. 
+All the main results presented in this paper were also reproduced for the directed synaptic connectivity matrix. 
 [[TODO: Some statement that our core results hold for different representations of the neuronal connectome]].
 
 Two dimensional spatial coordinates for neurons were obtained as \texttt{celegans277.mat} from \url{www.biological-networks.org/?page_id=25} \cite{choe2004network}.
 % 277 neurons (including VC6, which makes connections only through neuro-muscular junctions) [[TODO: Aurina, why mention this? AA - this neuron doesn't have obvious connections, therefore not included in the connectome, but we have coordinates for it, otherwise, numbers do not add]])
 Coordinates for three neurons (AIBL, AIYL, SMDVL) were missing in this dataset, and were reconstructed by assigning identical coordinates to the corresponding bilateral neurons (AIBR, AIYR, SMDVR) \cite{Varier2011}.
 % [[TODO: Should we infer 3-d coordinates as Varier do, in order to make distances better behaved??]].
-
 % The C. elegans nervous system consists of two distinct parts: a small pharyngeal nervous system (20 neurons), responsible for  the feeding behavior of the animal and a large somatic nervous system (282 neurons).
 
 In order to relate our topological and gene expression results to other information about individual neurons or pairs of neurons, we assembled diverse publicly available data for \emph{C. elegans}.
@@ -385,14 +388,17 @@ The neurotransmitter systems used by each neuron was labeled by matching to data
 % to label the neurotransmitter type of all neurons.
 % in the hermaphrodite C. elegans nervous system has been mapped, revealing the dominance of cholinergic signaling \cite{Pereira:2015er}.
 Lineage similarity for all pairs of neurons was obtained from previously published embryonic and post-embryonic lineage trees \cite{Sulston1977, Sulston1983}; data were downloaded from WormAtlas (\url{http://www.wormatlas.org/neuronalwiring.html#Lineageanalysis}) \cite{WormAtlas}.
-In this dataset, the closest common ancestor neuron was identified for each pair of neurons, and then number of cell divisions from the common progenitor was calculated.
+In this dataset, the closest common ancestor neuron was identified for each pair of neurons, and then the number of cell divisions from the common progenitor was calculated.
 % Downloaded data were arranged into a matrix format where lineage distance for each pair of neurons was defined. % part of Print_neuroconnect.m
 % [[TODO: Aurina -- genes: wormbase, connectivity, lineage, birth times: wormatlas. can we go through all of this to clarify all of the data sources -- wormMine, wormBase, WormAtlas, etc. I'm a bit confused]]
 
 % METHODS: rich club analysis
 \subsection*{Network analysis}
 
-In this section, we describe the methods used to characterize the \emph{C. elegans} synaptic connectome, represented as a graph with neurons as nodes and synaptic connections as directed edges from the presynaptic neuron to the postsynaptic neuron.
+In this section, we describe the methods used to characterize the \emph{C. elegans} connectome, represented as a graph with neurons as nodes. 
+Edges between neurons connected via chemical synapses are represented as directed edges from the presynaptic neuron to the postsynaptic neuron while edges between neurons connected via gap junctions are bidirectional. 
+Therefore, this particular representation of the C. elegans connectome results in a directed binary network. 
+
 % \cite{Schroter:2017eo}.
 
 \paragraph{Degree}
@@ -464,18 +470,7 @@ Compared to continuous expression measurements of over 17\,000 genes in the mous
 
 % METHODS: gene coexpression
 \subsection*{Gene coexpression}
-Our primary aim in this work is to understand how patterns of expression across 948 genes in individual neurons (e.g., rows of Fig.~\ref{fig:SchematicRepresentation}B) are related to pairwise patterns of neuron-to-neuron connectivity.
-To relate our measure of gene expression for individual neurons to measures of coupled expression for pairs of neurons, we required a similarity measure for pairs of neurons that captures the probability of patterns of binary gene expression matching.
-Existing measures of binary correlation, , are symmetric between 0s and 1s, however, the gene expression data used here are sparse, with a only minority (up to a maximum of 15\%) of genes expressed in any single neuron.
-We thus required a measure that was not be biased by simple variations in the number of non-zero elements in one (or both) of the expression vectors.
-We also wanted a measure that distinguishes biologically relevant cases where genes are expressed together, $n_{11}$, from the dominant case where a gene is not expressed in both neurons, $n_{00}$.
-To this end, we developed a new index based around that probability, $P(m)$, that two binary strings will contain $m$ `positive matches' (i.e., matching 1 with 1),
-\begin{equation} \label{eqn:positiveMatch}
-    P(m) = \binom{n_2}{m} \binom{N-n_2}{n_1-m} / \binom{N}{n_1},
-\end{equation}
-for two binary expression vectors, $x_i$, $y_i$, of length $N$, containing $n_1$ and $n_2$ 1s, respectively ($n_2 \leq n_1$), with $m$ matches ($n_{11}$).
-Our index, $r_\xi$, computes the probability of at least this many matches as $r_\xi = 1 - \sum_{x=0}^{m-1} P(x)$.
-This showed ([[biases?]]) which gave similar results [[TODO: check that behavior is indeed similar]].
+NOTE: if we use this measure only for one plot in the supp, probably should first describe Pearson here and add this at the end of gene coexpression section. 
 
 To relate our measure of gene expression for individual neurons to measures of coupled expression for pairs of neurons, we computed the similarity in gene expression profiles between a pair of neurons, $(i,j)$, using a binary analogue of the linear Pearson correlation coefficient, the mean square contingency coefficient, $r_\phi$ \cite{Warrens2008},
 \begin{equation} \label{eq:rphi}
@@ -486,8 +481,24 @@ A maximum value $r_\phi = 1$ when $x$ and $y$ are identical such that $n_{11} + 
 
 Measures of correlation between binary vectors can be biased by the relative proportion of ones between two vectors.
 Individual neurons range from between 3 to 138 expressed genes, corresponding to expression indicator vectors containing between 0.3\% to 14.6\% of annotations (`1's).
-To ensure that our measure of gene coexpression between neurons is not biased by differences in the relative proportions of expression annotations, we conducted a sensitivity analysis in which we compared the $r_\phi$ metric, Eq.~\eqref{eq:rphi}, with alternative methods for quantifying correlations between binary vectors: Yule's Q coefficient, the Jaccard index, and a new metric developed here, based on positive matching probabilities (described in Supplementary Information).
+To ensure that our measure of gene coexpression between neurons is not biased by differences in the relative proportions of expression annotations, we conducted a sensitivity analysis in which we compared the $r_\phi$ metric, Eq.~\eqref{eq:rphi}, with alternative methods for quantifying correlations between binary vectors: Yule's Q coefficient, the Jaccard index, and a new metric developed here (see below), based on positive matching probabilities (described in Supplementary Information).
 The only metric that did not show a systematic bias on random binary vectors as a function of the proportion of ones was $r_\phi$ (see Fig.~\ref{fig:S_propOnes}), which is used here to ensure that increases in coexpression are driven by relative similarity in expression patterns, and not simply by differences in the number of gene annotations for a given pair of neurons.
+
+
+Our primary aim in this work is to understand how patterns of expression across 948 genes in individual neurons (e.g., rows of Fig.~\ref{fig:SchematicRepresentation}B) are related to pairwise patterns of neuron-to-neuron connectivity.
+To relate our measure of gene expression for individual neurons to measures of coupled expression for pairs of neurons, we required a similarity measure for pairs of neurons that captures the probability of patterns of binary gene expression matching.
+Existing measures of binary correlation are symmetric between 0s and 1s, however, the gene expression data used here are sparse, with a only minority (up to a maximum of 15\%) of genes expressed in any single neuron.
+We thus required a measure that was not biased by simple variations in the number of non-zero elements in one (or both) of the expression vectors.
+We also wanted a measure that distinguishes biologically relevant cases where genes are expressed together, $n_{11}$, from the dominant case where a gene is not expressed in both neurons, $n_{00}$.
+To this end, we developed a new index based around that probability, $P(m)$, that two binary strings will contain $m$ `positive matches' (i.e., matching 1 with 1),
+\begin{equation} \label{eqn:positiveMatch}
+    P(m) = \binom{n_2}{m} \binom{N-n_2}{n_1-m} / \binom{N}{n_1},
+\end{equation}
+for two binary expression vectors, $x_i$, $y_i$, of length $N$, containing $n_1$ and $n_2$ 1s, respectively ($n_2 \leq n_1$), with $m$ matches ($n_{11}$).
+Our index, $r_\xi$, computes the probability of at least this many matches as $r_\xi = 1 - \sum_{x=0}^{m-1} P(x)$.
+NOTE: need to decide whether we keep this here or move to supp. If we keeping it in the main text, need some reasoning why choosing Pearson instead. 
+This showed ([[biases?]]) which gave similar results [[TODO: check that behavior is indeed similar]].
+
 
 % A total of 92 anatomically distinct neuron classes are bilateral, that is, they contain both left and right counterparts (e.g., AVAL/AVAR).
 The 92 bilateral pairs of neurons (e.g., AVAL/AVAR, CEPVL/CEPVR, etc.) mostly exhibit highly correlated gene expression patterns, with all bilateral pairs exhibiting $r_\phi > 0.8$, and 96\% of pairs exhibiting $r_\phi > 0.95$.
@@ -497,13 +508,13 @@ To ensure that our analyses are not influenced by the high coexpression between 
 
 \paragraph{Spatial dependency}
 Previous work has emphasized the importance of spatial effects in driving patterns of gene expression, whereby more proximal brain areas typically exhibit more similar gene expression patterns than more distant brain areas \cite{Krienen2016, Fulcher:2016ck, Pantazatos:2016ir, Richiardi:2017hb}.
-Connection probability depends on spatial separation in mammalian brains \cite{Henderson:2014fg, Horvat:2016ia, Wang:2016gg, Markov:2013jo}, and in \emph{C. elegans} (cf. Fig.~S1 of \cite{Azulay:2016cg}), and delineated by anatomical connection types here (Fig.~\ref{fig:S_connProbability}A,B).
+Connection probability depends on spatial separation in mammalian brains \cite{Henderson:2014fg, Horvat:2016ia, Wang:2016gg, Markov:2013jo}, and in \emph{C. elegans} (cf. Fig.~S1 of \cite{Azulay:2016cg}), and delineated by anatomical connection types here (Fig.~\ref{fig:spatialEffectsMain}A,B).
 % The probability of a pair of neurons being connected decreases as a function of their separation distance for connections within the head, connections within the tail, connections within the body, and connections between the head and tail
 To ensure that relationships between connectivity and gene expression are not driven by their mutual spatial dependency, it was thus important to understand any spatial dependency of gene coexpression, $r_\phi$.
 
 Gene coexpression, $r_\phi$, also decreases slightly with separation distance for the spatially close networks of neurons within the head (Fig.~\ref{fig:S_distCoexp}A) and within the tail (Fig.~\ref{fig:S_distCoexp}B) of \emph{C. elegans}, but not for pairs of neurons involving the body (Fig.~\ref{fig:S_distCoexp}C).
 [[TODO: Add some interpretation in terms of the function of body neurons as potentially distinct from those in the head and tail?]].
-Within the head, a decreasing (approximately exponential) underlying trend could be seen for pairs interneurons, pairs of sensory neurons, pairs of motor neurons, and motor-interneuron pairs (Figs~\ref{fig:S_distCoexp}D--H).
+Within the head, a decreasing (approximately exponential) underlying trend could be seen for pairs of interneurons, pairs of sensory neurons, pairs of motor neurons, and motor-interneuron pairs (Figs~\ref{fig:S_distCoexp}D--H).
 
 These results, using sparsely-annotated binary expression data in a highly specialized neuronal nervous system, mirrors trends observed in bulk regions of macroscopic mammalian brains of mouse \cite{Fulcher:2016ck} and human \cite{Krienen:2016eq}.
 % Although distance slightly influenced gene coexpression, especially for very closely positioned neurons within the head, exponential form could not explain the relationship.
@@ -512,6 +523,7 @@ However, in \emph{C. elegans}, the spatial trend is small, is typically driven b
 It is therefore likely that the spatial effects in this specialized neuronal connectome are not simply due to bulk spatial trends in coexpression, as in macroscopic brains containing millions of neurons, but may reflect true organizational principles.
 Residuals after subtracting an exponential form (following Fulcher and Fornito using mouse brain expression data \cite{Fulcher:2016ck}), are not symmetric, since the trend is often driven by pairs of close neurons with high coexpression.
 Correcting binary coexpression in this way thus produces artifactual reductions in the coexpression of many neuron pairs.
+NOTE AA: I think we should include the plot (probably in supp) where exp for head-head is fitted (A) and a plot for residuals (B). 
 % Given that the effect was relatively small, and no standard correction could be applied, we use original uncorrected gene coexpression data for all the further analyses.
 % Due to the large artifacts introduced, we chose not to correct for the small spatial dependence of gene coexpression in head-head and tail-tail connections for the main analyses presented here,
 Due to the artifacts, we chose to analyze spatially-uncorrected expression data through this work, but nevertheless verified that applying such correction yields similar results to those presented [[TODO: INCORPORATE RESULTS/VERIFICATION, cf. \emph{CoExpressionDistanceCorrect}]].
@@ -1249,125 +1261,94 @@ RIGL   & 49         & Head interneuron                                          
 {\bf Enrichment results for connected \textit{vs} unconnected neurons.} 
 \begin{table}[]
 \centering
-\caption{
-Biological processes GO categories showing increased gene coexpression for connected neurons compared to unconnected neurons. 
+\caption{Biological processes GO categories showing increased gene coexpression for connected neurons compared to unconnected neurons. 
 Categories that remain significant after false discovery rate ($P_\mathrm{FDR} < 0.05$) correction are shown boldface.
-Entries have been sorted (descending) by uncorrected $P$-value.
-}
+Entries have been sorted (descending) by uncorrected $P$-value.}
 \label{enrichmentCON}
 \begin{tabular}{llll}
 \hline
-\textbf{GO Category} & \textbf{Description}    & \textbf{No. of genes} & \textbf{$P$-value} \\ \hline
-\textbf{GO:0035235}     		& \textbf{ionotropic glutamate receptor signaling pathway} & 7                 & 1e-12         \\
-\textbf{GO:0007215}          	& \textbf{glutamate receptor signaling pathway}            & 9                 & 1e-05         \\ \hline
-GO:0007613          & memory                                          & 5                 & 0.00484       \\
-GO:0055085          & transmembrane transport                         & 87                & 0.0056        \\
-GO:0034220          & ion transmembrane transport                     & 73                & 0.00569       \\
-GO:0006811          & ion transport                                   & 93                & 0.00676       \\
-GO:0007166          & cell surface receptor signaling pathway         & 48                & 0.008         \\
-GO:0046958          & nonassociative learning                         & 8                 & 0.01232       \\
-GO:0046959          & habituation                                     & 8                 & 0.01232       \\
-GO:0006972          & hyperosmotic response                           & 8                 & 0.01348       \\
-GO:0016311          & dephosphorylation                               & 5                 & 0.01751       \\
-GO:0007626          & locomotory behavior                             & 17                & 0.01871       \\
-GO:0009268          & response to pH                                  & 6                 & 0.01903       \\
-GO:0006970          & response to osmotic stress                      & 11                & 0.0202        \\
-GO:0019538          & protein metabolic process                       & 95                & 0.02088      
+\textbf{GOcategory} 	& \textbf{Description}                                     & \textbf{No. of genes} & \textbf{Pval} \\ \hline
+\underline{GO:0035235} & ionotropic glutamate receptor signaling pathway & 7        & 1e-12   \\
+\underline{GO:0007215} & glutamate receptor signaling pathway         & 9       & 3e-05   \\
+GO:0007166 & cell surface receptor signaling pathway         & 48       & 0.00242 \\
+GO:0006950 & response to stress                              & 62       & 0.00514 \\
+GO:0007613 & memory                                          & 5        & 0.00525 \\
+GO:0034220 & ion transmembrane transport                     & 73       & 0.01025 \\
+GO:0055085 & transmembrane transport                         & 87       & 0.01035 \\
+GO:0040009 & regulation of growth rate                       & 8        & 0.0124  \\
+GO:0040010 & positive regulation of growth rate              & 8        & 0.0124  \\
+GO:0006811 & ion transport                                   & 93       & 0.01287 \\
+GO:0006972 & hyperosmotic response                           & 8        & 0.01687 \\
+GO:0009266 & response to temperature stimulus                & 21       & 0.01704 \\
+GO:0002376 & immune system process                           & 8        & 0.01829 \\
+GO:0006979 & response to oxidative stress                    & 9        & 0.0188  \\
+GO:0006970 & response to osmotic stress                      & 11       & 0.02435  \\\hline
 \end{tabular}
 \end{table}
 
-% rich feeder vs peripheral
+
 \paragraph*{S3 Table.}
-% \textbf{GEnrichment results for rich \textit{vs} all other (feed-in, feed-out, peripheral) links.}
+{\bf Enrichment results for chemical \textit{vs} electrical links.}
+
 \begin{table}[]
 \centering
-\caption{
-GO category enrichment for genes exhibiting greater positive coexpression in connections involving hubs compared to connections between nonhubs.
-% (feed-in, feed-out, peripheral)
-Categories that remain significant after false discovery rate ($FDR < 0.05$) correction are shown in boldface.
-}
-\label{enrichmentRICH}
+\caption{Biological processes GO categories showing increased gene coexpression for chemical links compared to electrical links.}
+\label{enrichmentChemical}
 \begin{tabular}{llll}
 \hline
-\textbf{GO Category} & \textbf{Description}                                                                                               & \textbf{No. of genes} & \textbf{$P$-value} \\ \hline
-\textbf{GO:0007215}          & \textbf{glutamate receptor signaling pathway}                                                                               & 9                 & 1e-12         \\
-\textbf{GO:0035235}          & \textbf{ionotropic glutamate receptor signaling pathway}                                                                    & 7                 & 1e-12         \\
-GO:0034220          & ion transmembrane transport                                                                                        & 54                & 0.0025        \\
-GO:0007166          & cell surface receptor signaling pathway                                                                            & 35                & 0.00307       \\
-GO:0055085          & transmembrane transport                                                                                            & 65                & 0.00358       \\
-GO:0006811          & ion transport                                                                                                      & 69                & 0.00537       \\
-GO:0046958          & nonassociative learning                                                                                            & 8                 & 0.01227       \\
-GO:0046959          & habituation                                                                                                        & 8                 & 0.01227       \\
-GO:0051493          & regulation of cytoskeleton organization                                                                            & 5                 & 0.01595       \\
-GO:0007626          & locomotory behavior                                                                                                & 14                & 0.02023       \\
-GO:0040012          & regulation of locomotion                                                                                           & 46                & 0.02664       \\
-GO:0006810          & transport                                                                                                          & 97                & 0.04009       \\
-GO:0042133          & neurotransmitter metabolic process                                                                                 & 6                 & 0.04144       \\
-GO:0045893          & \begin{tabular}[c]{@{}l@{}}positive regulation of transcription, \\ DNA-templated\end{tabular}                     & 24                & 0.05002       \\
-GO:0045935          & \begin{tabular}[c]{@{}l@{}}positive regulation of nucleobase-containing\\  compound metabolic process\end{tabular} & 25                & 0.05002      
+\textbf{GOcategory} & \textbf{Description}                                     & \textbf{No. of genes} & \textbf{P value}    \\ \hline
+\underline{GO:1901617} & organic hydroxy compound biosynthetic process   & 7        & 1e-05   \\
+\underline{GO:0018958} & phenol-containing compound metabolic process    & 5        & 4e-05   \\
+\underline{GO:0046189} & phenol-containing compound biosynthetic process & 5        & 4e-05   \\
+\underline{GO:1901615} & organic hydroxy compound metabolic process      & 8        & 6e-05   \\
+\underline{GO:0006082} & organic acid metabolic process                  & 11       & 0.00013 \\
+\underline{GO:0043436} & oxoacid metabolic process                       & 11       & 0.00013 \\
+\underline{GO:0044249} & cellular biosynthetic process                   & 63       & 0.00028 \\
+\underline{GO:0009058} & biosynthetic process                            & 64       & 0.00029 \\
+\underline{GO:1901576} & organic substance biosynthetic process          & 64       & 0.00029 \\
+\underline{GO:0044711} & single-organism biosynthetic process            & 27       & 0.0003  \\
+\underline{GO:1901566} & organonitrogen compound biosynthetic process    & 24       & 0.00032 \\
+\underline{GO:1901564} & organonitrogen compound metabolic process       & 28       & 0.00035 \\
+\underline{GO:0006520} & cellular amino acid metabolic process           & 7        & 0.00064 \\
+\underline{GO:0019752} & carboxylic acid metabolic process               & 10       & 0.00087 \\
+\underline{GO:0008283} & cell proliferation                              & 6        & 0.0012  \\\hline
 \end{tabular}
 \end{table}
+
 
 \paragraph*{S4 Table.}
-{\bf Enrichment results for feed-in \textit{vs} all other (rich, feed-out, peripheral) links.}
+{\bf Enrichment results for links involving hubs.}
+
 \begin{table}[]
 \centering
-\caption{Biological processes GO categories showing increased gene coexpression for feed-in links compared to all other links (rich, feed-out, peripheral).}
-\label{enrichmentFeedIN}
+\caption{Biological processes GO categories showing increased gene coexpression for links involving hubs (rich, feed-in and feed-out) compared to peripheral links.}
+\label{enrichmentRF}
 \begin{tabular}{llll}
 \hline
-\textbf{GOcategory} & \textbf{Description}                          & \textbf{No. of genes} & \textbf{P value} \\ \hline
-GO:0042133          & neurotransmitter metabolic process            & 6                 & 0.00097       \\
-GO:0044712          & single-organism catabolic process             & 5                 & 0.00339       \\
-GO:0097164          & ammonium ion metabolic process                & 9                 & 0.00375       \\
-GO:0007271          & synaptic transmission, cholinergic            & 15                & 0.00764       \\
-GO:0001505          & regulation of neurotransmitter levels         & 17                & 0.00939       \\
-GO:0007163          & establishment or maintenance of cell polarity & 5                 & 0.01387       \\
-GO:0030010          & establishment of cell polarity                & 5                 & 0.01387       \\
-GO:0051301          & cell division                                 & 7                 & 0.02053       \\
-GO:0018108          & peptidyl-tyrosine phosphorylation             & 6                 & 0.02339       \\
-GO:0018212          & peptidyl-tyrosine modification                & 6                 & 0.02339       \\
-GO:0044248          & cellular catabolic process                    & 10                & 0.02709       \\
-GO:1901575          & organic substance catabolic process           & 30                & 0.03061       \\
-GO:0008283          & cell proliferation                            & 6                 & 0.03673       \\
-GO:0007267          & cell-cell signaling                           & 38                & 0.03769       \\
-GO:0009056          & catabolic process                             & 32                & 0.03858      
+\textbf{GOcategory} & \textbf{Description}                                           & \textbf{No. of genes} & \textbf{P value} \\
+\hline
+\underline{GO:0035235} & ionotropic glutamate receptor signaling pathway                         & 7            & 1e-12   \\
+\underline{GO:0007215} & glutamate receptor signaling pathway                                    & 9            & 1e-05   \\
+\underline{GO:0034220} & ion transmembrane transport                                             & 63           & 0.00025 \\
+\underline{GO:0055085} & transmembrane transport                                                 & 75           & 0.0003  \\
+\underline{GO:0006811} & ion transport                                                                                                      & 80           & 0.00041 \\
+GO:0045935 & \begin{tabular}[c]{@{}l@{}}positive regulation of nucleobase-containing \\ compound metabolic process\end{tabular} & 30           & 0.00402 \\
+GO:0040012 & regulation of locomotion                                                                                           & 51           & 0.00406 \\
+GO:0007166 & cell surface receptor signaling pathway                                                                            & 44           & 0.0041  \\
+GO:0007267 & cell-cell signaling                                                                                                & 43           & 0.00482 \\
+GO:0009891 & positive regulation of biosynthetic process                                                                        & 31           & 0.0049  \\
+GO:0031328 & positive regulation of cellular biosynthetic process                                                               & 31           & 0.0049  \\
+GO:0051173 & \begin{tabular}[c]{@{}l@{}}positive regulation of nitrogen compound \\ metabolic process\end{tabular}              & 31           & 0.0049  \\
+GO:0007268 & chemical synaptic transmission                                                                                     & 36           & 0.00556 \\
+GO:0098916 & anterograde trans-synaptic signaling                                                                               & 36           & 0.00556 \\
+GO:0099536 & synaptic signaling                                                                                                 & 36           & 0.00556 \\\hline
 \end{tabular}
 \end{table}
-
 
 
 % Please add the following required packages to your document preamble:
 % \usepackage[normalem]{ulem}
 % \useunder{\uline}{\ul}{}
-\paragraph*{S5 Table.}
-{\bf Enrichment results for feed-out \textit{vs} all other (rich, feed-in, peripheral) links.}
-\begin{table}[]
-\centering
-\caption{Biological processes GO categories showing increased gene coexpression for feed-out links compared to all other links (rich, feed-in, peripheral). 
-Categories that remain significant after false discovery rate ($FDR < 0.05$)  correction are underlined.}
-\label{enrichmentFeedOUT}
-\begin{tabular}{llll}
-\hline
-\textbf{GOcategory} & \textbf{Description}                          & \textbf{No. of genes} & \textbf{P value} \\ \hline
-\underline{GO:0001505}    & regulation of neurotransmitter levels & 17                & 9e-05         \\
-\underline{GO:0015696}    & ammonium transport                    & 5                 & 0.0002        \\
-\underline{GO:0007268}    & chemical synaptic transmission        & 31                & 0.00033       \\
-\underline{GO:0098916}    & anterograde trans-synaptic signaling  & 31                & 0.00033       \\
-\underline{GO:0099536}    & synaptic signaling                    & 31                & 0.00033       \\
-\underline{GO:0099537}    & trans-synaptic signaling              & 31                & 0.00033       \\
-\underline{GO:0071705}    & nitrogen compound transport           & 6                 & 0.00039       \\
-\underline{GO:0042133}    & neurotransmitter metabolic process    & 6                 & 0.00053       \\
-\underline{GO:0007271}    & synaptic transmission, cholinergic    & 15                & 0.00089       \\
-\underline{GO:0007267}    & cell-cell signaling                   & 38                & 0.00098       \\
-GO:0097164          & ammonium ion metabolic process        & 9                 & 0.00161       \\
-GO:0065008          & regulation of biological quality      & 66                & 0.00251       \\
-GO:0043051          & regulation of pharyngeal pumping      & 7                 & 0.00561       \\
-GO:0040012          & regulation of locomotion              & 46                & 0.00938       \\
-GO:0006811          & ion transport                         & 69                & 0.01018      
-\end{tabular}
-\end{table}
-
 
 % ------------------------------------------------------------------------------
 % Include only the SI item label in the paragraph heading. Use the \nameref{label} command to cite SI items in the text.
