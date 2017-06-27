@@ -570,9 +570,9 @@ where $p$ is the probability of the given class of inter-region pairs ($p = n_\m
 We perform three analyses here: firstly, we compare differences in coexpression between pairs of neurons that contain a structural connection to pairs of neurons that do not share a connection.
 % we talk here about undirected connectome (pairs of connected vs pairs of unconnected neurons). undirected density = 5.9%, directed density 3.85%
 In this case, $p = 0.059$ is the edge density of the connectome, and for each gene, $n$ is the total number of pairs of neurons $(i,j)$ for which $g^{(a)}_i = 1$ and $g^{(a)}_j = 1$, and $m$ is the observed number of neuron pairs, $(i,j)$, that are both structurally connected and for which $g^{(a)}_i = 1$ and $g^{(a)}_j = 1$.
-Secondly, we compare connections between neurons connected via chemical synapses \textit{vs} gap junctions. 
-These two categories are not mutually exclusive, one pair of neurons can share both chemical synapses as well as gap junctions between them, therefore neuron pairs that are connected with both types of synapses (n=188) are accounted for twice. 
-Here, $p$ is the proportion of synaptic connections between neurons (0.8575), the maximum number of matches, $n$, is the number of neuron pairs, $(i,j)$, for which $g^{(a)}_i = 1$ and $g^{(a)}_j = 1$ and are also connected.
+Secondly, we compare connections between neurons connected only via chemical synapses \textit{vs} only gap junctions. 
+Normally, one pair of neurons can share both chemical synapses as well as gap junctions between them, however in this case we aimed to determine if there is a particular signature for chemical or electrical connections separately, therefore those categories are made to be mutually exclusive. 
+Here, $p$ is the proportion of only synaptic (0.7753) or only electrical () connections between neurons , the maximum number of matches, $n$, is the number of neuron pairs, $(i,j)$, for which $g^{(a)}_i = 1$ and $g^{(a)}_j = 1$ and are also connected.
 
 Finally, we compare connections involving hubs to those between nonhubs, $p$ is the proportion of connections involving hubs (0.3529), the maximum number of matches, $n$, is the number neuron pairs, $(i,j)$, for which $g^{(a)}_i = 1$ and $g^{(a)}_j = 1$ and are also connected.
 % , and captures the probability of genes being expressed together in connected pairs of neurons at least as frequently as observed
@@ -873,8 +873,8 @@ The plot shows that the increase in hub-hub gene coexpression with degree is dri
  \label{fig:interneuron_dep}
 \end{figure}
 
-[[MAKE LESS VAGUE]]:\\
-[[NEED A STRONGER ARGUMENT FOR SELECTING THOSE SPECIFIC INTERNEURONS]]
+[[MAKE LESS VAGUE]] [[NEED A STRONGER ARGUMENT FOR SELECTING THOSE SPECIFIC INTERNEURONS]]:\\
+
 % Having found that interneurons drive the gene coexpression relationship with degree, $k$,
 We next sought to verify whether hubs show a unique transcriptional signature amongst interneurons. 
 Given that hubs exhibit significantly higher coexpression compared to other interneurons ($P < 10^{-34}$, Wilcoxon rank sum test, data not shown), we aimed to select a subset of interneurons that would most closely resemble hub interneurons in terms of anatomical properties in order to verify if even among similar interneurons hubs show a specific gene expression pattern. 
@@ -964,9 +964,10 @@ Neuron indicators are shown to the left:
 The genesis of neurons in the \emph{C. elegans} nervous system is separated into two distinct time periods: before hatching (birth time $<550$ min) and after hatching (birth time $>1200$ min), with no neurons formed during intermediate times \cite{Varier2011}.
 Differences in birth times between pairs of neurons are dominated by the differences between these two temporal clusters of neuron birth.
 % with an around 700min gap between them when no neurons are formed.
-Because all \emph{C. elegans} hub neurons are born prior to hatching \cite{Varier2011, Towlson2013}, and neurons both at similar times may share connectivity and other properties \cite{Schroter:2017eo}, we investigated whether the increase in coexpression between hub neurons is influenced by similarity in their birth time.
-To test this hypothesis, we focused on 201 neurons (13 hub and 188 nonhub neurons) born prior to hatching (birth time $<550$\,min) to see whether connections between hub neurons displayed increased coexpression relative to other types of connections between neurons born during this early developmental phase.
-As shown in Fig.~\ref{fig:OtherInfluences}D, even among early-born neurons, connections between hubs (rich) show significantly increased coexpression compared to all other connections (non-rich: feed-in, feed-out, peripheral, $P < 10^{-30}$, Wilcoxon rank sum test).
+All \emph{C. elegans} hub neurons are born prior to hatching \cite{Varier2011, Towlson2013}. 
+It has been shown that neurons born at similar times may share similar properties including connectivity \cite{Schroter:2017eo}, we investigated whether the increase in coexpression between hub neurons is influenced by similarity in their birth time.
+To test this hypothesis, we focused on 201 neurons (16 hub and 185 nonhub neurons) born prior to hatching (birth time $<550$\,min) to see whether connections between hub neurons displayed increased coexpression relative to other types of connections between neurons born during this early developmental phase.
+As shown in Fig.~\ref{fig:OtherInfluences}D, even among early-born neurons, connections between hubs (rich) show significantly increased coexpression compared to all other connections (non-rich: feed-in, feed-out, peripheral, $P < 10^{-22}$, Wilcoxon rank sum test).
 Hub neurons are thus distinctively similar in their expression patterns, even amongst early-born neurons.
 % We conclude that the increased coexpression between hub neurons is not driven by the similarity in their birth times.
 
@@ -975,17 +976,26 @@ Hub neurons are thus distinctively similar in their expression patterns, even am
 % sum(C.BirthTime<550 & k<=41) = 188
 
 \paragraph{Lineage distance}
-[[TODO(AF->AA): should first characterize general relationship between lineage and coexpression, and then address hub effect]]
-The lineage distance for a pair of cells is defined as the sum of total divisions that have taken place since the most recent common ancestor cell \cite{Pavlovic:2014gx, Sulston1977, Sulston1983}.
-Lineage presents another source of information about the genetic makeup of the \textit{C. elegans} nervous system [[WHY? Give subtlety from the Schr\"oter review article]] that could influence the observed increase in coexpression between hub neurons.
-It may be the case, for example, that hub neurons are derived from similar cell lines, which may drive their increased coexpression.
-However, as shown in Fig.~\ref{fig:OtherInfluences}E, there is no significant difference in lineage distance between rich and non-rich connections ($P = 0.23$, Wilcoxon rank sum test).
-We thus cannot attribute the transcriptional similarity of connected hub neurons to their close lineage relationship.
+[[TODO(AF->AA): should first characterize general relationship between lineage and coexpression, and then address hub effect]] there is no general lineage-coexpression effect in our results. 
+Lineage distance for a pair of neurons is defined as the sum of total divisions that have taken place since the most recent common ancestor cell \cite{Pavlovic:2014gx, Sulston1977, Sulston1983}. 
+Neuronal lineage has been associated with both functional and connectivity-related properties in mammalian brain \cite{Ciceri2013,Li2012,Yu2012}.
+Moreover, tissue distance (resembling lineage distance on a cellular scale) was found to correlate with gene expression divergence \cite{Cui2007} in both human and mouse brain, hereby pointing towards the possible relationship between lineage distance and gene coexpression in a micro-scale organism.     
+%Therefore, lineage distance could potentially be an informative source of information about the genetic makeup of the \textit{C. elegans} nervous system \cite{Schroter:2017eo}. 
+
+Given that hub neurons are formed early in the development, it is possible that they originate from common ancestry cells and therefore might share some intrinsic similarities in gene expression and influence the observed increase in coexpression between hub neurons.
+%It may be the case, for example, that hub neurons are derived from similar cell lines, which may drive their increased coexpression.
+Contrary, as shown in Fig.~\ref{fig:OtherInfluences}E, there is no significant difference in lineage distance between hub (rich connections) and non-hub neurons (non-rich connections) ($P = 0.0786$, Wilcoxon rank sum test).
+Thus, we can not attribute the transcriptional similarity of connected hub neurons to their close relationship in terms of neuronal lineage.
 
 [[not sure this is relevant/fits the story. Could remove:]]\\
 Looking closer, we find that lineage distance increases with degree for feeder links while no significant change is observed for rich links (Fig.~\ref{fig:Lineagek}).
-This finding suggests that hub and nonhub neurons have a higher lineage distance for high thresholds of $k$, i.e., when so-called hubs actually have high degree. 
-In contrast, peripheral links manifest consistently lower lineage distance through the range of degree thresholds (Fig.~\ref{fig:Lineagek}).
+This finding suggests that neurons forming peripheral links are most similar in lineage nonhub-hub connected pairs have significantly increased lineage distance (Fig.~\ref{fig:Lineagek}). 
+
+%hub and nonhub neurons have a higher lineage distance for high thresholds of $k$, i.e., when so-called hubs actually have high degree. 
+%In contrast, peripheral links manifest consistently lower lineage distance through the range of degree thresholds (Fig.~\ref{fig:Lineagek}).
+
+
+%peripheral are most similar in lineage and interesting, feeder the most different, implying that nonhub-hub connected pairs have significantly increased lineage distance.
 
 \paragraph{Neurotransmitter system}
 
@@ -1304,35 +1314,62 @@ GO:0006970 & response to osmotic stress                      & 11       & 0.0243
 
 
 \paragraph*{S3 Table.}
-{\bf Enrichment results for chemical \textit{vs} electrical links.}
+{\bf Enrichment results for chemical links.}
 
 \begin{table}[]
 \centering
-\caption{Biological processes GO categories showing increased gene coexpression for chemical links compared to electrical links.}
+\caption{Biological processes GO categories showing increased gene coexpression for chemical links compared all other links.}
 \label{enrichmentChemical}
 \begin{tabular}{llll}
 \hline
 \textbf{GOcategory} & \textbf{Description}                                     & \textbf{No. of genes} & \textbf{P value}    \\ \hline
-\underline{GO:1901617} & organic hydroxy compound biosynthetic process   & 7        & 1e-05   \\
-\underline{GO:0018958} & phenol-containing compound metabolic process    & 5        & 4e-05   \\
-\underline{GO:0046189} & phenol-containing compound biosynthetic process & 5        & 4e-05   \\
-\underline{GO:1901615} & organic hydroxy compound metabolic process      & 8        & 6e-05   \\
-\underline{GO:0006082} & organic acid metabolic process                  & 11       & 0.00013 \\
-\underline{GO:0043436} & oxoacid metabolic process                       & 11       & 0.00013 \\
-\underline{GO:0044249} & cellular biosynthetic process                   & 63       & 0.00028 \\
-\underline{GO:0009058} & biosynthetic process                            & 64       & 0.00029 \\
-\underline{GO:1901576} & organic substance biosynthetic process          & 64       & 0.00029 \\
-\underline{GO:0044711} & single-organism biosynthetic process            & 27       & 0.0003  \\
-\underline{GO:1901566} & organonitrogen compound biosynthetic process    & 24       & 0.00032 \\
-\underline{GO:1901564} & organonitrogen compound metabolic process       & 28       & 0.00035 \\
-\underline{GO:0006520} & cellular amino acid metabolic process           & 7        & 0.00064 \\
-\underline{GO:0019752} & carboxylic acid metabolic process               & 10       & 0.00087 \\
-\underline{GO:0008283} & cell proliferation                              & 6        & 0.0012  \\\hline
+GO:0007292 & female gamete generation                                                                                      & 10       & 0.0003  \\
+GO:0048477 & oogenesis                                                                                                     & 10       & 0.0003  \\
+GO:0007281 & germ cell development                                                                                         & 12       & 0.00075 \\
+GO:0022412 & \begin{tabular}[c]{@{}l@{}}cellular process involved in reproduction\\ in multicellular organism\end{tabular} & 12       & 0.00075 \\
+GO:0044711 & single-organism biosynthetic process                                                                          & 27       & 0.00142 \\
+GO:0032268 & regulation of cellular protein metabolic process                                                              & 20       & 0.00168 \\
+GO:0051246 & regulation of protein metabolic process                                                                       & 20       & 0.00168 \\
+GO:1901617 & organic hydroxy compound biosynthetic process                                                                 & 7        & 0.00321 \\
+GO:0019752 & carboxylic acid metabolic process                                                                             & 10       & 0.00345 \\
+GO:0006464 & cellular protein modification process                                                                         & 51       & 0.00357 \\
+GO:0036211 & protein modification process                                                                                  & 51       & 0.00357 \\
+GO:0019538 & protein metabolic process                                                                                     & 80       & 0.00376 \\
+GO:0007276 & gamete generation                                                                                             & 16       & 0.00445 \\
+GO:0006082 & organic acid metabolic process                                                                                & 11       & 0.00449 \\
+GO:0043436 & oxoacid metabolic process                                                                                     & 11       & 0.00449\\ \hline
 \end{tabular}
 \end{table}
 
-
 \paragraph*{S4 Table.}
+{\bf Enrichment results for electrical links.}
+
+\begin{table}[]
+\centering
+\caption{Biological processes GO categories showing increased gene coexpression for electrical links compared to all other links.}
+\label{enrichmentElectrical}
+\begin{tabular}{llll}
+\hline
+\textbf{GOcategory} & \textbf{Description}                                     & \textbf{No. of genes} & \textbf{P value}    \\ \hline
+GO:0040034 & regulation of development, heterochronic                                                             & 7        & 0.00083 \\
+GO:0006417 & regulation of translation                                                                            & 5        & 0.00415 \\
+GO:0016441 & posttranscriptional gene silencing                                                                   & 5        & 0.00415 \\
+GO:0016458 & gene silencing                                                                                       & 5        & 0.00415 \\
+GO:0031047 & gene silencing by RNA                                                                                & 5        & 0.00415 \\
+GO:0034248 & regulation of cellular amide metabolic process                                                       & 5        & 0.00415 \\
+GO:0035194 & posttranscriptional gene silencing by RNA                                                            & 5        & 0.00415 \\
+GO:0040029 & regulation of gene expression, epigenetic                                                            & 5        & 0.00415 \\
+GO:0051932 & synaptic transmission, GABAergic                                                                     & 5        & 0.00589 \\
+GO:0032269 & \begin{tabular}[c]{@{}l@{}}negative regulation of cellular protein \\ metabolic process\end{tabular} & 10       & 0.00637 \\
+GO:0051248 & negative regulation of protein metabolic process                                                     & 10       & 0.00637 \\
+GO:0008361 & regulation of cell size                                                                              & 12       & 0.00848 \\
+GO:0010608 & posttranscriptional regulation of gene expression                                                    & 6        & 0.00902 \\
+GO:0010558 & \begin{tabular}[c]{@{}l@{}}negative regulation of macromolecule \\ biosynthetic process\end{tabular} & 13       & 0.00935 \\
+GO:0032535 & regulation of cellular component size                                                                & 13       & 0.00935 \\ \hline
+\end{tabular}
+\end{table}
+
+\paragraph*{S5 Table.}
 {\bf Enrichment results for links involving hubs.}
 
 \begin{table}[]
