@@ -960,7 +960,9 @@ This finding suggests that hub and nonhub neurons have a higher lineage distance
 In contrast, peripheral links manifest consistently lower lineage distance through the range of degree thresholds (Fig.~\ref{fig:Lineagek}).
 
 \paragraph{Neurotransmitter system}
-
+Hub neurons ($k > 44$) consist of 13 cholinergic neurons, 2 glutamatergic neurons, and 1 neuron of unknown type.
+To determine whether the increase in coexpression amongst pairs of hub neurons could be explained by their neurotransmitter type, we used a permutation test to compute the mean coexpression between all pairs of random groups of 16 neurons of the same neurotransmitter types (e.g., 13 random cholinergic neurons, 2 random glutamatergic neurons, and 1 random neuron of unknown neurotransmitter type), using $1\times 10^6$ random permutations.
+The mean coexpression between hub neurons was significantly increased relative to random sets $p = 3.8\times 10^-5$.
 
 \subsection*{Functional enrichment}
 
@@ -999,7 +1001,8 @@ This may be due to the fact that only a single acetylcholine-related GO category
 % we found enrichment in glutamate receptor signaling when comparing connections between hubs to those not involving hubs.
 % with ACh being the most broadly used neurotransmitter in general \cite{Pereira:2015er}
 % It is worth noting that although both analyses above highlighted enrichment of glutamate, even though acetylcholine (ACh) is the most broadly used neurotransmitter in \textit{C. elegans} \cite{Pereira:2015er}, and most hubs ($k > 41$) are cholinergic (Fig.~\ref{fig:S_feedInOutNodes}C).
-Looking closer at the neurotransmitter type of each neuron, we found that nonhub neurons that project to hubs (but do not receive projections back) are mostly sensory or interneurons (82\%), with the most common neurotransmitter being glutamate (41\%), whereas neurons that receive inputs from hubs (but do not project to hubs) are mostly motor neurons (84\%) and are cholinergic (93\%), as shown in Fig.~\ref{fig:S_feedInOutNodes}A,C.
+[[remove/recompute?:]]
+Looking closer at the neurotransmitter type of each neuron, we found that nonhub neurons that project to hubs (but do not receive projections back) are mostly sensory or interneurons (82\%), with the most common neurotransmitter being glutamate (41\%), whereas neurons that receive inputs from hubs (but do not project to hubs) are mostly motor neurons (84\%) and are cholinergic (93\%). % as shown in Fig.~\ref{fig:S_feedInOutNodes}A,C.
 % but our findings imply that Glu drives \emph{coupled} expression, so Glu genes are being expressed in both neurons, not just one, implying that that the presynpatic neuron expresses genes associated with Glu synthesis and the post-synaptic neuron (hub) expresses Glu receptor genes.
 
 Are presynaptic genes represented in the Glu pathway GO category?
@@ -1372,6 +1375,7 @@ GO:0006811          & ion transport                         & 69                
 
 % ------------------------------------------------------------------------------
 % compare proportions for simulations to validate
+% <<plot_coexpressionMeasures.m>>
 % ------------------------------------------------------------------------------
 % \paragraph*{S1 Fig.}
 % {\bf Comparing different coexpression measures.}
@@ -1398,14 +1402,15 @@ By contrast, the remaining measures to show a dependence on the proportion of 1s
 % \paragraph*{S2 Fig.}
 % {\bf Connection probability decreases with the separation distance between neurons}
 % ------------------------------------------------------------------------------
-% <<probabilityVSdistance>>
+% <<hubConnectionDistance>>
+% cf. probabilityVSdistance
 % ------------------------------------------------------------------------------
 \begin{figure}[h]
 \centering
     \includegraphics[width=1\textwidth]{connectionProportionDivision.eps}
 \caption{
 \label{fig:S_connectionProportion}
-Distribution of hub-hub connections (`rich', red), and all other connections (`non-rich', i.e., feeder and peripheral, gray) across anatomical divisions (head, body, and tail), defining hubs as those with degree, $k > 41$, corresponding to the lowest threshold at which the \emph{C. elegans} connectome exhibits rich-club organization.
+Distribution of hub-hub connections (`rich', red), and all other connections (`non-rich', i.e., feeder and peripheral, gray) across anatomical divisions (head, body, and tail), defining hubs as those with degree, $k > 44$, corresponding to the lowest threshold at which the \emph{C. elegans} connectome exhibits rich-club organization.
 The increased separation distance between hubs is driven by a relative increase in connection density between the head and tail.
 }
 \end{figure}
@@ -1439,26 +1444,26 @@ Looking within the head, we find different spatial relationships as a function o
 % ------------------------------------------------------------------------------
 % \paragraph*{S4 Fig.}
 % {\bf Neuron properties vary in therms of their connectivity relationship to hub nodes. }
-\begin{figure}[h]
-\centering
-    \includegraphics[width=1\textwidth]{FeedInOutNodesJustTwo.pdf}
-\caption{
-\textbf{Neuron properties vary in terms of their connectivity relationship to hub nodes.}
-Using a degree threshold for hubs, $k > 41$, we class all individual neurons into five mutually exclusive categories, shown schematically in the figures, for hubs (red) and nonhubs (light blue), as:
-(i) `hub' ($k>41$),
-and then classify nonhubs ($k\leq41$) as:
-(ii) `feedIn' (projects to a hub, but does not receive a projection from a hub),
-(iii) `feedOut' (receives a projection from a hub, but does project to a hub),
-(iv) `feedBoth' (receives a projection from, and projects to a hub),
-(v) `peripheral' (neither receives a projection from nor projects to a hub).
-We show the number of neurons in each of these fives classes that:
-\textbf{A} is an interneuron (orange), motor neuron (green), sensory neuron (blue), or multimodal (yellow),
-% \textbf{B} is in the head (gray), body (purple), or tail (red),
-\textbf{B} uses one of nine neurotransmitter systems (labeled).
-\label{fig:S_feedInOutNodes}
-[[TODO: Come up with new names for nodes that don't confuse with edge names. Labels not visible for B]]
-}
-\end{figure}
+% \begin{figure}[h]
+% \centering
+%     \includegraphics[width=1\textwidth]{FeedInOutNodesJustTwo.pdf}
+% \caption{
+% \textbf{Neuron properties vary in terms of their connectivity relationship to hub nodes.}
+% Using a degree threshold for hubs, $k > 41$, we class all individual neurons into five mutually exclusive categories, shown schematically in the figures, for hubs (red) and nonhubs (light blue), as:
+% (i) `hub' ($k>41$),
+% and then classify nonhubs ($k\leq41$) as:
+% (ii) `feedIn' (projects to a hub, but does not receive a projection from a hub),
+% (iii) `feedOut' (receives a projection from a hub, but does project to a hub),
+% (iv) `feedBoth' (receives a projection from, and projects to a hub),
+% (v) `peripheral' (neither receives a projection from nor projects to a hub).
+% We show the number of neurons in each of these fives classes that:
+% \textbf{A} is an interneuron (orange), motor neuron (green), sensory neuron (blue), or multimodal (yellow),
+% % \textbf{B} is in the head (gray), body (purple), or tail (red),
+% \textbf{B} uses one of nine neurotransmitter systems (labeled).
+% \label{fig:S_feedInOutNodes}
+% [[TODO: Come up with new names for nodes that don't confuse with edge names. Labels not visible for B]]
+% }
+% \end{figure}
 % ------------------------------------------------------------------------------
 
 
