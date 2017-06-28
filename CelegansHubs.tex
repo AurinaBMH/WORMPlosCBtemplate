@@ -774,7 +774,7 @@ Being a pairwise analysis, we compare pairwise synaptic connectivity to pairwise
 % , to define gene coexpression, and excluding coexpression values between homologous left/right neuron pairs, see Methods).
 
 First we investigate whether gene coexpression relates to synaptic connectivity by comparing the distribution of $r_\phi$ computed for all connected pairs of neurons, and for all unconnected pairs of neurons, shown in Fig.~\ref{fig:coExp}A.
-We find that connected pairs of neurons have more similar expression profiles than unconnected pairs (Wilcoxon rank-sum test, $P < 10^{-95}$), mirroring results in the mesoscale mouse connectome \cite{Fulcher:2016ck}.
+We find that connected pairs of neurons have more similar expression profiles than unconnected pairs (Wilcoxon rank-sum test, $P < 10^{-74}$), mirroring results in the mesoscale mouse connectome \cite{Fulcher:2016ck}.
 Moreover, we also demonstrate increased coexpression between neuron pairs connected via gap junctions compared to neurons connected via chemical synapses (Wilcoxon rank-sum test, $P < 10^{-22}$).
 Afterwards, we separated connections into three distinct categories: electrical, chemical reciprocal ($X \leftrightarrow Y$) and chemical unidirectional ($X \rightarrow Y$), however, unlike in the mouse brain, we found no differences in gene coexpression, $r_\phi$, between chemical unidirectional and reciprocal connections (see Fig.~\ref{fig:S_RFPdistributions}).
 
@@ -786,9 +786,10 @@ Afterwards, we separated connections into three distinct categories: electrical,
  \centering
     \includegraphics[width=1\textwidth]{MeanCoexpressionALL.pdf}
  \caption{{\bf Gene coexpression varies as a function of connectedness and connection type, with the highest coexpression for connections involving hubs.}
-\textbf{A} Distribution of transcriptional similarity between connected and unconnected pairs of neurons as a violin plot, with the mean of each distribution represented by a horizontal line.
+\textbf{A} Distribution of transcriptional similarity between electrically connected, chemically connected and unconnected pairs of neurons as a violin plot, with the mean of each distribution represented by a horizontal line.
 Note that connections between bilateral pairs of neurons display high transcriptional similarity and are excluded from this analysis, leaving 474 electrically (514-40), 1\,940 connected pairs (1\,961 - 21) and 36\,450 unconnected pairs (36\,494 - 44).
-Coexpression, $r_\phi$, is increased in connected compared to unconnected pairs of neurons ($P < 10^{-95}$, Wilcoxon rank sum test).
+The categories of electrically and chemically connected neuron pairs are not mutually exclusive with 175 pairs of neurons connected via both types of connections. 
+Coexpression, $r_\phi$, is increased in connected compared to unconnected pairs of neurons ($P < 10^{-74}$, Wilcoxon rank sum test).
 Coexpression, $r_\phi$, is increased in neuron pairs connected via electrical synapses compared to pairs connected via chemical synapses ($P < 10^{-22}$, Wilcoxon rank sum test).
 \textbf{B}
 \emph{Top}: Degree distribution, $k$, of the \emph{C. elegans} synaptic connectome.
