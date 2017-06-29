@@ -359,8 +359,10 @@ Connectivity information is available both for electrical gap junctions and chem
 %To avoid any possible differences in gene expression between chemical synapses and gap junctions, our analysis focuses just on the synaptic connectivity network, which contains a total of 1\,961 pairs of connected neurons, spanning a total of 2\,194 directed connections (and a total of 6\,394 individual synapses).
 
 Previous work on \emph{C. elegans} connectivity has used different processed versions of this data, including a combination of synaptic connections and gap junctions together as here \cite{Azulay:2016cg, Kim:2016gl}, just synaptic connections (e.g., following thresholding \cite{Kashtan:2004ev}), a combination of synaptic and gap junctions that are afterwards symmetrized to represent unidirectional and reciprocal synaptic connections equivalently \cite{Towlson:2013gf, Kim:2014bu, Pavlovic:2014gx}, or analyzing a range of connectome representations \cite{Pan:2010jt}.
-In order to take into account the influence of both synaptic and gap junction connectivity, our analysis is mainly focused on the combined directed, unweighted network that includes both types of connections, representing gap junction connections as bidirectional.
-This network of 279 neurons consists of 2\,287 connected pairs of neurons, spanning a total of 2\,990 directed connections (and the weighted network includes a total of 8\,168 individual synapses).
+In order to take into account the influence of both synaptic and gap junction connectivity, our analysis is mainly focused on the combined directed, binary network that includes both types of connections: edges between neurons connected synaptically are represented as directed edges from the presynaptic neuron to the postsynaptic neuron, while edges between neurons connected via gap junctions are represented as bidirectional.
+This network of 279 neurons consists of 2\,287 connected pairs of neurons, spanning a total of 2\,990 directed connections.
+% <<BasicStats.m>>
+% (and the weighted network includes a total of 8\,168 individual synapses).
 Note that the qualitative results presented here paper hold also when gap junctions are excluded.
 % [[TODO: Some statement that our core results hold for different representations of the neuronal connectome]].
 
@@ -370,8 +372,9 @@ Coordinates for three neurons (AIBL, AIYL, SMDVL) were missing in this dataset, 
 % [[TODO: Should we infer 3-d coordinates as Varier do, in order to make distances better behaved??]].
 % The C. elegans nervous system consists of two distinct parts: a small pharyngeal nervous system (20 neurons), responsible for  the feeding behavior of the animal and a large somatic nervous system (282 neurons).
 
-In order to relate our topological and gene expression results to other information about individual neurons or pairs of neurons, we assembled diverse publicly available data for \emph{C. elegans}.
-Neurons were first labeled by functional class, as:
+% In order to relate our topological and gene expression results to other information about individual neurons or pairs of neurons,
+We also assembled a range of additional data characterizing \emph{C. elegans} neurons.
+Neurons were labeled by their broad functional type as either:
 (i) `sensory' neurons (support receptive function),
 (ii) `motor' neurons (cells containing neuromuscular junctions), or
 (iii) `interneuron' (all other neurons) \cite{White:1986tx}.
@@ -388,17 +391,14 @@ The neurotransmitter systems used by each neuron was labeled by matching to data
 % to label the neurotransmitter type of all neurons.
 % in the hermaphrodite C. elegans nervous system has been mapped, revealing the dominance of cholinergic signaling \cite{Pereira:2015er}.
 Lineage similarity for all pairs of neurons was obtained from previously published embryonic and post-embryonic lineage trees \cite{Sulston1977, Sulston1983}; data were downloaded from WormAtlas (\url{http://www.wormatlas.org/neuronalwiring.html#Lineageanalysis}) \cite{WormAtlas}.
-In this dataset, the closest common ancestor neuron was identified for each pair of neurons, and then the number of cell divisions from the common progenitor was calculated.
+In this dataset, the closest common ancestor neuron was identified for each pair of neurons, and then the number of cell divisions from the common progenitor was calculated as the lineage distance.
 % Downloaded data were arranged into a matrix format where lineage distance for each pair of neurons was defined. % part of Print_neuroconnect.m
 % [[TODO: Aurina -- genes: wormbase, connectivity, lineage, birth times: wormatlas. can we go through all of this to clarify all of the data sources -- wormMine, wormBase, WormAtlas, etc. I'm a bit confused]]
 
 % METHODS: rich club analysis
 \subsection*{Network analysis}
 
-In this section, we describe the methods used to characterize the \emph{C. elegans} connectome, represented as a graph with neurons as nodes.
-Edges between neurons connected via chemical synapses are represented as directed edges from the presynaptic neuron to the postsynaptic neuron while edges between neurons connected via gap junctions are bidirectional.
-Therefore, this particular representation of the C. elegans connectome results in a directed binary network.
-
+In this section we describe the methods used to characterize the \emph{C. elegans} connectome.
 % \cite{Schroter:2017eo}.
 
 \paragraph{Degree}
@@ -409,33 +409,34 @@ We refer to this total degree, $k_\mathrm{tot}$, as simply the degree, $k$ throu
 % Weighted analogues of these degree measures involve counting the number of synaptic connections that a neuron makes to other regions (weighted out-degree, $k^w_\mathrm{out}$), that are afferent to it (weighted in-degree, $k^w_\mathrm{in}$), or the combination, weighted degree, $k^w = k^w_\mathrm{in} + k^w_\mathrm{out}$.
 At a given degree threshold, $k$, we classified each neuron as either a `hub' (degree $>k$) or a `non-hub' (degree $\leq k$).
 All connections could subsequently be classified in terms of their source and target neurons, as either `rich' (hub $\rightarrow$ hub, or hub $\leftrightarrow$ hub), `feed-in' (non-hub $\rightarrow$ hub), `feed-out' (hub $\rightarrow$ non-hub), or `peripheral' (nonhub $\rightarrow$ nonhub, or nonhub $\leftrightarrow$ nonhub).
-Note that the directed connectivity information here has allowed us to distinguish `feeder' connections as either `feed-in' or `feed-out', rather than grouping them as `feeder', as is necessary in undirected connectomes.
+% Note that the directed connectivity information here has allowed us to distinguish `feeder' connections as either `feed-in' or `feed-out', rather than grouping them as `feeder', as is necessary in undirected connectomes.
 % For simplicity, hub $\rightarrow$ non-hub and non-hub $\rightarrow$ hub connections were grouped as a single `feeder' category for simplicity.
 
 \paragraph{Rich-club organization}
-We used the rich-club coefficient, $\phi(k)$ \cite{Colizza:2006kz}, to quantify the interconnectivity of hub neurons:
+We used the rich-club coefficient, $\phi(k)$, to quantify the interconnectivity of hub neurons:
 \begin{equation}
     \label{eqn:rich_club}
     \phi(k) = \frac{2E_{>k}}{N_{>k}(N_{>k}-1)},
 \end{equation}
-where $N_{>k}$ is the number of nodes with degree $>k$, and $E_{>k}$ counts the number of edges between them.
-The rich-club coefficient, $\phi(k)$, measures the link density in the subgraph containing nodes with degree $>k$, and is expected to increase with $k$ regardless of network structure, since nodes with higher degree make more connections in general, yielding a higher expected link density in the subgraph containing nodes with degree $>k$.
-To account for this effect, we compared $\phi(k)$ measured from the \emph{C. elegans} connectome, to that obtained from an ensemble of randomized null networks, $\phi_\mathrm{rand}(k)$ \cite{Colizza:2006kz}.
+where $N_{>k}$ is the number of nodes with degree $>k$, and $E_{>k}$ is the number of edges between them  \cite{Colizza:2006kz}.
+Thus, $\phi(k)$ measures the link density in the subgraph containing nodes with degree $>k$.
+Because $\phi(k)$ increases with $k$ for general networks (because nodes with higher degree make more connections, yielding a higher expected link density in the subgraph containing nodes with degree $>k$), we compared $\phi(k)$ measured from the \emph{C. elegans} connectome to that measured from randomized null networks, $\phi_\mathrm{rand}(k)$ \cite{Colizza:2006kz}.
 An ensemble of 1\,000 null networks was generated by shuffling the links in the empirical network while retaining the degree distribution of nodes in the network \cite{Maslov:2002hi} (rewiring each edge an average of 50 times per null network) using the \texttt{randmio\_dir} function from the {\it Brain Connectivity Toolbox} \cite{Rubinov:2010jd}.
 The normalized rich-club coefficient, $\Phi_\mathrm{norm}(k)$, was then computed as the ratio of the rich-club coefficient of the empirical network to the mean rich-club coefficient of the ensemble of randomized networks:
 \begin{equation}
     \label{eqn:rich_club_norm}
     \Phi_\mathrm{norm}(k) = \frac{\phi(k)}{\langle \phi_\mathrm{rand}(k) \rangle}.
 \end{equation}
-$\Phi_\mathrm{norm} > 1$ indicates the rich-club organization of the network, with statistically significant deviations assessed by computing a $P$-value directly from the empirical null distribution, $\phi_\mathrm{rand}(k)$, as a permutation test under the null hypothesis $\phi(k) \leq \phi_\mathrm{rand}(k)$ \cite{vandenHeuvel:2011he}, setting the threshold for significance at $P < 0.05$.
+$\Phi_\mathrm{norm} > 1$ indicates rich-club organization of the network, with statistically significant deviations assessed by computing a $P$-value directly from the empirical null distribution, $\phi_\mathrm{rand}(k)$, as a permutation test under the null hypothesis $\phi(k) \leq \phi_\mathrm{rand}(k)$ \cite{vandenHeuvel:2011he}.
+% setting the threshold for significance at $P < 0.05$.
 
 % NOTE THAT TOWLSON USED UNDIRECTED (CHEMICAL+ELECTRICAL) network. WE USE DIRECTED CHEMICAL. (should probably put this into results - not in methids).
 %The phenomenon of the rich-club organisation in \textit{C. elegans} connectome was originally demonstrated by Towlson et al. \cite{Towlson2013} in an undirected binary version of the connectome where data for both chemical and electrical synapses were combined.
 %As a result, a small number of high degree nodes forming a rich club was identified.
 
 \paragraph{Modularity}
-The modular structure of the connectome was determined applying the Louvain community detection algorithm \cite{Blondel:2008do}, using the \texttt{community\_louvain} implementation in the Brain Connectivity Toolbox \cite{Rubinov2010}.
-To identify the optimal modular assignment, the algorithm was repeated 1\,000 times, with the final assignments of nodes to modules given using a consensus clustering approach \cite{Lancichinetti2012}, where each partition was weighted by its modularity, $Q$, using the \texttt{agreement\_weighted} and \texttt{consensus\_und} functions of the Brain Connectivity Toolbox \cite{Rubinov2010}, with $\tau = 0.1$.
+The modular structure of the connectome was determined applying the Louvain community detection algorithm \cite{Blondel:2008do}, using the \texttt{community\_louvain} implementation in the \emph{Brain Connectivity Toolbox} \cite{Rubinov2010}.
+To identify the optimal modular assignment, nodes were assigned to modules using consensus clustering across 1\,000 repeats of the Louvain algorithm \cite{Lancichinetti2012}, weighting each partition by its modularity, $Q$, using the \texttt{agreement\_weighted} and \texttt{consensus\_und} functions of the \emph{Brain Connectivity Toolbox} \cite{Rubinov2010} with $\tau = 0.1$.
 We also compared results using the solution with maximal modularity, $Q$.
 % which produces a stable partition using information from multiple runs of the modularity detection algorithm.
 % Therefore, the results of these 1\,000 partitions were aggregated into a single agreement matrix, in which each element encoded the frequency with which a given pair of nodes was classified in the same module across runs.
