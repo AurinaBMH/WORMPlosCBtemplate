@@ -348,22 +348,21 @@ We then go on to describe the gene expression data, how we measure expression si
 
 % METHODS: connectivity data
 \subsection*{Neuronal connectivity data}
-Neuronal connectivity data for the adult hermaphrodite nematode \emph{C. elegans} was first mapped by White et al.~\cite{White:1986tx}, and then revised by Chen et al. \cite{Chen:2006ie} and by Varshney et al.~\cite{Varshney2011} through detailed electron microscopy.
 The \emph{C. elegans} nervous system is made up of 302 neurons, divided into the pharyngeal nervous system (20 neurons) and the somatic nervous system (282 neurons).
 The spatial positions of neurons, and their interconnections, are genetically determined and highly reproducible across organisms \cite{Riddle1997}.
-Here we analyze the larger somatic nervous system using data from Varshney et al.~\cite{Varshney2011}, who mapped connectivity between 279 neurons (282 somatic neurons, excluding CANL/R, and VC6, which do not form synapses with other neurons).
-Data were downloaded from WormAtlas (\url{www.wormatlas.org/neuronalwiring.html#NeuronalconnectivityII}).
+Neuronal connectivity data for the adult hermaphrodite nematode \emph{C. elegans} was first mapped by White et al.~\cite{White:1986tx}, and then revised by Chen et al. \cite{Chen:2006ie} and by Varshney et al.~\cite{Varshney2011} through detailed electron microscopy.
+Here we analyze the larger somatic nervous system using data from Varshney et al.~\cite{Varshney2011}, who mapped connectivity between 279 neurons (282 somatic neurons, excluding CANL/R, and VC6, which do not form synapses with other neurons), downloaded from WormAtlas (\url{www.wormatlas.org/neuronalwiring.html#NeuronalconnectivityII}).
 % [[TODO: Aurina, VC6 does have data available, right, it just only makes connections via neuromuscular junctions is the reason we exclude. But is it that CANL/R don't have data available? Or they just don't make connections? Should distinguish missing data from absence of connections]]
-Connectivity information is available both for electrical gap junctions and chemical synapses, where the later are further distinguished by presynaptic and postsynaptic neurons (providing information on the direction of connectivity), as well as the number of synapses (providing information on the projection strength, or connectivity weight).
+Connectivity information is available both for electrical gap junctions and chemical synapses; the later are further distinguished by presynaptic and postsynaptic neurons (providing information about the connectivity direction), as well as the number of synapses (providing information about the projection strength, or connectivity weight).
 % The result can be represented as a weighted, directed connectivity matrix, with weights given by the number of synapses.
 % By contrast, the directionality of electrical gap junctions remains unknown, and have thus been represented as bidirectional connections.
 %To avoid any possible differences in gene expression between chemical synapses and gap junctions, our analysis focuses just on the synaptic connectivity network, which contains a total of 1\,961 pairs of connected neurons, spanning a total of 2\,194 directed connections (and a total of 6\,394 individual synapses).
-In order to take into account the influence of both chemical as well as gap junction connectivity, our analysis focuses on the network, where both types of connectivity are represented.
-This network contains a total of 2\,287 pairs of connected neurons, spanning a total of 2\,990 directed connections (and a total of 8\,168 individual synapses).
 
-Note that previous work has used different processed versions of this data, including a combination of synaptic connections and gap junctions together as here \cite{Azulay:2016cg, Kim:2016gl}, just synaptic connections (e.g., following thresholding \cite{Kashtan:2004ev}), a combination of synaptic and gap junctions that are afterwards symmetrisized to represent unidirectional synaptic connections as bidirectional \cite{Towlson:2013gf, Kim:2014bu, Pavlovic:2014gx}, or comparing multiple representations \cite{Pan:2010jt}.
-All the main results presented in this paper were also reproduced for the directed synaptic connectivity matrix.
-[[TODO: Some statement that our core results hold for different representations of the neuronal connectome]].
+Previous work on \emph{C. elegans} connectivity has used different processed versions of this data, including a combination of synaptic connections and gap junctions together as here \cite{Azulay:2016cg, Kim:2016gl}, just synaptic connections (e.g., following thresholding \cite{Kashtan:2004ev}), a combination of synaptic and gap junctions that are afterwards symmetrized to represent unidirectional and reciprocal synaptic connections equivalently \cite{Towlson:2013gf, Kim:2014bu, Pavlovic:2014gx}, or analyzing a range of connectome representations \cite{Pan:2010jt}.
+In order to take into account the influence of both synaptic and gap junction connectivity, our analysis is mainly focused on the combined directed, unweighted network that includes both types of connections, representing gap junction connections as bidirectional.
+This network of 279 neurons consists of 2\,287 connected pairs of neurons, spanning a total of 2\,990 directed connections (and the weighted network includes a total of 8\,168 individual synapses).
+Note that the qualitative results presented here paper hold also when gap junctions are excluded.
+% [[TODO: Some statement that our core results hold for different representations of the neuronal connectome]].
 
 Two dimensional spatial coordinates for neurons were obtained as \texttt{celegans277.mat} from \url{www.biological-networks.org/?page_id=25} \cite{choe2004network}.
 % 277 neurons (including VC6, which makes connections only through neuro-muscular junctions) [[TODO: Aurina, why mention this? AA - this neuron doesn't have obvious connections, therefore not included in the connectome, but we have coordinates for it, otherwise, numbers do not add]])
