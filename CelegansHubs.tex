@@ -474,7 +474,9 @@ Compared to continuous expression measurements of $>17\,000$ genes in the mouse 
 \subsection*{Gene coexpression}
 % NOTE: if we use this measure only for one plot in the supp, probably should first describe Pearson here and add this at the end of gene coexpression section.
 
-To relate our measure of gene expression for individual neurons to measures of coupled expression for pairs of neurons, we measured the similarity in gene expression profiles between a pair of neurons, $(i,j)$, using a binary analogue of the linear Pearson correlation coefficient, the mean square contingency coefficient, $r_\phi$ \cite{Warrens2008}:
+Our primary aim in this work is to understand how patterns of expression across 948 genes in individual neurons (e.g., rows of Fig.~\ref{fig:SchematicRepresentation}B) are related to pairwise patterns of neuron-to-neuron connectivity.
+To relate our measure of gene expression for individual neurons to measures of coupled expression for pairs of neurons, we required a similarity measure for pairs of neurons that captures the probability of patterns of binary gene expression matching, or \emph{gene coexpression}.
+We used a binary analogue of the linear Pearson correlation coefficient, the mean square contingency coefficient, $r_\phi$ \cite{Warrens2008}:
 \begin{equation} \label{eq:rphi}
     r_\phi = \frac{n_{11}n_{00} - n_{10}n_{01}}{\sqrt{n_{1\bullet}n_{0\bullet}n_{\bullet 0}n_{\bullet 1}}},
 \end{equation}
@@ -482,20 +484,7 @@ for two vectors $x$, $y$, of length $L (=948)$, where $n_{xy}$ counts the number
 A maximum value $r_\phi = 1$ when $x$ and $y$ are identical such that $n_{11} + n_{00} = L$, and a minimum value $r_\phi = -1$ when $x$ and $y$ are always mismatched such that $n_{10} + n_{01} = L$.
 We verified that $r_\phi$ was not biased by differences in relative number of expressed genes in a neuron, which ranged from 3 to 138 (0.3\% to 14.6\% of all 948 genes considered); this was not the case for some other binary correlation measures, which exhibited strong bias (see Supplementary Information).
 
-
-Our primary aim in this work is to understand how patterns of expression across 948 genes in individual neurons (e.g., rows of Fig.~\ref{fig:SchematicRepresentation}B) are related to pairwise patterns of neuron-to-neuron connectivity.
-To relate our measure of gene expression for individual neurons to measures of coupled expression for pairs of neurons, we required a similarity measure for pairs of neurons that captures the probability of patterns of binary gene expression matching.
-Existing measures of binary correlation are symmetric between 0s and 1s, however, the gene expression data used here are sparse, with a only minority (up to a maximum of 15\%) of genes expressed in any single neuron.
-We thus required a measure that was not biased by simple variations in the number of non-zero elements in one (or both) of the expression vectors.
-We also wanted a measure that distinguishes biologically relevant cases where genes are expressed together, $n_{11}$, from the dominant case where a gene is not expressed in both neurons, $n_{00}$.
-To this end, we developed a new index based around that probability, $P(m)$, that two binary strings will contain $m$ `positive matches' (i.e., matching 1 with 1),
-\begin{equation} \label{eqn:positiveMatch}
-    P(m) = \binom{n_2}{m} \binom{N-n_2}{n_1-m} / \binom{N}{n_1},
-\end{equation}
-for two binary expression vectors, $x_i$, $y_i$, of length $N$, containing $n_1$ and $n_2$ 1s, respectively ($n_2 \leq n_1$), with $m$ matches ($n_{11}$).
-Our index, $r_\xi$, computes the probability of at least this many matches as $r_\xi = 1 - \sum_{x=0}^{m-1} P(x)$.
-NOTE: need to decide whether we keep this here or move to supp. If we keeping it in the main text, need some reasoning why choosing Pearson instead.
-This showed ([[biases?]]) which gave similar results [[TODO: check that behavior is indeed similar]].
+[[We also developed a new measure]]
 
 
 % A total of 92 anatomically distinct neuron classes are bilateral, that is, they contain both left and right counterparts (e.g., AVAL/AVAR).
@@ -1027,7 +1016,7 @@ Previous results in mouse indicated that genes driving an increase in coexpressi
 \cite{Fulcher:2016ck, Ji:2014jw, Fakhry:2015kl, French:2011cz}.
 For \emph{C. elegans}, the top GO categories are listed in Table~\ref{enrichmentCON}.
 Two categories related to glutamate receptor signaling are significant at a false discovery rate ($FDR < 0.05$): `ionotropic glutamate receptor signaling pathway' and `glutamate receptor signaling pathway'.
-Other top GO categories include cell surface receptor signalling ($p_\mathrm{uncorr} = 0.002$), memory ($p_\mathrm{uncorr} = 0.005$), `ion transport' ($p_\mathrm{uncorr} = 0.01$) and 'regulation of growth' ($p_\mathrm{uncorr} = 0.01$).
+Other top GO categories include cell surface receptor signaling ($p_\mathrm{uncorr} = 0.002$), memory ($p_\mathrm{uncorr} = 0.005$), `ion transport' ($p_\mathrm{uncorr} = 0.01$) and `regulation of growth' ($p_\mathrm{uncorr} = 0.01$).
 [[supporting the idea that connected pairs of neurons tend to express genes associated with neuronal connectivity compared to unconnected neuron pairs.]]\\
 
 [[A PARAGRAPH ON CHEMICAL vs ELECTRICAL - first decide on the message]]\\
@@ -1042,7 +1031,7 @@ Thus, although a direct test of mouse and human results is no possible, we aimed
 The top enriched GO categories are listed in Table~\ref{enrichmentRICH}.
 The same two glutamate signaling categories found above for the connectivity were, again, the among the categories to be significantly enriched ($p<0.05$, FDR corrected).
 In addition, three ion transport related categories were also significantly enriched in connections involving hubs compared to other connections.
-Other top categories are related to locomotion ($p_\mathrm{uncorr} = 0.004$), cell and chemical signaling: 'cell surface receptor signaling pathway' ($p_\mathrm{uncorr} = 0.004$), 'cell-cell signaling' ($p_\mathrm{uncorr} = 0.004$),  'chemical synaptic transmission' ($p_\mathrm{uncorr} = 0.005$), 'synaptic signaling' ($p_\mathrm{uncorr} = 0.005$).
+Other top categories are related to locomotion ($p_\mathrm{uncorr} = 0.004$), cell and chemical signaling: `cell surface receptor signaling pathway' ($p_\mathrm{uncorr} = 0.004$), `cell-cell signaling' ($p_\mathrm{uncorr} = 0.004$), `chemical synaptic transmission' ($p_\mathrm{uncorr} = 0.005$), 'synaptic signaling' ($p_\mathrm{uncorr} = 0.005$).
 Metabolic and biosynthetic processes were also among the most enriched categories, including `positive regulation of nucleobase-containing compound metabolic process' ($p_\mathrm{uncorr} = 0.004$), 'positive regulation of biosynthetic process' ($p_\mathrm{uncorr} = 0.005$) and 'positive regulation of nitrogen compound metabolic process' ($p_\mathrm{uncorr} = 0.005$).
 %These findings are in line with our expectations as hub neurons receive input from sensory neurons, the majority of which are glutamatergic.
 %As a result, hubs are required to have glutamate receptors the enrichment in these categories is the most pronounced (even after the correction, false discovery rate $< 0.05$).
@@ -1250,7 +1239,26 @@ Annotations of gene $G$ to neuron $N$ are also made with varying levels of certa
 or `uncertain' ($G$ was sometimes observed to be expressed in $N$, or $G$ was observed to be expressed in a cell that could be $N$).
 Our analysis excluded annotations labeled as `uncertain' to avoid including false positives.
 
-\subsection*{Quantifying gene coexpression}
+\subsection*{Coexpression matching index}
+
+Existing measures of binary correlation (described below) are symmetric between `0' and `1' and thus do not directly distinguish between the biologically relevant case of genes being expressed together from the case in which neither gene is expressed.
+% but the gene expression data used here are sparse, with a only minority (up to a maximum of 15\%) of genes expressed in any single neuron.
+% We thus required a measure that was not biased by simple variations in the number of non-zero elements in one (or both) of the expression vectors.
+% We also wanted a measure that distinguishes biologically relevant cases where genes are expressed together, $n_{11}$, from the dominant case where a gene is not expressed in both neurons, $n_{00}$.
+We thus developed a measure of the probability, $P(m)$, that two binary strings will contain $m$ `positive matches' (i.e., $m$ genes are expressed in both neurons), which can be computed as:
+\begin{equation} \label{eqn:positiveMatch}
+    P(m) = \binom{n_2}{m} \binom{N-n_2}{n_1-m} / \binom{N}{n_1},
+\end{equation}
+for two binary expression vectors, $x_i$, $y_i$, of length $N$, containing $n_1$ and $n_2$ 1s, respectively ($n_2 \leq n_1$), with $m$ matches ($n_{11}$).
+Our index, $p_\mathrm{match}$, is approximately equal to the probability of obtaining as many or fewer matches than observed (weighting the probability of the observed number of matches at 0.5 for symmetry), computed as:
+\begin{equation} \label{eqn:pmatch}
+     p_\mathrm{match} = \sum_{x=0}^{m-1} P(x) + P(m)/2,
+\end{equation}
+for $m$ positive matches.
+We verified that this index yields qualitatively similar results to the mean square contingency coefficient, $r_\phi$, used throughout this work, validating our related positive match method for scoring individual genes (as an approximately single-gene contribution to the probability score computed in Eq.~\ref{eqn:pmatch} above).
+Given the qualitative similarity of this measure to $r_\phi$, we chose to focus on $r_\phi$ throughout this work due to its ease of interpretability as a correlation coefficient ranging from -1 to 1.
+
+\subsection*{Gene coexpression sensitivity}
 
 Measures of correlation between binary vectors can be biased by the relative proportion of ones between two vectors.
 Individual neurons range from between 3 to 138 expressed genes (0.3\% to 14.6\% of all 948 genes considered).
