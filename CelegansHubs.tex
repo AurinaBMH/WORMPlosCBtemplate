@@ -350,6 +350,7 @@ We then go on to describe the gene expression data, how we measure expression si
 \subsection*{Neuronal connectivity data}
 Neuronal connectivity data for the adult hermaphrodite nematode \emph{C. elegans} was first mapped by White et al.~\cite{White:1986tx}, and then revised by Chen et al. \cite{Chen:2006ie} and by Varshney et al.~\cite{Varshney2011} through detailed electron microscopy.
 The \emph{C. elegans} nervous system is made up of 302 neurons, divided into the pharyngeal nervous system (20 neurons) and the somatic nervous system (282 neurons).
+The spatial positions of neurons, and their interconnections, are genetically determined and highly reproducible across organisms \cite{Riddle1997}.
 Here we analyze the larger somatic nervous system using data from Varshney et al.~\cite{Varshney2011}, who mapped connectivity between 279 neurons (282 somatic neurons, excluding CANL/R, and VC6, which do not form synapses with other neurons).
 Data were downloaded from WormAtlas (\url{www.wormatlas.org/neuronalwiring.html#NeuronalconnectivityII}).
 % [[TODO: Aurina, VC6 does have data available, right, it just only makes connections via neuromuscular junctions is the reason we exclude. But is it that CANL/R don't have data available? Or they just don't make connections? Should distinguish missing data from absence of connections]]
@@ -1011,6 +1012,7 @@ Of the 16 hub neurons ($k > 44$), 13 are in the head, 3 in the tail, and none in
 Given that coexpression varies as a function of anatomical position with, for example, pairs of neurons in the same broad anatomical class exhibiting the highest mean coexpression (e.g., pairs of neurons within the body: $\langle r_\phi\rangle = 0.25$, within the tail: $\langle r_\phi\rangle = 0.13$, and within the head: $\langle r_\phi\rangle = 0.10$), with lower mean coexpression in mixed classes (e.g., connections from head$\rightarrow$body: $\langle r_\phi\rangle = 0.05$).
 Given this variation, we tested whether the increased gene expression in hub neurons could be explained by their anatomical distribution, using the same permutation testing procedure described above for neurotransmitter systems, i.e., by comparing to a null distribution formed from $1\times 10^6$ random permutations of 13 head neurons and 3 tail neurons.
 The mean coexpression between hub neurons is significantly increased relative to random sets of neurons with the same anatomical position as hubs ($p = 4.1\times 10^{-5}$, permutation test).
+Gene coexpression is significantly increased amongst hub neurons in the head compared to other pairs of head neurons (46 hub-hub pairs, 1186 others: $p = 4.12 \times 10^{-11}$, Wilcoxon rank sum test), also amongst head/tail pairs neurons (23 hub-hub pairs, 123 others: $p = 7.0 \times 10^{-14}$), but not for the three hub neurons in the tail compared to the 53 other tail-tail pairs ($p = 0.15$).
 
 \subsection*{Functional enrichment}
 
