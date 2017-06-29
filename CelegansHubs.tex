@@ -489,13 +489,13 @@ To ensure that our analyses are not influenced by the high coexpression between 
 
 \subsection*{Gene enrichment analysis}
 We examined the contribution of specific functional sets of genes to patterns of coexpression between neurons.
-Compared to previous studies of gene functional enrichment \cite{Fulcher:2016ck, Vertes2016a, Parkes:2017dn}, performing similar analyses with \emph{C. elegans} data pose additional challenges, including:
+Compared to previous studies of gene functional enrichment \cite{Fulcher:2016ck, Vertes2016a, Parkes:2017dn}, performing similar analyses with \emph{C. elegans} data pose additional challenges due to:
 (i) binary expression data (making robust quantification difficult),
-(ii) sparse and incomplete data, posing statistical problems for quantifying a signal in genes with limited neuronal expression,
-and (iii), cover less than 5\% of the protein coding genes in \emph{C. elegans}, so that many GO categories can not be tested due to insufficient coverage of relevant genes.
+(ii) sparse and incomplete data, posing statistical problems for quantifying a signal in genes with limited expression,
+and (iii) cover less than 5\% of the protein coding genes in \emph{C. elegans}, so that many GO categories can not be tested due to insufficient coverage of relevant genes.
 % , and thus (i)  many GO categories are not able to be tested.
-For example, only one gene from the metabolic Gene Ontology (GO) categories enriched for hub-hub connectivity in the mouse \cite{Fulcher:2016ck} was available in our \emph{C. elegans} dataset: \emph{unc-32}, preventing us from testing our hypothesis about the co-ordinated transcription of metabolic genes between connected hub neurons directly.
-Nevertheless, we developed new methods to quantify the contribution of individual genes, and functional groups of genes, to coexpression patterns from the best data currently available.
+For example, only one gene from the metabolic Gene Ontology (GO) categories enriched for hub-hub connectivity in the mouse \cite{Fulcher:2016ck} was available in our \emph{C. elegans} dataset: \emph{unc-32}, preventing us from testing our hypothesis regarding the coordinated transcription of metabolic genes in connected hub neurons.
+Nevertheless, we developed new methods to quantify the contribution of individual genes, and functional groups of genes, to coexpression patterns from the data that is currently available.
 % , and performed enrichment analysis to provide an indication of functional enrichment for different connections from
 % Instead, we adopted a data-driven approach to test for enrichment of specific subsets of genes as annotated in the Gene Ontology (GO) \cite{Ashburner2000}.
 
@@ -505,7 +505,8 @@ Nevertheless, we developed new methods to quantify the contribution of individua
 % fot the enrichment we choose gene set size (5-100), so no analysis could be done with only one gene.
 % [GenesinGO, GOs] = searchGOcategories(C,G, 'mouse');
 
-To determine whether certain sets of genes drive specific patterns of coupled expression between pairs of neurons (e.g., connected and unconnected pairs of neurons, between neurons connected via chemical \textit{vs} electrical synapses, or between rich/feeder/peripheral connections), we used enrichment analysis to identify functionally annotated groups of genes from the Gene Ontology (GO) \cite{Ashburner2000}.
+We sought to determine whether certain sets of genes drive specific patterns of coupled expression between particular classes of neuron pairs (e.g., connected \emph{vs} unconnected pairs of neurons, pairs of neurons connected via synapses \textit{vs} gap junctions, or between rich/feeder/peripheral connections) using gene enrichment analysis.
+% to identify functionally annotated groups of genes from the Gene Ontology (GO) \cite{Ashburner2000}.
 %  that contribute to the increased coexpression between:
 % (i) connected pairs of neurons as compared to unconnected pairs as well as
 % (ii) connections involving hubs (rich and feeder) compared to connections that do not involve hubs (peripheral).
@@ -516,41 +517,45 @@ To determine whether certain sets of genes drive specific patterns of coupled ex
 % (iii) \emph{neither expressed}: $g^{(a)}_i = 0$ and $g^{(a)}_j = 0$.
 % e.g., differences between connected and unconnected pairs of neurons, or between rich/feeder/peripheral connections
 % expression of a given gene, $a$, across brain regions, $i$, can take three possible combinations of coexpression at each edge, $(i,j)$
-To extract similar scores from the current binary expression data, we took an alternate approach of directly quantifying whether an individual gene, $a$, is more likely to be expressed together (i.e., $g^{(a)}_i = 1$ and $g^{(a)}_j = 1$) in both neurons ($i$ and $j$) of a given class of edges $\{(i,j)\}$.
-This provides a score, $\nu^{(a)}$, for each gene, $a$, that is higher for genes that exhibit a greater number of matches in the edge class of interest than expected by chance (analogous to gene coexpression contribution scores developed in previous work for continuous expression data \cite{Fulcher:2016ck}).
-% In previous work involving continuous expression data, we developed a score for each gene that quantified its contribution, at each edge, $(i,j)$, to the overall Pearson correlation across all genes, and then compared the distribution of these scores between different classes of edges \cite{Fulcher:2016ck}.
-Gene scores, $\nu^{(a)}$, were calculated as the probability of obtaining more than the observed $m$ matches ($g^{(a)}_i = 1$ and $g^{(a)}_j = 1$) observed empirically under a binomial distribution:
+We first scored each gene for whether it is more likely to be expressed together in a given class of neuron pairs over another as the probability of obtaining at least as many matches (defined as expression in both neurons of a pair) as observed under a random expression null model using the binomial distribution:
 \begin{eqnarray}
 	\label{eq:CBinomialProbability}
-     \nu^{(a)} = P_{>m} = 1 - \sum_{i=0}^{m}\binom{n}{i} p^{i}(1-p^{n-i}),
+     p^{(a)} = 1 - \sum_{i=0}^{m-1}\binom{n}{i} p_\mathrm{class}^{i}(1-p_\mathrm{class}^{n-i}),
 \end{eqnarray}
-where $p$ is the probability of the given class of inter-region pairs ($p = n_\mathrm{class}/M$ for $n_\mathrm{class}$ pairs out of $M$ possible pairs), and $n$ is the maximum number of possible matches.
-[[SEEMS LIKE THIS IS ACTUALLY CODED AS INTERREGION PAIRS RATHER THAN EDGES -- WE NEED TO PICK ONE AND UPDATE THIS SECTION ACCORDINGLY]]
-We perform three analyses here: firstly, we compare differences in coexpression between pairs of neurons that contain a structural connection to pairs of neurons that do not share a connection.
-% we talk here about undirected connectome (pairs of connected vs pairs of unconnected neurons). undirected density = 5.9%, directed density 3.85%
-In this case, $p = 0.059$ is the edge density of the connectome, and for each gene, $n$ is the total number of pairs of neurons $(i,j)$ for which $g^{(a)}_i = 1$ and $g^{(a)}_j = 1$, and $m$ is the observed number of neuron pairs, $(i,j)$, that are both structurally connected and for which $g^{(a)}_i = 1$ and $g^{(a)}_j = 1$.
-Secondly, we compare connections between neurons connected only via chemical synapses \textit{vs} only gap junctions.
-Normally, one pair of neurons can share both chemical synapses as well as gap junctions between them, however in this case we aimed to determine if there is a particular signature for chemical or electrical connections separately, therefore those categories are made to be mutually exclusive.
-Here, $p$ is the proportion of only synaptic (0.7753) or only electrical () connections between neurons , the maximum number of matches, $n$, is the number of neuron pairs, $(i,j)$, for which $g^{(a)}_i = 1$ and $g^{(a)}_j = 1$ and are also connected.
+where $m$ is the number of matches on the class of neuron pairs of interest, $n$ is the total number of matches across all neuron pairs considered in the analysis, $p_\mathrm{class} = n_\mathrm{class}/M$ is the probability of the given class of inter-region pairs as the total number of neuron pairs of that class, $n_\mathrm{class}$ divided by the maximum number of possible neuron pairs, $M$.
+This provides a score for each gene, $a$, that is higher for genes that exhibit a greater number of matches in the edge class of interest than expected by chance (and is analogous to gene coexpression contribution scores used with continuous expression data in previous work \cite{Fulcher:2016ck}).
+Note that here we excluded bilateral pairs of neurons from the scoring.
 
-Finally, we compare connections involving hubs to those between nonhubs, $p$ is the proportion of connections involving hubs (0.3529), the maximum number of matches, $n$, is the number neuron pairs, $(i,j)$, for which $g^{(a)}_i = 1$ and $g^{(a)}_j = 1$ and are also connected.
+% took an alternate approach of directly quantifying whether an individual gene, $a$, is more likely to be expressed together (i.e., $g^{(a)}_i = 1$ and $g^{(a)}_j = 1$) in both neurons ($i$ and $j$) of a given class of edges $\{(i,j)\}$.
+% In previous work involving continuous expression data, we developed a score for each gene that quantified its contribution, at each edge, $(i,j)$, to the overall Pearson correlation across all genes, and then compared the distribution of these scores between different classes of edges \cite{Fulcher:2016ck}.
+% Gene scores, $p^{(a)}$, were calculated as the probability of obtaining at least as many matches ($g^{(a)}_i = 1$ and $g^{(a)}_j = 1$) as observed by chance, using the binomial distribution:
+ % ($p = n_\mathrm{class}/M$ for $n_\mathrm{class}$ pairs out of $M$ possible pairs), and $n$ is the maximum number of possible matches.
+
+[[DO WE NEED TO MOVE SOME OF THIS DETAIL TO SUPP?:]]
+For example, when comparing pairs of neurons that contain a structural connection to pairs of neurons that do not share a connection, $p_\mathrm{class} = 0.059$ is the proportion of neuron pairs that are connected, $n$ is the total number of neuron pairs with for which both exhibit expression of gene $a$, and $m$ is the number of neuron pairs that are structurally connected for which both neurons express gene $a$.
+% we talk here about undirected connectome (pairs of connected vs pairs of unconnected neurons). undirected density = 5.9%, directed density 3.85%
+% In this case, $p = 0.059$ is the edge density of the connectome, and for each gene, $n$ is the total number of pairs of neurons $(i,j)$ for which $g^{(a)}_i = 1$ and $g^{(a)}_j = 1$, and $m$ is the observed number of neuron pairs, $(i,j)$, that are both structurally connected and for which $g^{(a)}_i = 1$ and $g^{(a)}_j = 1$.
+We also compare pairs of neurons connected only synaptically versus pairs of neurons connected only via a gap junction.
+For $n_\mathrm{syn} = 1773$ equal to the number of neuron pairs connected synaptically (without a gap junction) and $n_\mathrm{gap} = 326$ equal to the number of neuron pairs connected only via a gap junction (without any synaptic connection), this analysis has $p_\mathrm{class} = n_\mathrm{syn}/(n_\mathrm{syn} + n_\mathrm{gap}) = 0.84$, with $n$ equal to the number of neuron pairs in either the $\mathrm{syn}$ or $\mathrm{gap}$ classes that both express gene $a$, and $m$ equal to the number of such neuron pairs that only have a synaptic connection.
+% Normally, one pair of neurons can share both chemical synapses as well as gap junctions between them, however in this case we aimed to determine if there is a particular signature for chemical or electrical connections separately, therefore those categories are made to be mutually exclusive.
+Finally, we compare pairs of connected neurons for which at least one is a hub, to pairs in which both neurons are nonhubs.
+In this case, $p_\mathrm{class} = 0.35$ is the proportion of connected pairs of neurons that involve hubs, $n$ is the number of connected neuron pairs for which gene $a$ is expressed in both, and $m$ counts the number of connected neuron pairs involving hubs for which gene $a$ is expressed.
 % , and captures the probability of genes being expressed together in connected pairs of neurons at least as frequently as observed
 % For each gene, we first determined the pattern of matching expression profiles (a match meaning that a gene is expressed by both neurons) between each pair of neurons resulting in a binary 279 x 279 matrix.
 % Then, for each gene we calculated a cumulative binomial probability of getting more matches $(X)$ than in the empirical data $(m)$ on a particular connection type (see eq. \ref{eq:CBinomialProbability}).
-To ensure that each gene contributed a meaningful score, we required $m \geq 2$, that is, at least two neuron pairs to exhibit matching expression ($g^{(a)}_i = 1$ and $g^{(a)}_j = 1$) in the inter-region class of interest.
-A total of 577 genes out of 948 satisfied this criterion for connected/unconnected analysis; 483 out of 948 genes satisfied this criterion for hub and synapse type connectivity analysis.
+To ensure that each gene contributes a meaningful score, we set a threshold on the maximum number of matches, $n \geq 5$.
+[[AA-UPDATE: A total of 577 genes out of 948 satisfied this criterion for connected/unconnected analysis; 483 out of 948 genes satisfied this criterion for hub and synapse type connectivity analysis.]]
 % When calculating GCC for connected links more then one match for a gene overall was required (as a result 577 genes out of 948 left); when calculating GCC for the links involving hubs (rich and feeder links) more than one match was required on connected links (as a result 390 out of 948 genes left).
 % Otherwise, no information about the contribution of a specific gene to the overall coexpression pattern could be extracted.
 % \textbf{(NOTE: not literally true as both on and off matches equally contribute to an increase in coexpression, - need to find a way how to explain, why non-expression matches are not taken into account here).}
 
 For a given enrichment analysis, after computing a probability score for each gene using Eq.~\eqref{eq:CBinomialProbability}, we then took negative logarithms of the probability scores, $-\log_{10}\nu^{(a)}$ [[TODO: Justify why we took negative logarithms]], and used them to perform gene score resampling (GSR) analysis using version 3.0.2 of \emph{ErmineJ} software \cite{Gillis2010}.
 Performing GSR analysis allowed us to assess whether the mean log-transformed probability scores, $-\log_{10}\nu^{(a)}$, were greater than expected in certain GO categories than expected by chance, quantified as a $p$-value that was corrected for multiple comparisons across GO categories using the false discovery rate correction of Benjamini and Hochberg \cite{Benjamini:1995cd}.
-We computed enrichment for biological process Gene Ontology (GO) annotations \cite{Ashburner2000}, obtained from GEMMA \cite{Zoubarev2012} (using \texttt{Generic\_worm\_noParents.an.txt.gz} downloaded on March 31, 2017).
-NOTE AA: should justify why just BPs?
+We computed enrichment for biological process GO annotations \cite{Ashburner2000}, obtained from GEMMA \cite{Zoubarev2012} (using \texttt{Generic\_worm\_noParents.an.txt.gz} downloaded on March 31, 2017).
 % downloaded using a build-in option within ErmineJ software
 % and then compute the probability that the mean score in each GO category is larger than expected from a random assignment of scores to the genes in the list.
 Gene Ontology terms and definitions were obtained in RDF XML file format downloaded from \url{archive.geneontology.org/latest-termdb/go_daily-termdb.rdf-xml.gz} on March 31 2017.
-We included ontology terms containing between 5 and 100 annotations, using full resampling with $10^{5}$ iterations [[Aurina, or did we actually do $10^{7}$ runs??]] NOW it's $10^{5}$ (but can run $10^{7}$ if necessary)..
+We included ontology terms containing between 5 and 100 annotations, using full resampling with $10^{5}$ iterations [[CHECK WE ACTUALLY DID THIS MANY RUNS]].
 % {archive.geneontology.org/latest-termdb/go \textunderscore daily-termdb.rdf-xml.gz}
 
 % Results and Discussion can be combined.
