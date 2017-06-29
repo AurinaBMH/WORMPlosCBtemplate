@@ -451,16 +451,18 @@ We also compared results using the solution with maximal modularity, $Q$.
 
 % METHODS: gene expression
 \subsection*{Gene expression}
-Neuronal gene expression is measured here as a binary indicator, using data from many individual experiments compiled into a unified data resource on WormBase \cite{Harris:2009kd}; here we used release WS256 of this dataset (available at \url{ftp://ftp.wormbase.org/pub/wormbase/releases/WS256/ONTOLOGY/anatomy_association.WS256.wb}).
+Neuronal gene expression is measured here as a binary indicator, using data from many individual experiments compiled into a unified data resource on WormBase \cite{Harris:2009kd}, indicating which genes are expressed in a given neuron.
+% (which we denote as `1').
+We use release WS256 of this dataset (\url{ftp://ftp.wormbase.org/pub/wormbase/releases/WS256/ONTOLOGY/anatomy_association.WS256.wb}).
 % downloaded on 6th Feb 2017
-Here we analyze only annotations made `directly' to individual neurons, and excluded `uncertain' annotations (see Supplementary Information for details).
+We analyze annotations made `directly' to individual neurons and excluded `uncertain' annotations (see Supplementary Information for details).
 % (when genes are expressed in some neurons for a certain hierarchical category of cells)
-The data therefore provide indications of which genes are expressed in a given neuron (which we denote as `1').
 % If a gene is expressed under a specific qualifier for a specific neuron, it is assigned a value of 1, in all other cases 0 values are assigned.
-Note that the data do not distinguish: (i) ``gene is not expressed'' and (ii) ``there is no information on whether gene is expressed'', both of which are represented as a `0'.
-Expression annotations can be represented as a binary $N \times G$ matrix, containing $N=279$ neurons, and $G = 948$ genes (the total number of genes that were expressed in at least one neuron).
-This matrix is plotted in Fig.~\ref{fig:SchematicRepresentation}B.
-Expression data is sparse, in part due to incomplete annotation data: an average of 30 genes are expressed in each neuron (range: 3 to 138 genes), and each gene is expressed in an average of 9 neurons (range: 1 to 148 neurons).
+We denote the expression of a gene in a neuron using a `1', but are unable to distinguish:
+(i) ``gene is not expressed'' from
+(ii) ``there is no information on whether gene is expressed'', both of which are represented as a `0'.
+Expression data is sparse, due in part to incomplete annotation data: an average of 30 genes are expressed in each neuron (range: 3 to 138 genes), and each gene is expressed in an average of 9 neurons (range: 1 to 148 neurons).
+A total of 948 genes are expressed in at least one neuron, allowing us to represent the expression dataset as a binary 279 (neuron) $\times$ 948 (genes) matrix, as shown in Fig.~\ref{fig:SchematicRepresentation}B.
 % gData = [G.GeneExpData.Direct]; unique(sum(gData,1)), unique(sum(gData,2))
 
 Compared to continuous expression measurements of over 17\,000 genes in the mouse brain \cite{Lein:2007jn}, or over 20\,000 genes in the human brain \cite{Hawrylycz:2012ky}, which permit more detailed analysis \cite{Fulcher:2016ck, Ji:2014jw, Fakhry:2015kl, French2011, Vertes2016a, Parkes:2017dn}, the key challenges of working with these expression data are:
