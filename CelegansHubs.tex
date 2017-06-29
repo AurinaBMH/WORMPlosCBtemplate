@@ -453,39 +453,34 @@ We also compared results using the solution with maximal modularity, $Q$.
 \subsection*{Gene expression}
 Neuronal gene expression is measured here as a binary indicator, using data from many individual experiments compiled into a unified data resource on WormBase \cite{Harris:2009kd}, indicating which genes are expressed in a given neuron.
 % (which we denote as `1').
-We use release WS256 of this dataset (\url{ftp://ftp.wormbase.org/pub/wormbase/releases/WS256/ONTOLOGY/anatomy_association.WS256.wb}).
+We use release WS256 of this dataset (\url{ftp://ftp.wormbase.org/pub/wormbase/releases/WS256/ONTOLOGY/anatomy_association.WS256.wb}) and analyze annotations made `directly' to individual neurons, excluding `uncertain' annotations (see Supplementary Information for details).
 % downloaded on 6th Feb 2017
-We analyze annotations made `directly' to individual neurons and excluded `uncertain' annotations (see Supplementary Information for details).
 % (when genes are expressed in some neurons for a certain hierarchical category of cells)
 % If a gene is expressed under a specific qualifier for a specific neuron, it is assigned a value of 1, in all other cases 0 values are assigned.
 We denote the expression of a gene in a neuron using a `1', but are unable to distinguish:
 (i) ``gene is not expressed'' from
 (ii) ``there is no information on whether gene is expressed'', both of which are represented as a `0'.
 Expression data is sparse, due in part to incomplete annotation data: an average of 30 genes are expressed in each neuron (range: 3 to 138 genes), and each gene is expressed in an average of 9 neurons (range: 1 to 148 neurons).
-A total of 948 genes are expressed in at least one neuron, allowing us to represent the expression dataset as a binary 279 (neuron) $\times$ 948 (genes) matrix, as shown in Fig.~\ref{fig:SchematicRepresentation}B.
+A total of 948 genes are expressed in at least one neuron, allowing us to represent the full expression dataset as a binary 279 (neuron) $\times$ 948 (genes) matrix, shown in Fig.~\ref{fig:SchematicRepresentation}B.
 % gData = [G.GeneExpData.Direct]; unique(sum(gData,1)), unique(sum(gData,2))
 
-Compared to continuous expression measurements of over 17\,000 genes in the mouse brain \cite{Lein:2007jn}, or over 20\,000 genes in the human brain \cite{Hawrylycz:2012ky}, which permit more detailed analysis \cite{Fulcher:2016ck, Ji:2014jw, Fakhry:2015kl, French2011, Vertes2016a, Parkes:2017dn}, the key challenges of working with these expression data are:
-(i) incomplete ($<5$\%) coverage of the full worm genome (which contains over 20\,000 protein-coding genes \cite{Harris:2009kd}),
+Compared to continuous expression measurements of $>17\,000$ genes in the mouse brain \cite{Lein:2007jn} or $>20\,000$ genes in the human brain \cite{Hawrylycz:2012ky}, which permit more detailed analysis \cite{Fulcher:2016ck, Ji:2014jw, Fakhry:2015kl, French2011, Vertes2016a, Parkes:2017dn}, the key challenges of working with \emph{C. elegans} expression data are:
+(i) incomplete ($<5$\%) coverage of the full worm genome (which contains $>20\,000$ protein-coding genes \cite{Harris:2009kd}),
+% over 20000 protein-coding genes figure from: http://wiki.wormbase.org/index.php/WS227
 (ii) binary rather than continuous expression indicators, and
 (iii) an inability to distinguish missing data from lack of expression.
-% over 20000 protein-coding genes figure from: http://wiki.wormbase.org/index.php/WS227
 
 % METHODS: gene coexpression
 \subsection*{Gene coexpression}
-NOTE: if we use this measure only for one plot in the supp, probably should first describe Pearson here and add this at the end of gene coexpression section.
+% NOTE: if we use this measure only for one plot in the supp, probably should first describe Pearson here and add this at the end of gene coexpression section.
 
-To relate our measure of gene expression for individual neurons to measures of coupled expression for pairs of neurons, we computed the similarity in gene expression profiles between a pair of neurons, $(i,j)$, using a binary analogue of the linear Pearson correlation coefficient, the mean square contingency coefficient, $r_\phi$ \cite{Warrens2008},
+To relate our measure of gene expression for individual neurons to measures of coupled expression for pairs of neurons, we measured the similarity in gene expression profiles between a pair of neurons, $(i,j)$, using a binary analogue of the linear Pearson correlation coefficient, the mean square contingency coefficient, $r_\phi$ \cite{Warrens2008}:
 \begin{equation} \label{eq:rphi}
     r_\phi = \frac{n_{11}n_{00} - n_{10}n_{01}}{\sqrt{n_{1\bullet}n_{0\bullet}n_{\bullet 0}n_{\bullet 1}}},
 \end{equation}
-for two vectors $x$, $y$, of length $L(=948)$, where $n_{xy}$ counts the number of observations of each of the four outcomes (e.g., $n_{10} = \sum_i \delta_{x_i,1}\delta_{y_i,0}$ counts the number of times $x=1$ and $y=0$ across the length of $x$ and $y$), while the symbol $\bullet$ sums across a given variable (e.g., $n_{\bullet 0} = \sum_i \delta_{y_i,0}$ counts the number of times $y = 0$).
+for two vectors $x$, $y$, of length $L (=948)$, where $n_{xy}$ counts the number of observations of each of the four outcomes (e.g., $n_{10} = \sum_i \delta_{x_i,1}\delta_{y_i,0}$ counts the number of times $x=1$ and $y=0$ across the length of $x$ and $y$), while the symbol $\bullet$ sums across a given variable (e.g., $n_{\bullet 0} = \sum_i \delta_{y_i,0}$ counts the number of times $y = 0$).
 A maximum value $r_\phi = 1$ when $x$ and $y$ are identical such that $n_{11} + n_{00} = L$, and a minimum value $r_\phi = -1$ when $x$ and $y$ are always mismatched such that $n_{10} + n_{01} = L$.
-
-Measures of correlation between binary vectors can be biased by the relative proportion of ones between two vectors.
-Individual neurons range from between 3 to 138 expressed genes, corresponding to expression indicator vectors containing between 0.3\% to 14.6\% of annotations (`1's).
-To ensure that our measure of gene coexpression between neurons is not biased by differences in the relative proportions of expression annotations, we conducted a sensitivity analysis in which we compared the $r_\phi$ metric, Eq.~\eqref{eq:rphi}, with alternative methods for quantifying correlations between binary vectors: Yule's Q coefficient, the Jaccard index, and a new metric developed here (see below), based on positive matching probabilities (described in Supplementary Information).
-The only metric that did not show a systematic bias on random binary vectors as a function of the proportion of ones was $r_\phi$ (see Fig.~\ref{fig:S_propOnes}), which is used here to ensure that increases in coexpression are driven by relative similarity in expression patterns, and not simply by differences in the number of gene annotations for a given pair of neurons.
+We verified that $r_\phi$ was not biased by differences in relative number of expressed genes in a neuron, which ranged from 3 to 138 (0.3\% to 14.6\% of all 948 genes considered); this was not the case for some other binary correlation measures, which exhibited strong bias (see Supplementary Information).
 
 
 Our primary aim in this work is to understand how patterns of expression across 948 genes in individual neurons (e.g., rows of Fig.~\ref{fig:SchematicRepresentation}B) are related to pairwise patterns of neuron-to-neuron connectivity.
@@ -1257,18 +1252,24 @@ Our analysis excluded annotations labeled as `uncertain' to avoid including fals
 
 \subsection*{Quantifying gene coexpression}
 
-In addition to the mean-square contingency coefficient, $r_\phi$, used throughout this work, we also compared a range of alternative similarity measures for binary strings, including the
+Measures of correlation between binary vectors can be biased by the relative proportion of ones between two vectors.
+Individual neurons range from between 3 to 138 expressed genes (0.3\% to 14.6\% of all 948 genes considered).
+% Given this sparsity of expression annotation, we performed numerical tests to ensure that the coexpression measure used here was not highly sensitive to the proportion of genes expressed in each neuron (i.e., that there was no systematic bias in coexpression with the number of expressed genes in each neuron).
+To ensure that our measure of coexpression is not biased by differences in the relative proportions of expression annotations, we conducted a sensitivity analysis in which we compared the $r_\phi$ metric, Eq.~\eqref{eq:rphi}, with alternative methods for quantifying correlations between binary vectors: the
 Jaccard index, $n_{11}/(n_{10}+n_{01}+n_{11})$,
-Yule's Q coefficient, $(n_{00}n_{11} - n_{01}n_{10})/(n_{00}n_{11} + n_{01}n_{10})$,
+Yule's $Q$ coefficient, $(n_{00}n_{11} - n_{01}n_{10})/(n_{00}n_{11} + n_{01}n_{10})$,
 and the $\chi^2$ index, $N (n_{00}n_{11} - n_{01}n_{10})/(n_{1\bullet}n_{0\bullet}n_{\bullet 0}n_{\bullet 1})$ \cite{Kaufman2006}, where $n_{xy}$ counts the number of observations of each of the four binary pairwise possibilities: $n_{00}$, $n_{01}$, $n_{10}$, and $n_{11}$ (as outlined in the main text), while the symbol $\bullet$ sums across a given variable (e.g., $n_{\bullet 0} = n_{00} + n_{10}$).
 % and Simple matching coefficients [[TODO: define and give reference]],
 
-Given the sparsity of expression annotation in the data analyzed here, we performed numerical tests to ensure that the coexpression measure used here was not highly sensitive to the proportion of genes expressed in each neuron (i.e., that there was no systematic bias in coexpression with the number of expressed genes in each neuron).
-To evaluate each measure, we generated random binary vectors of length 948 containing different proportions of 1s seen in our data, ranging from the minimum, 1, to a maximum, 150, [[Is this actually the max in our data?]].
+To evaluate each measure, we generated random binary vectors of length 948 containing different proportions of 1s seen in our data, ranging from the minimum, 1, to a maximum, 148.
 For all pairwise combinations of proportions, we computed the coexpression measure, taking an average across 1\,000 permutations, and then recorded the resulting mean correlation value, as plotted in Fig.~\ref{fig:S_propOnes}.
-Because all vectors are independent random binary strings, the mean coexpression value should be zero in the absence of bias.
-We see that the Pearson correlation (Fig.~\ref{fig:S_propOnes}A) shows no systematic bias to the proportion of ones in the vector (varying within $\approx 10^{-3}$), whereas Yule's Q coefficient shows a negative bias for small annotation proportions (Fig.~\ref{fig:S_propOnes}B), while the Jaccard index shows a strong positive bias across the full range (Fig.~\ref{fig:S_propOnes}C).
+Because all vectors are independent random binary strings, the mean coexpression value should not show any systematic variation, which would indicate bias.
+The mean square contingency coefficient, $r_\phi$ (Fig.~\ref{fig:S_propOnes}A) shows no systematic bias to the proportion of ones in the vector (varying within $\approx 10^{-3}$), whereas Yule's $Q$ shows a negative bias for small annotation proportions (Fig.~\ref{fig:S_propOnes}B), while the Jaccard index shows a strong positive bias across the full range (Fig.~\ref{fig:S_propOnes}C).
 Based on these numerical experiments, we selected Pearson's mean square contingency coefficient, $r_\phi$, here, to ensure that changes in coexpression were due to matching structure and not simply the number of gene annotations.
+% As shown in Fig.~\ref{fig:S_propOnes}, the only metric that did not show a systematic bias on random binary vectors as a function of the proportion of ones was $r_\phi$.
+% , which is used here to ensure that increases in coexpression are driven by relative similarity in expression patterns, and not simply by differences in the number of gene annotations for a given pair of neurons.
+
+
 % In contrast, other measures such as Jaccard and Yule's index are highly dependent on this ratio (see S1 Fig.).% done with compareProportions script
 % and Simple matching coefficients
 % For example, Yule's Q, Yule's Y coefficients on average tend to reach extreme values when the ratio between the number of ones and zeros in a vector is large (e.g., 1:20).
