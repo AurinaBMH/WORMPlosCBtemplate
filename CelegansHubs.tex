@@ -1061,11 +1061,12 @@ First, we estimated which functional groups of genes drive increased coexpressio
 Previous results in mouse indicated that genes driving an increase in coexpression between connected pairs of neurons are enriched in GO categories related to neuronal, synaptic, and axonal structure and function
 \cite{Fulcher:2016ck, Ji:2014jw, Fakhry:2015kl, French:2011cz}.
 For \emph{C. elegans}, the top GO categories are listed in Table~\ref{enrichmentCON}.
-Two categories related to glutamate receptor signaling are significant at a false discovery rate ($FDR < 0.05$): `ionotropic glutamate receptor signaling pathway' and `glutamate receptor signaling pathway'.
-Other top GO categories include cell surface receptor signaling ($p_\mathrm{uncorr} = 0.002$), memory ($p_\mathrm{uncorr} = 0.005$), `ion transport' ($p_\mathrm{uncorr} = 0.01$) and `regulation of growth' ($p_\mathrm{uncorr} = 0.01$).
-[[supporting the idea that connected pairs of neurons tend to express genes associated with neuronal connectivity compared to unconnected neuron pairs.]]\\
+Given that no categories remained significant after the corrections for a false discovery rate ($FDR < 0.1$), we present a list of top GO categories with corresponding uncorrected p values.
+These GO categories are related to glutamate receptor signaling: `ionotropic glutamate receptor signaling pathway' ($p_\mathrm{uncorr} = 0.0005$) and `glutamate receptor signaling pathway' ($p_\mathrm{uncorr} = 0.004$) as well as 
+cell surface receptor signaling ($p_\mathrm{uncorr} = 0.005$), `ion transport' ($p_\mathrm{uncorr} = 0.006$), `ion transmembrane transport' ($p_\mathrm{uncorr} = 0.008$). 
+Other categories are related to the regulation of growth rate and various catabolic processes. 
 
-[[A PARAGRAPH ON CHEMICAL vs ELECTRICAL - first decide on the message]]\\
+[[supporting the idea that connected pairs of neurons tend to express genes associated with neuronal connectivity compared to unconnected neuron pairs.]]\\
 
 
 We next investigate gene enrichment in connections involving hubs relative to peripheral connections.
@@ -1075,9 +1076,12 @@ However, in our \emph{C. elegans} gene expression dataset, only one of our 948 g
 Thus, although a direct test of mouse and human results is no possible, we aimed to identify if any metabolism-related categories might be enriched in hub connections in \emph{C. elegans}, providing some support for the idea that hubs are energetically costly elements of the connectome.
 %Due to gene expression data specificity in all the following analyses we present top 15 GO categories enriched in a particular link type compared to other links.
 The top enriched GO categories are listed in Table~\ref{enrichmentRICH}.
-The same two glutamate signaling categories found above for the connectivity were, again, the among the categories to be significantly enriched ($p<0.05$, FDR corrected).
-In addition, three ion transport related categories were also significantly enriched in connections involving hubs compared to other connections.
-Other top categories are related to locomotion ($p_\mathrm{uncorr} = 0.004$), cell and chemical signaling: `cell surface receptor signaling pathway' ($p_\mathrm{uncorr} = 0.004$), `cell-cell signaling' ($p_\mathrm{uncorr} = 0.004$), `chemical synaptic transmission' ($p_\mathrm{uncorr} = 0.005$), `synaptic signaling' ($p_\mathrm{uncorr} = 0.005$).
+The same two glutamate receptor signaling categories found above for the connectivity were, again, among the top categories, however as before no GO categories remained significant after FDR<0.1 correction.
+In addition, another receptor signaling category 'cell surface receptor signaling pathway'  ($p_\mathrm{uncorr} = 0.004$) was also among the most important GO categories enriched in connections involving hubs compared to other connections.
+Other top categories are related to regulation of locomotion ($p_\mathrm{uncorr} = 0.015$) and various metabolism and biosynthesis related processes including 
+NAME THEM
+
+ `cell surface receptor signaling pathway' ($p_\mathrm{uncorr} = 0.004$), `cell-cell signaling' ($p_\mathrm{uncorr} = 0.004$), `chemical synaptic transmission' ($p_\mathrm{uncorr} = 0.005$), `synaptic signaling' ($p_\mathrm{uncorr} = 0.005$).
 Metabolic and biosynthetic processes were also among the most enriched categories, including `positive regulation of nucleobase-containing compound metabolic process' ($p_\mathrm{uncorr} = 0.004$), `positive regulation of biosynthetic process' ($p_\mathrm{uncorr} = 0.005$) and `positive regulation of nitrogen compound metabolic process' ($p_\mathrm{uncorr} = 0.005$).
 %These findings are in line with our expectations as hub neurons receive input from sensory neurons, the majority of which are glutamatergic.
 %As a result, hubs are required to have glutamate receptors the enrichment in these categories is the most pronounced (even after the correction, false discovery rate $< 0.05$).
@@ -1381,115 +1385,59 @@ RIGL   & 49         & Head interneuron                                          
 \begin{table}[]
 \centering
 \caption{Biological processes GO categories showing increased gene coexpression for connected neurons compared to unconnected neurons.
-Categories that remain significant after false discovery rate ($P_\mathrm{FDR} < 0.05$) correction are shown boldface.
-Entries have been sorted (descending) by uncorrected $P$-value.}
+Entries have been sorted (descending) by uncorrected $P$-value (uncorrected).}
 \label{enrichmentCON}
 \begin{tabular}{llll}
 \hline
-\textbf{GOcategory} 	& \textbf{Description}                                     & \textbf{No. of genes} & \textbf{Pval} \\ \hline
-\underline{GO:0035235} & ionotropic glutamate receptor signaling pathway & 7        & 1e-12   \\
-\underline{GO:0007215} & glutamate receptor signaling pathway         & 9       & 3e-05   \\
-GO:0007166 & cell surface receptor signaling pathway         & 48       & 0.00242 \\
-GO:0006950 & response to stress                              & 62       & 0.00514 \\
-GO:0007613 & memory                                          & 5        & 0.00525 \\
-GO:0034220 & ion transmembrane transport                     & 73       & 0.01025 \\
-GO:0055085 & transmembrane transport                         & 87       & 0.01035 \\
-GO:0040009 & regulation of growth rate                       & 8        & 0.0124  \\
-GO:0040010 & positive regulation of growth rate              & 8        & 0.0124  \\
-GO:0006811 & ion transport                                   & 93       & 0.01287 \\
-GO:0006972 & hyperosmotic response                           & 8        & 0.01687 \\
-GO:0009266 & response to temperature stimulus                & 21       & 0.01704 \\
-GO:0002376 & immune system process                           & 8        & 0.01829 \\
-GO:0006979 & response to oxidative stress                    & 9        & 0.0188  \\
-GO:0006970 & response to osmotic stress                      & 11       & 0.02435  \\\hline
+\textbf{GOcategory} 	& \textbf{Description}                                     & \textbf{\begin{tabular}[c]{@{}c@{}}No. of \\ genes\end{tabular}} & \textbf{P value} \\ \hline
+GO:0035235 & ionotropic glutamate receptor signaling pathway & 7            & 0.0005  \\
+GO:0007215 & glutamate receptor signaling pathway            & 9            & 0.0041   \\
+GO:0007166 & cell surface receptor signaling pathway         & 37           & 0.0048   \\
+GO:0006811 & ion transport                                   & 71           & 0.0058   \\
+GO:0034220 & ion transmembrane transport                     & 57           & 0.0079   \\
+GO:0055085 & transmembrane transport                         & 67           & 0.0129 \\
+GO:1901575 & organic substance catabolic process             & 33           & 0.0310 \\
+GO:0040009 & regulation of growth rate                       & 7            & 0.0417 \\
+GO:0040010 & positive regulation of growth rate              & 7            & 0.0417 \\
+GO:0030163 & protein catabolic process                       & 27           & 0.0428 \\
+GO:0009056 & catabolic process                               & 35           & 0.0493 \\
+GO:0009057 & macromolecule catabolic process                 & 28           & 0.0548 \\
+GO:0071495 & cellular response to endogenous stimulus        & 14           & 0.0575 \\
+GO:0045927 & positive regulation of growth                   & 29           & 0.0689 \\
+GO:0050830 & defense response to Gram-positive bacterium     & 5            & 0.0695 \\\hline
 \end{tabular}
 \end{table}
 
 
 \paragraph*{S3 Table.}
-{\bf Enrichment results for chemical links.}
-
-\begin{table}[]
-\centering
-\caption{Biological processes GO categories showing increased gene coexpression for chemical links compared all other links.}
-\label{enrichmentChemical}
-\begin{tabular}{llll}
-\hline
-\textbf{GOcategory} & \textbf{Description}                                     & \textbf{No. of genes} & \textbf{P value}    \\ \hline
-GO:0007292 & female gamete generation                                                                                      & 10       & 0.0003  \\
-GO:0048477 & oogenesis                                                                                                     & 10       & 0.0003  \\
-GO:0007281 & germ cell development                                                                                         & 12       & 0.00075 \\
-GO:0022412 & \begin{tabular}[c]{@{}l@{}}cellular process involved in reproduction\\ in multicellular organism\end{tabular} & 12       & 0.00075 \\
-GO:0044711 & single-organism biosynthetic process                                                                          & 27       & 0.00142 \\
-GO:0032268 & regulation of cellular protein metabolic process                                                              & 20       & 0.00168 \\
-GO:0051246 & regulation of protein metabolic process                                                                       & 20       & 0.00168 \\
-GO:1901617 & organic hydroxy compound biosynthetic process                                                                 & 7        & 0.00321 \\
-GO:0019752 & carboxylic acid metabolic process                                                                             & 10       & 0.00345 \\
-GO:0006464 & cellular protein modification process                                                                         & 51       & 0.00357 \\
-GO:0036211 & protein modification process                                                                                  & 51       & 0.00357 \\
-GO:0019538 & protein metabolic process                                                                                     & 80       & 0.00376 \\
-GO:0007276 & gamete generation                                                                                             & 16       & 0.00445 \\
-GO:0006082 & organic acid metabolic process                                                                                & 11       & 0.00449 \\
-GO:0043436 & oxoacid metabolic process                                                                                     & 11       & 0.00449\\ \hline
-\end{tabular}
-\end{table}
-
-\paragraph*{S4 Table.}
-{\bf Enrichment results for electrical links.}
-
-\begin{table}[]
-\centering
-\caption{Biological processes GO categories showing increased gene coexpression for electrical links compared to all other links.}
-\label{enrichmentElectrical}
-\begin{tabular}{llll}
-\hline
-\textbf{GOcategory} & \textbf{Description}                                     & \textbf{No. of genes} & \textbf{P value}    \\ \hline
-GO:0040034 & regulation of development, heterochronic                                                             & 7        & 0.00083 \\
-GO:0006417 & regulation of translation                                                                            & 5        & 0.00415 \\
-GO:0016441 & posttranscriptional gene silencing                                                                   & 5        & 0.00415 \\
-GO:0016458 & gene silencing                                                                                       & 5        & 0.00415 \\
-GO:0031047 & gene silencing by RNA                                                                                & 5        & 0.00415 \\
-GO:0034248 & regulation of cellular amide metabolic process                                                       & 5        & 0.00415 \\
-GO:0035194 & posttranscriptional gene silencing by RNA                                                            & 5        & 0.00415 \\
-GO:0040029 & regulation of gene expression, epigenetic                                                            & 5        & 0.00415 \\
-GO:0051932 & synaptic transmission, GABAergic                                                                     & 5        & 0.00589 \\
-GO:0032269 & \begin{tabular}[c]{@{}l@{}}negative regulation of cellular protein \\ metabolic process\end{tabular} & 10       & 0.00637 \\
-GO:0051248 & negative regulation of protein metabolic process                                                     & 10       & 0.00637 \\
-GO:0008361 & regulation of cell size                                                                              & 12       & 0.00848 \\
-GO:0010608 & posttranscriptional regulation of gene expression                                                    & 6        & 0.00902 \\
-GO:0010558 & \begin{tabular}[c]{@{}l@{}}negative regulation of macromolecule \\ biosynthetic process\end{tabular} & 13       & 0.00935 \\
-GO:0032535 & regulation of cellular component size                                                                & 13       & 0.00935 \\ \hline
-\end{tabular}
-\end{table}
-
-\paragraph*{S5 Table.}
 {\bf Enrichment results for links involving hubs.}
 
 \begin{table}[]
 \centering
-\caption{Biological processes GO categories showing increased gene coexpression for links involving hubs (rich, feed-in and feed-out) compared to peripheral links.}
+\caption{Biological processes GO categories showing increased gene coexpression for links involving hubs (rich, feed-in and feed-out) compared to peripheral links.
+Entries have been sorted (descending) by uncorrected $P$-value (uncorrected).}
 \label{enrichmentRF}
 \begin{tabular}{llll}
 \hline
-\textbf{GOcategory} & \textbf{Description}                                           & \textbf{No. of genes} & \textbf{P value} \\
-\hline
-\underline{GO:0035235} & ionotropic glutamate receptor signaling pathway                         & 7            & 1e-12   \\
-\underline{GO:0007215} & glutamate receptor signaling pathway                                    & 9            & 1e-05   \\
-\underline{GO:0034220} & ion transmembrane transport                                             & 63           & 0.00025 \\
-\underline{GO:0055085} & transmembrane transport                                                 & 75           & 0.0003  \\
-\underline{GO:0006811} & ion transport                                                                                                      & 80           & 0.00041 \\
-GO:0045935 & \begin{tabular}[c]{@{}l@{}}positive regulation of nucleobase-containing \\ compound metabolic process\end{tabular} & 30           & 0.00402 \\
-GO:0040012 & regulation of locomotion                                                                                           & 51           & 0.00406 \\
-GO:0007166 & cell surface receptor signaling pathway                                                                            & 44           & 0.0041  \\
-GO:0007267 & cell-cell signaling                                                                                                & 43           & 0.00482 \\
-GO:0009891 & positive regulation of biosynthetic process                                                                        & 31           & 0.0049  \\
-GO:0031328 & positive regulation of cellular biosynthetic process                                                               & 31           & 0.0049  \\
-GO:0051173 & \begin{tabular}[c]{@{}l@{}}positive regulation of nitrogen compound \\ metabolic process\end{tabular}              & 31           & 0.0049  \\
-GO:0007268 & chemical synaptic transmission                                                                                     & 36           & 0.00556 \\
-GO:0098916 & anterograde trans-synaptic signaling                                                                               & 36           & 0.00556 \\
-GO:0099536 & synaptic signaling                                                                                                 & 36           & 0.00556 \\\hline
+\textbf{GOcategory} & \textbf{Description}                                                                                                        & \textbf{\begin{tabular}[c]{@{}c@{}}No. of \\ genes\end{tabular}}  & \textbf{P value}    \\\hline
+GO:0007215 & glutamate receptor signaling pathway                                                                               & 6            & 0.0009  \\
+GO:0035235 & ionotropic glutamate receptor signaling pathway                                                                    & 6            & 0.0009  \\
+GO:0007166 & cell surface receptor signaling pathway                                                                            & 20           & 0.0035   \\
+GO:0009891 & positive regulation of biosynthetic process                                                                        & 11           & 0.0063   \\
+GO:0031328 & \begin{tabular}[c]{@{}l@{}}positive regulation of cellular \\ biosynthetic process\end{tabular}                    & 11           & 0.0063   \\
+GO:0045935 & \begin{tabular}[c]{@{}l@{}}positive regulation of nucleobase-containing \\ compound metabolic process\end{tabular} & 11           & 0.0063   \\
+GO:0051173 & \begin{tabular}[c]{@{}l@{}}positive regulation of nitrogen compound \\ metabolic process\end{tabular}              & 11           & 0.0063  \\
+GO:0031325 & \begin{tabular}[c]{@{}l@{}}positive regulation of cellular \\ metabolic process\end{tabular}                       & 12           & 0.0109 \\
+GO:0040012 & regulation of locomotion                                                                                           & 24           & 0.0156 \\
+GO:0010557 & \begin{tabular}[c]{@{}l@{}}positive regulation of macromolecule \\ biosynthetic process\end{tabular}               & 10           & 0.0212 \\
+GO:0045893 & \begin{tabular}[c]{@{}l@{}}positive regulation of transcription, \\ DNA-templated\end{tabular}                     & 10           & 0.0212 \\
+GO:0045944 & \begin{tabular}[c]{@{}l@{}}positive regulation of transcription from \\ RNA polymerase II promoter\end{tabular}    & 10           & 0.0212 \\
+GO:0051254 & positive regulation of RNA metabolic process                                                                       & 10           & 0.0212 \\
+GO:1902680 & positive regulation of RNA biosynthetic process                                                                    & 10           & 0.0212 \\
+GO:1903508 & \begin{tabular}[c]{@{}l@{}}positive regulation of nucleic acid-templated \\ transcription\end{tabular}             & 10           & 0.0212\\ \hline
 \end{tabular}
 \end{table}
+
 
 
 % Please add the following required packages to your document preamble:
