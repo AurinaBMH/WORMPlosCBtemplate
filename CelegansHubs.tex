@@ -568,8 +568,8 @@ A schematic overview of our data is in Fig.~\ref{fig:SchematicRepresentation}, w
 
 We present our analysis in four parts:
 (i) we characterize the spatial dependency of connection probability and gene coexpression,
-(ii) we analyze the topology of the \emph{C. elegans} connectome, demonstrating a rich-club organization of hubs,
-(iii) we show that gene coexpression is increased in connected pairs of neurons relative to unconnected pairs, and that coexpression also varies as a function of edge type, with the most similar gene expression patterns found in pairs of connected hub neurons (mirroring previous results in the mesoscale mouse connectome \cite{Fulcher:2016ck}),
+(ii) we analyze the topology of the \emph{C. elegans} connectome, confirming a rich-club organization of hub neurons,
+(iii) we show that gene coexpression is increased in connected pairs of neurons relative to unconnected pairs, and that coexpression also varies as a function of edge type, with the most similar gene expression patterns found in pairs of connected hub neurons, mirroring previous results in the mesoscale mouse connectome \cite{Fulcher:2016ck},
 (iv) we show that these transcriptional signatures may be driven by glutamate receptor signaling, and that the expression similarity of hubs is not driven by other factors like stereotypical interneuron expression, expression similarity within modules, birth time or lineage similarity.
 % Consistent with previous results in the mouse \cite{Fulcher:2016ck}, we show that synaptically connected neurons display more similar gene expression than those that are unconnected, and that, amongst connected regions, those involving hub neurons show more similar gene expression.
 
@@ -581,7 +581,7 @@ We present our analysis in four parts:
     \includegraphics[width=1\textwidth]{schematic.pdf}
  \caption{\textbf{Schematic representation of the data used in this study.}
 All plots show neurons (rows) ordered by their longitudinal position, from the top of the head (upper) to bottom of the tail (lower).
-Schematic representation of the \textit{C. elegans} worm nervous system is shown on the left (scale of the animal is not preserved).
+Schematic representation of the \textit{C. elegans} nervous system is shown on the left (scale of the animal is not preserved).
  \textbf{A} 2\,990 directed connections between 279 neurons from neuron $i$ (row) to neuron $j$ (column).
 Connections are colored according to how they connect hubs ($k > 44$) and non-hubs ($k \leq 44$), as `rich' (hub $\rightarrow$ hub), `feed-in' (nonhub $\rightarrow$ hub), `feed-out' (nonhub $\rightarrow$ hub), and `peripheral' (nonhub $\rightarrow$ nonhub).
   \textbf{B} Binary gene expression indicated as a green dot when a gene (column) is expressed in a neuron (row).
@@ -590,24 +590,69 @@ Connections are colored according to how they connect hubs ($k > 44$) and non-hu
 [[TODO: Would be nice to put neuronal metadata on the edge (if clear enough to read) -- could perhaps remove the coexpression plot?]]
 [[TODO: Add information about and permission for the head-tail diagram.]]
 [[TODO: Add labels about head/tail because the data don't actually follow the spatial scale shown on the left]]WHY SHOW the picture of the worm then?
-[[TODO: Check gene coexpression plot is correct ordering]] IT IS CORRECT
 }
 \label{fig:SchematicRepresentation}
 \end{figure}
 % ------------------------------------------------------------------------------
 
+
 \subsection*{Spatial dependency}
 
 Previous work has emphasized the importance of spatial effects in driving patterns of gene expression, whereby more proximal brain areas typically exhibit more similar gene expression patterns than more distant brain areas \cite{Krienen2016, Fulcher:2016ck, Pantazatos:2016ir, Richiardi:2017hb}.
-Connection probability depends on spatial separation in mammalian brains \cite{Henderson:2014fg, Horvat:2016ia, Wang:2016gg, Markov:2013jo}, and in \emph{C. elegans} (cf. Fig.~S1 of \cite{Azulay:2016cg}), and delineated by anatomical connection types here (Fig.~\ref{fig:spatialEffectsMain}A,B).
+Connection probability also decreases with spatial separation in mammalian brains \cite{Henderson:2014fg, Horvat:2016ia, Wang:2016gg, Markov:2013jo, Fulcher:2016ck}, and in \emph{C. elegans} (cf. Fig.~S1 of \cite{Azulay:2016cg}).
+In order to understand relationships between connectivity and gene expression, we therefore first need to understand the spatial embedding of both measurements.
+% To ensure that relationships between connectivity and gene expression are not driven by their mutual spatial dependency,
+
+We first characterize the probability that two neurons will be connected given their source and target types, where here we class all neurons as either: `head', `body', or `tail', according to anatomically distinct sections of the \emph{C. elegans} nervous system (cf. Fig.~\ref{fig:neuronsSpace}).
+Connection probability is plotted as a function Euclidean separation distance in Fig.~\ref{fig:spatialEffectsMain} for each combination of source and target neurons, across 10 equiprobable distance bins (and with an exponential fit) in each case.
+Distinguishing connections by anatomical source and target neuron types allows the spatial relationships to be uncovered, relative to previous work \cite{Azulay:2016cg}, revealing that different classes of connections exhibit different spatial connectivity relationships.
+From the very short distance scale of $\lessapprox 100\,\mu$m of head$\rightarrow$head and tail$\rightarrow$tail connections to the very longest-range head$\rightarrow$tail and tail$\rightarrow$head connections ($\gtrapprox 1\,$mm), connection probability decreases with separation distance (Fig.~\ref{fig:spatialEffectsMain}A).
+For connections across the body, ranging up to $\approx 1$\,mm, a near-exponential trend is exhibited, mirroring results in other species and across longer length scales \cite{Wang:2016gg, Fulcher:2016ck}.
+Connections between the body and head or tail, shown in Fig.~\ref{fig:spatialEffectsMain}B, do not exhibit strong spatial connectivity relationships.
+[[Is this expected? Are head and tail, and neurons within the body somehow functionally distinct units that you would expect to exhibit different connectivity relationships compared to connections between the body and head or tail?? Would be nice to add some speculative sentence here around this.]]
+
+% ------------------------------------------------------------------------------
+% <<plotSpatialEffectsMain.m>>
+% ------------------------------------------------------------------------------
+\begin{figure}[h]
+  \centering
+    \includegraphics[width=\textwidth]{connectionProbability.eps}
+  \caption{
+\textbf{Connection probability decreases with separation distance within and between the head and tail, and within the body.}
+The connection probability for a pair of neurons as a function of their separation distance, estimated in 10 equiprobable distance bins, demonstrating a decrease for connections within the head (aqua), connections from head$\rightarrow$tail (brown) and from tail$\rightarrow$head (stone blue), connections within the tail (red), and connections within the body (dark purple).
+Connection probability in each distance bin is shown as a circle (bin centers) and a horizontal line (bin extent).
+Exponential fits of the form $f(x) = A\exp(-\lambda x) + B$, some of which appear approximately linear across the range of the data, are shown as dotted lines.
+\textbf{B}
+Plots as in \textbf{A}, but for connection classes between the body and head/tail: from body$\rightarrow$head (forest green), from body$\rightarrow$tail (dirt green), connections from head $\rightarrow$ body (purple), and from tail$\rightarrow$body (dark brown).
+Apart from a small effect at short range for tail$\rightarrow$body connections, these connection classes show minimal distance dependence.
+% A decreasing relationship is evident up to a separation distance of approximately 0.2\,mm (driven by tail-tail and head-head connections), with a longer-range decrease up to $\approx$0.5\,mm due to body-body connections.
+% The increase at large distances ($\approx 1$\,mm) is due to head-tail connections, which also show a decay with distance, from $\approx 1$\,mm through to $\approx$1.2\,mm.
+% connections between body and head and body and tail showed no clear distance dependence.}
+  }
+  \label{fig:spatialEffectsMain}
+\end{figure}
+
 % The probability of a pair of neurons being connected decreases as a function of their separation distance for connections within the head, connections within the tail, connections within the body, and connections between the head and tail
-To ensure that relationships between connectivity and gene expression are not driven by their mutual spatial dependency, it was thus important to understand any spatial dependency of gene coexpression, $r_\phi$.
 
-Gene coexpression, $r_\phi$, also decreases slightly with separation distance for the spatially close networks of neurons within the head (Fig.~\ref{fig:S_distCoexp}A) and within the tail (Fig.~\ref{fig:S_distCoexp}B) of \emph{C. elegans}, but not for pairs of neurons involving the body (Fig.~\ref{fig:S_distCoexp}C).
-[[TODO: Add some interpretation in terms of the function of body neurons as potentially distinct from those in the head and tail?]].
-Within the head, a decreasing (approximately exponential) underlying trend could be seen for pairs of interneurons, pairs of sensory neurons, pairs of motor neurons, and motor-interneuron pairs (Figs~\ref{fig:S_distCoexp}D--H).
+We next investigate understand any spatial dependency of gene expression similarity between neuron pairs, $r_\phi$ as a function of separation distance, shown in Fig.~\ref{fig:spatialCoexpressionMain} (excluding bilateral pairs of neurons).
+Gene coexpression, $r_\phi$, decreases slightly with separation distance for the spatially close neurons within the head (Fig.~\ref{fig:S_distCoexp}A) and within the tail (Fig.~\ref{fig:S_distCoexp}B), but not for pairs of neurons involving the body (Fig.~\ref{fig:S_distCoexp}C).
+[[Add some interpretation in terms of the function of body neurons as potentially distinct from those in the head and tail??]].
+Stronger spatial relationships were seen within the head for specific subtypes of neurons, including pairs of interneurons, pairs of sensory neurons, pairs of motor neurons, and motor-interneuron pairs (Figs~\ref{fig:S_distCoexp}D--H).
+% Within the head, a decreasing (approximately exponential) underlying trend could be seen for pairs of interneurons, pairs of sensory neurons, pairs of motor neurons, and motor-interneuron pairs (Figs~\ref{fig:S_distCoexp}D--H).
 
-These results, using sparsely-annotated binary expression data in a highly specialized neuronal nervous system, mirrors trends observed in bulk regions of macroscopic mammalian brains of mouse \cite{Fulcher:2016ck} and human \cite{Krienen:2016eq}.
+\begin{figure}[h]
+  \centering
+    \includegraphics[width=\textwidth]{spatialCoexpressionMain.eps}
+  \caption{
+  \textbf{Dependence of gene coexpression, $r_\phi$, on spatial separation between pairs of neurons.}
+  Gene coexpression, $r_\phi$ (in all cases excluding left-right homologous pairs of neurons), is shown as a function of the pairwise separation distance between pairs of neurons (shown as the mean (solid) $\pm$ standard deviation (dotted) in seven equiprobable distance bins, with extent shown as horizontal bars), for \textbf{A} all pairs of neurons in the head, \textbf{B} all pairs of neurons in the tail, and \textbf{C} all other pairs (labeled).
+  Scatters for all neuron pairs are added in \textbf{A} and \textbf{B}.
+  An exponential relationship, $f(x) = A\exp(-\lambda x) + B$, is fitted in \textbf{A} and \textbf{B}, revealing a slight decreasing trend in $r_\phi$ with distance, as in macroscopic mammalian brains \cite{Fulcher:2016ck, Krienen:2016eq}.
+  }
+  \label{fig:spatialCoexpressionMain}
+\end{figure}
+
+
 % Although distance slightly influenced gene coexpression, especially for very closely positioned neurons within the head, exponential form could not explain the relationship.
 % However, the spatial effect in this neuronal nervous system is much smaller here than in the mouse brain \cite{Fulcher:2016ck}, and concentrated on restricted spatial scales of the head (and tail).
 However, in \emph{C. elegans}, the spatial trend is small, is typically driven by pairs of close neurons with high coexpression, and is isolated to closely positioned neurons within the head and tail.
@@ -628,27 +673,6 @@ Due to the correction-induced artifacts, we chose to analyze spatially-uncorrect
 Recent work has shown that many aspects of connectome organization can be partially accounted for by geometric effects, in particular, a decreasing probability of connectivity between neural elements with increasing anatomical distance \cite{Henderson:2014fg, Roberts2016, Horvat:2016ia}.
 Unlike network analyses of mammalian brains, where all neurons are confined to a spatially contiguous organ, neurons of the \emph{C. elegans} nervous system are distributed throughout the entire organism, forming a dense cluster of 147 neurons in the head (all within 130\,$\mu m$), 105 sparser, mostly motor neurons (75\%) in the body (spanning 1.02\,mm), and a relatively dense cluster of 27 neurons in the tail (all within 90\,$\mu$m of each other), see Fig.~\ref{fig:neuronsSpace} for a plot of all neurons in space.
 The connection probability for pairs of neurons decays sharply as a function of the physical distance between them, excluding connections between the body and head, and between the body and tail, cf. Figs.~\ref{fig:spatialEffectsMain}A,B), mirroring recent results of mesoscale mammalian brains, in mouse \cite{Goulas:2016hr, Fulcher:2016ck}, and rodents and primates \cite{Horvat:2016ia}.
-
-% ------------------------------------------------------------------------------
-% <<plotSpatialEffectsMain.m>>
-% ------------------------------------------------------------------------------
-\begin{figure}[h]
-  \centering
-    \includegraphics[width=\textwidth]{connectionProbability.eps}
-  \caption{
-\textbf{Connection probability decreases with separation distance within and between the head and tail, and within the body.}
-The \emph{connection probability} for a pair of neurons as a function of their separation distance, estimated in 10 equiprobable distance bins, demonstrating a decrease for connections within the head (aqua), connections from head$\rightarrow$tail (brown) and from tail$\rightarrow$head (stone blue), connections within the tail (red), and connections within the body (dark purple).
-Connection probability in each distance bin is shown as a circle (bin centers) and a horizontal line (bin extent).
-Exponential fits, $f(x) = a\exp(-bx)+c$ (some of which appear linear across the range of the data), are shown as dotted lines.
-\textbf{B}
-Plots as in \textbf{A}, but for connection classes between the body and head/tail: from body$\rightarrow$head (forest green), from body$\rightarrow$tail (dirt green), connections from head $\rightarrow$ body (purple), and from tail$\rightarrow$body (dark brown).
-Apart from a small effect at short range for tail$\rightarrow$body connections, these connection classes show minimal distance dependence.
-% A decreasing relationship is evident up to a separation distance of approximately 0.2\,mm (driven by tail-tail and head-head connections), with a longer-range decrease up to $\approx$0.5\,mm due to body-body connections.
-% The increase at large distances ($\approx 1$\,mm) is due to head-tail connections, which also show a decay with distance, from $\approx 1$\,mm through to $\approx$1.2\,mm.
-% connections between body and head and body and tail showed no clear distance dependence.}
-  }
-  \label{fig:spatialEffectsMain}
-\end{figure}
 
 
 %%
@@ -1123,6 +1147,11 @@ The list of top categories for both connection types contained `neurotransmitter
 \begin{itemize}
     \item{First coexpression analysis in worm. Despite noisy gene expression data we get some insights into the genetic basis of connectivity on a neuronal level}
 \end{itemize}
+
+% SPACE
+Our results on the spatial dependence of connection probability and gene expression, using sparsely-annotated binary expression data in a highly specialized neuronal nervous system, mirror many trends observed in bulk regions of macroscopic mammalian brains of mouse \cite{Fulcher:2016ck} and human \cite{Krienen:2016eq}.
+Spacey spacey.
+
 
 % COMPARE TO MOUSE
 Compared to our previous work in the mesoscale mouse connectome \cite{Fulcher:2016ck}, the present findings in a near-fully mapped neuronal chemical connectome show similarities and differences.
