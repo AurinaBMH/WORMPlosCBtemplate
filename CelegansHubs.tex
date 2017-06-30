@@ -600,14 +600,42 @@ Connections are colored according to how they connect hubs ($k > 44$) and non-hu
 
 Previous work has emphasized the importance of spatial effects in driving patterns of gene expression, whereby more proximal brain areas typically exhibit more similar gene expression patterns than more distant brain areas \cite{Krienen2016, Fulcher:2016ck, Pantazatos:2016ir, Richiardi:2017hb}.
 Connection probability also decreases with spatial separation in mammalian brains \cite{Henderson:2014fg, Horvat:2016ia, Wang:2016gg, Markov:2013jo, Fulcher:2016ck}, and in \emph{C. elegans} (cf. Fig.~S1 of \cite{Azulay:2016cg}).
+Many aspects of connectome organization can be partially accounted for by geometric effects, such as a decreasing probability of connectivity between neural elements with increasing separation distance \cite{Henderson:2014fg, Roberts2016, Horvat:2016ia}.
+Unlike network analyses of mammalian brains, where all neurons are confined to a spatially contiguous organ, neurons of the \emph{C. elegans} nervous system are distributed throughout the entire organism, forming a dense cluster of 147 neurons in the head (all within 130\,$\mu m$), 105 sparser, mostly motor neurons (75\%) in the body (spanning 1.02\,mm), and a relatively dense cluster of 27 neurons in the tail (all within 90\,$\mu$m of each other), see Fig.~\ref{fig:neuronsSpace} for a plot of all neurons in space.
 In order to understand relationships between connectivity and gene expression, we therefore first need to understand the spatial embedding of both measurements.
 % To ensure that relationships between connectivity and gene expression are not driven by their mutual spatial dependency,
+
+% The connection probability for pairs of neurons decays sharply as a function of the physical distance between them, excluding connections between the body and head, and between the body and tail, cf. Figs.~\ref{fig:spatialEffectsMain}A,B), mirroring recent results of mesoscale mammalian brains, in mouse \cite{Goulas:2016hr, Fulcher:2016ck}, and rodents and primates \cite{Horvat:2016ia}.
+
+% ------------------------------------------------------------------------------
+% \paragraph*{S5 Fig.}
+% {\bf Spatial distribution of rich links, and neuron types across the C. elegans nervous system. }
+\begin{figure}[h]
+\centering
+    \includegraphics[width=1\textwidth]{SpatialPlot.png}
+\caption{
+\textbf{Spatial distribution of neurons and hub-hub links in \emph{C. elegans}}.
+Neurons are positioned along the Posterior (P)-Anterior (A) (horizontal), and Ventral (V)--Dorsal (D) (vertical) axes.
+% Definitions of posterior/anterior/ventral/dorsal from Varier.
+Neurons are colored by type:
+(i) interneuron (85 neurons, orange),
+(ii) sensory (68 neurons, blue),
+(iii) motor (108 neurons, green), or
+(iv) multiple assignments (18 neurons, yellow).
+Hub-hub links are shown, and zoom-in plots of head and tail are shown as dotted rectangles in the lower plot.
+In each plot, axes are to scale.
+\label{fig:neuronsSpace}
+}
+\end{figure}
+% ------------------------------------------------------------------------------
+
+
 
 We first characterize the probability that two neurons will be connected given their source and target types, where here we class all neurons as either: `head', `body', or `tail', according to anatomically distinct sections of the \emph{C. elegans} nervous system (cf. Fig.~\ref{fig:neuronsSpace}).
 Connection probability is plotted as a function Euclidean separation distance in Fig.~\ref{fig:spatialEffectsMain} for each combination of source and target neurons, across 10 equiprobable distance bins (and with an exponential fit) in each case.
 Distinguishing connections by anatomical source and target neuron types allows the spatial relationships to be uncovered, relative to previous work \cite{Azulay:2016cg}, revealing that different classes of connections exhibit different spatial connectivity relationships.
 From the very short distance scale of $\lessapprox 100\,\mu$m of head$\rightarrow$head and tail$\rightarrow$tail connections to the very longest-range head$\rightarrow$tail and tail$\rightarrow$head connections ($\gtrapprox 1\,$mm), connection probability decreases with separation distance (Fig.~\ref{fig:spatialEffectsMain}A).
-For connections across the body, ranging up to $\approx 1$\,mm, a near-exponential trend is exhibited, mirroring results in other species and across longer length scales \cite{Wang:2016gg, Fulcher:2016ck}.
+For connections across the body, ranging up to $\approx 1$\,mm, a near-exponential trend is exhibited, mirroring results in other species and across longer length scales \cite{Wang:2016gg}, including mouse \cite{Goulas:2016hr, Fulcher:2016ck}, and rodents and primates \cite{Horvat:2016ia}.
 Connections between the body and head or tail, shown in Fig.~\ref{fig:spatialEffectsMain}B, do not exhibit strong spatial connectivity relationships.
 [[Is this expected? Are head and tail, and neurons within the body somehow functionally distinct units that you would expect to exhibit different connectivity relationships compared to connections between the body and head or tail?? Would be nice to add some speculative sentence here around this.]]
 
@@ -640,13 +668,14 @@ Furthermore, $r_\phi$ is not symmetric about a trend line; rather the trends tha
 Stronger spatial relationships were seen within the head for specific subtypes of neurons, including pairs of interneurons, pairs of sensory neurons, pairs of motor neurons, and motor-interneuron pairs (Figs~\ref{fig:S_distCoexp}D--H).
 % Within the head, a decreasing (approximately exponential) underlying trend could be seen for pairs of interneurons, pairs of sensory neurons, pairs of motor neurons, and motor-interneuron pairs (Figs~\ref{fig:S_distCoexp}D--H).
 % [[Add some interpretation in terms of the function of body neurons as potentially distinct from those in the head and tail??]].
-Given the weak spatial relationships of $r_\phi$ in \emph{C. elegans} that are only seen within the head and tail and are driven mostly by pairs of close neurons with similar gene expression profiles, there is no clear bulk spatial trend that can be corrected for (as done previously for mouse brain expression data \cite{Fulcher:2016ck}).
+The weak decreasing trend in $r_\phi$ with distance in \emph{C. elegans}, is only seen within the head and tail, and is primarily driven by a subset of nearby neurons with high $r_\phi$, and may therefore represent a relationship specific to particular functionally related neurons, rather than a general, bulk spatial relationship that is seen in macroscopic mammalian brains \cite{Fulcher:2016ck}.
+% Given the weak spatial relationships of $r_\phi$ in \emph{C. elegans} that are only seen within the head and tail and are driven mostly by pairs of close neurons with similar gene expression profiles, there is no clear bulk spatial trend that can be corrected for (as done previously for mouse brain expression data \cite{Fulcher:2016ck}).
 % Residuals after subtracting an exponential form (following Fulcher and Fornito using mouse brain expression data \cite{Fulcher:2016ck}), are not symmetric, since the trend is often driven by pairs of close neurons with high coexpression.
-Attempting to correct the trend in this way produces artifactual reductions in the coexpression of many neuron pairs (shown in Fig.~\ref{fig:Supp}).
+Accordingly, attempting to correct for a bulk trend in the discrete \emph{C. elegans} connectome by taking residuals from an exponential fit produced artifactual reductions in the coexpression of many neuron pairs (shown in Fig.~\ref{fig:S_head_rphi_correct}).
 % NOTE AA: I think we should include the plot (probably in supp) where exp for head-head is fitted (A) and a plot for residuals (B).
 % Given that the effect was relatively small, and no standard correction could be applied, we use original uncorrected gene coexpression data for all the further analyses.
 % Due to the large artifacts introduced, we chose not to correct for the small spatial dependence of gene coexpression in head-head and tail-tail connections for the main analyses presented here,
-Thus, we chose to analyze spatially-uncorrected expression data through this work.
+Thus, we found no evidence for bulk spatial relationships of $r_\phi$ in the specialized and discrete neuronal connectome of \emph{C. elegans}, and analyze raw coexpression data, $r_\phi$, throughout this work.
 % , but note that applying such a correction yields similar results to those presented.
 % [[TODO: INCORPORATE RESULTS/VERIFICATION, cf. \emph{CoExpressionDistanceCorrect}]].
 % Future data that allow more accurate and continuous measurement of gene coexpression, may allow spatial correction to be applied more accurately.
@@ -660,7 +689,8 @@ Thus, we chose to analyze spatially-uncorrected expression data through this wor
   \textbf{Dependence of gene coexpression, $r_\phi$, on spatial separation between pairs of neurons.}
   Gene coexpression, $r_\phi$ (in all cases excluding left-right homologous pairs of neurons), is shown as a function of the pairwise separation distance between pairs of neurons (shown as the mean (solid) $\pm$ standard deviation (dotted) in seven equiprobable distance bins, with extent shown as horizontal bars), for \textbf{A} all pairs of neurons in the head, \textbf{B} all pairs of neurons in the tail, and \textbf{C} all other pairs (labeled).
   Scatters for all neuron pairs are added in \textbf{A} and \textbf{B}.
-  An exponential relationship, $f(x) = A\exp(-\lambda x) + B$, is fitted in \textbf{A} and \textbf{B}, revealing a slight decreasing trend in $r_\phi$ with distance, as in macroscopic mammalian brains \cite{Fulcher:2016ck, Krienen:2016eq}.
+  An exponential relationship, $f(x) = A\exp(-\lambda x) + B$, is fitted in \textbf{A} and \textbf{B}.
+  The weak decreasing trend in $r_\phi$ with distance, is primarily driven by a small subset of nearby neurons with high $r_\phi$, and may therefore represent a more specific relationship between particular neurons, rather than a general, bulk spatial relationship that is seen in macroscopic mammalian brains \cite{Fulcher:2016ck, Krienen:2016eq}.
   }
   \label{fig:spatialCoexpressionMain}
 \end{figure}
@@ -672,10 +702,6 @@ Thus, we chose to analyze spatially-uncorrected expression data through this wor
 
 \subsection*{Hub connectivity}
 
-Recent work has shown that many aspects of connectome organization can be partially accounted for by geometric effects, in particular, a decreasing probability of connectivity between neural elements with increasing anatomical distance \cite{Henderson:2014fg, Roberts2016, Horvat:2016ia}.
-Unlike network analyses of mammalian brains, where all neurons are confined to a spatially contiguous organ, neurons of the \emph{C. elegans} nervous system are distributed throughout the entire organism, forming a dense cluster of 147 neurons in the head (all within 130\,$\mu m$), 105 sparser, mostly motor neurons (75\%) in the body (spanning 1.02\,mm), and a relatively dense cluster of 27 neurons in the tail (all within 90\,$\mu$m of each other), see Fig.~\ref{fig:neuronsSpace} for a plot of all neurons in space.
-The connection probability for pairs of neurons decays sharply as a function of the physical distance between them, excluding connections between the body and head, and between the body and tail, cf. Figs.~\ref{fig:spatialEffectsMain}A,B), mirroring recent results of mesoscale mammalian brains, in mouse \cite{Goulas:2016hr, Fulcher:2016ck}, and rodents and primates \cite{Horvat:2016ia}.
-
 
 %%
 %% INTRODUCE RICH CLUB  hene and focus on the difference between rich/feeder/peripheral links below
@@ -683,8 +709,9 @@ The connection probability for pairs of neurons decays sharply as a function of 
 % \paragraph{Rich club organization of the connectome}
 
 % <<hubs>>
-% First, we analyze the topological properties of the \emph{C. elegans} connectome, represented here as a directed, binary connectivity matrix of 2194 chemical connections between 279 non-pharingeal neurons (1961 pairs of connected neurons) \cite{Varshney2011}, focusing particularly on hub connectivity.
-The degree distribution of the \emph{C. elegans} synaptic connectome is shown in Fig.~\ref{fig:topology_rich}A, where neurons are distinguished by type: 68 sensory neurons, 85 interneurons, 108 motor neurons, and 18 multimodal neurons.
+Next, we analyze the topological properties of the \emph{C. elegans} connectome, represented here as a directed, binary connectivity matrix of synaptic connections and gap junctions between 279 neurons.
+ % of 2194 chemical connections between 279 non-pharingeal neurons (1961 pairs of connected neurons) \cite{Varshney2011}, focusing particularly on hub connectivity.
+The degree distribution of the connectome is shown in Fig.~\ref{fig:topology_rich}A, where neurons are distinguished by type: 68 sensory neurons, 85 interneurons, 108 motor neurons, and 18 neurons with multiple assignments.
 Despite using a directed connectome (rather than a symmetrized version in Towlson et al.~\cite{Towlson:2013gf}), we see a positively-skewed degree distribution containing an extended tail of high-degree interneurons that overlap almost completely with the list of Towlson et al.~\cite{Towlson:2013gf} (the list of hub neurons for the connectome used here is in Table~\ref{tab:HubList}).
 These high-degree interneurons form the anatomical substrate for behaviors like coordinated locomotion and foraging \cite{tsalik2003}.
 % connectivity between interneurons in the rich club provides the anatomical basis for vital neuronal computation of behaviours, such as coordinated locomotion and foraging36,37. Forward and backward movements, for example, are generated in two functionally separate subsets of neurons in this core, potentially coordinated through reciprocal inhibi- tion37,44. Moreover, a study recently demonstrated that random search behaviour in the worm can be approx- imated by a connectome-based stochastic model of this circuit4
@@ -760,28 +787,6 @@ Taken together, our results demonstrate that hub-hub connections in \emph{C. ele
 
 % In connectomes across species and scales, degree is distributed unequally, with a small number of highly connected brain regions, known as hubs \cite{Sporns:2007ea}, that are themselves more densely connected between themselves, forming a so-called `rich club' \cite{deReus:2013cy, ZamoraLopez:2010hy, Shih:2015cu, vandenHeuvel:2012kh, vandenHeuvel:2011he}.
 % The same is true in the C. elegans neuronal nervous system, analyzed in the past as an undirected binary connectome including both chemical and electrical synapses \cite{Towlson:2013gf}, which exhibits highly connected, and densely interconnected hub neurons.
-
-% ------------------------------------------------------------------------------
-% \paragraph*{S5 Fig.}
-% {\bf Spatial distribution of rich links, and neuron types across the C. elegans nervous system. }
-\begin{figure}[h]
-\centering
-    \includegraphics[width=1\textwidth]{SpatialPlot.png}
-\caption{
-\textbf{Spatial distribution of neurons and hub-hub links across the C. elegans nervous system}.
-Neurons are positioned along the Posterior (P)-Anterior (A) (horizontal), and Ventral (V)--Dorsal (D) (vertical) axes.
-% Definitions of posterior/anterior/ventral/dorsal from Varier.
-Neurons are colored by type:
-(i) interneuron (85 neurons, orange),
-(ii) sensory (68 neurons, blue),
-(iii) motor (108 neurons, green), or
-(iv) multiple assignments (18 neurons, yellow).
-Hub-hub links are shown, and zoom-in plots of head and tail are shown as dotted rectangles in the lower plot.
-In each plot, axes are to scale.
-\label{fig:neuronsSpace}
-}
-\end{figure}
-% ------------------------------------------------------------------------------
 
 %%
 \subsection*{Coexpression and connectivity}
@@ -1519,10 +1524,10 @@ By contrast, the remaining measures to show a dependence on the proportion of 1s
   \textbf{Applying an exponential trend correction to skewed coexpression data produces artifacts in the resulting corrected data.}
   \textbf{A} Coexpression values, $r_\phi$, are plotted as a function of Euclidean separation distance for all pairs of neurons within the head (gray dots).
   An exponential trend fitted to the data is shown in black, $f(x) = A\exp(-\lambda x) + B$.
-    The trend is not a bulk effect that holds in general across the brain, but is driven primarily by a small number of neuron pairs with high $r_\phi$ at short distances ($\approxless 25\mu$m).
+    The trend is not a bulk effect that holds in general across the brain, but is driven primarily by a small number of neuron pairs with high $r_\phi$ at short distances ($\lessapprox 25\mu$m).
     Thus, taking residuals from this trend, shown in \textbf{B}, does not adequately correct the spatial trend.
-  }
-  \label{fig:spatialCoexpressionMain}
+    }
+  \label{fig:S_head_rphi_correct}
 \end{figure}
 
 
