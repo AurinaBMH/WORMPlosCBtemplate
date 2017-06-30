@@ -635,10 +635,23 @@ Apart from a small effect at short range for tail$\rightarrow$body connections, 
 % The probability of a pair of neurons being connected decreases as a function of their separation distance for connections within the head, connections within the tail, connections within the body, and connections between the head and tail
 
 We next investigate understand any spatial dependency of gene expression similarity between neuron pairs, $r_\phi$ as a function of separation distance, shown in Fig.~\ref{fig:spatialCoexpressionMain} (excluding bilateral pairs of neurons).
-Gene coexpression, $r_\phi$, decreases slightly with separation distance for the spatially close neurons within the head (Fig.~\ref{fig:S_distCoexp}A) and within the tail (Fig.~\ref{fig:S_distCoexp}B), but not for pairs of neurons involving the body (Fig.~\ref{fig:S_distCoexp}C).
-[[Add some interpretation in terms of the function of body neurons as potentially distinct from those in the head and tail??]].
+Gene coexpression, $r_\phi$, decreases slightly with separation distance for the spatially close neurons within the head (Fig.~\ref{fig:S_distCoexp}A) and within the tail (Fig.~\ref{fig:S_distCoexp}B), but not for pairs of neurons involving the body (Fig.~\ref{fig:S_distCoexp}C) [[explanation of why body might be different??]].
+Furthermore, $r_\phi$ is not symmetric about a trend line; rather the trends that exist for head neurons and tail neurons are driven by pairs of close neurons with high coexpression.
 Stronger spatial relationships were seen within the head for specific subtypes of neurons, including pairs of interneurons, pairs of sensory neurons, pairs of motor neurons, and motor-interneuron pairs (Figs~\ref{fig:S_distCoexp}D--H).
 % Within the head, a decreasing (approximately exponential) underlying trend could be seen for pairs of interneurons, pairs of sensory neurons, pairs of motor neurons, and motor-interneuron pairs (Figs~\ref{fig:S_distCoexp}D--H).
+% [[Add some interpretation in terms of the function of body neurons as potentially distinct from those in the head and tail??]].
+Given the weak spatial relationships of $r_\phi$ in \emph{C. elegans} that are only seen within the head and tail and are driven mostly by pairs of close neurons with similar gene expression profiles, there is no clear bulk spatial trend that can be corrected for (as done previously for mouse brain expression data \cite{Fulcher:2016ck}).
+% Residuals after subtracting an exponential form (following Fulcher and Fornito using mouse brain expression data \cite{Fulcher:2016ck}), are not symmetric, since the trend is often driven by pairs of close neurons with high coexpression.
+Attempting to correct the trend in this way produces artifactual reductions in the coexpression of many neuron pairs (shown in Fig.~\ref{fig:Supp}).
+% NOTE AA: I think we should include the plot (probably in supp) where exp for head-head is fitted (A) and a plot for residuals (B).
+% Given that the effect was relatively small, and no standard correction could be applied, we use original uncorrected gene coexpression data for all the further analyses.
+% Due to the large artifacts introduced, we chose not to correct for the small spatial dependence of gene coexpression in head-head and tail-tail connections for the main analyses presented here,
+Thus, we chose to analyze spatially-uncorrected expression data through this work.
+% , but note that applying such a correction yields similar results to those presented.
+% [[TODO: INCORPORATE RESULTS/VERIFICATION, cf. \emph{CoExpressionDistanceCorrect}]].
+% Future data that allow more accurate and continuous measurement of gene coexpression, may allow spatial correction to be applied more accurately.
+% However, because we found no correlation between Euclidean distance between a pair of neurons (based on their two-dimensional coordinates) and their gene coexpression in the C. elegans nervous system (Fig.~\ref{fig:S_distDep}), no correction was necessary here.
+% In \textit{C. elegans}, we found a semi-exponential relationship between connection probability and Euclidean separation distance (based on their two dimensional coordinates) between a pair of neurons, but no correlation between the Euclidean separation distance between a pair of neurons and their gene coexpression, $r_\phi$.
 
 \begin{figure}[h]
   \centering
@@ -655,20 +668,9 @@ Stronger spatial relationships were seen within the head for specific subtypes o
 
 % Although distance slightly influenced gene coexpression, especially for very closely positioned neurons within the head, exponential form could not explain the relationship.
 % However, the spatial effect in this neuronal nervous system is much smaller here than in the mouse brain \cite{Fulcher:2016ck}, and concentrated on restricted spatial scales of the head (and tail).
-However, in \emph{C. elegans}, the spatial trend is small, is typically driven by pairs of close neurons with high coexpression, and is isolated to closely positioned neurons within the head and tail.
-It is therefore likely that the spatial effects in this specialized neuronal connectome are not simply due to bulk spatial trends in coexpression, as in macroscopic brains containing millions of neurons, but may reflect true organizational principles.
-Residuals after subtracting an exponential form (following Fulcher and Fornito using mouse brain expression data \cite{Fulcher:2016ck}), are not symmetric, since the trend is often driven by pairs of close neurons with high coexpression.
-Correcting binary coexpression in this way thus produces artifactual reductions in the coexpression of many neuron pairs.
-NOTE AA: I think we should include the plot (probably in supp) where exp for head-head is fitted (A) and a plot for residuals (B).
-% Given that the effect was relatively small, and no standard correction could be applied, we use original uncorrected gene coexpression data for all the further analyses.
-% Due to the large artifacts introduced, we chose not to correct for the small spatial dependence of gene coexpression in head-head and tail-tail connections for the main analyses presented here,
-Due to the correction-induced artifacts, we chose to analyze spatially-uncorrected expression data through this work, but nevertheless verified that applying such correction yields similar results to those presented [[TODO: INCORPORATE RESULTS/VERIFICATION, cf. \emph{CoExpressionDistanceCorrect}]].
-% Future data that allow more accurate and continuous measurement of gene coexpression, may allow spatial correction to be applied more accurately.
-% However, because we found no correlation between Euclidean distance between a pair of neurons (based on their two-dimensional coordinates) and their gene coexpression in the C. elegans nervous system (Fig.~\ref{fig:S_distDep}), no correction was necessary here.
-% In \textit{C. elegans}, we found a semi-exponential relationship between connection probability and Euclidean separation distance (based on their two dimensional coordinates) between a pair of neurons, but no correlation between the Euclidean separation distance between a pair of neurons and their gene coexpression, $r_\phi$.
 
 
-\subsection*{Hub connectivity in the C. elegans connectome}
+\subsection*{Hub connectivity}
 
 Recent work has shown that many aspects of connectome organization can be partially accounted for by geometric effects, in particular, a decreasing probability of connectivity between neural elements with increasing anatomical distance \cite{Henderson:2014fg, Roberts2016, Horvat:2016ia}.
 Unlike network analyses of mammalian brains, where all neurons are confined to a spatially contiguous organ, neurons of the \emph{C. elegans} nervous system are distributed throughout the entire organism, forming a dense cluster of 147 neurons in the head (all within 130\,$\mu m$), 105 sparser, mostly motor neurons (75\%) in the body (spanning 1.02\,mm), and a relatively dense cluster of 27 neurons in the tail (all within 90\,$\mu$m of each other), see Fig.~\ref{fig:neuronsSpace} for a plot of all neurons in space.
@@ -1060,8 +1062,8 @@ Thus, although a direct test of mouse and human results is no possible, we aimed
 The top enriched GO categories are listed in Table~\ref{enrichmentRICH}.
 The same two glutamate signaling categories found above for the connectivity were, again, the among the categories to be significantly enriched ($p<0.05$, FDR corrected).
 In addition, three ion transport related categories were also significantly enriched in connections involving hubs compared to other connections.
-Other top categories are related to locomotion ($p_\mathrm{uncorr} = 0.004$), cell and chemical signaling: `cell surface receptor signaling pathway' ($p_\mathrm{uncorr} = 0.004$), `cell-cell signaling' ($p_\mathrm{uncorr} = 0.004$), `chemical synaptic transmission' ($p_\mathrm{uncorr} = 0.005$), 'synaptic signaling' ($p_\mathrm{uncorr} = 0.005$).
-Metabolic and biosynthetic processes were also among the most enriched categories, including `positive regulation of nucleobase-containing compound metabolic process' ($p_\mathrm{uncorr} = 0.004$), 'positive regulation of biosynthetic process' ($p_\mathrm{uncorr} = 0.005$) and 'positive regulation of nitrogen compound metabolic process' ($p_\mathrm{uncorr} = 0.005$).
+Other top categories are related to locomotion ($p_\mathrm{uncorr} = 0.004$), cell and chemical signaling: `cell surface receptor signaling pathway' ($p_\mathrm{uncorr} = 0.004$), `cell-cell signaling' ($p_\mathrm{uncorr} = 0.004$), `chemical synaptic transmission' ($p_\mathrm{uncorr} = 0.005$), `synaptic signaling' ($p_\mathrm{uncorr} = 0.005$).
+Metabolic and biosynthetic processes were also among the most enriched categories, including `positive regulation of nucleobase-containing compound metabolic process' ($p_\mathrm{uncorr} = 0.004$), `positive regulation of biosynthetic process' ($p_\mathrm{uncorr} = 0.005$) and `positive regulation of nitrogen compound metabolic process' ($p_\mathrm{uncorr} = 0.005$).
 %These findings are in line with our expectations as hub neurons receive input from sensory neurons, the majority of which are glutamatergic.
 %As a result, hubs are required to have glutamate receptors the enrichment in these categories is the most pronounced (even after the correction, false discovery rate $< 0.05$).
 [[NEED TO UPDATE percentage FOR NEW CONNECTOME k<44]]
@@ -1150,6 +1152,7 @@ The list of top categories for both connection types contained `neurotransmitter
 
 % SPACE
 Our results on the spatial dependence of connection probability and gene expression, using sparsely-annotated binary expression data in a highly specialized neuronal nervous system, mirror many trends observed in bulk regions of macroscopic mammalian brains of mouse \cite{Fulcher:2016ck} and human \cite{Krienen:2016eq}.
+It is therefore likely that the spatial effects in this specialized neuronal connectome are not simply due to bulk spatial trends in coexpression, as in macroscopic brains containing millions of neurons, but may reflect true organizational principles.
 Spacey spacey.
 
 
@@ -1506,6 +1509,22 @@ By contrast, the remaining measures to show a dependence on the proportion of 1s
 }
 \end{figure}
 
+% ------------------------------------------------------------------------------
+% <<CoExpressionDistanceCorrect(C,G)>>
+% ------------------------------------------------------------------------------
+\begin{figure}[h]
+  \centering
+    \includegraphics[width=.9\textwidth]{head_rphi_correct.eps}
+  \caption{
+  \textbf{Applying an exponential trend correction to skewed coexpression data produces artifacts in the resulting corrected data.}
+  \textbf{A} Coexpression values, $r_\phi$, are plotted as a function of Euclidean separation distance for all pairs of neurons within the head (gray dots).
+  An exponential trend fitted to the data is shown in black, $f(x) = A\exp(-\lambda x) + B$.
+    The trend is not a bulk effect that holds in general across the brain, but is driven primarily by a small number of neuron pairs with high $r_\phi$ at short distances ($\approxless 25\mu$m).
+    Thus, taking residuals from this trend, shown in \textbf{B}, does not adequately correct the spatial trend.
+  }
+  \label{fig:spatialCoexpressionMain}
+\end{figure}
+
 
 % \paragraph*{S2 Fig.}
 % {\bf Connection probability decreases with the separation distance between neurons}
@@ -1522,6 +1541,8 @@ The increased separation distance between hubs is driven by a relative increase 
 }
 \end{figure}
 % ------------------------------------------------------------------------------
+
+
 
 % ------------------------------------------------------------------------------
 % <<plot_coexpDistance.m>>
