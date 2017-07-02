@@ -1461,14 +1461,13 @@ GO:1903508 & \begin{tabular}[c]{@{}l@{}}positive regulation of nucleic acid-temp
 \textbf{Dependence of binary coexpression metrics on the proportion of positive annotations.}
 % Given the sparse binary annotation of genes to neurons, we investigated bias in each measure across 1\,000 pairs of random binary vectors, each with a fixed proportion of ones.
 Shown here is the mean correlation between pairs of random, binary vectors of length 948, with different proportions of 1s (between 0--0.16; matrix size is 150$\times$150, therefore the number of ones ranges from 1 to 150).
-Each point is averaged over 1\,000 different pairs of random vectors (or just 100 runs in the case of the positive match measure, which is more computationally intensive to compute).
+Each point is averaged over 1\,000 different pairs of random vectors.
  % for 948-long vectors with between 0--0.16 proportion of ones (matrix size is 150x150, therefore the number of ones ranges from 1 to 150).
 Bias is indicated by a systematic trend in correlation values, driven simply by the proportion of positive annotations for a pair of vectors.
-\textbf{A} Pearson, $r_\phi$, the measure used throughout this work, shows no systematic bias (note the color axis scale, 10$^{-3}$).
+\textbf{A} Pearson, $r_\phi$, the measure used throughout this work as well as our developed positive match measure \textbf{D} shows no systematic bias (note the color axis scale, 10$^{-3}$).
 By contrast, the remaining measures to show a dependence on the proportion of 1s in each vector:
-\textbf{B} Jaccard[[TODO: JACCARD WHAT?]],
-\textbf{C} Yule's $Q$, and
-\textbf{D} Positive match probability, Eq.~\ref{eqn:positiveMatch}.
+\textbf{B} Jaccard,
+\textbf{C} Yule's $Q$.
 }
 \end{figure}
 
