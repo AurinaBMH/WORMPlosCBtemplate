@@ -858,11 +858,11 @@ Specifically, both connectomes display:
 (iv) lowest coexpression in peripheral connections.
 
 \subsection*{Potential drivers of elevated coexpression in pairs of hubs}
-The hubs of the mouse connectome are broadly distributed across anatomical divisions \cite{Fulcher:2016ck}, the 16 hub neurons in \emph{C. elegans} ($k > 44$) are all interneurons, are all born before hatching, are mostly cholinergic (13/16), and are mostly contained within a single network module.
+The 16 hub neurons in \emph{C. elegans} ($k > 44$) are all interneurons in the head of tail that are born before hatching, are mostly cholinergic (13/16), and are mostly contained within a single network module.
 % and concentrated in the head (10/13),
 % \cite{Varier2011}, \cite{Pereira:2015er}
 % Having demonstrated that gene coexpression is elevated for connected regions, and particularly for connected pairs of hubs,
-We thus investigated whether the similarity of gene expression profiles between hubs was specific to their high levels of connectivity, or whether it could instead be explained by similarity in one or more of these characteristics.
+We investigated whether the similarity of gene expression profiles between hubs was specific to their high connectivity, or whether it could instead be explained by similarity in one or more of these characteristics.
 % We thus investigated whether any of these types of homogeneities amongst hub neurons could contribute to our finding of increased gene coexpression, $r_\phi$.
 % , namely modular organization, lineage similarity, or neurotransmitter type, could explain our results.
 
@@ -878,14 +878,19 @@ We thus investigated whether the similarity of gene expression profiles between 
  %\label{Distance}
  %\end{figure}
 
-\paragraph{Neuron type.}
-Neurons in \emph{C. elegans} are annotated to the following functional categories: sensory neurons, motor neurons, and interneurons (with eighteen multifunctional neurons annotated to two categories).
-All hubs ($k > 44$) are interneurons (cf. Fig.~\ref{fig:topology_rich}A), matching the finding of Towlson et al.~\cite{Towlson:2013gf}.
-To determine whether the increase in gene coexpression in rich connections was specific to one of these neuron types, we split our coexpression analysis into connections involving: (i) interneurons, (ii) sensory neurons, and (iii) motor neurons.
-In Fig.~\ref{fig:interneuron_dep}A, we plot the mean coexpression for hub-hub connections (as a function of $k$) separately for (i) connections involving interneurons, (ii) connections involving sensory neurons, and (iii) connections involving motor neurons.
+\paragraph{Interneurons}
+% Neurons in \emph{C. elegans} are annotated to the following categories: sensory neurons, motor neurons, and interneurons (eighteen multifunctional neurons are annotated to two categories).
+% As in Towlson et al.~\cite{Towlson:2013gf}, we find that 
+All hubs ($k > 44$) in \emph{C. elegans} are interneurons. % (cf. Fig.~\ref{fig:topology_rich}A).
+To determine whether the increase in gene coexpression in rich connections was specific to interneurons, we plotted the mean coexpression for hub-hub connections, $\langle r_\phi \rangle$, as a function of the degree threshold, $k$, separately for:
+(i) connections involving interneurons,
+(ii) connections involving sensory neurons, and
+(iii) connections involving motor neurons, as shown in Fig.~\ref{fig:interneuron_dep}A.
+% separated our coexpression analysis into connections involving: (i) interneurons, (ii) sensory neurons, and (iii) motor neurons.
 For the curve labeled `sensory' neurons, for example, each point is $\langle r_\phi \rangle$, computed across connections involving sensory neurons (i.e., at least one neuron of a connected pair is a sensory neuron), for which both neurons have degree $>k$.
 % Thus, the three categories are not mutually exclusive; for example, the `interneuron' class includes connections between an interneuron and any other neuron.
-The plot shows that the increase in hub-hub gene coexpression with degree is driven by interneurons while connections involving motor neurons show only a marginal increase with degree and connections involving sensory neurons, even show a slight decrease in coexpression as a function of $k$.
+We find that the increase in hub-hub gene coexpression with $k$ is specific to connections involving interneurons.
+Connections involving motor neurons show a relatively small increase in mean coexpression with $k$, while connections involving sensory neurons show a slight decrease.
 % , which are unique in their increasing average coexpression with increasing degree
 % Thus, interneurons drive the gene coexpression relationship with degree, $k$,
 
@@ -900,8 +905,8 @@ The plot shows that the increase in hub-hub gene coexpression with degree is dri
 \textbf{A} \emph{Top}: The number of connections involving interneurons (orange), sensory neurons (blue), and motor neurons (green) across degree threshold, $k$ represented as $log_{10}$(number of links).
 \emph{Bottom}: Average gene coexpression as a function of degree for connections involving different types of neurons.
 \textbf{B} Coexpression distributions for all pairs of hub interneurons (red) and all pairs of non-hub interneurons (gray) ($P = 0.047$, Wilcoxon rank sum test).
-%[[TODO: Remove big circles from A? Confusing to keep balls because they look like they correspond to statistical significance, as above]]
-%[[TODO: see if B looks good with data points]]
+[[TODO-AA: Add labels A and B, can use the LabelCurrentAxes function]]
+[[TODO-AA: Clarify axis tick labels in B: at the moment appears like a node-level analysis on horizontal axis but pairwise analysis on vertical]]
 }
  \label{fig:interneuron_dep}
 \end{figure}
@@ -909,12 +914,17 @@ The plot shows that the increase in hub-hub gene coexpression with degree is dri
 %[[MAKE LESS VAGUE]] [[NEED A STRONGER ARGUMENT FOR SELECTING THOSE SPECIFIC INTERNEURONS]]:\\
 
 % Having found that interneurons drive the gene coexpression relationship with degree, $k$,
-We next sought to verify whether hubs show a unique transcriptional signature amongst interneurons.
-Given that hubs exhibit significantly higher coexpression compared to other interneurons ($P < 10^{-34}$, Wilcoxon rank sum test, data not shown), we aimed to select a subset of interneurons that would most closely resemble hub interneurons in terms of anatomical properties in order to verify if even among similar interneurons hubs show a specific gene expression pattern.
-Therefore, we choose a subset of interneurons that originate and terminate in approximately the same locations as hub interneurons, however are not required to have similar connectivity pattern.
-We compared gene coexpression between all pairs of hub interneurons ($\textit{k}>44$, $n=16$) and all pairs of selected nonhub interneurons (AVFL, AVFR, AVHL, AVHR, AVKL, AVKR, AVJL, AVJR, $n=8$) ignoring the presence of absence of connections between them in order to compare how similar these types of neurons are. Here we aim to test whether the observed increase in coexpression for rich links is not determined by the fact that the majority of hub neurons belong to the same anatomical neuron type.
+We next investigated whether hub neurons show a unique transcriptional signature amongst interneurons.
+Given that hubs exhibit significantly higher coexpression compared to other interneurons ($P < 10^{-34}$, Wilcoxon rank sum test, data not shown),
+[[TODO-AA: what does it mean that hubs exhibit higher coexpression? Hubs are regions, coexpression is pairs. This should be a clear statement of a result, not a ``given that X, ...'' if X is a new result.
+Also, Fig.7B looks very similar to this!]].
+To test whether the observed increase in coexpression for rich links is not determined by the fact that the majority of hub neurons belong to the same anatomical neuron type, we selected a subset of interneurons that most closely resembles hub interneurons in terms of their anatomical properties, i.e., that originate and terminate in approximately the same locations as hub interneurons.
+% to determine whether interneurons that are anatomically similar to hubs show a specific gene expression pattern:
+We arrived at the following set of anatomically similar nonhub interneurons: AVFL, AVFR, AVHL, AVHR, AVKL, AVKR, AVJL, and AVJR.
+% however are not required to have similar connectivity pattern.
+% The distribution of gene coexpression, $r_\phi$, between all pairs of 16 hub interneurons, and all pairs of anatomically-matched nonhub interneurons.
 %To determine whether hub neurons of this anatomical type showed more similar expression patterns than nonhubs of the same type, we computed the gene coexpression, $r_\phi$, between all pairs of hub neurons and all pairs of non-hub neurons (ignoring their connectivity for this analysis).
-As shown in Fig.~\ref{fig:interneuron_dep}B, pairs of hub interneurons exhibit significantly higher gene coexpression than pairs of nonhub interneurons ($P = 0.047$, Wilcoxon rank sum test).
+As shown in Fig.~\ref{fig:interneuron_dep}B, pairs of hub interneurons exhibit significantly higher gene coexpression than pairs of anatomically-matched nonhub interneurons ($P = 0.047$, Wilcoxon rank sum test).
 Thus, the increase in coexpression amongst hub interneurons is not simply due to most hubs being interneurons as even amongst interneurons sharing same anatomical properties hub interneurons exhibit significantly increased coexpression.
 
 \paragraph{Modular organization}
@@ -1076,7 +1086,7 @@ Thus, although a direct test of mouse and human results is no possible, we aimed
 The top enriched GO categories for this analysis are listed in Table~\ref{enrichmentRICH}.
 As before, no GO categories remained significant after $FDR<0.1$ correction, however, the same two glutamate receptor signaling categories found above for the connectivity were, again, at the top of the list. 
 In addition, a more general receptor signaling class ('cell surface receptor signaling pathway' ($p_\mathrm{uncorr} = 0.004$)) was also among the most important ones enriched in connections involving hubs compared to other connections.
-Other top categories are related to regulation of locomotion ($p_\mathrm{uncorr} = 0.015$) and various metabolism and biosynthesis related processes including 'positive regulation of biosynthetic process' ($p_\mathrm{uncorr} = 0.006$), two groups responsible for positive regulation of nitrogen and nucleobase-containing compound metabolic process ($p_\mathrm{uncorr} = 0.006$), 'positive regulation of cellular metabolic process' ($p_\mathrm{uncorr} = 0.01$) and 'positive regulation of macromolecule biosynthetic process ($p_\mathrm{uncorr} = 0.02$) among others.  
+Other top categories are related to regulation of locomotion ($p_\mathrm{uncorr} = 0.015$) and various metabolism and biosynthesis related processes including `positive regulation of biosynthetic process' ($p_\mathrm{uncorr} = 0.006$), two groups responsible for positive regulation of nitrogen and nucleobase-containing compound metabolic process ($p_\mathrm{uncorr} = 0.006$), `positive regulation of cellular metabolic process' ($p_\mathrm{uncorr} = 0.01$) and 'positive regulation of macromolecule biosynthetic process ($p_\mathrm{uncorr} = 0.02$) among others.  
 
 %These findings are in line with our expectations as hub neurons receive input from sensory neurons, the majority of which are glutamatergic.
 %As a result, hubs are required to have glutamate receptors the enrichment in these categories is the most pronounced (even after the correction, false discovery rate $< 0.05$).
@@ -1182,6 +1192,10 @@ These overall findings were specific to connections involving interneurons, i.e.
 These findings come despite sparsely annotated, binary gene expression data, with less than 5\% coverage of the full genome, with preliminary enrichment analysis indicating a role for glutamate in both connectivity and hub-connectivity.
 Our results indicate that even in a highly specialized neuronal nervous system, costly hub-hub connections display a distinctive transcriptional signature that may reflect their unique functional role in the network.
 Further work across different species and scales may shed light on deeper principles of how connectomes organize to facilitate efficient biological functioning.
+The hubs of the mouse connectome are broadly distributed across anatomical divisions \cite{Fulcher:2016ck}, whereas \emph{C. elegans} hubs mostly correspond to a specific functional circuit; we attempted to address by looking at potential confounds, to characterize whether high connectivity was related to aspects like interneuron type, neurotransmitter system, etc.
+Results may be more a statement about similarity of control interneurons, which are more densely annotated with similar genes due to their functional specialization, rather than being specific to topology.
+Teasing apart specific effects of topology is much harder in a highly specialized neural system like \emph{C. elegans}, but we did our best.
+
 
 
 differ significantly (being a neuronal connectome), and with so few neurons, each highly specialized, it may be hard to pick up broad expression patterns that are network topology-specific.
