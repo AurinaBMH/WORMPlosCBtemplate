@@ -79,6 +79,14 @@ Meunier D, Lambiotte R, Bullmore ET.
 \newblock {Modular and Hierarchically Modular Organization of Brain Networks}.
 \newblock Front Psychiat. 2010;4:1--11.
 
+\bibitem{Bassett2010}
+Bassett DS, Greenfield DL, Meyer-Lindenberg A, Weinberger DR, Moore SW,
+  Bullmore ET.
+\newblock {Efficient Physical Embedding of Topologically Complex Information
+  Processing Networks in Brains and Computer Circuits}.
+\newblock PLoS computational biology. 2010;6(4):e1000748.
+\newblock doi:{10.1371/journal.pcbi.1000748}.
+
 \bibitem{Betzel:2016jt}
 Betzel RF, Avena-Koenigsberger A, Go{\~n}i J, He Y, de~Reus MA, Griffa A,
   et~al.
@@ -368,35 +376,12 @@ Lancichinetti A, Fortunato S, Thomson JN, Brenner S, Moon S.
 \newblock Scientific Reports. 2012;2:547--579.
 \newblock doi:{10.1038/srep00336}.
 
-\bibitem{Lein:2007jn}
-Lein E, Hawrylycz MJ, Ao N, Ayres M, Bensinger A, Bernard A, et~al.
-\newblock {Genome-wide atlas of gene expression in the adult mouse brain}.
-\newblock Nature. 2007;445(7124):168--176.
-
-\bibitem{Hawrylycz:2012ky}
-Hawrylycz MJ, Lein E, Guillozet-Bongaarts AL, Shen EH, Ng L, Miller JA, et~al.
-\newblock {An anatomically comprehensive atlas of the adult human brain
-  transcriptome}.
-\newblock Nature. 2012;489(7416):391--399.
-
-\bibitem{Ji:2014jw}
-Ji S, Fakhry A, Deng H.
-\newblock {Integrative analysis of the connectivity and gene expression atlases
-  in the mouse brain}.
-\newblock NeuroImage. 2014;84:245--253.
-
-\bibitem{Fakhry:2015kl}
-Fakhry A, Ji S.
-\newblock {High-resolution prediction of mouse brain connectivity using gene
-  expression patterns}.
-\newblock Methods. 2015;73:71--78.
-
-\bibitem{French2011}
-French L, Pavlidis P.
-\newblock {Relationships between gene expression and brain wiring in the adult
-  rodent brain.}
-\newblock PLoS computational biology. 2011;7(1):e1001049.
-\newblock doi:{10.1371/journal.pcbi.1001049}.
+\bibitem{Warrens2008}
+Warrens MJ.
+\newblock {On Association Coefficients for 2x2 Tables and Properties That Do
+  Not Depend on the Marginal Distributions.}
+\newblock Psychometrika. 2008;73(4):777--789.
+\newblock doi:{10.1007/s11336-008-9070-3}.
 
 \bibitem{Parkes:2017dn}
 Parkes L, Fulcher BD, Y{\"u}cel M, Fornito A.
@@ -404,12 +389,31 @@ Parkes L, Fulcher BD, Y{\"u}cel M, Fornito A.
   striatum}.
 \newblock Genes, Brain and Behavior. 2017;25:1176.
 
-\bibitem{Warrens2008}
-Warrens MJ.
-\newblock {On Association Coefficients for 2x2 Tables and Properties That Do
-  Not Depend on the Marginal Distributions.}
-\newblock Psychometrika. 2008;73(4):777--789.
-\newblock doi:{10.1007/s11336-008-9070-3}.
+\bibitem{Gillis2010}
+Gillis J, Mistry M, Pavlidis P.
+\newblock {Gene function analysis in complex data sets using ErmineJ.}
+\newblock Nature protocols. 2010;5(6):1148--59.
+\newblock doi:{10.1038/nprot.2010.78}.
+
+\bibitem{Benjamini:1995cd}
+Benjamini Y, Hochberg Y.
+\newblock {Controlling the False Discovery Rate: A Practical and Powerful
+  Approach to Multiple Testing}.
+\newblock J Roy Stat Soc B. 1995;57(1):289--300.
+
+\bibitem{Ashburner2000}
+Ashburner M, Ball CA, Blake JA, Botstein D, Butler H, Cherry JM, et~al.
+\newblock {Gene Ontology: Tool for The Unification of Biology}.
+\newblock NATURE GENETICS. 2000;25(1):25--29.
+\newblock doi:{10.1038/75556}.
+
+\bibitem{Zoubarev2012}
+Zoubarev A, Hamer KM, Keshav KD, {Luke Mccarthy} E, Santos JRC, Van~rossum T,
+  et~al.
+\newblock {Gemma: A resource for the reuse, sharing and meta-analysis of
+  expression profiling data}.
+\newblock Bioinformatics. 2012;28(17):2272--2273.
+\newblock doi:{10.1093/bioinformatics/bts430}.
 
 \bibitem{Krienen2016}
 Krienen FM, Yeo BTT, Ge T, Buckner RL, Sherwood CC.
@@ -442,38 +446,6 @@ Markov NT, Ercsey-Ravasz M, Van~Essen DC, Knoblauch K, Toroczkai Z, Kennedy H.
 \newblock {Cortical High-Density Counterstream Architectures}.
 \newblock Science. 2013;342(6158):1238406--1238406.
 
-\bibitem{Krienen:2016eq}
-Krienen FM, Yeo BTT, Ge T, Buckner RL, Sherwood CC.
-\newblock {Transcriptional profiles of supragranular-enriched genes associate
-  with corticocortical network architecture in the human brain.}
-\newblock Proc Natl Acad Sci USA. 2016;113(4):E469--78.
-
-\bibitem{Ashburner2000}
-Ashburner M, Ball CA, Blake JA, Botstein D, Butler H, Cherry JM, et~al.
-\newblock {Gene Ontology: Tool for The Unification of Biology}.
-\newblock NATURE GENETICS. 2000;25(1):25--29.
-\newblock doi:{10.1038/75556}.
-
-\bibitem{Gillis2010}
-Gillis J, Mistry M, Pavlidis P.
-\newblock {Gene function analysis in complex data sets using ErmineJ.}
-\newblock Nature protocols. 2010;5(6):1148--59.
-\newblock doi:{10.1038/nprot.2010.78}.
-
-\bibitem{Benjamini:1995cd}
-Benjamini Y, Hochberg Y.
-\newblock {Controlling the False Discovery Rate: A Practical and Powerful
-  Approach to Multiple Testing}.
-\newblock J Roy Stat Soc B. 1995;57(1):289--300.
-
-\bibitem{Zoubarev2012}
-Zoubarev A, Hamer KM, Keshav KD, {Luke Mccarthy} E, Santos JRC, Van~rossum T,
-  et~al.
-\newblock {Gemma: A resource for the reuse, sharing and meta-analysis of
-  expression profiling data}.
-\newblock Bioinformatics. 2012;28(17):2272--2273.
-\newblock doi:{10.1093/bioinformatics/bts430}.
-
 \bibitem{Roberts2016}
 Roberts JA, Perry A, Lord AR, Roberts G, Mitchell PB, Smith RE, et~al.
 \newblock {The contribution of geometry to the human connectome.}
@@ -485,6 +457,12 @@ Goulas A, Uylings HBM, Hilgetag CC.
 \newblock {Principles of ipsilateral and contralateral cortico-cortical
   connectivity in the mouse}.
 \newblock Brain Struct Funct. 2016;252:1--15.
+
+\bibitem{Krienen:2016eq}
+Krienen FM, Yeo BTT, Ge T, Buckner RL, Sherwood CC.
+\newblock {Transcriptional profiles of supragranular-enriched genes associate
+  with corticocortical network architecture in the human brain.}
+\newblock Proc Natl Acad Sci USA. 2016;113(4):E469--78.
 
 \bibitem{tsalik2003}
 Tsalik EL, Hobert O.
@@ -506,14 +484,6 @@ Kim JS, Kaiser M.
 \newblock Philosophical transactions of the Royal Society of London Series B,
   Biological sciences. 2014;369(1653).
 \newblock doi:{10.1098/rstb.2013.0529}.
-
-\bibitem{Bassett2010}
-Bassett DS, Greenfield DL, Meyer-Lindenberg A, Weinberger DR, Moore SW,
-  Bullmore ET.
-\newblock {Efficient Physical Embedding of Topologically Complex Information
-  Processing Networks in Brains and Computer Circuits}.
-\newblock PLoS computational biology. 2010;6(4):e1000748.
-\newblock doi:{10.1371/journal.pcbi.1000748}.
 
 \bibitem{Achacoso:1992ay}
 Achacoso T, Yamamoto W.
@@ -559,11 +529,31 @@ Cui Q, Yu Z, Purisima EO, Wang E, Li X, Schwarz P, et~al.
 \newblock Trends in Genetics. 2007;23(8):372--375.
 \newblock doi:{10.1016/j.tig.2007.04.003}.
 
+\bibitem{Ji:2014jw}
+Ji S, Fakhry A, Deng H.
+\newblock {Integrative analysis of the connectivity and gene expression atlases
+  in the mouse brain}.
+\newblock NeuroImage. 2014;84:245--253.
+
+\bibitem{Fakhry:2015kl}
+Fakhry A, Ji S.
+\newblock {High-resolution prediction of mouse brain connectivity using gene
+  expression patterns}.
+\newblock Methods. 2015;73:71--78.
+
 \bibitem{French:2011cz}
 French L, Pavlidis P.
 \newblock {Relationships between gene expression and brain wiring in the adult
   rodent brain}.
 \newblock PLoS Comp Biol. 2011;7(1):e1001049.
+
+\bibitem{Fulcher2016}
+Fulcher BD, Fornito A.
+\newblock {A transcriptional signature of hub connectivity in the mouse
+  connectome.}
+\newblock Proceedings of the National Academy of Sciences of the United States
+  of America. 2016;113(5):1513302113--.
+\newblock doi:{10.1073/pnas.1513302113}.
 
 \bibitem{Ypma:2016em}
 Ypma RJF, Bullmore E.
@@ -604,12 +594,30 @@ Baruch L, Itzkovitz S, Golan-Mashiach M, Shapiro E, Segal E.
 \newblock PLoS computational biology. 2008;4(7):e1000120.
 \newblock doi:{10.1371/journal.pcbi.1000120}.
 
+\bibitem{Lein:2007jn}
+Lein E, Hawrylycz MJ, Ao N, Ayres M, Bensinger A, Bernard A, et~al.
+\newblock {Genome-wide atlas of gene expression in the adult mouse brain}.
+\newblock Nature. 2007;445(7124):168--176.
+
+\bibitem{French2011}
+French L, Pavlidis P.
+\newblock {Relationships between gene expression and brain wiring in the adult
+  rodent brain.}
+\newblock PLoS computational biology. 2011;7(1):e1001049.
+\newblock doi:{10.1371/journal.pcbi.1001049}.
+
 \bibitem{Kluger2004}
 Kluger Y, Tuck DP, Chang JT, Nakayama Y, Poddar R, Kohya N, et~al.
 \newblock {Lineage specificity of gene expression patterns.}
 \newblock Proceedings of the National Academy of Sciences of the United States
   of America. 2004;101(17):6508--6513.
 \newblock doi:{10.1073/pnas.0401136101}.
+
+\bibitem{Hawrylycz:2012ky}
+Hawrylycz MJ, Lein E, Guillozet-Bongaarts AL, Shen EH, Ng L, Miller JA, et~al.
+\newblock {An anatomically comprehensive atlas of the adult human brain
+  transcriptome}.
+\newblock Nature. 2012;489(7416):391--399.
 
 \bibitem{Shen:2012ua}
 Shen EH, Overly CC, Jones AR.
