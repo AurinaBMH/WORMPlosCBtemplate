@@ -1079,15 +1079,16 @@ Other categories are involved in the regulation of growth rate and several catab
 [[TODO-AA: Can you add corrected $p$-values to the table??]]
 Although the data are not sufficiently comprehensive to deduce functional categories with statistical significance, our findings demonstrate a method for computing GO categories from binary data that suggest that connected pairs of neurons may coexpress genes associated with neuronal connectivity relative to unconnected neuron pairs.
 
-We next investigate gene enrichment in connections where at least one of the members is a hub (rich, feed-in, feed-out) relative to peripheral connections where both members are non-hubs.
-Our previous work in mouse revealed enrichment in genes regulating oxidative metabolism \cite{Fulcher:2016ck} (a result corroborated at a regional level in human \cite{Vertes2016a}).
-However, in the \emph{C. elegans} gene expression dataset, only one of our 948 genes was annotated to the GO categories related to hub connectivity in mouse (\emph{unc-32} is annotated to GO:0015991: `ATP hydrolysis coupled proton transport').
+We next investigate whether particular functional groups of genes drive differences in coexpression between connections involving hub neurons (i.e., in rich, feed-in, and feed-out connections) relative to peripheral connections between pairs of nonhub neurons.
+[[A little weaker to group here where feed-in connections have lower coexpression than peripheral connections]]
+While previous work implicated genes regulating oxidative metabolism for connections involving hubs in mouse \cite{Fulcher:2016ck} (and for hub regions in human \cite{Vertes2016a}), the \emph{C. elegans} gene expression dataset was insufficient to analyze these gene categories here (only one of the 948 genes annotated to the GO categories related to hub connectivity in mouse is present in our gene expression dataset: \emph{unc-32} is annotated to `ATP hydrolysis coupled proton transport').
+% GO:0015991:
 % GO categories were filtered using <<searchGOcategories.m>> function.
 Thus, although a direct test of mouse and human results is no possible, we aimed to identify if any metabolism-related categories might be enriched in hub connections in \emph{C. elegans}, providing some support for the idea that hubs are energetically costly elements of the connectome.
 %Due to gene expression data specificity in all the following analyses we present top 15 GO categories enriched in a particular link type compared to other links.
 The top enriched GO categories for this analysis are listed in Table~\ref{enrichmentRICH}.
 As before, no GO categories remained significant after $FDR<0.1$ correction, however, the same two glutamate receptor signaling categories found above for the connectivity were, again, at the top of the list. 
-In addition, a more general receptor signaling class ('cell surface receptor signaling pathway' ($p_\mathrm{uncorr} = 0.004$)) was also among the most important ones enriched in connections involving hubs compared to other connections.
+In addition, a more general receptor signaling class (`cell surface receptor signaling pathway' ($p_\mathrm{uncorr} = 0.004$)) was also among the most important ones enriched in connections involving hubs compared to other connections.
 Other top categories are related to regulation of locomotion ($p_\mathrm{uncorr} = 0.015$) and various metabolism and biosynthesis related processes including `positive regulation of biosynthetic process' ($p_\mathrm{uncorr} = 0.006$), two groups responsible for positive regulation of nitrogen and nucleobase-containing compound metabolic process ($p_\mathrm{uncorr} = 0.006$), `positive regulation of cellular metabolic process' ($p_\mathrm{uncorr} = 0.01$) and 'positive regulation of macromolecule biosynthetic process ($p_\mathrm{uncorr} = 0.02$) among others.  
 
 %These findings are in line with our expectations as hub neurons receive input from sensory neurons, the majority of which are glutamatergic.
