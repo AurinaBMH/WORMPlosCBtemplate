@@ -845,6 +845,7 @@ Note that at high $k$ most neurons are labeled as nonhubs and hence the vast maj
 The mean coexpression across all network links is shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. Fig.~\ref{fig:topology_rich}) is shaded gray.
 Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (one-sided Welch's $t$-test; $P < 0.05$).
 [[TODO: fonts are small, and inconsistent sizes between subplots.]]
+[[TODO: add labels A, B]]
 [[TODO: Font size inconsistent in B]]
 }
  \label{fig:coExp}
@@ -852,22 +853,21 @@ Circles indicate a statistically significant increase in gene coexpression in a 
 % ------------------------------------------------------------------------------
 
 % ---HUB coexpression---
-We next investigated whether coexpression varied between different types of connections, focusing particularly on the role of densely interconnected hub neurons.
+We next investigated whether coexpression varies across different types of connections defined in terms of their hub connectivity.
+% , focusing particularly on the role of densely interconnected hub neurons.
 % characterized above, hypothesizing an increase in connections involving hubs, with hub-hub connections displaying the most similar gene expression patterns \cite{Fulcher:2016ck}.
 % Given the importance of hub neurons across species [[Ref]], and previous results in the mesoscale mouse connectome \cite{Fulcher:2016ck},
 For a given hub threshold, $k$, we first labeled each neuron as either a `hub' (nodes with degree $> k$) or a `nonhub' (degree $\leq k$), and then labeled each connection as either `rich' (hub $\rightarrow$ hub), `feed-in' (nonhub $\rightarrow$ hub), `feed-out' (hub $\rightarrow$ nonhub), or `peripheral' (nonhub $\rightarrow$ nonhub).
 % [[TODO: Establish whether we're computing pairs of hubs (e.g., for `rich'), or for every connection between any pair of hubs -- i.e., do reciprocal connections contribute twice to the distribution at each $k$? AA: as in original mouse analysis -- all connections, but we take mean, so the mean doesn't change in either way]]
-The mean coexpression for each of these four connection types is plotted in Fig.~\ref{fig:coExp}B, with circles indicating statistically significant increases of a given connection type (relative to all other connections, $P < 0.05$, Welch's $t$-test).
-Gene coexpression in rich connections increases with degree, through the topological rich-club regime where hubs are densely interconnected (shaded gray in Fig.~\ref{fig:coExp}B).
-Feed-out connections exhibit some increased gene coexpression in the topological rich-club regime, while feed-in and peripheral connections show the lowest levels of coexpression.
-Full distributions of coexpression at a hub threshold of $k > 44$ are plotted in Fig.~\ref{fig:S_RFPdistributions}.
-
-These results, using partial binary annotations of gene expression across just 948 genes in a microscale neuronal connectome, are consistent with a prior analysis of the expression of over 17\,000 genes across 213 regions of the mesoscale mouse connectome.
-Specifically, both connectomes display:
+The mean coexpression, $\langle r_\phi \rangle$ for each of these four connection types is plotted in Fig.~\ref{fig:coExp}B, with circles indicating statistically significant increases of a given connection type (relative to all other connections, $P < 0.05$, Welch's $t$-test [[TODO-AA: should this be ranksum rather?]]).
+Gene coexpression in rich connections increases with degree, particularly in the topological rich-club regime where hubs are densely interconnected (shaded gray in Fig.~\ref{fig:coExp}B).
+Feed-out connections exhibit increased gene coexpression in the topological rich-club regime, while feed-in and [[peripheral connections show the lowest levels of coexpression]][[TODO-AA: Seems like feed-in actually the lowest now??]].
+Full $r_\phi$ distributions for each edge type for a hub threshold of $k > 44$ are plotted in Fig.~\ref{fig:S_RFPdistributions}.
+These results, using partial binary annotations of gene expression across just 948 genes in a microscale neuronal connectome, are broadly consistent with a prior analysis of the expression of over 17\,000 genes across 213 regions of the mesoscale mouse connectome, including:
 (i) increased coexpression in connected pairs of nodes;
-(ii) the highest coexpression in rich connections;
-(iii) intermediate coexpression in feeder connections; and
-(iv) lowest coexpression in peripheral connections.
+(ii) the highest coexpression in rich connections; and
+% (iii) intermediate coexpression in feeder connections; and
+(iii) lowest coexpression in peripheral connections.
 
 \subsection*{Potential drivers of elevated coexpression in pairs of hubs}
 The hubs of the mouse connectome are broadly distributed across anatomical divisions \cite{Fulcher:2016ck}, the 16 hub neurons in \emph{C. elegans} ($k > 44$) are all interneurons, are all born before hatching, are mostly cholinergic (13/16), and are mostly contained within a single network module.
