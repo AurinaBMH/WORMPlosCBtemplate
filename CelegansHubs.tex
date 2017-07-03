@@ -1057,7 +1057,6 @@ The mean coexpression between hub neurons is significantly increased relative to
 Of the 16 hub neurons ($k > 44$), 13 are in the head, 3 in the tail, and none in the body.
 Given that coexpression varies as a function of anatomical position with, for example, pairs of neurons in the same broad anatomical class exhibiting the highest mean coexpression (e.g., pairs of neurons within the body: $\langle r_\phi\rangle = 0.25$, within the tail: $\langle r_\phi\rangle = 0.13$, and within the head: $\langle r_\phi\rangle = 0.10$), with lower mean coexpression in mixed classes (e.g., connections from head$\rightarrow$body: $\langle r_\phi\rangle = 0.05$).
 Given this variation, we tested whether the increased gene expression in hub neurons could be explained by their anatomical distribution, using the same permutation testing procedure described above for neurotransmitter systems, i.e., by comparing to a null distribution formed from $1\times 10^6$ random permutations of 13 head neurons and 3 tail neurons.
-[[IS IT COEXPRESSION betheen all pairs or connected pairs]]
 The mean coexpression between hub neurons is significantly increased relative to random sets of neurons with the same anatomical position as hubs ($p = 4.1\times 10^{-5}$, permutation test).
 Gene coexpression is significantly increased amongst hub neurons in the head compared to other pairs of head neurons (46 hub-hub pairs, 1186 others: $p = 4.12 \times 10^{-11}$, Wilcoxon rank sum test), also amongst head/tail pairs neurons (23 hub-hub pairs, 123 others: $p = 7.0 \times 10^{-14}$), but not for the three hub neurons in the tail compared to the 53 other tail-tail pairs ($p = 0.15$).
 
@@ -1066,20 +1065,19 @@ Gene coexpression is significantly increased amongst hub neurons in the head com
 %% comment on enrichment analysis. No write up can be done before deciding on options.
 
 % Having determined that pairs of neurons with different connectivity exhibit different levels of coexpression,
-Having established the robustness of the relationship between hub connectivity and gene expression, we next investigate which functional groups of genes contributed to the observed differences in gene coexpression.
-We developed a method to assign a gene coexpression contribution score to each gene that quantifies the contribution of each gene to a given coexpression value for a pair of neurons. These scores were then used to perform an enrichment analysis using gene ontology (GO) categories for biological processes \cite{Ashburner2000, Gillis2010} (see \emph{Methods}).
+Having characterized a robust relationship between hub connectivity and gene expression, we next investigate whether specific functional groups of genes contribute to the observed differences in gene coexpression.
+We developed a method to score genes according to their contribution to a given coexpression pattern, which were used to perform an enrichment analysis using gene ontology (GO) categories for biological processes \cite{Ashburner2000, Gillis2010} (see \emph{Methods}).
 % (related to the probability of a gene being expressed together in a given set of neuron pairs compared to an alternative set).
+% Previous results using quantitative gene expression in mouse has indicated that genes driving an increase in coexpression between connected pairs of neurons are enriched in GO categories related to neuronal, synaptic, and axonal structure and function
+% \cite{Fulcher:2016ck, Ji:2014jw, Fakhry:2015kl, French:2011cz}.
+Relative to previous results in mouse, for example \cite{Fulcher:2016ck, Ji:2014jw, Fakhry:2015kl, French:2011cz}, the current data are more challenging due to incomplete binary expression measurements in a small proportion of the genome.
 
-
-First, we estimated which functional groups of genes drive increased coexpression in connected pairs of neurons compared to unconnected pairs.
-Previous results in mouse indicated that genes driving an increase in coexpression between connected pairs of neurons are enriched in GO categories related to neuronal, synaptic, and axonal structure and function
-\cite{Fulcher:2016ck, Ji:2014jw, Fakhry:2015kl, French:2011cz}.
-In our analysis, however, no categories remained significant after the corrections for a false discovery rate ($FDR < 0.1$), therefore we present a list of top GO categories with corresponding uncorrected p values in Table~\ref{enrichmentCON}.
-The most influential GO categories here are related to glutamate receptor signaling: `ionotropic glutamate receptor signaling pathway' ($p_\mathrm{uncorr} = 0.0005$) and `glutamate receptor signaling pathway' ($p_\mathrm{uncorr} = 0.004$) as well as 
-cell surface receptor signaling ($p_\mathrm{uncorr} = 0.005$), `ion transport' ($p_\mathrm{uncorr} = 0.006$) and `ion transmembrane transport' ($p_\mathrm{uncorr} = 0.008$). 
-Other categories are involved in the regulation of growth rate and several catabolic processes. 
-
-In general these findings suggest that connected pairs of neurons tend to express genes associated with neuronal connectivity compared to unconnected neuron pairs.\\
+First, we determined which functional groups of genes drive increased coexpression in connected pairs of neurons relative to unconnected pairs.
+No GO categories were significant at a false discovery rate of 10\%.
+The top GO categories are related to glutamate receptor signaling: `ionotropic glutamate receptor signaling pathway' ($p_\mathrm{uncorr} = 0.0005$) and `glutamate receptor signaling pathway' ($p_\mathrm{uncorr} = 0.004$) as well as cell surface receptor signaling ($p_\mathrm{uncorr} = 0.005$), `ion transport' ($p_\mathrm{uncorr} = 0.006$) and `ion transmembrane transport' ($p_\mathrm{uncorr} = 0.008$).
+Other categories are involved in the regulation of growth rate and several catabolic processes (see Table~\ref{enrichmentCON} for all terms with uncorrected $p$-values).
+[[TODO-AA: Can you add corrected $p$-values to the table??]]
+Although the data are not sufficiently comprehensive to deduce functional categories with statistical significance, our findings demonstrate a method for computing GO categories from binary data that suggest that connected pairs of neurons may coexpress genes associated with neuronal connectivity relative to unconnected neuron pairs.
 
 We next investigate gene enrichment in connections where at least one of the members is a hub (rich, feed-in, feed-out) relative to peripheral connections where both members are non-hubs.
 Our previous work in mouse revealed enrichment in genes regulating oxidative metabolism \cite{Fulcher:2016ck} (a result corroborated at a regional level in human \cite{Vertes2016a}).
