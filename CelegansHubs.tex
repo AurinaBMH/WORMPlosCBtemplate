@@ -801,14 +801,22 @@ The distribution of hubs and hub-hub connections in two-dimensional space is dep
 \subsection*{Coexpression and connectivity}
 
 % ---connectivity/coexpression---
-Having characterized the topological and geometric properties of rich-club connectivity in \emph{C. elegans}, we next investigate how axonal connectivity properties relate to gene expression patterns.
+% Having characterized the topological and geometric properties of rich-club connectivity in \emph{C. elegans},
+We next investigate how the network connectivity properties of \emph{C. elegans} relate to patterns of gene expression.
 Being a pairwise analysis, we compare pairwise synaptic connectivity to pairwise similarity in gene expression, measured by the mean square contingency coefficient, $r_\phi$ (see \emph{Methods}).
 % , to define gene coexpression, and excluding coexpression values between homologous left/right neuron pairs, see Methods).
-
-First we investigate whether gene coexpression relates to synaptic connectivity by comparing the distribution of $r_\phi$ computed for all connected pairs of neurons, and for all unconnected pairs of neurons, shown in Fig.~\ref{fig:coExp}A.
-We find that connected pairs of neurons have more similar expression profiles than unconnected pairs (Wilcoxon rank-sum test, $P < 10^{-78}$), mirroring results in the mesoscale mouse connectome \cite{Fulcher:2016ck}.
-Moreover, we also demonstrate increased coexpression between neuron pairs connected via gap junctions compared to neurons connected via chemical synapses (Wilcoxon rank-sum test, $P < 10^{-22}$).
-Afterwards, we separated connections into three distinct categories: electrical, chemical reciprocal ($X \leftrightarrow Y$) and chemical unidirectional ($X \rightarrow Y$), however, unlike in the mouse brain, we found no differences in gene coexpression, $r_\phi$, between chemical unidirectional and reciprocal connections (see Fig.~\ref{fig:S_RFPdistributions}).
+To investigate whether gene coexpression varies as a function of connectivity, we compared the distribution of $r_\phi$ for (i) of all connected pairs of neurons, and (ii) all unconnected pairs of neurons.
+Connected pairs of neurons have more similar expression profiles than unconnected pairs (Wilcoxon rank-sum test, $P < 10^{-78}$), mirroring previous results in the mesoscale mouse connectome \cite{Fulcher:2016ck}.
+We also computed the distribution of $r_\phi$ for:
+(i) all pairs of neurons that are connected via a gap junction,
+(ii) all pairs of neurons that are connected via a synapse, and
+(iii) all pairs of neurons that are unconnected, shown in Fig.~\ref{fig:coExp}A.
+We find increased coexpression between neuron pairs connected via gap junctions compared to neurons connected via synapses (Wilcoxon rank-sum test, $P < 10^{-22}$).
+Synaptic connections labeled as either:
+`reciprocal' ($N_1 \leftrightarrow N_2$ for two neurons $N_1$ and $N_2$) or
+`unidirectional' ($N_1 \rightarrow N_2$) did not exhibit a significant difference in gene coexpression $r_\phi$ ([[TODO-AA: WHAT TEST, WHAT P-VALUE]]) (distributions shown in Fig.~\ref{fig:S_RFPdistributions}).
+This is in contrast to significant gene coexpression differences found in the mesoscale mouse connectome \cite{Fulcher:2016ck}.
+% into three distinct categories: electrical, chemical reciprocal ($X \leftrightarrow Y$) and chemical unidirectional ($X \rightarrow Y$), however, unlike in the mouse brain, we found no differences in gene coexpression, $r_\phi$, between chemical unidirectional and reciprocal connections (see Fig.~\ref{fig:S_RFPdistributions}).
 
 % ------------------------------------------------------------------------------
 % <<coexpConnUncon.m>>
