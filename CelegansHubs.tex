@@ -1065,17 +1065,17 @@ Gene coexpression is significantly increased amongst hub neurons in the head com
 
 % Having determined that pairs of neurons with different connectivity exhibit different levels of coexpression,
 Having established the robustness of the relationship between hub connectivity and gene expression, we next investigate which functional groups of genes contributed to the observed differences in gene coexpression.
-We developed a method to assign a gene coexpression contribution score to each gene that quantifies the contribution of each gene to a given coexpression value for a pair of neurons, and these scores were then used to perform an enrichment analysis using gene ontology (GO) categories for biological processes \cite{Ashburner2000, Gillis2010} (see \emph{Methods}).
+We developed a method to assign a gene coexpression contribution score to each gene that quantifies the contribution of each gene to a given coexpression value for a pair of neurons. These scores were then used to perform an enrichment analysis using gene ontology (GO) categories for biological processes \cite{Ashburner2000, Gillis2010} (see \emph{Methods}).
 % (related to the probability of a gene being expressed together in a given set of neuron pairs compared to an alternative set).
 
 
 First, we estimated which functional groups of genes drive increased coexpression in connected pairs of neurons compared to unconnected pairs.
 Previous results in mouse indicated that genes driving an increase in coexpression between connected pairs of neurons are enriched in GO categories related to neuronal, synaptic, and axonal structure and function
 \cite{Fulcher:2016ck, Ji:2014jw, Fakhry:2015kl, French:2011cz}.
-For \emph{C. elegans}, no categories remained significant after the corrections for a false discovery rate ($FDR < 0.1$), therefore we present a list of top GO categories with corresponding uncorrected p values in Table~\ref{enrichmentCON}.
-At the top of the list there are GO categories related to glutamate receptor signaling: `ionotropic glutamate receptor signaling pathway' ($p_\mathrm{uncorr} = 0.0005$) and `glutamate receptor signaling pathway' ($p_\mathrm{uncorr} = 0.004$) as well as 
-cell surface receptor signaling ($p_\mathrm{uncorr} = 0.005$), `ion transport' ($p_\mathrm{uncorr} = 0.006$), `ion transmembrane transport' ($p_\mathrm{uncorr} = 0.008$). 
-Other categories are involved in the regulation of growth rate and various catabolic processes. 
+In our analysis, however, no categories remained significant after the corrections for a false discovery rate ($FDR < 0.1$), therefore we present a list of top GO categories with corresponding uncorrected p values in Table~\ref{enrichmentCON}.
+The most influential GO categories here are related to glutamate receptor signaling: `ionotropic glutamate receptor signaling pathway' ($p_\mathrm{uncorr} = 0.0005$) and `glutamate receptor signaling pathway' ($p_\mathrm{uncorr} = 0.004$) as well as 
+cell surface receptor signaling ($p_\mathrm{uncorr} = 0.005$), `ion transport' ($p_\mathrm{uncorr} = 0.006$) and `ion transmembrane transport' ($p_\mathrm{uncorr} = 0.008$). 
+Other categories are involved in the regulation of growth rate and several catabolic processes. 
 
 In general these findings suggest that connected pairs of neurons tend to express genes associated with neuronal connectivity compared to unconnected neuron pairs.\\
 
@@ -1088,12 +1088,12 @@ Thus, although a direct test of mouse and human results is no possible, we aimed
 The top enriched GO categories for this analysis are listed in Table~\ref{enrichmentRICH}.
 As before, no GO categories remained significant after $FDR<0.1$ correction, however, the same two glutamate receptor signaling categories found above for the connectivity were, again, at the top of the list. 
 In addition, a more general receptor signaling class ('cell surface receptor signaling pathway' ($p_\mathrm{uncorr} = 0.004$)) was also among the most important ones enriched in connections involving hubs compared to other connections.
-Other top categories are related to regulation of locomotion ($p_\mathrm{uncorr} = 0.015$) and various metabolism and biosynthesis related processes including 'positive regulation of biosynthetic process' ($p_\mathrm{uncorr} = 0.006$), two groups responsible for positive regulation of nitrogen and nucleobase-containing compound metabolic process ($p_\mathrm{uncorr} = 0.006$), 'positive regulation of cellular metabolic process' ($p_\mathrm{uncorr} = 0.01$), 'positive regulation of macromolecule biosynthetic process ($p_\mathrm{uncorr} = 0.02$) among others.  
+Other top categories are related to regulation of locomotion ($p_\mathrm{uncorr} = 0.015$) and various metabolism and biosynthesis related processes including 'positive regulation of biosynthetic process' ($p_\mathrm{uncorr} = 0.006$), two groups responsible for positive regulation of nitrogen and nucleobase-containing compound metabolic process ($p_\mathrm{uncorr} = 0.006$), 'positive regulation of cellular metabolic process' ($p_\mathrm{uncorr} = 0.01$) and 'positive regulation of macromolecule biosynthetic process ($p_\mathrm{uncorr} = 0.02$) among others.  
 
 %These findings are in line with our expectations as hub neurons receive input from sensory neurons, the majority of which are glutamatergic.
 %As a result, hubs are required to have glutamate receptors the enrichment in these categories is the most pronounced (even after the correction, false discovery rate $< 0.05$).
 [[NEED TO UPDATE percentage FOR NEW CONNECTOME k<44]]
-The significant enrichment of glutamate receptor signaling for both connectivity and hub connectivity analyses was somewhat surprising, as only 26\% of neurons with known neurotransmitter type are glutamatergic (whereas 55\% are cholinergic), and only 2 of the 16 hubs ($k > 44$) are glutamatergic; 13 are cholinergic (Fig.~\ref{fig:S_feedInOutNodes}C) and one remaining of the unknown neurotransmitter type.
+The significant enrichment of glutamate receptor signaling for both connectivity and hub connectivity analyses was somewhat surprising, as only 26\% of neurons with known neurotransmitter type are glutamatergic (whereas 55\% are cholinergic), and only 2 of the 16 hubs ($k > 44$) are glutamatergic; 13 are cholinergic (Fig.~\ref{fig:S_feedInOutNodes}C) and one remaining - of the unknown neurotransmitter type.
 This may be due to the fact that only a single acetylcholine-related GO category (GO:0007271: `synaptic transmission, cholinergic') was represented in the current gene expression data containing 14 genes [[DO WE SHOW NUMBER IN DATA OR IN GENE SETS USED FOR CON and RF analysis]] while others (n=9) had only up to 3 genes, therefore were not included in the enrichment analysis as categories with 5-100 genes were required. 
 Also, no glutamate release categories were represented with at least 5 genes, thus were not included in the analysis.\\
 %% [GenesinGO, GOs] = searchGOcategories(C,G,'glutamat');
@@ -1110,12 +1110,12 @@ Looking closer at the neurotransmitter type of each neuron, we found that nonhub
 
 %Are presynaptic genes represented in the Glu pathway GO category?
 
-Thus, although hubs are themselves mostly cholinergic, they receive inputs from glutamatergic neurons, which may explain the enrichment of the two GO biological process categories related to glutamate receptors.
-[[PROBABLY INCLUDE SOME POSSIBLE EXPLANATION without hard numbers as now almost all feeder links are feed-both IN DISCUSSION, not HERE]]. 
+[[Thus, although hubs are themselves mostly cholinergic, they receive inputs from glutamatergic neurons, which may explain the enrichment of the two GO biological process categories related to glutamate receptors.
+PROBABLY INCLUDE SOME POSSIBLE EXPLANATION without hard numbers as now almost all feeder links are feed-both IN DISCUSSION, not HERE]]. 
 
-While we were not able to directly test the hypothesis proposed in the previous work in mouse connectome \cite{Fulcher2016}, several metabolism and biosynthesis related categories enriched in connections involving hubs allow us to draw some parallels and reaffirm that hub connectivity on a neuronal scale might also be associated with increased energy demands.
-It is worth noting that given sparse gene annotations in the current binary gene expression data we were required to perform additional quality control steps to ensure that all top genes supplied for the ORA analysis have a high number of both possible and actual matches and therefore our enrichment results are not driven by the noise in the data. [[include the whole list of genes for both a analysis as excel data with numbers of possible and actual matches as well as corrected and uncorrected p values)]]
-Taking into consideration limitations of the current dataset for such an analysis, we find enrichment in meaningful GO categories for both connected neurons as well as connections involving hubs that, while are not statistically significant, allow us to provide some interpretation about the underlying mechanisms of hub connectivity in the neuronal connectome of the \textit{C. elegans} and are in line with findings in both meso and macro level connectomes. 
+While we were not able to directly test the hypothesis proposed in the previous work in mouse connectome \cite{Fulcher2016}, several metabolism and biosynthesis related categories enriched in connections involving hubs allow us to draw some parallels and reaffirm that hub connectivity on a neuronal scale might also be [[IS?]] experience increased energy demands.
+It is worth noting that given sparse gene annotations in the current binary gene expression data we were required to perform additional quality control steps to ensure that all top genes supplied for the ORA analysis have a sufficiently high number of both possible and actual matches and therefore our enrichment results are not driven by the noise in the data. [[include the whole list of genes for both a analysis as excel data with numbers of possible and actual matches as well as corrected and uncorrected p values)]]
+Taking into consideration limitations of the current dataset for such an analysis, we still find enrichment in meaningful GO categories for both connected neurons as well as connections involving hubs that, while are not statistically significant, allow us to provide some interpretation about the underlying mechanisms of hub connectivity in the neuronal connectome of the \textit{C. elegans} and are in line with findings in both meso and macro level connectomes. 
 % : `ionotropic glutamate receptor signaling pathway' and `glutamate receptor signaling pathway'.
 
 %[[MAY NOT BE NECESSARY:]] NO CLEAR STORY WITH NEW ENRICHMENT RESULTS, probably should exclude it. 
