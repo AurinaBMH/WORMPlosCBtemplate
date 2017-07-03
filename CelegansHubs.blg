@@ -1,6 +1,6 @@
 This is BibTeX, Version 0.99d (TeX Live 2015)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: CelegansHubs.aux
+The top-level auxiliary file: ./CelegansHubs.aux
 The style file: plos2015.bst
 Database file #1: library_ben.bib
 Repeated entry---line 201 of file library_ben.bib
@@ -33,6 +33,7 @@ Warning--I didn't find a database entry for "VanEssen2013a"
 Warning--I didn't find a database entry for "Sporns2011"
 Warning--I didn't find a database entry for "VandenHeuvel2016a"
 Warning--I didn't find a database entry for "Crossley:2014eta"
+Warning--I didn't find a database entry for "Schnabel1997"
 Warning--I didn't find a database entry for "Ciceri2013"
 Warning--I didn't find a database entry for "Li2012"
 Warning--I didn't find a database entry for "Yu2012"
@@ -43,45 +44,45 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Warning--can't use both volume and number fields in choe2004network
 Warning--empty pages in choe2004network
-You've used 104 entries,
+You've used 103 entries,
             3058 wiz_defined-function locations,
-            1346 strings with 40881 characters,
-and the built_in function-call counts, 313616 in all, are:
-= -- 38071
-> -- 1728
+            1341 strings with 40573 characters,
+and the built_in function-call counts, 311113 in all, are:
+= -- 37749
+> -- 1708
 < -- 4
-+ -- 1289
-- -- 432
-* -- 29479
-:= -- 34328
-add.period$ -- 438
-call.type$ -- 104
++ -- 1279
+- -- 427
+* -- 29259
+:= -- 34060
+add.period$ -- 433
+call.type$ -- 103
 change.case$ -- 2
 chr.to.int$ -- 0
-cite$ -- 106
-duplicate$ -- 16667
-empty$ -- 31507
-format.name$ -- 534
-if$ -- 71715
+cite$ -- 105
+duplicate$ -- 16465
+empty$ -- 31271
+format.name$ -- 528
+if$ -- 71134
 int.to.chr$ -- 0
-int.to.str$ -- 104
-missing$ -- 1038
-newline$ -- 550
-num.names$ -- 104
-pop$ -- 1663
+int.to.str$ -- 103
+missing$ -- 1027
+newline$ -- 544
+num.names$ -- 103
+pop$ -- 1646
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 1675
+skip$ -- 1659
 stack$ -- 0
-substring$ -- 77041
-swap$ -- 2621
+substring$ -- 76521
+swap$ -- 2593
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 1107
-width$ -- 107
-write$ -- 1195
+while$ -- 1095
+width$ -- 106
+write$ -- 1182
 (There were 6 error messages)
