@@ -429,7 +429,7 @@ The normalized rich-club coefficient, $\Phi_\mathrm{norm}(k)$, was then computed
     \Phi_\mathrm{norm}(k) = \frac{\phi(k)}{\langle \phi_\mathrm{rand}(k) \rangle}.
 \end{equation}
 $\Phi_\mathrm{norm} > 1$ indicates rich-club organization of the network, with statistically significant deviations assessed by computing a $P$-value directly from the empirical null distribution, $\phi_\mathrm{rand}(k)$, as a permutation test under the null hypothesis $\phi(k) \leq \phi_\mathrm{rand}(k)$ \cite{vandenHeuvel:2011he}.
-% setting the threshold for significance at $P < 0.05$.
+% setting the threshold for significance at $p < 0.05$.
 
 % NOTE THAT TOWLSON USED UNDIRECTED (CHEMICAL+ELECTRICAL) network. WE USE DIRECTED CHEMICAL. (should probably put this into results - not in methids).
 %The phenomenon of the rich-club organisation in \textit{C. elegans} connectome was originally demonstrated by Towlson et al. \cite{Towlson2013} in an undirected binary version of the connectome where data for both chemical and electrical synapses were combined.
@@ -746,8 +746,8 @@ Most of these neurons are interneurons.
 \textbf{B}
 Normalized rich club coefficient, $\Phi_\mathrm{norm}$ (red), as a function of the degree, $k$, at which hubs are defined (as neurons with degree $>k$).
 Also shown is the mean Euclidean separation distance (purple) between connected hub regions (across degree thresholds, $k$).
-$\Phi_\mathrm{norm} > 1$ indicates that hubs are more densely interconnected among each other than expected by chance, with red circles indicate values of $\Phi_\mathrm{norm}$ that are significantly higher than an ensemble of 1\,000 degree-matched null networks ($P < 0.05$).
-Purple circles indicate where the Euclidean distance between connected pairs of hubs is significantly greater than the Euclidean distance for all other pairs of connected regions (Welch's $t$-test, $P < 0.05$).
+$\Phi_\mathrm{norm} > 1$ indicates that hubs are more densely interconnected among each other than expected by chance, with red circles indicate values of $\Phi_\mathrm{norm}$ that are significantly higher than an ensemble of 1\,000 degree-matched null networks ($p < 0.05$).
+Purple circles indicate where the Euclidean distance between connected pairs of hubs is significantly greater than the Euclidean distance for all other pairs of connected regions (Welch's $t$-test, $p < 0.05$).
 [[TODO: Also suggest replacing red with one of these, since red is used in coexpression plot to represent something different]]
 [[TODO: Add right-side vertical-axis to give units for distance]]
 }
@@ -768,10 +768,10 @@ Again consistent Towlson et al. using an undirected \emph{C. elegans} connectome
 % reciprocal: sum(sum(Adj & Adj'))/2 = 233
 % unidirectional: sum(sum(Adj & ~Adj')) = 1728
 % either: sum(sum(Adj | Adj'))/2 = 1961
-The figure plots the variation of $\Phi_\mathrm{norm}$ across degree thresholds, $k$, at which hubs are defined (as neurons with degree $>k$), with red circles indicating a significant increase in link density among hubs relatively to 1\,000 degree-preserving nulls (permutation test, $P < 0.05$).
+The figure plots the variation of $\Phi_\mathrm{norm}$ across degree thresholds, $k$, at which hubs are defined (as neurons with degree $>k$), with red circles indicating a significant increase in link density among hubs relatively to 1\,000 degree-preserving nulls (permutation test, $p < 0.05$).
 % [[check whether randmio\_dir only preserves degree: AA - degree distributions in binary, out-strength (but not in-strength) in weighted]].
 The plot reveals rich-club organization at the upper tail of the degree distribution, particularly across the range $44 < k < 63$ (shaded gray in Fig.~\ref{fig:topology_rich}B), referred to here as the `topological rich-club regime'.
-We use a hub definition in this work of $k > 44$, corresponding to the lowest degree threshold at which the network displays significant rich-club organization (permutation test, $P < 0.05$).
+We use a hub definition in this work of $k > 44$, corresponding to the lowest degree threshold at which the network displays significant rich-club organization (permutation test, $p < 0.05$).
 Note that our results are not determined by the binary representation of the connectome; weighted representations yielded similar results for two different definitions of the weighted rich-club coefficient \cite{Opsahl2008}, as shown in Fig.~\ref{fig:S_weightedRC}.
 % This indicates that when nodes are defined as hubs (degree $>\textit{k}$) in this range, they are more densely interconnected than expected by chance.
  % of the analyses presented below examine how different topological and genomic properties vary as a function of the hub threshold, $k$, but for analyses requiring a fixed hub definition, we define hubs as the 13 neurons with
@@ -780,7 +780,7 @@ Note that our results are not determined by the binary representation of the con
 % <<distance, geometric effects>>
 % ------------------------------------------------------------------------------
 % <<cf. NeuronTypeStats.m to run these numbers>>
-Finally, we find an increase in mean hub-hub connection distance with the degree threshold, $k$, with a significant increase through the topological rich-club regime (Welch's t-test, $P < 0.05$, as shown in Fig.~\ref{fig:topology_rich}B.
+Finally, we find an increase in mean hub-hub connection distance with the degree threshold, $k$, with a significant increase through the topological rich-club regime (Welch's t-test, $p < 0.05$, as shown in Fig.~\ref{fig:topology_rich}B.
 % and consistent with prior analysis by Towlson et al. \cite{Towlson:2013gf}.
  % we plot the mean distance between all pairs of connected hubs at each degree threshold, $k$.
 This result can be attributed to a relative increase in long-distance hub-hub connections between the head and tail (Fig.~\ref{fig:S_connectionProportion}).
@@ -806,8 +806,8 @@ Being a pairwise analysis, we compare pairwise synaptic connectivity to pairwise
 % , to define gene coexpression, and excluding coexpression values between homologous left/right neuron pairs, see Methods).
 
 First we investigate whether gene coexpression relates to synaptic connectivity by comparing the distribution of $r_\phi$ computed for all connected pairs of neurons, and for all unconnected pairs of neurons, shown in Fig.~\ref{fig:coExp}A.
-We find that connected pairs of neurons have more similar expression profiles than unconnected pairs (Wilcoxon rank-sum test, $P < 10^{-78}$), mirroring results in the mesoscale mouse connectome \cite{Fulcher:2016ck}.
-Moreover, we also demonstrate increased coexpression between neuron pairs connected via gap junctions compared to neurons connected via chemical synapses (Wilcoxon rank-sum test, $P < 10^{-22}$).
+We find that connected pairs of neurons have more similar expression profiles than unconnected pairs (Wilcoxon rank-sum test, $p < 10^{-78}$), mirroring results in the mesoscale mouse connectome \cite{Fulcher:2016ck}.
+Moreover, we also demonstrate increased coexpression between neuron pairs connected via gap junctions compared to neurons connected via chemical synapses (Wilcoxon rank-sum test, $p < 10^{-22}$).
 Afterwards, we separated connections into three distinct categories: electrical, chemical reciprocal ($X \leftrightarrow Y$) and chemical unidirectional ($X \rightarrow Y$), however, unlike in the mouse brain, we found no differences in gene coexpression, $r_\phi$, between chemical unidirectional and reciprocal connections (see Fig.~\ref{fig:S_RFPdistributions}).
 
 % ------------------------------------------------------------------------------
@@ -821,15 +821,15 @@ Afterwards, we separated connections into three distinct categories: electrical,
 \textbf{A} Distribution of transcriptional similarity between electrically connected, chemically connected and unconnected pairs of neurons as a violin plot, with the mean of each distribution represented by a horizontal line.
 Note that connections between bilateral pairs of neurons display high transcriptional similarity and are excluded from this analysis, leaving 474 electrically (514-40), 1\,940 connected pairs (1\,961 - 21) and 36\,450 unconnected pairs (36\,494 - 44).
 The categories of electrically and chemically connected neuron pairs are not mutually exclusive with 175 pairs of neurons connected via both types of connections. 
-Coexpression, $r_\phi$, is increased in connected compared to unconnected pairs of neurons ($P < 10^{-78}$, Wilcoxon rank sum test).
-Coexpression, $r_\phi$, is increased in neuron pairs connected via electrical synapses compared to pairs connected via chemical synapses ($P < 10^{-22}$, Wilcoxon rank sum test).
+Coexpression, $r_\phi$, is increased in connected compared to unconnected pairs of neurons ($p < 10^{-78}$, Wilcoxon rank sum test).
+Coexpression, $r_\phi$, is increased in neuron pairs connected via electrical synapses compared to pairs connected via chemical synapses ($p < 10^{-22}$, Wilcoxon rank sum test).
 \textbf{B}
 \emph{Top}: Degree distribution, $k$, of the \emph{C. elegans} connectome.
 \emph{Middle}: proportion of connections that are `rich' (hub$\rightarrow$hub, red), `feed-in' (nonhub$\rightarrow$hub, yellow), `feed-out' (hub$\rightarrow$nonhub, orange), and `peripheral' (nonhub$\rightarrow$nonhub, blue) as a function of the degree threshold, $k$, used to define hubs.
 Note that at high $k$, most neurons are labeled as nonhubs, and hence the vast majority of connections are `peripheral'.
 \emph{Bottom}: Mean gene coexpression, $r_\phi$, for each connection type as a function of $k$.
 The mean coexpression across all network links is shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. Fig.~\ref{fig:topology_rich}) is shaded gray.
-Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (one-sided Welch's $t$-test; $P < 0.05$).
+Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (one-sided Welch's $t$-test; $p < 0.05$).
 [[TODO: fonts are small, and inconsistent sizes between subplots.
 I think we should crop the curves when there are fewer than X connections remaining -- in this case it's a bit ridiculous to show that constant feed-out/feed-in/peripheral coexpression when there are only two neurons
 left as hubs]]
@@ -845,7 +845,7 @@ We next investigated whether coexpression varied between different types of conn
 % Given the importance of hub neurons across species [[Ref]], and previous results in the mesoscale mouse connectome \cite{Fulcher:2016ck},
 For a given hub threshold, $k$, we first labeled each neuron as either a `hub' (nodes with degree $> k$) or a `nonhub' (degree $\leq k$), and then labeled each connection as either `rich' (hub $\rightarrow$ hub), `feed-in' (nonhub $\rightarrow$ hub), `feed-out' (hub $\rightarrow$ nonhub), or `peripheral' (nonhub $\rightarrow$ nonhub).
 % [[TODO: Establish whether we're computing pairs of hubs (e.g., for `rich'), or for every connection between any pair of hubs -- i.e., do reciprocal connections contribute twice to the distribution at each $k$? AA: as in original mouse analysis -- all connections, but we take mean, so the mean doesn't change in either way]]
-The mean coexpression for each of these four connection types is plotted in Fig.~\ref{fig:coExp}B, with circles indicating statistically significant increases of a given connection type (relative to all other connections, $P < 0.05$, Welch's $t$-test).
+The mean coexpression for each of these four connection types is plotted in Fig.~\ref{fig:coExp}B, with circles indicating statistically significant increases of a given connection type (relative to all other connections, $p < 0.05$, Welch's $t$-test).
 Gene coexpression in rich connections increases with degree, through the topological rich-club regime where hubs are densely interconnected (shaded gray in Fig.~\ref{fig:coExp}B).
 Feed-out connections exhibit some increased gene coexpression in the topological rich-club regime, while feed-in and peripheral connections show the lowest levels of coexpression.
 Full distributions of coexpression at a hub threshold of $k > 44$ are plotted in Fig.~\ref{fig:S_RFPdistributions}.
@@ -915,7 +915,7 @@ Connections involving motor neurons show a relatively small increase in mean coe
 
 % Having found that interneurons drive the gene coexpression relationship with degree, $k$,
 We next investigated whether hub neurons show a unique transcriptional signature amongst interneurons.
-Given that pairs of hubs exhibit significantly higher coexpression compared to pairs of other interneurons ($P < 10^{-34}$, Wilcoxon rank sum test, data not shown),
+Given that pairs of hubs exhibit significantly higher coexpression compared to pairs of other interneurons ($p < 10^{-34}$, Wilcoxon rank sum test, data not shown),
 [[TODO-AA: what does it mean that hubs exhibit higher coexpression? Hubs are regions, coexpression is pairs. This should be a clear statement of a result, not a ``given that X, ...'' if X is a new result.
 Also, Fig.7B looks very similar to this!AA - this is about all interneurons, not just those that are similar to hubs. So given that hubs are more similar then other interneurons (result with data not shown), we want to see if they're more similar between themselves than anatomically similar interneurons. ]]
  
@@ -977,7 +977,7 @@ Thus, despite an increase in coexpression between pairs of neurons within the sa
 %\textbf{A: Connection distance}
 %Top: Degree distribution.
 %Bottom: Median lineage distance for rich, feeder, and peripheral connections as a function of \textit{k}, with the %median across all network links shown as a dashed black line and the topological rich club regime shaded grey.
-%Circles indicate a statistically significant change in lineage distance in a given link type relative to the rest %of the network (Wilcoxon rank sum test; $P < 0.05$). \\
+%Circles indicate a statistically significant change in lineage distance in a given link type relative to the rest %of the network (Wilcoxon rank sum test; $p < 0.05$). \\
 \textbf{A} Nematode connectivity matrix organized by topological module (white squares), with all connections labeled by type: rich (red), feed-in (yellow), feed-out (orange), and peripheral (blue).
 Neuron indicators are shown to the left:
 (i) module assignment,
@@ -988,7 +988,7 @@ Neuron indicators are shown to the left:
 % The number of connections of each type is shown in parentheses.
 \textbf{C} Distributions of gene coexpression, $r_\phi$, for intra-modular rich (red) and non-rich (blue) connections, shown as violin plots with the mean shown as a horizontal bar (Wilcoxon rank sum test, $p = 4.4\times 10^{-29}$).
 % The number of connections of each type is shown in parentheses.
-\textbf{D} Distributions of gene coexpression, $r_\phi$, between early born hubs (rich links, red) and non-hubs (non-rich links, green) shown as violin plots with the mean shown as a horizontal bar. ($P < 10^{-22}$, Wilcoxon rank sum test).
+\textbf{D} Distributions of gene coexpression, $r_\phi$, between early born hubs (rich links, red) and non-hubs (non-rich links, green) shown as violin plots with the mean shown as a horizontal bar. ($p < 10^{-22}$, Wilcoxon rank sum test).
 \textbf{E} Distributions of lineage distance between rich links (red) and non-rich links (green), plotted as histograms due to a discrete nature of this measure. ($P = 0.079$, Wilcoxon rank sum test).
 [[TODO: could add neurotransmitter type as a bar code in modules]]
 [[TODO: change colors for distributions, fill distributions, e.g., intramodular and intermodular shouldn't use red (rich) use green for non-rich]]
@@ -997,7 +997,7 @@ Neuron indicators are shown to the left:
 %Coexpression distributions within and between modules.
 %\textbf{C: Lineage distance}
 %Top: Degree distribution. Bottom: Mean lineage distance for rich, feeder, and peripheral connections as a function %of \textit{k}, with the median across all network links shown as a dashed black line and the topological rich club regime shaded grey.
-%Circles indicate a statistically significant change in lineage distance in a given link type relative to the rest of the network (one-sided Welch’s t-test; $P < 0.05$) \\
+%Circles indicate a statistically significant change in lineage distance in a given link type relative to the rest of the network (one-sided Welch’s t-test; $p < 0.05$) \\
 %\textbf{D: Coexpression for different types of neurons. }
 %Top: Median gene coexpression as a function of degree for connections involving different types of neurons.
 %Bottom: The number of connections in each category for a range of degrees.
@@ -1015,7 +1015,7 @@ It has been shown that neurons born at similar times may share similar propertie
 % \cite{Varier2011, Towlson2013}.
 To test this hypothesis, we focused on the 201 neurons (16 hub and 185 nonhub neurons) born prior to hatching (birth time $<550$\,min).
  % to see whether connections between hub neurons displayed increased coexpression relative to other types of connections between neurons born during this early developmental phase.
-As shown in Fig.~\ref{fig:OtherInfluences}D, even among early-born neurons, connections between hubs (rich) show significantly increased coexpression compared to all other connections (non-rich: feed-in, feed-out, peripheral, $P < 10^{-22}$, Wilcoxon rank sum test).
+As shown in Fig.~\ref{fig:OtherInfluences}D, even among early-born neurons, connections between hubs (rich) show significantly increased coexpression compared to all other connections (non-rich: feed-in, feed-out, peripheral, $p < 10^{-22}$, Wilcoxon rank sum test).
 [[TODO: PAIRWISE RATHER THAN CONNECTED FOR CONSISTENCY??]]
 % Hub neurons are thus distinctively similar in their expression patterns, even amongst early-born neurons.
 % We conclude that the increased coexpression between hub neurons is not driven by the similarity in their birth times.
@@ -1588,7 +1588,7 @@ We show the number of neurons in each of these fives classes that:
 \textbf{Coexpression for different types of connectome edges.}
 \emph{Left}: Distribution of transcriptional similarity between reciprocally connected (219 pairs), unidirectionally connected (1\,721) and  and unconnected (36\,749 pairs) pairs of neurons as a violin plot, with the median of each distribution shown as a horizontal line.
 Connections between symmetrical (left/right) pairs of neurons are excluded from the analysis. Coexpression values for
-Coexpression, $r_\phi$ is increased in connected (reciprocally and unidirectionally) pairs of neurons ($P < 10^{-50}$, Wilcoxon rank sum test)
+Coexpression, $r_\phi$ is increased in connected (reciprocally and unidirectionally) pairs of neurons ($p < 10^{-50}$, Wilcoxon rank sum test)
 \emph{Right}: Distribution of transcriptional similarity for rich, feed-in, feed-out and peripheral links, where hubs are neurons with degree $k>41$.
 [[TODO: color inside of the distributions
 Add $p<0.05$ values on the plot where significant.
@@ -1613,7 +1613,7 @@ Use mean instead of median (or use median throughout)
 An extended tail of high-degree neurons can be seen, which are mostly interneurons.
 \textbf{B}
 Normalized weighted (topology fixed and weights randomized in the null model, shown orange) $\Phi_\mathrm{norm}^\mathrm{weighted}$ and mixed (both topology and weights mixed in the null model, shown green) $\Phi_\mathrm{norm}^\mathrm{mixed}$ rich club coefficient as a function of the degree, $k$, at which hubs are defined (as neurons with degree $>k$).
-Circles indicate values of $\Phi_\mathrm{norm}$ that are significantly higher than an ensemble of 1\,000 degree-matched null networks (Welch's $t$-test, $P < 0.05$).
+Circles indicate values of $\Phi_\mathrm{norm}$ that are significantly higher than an ensemble of 1\,000 degree-matched null networks (Welch's $t$-test, $p < 0.05$).
 [[TODO: Change the labels within the plot for mixed and weighted as superscripts]]
 [[TODO: define/explain the two definitions and give references]]
 }
@@ -1633,7 +1633,7 @@ Circles indicate values of $\Phi_\mathrm{norm}$ that are significantly higher th
 Note that at high $k$, most neurons are labeled as nonhubs, and hence the vast majority of connections are `peripheral'.
 \emph{Lower}: Mean lineage distance for each connection type as a function of $k$.
 Lineage distance across all network links shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. Fig.~\ref{fig:topology_rich}) is shaded gray.
-Circles indicate a statistically significant increase or decrease in birth time difference in a given link type relative to the rest of the network (two-sided Welch’s t test; $P < 0.05$).
+Circles indicate a statistically significant increase or decrease in birth time difference in a given link type relative to the rest of the network (two-sided Welch’s t test; $p < 0.05$).
 }
 \label{fig:Lineagek}
 \end{figure}
@@ -1652,7 +1652,7 @@ Circles indicate a statistically significant increase or decrease in birth time 
 Note that at high $k$, most neurons are labeled as nonhubs, and hence the vast majority of connections are `peripheral'.
 \emph{Bottom}: Mean birth time difference for each connection type as a function of $k$.
 The mean birth time difference across all network links shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. Fig.~\ref{fig:topology_rich}) is shaded gray.
-Circles indicate a statistically significant increase or decrease in birth time difference in a given link type relative to the rest of the network (two-sided Welch's $t$ test; $P < 0.05$).
+Circles indicate a statistically significant increase or decrease in birth time difference in a given link type relative to the rest of the network (two-sided Welch's $t$ test; $p < 0.05$).
 }
 \end{figure}
 
@@ -1679,7 +1679,7 @@ Circles indicate a statistically significant increase or decrease in birth time 
 Note that at high $k$, most neurons are labeled as nonhubs, and hence the vast majority of connections are `peripheral'.
 \emph{Bottom}: Mean gene coexpression calculated using similarity index from only positive matches, $r_\xi$, for each connection type as a function of $k$.
 The mean coexpression across all network links shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. Fig.~\ref{fig:topology_rich}) is shaded gray.
-Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (one-sided Welch's $t$ test; $P < 0.05$).
+Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (one-sided Welch's $t$ test; $p < 0.05$).
 }
 \end{figure}
 
