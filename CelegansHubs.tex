@@ -934,18 +934,22 @@ Connections involving motor neurons show a relatively small increase in mean coe
 
 % Having found that interneurons drive the gene coexpression relationship with degree, $k$,
 We next investigated whether hub neurons show a unique transcriptional signature amongst interneurons.
-Given that pairs of hubs exhibit significantly higher coexpression compared to pairs of other interneurons ($p < 10^{-34}$, Wilcoxon rank sum test, data not shown),
-[[TODO-AA: what does it mean that hubs exhibit higher coexpression? Hubs are regions, coexpression is pairs. This should be a clear statement of a result, not a ``given that X, ...'' if X is a new result.
-Also, Fig.7B looks very similar to this!AA - this is about all interneurons, not just those that are similar to hubs. So given that hubs are more similar then other interneurons (result with data not shown), we want to see if they're more similar between themselves than anatomically similar interneurons. ]]
- 
-To test whether the observed increase in coexpression for rich links is not determined by the fact that the majority of hub neurons belong to the same anatomical neuron type, we selected a subset of interneurons that most closely resembles hub interneurons in terms of their anatomical properties, i.e., that originate and terminate in approximately the same locations as hub interneurons.
+Given that pairs of hubs exhibit significantly higher coexpression compared to pairs of other interneurons ($p < 10^{-34}$, Wilcoxon rank sum test, data not shown), we then test whether the observed increase in coexpression for rich links is not determined by the fact that the majority of hub neurons belong to the same anatomical neuron type. 
+To do that we selected a subset of interneurons that most closely resembles hub interneurons in terms of their anatomical properties, i.e., that originate and terminate in approximately the same locations as hub interneurons.
 % to determine whether interneurons that are anatomically similar to hubs show a specific gene expression pattern:
 We used the following set of eight anatomically similar nonhub interneurons: AVFL, AVFR, AVHL, AVHR, AVKL, AVKR, AVJL, and AVJR [[any reproducible criteria through which these were selected??]].
 % however are not required to have similar connectivity pattern.
 % The distribution of gene coexpression, $r_\phi$, between all pairs of 16 hub interneurons, and all pairs of anatomically-matched nonhub interneurons.
 %To determine whether hub neurons of this anatomical type showed more similar expression patterns than nonhubs of the same type, we computed the gene coexpression, $r_\phi$, between all pairs of hub neurons and all pairs of non-hub neurons (ignoring their connectivity for this analysis).
-As shown in Fig.~\ref{fig:interneuron_dep}B, pairs of hub interneurons exhibit significantly higher gene coexpression than pairs of anatomically-matched nonhub interneurons ($P = 0.047$, Wilcoxon rank sum test).
+As shown in Fig.~\ref{fig:interneuron_dep}B, pairs of hub interneurons exhibit significantly higher gene coexpression than pairs of anatomically-matched nonhub interneurons ($p = 0.047$, Wilcoxon rank sum test).
+
 Thus, the increase in coexpression amongst hub interneurons is not simply due to most hubs being interneurons as even amongst interneurons sharing same anatomical properties hub interneurons exhibit significantly increased coexpression.
+
+Interestingly, ten out of 16 hub neurons correspond to the same functional group of neurons, governing movement direction of the animal and are called command interneurons. 
+Given their similarity in function we ask if they also exhibit increased gene coexpression compared to other hub interneurons.
+Indeed, coexpression between command interneurons is significantly higher than between other hub neurons ($p<10^{-7}$, Wilcoxon rank sum test) Fig.~\ref{fig:interneuron_dep}B. 
+Therefore, given the anatomical properties of the \textit{C. elegans} nervous system, where command interneurons also have the highest degree in the network, it is not possible to disentangle the influence of function and connectivity towards the increased coexpression in hubs. 
+
 
 \paragraph{Modular organization}
 The \emph{C. elegans} nervous system has a modular organization, in which subsets of neurons show dense interconnectivity \cite{Kim2014, Pan:2010jt, Bassett2010}, or exhibit similar connectivity patterns to each other \cite{Achacoso:1992ay, Pavlovic2014}.
@@ -1027,15 +1031,16 @@ Neuron indicators are shown to the left:
 
 
 \paragraph{Birth time}
-The genesis of neurons in the \emph{C. elegans} nervous system is separated into two distinct time periods: before hatching (birth time $<550$ min) and after hatching (birth time $>1200$ min), with no neurons formed during intermediate times \cite{Varier2011}.
+The genesis of neurons in the \emph{C. elegans} nervous system is separated into two distinct time periods: before hatching (birth time $<550$ min - early) and after hatching (birth time $>1200$ min - late), with no neurons formed during intermediate times \cite{Varier2011}.
 Differences in birth times between pairs of neurons are dominated by the differences between these two temporal clusters of neuron birth.
-It has been shown that neurons born at similar times may share similar properties including connectivity \cite{Schroter:2017eo}, and since all \emph{C. elegans} hub neurons are born prior to hatching, we investigated whether the increase in coexpression between hub neurons is influenced by their early birth times.
+It has been shown that neurons born at similar times may share similar properties of connectivity \cite{Schroter:2017eo}. 
+Here we also show that although connections between early born neurons show no difference in gene coexpression compared to connections between late born neurons ($p=0.64$, Wilcoxon rank sum test), they exhibit significantly higher gene coexpression comparing to connections that exist between those two neuron groups ($p = 0.0042$, Wilcoxon rank sum test).
+Since all \emph{C. elegans} hub neurons are born prior to hatching, we investigated whether the increase in coexpression between hub neurons is influenced by their early birth times.
 % with an around 700min gap between them when no neurons are formed.
 % \cite{Varier2011, Towlson2013}.
 To test this hypothesis, we focused on the 201 neurons (16 hub and 185 nonhub neurons) born prior to hatching (birth time $<550$\,min).
  % to see whether connections between hub neurons displayed increased coexpression relative to other types of connections between neurons born during this early developmental phase.
 As shown in Fig.~\ref{fig:OtherInfluences}D, even among early-born neurons, connections between hubs (rich) show significantly increased coexpression compared to all other connections (non-rich: feed-in, feed-out, peripheral, $p < 10^{-22}$, Wilcoxon rank sum test).
-[[TODO: PAIRWISE RATHER THAN CONNECTED FOR CONSISTENCY??]]
 % Hub neurons are thus distinctively similar in their expression patterns, even amongst early-born neurons.
 % We conclude that the increased coexpression between hub neurons is not driven by the similarity in their birth times.
 
