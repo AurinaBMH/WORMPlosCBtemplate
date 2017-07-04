@@ -801,14 +801,30 @@ The distribution of hubs and hub-hub connections in two-dimensional space is dep
 \subsection*{Coexpression and connectivity}
 
 % ---connectivity/coexpression---
-Having characterized the topological and geometric properties of rich-club connectivity in \emph{C. elegans}, we next investigate how axonal connectivity properties relate to gene expression patterns.
-Being a pairwise analysis, we compare pairwise synaptic connectivity to pairwise similarity in gene expression, measured by the mean square contingency coefficient, $r_\phi$ (see \emph{Methods}).
+% Having characterized the topological and geometric properties of rich-club connectivity in \emph{C. elegans},
+We next investigate how the network connectivity properties of \emph{C. elegans} relate to patterns of gene expression.
+Being a pairwise analysis, we compare pairwise synaptic connectivity to pairwise similarity in gene expression, measured by the mean square contingency coefficient, $r_\phi$ (excluding highly transcriptionally similar bilateral pairs of neurons, see \emph{Methods}).
+% Note that connections between bilateral pairs of neurons display high transcriptional similarity and are excluded from this analysis, leaving 474 electrically (514-40), 1\,940 connected pairs (1\,961 - 21) and 36\,450 unconnected pairs (36\,494 - 44).
 % , to define gene coexpression, and excluding coexpression values between homologous left/right neuron pairs, see Methods).
 
-First we investigate whether gene coexpression relates to synaptic connectivity by comparing the distribution of $r_\phi$ computed for all connected pairs of neurons, and for all unconnected pairs of neurons, shown in Fig.~\ref{fig:coExp}A.
-We find that connected pairs of neurons have more similar expression profiles than unconnected pairs (Wilcoxon rank-sum test, $p < 10^{-78}$), mirroring results in the mesoscale mouse connectome \cite{Fulcher:2016ck}.
-Moreover, we also demonstrate increased coexpression between neuron pairs connected via gap junctions compared to neurons connected via chemical synapses (Wilcoxon rank-sum test, $p < 10^{-22}$).
-Afterwards, we separated connections into three distinct categories: electrical, chemical reciprocal ($X \leftrightarrow Y$) and chemical unidirectional ($X \rightarrow Y$), however, unlike in the mouse brain, we found no differences in gene coexpression, $r_\phi$, between chemical unidirectional and reciprocal connections (see Fig.~\ref{fig:S_RFPdistributions}).
+% , to define gene coexpression, and excluding coexpression values between homologous left/right neuron pairs, see Methods).
+
+To investigate whether gene coexpression varies as a function of connectivity, we compared the distribution of $r_\phi$ for (i) of all connected pairs of neurons, and (ii) all unconnected pairs of neurons.
+Connected pairs of neurons have more similar expression profiles than unconnected pairs (Wilcoxon rank-sum test, $P < 10^{-78}$), mirroring previous results in the mesoscale mouse connectome \cite{Fulcher:2016ck}.
+We also computed the distribution of $r_\phi$ for:
+(i) all pairs of neurons that are connected via a gap junction,
+(ii) all pairs of neurons that are connected via a synapse, and
+(iii) all pairs of neurons that are unconnected, shown in Fig.~\ref{fig:coExp}A.
+After excluding bilateral pairs of neurons, this analysis involves 474 pairs of neurons connected by a gap junction, 1\,940 pairs connected by a synapse, and 36\,450 pairs with no connection; note that 175 pairs of neurons are connected both synaptically and by a gap junction, and are thus included in both gap junction and synaptic categories.
+Pairs of neuron that are connected via gap junctions exhibit more similar gene expression profiles than those connected via synapses (Wilcoxon rank-sum test, $P < 10^{-22}$).
+% and  and chemically connected neuron pairs are not mutually exclusive with 175 pairs of neurons connected via both types of connections.
+% Note that because connections between bilateral pairs of neurons display high transcriptional similarity and are excluded from this analysis, leaving 474 electrically (514-40), 1\,940 connected pairs (1\,961 - 21) and 36\,450 unconnected pairs (36\,494 - 44).
+Synaptic connections labeled as either:
+`reciprocal' ($N_1 \leftrightarrow N_2$ for two neurons $N_1$ and $N_2$) or
+`unidirectional' ($N_1 \rightarrow N_2$) did not exhibit a significant difference in gene coexpression $r_\phi$ ([[TODO-AA: WHAT TEST, WHAT P-VALUE]]) (distributions shown in Fig.~\ref{fig:S_RFPdistributions}).
+This is in contrast to significant gene coexpression differences found in the mesoscale mouse connectome \cite{Fulcher:2016ck}.
+% into three distinct categories: electrical, chemical reciprocal ($X \leftrightarrow Y$) and chemical unidirectional ($X \rightarrow Y$), however, unlike in the mouse brain, we found no differences in gene coexpression, $r_\phi$, between chemical unidirectional and reciprocal connections (see Fig.~\ref{fig:S_RFPdistributions}).
+
 
 % ------------------------------------------------------------------------------
 % <<coexpConnUncon.m>>
@@ -817,45 +833,48 @@ Afterwards, we separated connections into three distinct categories: electrical,
  \begin{figure}[h]
  \centering
     \includegraphics[width=1\textwidth]{MeanCoexpressionALL.pdf}
- \caption{{\bf Gene coexpression varies as a function of connectedness and connection type, with the highest coexpression for connections involving hubs.}
-\textbf{A} Distribution of transcriptional similarity between electrically connected, chemically connected and unconnected pairs of neurons as a violin plot, with the mean of each distribution represented by a horizontal line.
-Note that connections between bilateral pairs of neurons display high transcriptional similarity and are excluded from this analysis, leaving 474 electrically (514-40), 1\,940 connected pairs (1\,961 - 21) and 36\,450 unconnected pairs (36\,494 - 44).
-The categories of electrically and chemically connected neuron pairs are not mutually exclusive with 175 pairs of neurons connected via both types of connections. 
-Coexpression, $r_\phi$, is increased in connected compared to unconnected pairs of neurons ($p < 10^{-78}$, Wilcoxon rank sum test).
-Coexpression, $r_\phi$, is increased in neuron pairs connected via electrical synapses compared to pairs connected via chemical synapses ($p < 10^{-22}$, Wilcoxon rank sum test).
+\caption{{\bf Gene coexpression varies as a function of connectedness and connection type, with the highest coexpression for neurons connected via gap junctions, and for connections involving hubs.}
+\textbf{A} Distribution of transcriptional similarity between (i) pairs of neurons connected by gap junctions, (ii) pairs of neurons connected by synapses, and (iii) pairs of neurons that are unconnected, shown as a violin plot, with the mean of each distribution represented by a horizontal line.
+% Coexpression, $r_\phi$, is increased in connected compared to unconnected pairs of neurons ($P < 10^{-78}$, Wilcoxon rank sum test).
+% Coexpression, $r_\phi$, is increased in neuron pairs connected via electrical synapses compared to pairs connected via chemical synapses ($P < 10^{-22}$, Wilcoxon rank sum test).
 \textbf{B}
 \emph{Top}: Degree distribution, $k$, of the \emph{C. elegans} connectome.
-\emph{Middle}: proportion of connections that are `rich' (hub$\rightarrow$hub, red), `feed-in' (nonhub$\rightarrow$hub, yellow), `feed-out' (hub$\rightarrow$nonhub, orange), and `peripheral' (nonhub$\rightarrow$nonhub, blue) as a function of the degree threshold, $k$, used to define hubs.
-Note that at high $k$, most neurons are labeled as nonhubs, and hence the vast majority of connections are `peripheral'.
-\emph{Bottom}: Mean gene coexpression, $r_\phi$, for each connection type as a function of $k$.
-The mean coexpression across all network links is shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. Fig.~\ref{fig:topology_rich}) is shaded gray.
-Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (one-sided Welch's $t$-test; $p < 0.05$).
-[[TODO: fonts are small, and inconsistent sizes between subplots.
-I think we should crop the curves when there are fewer than X connections remaining -- in this case it's a bit ridiculous to show that constant feed-out/feed-in/peripheral coexpression when there are only two neurons
-left as hubs]]
+\emph{Middle}: proportion of connections that are:
+`rich' (hub$\rightarrow$hub, red),
+`feed-in' (nonhub$\rightarrow$hub, yellow),
+`feed-out' (hub$\rightarrow$nonhub, orange), or
+`peripheral' (nonhub$\rightarrow$nonhub, blue) as a function of the degree threshold, $k$, used to define hubs.
+Note that at high $k$ most neurons are labeled as nonhubs and hence the vast majority of connections are labeled `peripheral'.
+ \emph{Bottom}: Mean gene coexpression, $r_\phi$, for each connection type as a function of $k$.
+ The mean coexpression across all network links is shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. Fig.~\ref{fig:topology_rich}) is shaded gray.
+Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (one-sided Welch's $t$-test; $P < 0.05$).
+[[TODO: fonts are small, and inconsistent sizes between subplots.]]
+[[TODO: add labels A, B]]
 [[TODO: Font size inconsistent in B]]
 }
+
  \label{fig:coExp}
 \end{figure}
 % ------------------------------------------------------------------------------
 
 % ---HUB coexpression---
-We next investigated whether coexpression varied between different types of connections, focusing particularly on the role of densely interconnected hub neurons.
+We next investigated whether coexpression varies across different types of connections defined in terms of their hub connectivity.
+% , focusing particularly on the role of densely interconnected hub neurons.
+
 % characterized above, hypothesizing an increase in connections involving hubs, with hub-hub connections displaying the most similar gene expression patterns \cite{Fulcher:2016ck}.
 % Given the importance of hub neurons across species [[Ref]], and previous results in the mesoscale mouse connectome \cite{Fulcher:2016ck},
 For a given hub threshold, $k$, we first labeled each neuron as either a `hub' (nodes with degree $> k$) or a `nonhub' (degree $\leq k$), and then labeled each connection as either `rich' (hub $\rightarrow$ hub), `feed-in' (nonhub $\rightarrow$ hub), `feed-out' (hub $\rightarrow$ nonhub), or `peripheral' (nonhub $\rightarrow$ nonhub).
 % [[TODO: Establish whether we're computing pairs of hubs (e.g., for `rich'), or for every connection between any pair of hubs -- i.e., do reciprocal connections contribute twice to the distribution at each $k$? AA: as in original mouse analysis -- all connections, but we take mean, so the mean doesn't change in either way]]
-The mean coexpression for each of these four connection types is plotted in Fig.~\ref{fig:coExp}B, with circles indicating statistically significant increases of a given connection type (relative to all other connections, $p < 0.05$, Welch's $t$-test).
-Gene coexpression in rich connections increases with degree, through the topological rich-club regime where hubs are densely interconnected (shaded gray in Fig.~\ref{fig:coExp}B).
-Feed-out connections exhibit some increased gene coexpression in the topological rich-club regime, while feed-in and peripheral connections show the lowest levels of coexpression.
-Full distributions of coexpression at a hub threshold of $k > 44$ are plotted in Fig.~\ref{fig:S_RFPdistributions}.
+The mean coexpression, $\langle r_\phi \rangle$ for each of these four connection types is plotted in Fig.~\ref{fig:coExp}B, with circles indicating statistically significant increases of a given connection type (relative to all other connections, $P < 0.05$, Welch's $t$-test [[TODO-AA: should this be ranksum rather?]]).
+Gene coexpression in rich connections increases with degree, particularly in the topological rich-club regime where hubs are densely interconnected (shaded gray in Fig.~\ref{fig:coExp}B).
+Feed-out connections exhibit increased gene coexpression in the topological rich-club regime, while feed-in and [[peripheral connections show the lowest levels of coexpression]][[TODO-AA: Seems like feed-in actually the lowest now??]].
+Full $r_\phi$ distributions for each edge type for a hub threshold of $k > 44$ are plotted in Fig.~\ref{fig:S_RFPdistributions}.
+These results, using partial binary annotations of gene expression across just 948 genes in a microscale neuronal connectome, are broadly consistent with a prior analysis of the expression of over 17\,000 genes across 213 regions of the mesoscale mouse connectome, including:
 
-These results, using partial binary annotations of gene expression across just 948 genes in a microscale neuronal connectome, are consistent with a prior analysis of the expression of over 17\,000 genes across 213 regions of the mesoscale mouse connectome.
-Specifically, both connectomes display:
 (i) increased coexpression in connected pairs of nodes;
-(ii) the highest coexpression in rich connections;
-(iii) intermediate coexpression in feeder connections; and
-(iv) lowest coexpression in peripheral connections.
+(ii) the highest coexpression in rich connections; and
+% (iii) intermediate coexpression in feeder connections; and
+(iii) lowest coexpression in peripheral connections.
 
 \subsection*{Potential drivers of elevated coexpression in pairs of hubs}
 The 16 hub neurons in \emph{C. elegans} ($k > 44$) are all interneurons in the head of tail that are born before hatching, are mostly cholinergic (13/16), and are mostly contained within a single network module.
@@ -1090,7 +1109,7 @@ Thus, although a direct test of mouse and human results is no possible, we aimed
 %Due to gene expression data specificity in all the following analyses we present top 15 GO categories enriched in a particular link type compared to other links.
 The top enriched GO categories for this analysis are listed in Table~\ref{enrichmentRICH}.
 As before, no GO categories remained significant after $FDR<0.1$ correction, however, the same two glutamate receptor signaling categories found above for the connectivity were, again, at the top of the list. 
-In addition, a more general receptor signaling class (`cell surface receptor signaling pathway' ($p_\mathrm{uncorr} = 0.004$)) was also among the most important ones enriched in connections involving hubs compared to other connections.
+In addition, a more general receptor signaling class (`cell surface receptor signaling pathway' ($p_\mathrm{uncorr} = 0.004$)) also emerged as enriched in connections involving hubs compared to other connections.
 Other top categories are related to regulation of locomotion ($p_\mathrm{uncorr} = 0.015$) and various metabolism and biosynthesis related processes including `positive regulation of biosynthetic process' ($p_\mathrm{uncorr} = 0.006$), two groups responsible for positive regulation of nitrogen and nucleobase-containing compound metabolic process ($p_\mathrm{uncorr} = 0.006$), `positive regulation of cellular metabolic process' ($p_\mathrm{uncorr} = 0.01$) and 'positive regulation of macromolecule biosynthetic process ($p_\mathrm{uncorr} = 0.02$) among others.  
 
 %These findings are in line with our expectations as hub neurons receive input from sensory neurons, the majority of which are glutamatergic.
