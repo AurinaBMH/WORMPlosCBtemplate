@@ -1112,7 +1112,7 @@ Relative to previous results in mouse, for example \cite{Fulcher:2016ck, Ji:2014
 First, we determined which functional groups of genes drive increased coexpression in connected pairs of neurons relative to unconnected pairs.
 No GO categories were significant at a false discovery rate of 10\%.
 The top GO categories are related to glutamate receptor signaling: `ionotropic glutamate receptor signaling pathway' and `glutamate receptor signaling pathway' as well as cell surface receptor signaling, `ion transport', and `ion transmembrane transport'.
-Other categories are involved in the regulation of growth rate and several catabolic processes (see Table~\ref{enrichmentCON}).
+Other categories are involved in the regulation of growth rate and several catabolic processes (see Table~\ref{tab:enrichmentCON}).
 While these incomplete binary expression data do not allow us to deduce functional categories with statistical significance, our findings point to a possible role of relevant neuronal processes having genes that are more likely to be coexpressed in connected pairs of neurons relative to unconnected pairs.
  % demonstrate a method for computing GO categories from binary expression data that suggest that connected pairs of neurons may coexpress genes associated with neuronal connectivity relative to unconnected neuron pairs.
 
@@ -1123,7 +1123,7 @@ While previous work implicated genes regulating oxidative metabolism for connect
 % GO categories were filtered using <<searchGOcategories.m>> function.
 Thus, although a direct test of mouse and human results is no possible, we aimed to identify if any metabolism-related categories might be enriched in hub connections in \emph{C. elegans}, providing some support for the idea that hubs are energetically costly elements of the connectome.
 %Due to gene expression data specificity in all the following analyses we present top 15 GO categories enriched in a particular link type compared to other links.
-No GO categories were statistically significant (FDR $< 0.05$); all categories are listed in Table~\ref{enrichmentRICH}.
+No GO categories were statistically significant (FDR $< 0.05$); all categories are listed in Table~\ref{tab:enrichmentRICH}.
 The same two glutamate receptor signaling categories implicated for connectivity above: `ionotropic glutamate receptor signaling pathway' and `glutamate receptor signaling pathway', were again at the top of the list of categories related to hub connectivity.
 Other top categories include a more general receptor signaling class---`cell surface receptor signaling pathway', `regulation of locomotion', and various metabolism and biosynthesis related processes including `positive regulation of biosynthetic process', two groups responsible for positive regulation of nitrogen and nucleobase-containing compound metabolic process, `positive regulation of cellular metabolic process', and 'positive regulation of macromolecule biosynthetic process.
 % ---also emerged as enriched in connections involving hubs compared to other connections.
@@ -1447,7 +1447,7 @@ RIGL   & 49         & Head interneuron                                          
 \centering
 \caption{Biological processes GO categories showing increased gene coexpression for connected neurons compared to unconnected neurons.
 Entries have been sorted (descending) by uncorrected $P$-value (uncorrected).}
-\label{enrichmentCON}
+\label{tab:enrichmentCON}
 \begin{tabular}{llccc}
 \hline
 \textbf{GOcategory} & \textbf{Description}                                                                       & \begin{tabular}[c]{@{}c@{}}No. of \\ genes\end{tabular} & \begin{tabular}[c]{@{}c@{}}p \\ (uncorr)\end{tabular} & \begin{tabular}[c]{@{}c@{}}p \\ (corr)\end{tabular} \\ \hline
@@ -1472,16 +1472,16 @@ GO:0050830          & \begin{tabular}[c]{@{}l@{}}defense response to Gram-positi
 
 \paragraph*{S3 Table.}
 {\bf Enrichment results for links involving hubs.}
-
 \begin{table}[]
 \centering
-\caption{Biological processes GO categories showing increased gene coexpression for links involving hubs (rich, feed-in and feed-out) compared to peripheral links.
-Entries have been sorted (descending) by uncorrected $P$-value (uncorrected).}
-\label{enrichmentRF}
-
+\caption{
+Biological processes GO categories showing increased gene coexpression for links involving hubs (rich, feed-in and feed-out) compared to peripheral links.
+Categories have been sorted by $p$-value (uncorrected).
+}
+\label{tab:enrichmentRICH}
 \begin{tabular}{llccc}
 \hline
-\textbf{GOcategory} & \textbf{Description                                                                                                       } & \begin{tabular}[c]{@{}c@{}}No. of \\ genes\end{tabular} & \begin{tabular}[c]{@{}c@{}}p\\  (uncorr)\end{tabular} & \begin{tabular}[c]{@{}c@{}}p \\ (corr)\end{tabular} \\\hline
+GO ID & Description & \# genes & $p_\mathrm{uncorr}$ & $p_\mathrm{corr}$\\\hline
 GO:0007215 & glutamate receptor signaling pathway                                                                               & 6                                                       & 0.0009                                                & 0.3275                                              \\
 GO:0035235 & \begin{tabular}[c]{@{}l@{}}ionotropic glutamate receptor \\ signaling pathway\end{tabular}                         & 6                                                       & 0.0009                                                & 0.1637                                              \\
 GO:0007166 & cell surface receptor signaling pathway                                                                            & 20                                                      & 0.0035                                                & 0.4282                                              \\
