@@ -1025,7 +1025,7 @@ Neuron indicators are shown to the left:
 \textbf{D} Distributions of gene coexpression, $r_\phi$, between early born hubs (rich links, red) and non-hubs (non-rich links, green) shown as violin plots with the mean shown as a horizontal bar. ($p < 10^{-22}$, Wilcoxon rank sum test).
 \textbf{E} Distributions of lineage distance between rich links (red) and non-rich links (green), plotted as histograms due to a discrete nature of this measure. ($P = 0.079$, Wilcoxon rank sum test).
 [[TODO: could add neurotransmitter type as a bar code in modules]]
-[[TODO: change colors for distributions, fill distributions, e.g., intramodular and intermodular shouldn't use red (rich) use green for non-rich]]
+[[TODO: change colors for distributions, fill distributions, e.g., intra-modular and inter-modular shouldn't use red (rich) use green for non-rich]]
 %Composition of each module according to neuron type.
 %Modular organisation of the connectome.
 %Coexpression distributions within and between modules.
@@ -1068,7 +1068,7 @@ Given the ectoderm afterwards differentiates to form the nervous system, this fi
 %Therefore, lineage distance could potentially be an informative source of information about the genetic makeup of the \textit{C. elegans} nervous system \cite{Schroter:2017eo}.
 Since hub neurons are formed early in development, it is possible that they originate from common ancestry cells and therefore might share some intrinsic similarities in gene expression that influence the observed increase in coexpression between hub neurons.
 %It may be the case, for example, that hub neurons are derived from similar cell lines, which may drive their increased coexpression.
-However, as shown in Fig.~\ref{fig:OtherInfluences}E, there is no significant difference in lineage distance between hub (rich connections) and non-hub neurons (non-rich connections) ($P = 0.0786$, Wilcoxon rank sum test) [[Could do as pairs rather than connected...? - THERE IS A sign DIFFERENCE if we take all pairs instead of connections - hubs are more close in lineage it means that there are no connections between hubs that are closest in lineage, while literature suggests, that some neurons in mouse form connections preferentially with 'sister' neurons as in Yu, 2012.]].
+However, as shown in Fig.~\ref{fig:OtherInfluences}E, there is no significant difference in lineage distance between hub (rich connections) and non-hub neurons (non-rich connections) ($P = 0.0786$, Wilcoxon rank sum test) [[Could do as pairs rather than connected...? - THERE IS A sign DIFFERENCE if we take all pairs instead of connections - hubs are more close in lineage it means that there are no connections between hubs that are closest in lineage, while literature suggests, that some neurons in mouse form connections preferentially with `sister' neurons as in Yu, 2012.]].
 Thus, we can not attribute the transcriptional similarity of connected hub neurons to their close relationship in terms of neuronal lineage.
 
 %[[not sure this is relevant/fits the story. Could remove:]]\\
@@ -1111,29 +1111,35 @@ Relative to previous results in mouse, for example \cite{Fulcher:2016ck, Ji:2014
 
 First, we determined which functional groups of genes drive increased coexpression in connected pairs of neurons relative to unconnected pairs.
 No GO categories were significant at a false discovery rate of 10\%.
-The top GO categories are related to glutamate receptor signaling: `ionotropic glutamate receptor signaling pathway' ($p_\mathrm{uncorr} = 0.0005$) and `glutamate receptor signaling pathway' ($p_\mathrm{uncorr} = 0.004$) as well as cell surface receptor signaling ($p_\mathrm{uncorr} = 0.005$), `ion transport' ($p_\mathrm{uncorr} = 0.006$) and `ion transmembrane transport' ($p_\mathrm{uncorr} = 0.008$).
-Other categories are involved in the regulation of growth rate and several catabolic processes (see Table~\ref{enrichmentCON} for all terms with uncorrected $p$-values).
-[[TODO-AA: Can you add corrected $p$-values to the table??]]
-Although the data are not sufficiently comprehensive to deduce functional categories with statistical significance, our findings demonstrate a method for computing GO categories from binary data that suggest that connected pairs of neurons may coexpress genes associated with neuronal connectivity relative to unconnected neuron pairs.
+The top GO categories are related to glutamate receptor signaling: `ionotropic glutamate receptor signaling pathway' and `glutamate receptor signaling pathway' as well as cell surface receptor signaling, `ion transport', and `ion transmembrane transport'.
+Other categories are involved in the regulation of growth rate and several catabolic processes (see Table~\ref{enrichmentCON}).
+While these incomplete binary expression data do not allow us to deduce functional categories with statistical significance, our findings point to a possible role of relevant neuronal processes having genes that are more likely to be coexpressed in connected pairs of neurons relative to unconnected pairs.
+ % demonstrate a method for computing GO categories from binary expression data that suggest that connected pairs of neurons may coexpress genes associated with neuronal connectivity relative to unconnected neuron pairs.
 
 We next investigate whether particular functional groups of genes drive differences in coexpression between connections involving hub neurons (i.e., in rich, feed-in, and feed-out connections) relative to peripheral connections between pairs of nonhub neurons.
 [[A little weaker to group here where feed-in connections have lower coexpression than peripheral connections]]
-While previous work implicated genes regulating oxidative metabolism for connections involving hubs in mouse \cite{Fulcher:2016ck} (and for hub regions in human \cite{Vertes2016a}), the \emph{C. elegans} gene expression dataset was insufficient to analyze these gene categories here (only one of the 948 genes annotated to the GO categories related to hub connectivity in mouse is present in our gene expression dataset: \emph{unc-32} is annotated to `ATP hydrolysis coupled proton transport').
+While previous work implicated genes regulating oxidative metabolism for connections involving hubs in mouse \cite{Fulcher:2016ck} (and for hub regions in human \cite{Vertes2016a}), the \emph{C. elegans} gene expression dataset was insufficient to analyze these same gene categories here (e.g., only one of the 948 genes annotated to the GO categories related to hub connectivity in mouse is present in our gene expression dataset: \emph{unc-32} is annotated to `ATP hydrolysis coupled proton transport').
 % GO:0015991:
 % GO categories were filtered using <<searchGOcategories.m>> function.
 Thus, although a direct test of mouse and human results is no possible, we aimed to identify if any metabolism-related categories might be enriched in hub connections in \emph{C. elegans}, providing some support for the idea that hubs are energetically costly elements of the connectome.
 %Due to gene expression data specificity in all the following analyses we present top 15 GO categories enriched in a particular link type compared to other links.
-The top enriched GO categories for this analysis are listed in Table~\ref{enrichmentRICH}.
-As before, no GO categories remained significant after $FDR<0.1$ correction, however, the same two glutamate receptor signaling categories found above for the connectivity were, again, at the top of the list. 
-In addition, a more general receptor signaling class (`cell surface receptor signaling pathway' ($p_\mathrm{uncorr} = 0.004$)) also emerged as enriched in connections involving hubs compared to other connections.
-Other top categories are related to regulation of locomotion ($p_\mathrm{uncorr} = 0.015$) and various metabolism and biosynthesis related processes including `positive regulation of biosynthetic process' ($p_\mathrm{uncorr} = 0.006$), two groups responsible for positive regulation of nitrogen and nucleobase-containing compound metabolic process ($p_\mathrm{uncorr} = 0.006$), `positive regulation of cellular metabolic process' ($p_\mathrm{uncorr} = 0.01$) and 'positive regulation of macromolecule biosynthetic process ($p_\mathrm{uncorr} = 0.02$) among others.  
+No GO categories were statistically significant (FDR $< 0.05$); all categories are listed in Table~\ref{enrichmentRICH}.
+The same two glutamate receptor signaling categories implicated for connectivity above: `ionotropic glutamate receptor signaling pathway' and `glutamate receptor signaling pathway', were again at the top of the list of categories related to hub connectivity.
+Other top categories include a more general receptor signaling class---`cell surface receptor signaling pathway', `regulation of locomotion', and various metabolism and biosynthesis related processes including `positive regulation of biosynthetic process', two groups responsible for positive regulation of nitrogen and nucleobase-containing compound metabolic process, `positive regulation of cellular metabolic process', and 'positive regulation of macromolecule biosynthetic process.
+% ---also emerged as enriched in connections involving hubs compared to other connections.
 
 %These findings are in line with our expectations as hub neurons receive input from sensory neurons, the majority of which are glutamatergic.
 %As a result, hubs are required to have glutamate receptors the enrichment in these categories is the most pronounced (even after the correction, false discovery rate $< 0.05$).
 
-The significant enrichment of glutamate receptor signaling for both connectivity and hub connectivity analyses was somewhat surprising, as only 26\% of neurons with known neurotransmitter type are glutamatergic (whereas 55\% are cholinergic), and only 2 of the 16 hubs ($k > 44$) are glutamatergic; 13 are cholinergic (Fig.~\ref{fig:S_feedInOutNodes}C) and one remaining - of the unknown neurotransmitter type.
-This may be due to the fact that only a single acetylcholine-related GO category (GO:0007271: `synaptic transmission, cholinergic') was represented in the current gene expression data containing 14 genes [[DO WE SHOW NUMBER IN DATA OR IN GENE SETS USED FOR CON and RF analysis]] while others (n=9) had only up to 3 genes, therefore were not included in the enrichment analysis as categories with 5-100 genes were required. 
-Also, no glutamate release categories were represented with at least 5 genes, thus were not included in the analysis.\\
+The implication of glutamate receptor signaling for synaptic connectivity, and hub connectivity in particular, is somewhat surprising, as only 26\% of neurons with known neurotransmitter type are glutamatergic (whereas 55\% are cholinergic) and just 2 of the 16 hubs are glutamatergic; 13 are cholinergic, and one is of unknown type.
+Furthermore, just 32\% of neurons that project to hubs are glutamatergic.
+% FeedInOutNodes;
+Our inability to get a comprehensive understanding of neurotransmitter signalling for the gene expression data used here is related to the incompleteness of the data.
+For example, only one acetylcholine-related GO category---`synaptic transmission, cholinergic' (GO:0007271)---contained enough genes (14 genes) to be represented in our enrichment analysis.
+% [[DO WE SHOW NUMBER IN DATA OR IN GENE SETS USED FOR CON and RF analysis]] while others (n=9) had only up to 3 genes, therefore were not included in the enrichment analysis as categories with 5-100 genes were required.
+Glutamate release categories were also not represented here (each were annotated with fewer than 5 genes in our dataset and hence excluded).
+More comprehensive expression data could use the methods developed here to obtain greater understanding of the relationship between network topology, neurotransmitter signalling, and other gene-regulated functions.
+% , thus were not included in the analysis.
 %% [GenesinGO, GOs] = searchGOcategories(C,G,'glutamat');
 %% [GenesinGO, GOs] = searchGOcategories(C,G,'cholin'); 
 
@@ -1141,19 +1147,17 @@ Also, no glutamate release categories were represented with at least 5 genes, th
 % we found enrichment in glutamate receptor signaling when comparing connections between hubs to those not involving hubs.
 % with ACh being the most broadly used neurotransmitter in general \cite{Pereira:2015er}
 % It is worth noting that although both analyses above highlighted enrichment of glutamate, even though acetylcholine (ACh) is the most broadly used neurotransmitter in \textit{C. elegans} \cite{Pereira:2015er}, and most hubs ($k > 41$) are cholinergic (Fig.~\ref{fig:S_feedInOutNodes}C).
-[[WILL EXCLUDE THAT AS NOW MOST FEEDERS ARE BOTH IN AND OUT, numbers updated but picture not]] \\
-Looking closer at the neurotransmitter type of each neuron, we found that nonhub neurons that project to hubs (but do not receive projections back) are mostly sensory or interneurons (74\%), with the most common neurotransmitter being glutamate (32\%), whereas neurons that receive inputs from hubs (but do not project to hubs) are mostly motor neurons (75\%) and are cholinergic (67\%), as shown in Fig.~\ref{fig:S_feedInOutNodes}A,C.\\
+% [[WILL EXCLUDE THAT AS NOW MOST FEEDERS ARE BOTH IN AND OUT, numbers updated but picture not]] \\
+% Looking closer at the neurotransmitter type of each neuron, we found that nonhub neurons that project to hubs (but do not receive projections back) are mostly sensory or interneurons (74\%), with the most common neurotransmitter being glutamate (32\%), whereas neurons that receive inputs from hubs (but do not project to hubs) are mostly motor neurons (75\%) and are cholinergic (67\%), as shown in Fig.~\ref{fig:S_feedInOutNodes}A,C.\\
 
 % but our findings imply that Glu drives \emph{coupled} expression, so Glu genes are being expressed in both neurons, not just one, implying that that the presynpatic neuron expresses genes associated with Glu synthesis and the post-synaptic neuron (hub) expresses Glu receptor genes.
 
 %Are presynaptic genes represented in the Glu pathway GO category?
 
-[[Thus, although hubs are themselves mostly cholinergic, they receive inputs from glutamatergic neurons, which may explain the enrichment of the two GO biological process categories related to glutamate receptors.
-PROBABLY INCLUDE SOME POSSIBLE EXPLANATION without hard numbers as now almost all feeder links are feed-both IN DISCUSSION, not HERE]]. 
+% [[Thus, although hubs are themselves mostly cholinergic, they receive inputs from glutamatergic neurons, which may explain the enrichment of the two GO biological process categories related to glutamate receptors.
+% PROBABLY INCLUDE SOME POSSIBLE EXPLANATION without hard numbers as now almost all feeder links are feed-both IN DISCUSSION, not HERE]].
 
-While we were not able to directly test the hypothesis proposed in the previous work in mouse connectome \cite{Fulcher2016}, several metabolism and biosynthesis related categories enriched in connections involving hubs allow us to draw some parallels and reaffirm that hub connectivity on a neuronal scale might also be [[IS?]] experience increased energy demands.
-It is worth noting that given sparse gene annotations in the current binary gene expression data we were required to perform additional quality control steps to ensure that all top genes supplied for the ORA analysis have a sufficiently high number of both possible and actual matches and therefore our enrichment results are not driven by the noise in the data. [[include the whole list of genes for both a analysis as excel data with numbers of possible and actual matches as well as corrected and uncorrected p values)]]
-Taking into consideration limitations of the current dataset for such an analysis, we still find enrichment in meaningful GO categories for both connected neurons as well as connections involving hubs that, while are not statistically significant, allow us to provide some interpretation about the underlying mechanisms of hub connectivity in the neuronal connectome of the \textit{C. elegans} and are in line with findings in both meso and macro level connectomes. 
+% Although we were unable to test the hypothesis proposed in the previous work in mouse connectome \cite{Fulcher2016}, several metabolism and biosynthesis related categories enriched in connections involving hubs allow us to draw some parallels and reaffirm that hub connectivity on a neuronal scale might also be [[IS?]] experience increased energy demands.
 % : `ionotropic glutamate receptor signaling pathway' and `glutamate receptor signaling pathway'.
 
 %[[MAY NOT BE NECESSARY:]] NO CLEAR STORY WITH NEW ENRICHMENT RESULTS, probably should exclude it. 
@@ -1240,6 +1244,9 @@ Teasing apart specific effects of topology is much harder in a highly specialize
 
 differ significantly (being a neuronal connectome), and with so few neurons, each highly specialized, it may be hard to pick up broad expression patterns that are network topology-specific.
 Quite different to the case in mouse, where regions were spread across the brain, and so effects of regional specialization of function, cytoarchitecture, gene expression were averaged, and the remaining hub-related signal could be isolated.
+
+It is worth noting that given sparse gene annotations in the current binary gene expression data we were required to perform additional quality control steps to ensure that all top genes supplied for the ORA analysis have a sufficiently high number of both possible and actual matches and therefore our enrichment results are not driven by the noise in the data. [[include the whole list of genes for both a analysis as excel data with numbers of possible and actual matches as well as corrected and uncorrected p values)]]
+Taking into consideration limitations of the current dataset for such an analysis, we still find enrichment in meaningful GO categories for both connected neurons as well as connections involving hubs that, while are not statistically significant, allow us to provide some interpretation about the underlying mechanisms of hub connectivity in the neuronal connectome of the \textit{C. elegans} and are in line with findings in both meso and macro level connectomes. 
 
 
 Being a EM connectome, avoids statistical estimation of connectomes from tract-tracing experiments \cite{Ypma:2016em}, inference of axonal connectivity from diffusion MRI, or the need to form a discrete parcellation of a continuous brain.
@@ -1577,7 +1584,7 @@ The increased separation distance between hubs is driven by a relative increase 
 \textbf{Gene coexpression decreases with separation distance within the head and tail.}
 Gene coexpression, $r_\phi$ (in all cases excluding left-right homologous pairs of neurons), is shown as a function of the pairwise separation distance between pairs of neurons (shown as the mean (solid) $\pm$ standard deviation (dotted) in seven equiprobable distance bins, with extent shown as horizontal bars), for \textbf{A} all pairs of neurons in the head, \textbf{B} all pairs of neurons in the tail, and \textbf{C} all other pairs (labeled).
 Scatters for all neuron pairs are added in \textbf{A} and \textbf{B}.
-An exponential relationship, $f(x) = a\exp(-bx)+c$, is fitted in \textbf{A} and \textbf{B}, revealing a slight decreasing trend in $r_\phi$ with distance, as per macroscopic mammalian brains \cite{Fulcher:2016ck, Krienen:2016eq}.
+An exponential relationship, $f(x) = a\exp(-bx) + c$, is fitted in \textbf{A} and \textbf{B}, revealing a slight decreasing trend in $r_\phi$ with distance, as per macroscopic mammalian brains \cite{Fulcher:2016ck, Krienen:2016eq}.
 Looking within the head, we find different spatial relationships as a function of neuron type, shown for \textbf{C} pairs of interneurons, \textbf{D} pairs of motor neurons, \textbf{E} motor-interneuron pairs, \textbf{F} pairs of sensory neurons, \textbf{G} interneuron-sensory neuron pairs, and \textbf{H} motor-sensory pairs.
 [[TODO: add labels for subplots C--H, label all axes? Change axis label to Gene coexpression, $r_\phi$ ]]
 }
@@ -1588,28 +1595,28 @@ Looking within the head, we find different spatial relationships as a function o
 % ------------------------------------------------------------------------------
 % <<FeedInOutNodes.m>>
 % ------------------------------------------------------------------------------
-% \paragraph*{S4 Fig.}
-% {\bf Neuron properties vary in therms of their connectivity relationship to hub nodes. }
-\begin{figure}[h]
-\centering
-    \includegraphics[width=1\textwidth]{FeedInOutNodesJustTwo.pdf}
-\caption{
-\textbf{Neuron properties vary in terms of their connectivity relationship to hub nodes.}
-Using a degree threshold for hubs, $k > 41$, we class all individual neurons into five mutually exclusive categories, shown schematically in the figures, for hubs (red) and nonhubs (light blue), as:
-(i) `hub' ($k>41$),
-and then classify nonhubs ($k\leq41$) as:
-(ii) `feedIn' (projects to a hub, but does not receive a projection from a hub),
-(iii) `feedOut' (receives a projection from a hub, but does project to a hub),
-(iv) `feedBoth' (receives a projection from, and projects to a hub),
-(v) `peripheral' (neither receives a projection from nor projects to a hub).
-We show the number of neurons in each of these fives classes that:
-\textbf{A} is an interneuron (orange), motor neuron (green), sensory neuron (blue), or multimodal (yellow),
-% \textbf{B} is in the head (gray), body (purple), or tail (red),
-\textbf{B} uses one of nine neurotransmitter systems (labeled).
-\label{fig:S_feedInOutNodes}
-[[TODO: Come up with new names for nodes that don't confuse with edge names. Labels not visible for B]]
-}
-\end{figure}
+% % \paragraph*{S4 Fig.}
+% % {\bf Neuron properties vary in therms of their connectivity relationship to hub nodes. }
+% \begin{figure}[h]
+% \centering
+%     \includegraphics[width=1\textwidth]{FeedInOutNodesJustTwo.pdf}
+% \caption{
+% \textbf{Neuron properties vary in terms of their connectivity relationship to hub nodes.}
+% Using a degree threshold for hubs, $k > 41$, we class all individual neurons into five mutually exclusive categories, shown schematically in the figures, for hubs (red) and nonhubs (light blue), as:
+% (i) `hub' ($k>41$),
+% and then classify nonhubs ($k\leq41$) as:
+% (ii) `feedIn' (projects to a hub, but does not receive a projection from a hub),
+% (iii) `feedOut' (receives a projection from a hub, but does project to a hub),
+% (iv) `feedBoth' (receives a projection from, and projects to a hub),
+% (v) `peripheral' (neither receives a projection from nor projects to a hub).
+% We show the number of neurons in each of these fives classes that:
+% \textbf{A} is an interneuron (orange), motor neuron (green), sensory neuron (blue), or multimodal (yellow),
+% % \textbf{B} is in the head (gray), body (purple), or tail (red),
+% \textbf{B} uses one of nine neurotransmitter systems (labeled).
+% \label{fig:S_feedInOutNodes}
+% [[TODO: Come up with new names for nodes that don't confuse with edge names. Labels not visible for B]]
+% }
+% \end{figure}
 % ------------------------------------------------------------------------------
 
 
@@ -1630,7 +1637,6 @@ Coexpression, $r_\phi$ is increased in connected (reciprocally and unidirectiona
 \emph{Right}: Distribution of transcriptional similarity for rich, feed-in, feed-out and peripheral links, where hubs are neurons with degree $k>41$.
 [[TODO: color inside of the distributions
 Add $p<0.05$ values on the plot where significant.
-Use mean instead of median (or use median throughout)
 ]]
 \label{fig:S_RFPdistributions}
 }
