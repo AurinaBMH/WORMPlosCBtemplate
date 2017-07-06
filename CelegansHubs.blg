@@ -1,6 +1,6 @@
 This is BibTeX, Version 0.99d (TeX Live 2015)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: ./CelegansHubs.aux
+The top-level auxiliary file: CelegansHubs.aux
 The style file: plos2015.bst
 Database file #1: library_ben.bib
 Repeated entry---line 201 of file library_ben.bib
@@ -44,45 +44,45 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Warning--can't use both volume and number fields in choe2004network
 Warning--empty pages in choe2004network
-You've used 103 entries,
+You've used 102 entries,
             3058 wiz_defined-function locations,
-            1341 strings with 40573 characters,
-and the built_in function-call counts, 311113 in all, are:
-= -- 37749
-> -- 1708
+            1333 strings with 40333 characters,
+and the built_in function-call counts, 309124 in all, are:
+= -- 37461
+> -- 1700
 < -- 4
-+ -- 1279
-- -- 427
-* -- 29259
-:= -- 34060
-add.period$ -- 433
-call.type$ -- 103
++ -- 1275
+- -- 425
+* -- 29099
+:= -- 33858
+add.period$ -- 428
+call.type$ -- 102
 change.case$ -- 2
 chr.to.int$ -- 0
-cite$ -- 105
-duplicate$ -- 16465
-empty$ -- 31271
-format.name$ -- 528
-if$ -- 71134
+cite$ -- 104
+duplicate$ -- 16226
+empty$ -- 31094
+format.name$ -- 525
+if$ -- 70658
 int.to.chr$ -- 0
-int.to.str$ -- 103
-missing$ -- 1027
-newline$ -- 544
-num.names$ -- 103
-pop$ -- 1646
+int.to.str$ -- 102
+missing$ -- 1019
+newline$ -- 538
+num.names$ -- 102
+pop$ -- 1635
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 1659
+skip$ -- 1646
 stack$ -- 0
-substring$ -- 76521
-swap$ -- 2593
+substring$ -- 76183
+swap$ -- 2571
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 1095
-width$ -- 106
-write$ -- 1182
+while$ -- 1086
+width$ -- 105
+write$ -- 1169
 (There were 6 error messages)
