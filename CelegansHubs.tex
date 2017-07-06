@@ -582,7 +582,7 @@ We present our analysis in four parts:
 % ------------------------------------------------------------------------------
 \begin{figure}[h]
   \centering
-    \includegraphics[width=1\textwidth]{schematic.pdf}
+    \includegraphics[width=1\textwidth]{SchematicIndicators.pdf}
  \caption{\textbf{Schematic representation of the data used in this study.}
 All plots show neurons (rows) ordered by their longitudinal position, from the top of the head (upper) to bottom of the tail (lower).
 Schematic representation of the \textit{C. elegans} nervous system is shown on the left (scale of the animal is not preserved).
@@ -614,11 +614,12 @@ In order to understand relationships between connectivity and gene expression, w
 % ------------------------------------------------------------------------------
 % \paragraph*{S5 Fig.}
 % {\bf Spatial distribution of rich links, and neuron types across the C. elegans nervous system. }
+% <<VisRichConns>>
 \begin{figure}[h]
 \centering
     \includegraphics[width=1\textwidth]{SpatialPlot.png}
 \caption{
-\textbf{Spatial distribution of neurons and hub-hub links in \emph{C. elegans}}.
+\textbf{Hub neurons are distributed between the head and tail}.
 Neurons are positioned along the Posterior (P)-Anterior (A) (horizontal), and Ventral (V)--Dorsal (D) (vertical) axes.
 % Definitions of posterior/anterior/ventral/dorsal from Varier.
 Neurons are colored by type:
@@ -626,8 +627,9 @@ Neurons are colored by type:
 (ii) sensory (68 neurons, blue),
 (iii) motor (108 neurons, green), or
 (iv) multiple assignments (18 neurons, yellow).
-Hub-hub links are shown, and zoom-in plots of head and tail are shown as dotted rectangles in the lower plot.
-In each plot, axes are to scale.
+Hub neurons are shown as larger circles and outlined in black.
+Rich-club connections (between hub neurons with $k > 44$; red) are shown (in addition to all other connections in the upper plots, shown gray).
+Axes of each subplot are to scale with each other, and the upper zoomed-in plots of the head and tail are shown as dotted rectangles in the lower plot.
 \label{fig:neuronsSpace}
 }
 \end{figure}
@@ -876,7 +878,7 @@ These results, using partial binary annotations of gene expression across just 9
 % (iii) intermediate coexpression in feeder connections; and
 (iii) lowest coexpression in peripheral connections.
 
-\subsection*{Potential drivers of elevated coexpression in pairs of hubs}
+\subsection*{Potential drivers of elevated coexpression between hubs}
 The 16 hub neurons in \emph{C. elegans} ($k > 44$) are all interneurons in the head of tail that are born before hatching, are mostly cholinergic (13/16), and are mostly contained within a single network module.
 % and concentrated in the head (10/13),
 % \cite{Varier2011}, \cite{Pereira:2015er}
