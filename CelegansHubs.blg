@@ -1,6 +1,6 @@
 This is BibTeX, Version 0.99d (TeX Live 2015)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: ./CelegansHubs.aux
+The top-level auxiliary file: CelegansHubs.aux
 The style file: plos2015.bst
 Database file #1: library_ben.bib
 Repeated entry---line 201 of file library_ben.bib
@@ -38,6 +38,7 @@ Warning--I didn't find a database entry for "Ciceri2013"
 Warning--I didn't find a database entry for "Li2012"
 Warning--I didn't find a database entry for "Yu2012"
 Warning--I didn't find a database entry for "Hobert2003"
+Warning--I didn't find a database entry for "Rakowski2013"
 Warning--I didn't find a database entry for "Hillier2005"
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
@@ -47,7 +48,7 @@ Warning--can't use both volume and number fields in choe2004network
 Warning--empty pages in choe2004network
 You've used 102 entries,
             3058 wiz_defined-function locations,
-            1335 strings with 40357 characters,
+            1337 strings with 40377 characters,
 and the built_in function-call counts, 309124 in all, are:
 = -- 37461
 > -- 1700
