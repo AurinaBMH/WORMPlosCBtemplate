@@ -1066,10 +1066,9 @@ Neuronal lineage has been associated with both functional \cite{Ciceri2013, Li20
 Moreover, tissue distance (resembling lineage distance on a cellular scale) was found to correlate with gene expression divergence meaning that tissues from the same branch on the fate map share more similar gene expression pattern in both human and mouse mesoderm as well as ectoderm tissues \cite{Cui2007}.
 Given the ectoderm afterwards differentiates to form the nervous system, this finding suggests a possible relationship between lineage distance and gene coexpression in a micro-scale neuronal system such as of \textit{C. elegans}.
 %Therefore, lineage distance could potentially be an informative source of information about the genetic makeup of the \textit{C. elegans} nervous system \cite{Schroter:2017eo}.
-While overall there is no clear relationship between lineage distance and gene coexpression in \textit{C. elegans} nervous system (r = -0.017
-p = 0.355), all hub neurons are formed early in development, hence it is possible that they originate from common ancestry cells and therefore might share some intrinsic similarities in gene expression that influence the observed increase in coexpression between hub neurons.
+While overall there is no significant relationship between lineage distance and gene coexpression in \textit{C. elegans} nervous system ($r = -0.017$ [[TODO-AA: Can you make this a Spearman $\rho$ and specify?]], $p = 0.36$), all hub neurons are formed early in development, hence it is possible that they originate from common ancestry cells and therefore might share some intrinsic similarities in gene expression that influence the observed increase in coexpression between hub neurons.
 %It may be the case, for example, that hub neurons are derived from similar cell lines, which may drive their increased coexpression.
-However, as shown in Fig.~\ref{fig:OtherInfluences}E, there is no significant difference in lineage distance between hub (rich connections) and non-hub neurons (non-rich connections) ($P = 0.0786$, Wilcoxon rank sum test).
+However, as shown in Fig.~\ref{fig:OtherInfluences}E, there is no significant difference in lineage distance between hub (rich connections) and non-hub neurons (non-rich connections) ($p = 0.079$, Wilcoxon rank sum test).
 %[[Could do as pairs rather than connected...? - THERE IS A sign DIFFERENCE if we take all pairs instead of connections - hubs are more close in lineage it means that there are no connections between hubs that are closest in lineage, while literature suggests, that some neurons in mouse form connections preferentially with `sister' neurons as in Yu, 2012.]].
 Thus, we can not attribute the transcriptional similarity of connected hub neurons to their close relationship in terms of neuronal lineage.
 
@@ -1086,26 +1085,27 @@ Thus, we can not attribute the transcriptional similarity of connected hub neuro
 \paragraph{Neurotransmitter system}
 % <<TypeConfoundHubs.m>>
 Hub neurons ($k > 44$) consist of 13 cholinergic neurons, 2 glutamatergic neurons, and 1 neuron of unknown type \cite{Pereira:2015er}.
-Neuron pairs show different coexpression relationships as a function of their neurotransmitter type, e.g., with pairs of GABAergic neurons showing a high mean coexpression of $r_\phi = 0.52 \pm 0.34$ and pairs of glutamatergic neurons exhibiting a relatively low mean coexpression of $r_\phi = 0.10 \pm 0.13$.
-% NeurotransmitterHubs.m
-To determine whether the similarity in gene expression patterns between pairs of hub neurons could be explained by their neurotransmitter types, we used a permutation test to compute the mean coexpression between all pairs of random groups of 16 neurons of the same neurotransmitter types (e.g., 13 random cholinergic neurons, 2 random glutamatergic neurons, and 1 random neuron of unknown neurotransmitter type) across $1\times 10^6$ permutations.
+Neuron pairs show different coexpression relationships as a function of their neurotransmitter type, e.g., with pairs of GABAergic neurons showing a high median coexpression of $r_\phi = 0.59$ and pairs of glutamatergic neurons exhibiting a relatively low median coexpression of $r_\phi = 0.08$.
+% TypeConfoundHubs.m
+To determine whether the similarity in gene expression patterns between pairs of hub neurons could be explained by their neurotransmitter types, we used a permutation test to compute the mean coexpression between all pairs of random groups of sixteen neurons of the same neurotransmitter types (e.g., thirteen random cholinergic neurons, two random glutamatergic neurons, and one random neuron of unknown neurotransmitter type) across $1\times 10^6$ permutations.
 The mean coexpression between hub neurons is significantly increased relative to random sets of neurons with the same neurotransmitter types as hubs ($p = 3.2\times 10^{-5}$, permutation test).
 
 \paragraph{Broad anatomy}
 % <<TypeConfoundHubs.m>>
 Of the 16 hub neurons ($k > 44$), 13 are in the head, 3 in the tail, and none in the body.
-Given that coexpression varies as a function of anatomical position with, for example, pairs of neurons in the same broad anatomical class exhibiting the highest mean coexpression (e.g., pairs of neurons within the body: $\langle r_\phi\rangle = 0.25$, within the tail: $\langle r_\phi\rangle = 0.13$, and within the head: $\langle r_\phi\rangle = 0.10$), with lower mean coexpression in mixed classes (e.g., connections from head$\rightarrow$body: $\langle r_\phi\rangle = 0.05$).
+Given that coexpression varies as a function of anatomical position with, for example, pairs of neurons in the same broad anatomical class exhibiting the highest mean coexpression (e.g., pairs of neurons within the body have a median $r_\phi = 0.14$, pairs of neurons within the tail have a median $r_\phi = 0.12$, and pairs of neurons within the head have a median $r_\phi = 0.07$), with lower mean coexpression in mixed classes (e.g., pairs of neurons between head and body have a median $r_\phi = 0.01$).
 Given this variation, we tested whether the increased gene expression in hub neurons could be explained by their anatomical distribution, using the same permutation testing procedure described above for neurotransmitter systems, i.e., by comparing to a null distribution formed from $1\times 10^6$ random permutations of 13 head neurons and 3 tail neurons.
 The mean coexpression between hub neurons is significantly increased relative to random sets of neurons with the same anatomical position as hubs ($p = 4.1\times 10^{-5}$, permutation test).
-Gene coexpression is significantly increased amongst hub neurons in the head compared to other pairs of head neurons (46 hub-hub pairs, 1186 others: $p = 4.12 \times 10^{-11}$, Wilcoxon rank sum test), also amongst head/tail pairs neurons (23 hub-hub pairs, 123 others: $p = 7.0 \times 10^{-14}$), but not for the three hub neurons in the tail compared to the 53 other tail-tail pairs ($p = 0.15$).
+Gene coexpression is significantly increased amongst hub neurons in the head compared to other pairs of head neurons (46 hub-hub pairs, 1\,186 others: $p = 4.1 \times 10^{-11}$, Wilcoxon rank sum test), also amongst head/tail pairs of neurons (23 hub-hub pairs, 174 others: $p = 1.6 \times 10^{-14}$), but not for the three hub neurons in the tail compared to the 53 other tail-tail pairs ($p = 0.15$).
 
-\textbf{Functional group} 
-Nervous system of the \textit{C. elegans} is subdivided into distinct functional groups of neurons performing specialized roles in its behaviour \cite{Hobert2003}.  
-Interestingly, ten out of 16 hub neurons with the highest degree correspond to the functional circuit that governs forward (AVBL, AVBR, PVCL, PVCR) and backward (AVAL, AVAR, AVDL, AVDR, AVEL, AVER) locomotion and together are labelled as command interneurons. 
-Given their similarity in function we ask if these neurons as a group are more similar in their gene expression than other hub interneurons.
-To test that we compare gene coexpression between all pairs of hubs that are command interneurons (n=10) and all pairs of hubs that do not belong to this functional group (n=6).
-Indeed, coexpression between command interneurons is significantly higher than between other hub neurons ($p<10^{-7}$, Wilcoxon rank sum test) Fig.~\ref{fig:OtherInfluences}E.
-Therefore, given the anatomical properties of the \textit{C. elegans} nervous system, where command interneurons also have the highest degree in the network, it is not possible to disentangle the influence of function and connectivity towards the increased coexpression in hubs.
+\paragraph{Command interneurons} 
+Neurons in \emph{C. elegans} can be subdivided into distinct groups that each perform a specialized behavioral function \cite{Hobert2003}.
+The `command interneurons' are a functional group of ten neurons that govern forward (AVBL, AVBR, PVCL, PVCR) and backward (AVAL, AVAR, AVDL, AVDR, AVEL, AVER) locomotion [[REF]]; and are all are hubs.
+% ten out of sixteen hub neurons correspond to the functional circuit that governs forward (AVBL, AVBR, PVCL, PVCR) and backward (AVAL, AVAR, AVDL, AVDR, AVEL, AVER) locomotion, which are together known as `command interneurons' [[REF]].
+Given the overlap between our set of hubs and the command interneurons, we investigated whether they are more similar in their gene expression than other hub interneurons, and may therefore drive the increase in coexpression amongst hubs as a whole.
+We compared gene coexpression, $r_\phi$, between all pairs of command interneurons (ten neurons), and between all pairs of hubs that are not command interneurons (six neurons), with distributions shown in Fig.~\ref{fig:OtherInfluences}E.
+Gene coexpression between command interneurons is significantly higher than between other hub neurons ($p < 10^{-7}$, Wilcoxon rank sum test), indicating that command interneurons play a role in driving the increased coexpression amongst hub neurons in \emph{C. elegans}.
+Relative to macroscopic brains, it is not possible to disentangle the role of specialized functional circuits from connectivity in \emph{C. elegans}, with highly connected hubs overlapping with the command interneurons, which have high gene coexpression.
 
 
 \subsection*{Functional enrichment}
@@ -1114,7 +1114,7 @@ Therefore, given the anatomical properties of the \textit{C. elegans} nervous sy
 
 % Having determined that pairs of neurons with different connectivity exhibit different levels of coexpression,
 Having characterized a robust relationship between hub connectivity and gene expression, we next investigate whether specific functional groups of genes contribute to the observed differences in gene coexpression.
-We developed a method to score genes according to their contribution to a given coexpression pattern, which were used to perform an enrichment analysis using gene ontology (GO) categories for biological processes \cite{Ashburner2000, Gillis2010} (see \emph{Methods}).
+We developed a method to score genes according to their contribution to a given coexpression pattern, which were used to perform an overrepresentation enrichment analysis using gene ontology (GO) categories for biological processes \cite{Ashburner2000, Gillis2010} (see \emph{Methods}).
 % (related to the probability of a gene being expressed together in a given set of neuron pairs compared to an alternative set).
 % Previous results using quantitative gene expression in mouse has indicated that genes driving an increase in coexpression between connected pairs of neurons are enriched in GO categories related to neuronal, synaptic, and axonal structure and function
 % \cite{Fulcher:2016ck, Ji:2014jw, Fakhry:2015kl, French:2011cz}.
