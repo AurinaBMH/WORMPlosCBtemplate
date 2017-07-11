@@ -537,11 +537,19 @@ To this end, we first scored each gene for whether it is more likely to be expre
      p^{(a)} = 1 - \sum_{i=0}^{m-1}\binom{n}{i} p_\mathrm{class}^{i}(1-p_\mathrm{class}^{n-i}),
 \end{eqnarray}
 where $m$ is the number of matches on the class of neuron pairs of interest, $n$ is the total number of matches across all neuron pairs considered in the analysis, $p_\mathrm{class} = n_\mathrm{class}/M$ is the probability of the given class of inter-region pairs as the total number of neuron pairs of that class, $n_\mathrm{class}$ divided by the maximum number of possible neuron pairs, $M$.
+This score can be interpreted as a $p$-value for the null hypothesis that the number of expression matches of a gene can be explained by random assignment to neuron pairs.
+For the same reasons as noted above, bilateral pairs of neurons were excluded from all scoring procedures and, to ensure that each gene contributes a meaningful score, we imposed a data quality threshold on the number of possible matches, $n \geq 10$.
 This provides a score for each gene, $a$, that is higher for genes that exhibit more matches in the edge class of interest than expected by chance.
-For the same reasons as noted above, bilateral pairs of neurons were excluded from all scoring procedures.
 % as they are also excluded from the gene expression analysis.
-To ensure that each gene contributes a meaningful score, we set a threshold on the minimum number of possible matches, $n \geq 10$ in both analyses.
-Additional details on gene scoring for specific analyses performed here are in the Supplementary Information.
+The $p$-value scores for each gene, computed using Eq.~\eqref{eq:CBinomialProbability}.
+Details on how this gene scoring method was applied to specific analyses performed here are described in the Supplementary Information.
+
+Given the reduced number of genes remaining for analysis following the quality control, we took the approach of performing an over-representation analysis (ORA) using the genes that contribute most to a given connectivity pattern.
+ORA assesses whether any gene sets (GO categories) were statistically over-represented in a list of selected genes that contribute towards increased coexpression for a given link type the most.
+% chose a more conservative approach of testing the top list of the most influential genes instead of taking into consideration gene scores through the whole list of genes in question.
+% , as well as the noisy gene expression data as well as the nature of the binary gene expression data which does not allow to produce a reliable continuous score for each gene, 
+To obtain the gene list, we used the false discovery rate correction of Benjamini and Hochberg \cite{Benjamini:1995cd} on $p$-values computed using Eq.~\eqref{eq:CBinomialProbability}, which were thresholded at a stringent level of $p = 10^{-4}$.
+Over-representation for each GO category was quantified as an FDR-corrected $p$-value (across [[XX]] GO categories) using version 3.0.2 of \emph{ErmineJ} software \cite{Gillis2010}.
 
 % , and captures the probability of genes being expressed together in connected pairs of neurons at least as frequently as observed
 % For each gene, we first determined the pattern of matching expression profiles (a match meaning that a gene is expressed by both neurons) between each pair of neurons resulting in a binary 279 x 279 matrix.
@@ -555,12 +563,7 @@ Additional details on gene scoring for specific analyses performed here are in t
 % Gene scores, $p^{(a)}$, were calculated as the probability of obtaining at least as many matches ($g^{(a)}_i = 1$ and $g^{(a)}_j = 1$) as observed by chance, using the binomial distribution:
  % ($p = n_\mathrm{class}/M$ for $n_\mathrm{class}$ pairs out of $M$ possible pairs), and $n$ is the maximum number of possible matches.
 
-For a given enrichment analysis, after computing a probability score for each gene using Eq.~\eqref{eq:CBinomialProbability}, we then performed FDR correction and supplied the corrected scores for the over-representation analysis (ORA) at a stringent gene score thresholds of $p=10^{-4}$ using version 3.0.2 of \emph{ErmineJ} software \cite{Gillis2010}.
-[[NOTE: not sure if we need to justify why we do ORA instead of GRS]]]
-Given a highly reduced number of genes left for the analysis after the quality control as well as the nature of the binary gene expression data which does not allow to produce a reliable continuous score for each gene, we chose a more conservative approach of testing the top list of the most influential genes instead of taking into consideration gene scores through the whole list of genes in question.
-
 %the score distributions with order of magnitude differences in final p values, we chose to select a top list of genes that contribute most to the increased coexpression in a given link type instead of performing analysis on a continuous list of scores.
-Performing ORA analysis allowed us to directly assess whether any gene sets (GO categories) were statistically over-represented in a list of selected genes that contribute towards increased coexpression for a given link type the most. Over-representation is quantified as a $p$-value that was corrected for multiple comparisons across GO categories using the false discovery rate correction of Benjamini and Hochberg \cite{Benjamini:1995cd}.
 %[[WE SHOW uncorrected values, should we keep this sentence?]].
 
 We computed enrichment for biological process GO annotations \cite{Ashburner2000}, obtained from GEMMA \cite{Zoubarev2012} (using \texttt{Generic\_worm\_noParents.an.txt.gz} downloaded on March 31, 2017).
