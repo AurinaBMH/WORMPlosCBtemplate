@@ -266,6 +266,16 @@ Chen BL, Hall DH, Chklovskii DB.
 \newblock {Wiring optimization can relate neuronal structure and function}.
 \newblock Proc Natl Acad Sci USA. 2006;103(12):4723--4728.
 
+\bibitem{WormAtlas}
+Altun ZF, Herndon LA, Wolkow CA, Crocker C, Lints R, Hall DH. WormAtlas;
+  2002--2017.
+\newblock Available from: \url{http://www.wormatlas.org}.
+
+\bibitem{Kashtan:2004ev}
+Kashtan N, Itzkovitz S, Milo R, Alon U.
+\newblock {Topological generalizations of network motifs}.
+\newblock Phys Rev E. 2004;70(3):031909.
+
 \bibitem{Azulay:2016cg}
 Azulay A, Itskovits E, Zaslaver A.
 \newblock {The C. elegans Connectome Consists of Homogenous Circuits with
@@ -277,11 +287,6 @@ Kim S, Kim H, Kralik JD, Jeong J.
 \newblock {Vulnerability-Based Critical Neurons, Synapses, and Pathways in the
   Caenorhabditis elegans Connectome}.
 \newblock PLoS Comp Biol. 2016;12(8):e1005084.
-
-\bibitem{Kashtan:2004ev}
-Kashtan N, Itzkovitz S, Milo R, Alon U.
-\newblock {Topological generalizations of network motifs}.
-\newblock Phys Rev E. 2004;70(3):031909.
 
 \bibitem{Kim:2014bu}
 Kim JS, Kaiser M.
@@ -319,11 +324,6 @@ Varier S, Kaiser M, Koh W, Meuli R, Honey C.
 Harris TW, Antoshechkin I, Bieri T, Blasiar D, Chan J, Chen WJ, et~al.
 \newblock {WormBase: a comprehensive resource for nematode research}.
 \newblock Nucleic Acids Research. 2009;38:D463--D467.
-
-\bibitem{WormAtlas}
-Altun ZF, Herndon LA, Wolkow CA, Crocker C, Lints R, Hall DH. WormAtlas;
-  2002--2017.
-\newblock Available from: \url{http://www.wormatlas.org}.
 
 \bibitem{Pereira:2015er}
 Pereira L, Kratsios P, Serrano-Saiz E, Sheftel H, Mayo AE, Hall DH, et~al.
@@ -396,17 +396,17 @@ Parkes L, Fulcher BD, Y{\"u}cel M, Fornito A.
   striatum}.
 \newblock Genes, Brain and Behavior. 2017;25:1176.
 
-\bibitem{Gillis2010}
-Gillis J, Mistry M, Pavlidis P.
-\newblock {Gene function analysis in complex data sets using ErmineJ.}
-\newblock Nature protocols. 2010;5(6):1148--59.
-\newblock doi:{10.1038/nprot.2010.78}.
-
 \bibitem{Benjamini:1995cd}
 Benjamini Y, Hochberg Y.
 \newblock {Controlling the False Discovery Rate: A Practical and Powerful
   Approach to Multiple Testing}.
 \newblock J Roy Stat Soc B. 1995;57(1):289--300.
+
+\bibitem{Gillis2010}
+Gillis J, Mistry M, Pavlidis P.
+\newblock {Gene function analysis in complex data sets using ErmineJ.}
+\newblock Nature protocols. 2010;5(6):1148--59.
+\newblock doi:{10.1038/nprot.2010.78}.
 
 \bibitem{Ashburner2000}
 Ashburner M, Ball CA, Blake JA, Botstein D, Butler H, Cherry JM, et~al.

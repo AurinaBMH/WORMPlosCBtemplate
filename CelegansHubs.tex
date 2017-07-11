@@ -966,21 +966,20 @@ Thus, the increase in coexpression amongst hub interneurons cannot be explained 
 % ---even amongst interneurons with the same anatomical properties, hubs exhibit significantly increased coexpression.
 
 \paragraph{Modular organization}
-The \emph{C. elegans} nervous system has a modular organization, in which subsets of neurons show dense interconnectivity \cite{Kim2014, Pan:2010jt, Bassett2010}, or exhibit similar connectivity patterns to each other \cite{Achacoso:1992ay, Pavlovic2014}.
+The \emph{C. elegans} connectome has a modular organization, and can be decomposed into groups of neurons or modules with dense inter-module connectivity (with relatively sparse connectivity between modules) \cite{Kim2014, Pan:2010jt, Bassett2010}, or into groups of neurons with more similar patterns of connectivity within groups than between groups \cite{Achacoso:1992ay, Pavlovic2014}.
 % , which can correspond to specific functional circuits
-A common assumption is that connectome modules correspond to functionally specialized systems; it is therefore plausible that neurons belonging to the same module might exhibit similar gene expression patterns, as has been shown for macroscopic functional networks in the human brain \cite{Richiardi2015}.
+Given that connectome modules may correspond to functionally specialized systems, it is therefore plausible that neurons belonging to the same module might exhibit similar gene expression patterns, as has been shown for macroscopic functional networks in the human brain \cite{Richiardi2015}.
 Brain network hubs generally participate in multiple modules \cite{vandenHeuvel:2013ij, deReus:2014cz}, and their dense rich-club connectivity implies that they may form their own module that overlaps with other, more specialized systems \cite{Fornito:2015dq, deReus:2013cy, ZamoraLopez:2010hy}.
-We sought to determine whether our finding of increased coexpression between pairs of hub neurons in the \emph{C. elegans} connectome can be explained by its modular organization.
+We therefore investigated whether therefore increased gene coexpression between pairs of hub neurons in the \emph{C. elegans} connectome can be explained by their distribution across connectome modules.
 % , driven by the characteristic gene expression of that module.
 
 We used the Louvain community detection algorithm \cite{Blondel:2008do} to extract modules from the \emph{C. elegans} synaptic connectome using consensus clustering (see \textit{Methods}).
-Four modules were extracted, with 1 hub in module 1 (which contains 40 neurons), 4 hubs in module 2 (96 neurons), 11 hubs in module 3 (111 neurons), and no hubs in module 4 (32 neurons).
-We compared the results of this algorithm to a previously reported nine-module partition of neurons derived from an Erd\"os-R\'enyi Mixture Model (ERMM) \cite{Pavlovic2014}.
-For the Louvain consensus modules, gene coexpression was significantly increased for connected neurons in the same module (1\,552 pairs) relative to connected pairs in different modules (687 pairs) (Wilcoxon rank sum test, $p = 6.6 \times 10^{-4}$).
+Four modules were extracted, with eleven hubs in module one (which contains 111 neurons), four hubs in module two (96 neurons), one hub in module three (40 neurons), and no hubs in module four (32 neurons).
+We compared the results of this modular partition of neurons to a previously reported nine-module partition derived from an Erd\"os-R\'enyi Mixture Model (ERMM) \cite{Pavlovic2014}.
+For the Louvain consensus modules, gene coexpression, $r_\phi$, was significantly increased for connected neurons in the same module (1\,552 pairs) relative to connected pairs in different modules (687 pairs) (Wilcoxon rank sum test, $p = 6.6 \times 10^{-4}$), but there was no significant difference between intra-modular connected neurons and inter-modular connected neurons for the nine-module ERMM partition (Wilcoxon rank sum test, $p = 0.46$).
 % CoexpressionDistributionsModules(C,G,'intraInter',true,'consensus');
 % There was no significant difference in gene coexpression for connections within modules compared to those between modules ($p = 0.69$, Wilcoxon rank sum test), as shown in Fig.~\ref{fig:OtherInfluences}B.
-However, for the nine-modular ERMM partition, there was no difference in $r_\phi$ between intra-modular connected neurons and inter-modular connected neurons (Wilcoxon rank sum test, $p = 0.46$).
-The resolution and type of modular decomposition thus affects the relationship between coexpression, connectivity, and modular network structure.
+The resolution and type of modular decomposition thus affects the relationship between coexpression, connectivity, and modular network structure in \emph{C. elegans}.
 % ; for example, using a previously reported nine-module partition of neurons derived from an Erd\"os-R\'enyi Mixture Model (ERMM) does not yield a significant difference .
 % CoexpressionDistributionsModules(C,G,'intraInter',true,'ERMM');
  % are shown in Fig.~\ref{fig:OtherInfluences}A.
@@ -994,15 +993,16 @@ The resolution and type of modular decomposition thus affects the relationship b
 % 10 out of 11 hub neurons in this module are directly responsible for
 % The main goal of this analysis was to compare coexpression within and between modules in order to examine if neurons assigned to the same module are more genetically similar than neurons in other modules.
 % The expectation that gene coexpression, $r_\phi$, was increased within modules was not observed.
-Given that modular structure of the network can influence coexpression, we tested whether connected hubs exhibit more similar coexpression within and between modules for both the consensus Louvain and ERMM decompositions.
-For pairs of connected neurons within the same module, coexpression is higher for pairs of hubs than pairs of nonhubs, as shown in Fig.~\ref{fig:OtherInfluences}A ($p = 6.9\times 10^{-17}$ for consensus Louvain modules; $9.3 \times 10^{-7}$ for ERMM partition, Wilcoxon rank sum test).
+Given that modular structure of the network can influence coexpression (for the four-module Louvain decomposition), we tested whether connected hubs exhibit more similar coexpression within and between modules analyzing both the consensus Louvain and ERMM decompositions.
+For pairs of connected neurons within the same module, coexpression is higher for pairs of hubs than pairs of nonhubs (Wilcoxon rank sum test, $p = 6.9\times 10^{-17}$ for consensus Louvain modules, shown in Fig.~\ref{fig:OtherInfluences}A; $9.3 \times 10^{-7}$ for ERMM partition).
 % CoexpressionDistributionsModules(C,G,'hubIntra',true,'consensus');
 % CoexpressionDistributionsModules(C,G,'hubIntra',true,'ERMM');
-We found a similar result for connected neurons in different modules: pairs of connected hubs exhibit increased coexpression than other types of connected pairs of neurons ($p = 1.6 \times 10^{-5}$ for consensus Louvain modules (Fig.~\ref{fig:OtherInfluences}B); $p = 1.6 \times 10^{-16}$ for ERMM; Wilcoxon rank sum test).
+We found a similar result for connected neurons in different modules: pairs of connected hubs exhibit increased coexpression than other types of connected pairs of neurons (Wilcoxon rank sum test, $p = 1.6 \times 10^{-5}$ for consensus Louvain modules, shown in Fig.~\ref{fig:OtherInfluences}B; $p = 1.6 \times 10^{-16}$ for ERMM).
 % CoexpressionDistributionsModules(C,G,'hubInter',true,'consensus');
 % CoexpressionDistributionsModules(C,G,'hubInter',true,'ERMM');
 % We also computed an empirical null distribution for the mean coexpression across random sets of 55 intramodular and two intermodular links by taking 1\,000 random samples from these two link types across the network, yielding a null $r_\phi$ of $0.13 \pm 0.02$, compared to the observed value of $0.51$ ($p < 10^{-16}$).
-Thus, for both types of modular decomposition, we found that connected pairs of hubs exhibit increased coexpression when broken down into intra-modular and inter-modular pairs and hence the increased coexpression within hubs cannot be explained by their position in similar modules.
+Thus, for both types of modular decompositions, connected pairs of hub neurons exhibit increased coexpression relative to other intra-modular and inter-modular connections.
+% and hence the increased coexpression within hubs cannot be explained by their position in similar modules.
 % , which is present within intra-modular and inter-modular connections.
 % despite the fact that gene coexpression can be increased for pairs of connected neurons within the same module, this effect does not explain
 % is not driven by a general increase of coexpression for pairs of neurons within the same topological module.
@@ -1010,7 +1010,6 @@ Thus, for both types of modular decomposition, we found that connected pairs of 
 % The increased coexpression in connected pairs of hubs in \emph{C. elegans} can therefore not be attributed to the modular organization of the connectome.
 % despite most hubs being assigned to the same module.
 % [[NOTE: maybe not worth characterizing modules, just say: coexpression within modules is not higher than coexpression between modules on one sentence and distributions? When hub neurons are excluded, M2 and M3 coexpression is higher than M1, but no difference between M2 and M3]])
-
 % [[TODO: this section required more justification. Why would we expect modules to drive hub effect? why is looking at modules in this context interesting? Unclear what the nulls are and how they were generated.]]
 
 % ------------------------------------------------------------------------------
