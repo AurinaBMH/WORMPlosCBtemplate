@@ -549,7 +549,12 @@ ORA assesses whether any gene sets (GO categories) were statistically over-repre
 % chose a more conservative approach of testing the top list of the most influential genes instead of taking into consideration gene scores through the whole list of genes in question.
 % , as well as the noisy gene expression data as well as the nature of the binary gene expression data which does not allow to produce a reliable continuous score for each gene, 
 To obtain the gene list, we used the false discovery rate correction of Benjamini and Hochberg \cite{Benjamini:1995cd} on $p$-values computed using Eq.~\eqref{eq:CBinomialProbability}, which were thresholded at a stringent level of $p = 10^{-4}$.
-Over-representation for each GO category was quantified as an FDR-corrected $p$-value (across [[XX]] GO categories) using version 3.0.2 of \emph{ErmineJ} software \cite{Gillis2010}.
+Over-representation for each biological process GO category with between 5 and 100 annotations was quantified as an FDR-corrected $p$-value (across [[XX]] GO categories) using version 3.0.2 of \emph{ErmineJ} software \cite{Gillis2010}.
+Biological process GO annotations \cite{Ashburner2000} were obtained from GEMMA \cite{Zoubarev2012} (using \texttt{Generic\_worm\_noParents.an.txt.gz} downloaded on March 31, 2017).
+% downloaded using a build-in option within ErmineJ software
+% and then compute the probability that the mean score in each GO category is larger than expected from a random assignment of scores to the genes in the list.
+Gene Ontology terms and definitions were obtained in RDF XML file format downloaded from \url{archive.geneontology.org/latest-termdb/go_daily-termdb.rdf-xml.gz} on March 31 2017.
+% We included ontology terms containing between 5 and 100 annotations.
 
 % , and captures the probability of genes being expressed together in connected pairs of neurons at least as frequently as observed
 % For each gene, we first determined the pattern of matching expression profiles (a match meaning that a gene is expressed by both neurons) between each pair of neurons resulting in a binary 279 x 279 matrix.
@@ -566,11 +571,6 @@ Over-representation for each GO category was quantified as an FDR-corrected $p$-
 %the score distributions with order of magnitude differences in final p values, we chose to select a top list of genes that contribute most to the increased coexpression in a given link type instead of performing analysis on a continuous list of scores.
 %[[WE SHOW uncorrected values, should we keep this sentence?]].
 
-We computed enrichment for biological process GO annotations \cite{Ashburner2000}, obtained from GEMMA \cite{Zoubarev2012} (using \texttt{Generic\_worm\_noParents.an.txt.gz} downloaded on March 31, 2017).
-% downloaded using a build-in option within ErmineJ software
-% and then compute the probability that the mean score in each GO category is larger than expected from a random assignment of scores to the genes in the list.
-Gene Ontology terms and definitions were obtained in RDF XML file format downloaded from \url{archive.geneontology.org/latest-termdb/go_daily-termdb.rdf-xml.gz} on March 31 2017.
-We included ontology terms containing between 5 and 100 annotations.
 % {archive.geneontology.org/latest-termdb/go \textunderscore daily-termdb.rdf-xml.gz}
 
 % Results and Discussion can be combined.
