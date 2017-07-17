@@ -1,6 +1,6 @@
 This is BibTeX, Version 0.99d (TeX Live 2015)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: ./CelegansHubs.aux
+The top-level auxiliary file: CelegansHubs.aux
 The style file: plos2015.bst
 Database file #1: library_ben.bib
 Repeated entry---line 201 of file library_ben.bib
@@ -48,7 +48,7 @@ Warning--can't use both volume and number fields in choe2004network
 Warning--empty pages in choe2004network
 You've used 102 entries,
             3058 wiz_defined-function locations,
-            1337 strings with 40381 characters,
+            1337 strings with 40377 characters,
 and the built_in function-call counts, 309124 in all, are:
 = -- 37461
 > -- 1700
