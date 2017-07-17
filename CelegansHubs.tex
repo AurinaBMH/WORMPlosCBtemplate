@@ -200,8 +200,9 @@
 \\
 Aurina Arnatkevi\u{c}i\={u}t\.{e}\textsuperscript{1\Yinyang},
 Ben D. Fulcher\textsuperscript{1\Yinyang},
+Roger Pocock,
+Taqi Ali,
 Alex Fornito\textsuperscript{1}*\\
-Include Taqi Ali and Roger?
 \bigskip
 \textbf{1} Brain and Mental Health Laboratory, Monash Institute of Cognitive and Clinical Neurosciences, School of Psychological Sciences, Monash University, 770 Blackburn Rd, Clayton, 3168, VIC, Australia.
 \\
@@ -1073,17 +1074,18 @@ Focusing on the 201 neurons (16 hub and 185 nonhub neurons) born prior to hatchi
 % sum(C.BirthTime<550 & k<=41) = 188
 
 \paragraph{Lineage distance}
-%[[TODO(AF->AA): should first characterize general relationship between lineage and coexpression, and then address hub effect]] -- there is no general lineage-coexpression effect in our results.\\
-Lineage distance for a pair of neurons is defined as the sum of total divisions that have taken place since the most recent common ancestor cell \cite{Pavlovic:2014gx, Sulston1977, Sulston1983}.
-Neuronal lineage has been associated with both functional \cite{Ciceri2013, Li2012} and connectivity-related properties \cite{Yu2012} in mammalian brain.
-Moreover, tissue distance (resembling lineage distance on a cellular scale) was found to correlate with gene expression divergence meaning that tissues from the same branch on the fate map share more similar gene expression pattern in both human and mouse mesoderm as well as ectoderm tissues \cite{Cui2007}.
-Given the ectoderm afterwards differentiates to form the nervous system, this finding suggests a possible relationship between lineage distance and gene coexpression in a micro-scale neuronal system such as of \textit{C. elegans}.
+%[[should first characterize general relationship between lineage and coexpression, and then address hub effect]] -- there is no general lineage-coexpression effect in our results.
+The lineage distance between a pair of neurons is defined as the sum of total divisions that have taken place since the most recent common ancestor cell \cite{Pavlovic:2014gx, Sulston1977, Sulston1983}.
+In the mammalian brain, neuronal lineage has been associated with both functional \cite{Ciceri2013, Li2012} and connectivity-related properties \cite{Yu2012}.
+Moreover, tissue distance (resembling lineage distance on a cellular scale) was found to correlate with gene expression divergence, meaning that tissues from the same branch on the fate map share more similar gene expression pattern in both human and mouse mesoderm as well as ectoderm tissues \cite{Cui2007}.
+Given the ectoderm afterwards differentiates to form the nervous system, this finding suggests a possible relationship between lineage distance and gene coexpression in a microscale neuronal system such as of \textit{C. elegans}.
 %Therefore, lineage distance could potentially be an informative source of information about the genetic makeup of the \textit{C. elegans} nervous system \cite{Schroter:2017eo}.
-While overall there is no significant relationship between lineage distance and gene coexpression in \textit{C. elegans} nervous system (Spearman $\rho = -0.027$, $p = 0.2$), all hub neurons are formed early in development, hence it is possible that they originate from common ancestry cells and therefore might share some intrinsic similarities in gene expression that influence the observed increase in coexpression between hub neurons.
+While there is no significant correlation between lineage distance and gene coexpression in \textit{C. elegans} (Spearman $\rho = -0.027$, $p = 0.2$), all hub neurons are formed early in development as characterized above, and hence it is possible that they originate from common ancestry cells and share intrinsic similarities in gene expression that influence the observed increase in coexpression between hub neurons.
 %It may be the case, for example, that hub neurons are derived from similar cell lines, which may drive their increased coexpression.
 However, as shown in Fig.~\ref{fig:OtherInfluences}E, there is no significant difference in lineage distance between hub (rich connections) and non-hub neurons (non-rich connections) (Wilcoxon rank sum test, $p = 0.079$).
+[[TODO-AA: make clear whether connected or pairs]]
 %[[Could do as pairs rather than connected...? - THERE IS A sign DIFFERENCE if we take all pairs instead of connections - hubs are more close in lineage it means that there are no connections between hubs that are closest in lineage, while literature suggests, that some neurons in mouse form connections preferentially with `sister' neurons as in Yu, 2012.]].
-Thus, we can not attribute the transcriptional similarity of connected hub neurons to their close relationship in terms of neuronal lineage.
+Thus, we can not attribute the transcriptional similarity of connected hub neurons to their neuronal lineage.
 
 %[[not sure this is relevant/fits the story. Could remove:]]\\
 %Looking closer, we find that lineage distance increases with degree for feeder links while no significant change is observed for rich links (Fig.~\ref{fig:Lineagek}).
@@ -1097,72 +1099,72 @@ Thus, we can not attribute the transcriptional similarity of connected hub neuro
 
 \paragraph{Neurotransmitter system}
 % <<TypeConfoundHubs.m>>
-Hub neurons ($k > 44$) consist of 13 cholinergic neurons, 2 glutamatergic neurons, and 1 neuron of unknown type \cite{Pereira:2015er}.
-Neuron pairs show different coexpression relationships as a function of their neurotransmitter type, e.g., with pairs of GABAergic neurons showing a high median coexpression of $r_\phi = 0.59$ and pairs of glutamatergic neurons exhibiting a relatively low median coexpression of $r_\phi = 0.08$.
+Hub neurons ($k > 44$) consist of thirteen cholinergic neurons, two glutamatergic neurons, and one neuron of unknown type \cite{Pereira:2015er}.
+Neuron pairs show different coexpression relationships as a function of their neurotransmitter type, e.g., pairs of GABAergic neurons have high median coexpression $\tilde{r}_\phi = 0.59$, while pairs of glutamatergic neurons exhibit a relatively low median coexpression $\tilde{r}_\phi = 0.08$.
 % TypeConfoundHubs.m
-To determine whether the similarity in gene expression patterns between pairs of hub neurons could be explained by their neurotransmitter types, we used a permutation test to compute the mean coexpression between all pairs of random groups of sixteen neurons of the same neurotransmitter types (e.g., thirteen random cholinergic neurons, two random glutamatergic neurons, and one random neuron of unknown neurotransmitter type) across $1\times 10^6$ permutations.
-The mean coexpression between hub neurons is significantly increased relative to random sets of neurons with the same neurotransmitter types as hubs (permutation test, $p = 3.2\times 10^{-5}$).
+To determine whether the similarity in gene coexpression between pairs of hub neurons could be explained by their neurotransmitter types, we used a permutation test to compute the mean coexpression between all pairs of random groups of sixteen neurons of the same neurotransmitter types (e.g., thirteen random cholinergic neurons, two random glutamatergic neurons, and one random neuron of unknown neurotransmitter type) across $1\times 10^6$ permutations.
+The increased coexpression between hub neurons cannot be explained by their neurotransmitter identities, with hub neurons displaying a significant increase in median coexpression relative to random sets of neurons with the same neurotransmitter types as hubs (permutation test, $p = 2\times 10^{-6}$).
 
 \paragraph{Broad anatomy}
 % <<TypeConfoundHubs.m>>
-Of the 16 hub neurons ($k > 44$), 13 are in the head, 3 in the tail, and none in the body.
-Given that coexpression varies as a function of anatomical position with, for example, pairs of neurons in the same broad anatomical class exhibiting the highest mean coexpression (e.g., pairs of neurons within the body have a median $r_\phi = 0.14$, pairs of neurons within the tail have a median $r_\phi = 0.12$, and pairs of neurons within the head have a median $r_\phi = 0.07$), with lower mean coexpression in mixed classes (e.g., pairs of neurons between head and body have a median $r_\phi = 0.01$).
-Given this variation, we tested whether the increased gene expression in hub neurons could be explained by their anatomical distribution, using the same permutation testing procedure described above for neurotransmitter systems, i.e., by comparing to a null distribution formed from $1\times 10^6$ random permutations of 13 head neurons and 3 tail neurons.
-The mean coexpression between hub neurons is significantly increased relative to random sets of neurons with the same anatomical position as hubs (permutation test, $p = 4.1\times 10^{-5}$).
-Gene coexpression is significantly increased amongst hub neurons in the head compared to other pairs of head neurons (46 hub-hub pairs, 1\,186 others: Wilcoxon rank sum test, $p = 4.1 \times 10^{-11}$), also amongst head/tail pairs of neurons (23 hub-hub pairs, 174 others: $p = 1.6 \times 10^{-14}$), but not for the three hub neurons in the tail compared to the 53 other tail-tail pairs ($p = 0.15$).
+Of the sixteen hub neurons, thirteen are in the head and three are in the tail; none are located in the body.
+Given that coexpression varies as a function of anatomical position, with pairs of neurons in the same broad anatomical class exhibiting the highest mean coexpression (e.g., pairs of neurons within the body have a median $\tilde{r}_\phi = 0.14$, pairs of neurons within the tail have $\tilde{r}_\phi = 0.12$, and pairs of neurons within the head have $\tilde{r}_\phi = 0.07$), with lower mean coexpression in mixed classes (e.g., pairs of neurons between head and body have $\tilde{r}_\phi = 0.01$).
+Given this variation, we tested whether the increased gene expression in hub neurons could be explained by their anatomical distribution using the permutation testing procedure described above for neurotransmitter systems.
+That is, by comparing the distribution of coexpression between hubs to a null distribution formed from $1\times 10^6$ random permutations of thirteen head neurons and three tail neurons.
+The median coexpression between hub neurons is significantly increased relative to random sets of thirteen head neurons and three tail neurons (permutation test, $p = 2\times 10^{-6}$).
+Within the head, gene coexpression is significantly increased amongst hub neurons relatively to other pairs of head neurons (Wilcoxon rank sum test, $p = 4.1 \times 10^{-11}$ for 46 hub-hub pairs and 1\,186 others),
+and also amongst head/tail pairs of neurons (Wilcoxon rank sum test, $p = 1.6 \times 10^{-14}$ for 23 hub-hub pairs, 174 others),
+but not for the three hub neurons in the tail (Wilcoxon rank sum test, $p = 0.15$ for three hub-hub pairs, 53 others).
 
 \paragraph{Command interneurons} 
-Neurons in \emph{C. elegans} can be subdivided into distinct groups that each perform a specialized behavioral function \cite{Hobert2003}.
-The `command interneurons' are a functional group of ten neurons that govern forward (AVBL, AVBR, PVCL, PVCR) and backward (AVAL, AVAR, AVDL, AVDR, AVEL, AVER) locomotion \cite{Rakowski2013}; and are all are hubs.
+\emph{C. elegans} neurons can be divided into distinct groups that each perform a specialized behavioral function \cite{Hobert2003}.
+The `command interneurons' are a functional group of ten neurons that govern forward (AVBL, AVBR, PVCL, PVCR) and backward (AVAL, AVAR, AVDL, AVDR, AVEL, AVER) locomotion \cite{Rakowski2013}; all of these neurons are hubs.
 % ten out of sixteen hub neurons correspond to the functional circuit that governs forward (AVBL, AVBR, PVCL, PVCR) and backward (AVAL, AVAR, AVDL, AVDR, AVEL, AVER) locomotion, which are together known as `command interneurons' [[REF]].
-Given the overlap between our set of hubs and the command interneurons, we investigated whether they are more similar in their gene expression than other hub interneurons, and may therefore drive the increase in coexpression amongst hubs as a whole.
-We compared gene coexpression, $r_\phi$, between all pairs of command interneurons (ten neurons), and between all pairs of hubs that are not command interneurons (six neurons), with distributions shown in Fig.~\ref{fig:OtherInfluences}E.
-Gene coexpression between command interneurons is significantly higher than between other hub neurons (Wilcoxon rank sum test, $p = 3.3 \times 10^{-8}$), indicating that command interneurons play a role in driving the increased coexpression amongst hub neurons in \emph{C. elegans}.
-Relative to macroscopic brains, it is not possible to disentangle the role of specialized functional circuits from connectivity in \emph{C. elegans}, with highly connected hubs overlapping with the command interneurons, which have high gene coexpression.
+Given the overlap between hub neurons and the command interneurons, we investigated whether command interneurons exhibit more similar expression than other hub interneurons, and may therefore drive the increase in coexpression amongst hubs as a whole.
+We compared gene coexpression, $r_\phi$, between all pairs of command interneurons (ten neurons), and between all pairs of hubs that are not command interneurons (six neurons), shown in Fig.~\ref{fig:OtherInfluences}E.
+Gene coexpression between command interneurons is significantly greater than between other hub neurons (Wilcoxon rank sum test, $p = 3.3 \times 10^{-8}$), indicating that command interneurons play a major role in driving the increased coexpression amongst hub neurons.
+Relative to macroscopic brains in which hubs are often distributed across diverse neural systems \cite{Fulcher:2016ck}, it is not possible to disentangle the role of specialized functional circuits from connectivity in \emph{C. elegans}, with highly connected hubs containing the transcriptionally uniform set of command interneurons.
 
 
 \subsection*{Functional enrichment}
-
 %% comment on enrichment analysis. No write up can be done before deciding on options.
-
 % Having determined that pairs of neurons with different connectivity exhibit different levels of coexpression,
 Having characterized a robust relationship between hub connectivity and gene expression, we next investigate whether specific functional groups of genes contribute to the observed differences in gene coexpression.
-We developed a method to score genes according to their contribution to a given coexpression pattern, which were used to perform an overrepresentation enrichment analysis using gene ontology (GO) categories for biological processes \cite{Ashburner2000, Gillis2010} (see \emph{Methods}).
+We developed a method to score genes according to their contribution to a given coexpression pattern, which was used to perform an overrepresentation enrichment analysis using gene ontology (GO) categories for biological processes \cite{Ashburner2000, Gillis2010} (see \emph{Methods}).
 % (related to the probability of a gene being expressed together in a given set of neuron pairs compared to an alternative set).
 % Previous results using quantitative gene expression in mouse has indicated that genes driving an increase in coexpression between connected pairs of neurons are enriched in GO categories related to neuronal, synaptic, and axonal structure and function
 % \cite{Fulcher:2016ck, Ji:2014jw, Fakhry:2015kl, French:2011cz}.
 Relative to previous results in mouse, for example \cite{Fulcher:2016ck, Ji:2014jw, Fakhry:2015kl, French:2011cz}, the current data are more challenging due to incomplete binary expression measurements in a small proportion of the genome.
 
-First, we determined which functional groups of genes drive increased coexpression in connected pairs of neurons relative to unconnected pairs.
-No GO categories were significant at a false discovery rate of 10\%.
-The top GO categories are related to glutamate receptor signaling: `ionotropic glutamate receptor signaling pathway' and `glutamate receptor signaling pathway' as well as cell surface receptor signaling, `ion transport', and `ion transmembrane transport'.
+We first determined which functional groups of genes drive increased coexpression in connected pairs of neurons relative to unconnected pairs.
+% No GO categories were significant at a false discovery rate of 0.05.
+The top GO categories are related to glutamate receptor signaling: `ionotropic glutamate receptor signaling pathway' and `glutamate receptor signaling pathway', as well as cell surface receptor signaling, `ion transport', and `ion transmembrane transport', but none are significant at a false discovery rate of 0.05.
 Other categories are involved in the regulation of growth rate and several catabolic processes (see Table~\ref{tab:enrichmentCON}).
-While these incomplete binary expression data do not allow us to deduce functional categories with statistical significance, our findings point to a possible role of relevant neuronal processes having genes that are more likely to be coexpressed in connected pairs of neurons relative to unconnected pairs.
+While these incomplete binary expression data do not allow us to deduce functional categories with statistical significance, our findings point to the possible role of some relevant neuronal processes in driving the increased coexpression of connected pairs of neurons relative to unconnected pairs.
  % demonstrate a method for computing GO categories from binary expression data that suggest that connected pairs of neurons may coexpress genes associated with neuronal connectivity relative to unconnected neuron pairs.
 
-We next investigate whether particular functional groups of genes drive differences in coexpression between connections involving hub neurons (i.e., in rich, feed-in, and feed-out connections) relative to peripheral connections between pairs of nonhub neurons.
-[[A little weaker to group here where feed-in connections have lower coexpression than peripheral connections - they don't (see supp plot for distributions)]]
+We next investigated whether particular functional groups of genes drive differences in coexpression between connections involving hub neurons (i.e., in rich, feed-in, and feed-out connections) relative to peripheral connections between pairs of nonhub neurons.
 While previous work implicated genes regulating oxidative metabolism for connections involving hubs in mouse \cite{Fulcher:2016ck} (and for hub regions in human \cite{Vertes2016a}), the \emph{C. elegans} gene expression dataset was insufficient to analyze these same gene categories here (e.g., only one of the 948 genes annotated to the GO categories related to hub connectivity in mouse is present in our gene expression dataset: \emph{unc-32} is annotated to `ATP hydrolysis coupled proton transport').
 % GO:0015991:
 % GO categories were filtered using <<searchGOcategories.m>> function.
-Thus, although a direct test of mouse and human results is no possible, we aimed to identify if any metabolism-related categories might be enriched in hub connections in \emph{C. elegans}, providing some support for the idea that hubs are energetically costly elements of the connectome.
+Thus, although a direct test of the metabolic hypothesis is not possible from current data, we investigated whether relevant GO categories were overrepresented in pairs of connected hubs.
+% , providing some support for the idea that hubs are energetically costly elements of the connectome.
 %Due to gene expression data specificity in all the following analyses we present top 15 GO categories enriched in a particular link type compared to other links.
-Again no GO categories were statistically significant at a false discovery rate of 10\%; all categories are listed in Table~\ref{tab:enrichmentRICH}.
+Top GO categories are listed in Table~\ref{tab:enrichmentRICH}; none are statistically significant at a false discovery rate of 0.05.
 The same two glutamate receptor signaling categories implicated for connectivity above: `ionotropic glutamate receptor signaling pathway' and `glutamate receptor signaling pathway', were again at the top of the list of categories related to hub connectivity.
-Other top categories include a more general receptor signaling class---`cell surface receptor signaling pathway', `regulation of locomotion', and various metabolism and biosynthesis related processes including `positive regulation of biosynthetic process', two groups responsible for positive regulation of nitrogen and nucleobase-containing compound metabolic process, `positive regulation of cellular metabolic process', and 'positive regulation of macromolecule biosynthetic process.
+Other top categories include a more general receptor signaling class (`cell surface receptor signaling pathway'), `regulation of locomotion', and various metabolism and biosynthesis related processes including `positive regulation of biosynthetic process', two groups responsible for positive regulation of nitrogen and nucleobase-containing compound metabolic process, `positive regulation of cellular metabolic process', and `positive regulation of macromolecule biosynthetic process'.
 % ---also emerged as enriched in connections involving hubs compared to other connections.
 
 %These findings are in line with our expectations as hub neurons receive input from sensory neurons, the majority of which are glutamatergic.
 %As a result, hubs are required to have glutamate receptors the enrichment in these categories is the most pronounced (even after the correction, false discovery rate $< 0.05$).
 
-The implication of glutamate receptor signaling for synaptic connectivity, and hub connectivity in particular, is somewhat surprising, as only 26\% of neurons with known neurotransmitter type are glutamatergic (whereas 55\% are cholinergic) and just two of the sixteen hubs are glutamatergic; thirteen are cholinergic, and one is of unknown type.
+The implication of glutamate receptor signaling for synaptic connectivity, and hub connectivity in particular, is somewhat surprising given that only 26\% of neurons with known neurotransmitter type are glutamatergic (whereas 55\% are cholinergic) and just two of the sixteen hubs are glutamatergic (thirteen are cholinergic, and one is of unknown type).
 Furthermore, just 32\% of neurons that project to hubs are glutamatergic.
 % FeedInOutNodes;
-Our inability to get a comprehensive understanding of neurotransmitter signaling for the gene expression data used here is related to the incompleteness of the data.
-For example, only one acetylcholine-related GO category---`synaptic transmission, cholinergic' (GO:0007271)---contained sufficiently many genes (fourteen) to be represented in our enrichment analysis.
+Our inability to get a comprehensive understanding of neurotransmitter signaling for the gene expression data used here is related to its incompleteness, e.g., only one acetylcholine-related GO category---`synaptic transmission, cholinergic' (GO:0007271)---contained sufficiently many genes (fourteen) to be represented in our enrichment analysis.
 % [[DO WE SHOW NUMBER IN DATA OR IN GENE SETS USED FOR CON and RF analysis]] while others (n=9) had only up to 3 genes, therefore were not included in the enrichment analysis as categories with 5-100 genes were required.
 Glutamate release categories were also not represented here (each were annotated with fewer than five genes in our dataset and hence excluded).
-More comprehensive expression data could use the methods developed here to obtain greater understanding of the relationship between network topology, neurotransmitter signaling, and other gene-regulated functions.
+Future work leveraging more comprehensive expression data could use the methods developed here for scoring genes according to their contribution to coexpression signatures could be used to better understand the relationship between network topology, neurotransmitter signaling, and other gene-regulated functions.
 % , thus were not included in the analysis.
 %% [GenesinGO, GOs] = searchGOcategories(C,G,'glutamat');
 %% [GenesinGO, GOs] = searchGOcategories(C,G,'cholin');
