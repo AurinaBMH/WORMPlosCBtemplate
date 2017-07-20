@@ -193,47 +193,45 @@
 % Title must be 250 characters or less.
 \begin{flushleft}
 {\Large
-\textbf\newline{A gene expression signature of hub connectivity in the \textit{C. elegans} connectome} % Please use "sentence case" for title and headings (capitalize only the first word in a title (or heading), the first word in a subtitle (or subheading), and any proper nouns).
-% OLD TITLE: Hub connectivity and gene expression in the \textit{C. elegans} connectome
-% AA: I think new title is too much for the hub expression finding that we have. 
+\textbf\newline{Hub connectivity, neuronal diversity, and gene expression in the \emph{C. elegans} connectome} % Please use "sentence case" for title and headings (capitalize only the first word in a title (or heading), the first word in a subtitle (or subheading), and any proper nouns).
 }
 \newline
 % Insert author names, affiliations and corresponding author email (do not include titles, positions, or degrees).
 \\
-Aurina Arnatkevi\u{c}i\={u}t\.{e}\textsuperscript{1\Yinyang},
-Ben D. Fulcher\textsuperscript{1\Yinyang},
-Roger Pocock,
-Taqi Ali,
-Alex Fornito\textsuperscript{1}*\\
-\bigskip
-\textbf{1} Brain and Mental Health Laboratory, Monash Institute of Cognitive and Clinical Neurosciences, School of Psychological Sciences, Monash University, 770 Blackburn Rd, Clayton, 3168, VIC, Australia.
-\\
-\bigskip
-
-% Insert additional author notes using the symbols described below. Insert symbol callouts after author names as necessary.
+% Aurina Arnatkevi\u{c}i\={u}t\.{e}\textsuperscript{1\Yinyang},
+% Ben D. Fulcher\textsuperscript{1\Yinyang},
+% Roger Pocock,
+% % Taqi Ali,
+% Alex Fornito\textsuperscript{1}*\\
+% \bigskip
+% \textbf{1} Brain and Mental Health Laboratory, Monash Institute of Cognitive and Clinical Neurosciences, School of Psychological Sciences, Monash University, 770 Blackburn Rd, Clayton, 3168, VIC, Australia.
+% \\
+% \bigskip
 %
-% Remove or comment out the author notes below if they aren't used.
+% % Insert additional author notes using the symbols described below. Insert symbol callouts after author names as necessary.
+% %
+% % Remove or comment out the author notes below if they aren't used.
+% %
+% % Primary Equal Contribution Note
+% \Yinyang These authors contributed equally to this work.
 %
-% Primary Equal Contribution Note
-\Yinyang These authors contributed equally to this work.
-
-% Additional Equal Contribution Note
-% Also use this double-dagger symbol for special authorship notes, such as senior authorship.
-% \ddag These authors also contributed equally to this work.
-
-% Current address notes
-% \textcurrency Current Address: Dept/Program/Center, Institution Name, City, State, Country % change symbol to "\textcurrency a" if more than one current address note
-% \textcurrency b Insert second current address
-% \textcurrency c Insert third current address
-
-% Deceased author note
-% \dag Deceased
-
-% Group/Consortium Author Note
-% \textpilcrow Membership list can be found in the Acknowledgments section.
-
-% Use the asterisk to denote corresponding authorship and provide email address in note below.
-* alex.fornito@monash.edu
+% % Additional Equal Contribution Note
+% % Also use this double-dagger symbol for special authorship notes, such as senior authorship.
+% % \ddag These authors also contributed equally to this work.
+%
+% % Current address notes
+% % \textcurrency Current Address: Dept/Program/Center, Institution Name, City, State, Country % change symbol to "\textcurrency a" if more than one current address note
+% % \textcurrency b Insert second current address
+% % \textcurrency c Insert third current address
+%
+% % Deceased author note
+% % \dag Deceased
+%
+% % Group/Consortium Author Note
+% % \textpilcrow Membership list can be found in the Acknowledgments section.
+%
+% % Use the asterisk to denote corresponding authorship and provide email address in note below.
+% * alex.fornito@monash.edu
 
 \end{flushleft}
 % Please keep the abstract below 300 words
@@ -249,7 +247,6 @@ WE $\heartsuit$ WORMS
 
 \linenumbers
 
-% Use "Eq" instead of "Equation" for equation citations.
 \section*{Introduction}
 
 % ALEX:
@@ -296,16 +293,16 @@ WE $\heartsuit$ WORMS
 % % I DON'T BELIEVE IN THIS ONE SO LEAVING IT OUT: pigeon \cite{Shanahan:2013ej},
 
 Neuronal connectivity provides the substrate for integrated brain function.
-To better understand the mechanisms of integrated neural function, recent years have seen several systematic and large-scale attempts to generative comprehensive wiring diagrams -- connectomes -- of nervous systems in species as diverse as the nematode worm \emph{Caenorhabditis elegans} \cite{White:1986tx, Varshney2011}, the drosophila fruit fly \cite{Chiang:2011, Shih:2015cu}, zebrafish \cite{Wanner:2016ea, Hildebrand:2017iu}, mouse \cite{Oh2014, Zingg:2014el}, rat [[CITE-Swanson]], cat [[CITE--Young]], macaque \cite{Markov:2012wu, Stephan2001} and human \cite{Hagmann:2008gda, VanEssen2013a}.
-One of the most striking findings to emerge from analyses of these diverse data, acquired using different measurement techniques and at resolution scales ranging from nm to mm, is of a strong conservation of certain topological properties of network organization (reviewed in \cite{Bullmore:2009iv, Bullmore:2012vl, Sporns2011,VandenHeuvel2016a}; [[CITE--Schroeter et al NRN]]; see also \cite{fornito2016book}).
+To better understand the mechanisms of integrated neural function, recent years have seen several systematic and large-scale attempts to generative comprehensive wiring diagrams -- connectomes -- of nervous systems in species as diverse as the nematode worm \emph{Caenorhabditis elegans} \cite{White:1986tx, Varshney2011}, the drosophila fruit fly \cite{Chiang:2011, Shih:2015cu}, zebrafish \cite{Wanner:2016ea, Hildebrand:2017iu}, mouse \cite{Oh2014, Zingg:2014el}, rat \cite{bota2015}, cat \cite{scannell1995}, macaque \cite{Markov:2012wu, stephan2001}, and human \cite{Hagmann:2008gda, VanEssen2013a}.
+One of the most striking findings to emerge from analyses of these diverse data, acquired using different measurement techniques and at resolution scales ranging from nm to mm, is of a strong conservation of certain topological properties of network organization (reviewed in \cite{Bullmore:2009iv, Bullmore:2012vl, Sporns2011, VandenHeuvel2016a, Schroter:2017eo}, see also \cite{fornito2016book}).
 These properties include a modular organization, such that subsets of functionally related (and usually spatially adjacent) elements are densely interconnected with each other;
-a hierarchy of modules, such that modules contain nested sub-modules and so on over multiple scales (\cite{Meunier:2010hq, Bassett2010});
+a hierarchy of modules, such that modules contain nested sub-modules and so on over multiple scales \cite{Meunier:2010hq, Bassett2010};
 economical connectivity, such that wiring costs (typically measured in terms of wiring length) are near-minimal given the topological complexity of the system \cite{Betzel:2016jt, Bassett:2010hf};
 a heterogeneous distribution of connections across network nodes, such that most nodes possess relatively few connections and a small proportion of nodes has a very high degree of connectivity \cite{vandenHeuvel:2013ge, Varshney:2011ju};
 and stronger interconnectivity between hub nodes than expected by chance, leading a so-called rich-club organization (i.e., the hubs are rich because they are highly connected and they form a club because they are densely interconnected with each other) \cite{vandenHeuvel:2011he, ZamoraLopez:2010hy, deReus:2013cy, Towlson:2013gf, Shih:2015cu}.
 %features that can only partially be accounted for by spatial constraints \cite{Henderson:2014fg, Roberts:2016il, Horvat:2016ia}.
 
-Hub connectivity and rich-club organization in particular is though to play a central role in integrating functionally diverse and anatomically disparate neuronal systems \cite{Fornito:2015dq, VandenHeuvel2013a, ZamoraLopez:2010hy, Crossley2014, Crossley:2013kl}.
+The rich-club organization of hub connectivity is thought to play a central role in integrating functionally diverse and anatomically disparate neuronal systems \cite{Fornito:2015dq, VandenHeuvel2013a, ZamoraLopez:2010hy, Crossley2014, Crossley:2013kl}.
 Hub nodes typically participate in more than one functional system, thus, hub connectivity is a functionally valuable, yet costly, aspect of neuronal connectivity \cite{deReus:2013cy, deReus:2014cz, ZamoraLopez:2010hy}, placing them in a perfect position to integrate diverse neural processes.
 %[[we'll need to square this with our finding that most hubs are in the same structural module, which also contradicts previous findings of Towlson]].
 Experimental data and computational modeling also indicates that hub nodes, and the connections between them, are topologically positioned to mediate a high volume of signal traffic \cite{vandenHeuvel:2012kh, Harriger:2012bb, Misic:2014it, Misic:2015jw}.
@@ -323,7 +320,7 @@ Vertes et al. \cite{Vertes2016a} later found evidence of a similar transcription
 Combining microarray gene expression data of 20 737 genes through 285 cortical areas partial least squares to identify a latent variable, accounting for 37$\%$ of the variance, that described covariance between the topologically integrative role of hub regions with long-distance connectivity and the expression of genes involved in oxidative metabolism and mitochondrial function. 
 Together, the analyses of Fulcher and Fornito \cite{Fulcher:2016ck} and Vertes et al. \cite{Vertes2016a}, which were performed using measures of mesoscale ($\mu$m to mm) and macroscale (mm to cm) connectivity, respectively, suggest that the molecular signature of hub connectivity, which is characterized by elevated coupling of the expression of genes regulating oxidative metabolism, is conserved across species and resolution scales.
 Here, we sought to test this hypothesis by examining the link between gene expression and microscale connectivity in the nematode worm \emph{C. elegans}.
-The connectome of this animal, which comprises 302 neurons and around 5600 chemical and electrical synapses \cite{White1986}, is the only species to have its connectome mapped almost completely at the level of individual neurons and synapses using electron microscopy (EM) \cite{White:1986tx, Varshney2011}.
+The connectome of this animal, which comprises 302 neurons and around 5600 chemical and electrical synapses \cite{White1986}, is the only species to have its connectome mapped almost completely at the level of individual neurons and synapses using electron microscopy \cite{White:1986tx, Varshney2011}.
 We combined these data on neuronal connectivity with curated information on the binary expression patterns of 948 genes across neurons to examine the relationship between gene expression and the large-scale topological organization of the nematode nervous system.
 We also took advantage of detailed information on neuron spatial positions, birth times, neuronal lineage, and functional and chemical composition of neurons to understand the mechanisms through which gene expression might influence network topology.
 We show that [[XXX]].
@@ -345,10 +342,9 @@ We show that [[XXX]].
 \section*{Materials and methods}
 
 % In this work, we investigate relationships between synaptic connectivity and gene expression in the somatic nervous system of the adult \textit{C. elegans} hermaphrodite.
-We first describe the neural connectivity data used to construct a connectome for \textit{C. elegans} and the methods used to quantify network topology and specific additional properties of neurons (including their neurochemical composition, birth times and lineage relationships).
+We first describe the neural connectivity data used to construct a connectome for \textit{C. elegans} and the methods used to quantify network topology and specific additional properties of neurons, including their neurochemical composition, birth times, and lineage relationships.
 % , such as their functional class, body position, neurochemical composition, and lineage.
-We then go on to describe the gene expression data, how we measure expression similarity between pairs of neurons, and our method for scoring genes to perform functional enrichment analysis.
-
+We then describe the gene expression data, how we measure expression similarity between pairs of neurons, and describe our method for scoring the contribution of individual genes to global coexpression patterns.
 % Neurons making up the nervous system of the nematode worm \emph{C. elegans} can be divided into groups, commonly as: sensory neurons (support receptive function), motor neurons (cells containing neuromuscular junctions), interneurons (all other neurons), and polymodal neurons (performing more than one type of circuit function) \cite{White:1986tx}.
 
 % METHODS: Outline (add what it's about)
@@ -356,73 +352,75 @@ We then go on to describe the gene expression data, how we measure expression si
 
 % METHODS: connectivity data
 \subsection*{Neuronal connectivity data}
-The nematode \emph{C. elegans} nervous system comprises 302 neurons, divided into the pharyngeal nervous system (20 neurons) and the somatic nervous system (282 neurons).
-The spatial positions of neurons, and their interconnections, are genetically determined and highly reproducible across organisms \cite{Riddle1997}, and do not change through time \cite{Schnabel1997}.
-
+The nervous system of the nematode \emph{C. elegans} comprises 302 neurons, divided into the pharyngeal nervous system (20 neurons) and the somatic nervous system (282 neurons).
+The spatial positions of neurons, and their interconnections, are genetically determined and highly reproducible across organisms \cite{Riddle1997} and do not change over time \cite{Schnabel1997}.
 Neuronal connectivity data for the adult hermaphrodite \emph{C. elegans} was first mapped by White et al.~\cite{White:1986tx} through detailed electron microscopy, and then revised by Chen et al. \cite{Chen:2006ie} and Varshney et al.~\cite{Varshney2011}.
-Here we analyze the larger somatic nervous system using data from Varshney et al.~\cite{Varshney2011}, who mapped connectivity between 279 neurons (282 somatic neurons, excluding CANL/R, and VC6, which do not form synapses with other neurons), downloaded from WormAtlas \cite{WormAtlas} (\url{www.wormatlas.org/neuronalwiring.html#NeuronalconnectivityII}).
+Here we analyze the larger somatic nervous system using data from Varshney et al.~\cite{Varshney2011}, who mapped connectivity between 279 neurons (282 somatic neurons, excluding CANL/R, and VC6, which do not form synapses with other neurons), which was downloaded from WormAtlas \cite{WormAtlas} (\url{www.wormatlas.org/neuronalwiring.html#NeuronalconnectivityII}).
 % [[TODO: Aurina, VC6 does have data available, right, it just only makes connections via neuromuscular junctions is the reason we exclude. But is it that CANL/R don't have data available? Or they just don't make connections? Should distinguish missing data from absence of connections]]
-Connectivity data are available for both electrical gap junctions and chemical synapses.
-The chemical synapse network is both directed (i.e., for each synapse, we can identify the pre-synaptic neuron and the post-synaptic target) and weighted (as determined by the number of synapses between pairs of neurons) while the gap junction network is conventionally represented as a weighted undirected network. 
 
-%The directionality of electrical gap junctions is unknown (and have previously been represented as bidirectional connections), whereas chemical connectivity information includes presynaptic and postsynaptic neurons (providing information about the connectivity direction) and synapse number (providing information about the projection strength, or connectivity weight).
+Connectivity data are available for both electrical gap junctions and chemical synapses.
+The chemical synapse network is both directed (i.e., for each synapse, we can identify the pre-synaptic neuron and the post-synaptic target) and weighted (as determined by the number of synapses between pairs of neurons) while gap junctions are conventionally represented as an undirected connections.
+% The directionality of electrical gap junctions is unknown (and have previously been represented as bidirectional connections), whereas chemical connectivity information includes presynaptic and postsynaptic neurons (providing information about the connectivity direction) and synapse number (providing information about the projection strength, or connectivity weight).
 % The result can be represented as a weighted, directed connectivity matrix, with weights given by the number of synapses.
-%To avoid any possible differences in gene expression between chemical synapses and gap junctions, our analysis focuses just on the synaptic connectivity network, which contains a total of 1\,961 pairs of connected neurons, spanning a total of 2\,194 directed connections (and a total of 6\,394 individual synapses).
-Previous work on \emph{C. elegans} neuronal connectivity has used different processed versions of this data, including:
-(i) analyzing just synaptic connections \cite{Kashtan:2004ev},
-(ii) a combination of synaptic connections and gap junctions together \cite{Azulay:2016cg, Kim:2016gl},
-(iii) a combined, symmetrized connectome that represents unidirectional and reciprocal synaptic connections equivalently \cite{Towlson:2013gf, Kim:2014bu, Pavlovic:2014gx},
+% To avoid any possible differences in gene expression between chemical synapses and gap junctions, our analysis focuses just on the synaptic connectivity network, which contains a total of 1\,961 pairs of connected neurons, spanning a total of 2\,194 directed connections (and a total of 6\,394 individual synapses).
+Previous investigations of \emph{C. elegans} neuronal connectivity have used different processed versions of this data, including:
+(i) only chemical synapses \cite{Kashtan:2004ev};
+(ii) a combination of chemical and electrical synapses as a directed network (representing electrical synapses as reciprocal) \cite{Azulay:2016cg, Kim:2016gl};
+(iii) a combination of chemical and electrical synapses as an undirected network (representing unidirectional and reciprocal chemical connections equivalently) \cite{Towlson:2013gf, Kim:2014bu, Pavlovic:2014gx};
 or (iv) comparing a range of connectome representations \cite{Pan:2010jt}.
 % (e.g., following thresholding 
-In order to account for the influence of both electrical and chemical connectivity, our analysis focuses on the combined directed, binary network that includes both types of connections, with gap junctions represented as bidirectional connections and chemical synapses represented as directed edges from the presynaptic neuron to the postsynaptic neuron.
-This network of 279 neurons consists of 2\,287 connected neuron pairs (when both reciprocal and unidirectional connections counted equally), spanning a total of 2\,990 directed connections.
-Note that the qualitative results presented here are not highly sensitive to the connectome representation, and, e.g., hold when the directed chemical connectivity network is analyzed (excluding gap junctions).
+Our analysis here focuses on the combined directed, binary network, treating gap junctions as bidirectional connections.
+% but  chemical synapses represented as directed edges from the presynaptic neuron to the postsynaptic neuron.
+The resulting connectome contains 279 neurons, with 2\,287 unique connected pairs of neurons and a total of 2\,990 individual edges.
 % <<BasicStats.m>>
+Note that the qualitative results presented here are not highly sensitive to the connectome representation and, e.g., hold when the directed chemical connectivity network is analyzed (excluding gap junctions).
 % (and the weighted network includes a total of 8\,168 individual synapses).
 % [[TODO: Some statement that our core results hold for different representations of the neuronal connectome]].
 
-We also assembled a range of data characterizing additional properties of \emph{C. elegans} neurons.
+As well as connectivity information, we also assembled a range of data characterizing additional properties of \emph{C. elegans} neurons.
 To examine the effect of physical distance between pairs of neurons, we obtained two dimensional spatial coordinates for each neuron as \texttt{celegans277.mat} from \url{www.biological-networks.org/?page_id=25} \cite{choe2004network}.
 % 277 neurons (including VC6, which makes connections only through neuro-muscular junctions) [[TODO: Aurina, why mention this? AA - this neuron doesn't have obvious connections, therefore not included in the connectome, but we have coordinates for it, otherwise, numbers do not add]])
 Coordinates for three neurons (AIBL, AIYL, SMDVL) were missing in this dataset, and were reconstructed by assigning identical coordinates to the corresponding bilateral neurons (AIBR, AIYR, SMDVR) \cite{Varier2011}.
 % [[TODO: Should we infer 3-d coordinates as Varier do, in order to make distances better behaved??]].
 % The C. elegans nervous system consists of two distinct parts: a small pharyngeal nervous system (20 neurons), responsible for  the feeding behavior of the animal and a large somatic nervous system (282 neurons).
 % In order to relate our topological and gene expression results to other information about individual neurons or pairs of neurons,
-To examine influence of anatomical location, we also labeled each neuron based on their anatomical location, as:
-(i) `head', (ii) `tail', or (iii) `body' using data from release WS256 of WormBase \cite{Harris:2009kd}, (\url{ftp://ftp.wormbase.org/pub/wormbase/releases/WS256/ONTOLOGY/anatomy_association.WS256.wb}).
-These annotations were assigned to individual neurons using the anatomical hierarchy defined in WormBase, which we retrieved using the WormBase python API (WormMine: \url{intermine.wormbase.org}) \cite{Harris:2009kd}, propagating each term down the hierarchy to individual neurons.
+To examine the influence of anatomical location, each neuron was labeled by its anatomical location, as:
+(i) `head', (ii) `tail', or (iii) `body', using data from release WS256 of WormBase \cite{Harris:2009kd}, (\url{ftp://ftp.wormbase.org/pub/wormbase/releases/WS256/ONTOLOGY/anatomy_association.WS256.wb}).
+These annotations were assigned to individual neurons using the anatomical hierarchy defined in WormBase, which we retrieved using the WormBase API (WormMine: \url{intermine.wormbase.org}) \cite{Harris:2009kd}, propagating each term down the hierarchy to individual neurons.
 % (and other child terms of `neuron', WB:0003679)
 % RetreiveHierarchy.py, NeuronRegionFinder.m
 We manually corrected the assignment of twelve head neurons (ALA, AVFL, AVFR, AVG, RIFL, RIFR, RIGL, RIGR, SABD, SABVL, SABVR, SMDVL), which were assigned as `head' in WormAtlas \cite{WormAtlas} but not on WormBase.
 % , but were manually corrected by us, by matching the assignment against the annotations provided at WormAtlas \cite{WormAtlas}.
-To examine the influence of neuronal subtype neurons were labeled by their broad functional type as either a:
-(i) `sensory' neuron (support receptive function),
-(ii) `motor' neuron (contain neuromuscular junctions), or
+To examine the influence of neuronal subtype, all neurons were labeled as:
+(i) `sensory' (support receptive function),
+(ii) `motor' (contain neuromuscular junctions), or
 (iii) `interneuron' (all other neurons) \cite{White:1986tx}.
 A total of 79 neurons are annotated as sensory, 121 annotated as motor, and 97 annotated as interneurons (including eighteen neurons assigned to two categories).
 % 5 neurons are inter&sensory, 7 are inter&motor, and 6 are sensory&motor (none are all three).
 % [[TODO: how and where from hierarchy file was downloaded?]]% RetreiveHierarchy.py, NeuronRegionFinder.m
-To examine the neurotransmitter systems used by each neuron was labeled by matching to data in Table 2 of Pereira et al.~\cite{Pereira:2015er}.
+To examine the neurotransmitter systems used by each neuron, neurons were labeled by matching to Table 2 of Pereira et al.~\cite{Pereira:2015er}.
 % to label the neurotransmitter type of all neurons.
 % in the hermaphrodite C. elegans nervous system has been mapped, revealing the dominance of cholinergic signaling \cite{Pereira:2015er}.
-To examine the influence of lineage similarity we obtained the measure of lineage distance for all pairs of neurons from previously published embryonic and post-embryonic lineage trees \cite{Sulston1977, Sulston1983}; data were downloaded from WormAtlas (\url{http://www.wormatlas.org/neuronalwiring.html#Lineageanalysis}) \cite{WormAtlas}.
+To assess the influence of lineage similarity, we obtained the measure of lineage distance for all pairs of neurons from previously published embryonic and post-embryonic lineage trees \cite{Sulston1977, Sulston1983}; data were downloaded from WormAtlas (\url{http://www.wormatlas.org/neuronalwiring.html#Lineageanalysis}) \cite{WormAtlas}.
 In this dataset, the closest common ancestor neuron was identified for each pair of neurons, and then the number of cell divisions from the common progenitor was calculated as the lineage distance.
 % Downloaded data were arranged into a matrix format where lineage distance for each pair of neurons was defined. % part of Print_neuroconnect.m
 % [[TODO: Aurina -- genes: wormbase, connectivity, lineage, birth times: wormatlas. can we go through all of this to clarify all of the data sources -- wormMine, wormBase, WormAtlas, etc. I'm a bit confused]]
 
 % METHODS: rich club analysis
 \subsection*{Network analysis}
-
 In this section we describe the network methods used to characterize the \emph{C. elegans} connectome.
-% \cite{Schroter:2017eo}.
 
 \paragraph{Degree}
-Neuronal connectivity is most simply quantified by counting the number of neurons that a given neuron projects to, known as its \emph{out-degree}, $k_\mathrm{out}$, or by counting the number of neurons that a given neuron receives projections from, known as its \emph{in-degree}, $k_\mathrm{in}$.
+Neuronal connectivity is most simply quantified by counting the number of neurons that a given neuron projects to, known as its out-degree, $k_\mathrm{out}$, or by counting the number of neurons that a given neuron receives projections from, known as its in-degree, $k_\mathrm{in}$.
 % The number of regions that a neuron projects to is its \emph{out-degree}, $k_\mathrm{out}$, and the number of regions that project to a given neuron is its \emph{in-degree}, $k_\mathrm{in}$.
-These quantities can be summed to give the total number of connections involving a given neuron, its \emph{degree}, $k_\mathrm{tot} = k_\mathrm{in} + k_\mathrm{out}$, which we refer to as simply the degree, $k$ throughout this work.
+These quantities can be summed to give the total number of connections involving a given neuron, $k_\mathrm{tot} = k_\mathrm{in} + k_\mathrm{out}$, which we refer to as simply the degree, $k$ throughout this work.
 % Weighted analogues of these degree measures involve counting the number of synaptic connections that a neuron makes to other regions (weighted out-degree, $k^w_\mathrm{out}$), that are afferent to it (weighted in-degree, $k^w_\mathrm{in}$), or the combination, weighted degree, $k^w = k^w_\mathrm{in} + k^w_\mathrm{out}$.
-At a given degree threshold, $k$, we classified each neuron as either a `hub' (degree $>k$) or a `non-hub' (degree $\leq k$).
-All connections were subsequently classified in terms of their source and target neurons, as either `rich' (hub $\rightarrow$ hub, or hub $\leftrightarrow$ hub), `feed-in' (non-hub $\rightarrow$ hub), `feed-out' (hub $\rightarrow$ non-hub), or `peripheral' (nonhub $\rightarrow$ nonhub, or nonhub $\leftrightarrow$ nonhub).
+At a given degree threshold, $k$, each neuron was classified as either a `hub' (degree $>k$) or a `non-hub' (degree $\leq k$).
+All connections were subsequently classified in terms of their source and target neurons as either
+`rich' (hub $\rightarrow$ hub, or hub $\leftrightarrow$ hub),
+`feed-in' (non-hub $\rightarrow$ hub),
+`feed-out' (hub $\rightarrow$ non-hub),
+or `peripheral' (nonhub $\rightarrow$ nonhub, or nonhub $\leftrightarrow$ nonhub).
 % Note that the directed connectivity information here has allowed us to distinguish `feeder' connections as either `feed-in' or `feed-out', rather than grouping them as `feeder', as is necessary in undirected connectomes.
 % For simplicity, hub $\rightarrow$ non-hub and non-hub $\rightarrow$ hub connections were grouped as a single `feeder' category for simplicity.
 
@@ -435,7 +433,7 @@ We used the rich-club coefficient, $\phi(k)$, to quantify the interconnectivity 
 where $N_{>k}$ is the number of nodes with degree $>k$, and $E_{>k}$ is the number of edges between them  \cite{Colizza:2006kz}.
 Thus, $\phi(k)$ measures the link density in the subgraph containing nodes with degree $>k$.
 Because $\phi(k)$ increases with $k$ for general networks (as nodes with higher degree make more connections, yielding a higher expected link density in the subgraph containing nodes with degree $>k$), we compared $\phi(k)$ measured from the \emph{C. elegans} connectome to that of randomized null networks, $\phi_\mathrm{rand}(k)$ \cite{Colizza:2006kz}.
-An ensemble of 1\,000 null networks was generated by shuffling the links in the empirical network while retaining the same degree sequence \cite{Maslov:2002hi} (rewiring each edge an average of 50 times per null network) using the \texttt{randmio\_dir} function from the {\it Brain Connectivity Toolbox} \cite{Rubinov:2010jd}.
+An ensemble of 1000 null networks was generated by shuffling the links in the empirical network while retaining the same degree sequence \cite{Maslov:2002hi} (rewiring each edge an average of 50 times per null network) using the \texttt{randmio\_dir} function from the Brain Connectivity Toolbox \cite{Rubinov:2010jd}.
 The normalized rich-club coefficient, $\Phi_\mathrm{norm}(k)$, was then computed as the ratio of the rich-club coefficient of the empirical network to the mean rich-club coefficient of the ensemble of randomized networks:
 \begin{equation}
     \label{eqn:rich_club_norm}
@@ -450,10 +448,10 @@ $\Phi_\mathrm{norm} > 1$ indicates rich-club organization of the network, with s
 %As a result, a small number of high degree nodes forming a rich club was identified.
 
 \paragraph{Modularity}
-The modular structure of the connectome was determined applying the Louvain community detection algorithm \cite{Blondel:2008do}, using the \texttt{community\_louvain} function implemented in the \emph{Brain Connectivity Toolbox} \cite{Rubinov2010}.
-To identify the optimal modular assignment, neurons were assigned to modules using consensus clustering across 1\,000 repeats of the Louvain algorithm \cite{Lancichinetti2012}, weighting each partition by its modularity, $Q$, using the \texttt{agreement\_weighted} and \texttt{consensus\_und} functions.
-% of the \emph{Brain Connectivity Toolbox} \cite{Rubinov2010} with $\tau = 0.1$.
-We also compared results to a previously reported nine-module partition of neurons derived from an Erd\"os-R\'enyi Mixture Model (ERMM) \cite{Pavlovic2014}.
+The modular structure of the connectome was determined by applying the Louvain community detection algorithm \cite{Blondel:2008do} using the \texttt{community\_louvain} function implemented in the Brain Connectivity Toolbox \cite{Rubinov:2010jd}.
+To identify the optimal modular assignment, neurons were assigned to modules using consensus clustering across 1\,000 repeats of the Louvain algorithm \cite{Lancichinetti2012}, weighting each partition by its modularity, $Q$, using the \texttt{agreement\_weighted} and \texttt{consensus\_und} functions \cite{Rubinov:2010jd}.
+% of the \emph{Brain Connectivity Toolbox} \cite{Rubinov:2010jd} with $\tau = 0.1$.
+We also compared results to a previously-reported nine-module partition derived from an Erd\"os-R\'enyi Mixture Model (ERMM) \cite{Pavlovic2014}.
 
 %with maximal modularity, $Q$.[[NOTE: DON'T FORGET TO MENTION THESE RESULTS AS WELL if we keep this sentence]].
 
@@ -467,38 +465,36 @@ We also compared results to a previously reported nine-module partition of neuro
 % The module assignments of this final agreement matrix represent a consensus estimate of the community structure of the network.
 
 
-
 % METHODS: gene expression
 \subsection*{Gene expression}
-Neuronal gene expression is measured here as a binary indicator, using data from many individual experiments compiled into a unified data resource on WormBase \cite{Harris:2009kd}, indicating which genes are expressed in a given neuron.
-% (which we denote as `1').
+Neuronal gene expression is represented as a binary indicator for which genes are expressed in a given neuron using data from many individual experiments compiled into a unified data resource on WormBase \cite{Harris:2009kd}.
 We use release WS256 of this dataset (\url{ftp://ftp.wormbase.org/pub/wormbase/releases/WS256/ONTOLOGY/anatomy_association.WS256.wb}) and analyze annotations made `directly' to individual neurons, excluding `uncertain' annotations (see Supplementary Information for details).
 % downloaded on 6th Feb 2017
 % (when genes are expressed in some neurons for a certain hierarchical category of cells)
 % If a gene is expressed under a specific qualifier for a specific neuron, it is assigned a value of 1, in all other cases 0 values are assigned.
-We denote the expression of a gene in a neuron using a `1', and other cases using a '0'. Note that a value of '0' does not distinguish between:
+We denote the expression of a gene in a neuron using a `1', and other cases using a `0'.
+Note that a value of `0' does not distinguish between:
 (i) ``gene is not expressed'' and
-(ii) ``there is no information on whether gene is expressed'', both of which are represented as a `0'.
+(ii) ``there is no information on whether gene is expressed''; both are represented as a `0'.
 Expression data is sparse, in part due to incomplete annotation data---an average of 30 genes are expressed in each neuron (range: 3 to 138 genes), and each gene is expressed in an average of 9 neurons (range: 1 to 148 neurons).
-A total of 948 genes are expressed in at least one neuron, allowing us to represent the full expression dataset as a binary 279 (neuron) $\times$ 948 (genes) matrix, shown in Fig.~\ref{fig:SchematicRepresentation}B.
+A total of 948 genes are expressed in at least one neuron, allowing us to represent the full expression dataset as a binary 279 (neuron) $\times$ 948 (genes) matrix, shown in Fig.~\ref{fig:SchematicRepresentation}C.
 % gData = [G.GeneExpData.Direct]; unique(sum(gData,1)), unique(sum(gData,2))
 
-% METHODS: gene coexpression
+
 \subsection*{Gene coexpression}
 % NOTE: if we use this measure only for one plot in the supp, probably should first describe Pearson here and add this at the end of gene coexpression section.
-
-Our primary aim in this work is to understand how patterns of coupled expression across 948 genes between pairs of neurons (e.g., rows of Fig.~\ref{fig:SchematicRepresentation}B) are related to pairwise patterns of neuronal connectivity.
-To estimate the coupling between neuronal gene expression profiles, we required a similarity measure for pairs of neurons that captures the probability of patterns of binary gene expression matching, or \emph{gene coexpression}.
-We used a binary analogue of the linear Pearson correlation coefficient, the mean square contingency coefficient, $r_\phi$ \cite{Warrens2008}:
+Our primary aim in this work is to understand how pairwise patterns of neuronal connectivity (i.e., Fig.~\ref{fig:SchematicRepresentation}A) relate to the coupled expression across 948 genes between pairs of neurons (i.e., pairs of rows of Fig.~\ref{fig:SchematicRepresentation}C).
+To estimate the coupling between neuronal gene expression profiles, we required a similarity measure for pairs of neurons that captures their similarity of gene expression, or gene coexpression.
+We used a binary analogue of the linear Pearson correlation coefficient, the mean square contingency coefficient \cite{Warrens2008}:
 \begin{equation} \label{eq:rphi}
     r_\phi = \frac{n_{11}n_{00} - n_{10}n_{01}}{\sqrt{n_{1\bullet}n_{0\bullet}n_{\bullet 0}n_{\bullet 1}}},
 \end{equation}
 for two vectors $x$, $y$, of length $L (=948)$, where $n_{xy}$ counts the number of observations of each of the four outcomes (e.g., $n_{10} = \sum_i \delta_{x_i,1}\delta_{y_i,0}$ counts the number of times $x=1$ and $y=0$ across the length of $x$ and $y$), while the symbol $\bullet$ sums across a given variable (e.g., $n_{\bullet 0} = \sum_i \delta_{y_i,0}$ counts the number of times $y = 0$).
-The coefficient assumes a maximum value $r_\phi = 1$ when $x$ and $y$ are identical (such that $n_{11} + n_{00} = L$), and a minimum value $r_\phi = -1$ when $x$ and $y$ are always mismatched (such that $n_{10} + n_{01} = L$).\\
-One concern about using this measure in partially annotated data is that the coupling metric might be biased by differences in the relative number of expressed genes in a neuron which ranged from 3 (0.3\% of 948 genes analyzed here) to 138 (14.6\%). 
-To explore this further, we compared $r_\phi$ with several other commonly used metrics of association between binary vectors including Yule's $Q$ and Jaccard. 
-The results, which confirm that $r_\phi$ is an unbiased estimate of gene coexpression, are presented in (Fig.~\ref{fig:S_propOnes}).
-Note that other binary correlation measures exhibited strong bias and were therefore unsuitable for this analysis.
+The coefficient assumes a maximum value $r_\phi = 1$ when $x$ and $y$ are identical (such that $n_{11} + n_{00} = L$), and a minimum value $r_\phi = -1$ when $x$ and $y$ are always mismatched (such that $n_{10} + n_{01} = L$).
+
+One concern about applying this measure to sparsely annotated data is that it may be biased by differences in the relative number of expressed genes in a neuron, which ranged from 3 (0.3\% of 948 genes analyzed here) to 138 (14.6\%).
+To explore this further, we compared $r_\phi$ with several other commonly used metrics of association between binary vectors including Yule's $Q$ and Jaccard.
+While these other binary correlation measures exhibited strong bias with the proportion of gene expression annotations made to a given neuron, our results confirm that $r_\phi$ is unbiased (shown in Fig.~\ref{fig:S_propOnes}).
 
 % A total of 92 anatomically distinct neuron classes are bilateral, that is, they contain both left and right counterparts (e.g., AVAL/AVAR).
 The 92 bilateral pairs of neurons (e.g., AVAL/AVAR, CEPVL/CEPVR, etc.) mostly exhibit highly correlated gene expression patterns, with all bilateral pairs exhibiting $r_\phi > 0.8$, and 96\% of pairs exhibiting $r_\phi > 0.95$.
@@ -677,7 +673,6 @@ Axes of each subplot are to scale with each other, and the upper zoomed-in plots
 \end{figure}
 % ------------------------------------------------------------------------------
 
-
 We first characterize the probability that two neurons will be connected given their source and target types, after labeling each neuron as either: `head', `body', or `tail', according to anatomically distinct regions of the \emph{C. elegans} nervous system.
 % (cf. Fig.~\ref{fig:neuronsSpace}).
 Connection probability is plotted as a function of Euclidean separation distance in Fig.~\ref{fig:connectionProb} for each combination of source and target neuron labels, across 10 equiprobable distance bins (and with an exponential fit) in each case.
@@ -731,6 +726,9 @@ Thus, we found no evidence for bulk spatial relationships of $r_\phi$ in the spe
 % However, because we found no correlation between Euclidean distance between a pair of neurons (based on their two-dimensional coordinates) and their gene coexpression in the C. elegans nervous system (Fig.~\ref{fig:S_distDep}), no correction was necessary here.
 % In \textit{C. elegans}, we found a semi-exponential relationship between connection probability and Euclidean separation distance (based on their two dimensional coordinates) between a pair of neurons, but no correlation between the Euclidean separation distance between a pair of neurons and their gene coexpression, $r_\phi$.
 
+% ------------------------------------------------------------------------------
+% <<coexpressionDistance(C,G)>>
+% ------------------------------------------------------------------------------
 \begin{figure}[h]
   \centering
     \includegraphics[width=\textwidth]{spatialCoexpressionMain.eps}

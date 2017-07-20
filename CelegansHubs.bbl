@@ -1,4 +1,4 @@
-\begin{thebibliography}{100}
+\begin{thebibliography}{10}
 
 \bibitem{White:1986tx}
 White JG, Southgate E, Thomson JN.
@@ -47,11 +47,30 @@ Zingg B, Hintiryan H, Gou L, Song MY, Bay M, Bienkowski MS, et~al.
 \newblock {Neural Networks of the Mouse Neocortex}.
 \newblock Cell. 2014;156(5):1096--1111.
 
+\bibitem{bota2015}
+Bota M, Sporns O, Swanson LW.
+\newblock Architecture of the cerebral cortical association connectome
+  underlying cognition.
+\newblock Proceedings of the National Academy of Sciences.
+  2015;112(16):E2093--E2101.
+
+\bibitem{scannell1995}
+Scannell JW, Blakemore C, Young MP.
+\newblock Analysis of connectivity in the cat cerebral cortex.
+\newblock Journal of Neuroscience. 1995;15(2):1463--1483.
+
 \bibitem{Markov:2012wu}
 Markov NT, Ercsey-Ravasz MM, Gomes ARR, Lamy C, Magrou L, Vezoli J, et~al.
 \newblock {A Weighted and Directed Interareal Connectivity Matrix for Macaque
   Cerebral Cortex}.
 \newblock Cereb Cortex. 2012;24(1):bhs270--36.
+
+\bibitem{stephan2001}
+Stephan KE, Kamper L, Bozkurt A, Burns GA, Young MP, K{\"o}tter R.
+\newblock Advanced database methodology for the Collation of Connectivity data
+  on the Macaque brain (CoCoMac).
+\newblock Philosophical Transactions of the Royal Society of London B:
+  Biological Sciences. 2001;356(1412):1159--1186.
 
 \bibitem{Hagmann:2008gda}
 Hagmann P, Cammoun L, Gigandet X, Meuli R, Honey CJ, Wedeen VJ, et~al.
@@ -68,6 +87,12 @@ Bullmore ET, Sporns O.
 Bullmore ET, Sporns O.
 \newblock {The economy of brain network organization}.
 \newblock Nat Rev Neurosci. 2012;13:337--349.
+
+\bibitem{Schroter:2017eo}
+Schr{\"o}ter M, Paulsen O, Bullmore E.
+\newblock {Micro-connectomics: probing the organization of neuronal networks at
+  the cellular scale}.
+\newblock Nat Rev Neurosci. 2017; p. 1--16.
 
 \bibitem{fornito2016book}
 Fornito A, Zalesky A, Bullmore E.
@@ -132,24 +157,6 @@ de~Reus MA, van~den Heuvel MP.
 Towlson EK, V{\'e}rtes PE, Ahnert SE.
 \newblock {The rich club of the C. elegans neuronal connectome}.
 \newblock J Neurosci. 2013;33(15):6380--6387.
-
-\bibitem{Henderson:2014fg}
-Henderson JA, Robinson PA.
-\newblock Relations Between the Geometry of Cortical Gyrification and
-  White-Matter Network Architecture.
-\newblock Brain Conn. 2014;4(2):112--130.
-
-\bibitem{Roberts:2016il}
-Roberts JA, Perry A, Lord AR, Roberts G, Mitchell PB, Smith RE, et~al.
-\newblock {The contribution of geometry to the human connectome}.
-\newblock NeuroImage. 2016;124:379--393.
-
-\bibitem{Horvat:2016ia}
-Horv{\'a}t S, G{\u{a}}m{\u{a}}nuț R, Ercsey-Ravasz M, Magrou L,
-  G{\u{a}}m{\u{a}}nuț B, Van~Essen DC, et~al.
-\newblock {Spatial Embedding and Wiring Cost Constrain the Functional Layout of
-  the Cortical Network of Rodents and Primates}.
-\newblock PLoS Biol. 2016;14(7):e1002512.
 
 \bibitem{Fornito:2015dq}
 Fornito A, Zalesky A, Breakspear MJ.
@@ -238,6 +245,12 @@ Fornito A, Zalesky A, Breakspear M.
 \newblock Nature Reviews Neuroscience. 2015;16(3):159--172.
 \newblock doi:{10.1038/nrn3901}.
 
+\bibitem{Crossley:2014eta}
+Crossley NA, Mechelli A, Scott J, Carletti F, Fox PT, McGuire P, et~al.
+\newblock {The hubs of the human connectome are generally implicated in the
+  anatomy of brain disorders}.
+\newblock Brain. 2014;137(8):2382--2395.
+
 \bibitem{Lennie:2003ia}
 Lennie P.
 \newblock {The Cost of Cortical Computation}.
@@ -256,6 +269,14 @@ V{\'{e}}rtes PE, Rittman T, Whitaker KJ, Romero-Garcia R, V{\'{a}}{\v{s}}a F,
 \newblock Philosophical Transactions of the Royal Society B.
   2016;371(1705):735--769.
 \newblock doi:{10.1098/rstb.2015.0362}.
+
+\bibitem{White1986}
+White JG, Southgate E, Thomson JN, Brenner S.
+\newblock {The Structure of the Nervous System of the Nematode Caenorhabditis
+  elegans}.
+\newblock Philosophical Transactions of the Royal Society B.
+  1986;314(1165):1--340.
+\newblock doi:{10.1098/rstb.1986.0056}.
 
 \bibitem{Riddle1997}
 Riddle DL, Blumenthal T, Meyer BJ, Priess JR. {C. elegans II}; 1997.
@@ -390,11 +411,13 @@ Warrens MJ.
 \newblock Psychometrika. 2008;73(4):777--789.
 \newblock doi:{10.1007/s11336-008-9070-3}.
 
-\bibitem{Parkes:2017dn}
-Parkes L, Fulcher BD, Y{\"u}cel M, Fornito A.
-\newblock {Transcriptional signatures of connectomic subregions of the human
-  striatum}.
-\newblock Genes, Brain and Behavior. 2017;25:1176.
+\bibitem{Fulcher2016}
+Fulcher BD, Fornito A.
+\newblock {A transcriptional signature of hub connectivity in the mouse
+  connectome.}
+\newblock Proceedings of the National Academy of Sciences of the United States
+  of America. 2016;113(5):1513302113--.
+\newblock doi:{10.1073/pnas.1513302113}.
 
 \bibitem{Benjamini:1995cd}
 Benjamini Y, Hochberg Y.
@@ -443,6 +466,19 @@ Richiardi J, Altmann A, Greicius M.
   Synchronous Activity In Brain Networks}.
 \newblock bioRxiv. 2017; p. 132746.
 
+\bibitem{Henderson:2014fg}
+Henderson JA, Robinson PA.
+\newblock Relations Between the Geometry of Cortical Gyrification and
+  White-Matter Network Architecture.
+\newblock Brain Conn. 2014;4(2):112--130.
+
+\bibitem{Horvat:2016ia}
+Horv{\'a}t S, G{\u{a}}m{\u{a}}nuț R, Ercsey-Ravasz M, Magrou L,
+  G{\u{a}}m{\u{a}}nuț B, Van~Essen DC, et~al.
+\newblock {Spatial Embedding and Wiring Cost Constrain the Functional Layout of
+  the Cortical Network of Rodents and Primates}.
+\newblock PLoS Biol. 2016;14(7):e1002512.
+
 \bibitem{Wang:2016gg}
 Wang XJ, Kennedy H.
 \newblock {Brain structure and dynamics across scales: in search of rules}.
@@ -483,39 +519,11 @@ Opsahl T, Colizza V, Panzarasa P, Ramasco JJ.
 \newblock Physical review letters. 2008;101(16):168702.
 \newblock doi:{10.1103/PhysRevLett.101.168702}.
 
-\bibitem{Kim2014}
-Kim JS, Kaiser M.
-\newblock {From Caenorhabditis elegans to the human connectome: a specific
-  modular organization increases metabolic, functional and developmental
-  efficiency.}
-\newblock Philosophical transactions of the Royal Society of London Series B,
-  Biological sciences. 2014;369(1653).
-\newblock doi:{10.1098/rstb.2013.0529}.
-
-\bibitem{Achacoso:1992ay}
-Achacoso T, Yamamoto W.
-\newblock AY's Neuroanatomy of C. elegans for Computation.
-\newblock CRC Press, Boca Raton, FL; 1992.
-
-\bibitem{Richiardi2015}
-Richiardi J, Altmann A, Milazzo AC, Chang C, Chakravarty MM, Banaschewski T,
-  et~al.
-\newblock {Correlated gene expression supports synchronous activity in brain
-  networks}.
-\newblock Science. 2015;348(6240):1241--1244.
-\newblock doi:{10.1126/science.1255905}.
-
-\bibitem{vandenHeuvel:2013ij}
-van~den Heuvel MP, Sporns O.
-\newblock {An Anatomical Substrate for Integration among Functional Networks in
-  Human Cortex}.
-\newblock J Neurosci. 2013;33(36):14489--14500.
-
-\bibitem{Schroter:2017eo}
-Schr{\"o}ter M, Paulsen O, Bullmore E.
-\newblock {Micro-connectomics: probing the organization of neuronal networks at
-  the cellular scale}.
-\newblock Nat Rev Neurosci. 2017; p. 1--16.
+\bibitem{Towlson2013}
+Towlson EK, V{\'{e}}rtes PE, Ahnert SE, Schafer WR, Bullmore ET.
+\newblock {The rich club of the C. elegans neuronal connectome.}
+\newblock Journal of Neuroscience. 2013;33(15):6380--7.
+\newblock doi:{10.1523/JNEUROSCI.3784-12.2013}.
 
 \bibitem{Cui2007}
 Cui Q, Yu Z, Purisima EO, Wang E, Li X, Schwarz P, et~al.
@@ -541,80 +549,11 @@ French L, Pavlidis P.
   rodent brain}.
 \newblock PLoS Comp Biol. 2011;7(1):e1001049.
 
-\bibitem{Ypma:2016em}
-Ypma RJF, Bullmore E.
-\newblock {Statistical Analysis of Tract-Tracing Experiments Demonstrates a
-  Dense, Complex Cortical Network in the Mouse}.
-\newblock PLoS Comp Biol. 2016;12(9):e1005104--22.
-
-\bibitem{Liu2009}
-Liu X, Long F, Peng H, Aerni SJ, Jiang M, S{\'{a}}nchez-Blanco A, et~al.
-\newblock {Analysis of Cell Fate from Single-Cell Gene Expression Profiles in
-  C. elegans}.
-\newblock Cell. 2009;139(3):623--633.
-\newblock doi:{10.1016/j.cell.2009.08.044}.
-
-\bibitem{vandenHeuvel:2017ex}
-van~den Heuvel MP, Yeo BTT.
-\newblock {A Spotlight on Bridging Microscale and Macroscale Human Brain
-  Architecture}.
-\newblock Neuron. 2017;93(6):1248--1251.
-
-\bibitem{Varadan:2006ek}
-Varadan V, Miller~III DM, Anastassiou D.
-\newblock {Computational inference of the molecular logic for synaptic
-  connectivity in C. elegans}.
-\newblock Bioinformatics. 2006;22(14):e497--e506.
-
 \bibitem{Kaufman2006}
 Kaufman A, Dror G, Meilijson I, Ruppin E.
 \newblock {Gene expression of Caenorhabditis elegans neurons carries
   information on their synaptic connectivity.}
 \newblock PLoS computational biology. 2006;2(12):e167.
 \newblock doi:{10.1371/journal.pcbi.0020167}.
-
-\bibitem{Baruch2008b}
-Baruch L, Itzkovitz S, Golan-Mashiach M, Shapiro E, Segal E.
-\newblock {Using Expression Profiles of Caenorhabditis elegans Neurons To
-  Identify Genes That Mediate Synaptic Connectivity}.
-\newblock PLoS computational biology. 2008;4(7):e1000120.
-\newblock doi:{10.1371/journal.pcbi.1000120}.
-
-\bibitem{Lein:2007jn}
-Lein E, Hawrylycz MJ, Ao N, Ayres M, Bensinger A, Bernard A, et~al.
-\newblock {Genome-wide atlas of gene expression in the adult mouse brain}.
-\newblock Nature. 2007;445(7124):168--176.
-
-\bibitem{French2011}
-French L, Pavlidis P.
-\newblock {Relationships between gene expression and brain wiring in the adult
-  rodent brain.}
-\newblock PLoS computational biology. 2011;7(1):e1001049.
-\newblock doi:{10.1371/journal.pcbi.1001049}.
-
-\bibitem{Kluger2004}
-Kluger Y, Tuck DP, Chang JT, Nakayama Y, Poddar R, Kohya N, et~al.
-\newblock {Lineage specificity of gene expression patterns.}
-\newblock Proceedings of the National Academy of Sciences of the United States
-  of America. 2004;101(17):6508--6513.
-\newblock doi:{10.1073/pnas.0401136101}.
-
-\bibitem{Hawrylycz:2012ky}
-Hawrylycz MJ, Lein E, Guillozet-Bongaarts AL, Shen EH, Ng L, Miller JA, et~al.
-\newblock {An anatomically comprehensive atlas of the adult human brain
-  transcriptome}.
-\newblock Nature. 2012;489(7416):391--399.
-
-\bibitem{Shen:2012ua}
-Shen EH, Overly CC, Jones AR.
-\newblock {The Allen Human Brain Atlas: comprehensive gene expression mapping
-  of the human brain}.
-\newblock Trends Neurosci. 2012;32(12):711--714.
-
-\bibitem{Tasic:2016jp}
-Tasic B, Menon V, Nguyen TN, Kim TK, Jarsky T, Yao Z, et~al.
-\newblock {Adult mouse cortical cell taxonomy revealed by single cell
-  transcriptomics}.
-\newblock Nat Neurosci. 2016;19(2):335--346.
 
 \end{thebibliography}
