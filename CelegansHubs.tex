@@ -1015,8 +1015,8 @@ Circles indicate a statistically significant increase in gene coexpression in a 
 % , driven by the characteristic gene expression of that module.
 
 Another important topological property of nervous systems is modularity, such that network nodes coalesce into tightly connected subsystems that are thought to serve a common function \cite{Sporns2016}.
-Prior work in humans has shown that brain regions belonging to the same funcitonal system have elevated transcriptional coupling. 
-We therefore examined the association between topological modularity of the C elegans connectome and gene coexpression.  \\
+Prior work in humans has shown that brain regions belonging to the same functional system have elevated transcriptional coupling [[REF?]].
+We therefore examined the association between topological modularity of the \emph{C. elegans} connectome and gene coexpression.
 We used the Louvain community detection algorithm \cite{Blondel:2008do} to extract modules from the \emph{C. elegans} connectome using consensus clustering (see \textit{Methods}).
 Four modules were extracted, with eleven hubs in module one (which contains 111 neurons), four hubs in module two (96 neurons), one hub in module three (40 neurons), and no hubs in module four (32 neurons).
 We also compared the results of this modular partition of neurons to a previously reported nine-module partition derived from an Erd\"os-R\'enyi Mixture Model (ERMM) \cite{Pavlovic2014}.
@@ -1665,20 +1665,20 @@ The increased separation distance between hubs is driven by a relative increase 
 % ------------------------------------------------------------------------------
 % \paragraph*{S3 Fig.}
 % {\bf Gene coexpression decreases with separation distance within the head and tail.}
-\begin{figure}[h]
-\centering
-    \includegraphics[width=1\textwidth]{DistanceCoexpression.pdf}
-    % \includegraphics[width=1\textwidth]{coExpressionDistanceDetail.eps}
-\caption{
-\label{fig:S_distCoexp}
-\textbf{Gene coexpression decreases with separation distance within the head and tail.}
-Gene coexpression, $r_\phi$ (in all cases excluding left-right homologous pairs of neurons), is shown as a function of the pairwise separation distance between pairs of neurons (shown as the mean (solid) $\pm$ standard deviation (dotted) in seven equiprobable distance bins, with extent shown as horizontal bars), for \textbf{A} all pairs of neurons in the head, \textbf{B} all pairs of neurons in the tail, and \textbf{C} all other pairs (labeled).
-Scatters for all neuron pairs are added in \textbf{A} and \textbf{B}.
-An exponential relationship, $f(x) = a\exp(-bx) + c$, is fitted in \textbf{A} and \textbf{B}, revealing a slight decreasing trend in $r_\phi$ with distance, as per macroscopic mammalian brains \cite{Fulcher:2016ck, Krienen:2016eq}.
-Looking within the head, we find different spatial relationships as a function of neuron type, shown for \textbf{C} pairs of interneurons, \textbf{D} pairs of motor neurons, \textbf{E} motor-interneuron pairs, \textbf{F} pairs of sensory neurons, \textbf{G} interneuron-sensory neuron pairs, and \textbf{H} motor-sensory pairs.
-[[TODO: add labels for subplots C--H, label all axes? Change axis label to Gene coexpression, $r_\phi$ ]]
-}
-\end{figure}
+% \begin{figure}[h]
+% \centering
+%     \includegraphics[width=1\textwidth]{DistanceCoexpression.pdf}
+%     % \includegraphics[width=1\textwidth]{coExpressionDistanceDetail.eps}
+% \caption{
+% \label{fig:S_distCoexp}
+% \textbf{Gene coexpression decreases with separation distance within the head and tail.}
+% Gene coexpression, $r_\phi$ (in all cases excluding left-right homologous pairs of neurons), is shown as a function of the pairwise separation distance between pairs of neurons (shown as the mean (solid) $\pm$ standard deviation (dotted) in seven equiprobable distance bins, with extent shown as horizontal bars), for \textbf{A} all pairs of neurons in the head, \textbf{B} all pairs of neurons in the tail, and \textbf{C} all other pairs (labeled).
+% Scatters for all neuron pairs are added in \textbf{A} and \textbf{B}.
+% An exponential relationship, $f(x) = a\exp(-bx) + c$, is fitted in \textbf{A} and \textbf{B}, revealing a slight decreasing trend in $r_\phi$ with distance, as per macroscopic mammalian brains \cite{Fulcher:2016ck, Krienen:2016eq}.
+% Looking within the head, we find different spatial relationships as a function of neuron type, shown for \textbf{C} pairs of interneurons, \textbf{D} pairs of motor neurons, \textbf{E} motor-interneuron pairs, \textbf{F} pairs of sensory neurons, \textbf{G} interneuron-sensory neuron pairs, and \textbf{H} motor-sensory pairs.
+% [[TODO: add labels for subplots C--H, label all axes? Change axis label to Gene coexpression, $r_\phi$ ]]
+% }
+% \end{figure}
 % ------------------------------------------------------------------------------
 
 
