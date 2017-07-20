@@ -915,11 +915,16 @@ obtained using incomplete binary annotations of gene expression across just 948 
 % (iii) intermediate coexpression in feeder connections; and
 
 \subsection*{Potential drivers of elevated coexpression between hubs}
-The sixteen hub neurons in \emph{C. elegans} ($k > 44$) are all interneurons; are all located in either the head or tail; are mostly contained within a single topological module of the network; are mostly cholinergic (13/16); and are all born prior to hatching.
+As we establish through this section, the sixteen hub neurons in \emph{C. elegans} ($k > 44$)
+are all interneurons;
+are all located in either the head or tail;
+are mostly contained within a single topological module of the network;
+are mostly cholinergic (13/16);
+and are all born prior to hatching.
 % and concentrated in the head (10/13),
 % \cite{Varier2011}, \cite{Pereira:2015er}
 % Having demonstrated that gene coexpression is elevated for connected regions, and particularly for connected pairs of hubs,
-We therefore investigated whether the similarity of gene expression profiles between hubs was specific to their high levels of connectivity, or whether it could instead be driven by these other characteristics.
+We therefore investigated whether the similarity of gene expression profiles between hubs is specific to their high levels of connectivity, or whether it could instead be driven by these other characteristics.
 % We thus investigated whether any of these types of homogeneities amongst hub neurons could contribute to our finding of increased gene coexpression, $r_\phi$.
 % , namely modular organization, lineage similarity, or neurotransmitter type, could explain our results.
 
@@ -936,12 +941,32 @@ We therefore investigated whether the similarity of gene expression profiles bet
  %\end{figure}
 
 \paragraph{Interneurons}
-All sixteen hubs ($k > 44$) in \textit{C. elegans} are interneurons.
-To determine whether the increase in gene coexpression in rich connections was specific to interneurons, we plotted the median coexpression for hub-hub connections, $r_\phi$, as a function of the degree threshold, $k$, separately for connections involving interneurons, sensory neurons, and motor neurons as shown in Fig.~\ref{fig:interneuron_dep}A.
+The sixteen hubs in \textit{C. elegans} ($k > 44$) are all interneurons.
+To determine whether the increase in gene coexpression in rich connections was specific to interneurons, we plotted the median coexpression for hub-hub connections, $\tilde{r}_\phi$, as a function of the degree threshold, $k$, separately for connections involving interneurons, sensory neurons, and motor neurons as shown in Fig.~\ref{fig:interneuron_dep}A.
 For the curve labeled `sensory' neurons, for example, each point is the median $r_\phi$ across connections involving sensory neurons (i.e., at least one neuron of a connected pair is a sensory neuron), for which both neurons have degree $>k$.
 The increase in median hub-hub gene coexpression is strongest for connections involving interneurons. 
 Motor neurons show a smaller increase with $k$, although the absence of motor and sensory neurons with high {$k$ makes it difficult to draw firm conclusions. 
 However, we do find that average coexpression is higher for hub-hub pairs of interneurons compared to connections between all pairs of non-hub interneurons (Wilcoxon rank sum test, $p = 5 \times 10^{-31}$), indicating that the high expression of rich pairs cannot simply be explained by the fact that all hub neurons are interneurons.
+
+% ------------------------------------------------------------------------------
+% <<plot_neuronType.m>>
+% ------------------------------------------------------------------------------
+\begin{figure}[h]
+\centering
+   \includegraphics[width=1\textwidth]{TypeDegree.pdf}
+ \caption{
+\textbf{Gene coexpression is highest for hub interneurons.}
+\textbf{A} \emph{Top}: The number of connections involving interneurons (orange), sensory neurons (blue), and motor neurons (green) across degree threshold, $k$, represented as $\log_{10}$(number of links).
+\emph{Bottom}: Median gene coexpression as a function of degree for connections involving different types of neurons.
+Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (one-sided Wilcoxon rank-sum test, $p < 0.05$).
+\textbf{B} Coexpression distributions for all pairs of hub interneurons (red) and all pairs of non-hub interneurons (yellow) (Wilcoxon rank sum test, $p = 0.047$).
+[[TODO-AA: Is the top-left plot actually counting pairs?? Or is it actual connectome edges?]]
+[[TODO-AA: Add labels A, B, C using the LabelCurrentAxes function]]
+[[TODO-AA: Clarify axis tick labels in B: at the moment appears like a node-level analysis on horizontal axis but pairwise analysis on vertical]]
+[[TODO-AA: Recolor, or somehow update caption for B that reflects the new command interneuron story -- will do when plots are finalized]]
+}
+ \label{fig:interneuron_dep}
+\end{figure}
 
 We next investigated increased coexpression of rich pairs could be driven by the anatomical properties of hub interneurons. 
 [[TODO-AA: this still needs some unpacking to distinguish from the rank sum test just performed]]. Specifically, we selected a subset of interneurons that most closely resemble the anatomical properties of hub interneurons, in terms of their origin and termination locations, arriving at the following set of eight nonhub head interneurons: AVFL, AVFR, AVHL, AVHR, AVKL, AVKR, AVJL, and AVJR [[any reproducible criteria through which these were selected?? AA:can't elaborate more now - will need to ask Roger for more explanation - that was his list suggested based on origin and termination]]. 
@@ -961,28 +986,6 @@ Thus, the increase in coexpression amongst hub interneurons cannot be explained 
 %We find that the increase in median hub-hub gene coexpression, $\tilde{r}_\phi$, with $k$ is strongest for connections involving interneurons, while connections involving motor neurons show a smaller increase with $k$, and connections involving sensory neurons show no relationship.
 % , which are unique in their increasing average coexpression with increasing degree
 % Thus, interneurons drive the gene coexpression relationship with degree, $k$,
-
-% ------------------------------------------------------------------------------
-% <<plot_neuronType.m>>
-% ------------------------------------------------------------------------------
-\begin{figure}[h]
-\centering
-   \includegraphics[width=1\textwidth]{TypeDegree.pdf}
- \caption{
-\textbf{Gene coexpression is highest for hub interneurons.}
-\textbf{A} \emph{Top}: The number of connections involving interneurons (orange), sensory neurons (blue), and motor neurons (green) across degree threshold, $k$ represented as $\log_{10}$(number of links).
-\emph{Bottom}: Median gene coexpression as a function of degree for connections involving different types of neurons.
-Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (one-sided Wilcoxon rank-sum test; $p < 0.05$).
-\textbf{B} Coexpression distributions for all pairs of hub interneurons (red) and all pairs of non-hub interneurons (yellow) (Wilcoxon rank sum test, $p = 0.047$).
-[[TODO-AA: Is the top-left plot actually counting pairs?? Or is it actual connectome edges?]]
-[[TODO-AA: Add labels A, B, C using the LabelCurrentAxes function]]
-[[TODO-AA: Clarify axis tick labels in B: at the moment appears like a node-level analysis on horizontal axis but pairwise analysis on vertical]]
-[[TODO-AA: Recolor, or somehow update caption for B that reflects the new command interneuron story -- will do when plots are finalized]]
-}
- \label{fig:interneuron_dep}
-\end{figure}
-
-%[[MAKE LESS VAGUE]] [[NEED A STRONGER ARGUMENT FOR SELECTING THOSE SPECIFIC INTERNEURONS]]:\\
 
 % Having found that interneurons drive the gene coexpression relationship with degree, $k$,
 %We next investigated whether hub neurons show a unique transcriptional signature amongst interneurons.
@@ -1091,7 +1094,7 @@ Thus, for both types of modular decompositions, connected pairs of hub neurons e
 
 
 \paragraph{Birth time}
-The genesis of neurons in the \emph{C. elegans} nervous system is separated into two distinct time periods: before hatching (birth time $<550$ min -- `early') and after hatching (birth time $>1200$ min -- `late'), with no neurons formed during intermediate times \cite{Varier2011}.
+The genesis of neurons in \emph{C. elegans} is separated into two distinct time periods: before hatching (birth time $<550$ min -- `early-born') and after hatching (birth time $>1200$ min -- `late-born'), with no neurons formed during intermediate times \cite{Varier2011}.
 %Distinguishing neurons into these two groups is appropriate as birth time differences between pairs of neurons are dominated by the difference between these two clusters of neuron birth periods.
 As a broad group, connected pairs of early-born neurons do not exhibit significantly different gene coexpression compared to connected pairs of late-born neurons (Wilcoxon rank sum test, $p = 0.64$), but connected pairs of early-born neurons do exhibit significantly higher gene coexpression relative to pairs of connected neurons for which one neuron is born prior to hatching and the other is born post-hatching (Wilcoxon rank sum test, $p = 4.2 \times 10^{-3}$).
 Since all \emph{C. elegans} hub neurons are born prior to hatching \cite{Towlson2013} and neurons born at similar times may share similar connectivity properties \cite{Schroter:2017eo}, we investigated whether the increase in coexpression between hub neurons of \emph{C. elegans} may be driven by their similar birth times.
@@ -1099,7 +1102,8 @@ Since all \emph{C. elegans} hub neurons are born prior to hatching \cite{Towlson
 % they exhibit significantly higher gene coexpression comparing to connections that exist between those two neuron groups.
 % with an around 700min gap between them when no neurons are formed.
 % \cite{Varier2011, Towlson2013}.
-Focusing on the 201 neurons (16 hub and 185 nonhub neurons) born prior to hatching, connected pairs of hub neurons (rich links) exhibit significantly increased coexpression relative to other pairs of connected early-born neurons (i.e., feed-in, feed-out, and peripheral connections - non-rich links; Wilcoxon rank sum test, $p < 10^{-22}$), as shown in Fig.~\ref{fig:OtherInfluences}D.
+Focusing on the 201 neurons (16 hub and 185 nonhub neurons) born prior to hatching, connected pairs of hub neurons exhibit significantly increased coexpression relative to other pairs of connected early-born neurons (Wilcoxon rank sum test, $p < 10^{-22}$), as shown in Fig.~\ref{fig:OtherInfluences}D.
+% i.e., feed-in, feed-out, and peripheral connections - non-rich links; 
  % to see whether connections between hub neurons displayed increased coexpression relative to other types of connections between neurons born during this early developmental phase.
 % Hub neurons are thus distinctively similar in their expression patterns, even amongst early-born neurons.
 % We conclude that the increased coexpression between hub neurons is not driven by the similarity in their birth times.
@@ -1112,15 +1116,14 @@ Focusing on the 201 neurons (16 hub and 185 nonhub neurons) born prior to hatchi
 %[[should first characterize general relationship between lineage and coexpression, and then address hub effect]] -- there is no general lineage-coexpression effect in our results.
 The lineage distance between a pair of neurons is defined as the sum of total divisions that have taken place since the most recent common ancestor cell \cite{Pavlovic:2014gx, Sulston1977, Sulston1983}.
 In the mammalian brain, neuronal lineage has been associated with both functional \cite{Ciceri2013, Li2012} and connectivity-related properties \cite{Yu2012}.
-Moreover, tissue distance (resembling lineage distance on a cellular scale) was found to correlate with gene expression divergence, meaning that tissues from the same branch on the fate map share more similar gene expression pattern in both human and mouse mesoderm as well as ectoderm tissues \cite{Cui2007}.
+Moreover, tissue distance (resembling lineage distance on a cellular scale) correlates with gene expression divergence, meaning that tissues from the same branch on the fate map share more similar gene expression pattern in both human and mouse mesoderm as well as ectoderm tissues \cite{Cui2007}.
 Given that the ectoderm eventually differentiates to form the nervous system, this finding suggests a possible relationship between lineage distance and gene coexpression in a microscale neuronal system such as that of \textit{C. elegans}.
 %Therefore, lineage distance could potentially be an informative source of information about the genetic makeup of the \textit{C. elegans} nervous system \cite{Schroter:2017eo}.
-We find no significant correlation between lineage distance and gene coexpression in \textit{C. elegans} (Spearman $\rho = -0.027$, $p = 0.2$). 
+We find no significant correlation between lineage distance and gene coexpression in \textit{C. elegans} (Spearman's $\rho = -0.027$, $p = 0.2$). 
 As shown in Fig.~\ref{fig:OtherInfluences}E, we also find no significant difference in lineage distance between hub (rich connections) and non-hub neurons (non-rich connections) (Wilcoxon rank sum test, $p = 0.079$).
 %[[Could do as pairs rather than connected...? - THERE IS A sign DIFFERENCE if we take all pairs instead of connections - hubs are more close in lineage it means that there are no connections between hubs that are closest in lineage, while literature suggests, that some neurons in mouse form connections preferentially with `sister' neurons as in Yu, 2012.]].
 %all hub neurons are formed early in development as characterized above, and hence it is possible that they originate from common ancestry cells and share intrinsic similarities in gene expression that influence the observed increase in coexpression between hub neurons.
 %It may be the case, for example, that hub neurons are derived from similar cell lines, which may drive their increased coexpression.
-
 Thus, we can not attribute the transcriptional similarity of connected hub neurons to their neuronal lineage.
 
 %[[not sure this is relevant/fits the story. Could remove:]]\\
