@@ -529,7 +529,7 @@ and (iii) low genome coverage (less than 5\% of the protein coding genes in \emp
 % in the list of 948 genes (3): nhx-1, nhx-5, unc-32, but for actual enrichment we use genes that have >1 mathes on mask, so only unc-32 survived this.
 % fot the enrichment we choose gene set size (5-100), so no analysis could be done with only one gene.
 % [GenesinGO, GOs] = searchGOcategories(C,G, 'mouse');
-Given that $r_\phi$ treats mutual gene expression ($n_{11}$) the same as mutual absence of gene expression ($n_{00}$), we started by developing a new analytic measure of the probability of mutual gene expression, given its clearer biological interpretation (see Supporting Information).
+Given that $r_\phi$, Eq.~\ref{eq:rphi}, treats mutual gene expression ($n_{11}$) the same as mutual absence of gene expression ($n_{00}$), we started by developing a new analytic measure of the probability of mutual gene expression, given its clearer biological interpretation (see Supporting Information).
 This measure was not biased by differences in the relative number of expressed genes (Fig.~\ref{fig:S_propOnes}D) and yields qualitatively similar outputs to $r_\phi$ on our data (Fig.~\ref{fig:RFPposmatches}).
 Thus, while we use $r_\phi$ throughout this work for its ease of interpretation (as an analogue of the conventional correlation coefficient), our new measure allowed us to motivate a method for quantifying the contribution of individual genes (and functional groups of genes) to patterns of coupled expression that allows us to address some of the above-mentioned challenges.
 % and was useful for validating and interpreting our results.
@@ -537,8 +537,8 @@ Thus, while we use $r_\phi$ throughout this work for its ease of interpretation 
 
 %(e.g., differences between connected \emph{vs} unconnected, between electrical and chemical synapses, and for rich and feeder connections versus peripheral connections), in analogy to previous methods developed for continuous gene expression data \cite{Fulcher:2016ck}.
 We take as our starting point the aim of comparing gene scores across different categories of neuron pairs. 
-For example, we aim to compare the contributions of each gene to differences in coexpression observed for connected vs unconnected pairs of neurons, or rich and feeder vs peripheral edges.
-Therefore, we first scored each gene for whether it is more likely to be expressed in a given class of neuron pair over another as the probability of obtaining at least as many matches (defined as expression in both neurons of a pair) as observed under a random expression null model using the binomial distribution:
+For example, we aim to compare the contributions of each gene to increases in coexpression observed for (i) connected vs unconnected pairs of neurons, (ii) electrical versus chemical connections, or (iii) rich and feeder vs peripheral edges.
+We first scored each gene for whether it is more likely to be expressed in a given class of neuron pair over another as the probability of obtaining at least as many matches (defined as expression in both neurons of a pair) as observed under a random expression null model using the binomial distribution:
 % We sought to determine whether certain sets of genes drive specific patterns of coupled expression between particular classes of neuron pairs (e.g., connected \emph{vs} unconnected and between rich/feeder/peripheral connections) using gene enrichment analysis.
 % to identify functionally annotated groups of genes from the Gene Ontology (GO) \cite{Ashburner2000}.
 %  that contribute to the increased coexpression between:
@@ -551,28 +551,26 @@ Therefore, we first scored each gene for whether it is more likely to be express
 % (iii) \emph{neither expressed}: $g^{(a)}_i = 0$ and $g^{(a)}_j = 0$.
 % e.g., differences between connected and unconnected pairs of neurons, or between rich/feeder/peripheral connections
 % expression of a given gene, $a$, across brain regions, $i$, can take three possible combinations of coexpression at each edge, $(i,j)$
- 
 \begin{eqnarray}
 	\label{eq:CBinomialProbability}
      p^{(a)} = 1 - \sum_{i=0}^{m-1}\binom{n}{i} p_\mathrm{class}^{i}(1-p_\mathrm{class}^{n-i}),
 \end{eqnarray}
 where $m$ is the number of matches (a match indicates that a given gene was expressed (i.e., was assigned a value of `1') in both neurons) on the class of neuron pairs of interest, $n$ is the total number of matches across all neuron pairs considered in the analysis, $p_\mathrm{class} = n_\mathrm{class}/M$ is the probability of the given class of inter-region pairs as the total number of neuron pairs of that class, $n_\mathrm{class}$ divided by the maximum number of possible neuron pairs, $M$.
-
-This score can be interpreted as a $p$-value for the null hypothesis that the number of expression matches of a gene can be explained by random assignment to neuron pairs.
-For the same reasons as noted above, bilateral pairs of neurons were excluded from all scoring procedures and, to ensure that each gene contributes a meaningful score, we imposed a data quality threshold on the number of possible matches, $n \geq 10$.
-This data quality criterion of $n \geq 10$ matches was satisfied by 414 (/948) genes for the connected/unconnected analysis and 168 genes for hub connectivity analysis.
-
-When comparing pairs of neurons that contain a structural connection to pairs of neurons that do not share a connection, $p_\mathrm{class} = 0.059$ is the proportion of neuron pairs that are connected, $n$ is the total number of neuron pairs that both exhibit expression of gene $a$, and $m$ is the number of neuron pairs that are structurally connected for which both neurons express gene $a$.
-Then, we compare pairs of connected neurons for which at least one is a hub, to pairs in which both neurons are nonhubs.
-In this case, $p_\mathrm{class} = 0.35$ is the proportion of connected pairs of neurons that involve hubs, $n$ is the number of connected neuron pairs for which gene $a$ is expressed in both, and $m$ counts the number of connected neuron pairs involving hubs for which gene $a$ is expressed.
-
-This provides a score for each gene, $a$, that is higher for genes that exhibit more matches in the edge class of interest than expected by chance.
+This score can be interpreted as a $p$-value under the null hypothesis that the number of expression matches of a gene can be explained by random assignment to neuron pairs, giving lower values to genes with more matches in the edge class of interest (compared to an alternative set of edges) than expected by chance.
 % as they are also excluded from the gene expression analysis.
-The $p$-value scores for each gene, computed using Eq.~\eqref{eq:CBinomialProbability}.
+For reasons described earlier, bilateral pairs of neurons were excluded from all scoring procedures and, to ensure that each gene contributes a meaningful score, we imposed a data quality threshold on the number of possible matches, $n \geq 10$.
 Details on how this gene scoring method was applied to the specific analyses performed here are described in the Supplementary Information.
 
+Our first analysis involved comparing pairs of neurons that are connected to pairs of neurons that are unconnected.
+For this analysis, $p_\mathrm{class} = 0.059$ is the proportion of neuron pairs that are connected, $n$ is the total number of neuron pairs that both exhibit expression of gene $a$, and $m$ is the number of neuron pairs that are structurally connected for which both neurons express gene $a$.
+Then, we compare pairs of connected neurons for which at least one is a hub, to pairs in which both neurons are nonhubs.
+In this case, $p_\mathrm{class} = 0.35$ is the proportion of connected pairs of neurons that involve hubs, $n$ is the number of connected neuron pairs for which gene $a$ is expressed in both, and $m$ counts the number of connected neuron pairs involving hubs for which gene $a$ is expressed.
+A total of 414 (/948) genes had $n \geq 10$ for this connectivity analysis.
+
+168 genes for the hub connectivity analysis.
+
 %Given the reduced number of genes remaining for analysis following the quality control (threshold on $n \geq 10$), 
-We took the approach of performing an over-representation analysis (ORA) using the genes that contribute most to a given connectivity pattern.
+We performed an over-representation analysis (ORA) using the genes that contribute most to a given connectivity pattern.
 ORA assesses whether any gene sets (GO categories) were statistically over-represented in a list of selected genes that contribute most strongly to coexpression for a given link type the most.
 % chose a more conservative approach of testing the top list of the most influential genes instead of taking into consideration gene scores through the whole list of genes in question.
 % , as well as the noisy gene expression data as well as the nature of the binary gene expression data which does not allow to produce a reliable continuous score for each gene, 
