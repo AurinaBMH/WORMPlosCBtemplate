@@ -507,13 +507,16 @@ To ensure that our results are not driven by the high coexpression between bilat
 % , which has a clearer interpretation as a binary analogue of a conventional correlation coefficient.
  % that focuses on evaluating only positive matches, i.e. only cases when both neurons have a certain gene expressed as opposed to the mean square contingency coefficient which is symmetrical to both positive (a gene is expressed in both neurons) and negative (a gene is not expressed in both neurons) matches (see Supplementary Information).
 
-\subsection*{Gene enrichment analysis}
-The coexpression measure $r_\phi$ estimates the association between the expression profiles of two neurons across all 948 genes. 
-To further investigate whether specific subsets of genes make a differential influence to this coexpression value, we sought to develop a method for scoring the contribution of each individual gene to the overall correlation coefficient, as per prior work \cite{Fulcher2016}.
-However, where this previous work has estimated correlations between continuous measures of gene expression giving an unambiguous score for each gene, performing similar analyses with \emph{C. elegans} data pose additional challenges due to:
-(i) binary expression data (making robust quantification difficult);
+\subsection*{Gene scoring and enrichment}
+The coexpression measure, $r_\phi$, measures the association between the expression profiles of two neurons across all 948 genes.
+To further investigate the contribution of individual genes to different coexpression patterns, we developed a method for scoring the contribution of each individual gene to the overall correlation coefficient, as per prior work using continuous gene expression data \cite{Fulcher2016}.
+Performing similar analyses with \emph{C. elegans} data poses additional challenges due to:
+(i) binary expression data, making robust quantification difficult;
 (ii) sparse and incomplete data, posing statistical problems for quantifying a signal in genes with limited expression;
-and (iii) low genome coverage (less than 5\% of the protein coding genes in \emph{C. elegans}), limiting our ability to test many relevant Gene Ontology (GO) categories.\\
+and (iii) low genome coverage (less than 5\% of the protein coding genes in \emph{C. elegans}), limiting our ability to perform a comprehensive Gene Ontology (GO) enrichment analysis.
+% limiting our ability to test many relevant Gene Ontology (GO) categories.
+% where this previous work has estimated correlations between continuous measures of gene expression giving an unambiguous score for each gene, 
+
 %We examined the contribution of specific functional sets of genes to patterns of coexpression between neurons.
 %Compared to previous studies of gene functional enrichment \cite{Fulcher:2016ck, Vertes2016a, Parkes:2017dn}, 
 % , and thus (i)  many GO categories are not able to be tested.
@@ -526,14 +529,15 @@ and (iii) low genome coverage (less than 5\% of the protein coding genes in \emp
 % in the list of 948 genes (3): nhx-1, nhx-5, unc-32, but for actual enrichment we use genes that have >1 mathes on mask, so only unc-32 survived this.
 % fot the enrichment we choose gene set size (5-100), so no analysis could be done with only one gene.
 % [GenesinGO, GOs] = searchGOcategories(C,G, 'mouse');
-Given that $r_\phi$ treats mutual gene expression ($n_{11}$) the same as mutual absence of gene expression ($n_{00}$), we developed a new analytic measure of the probability of mutual gene expression, given its clearer biological interpretation called coexpression matching index (see Supporting Information).
-This measure was not biased by differences in the relative number of expressed genes (Fig.~\ref{fig:S_propOnes}D) and was useful for validating and interpreting our results.
-Since it yields similar qualitative outputs to $r_\phi$ on our data (Fig.~\ref{RFPposmatches}), we quote $r_\phi$ values (which are easily interpretable as an analogue of the conventional correlation coefficient) throughout this work.
-The similarity in results based on both $r_\phi$ and coexpression matching index motivated the development of a new method to quantify the contribution of individual genes, and functional groups of genes, to patterns of coupled expression that allows to overcome the above mentioned challenges. \\
+Given that $r_\phi$ treats mutual gene expression ($n_{11}$) the same as mutual absence of gene expression ($n_{00}$), we started by developing a new analytic measure of the probability of mutual gene expression, given its clearer biological interpretation (see Supporting Information).
+This measure was not biased by differences in the relative number of expressed genes (Fig.~\ref{fig:S_propOnes}D) and yields qualitatively similar outputs to $r_\phi$ on our data (Fig.~\ref{fig:RFPposmatches}).
+Thus, while we use $r_\phi$ throughout this work for its ease of interpretation (as an analogue of the conventional correlation coefficient), our new measure allowed us to motivate a method for quantifying the contribution of individual genes (and functional groups of genes) to patterns of coupled expression that allows us to address some of the above-mentioned challenges.
+% and was useful for validating and interpreting our results.
+% The similarity in results based on both $r_\phi$ and coexpression matching index motivated the development of a new method to quantify the contribution of individual genes, and functional groups of genes, to patterns of coupled expression that allows to overcome the above mentioned challenges.
 
 %(e.g., differences between connected \emph{vs} unconnected, between electrical and chemical synapses, and for rich and feeder connections versus peripheral connections), in analogy to previous methods developed for continuous gene expression data \cite{Fulcher:2016ck}.
 We take as our starting point the aim of comparing gene scores across different categories of neuron pairs. 
-For example, we aim to compare the contributions of each gene to differences in coexpression observed for connected \textit{vs} unconnected pairs of neurons, or rich and feeder \textit{vs} peripheral edges. 
+For example, we aim to compare the contributions of each gene to differences in coexpression observed for connected vs unconnected pairs of neurons, or rich and feeder vs peripheral edges.
 Therefore, we first scored each gene for whether it is more likely to be expressed in a given class of neuron pair over another as the probability of obtaining at least as many matches (defined as expression in both neurons of a pair) as observed under a random expression null model using the binomial distribution:
 % We sought to determine whether certain sets of genes drive specific patterns of coupled expression between particular classes of neuron pairs (e.g., connected \emph{vs} unconnected and between rich/feeder/peripheral connections) using gene enrichment analysis.
 % to identify functionally annotated groups of genes from the Gene Ontology (GO) \cite{Ashburner2000}.
@@ -552,7 +556,7 @@ Therefore, we first scored each gene for whether it is more likely to be express
 	\label{eq:CBinomialProbability}
      p^{(a)} = 1 - \sum_{i=0}^{m-1}\binom{n}{i} p_\mathrm{class}^{i}(1-p_\mathrm{class}^{n-i}),
 \end{eqnarray}
-where $m$ is the number of matches (a match indicates that a given gene was expressed (i.e., was assigned a value of '1') in both neurons) on the class of neuron pairs of interest, $n$ is the total number of matches across all neuron pairs considered in the analysis, $p_\mathrm{class} = n_\mathrm{class}/M$ is the probability of the given class of inter-region pairs as the total number of neuron pairs of that class, $n_\mathrm{class}$ divided by the maximum number of possible neuron pairs, $M$.\\
+where $m$ is the number of matches (a match indicates that a given gene was expressed (i.e., was assigned a value of `1') in both neurons) on the class of neuron pairs of interest, $n$ is the total number of matches across all neuron pairs considered in the analysis, $p_\mathrm{class} = n_\mathrm{class}/M$ is the probability of the given class of inter-region pairs as the total number of neuron pairs of that class, $n_\mathrm{class}$ divided by the maximum number of possible neuron pairs, $M$.
 
 This score can be interpreted as a $p$-value for the null hypothesis that the number of expression matches of a gene can be explained by random assignment to neuron pairs.
 For the same reasons as noted above, bilateral pairs of neurons were excluded from all scoring procedures and, to ensure that each gene contributes a meaningful score, we imposed a data quality threshold on the number of possible matches, $n \geq 10$.
@@ -1803,7 +1807,6 @@ Circles indicate a statistically significant increase or decrease in birth time 
 % \paragraph*{S10 Fig.}
 % {\bf Average coexpression for rich, feeder and peripheral links as a function of degree.}
 \begin{figure}[!h]
-\label{RFPposmatches}
 \centering
     \includegraphics[width=1\textwidth]{meanCoexpressionCoXALL.pdf}
 \caption{
@@ -1814,6 +1817,7 @@ Note that at high $k$, most neurons are labeled as nonhubs, and hence the vast m
 \emph{Bottom}: Mean gene coexpression calculated using similarity index from only positive matches, $r_\xi$, for each connection type as a function of $k$.
 The mean coexpression across all network links shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. Fig.~\ref{fig:topology_rich}) is shaded gray.
 Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (one-sided Welch's $t$ test; $p < 0.05$).
+\label{fig:RFPposmatches}
 }
 \end{figure}
 
