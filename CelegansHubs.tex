@@ -410,7 +410,7 @@ In this dataset, the closest common ancestor neuron was identified for each pair
 \subsection*{Network analysis}
 In this section we describe the network methods used to characterize the \emph{C. elegans} connectome.
 
-\paragraph{Degree}
+\paragraph{Degree.}
 Neuronal connectivity is most simply quantified by counting the number of neurons that a given neuron projects to, known as its out-degree, $k_\mathrm{out}$, or by counting the number of neurons that a given neuron receives projections from, known as its in-degree, $k_\mathrm{in}$.
 % The number of regions that a neuron projects to is its \emph{out-degree}, $k_\mathrm{out}$, and the number of regions that project to a given neuron is its \emph{in-degree}, $k_\mathrm{in}$.
 These quantities can be summed to give the total number of connections involving a given neuron, $k_\mathrm{tot} = k_\mathrm{in} + k_\mathrm{out}$, which we refer to as simply the degree, $k$ throughout this work.
@@ -424,7 +424,7 @@ or `peripheral' (nonhub $\rightarrow$ nonhub, or nonhub $\leftrightarrow$ nonhub
 % Note that the directed connectivity information here has allowed us to distinguish `feeder' connections as either `feed-in' or `feed-out', rather than grouping them as `feeder', as is necessary in undirected connectomes.
 % For simplicity, hub $\rightarrow$ non-hub and non-hub $\rightarrow$ hub connections were grouped as a single `feeder' category for simplicity.
 
-\paragraph{Rich-club organization}
+\paragraph{Rich-club organization.}
 We used the rich-club coefficient, $\phi(k)$, to quantify the interconnectivity of hub neurons:
 \begin{equation}
     \label{eqn:rich_club}
@@ -447,7 +447,7 @@ $\Phi_\mathrm{norm} > 1$ indicates rich-club organization of the network, with s
 %The phenomenon of the rich-club organisation in \textit{C. elegans} connectome was originally demonstrated by Towlson et al. \cite{Towlson2013} in an undirected binary version of the connectome where data for both chemical and electrical synapses were combined.
 %As a result, a small number of high degree nodes forming a rich club was identified.
 
-\paragraph{Modularity}
+\paragraph{Modularity.}
 The modular structure of the connectome was determined by applying the Louvain community detection algorithm \cite{Blondel:2008do} using the \texttt{community\_louvain} function implemented in the Brain Connectivity Toolbox \cite{Rubinov:2010jd}.
 To identify the optimal modular assignment, neurons were assigned to modules using consensus clustering across 1\,000 repeats of the Louvain algorithm \cite{Lancichinetti2012}, weighting each partition by its modularity, $Q$, using the \texttt{agreement\_weighted} and \texttt{consensus\_und} functions \cite{Rubinov:2010jd}.
 % of the \emph{Brain Connectivity Toolbox} \cite{Rubinov:2010jd} with $\tau = 0.1$.
@@ -940,7 +940,7 @@ We therefore investigated whether the similarity of gene expression profiles bet
  %\label{Distance}
  %\end{figure}
 
-\paragraph{Interneurons}
+\paragraph{Interneurons.}
 The sixteen hubs in \textit{C. elegans} ($k > 44$) are all interneurons.
 To determine whether the increase in gene coexpression in rich connections was specific to interneurons, we plotted the median coexpression for hub-hub connections, $\tilde{r}_\phi$, as a function of the degree threshold, $k$, separately for connections involving interneurons, sensory neurons, and motor neurons as shown in Fig.~\ref{fig:interneuron_dep}A.
 For the curve labeled `sensory' neurons, for example, each point is the median $r_\phi$ across connections involving sensory neurons (i.e., at least one neuron of a connected pair is a sensory neuron), for which both neurons have degree $>k$.
@@ -969,9 +969,10 @@ Circles indicate a statistically significant increase in gene coexpression in a 
 \end{figure}
 
 We next investigated increased coexpression of rich pairs could be driven by the anatomical properties of hub interneurons.
-[[TODO-AA: this still needs some unpacking to distinguish from the rank sum test just performed]]. Specifically, we selected a subset of interneurons that most closely resemble the anatomical properties of hub interneurons, in terms of their origin and termination locations, arriving at the following set of seven nonhub head interneurons: AVFL, AVFR, AVHL, AVHR, AVKR, AVJL, and AVJR [[any reproducible criteria through which these were selected??]].
+%[[TODO-AA: this still needs some unpacking to distinguish from the rank sum test just performed]].
+Specifically, we selected a subset of interneurons that most closely resemble the anatomical properties of hub interneurons, in terms of their origin and termination locations, arriving at the following set of seven nonhub head interneurons: AVFL, AVFR, AVHL, AVHR, AVKR, AVJL, and AVJR [[any reproducible criteria through which these were selected??]].
 As shown in Fig.~\ref{fig:interneuron_dep}B, pairs of hub interneurons exhibit slightly higher gene coexpression than pairs of anatomically-matched nonhub interneurons (Wilcoxon rank sum test, $p = 0.051$).
-Thus, the increase in coexpression amongst hub interneurons cannot be explained simply by the fact that hubs are interneurons.
+Thus, the increase in coexpression amongst hub interneurons cannot be simply explained by their anatomical similarity among interneurons.
 
 % Neurons in \emph{C. elegans} are annotated to the following categories: sensory neurons, motor neurons, and interneurons (eighteen multifunctional neurons are annotated to two categories).
 % As in Towlson et al.~\cite{Towlson:2013gf}, we find that
@@ -1001,14 +1002,14 @@ Thus, the increase in coexpression amongst hub interneurons cannot be explained 
 %Thus, the increase in coexpression amongst hub interneurons cannot be explained simply by the fact that hubs are interneurons.
 % ---even amongst interneurons with the same anatomical properties, hubs exhibit significantly increased coexpression.
 
-\paragraph{Modular organization}
+\paragraph{Modular organization.}
 %The \emph{C. elegans} connectome has a modular organization, and can be decomposed into groups of neurons or modules with dense inter-module connectivity (with relatively sparse connectivity between modules) \cite{Kim2014, Pan:2010jt, Bassett2010}, or into groups of neurons with more similar patterns of connectivity within groups than between groups \cite{Achacoso:1992ay, Pavlovic:2014gx}.
 % , which can correspond to specific functional circuits
 %Given that connectome modules may correspond to functionally specialized systems, it is therefore plausible that neurons belonging to the same module might exhibit similar gene expression patterns, as has been shown for macroscopic functional networks in the human brain \cite{Richiardi2015}.
 %Brain network hubs generally participate in multiple modules \cite{vandenHeuvel:2013ij, deReus:2014cz}, and their dense rich-club connectivity implies that they may form their own module that overlaps with other, more specialized systems \cite{Fornito:2015dq, deReus:2013cy, ZamoraLopez:2010hy}.
 %We therefore investigated whether therefore increased gene coexpression between pairs of hub neurons in the \emph{C. elegans} connectome can be explained by their distribution across connectome modules.
 Another important topological property of nervous systems is modularity, such that network nodes coalesce into tightly connected subsystems that are thought to serve a common function \cite{Sporns2016}.
-Prior work in humans has shown that brain regions belonging to the same functional system have elevated transcriptional coupling [[REF?]].
+Prior work in humans has shown that brain regions belonging to the same functional system have elevated transcriptional coupling \cite{Richiardi2015}.
 The \emph{C. elegans} connectome has a modular organization, and can be decomposed into groups of neurons or modules with dense inter-module connectivity (with relatively sparse connectivity between modules) \cite{Kim2014, Pan:2010jt, Bassett2010}, or into groups of neurons with more similar patterns of connectivity within groups than between groups \cite{Achacoso:1992ay, Pavlovic2014}.
 We therefore examined the association between topological modularity of the \emph{C. elegans} connectome and gene coexpression.
 We used the Louvain community detection algorithm \cite{Blondel:2008do} to extract modules from the \emph{C. elegans} connectome using consensus clustering (see \textit{Methods}).
@@ -1072,11 +1073,11 @@ Thus, for both types of modular decompositions, connected pairs of hub neurons e
 % The number of connections of each type is shown in parentheses.
 \textbf{B} Distributions of gene coexpression, $r_\phi$, for inter-modular rich (red) and non-rich (green) connections, shown as violin plots with the median shown as a horizontal bar (Wilcoxon rank sum test, $p = 1.6 \times 10^{-5}$).
 % The number of connections of each type is shown in parentheses.
-\textbf{C} Distributions of gene coexpression, $r_\phi$, between early born hubs (rich links, red) and non-hubs (non-rich links, green) shown as violin plots with the median shown as a horizontal bar. (Wilcoxon rank sum test, $p = 3.9 \times 10^{-22}$).
-\textbf{D} Distributions of lineage distance between rich links (red) and non-rich links (green), plotted as histograms due to a discrete nature of this measure. (Wilcoxon rank sum test, $p = 0.079$).
-\textbf{E} Distributions of gene coexpression between hub command interneurons (red) and hub non-commans interneurons (yellow) shown as violin plots (Wilcoxon rank sum test, $p = 3.3 \times 10^{-8}$).
+\textbf{C} Distributions of lineage distance between rich links (red) and non-rich links (green), plotted as histograms due to a discrete nature of this measure. (Wilcoxon rank sum test, $p = 0.079$).
+\textbf{D} Distributions of gene coexpression, $r_\phi$, between early born hubs (rich links, red) and non-hubs (non-rich links, green) shown as violin plots with the median shown as a horizontal bar (Wilcoxon rank sum test, $p = 3.9 \times 10^{-22}$).
+\textbf{E} Distributions of gene coexpression between hub command interneurons (red) and hub non-commans interneurons (yellow) shown as violin plots with the median shown as a horizontal bar (Wilcoxon rank sum test, $p = 3.3 \times 10^{-8}$).
 %[[TODO: could add neurotransmitter type as a bar code in modules]]
-[[TODO: change colors for distributions, fill distributions, e.g., intra-modular and inter-modular shouldn't use red (rich) use green for non-rich]]
+%[[TODO: change colors for distributions, fill distributions, e.g., intra-modular and inter-modular shouldn't use red (rich) use green for non-rich]]
 %Composition of each module according to neuron type.
 %Modular organisation of the connectome.
 %Coexpression distributions within and between modules.
@@ -1092,7 +1093,7 @@ Thus, for both types of modular decompositions, connected pairs of hub neurons e
 \end{figure}
 
 
-\paragraph{Birth time}
+\paragraph{Birth time.}
 The genesis of neurons in \emph{C. elegans} is separated into two distinct time periods: before hatching (birth time $<550$ min -- `early-born') and after hatching (birth time $>1200$ min -- `late-born'), with no neurons formed during intermediate times \cite{Varier2011}.
 %Distinguishing neurons into these two groups is appropriate as birth time differences between pairs of neurons are dominated by the difference between these two clusters of neuron birth periods.
 As a broad group, connected pairs of early-born neurons do not exhibit significantly different gene coexpression compared to connected pairs of late-born neurons (Wilcoxon rank sum test, $p = 0.64$), but connected pairs of early-born neurons do exhibit significantly higher gene coexpression relative to pairs of connected neurons for which one neuron is born prior to hatching and the other is born post-hatching (Wilcoxon rank sum test, $p = 4.2 \times 10^{-3}$).
@@ -1111,7 +1112,7 @@ Focusing on the 201 neurons (16 hub and 185 nonhub neurons) born prior to hatchi
 % sum(C.BirthTime<550 & k>41) = 13
 % sum(C.BirthTime<550 & k<=41) = 188
 
-\paragraph{Lineage distance}
+\paragraph{Lineage distance.}
 %[[should first characterize general relationship between lineage and coexpression, and then address hub effect]] -- there is no general lineage-coexpression effect in our results.
 The lineage distance between a pair of neurons is defined as the sum of total divisions that have taken place since the most recent common ancestor cell \cite{Pavlovic:2014gx, Sulston1977, Sulston1983}.
 In the mammalian brain, neuronal lineage has been associated with both functional \cite{Ciceri2013, Li2012} and connectivity-related properties \cite{Yu2012}.
@@ -1135,7 +1136,7 @@ Thus, we can not attribute the transcriptional similarity of connected hub neuro
 
 %peripheral are most similar in lineage and interesting, feeder the most different, implying that nonhub-hub connected pairs have significantly increased lineage distance.
 
-\paragraph{Neurochemistry}
+\paragraph{Neurochemistry.}
 % <<TypeConfoundHubs.m>>
 Hub neurons ($k > 44$) consist of thirteen cholinergic neurons, two glutamatergic neurons, and one neuron of unknown type \cite{Pereira:2015er}.
 We find that neuron pairs show different coexpression relationships as a function of their neurotransmitter type, e.g., pairs of GABAergic neurons have high median coexpression $\tilde{r}_\phi = 0.59$, while pairs of glutamatergic neurons exhibit a relatively low median coexpression $\tilde{r}_\phi = 0.08$.
@@ -1145,7 +1146,7 @@ To determine whether the similarity in gene coexpression between pairs of hub ne
 The mean coexpression between hub neurons is significantly increased relative to random sets of neurons with the same neurotransmitter types as hubs (permutation test, $p = 3.2\times 10^{-5}$).
 % The increased coexpression between hub neurons cannot be explained by their neurotransmitter identities, with hub neurons displaying
 
-\paragraph{Anatomical location}
+\paragraph{Anatomical location.}
 % <<TypeConfoundHubs.m>>
 Of the sixteen hub neurons, thirteen are in the head and three are in the tail; none are located in the body.
 We find that coexpression varies as a function of anatomical position, with pairs of neurons in the same anatomical class exhibiting the highest mean coexpression (e.g., pairs of neurons within the body have a median $\tilde{r}_\phi = 0.14$, pairs of neurons within the tail have $\tilde{r}_\phi = 0.12$, and pairs of neurons within the head have $\tilde{r}_\phi = 0.07$), followed by  lower mean coexpression in mixed classes (e.g., pairs of neurons between head and body have $\tilde{r}_\phi = 0.01$).
@@ -1158,7 +1159,7 @@ and also amongst head/tail pairs of neurons (Wilcoxon rank sum test, $p = 1.6 \t
 but not for the three hub neurons in the tail (Wilcoxon rank sum test, $p = 0.15$ for three hub-hub pairs, 53 others).
 Thus, anatomical location cannot explain the high coexpression of hub neurons.
 
-\paragraph{Functional class}
+\paragraph{Functional class.}
 \emph{C. elegans} neurons can be divided into distinct groups that each perform a specialized behavioral function \cite{Hobert2003}.
 One of the best-characterised functional classes that is particulalry relevant for our analysis is the set of `command interneurons' which are a functional group of ten neurons that govern forward (AVBL, AVBR, PVCL, PVCR) and backward (AVAL, AVAR, AVDL, AVDR, AVEL, AVER) locomotion \cite{Rakowski2013}; all of these neurons are hubs.
 % ten out of sixteen hub neurons correspond to the functional circuit that governs forward (AVBL, AVBR, PVCL, PVCR) and backward (AVAL, AVAR, AVDL, AVDR, AVEL, AVER) locomotion, which are together known as `command interneurons' [[REF]].
@@ -1201,7 +1202,7 @@ Other top categories include a more general receptor signaling class (`cell surf
 
 %These findings are in line with our expectations as hub neurons receive input from sensory neurons, the majority of which are glutamatergic.
 %As a result, hubs are required to have glutamate receptors the enrichment in these categories is the most pronounced (even after the correction, false discovery rate $< 0.05$).
-[[AA: part about glutamate and Ach should probably be excluded according to Alex's comment or we can keep it if we put a list of top genes - plenty of locomotion and glutamate there.]].
+%[[AA: part about glutamate and Ach should probably be excluded according to Alex's comment or we can keep it if we put a list of top genes - plenty of locomotion and glutamate there.]].
 The implication of glutamate receptor signaling for synaptic connectivity, and hub connectivity in particular, is somewhat surprising given that only 26\% of neurons with known neurotransmitter type are glutamatergic (whereas 55\% are cholinergic) and just two of the sixteen hubs are glutamatergic (thirteen are cholinergic, and one is of unknown type).
 Furthermore, just 32\% of neurons that project to hubs are glutamatergic.
 % FeedInOutNodes;
@@ -1486,7 +1487,7 @@ In this section we provide more information about how genes were scored in the c
 % Normally, one pair of neurons can share both chemical synapses as well as gap junctions between them, however in this case we aimed to determine if there is a particular signature for chemical or electrical connections separately, therefore those categories are made to be mutually exclusive.
 %Then, we compare pairs of connected neurons for which at least one is a hub, to pairs in which both neurons are nonhubs.
 %In this case, $p_\mathrm{class} = 0.35$ is the proportion of connected pairs of neurons that involve hubs, $n$ is the number of connected neuron pairs for which gene $a$ is expressed in both, and $m$ counts the number of connected neuron pairs involving hubs for which gene $a$ is expressed.
-[[TODO-AA: Aurina -- can you add the electrical/chemical stuff to this section?]]
+%[[TODO-AA: Aurina -- can you add the electrical/chemical stuff to this section?]]
 %The data quality criterion of $n \geq 10$ matches was satisfied by 414 (/948) genes for the connected/unconnected analysis and 168 genes for hub connectivity analysis.
 
 
@@ -1645,9 +1646,11 @@ By contrast, the remaining measures to show a dependence on the proportion of 1s
 \centering
     \includegraphics[width=1\textwidth]{connectionProportionDivision.eps}
 \caption{
+\textbf{Distribution of rich and non-rich connections across anatomical divisions.}
 \label{fig:S_connectionProportion}
 Distribution of hub-hub connections (`rich', red), and all other connections (`non-rich', i.e., feeder and peripheral, gray) across anatomical divisions (head, body, and tail), defining hubs as those with degree, $k > 44$, corresponding to the lowest threshold at which the \emph{C. elegans} connectome exhibits rich-club organization.
-The increased separation distance between hubs is driven by a relative increase in connection density between the head and tail [[TODO-BF: is the plor updated? because the caption was not]].
+The increased separation distance between hubs is driven by a relative increase in connection density between the head and tail. 
+%[[TODO-BF: is the plor updated? because the caption was not]].
 }
 \end{figure}
 % ------------------------------------------------------------------------------
@@ -1730,7 +1733,7 @@ Add $p<0.05$ values on the plot where significant.
 
 % <<networkRC.m>>
 % \paragraph*{S7 Fig.}
-% {\bf Weighted and mixed rich club}
+{\bf Weighted and mixed rich club.}
 \begin{figure}[h]
 \centering
     \includegraphics[width=1\textwidth]{weightedRCALL.pdf}
@@ -1752,7 +1755,7 @@ Circles indicate values of $\Phi_\mathrm{norm}$ that are significantly higher th
 % ------------------------------------------------------------------------------
 % <<RichClub.m>>
 % \paragraph*{S8 Fig.}
-% {\bf Mean lineage distance as a function of degree for different link types}
+ %{\bf Weighted rich club organisation of the connectome.}
 \begin{figure}[!h]
 \centering
     \includegraphics[width=1\textwidth]{lineageDistanceRPF.pdf}
