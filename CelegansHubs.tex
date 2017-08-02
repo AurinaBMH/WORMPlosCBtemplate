@@ -644,22 +644,20 @@ Our analysis is presented in five parts:
 Previous work has demonstrated the importance of spatial effects in driving patterns of gene expression, with more proximal brain areas exhibiting more similar gene expression patterns than more distant brain areas \cite{Krienen:2016eq, Fulcher:2016ck, Pantazatos:2016ir, Richiardi:2017hb}.
 Connection probability also decreases with spatial separation between mammalian brain areas \cite{Henderson:2014fg, Horvat:2016ia, Wang:2016gg, Markov:2013jo, Fulcher:2016ck} and neurons \cite{Levy:2012dy}, and between \emph{C. elegans} neurons (cf. Fig.~S1 of \cite{Azulay:2016cg}).
 Many aspects of connectome organization can be partially explained by geometric effects, such as the decreasing connection probability with increasing separation distance \cite{Henderson:2014fg, Roberts2016, Horvat:2016ia}.
-Unlike network analyses of mammalian brains, where all neurons are confined to a spatially contiguous organ, neurons of the \emph{C. elegans} nervous system are distributed throughout the entire organism, forming a dense cluster of 147 neurons in the head (all within 130\,$\mu m$), 105 sparser, mostly motor neurons (75\%) in the body (spanning 1.02\,mm), and another dense cluster of 27 neurons in the tail (all within 90\,$\mu$m of each other), as plotted in Fig.~\ref{fig:neuronsSpace}.
+Unlike network analyses of mammalian brains, where all neurons are confined to a spatially contiguous organ, neurons of the \emph{C. elegans} nervous system are distributed throughout the entire organism, forming a dense cluster of 147 neurons in the head (all within 130\,$\mu$m), 105 sparser neurons in the body (spanning 1.02\,mm), which are predominantly motor neurons (75\%), and another dense cluster of 27 neurons in the tail (all within 90\,$\mu$m of each other), as plotted in Fig.~\ref{fig:neuronsSpace}.
 In order to understand relationships between connectivity and gene expression, we first need to understand spatial effects on both measurements.
 % To ensure that relationships between connectivity and gene expression are not driven by their mutual spatial dependency,
 
 % The connection probability for pairs of neurons decays sharply as a function of the physical distance between them, excluding connections between the body and head, and between the body and tail, cf. Figs.~\ref{fig:connectionProb}A,B), mirroring recent results of mesoscale mammalian brains, in mouse \cite{Goulas:2016hr, Fulcher:2016ck}, and rodents and primates \cite{Horvat:2016ia}.
 
 % ------------------------------------------------------------------------------
-% \paragraph*{S5 Fig.}
-% {\bf Spatial distribution of rich links, and neuron types across the C. elegans nervous system. }
 % <<VisRichConns>>
 \begin{figure}[h]
 \centering
     \includegraphics[width=1\textwidth]{SpatialPlot.png}
 \caption{
 \textbf{Hub neurons are distributed between the head and tail}.
-Neurons are positioned along the Posterior (P)--Anterior (A) (horizontal), and Ventral (V)--Dorsal (D) (vertical) axes.
+Neurons are positioned along the anterior--posterior (horizontal), and dorsal--ventral (vertical) axes.
 % Definitions of posterior/anterior/ventral/dorsal from Varier.
 Neurons are colored by type:
 (i) interneuron (85 neurons, orange),
@@ -908,10 +906,11 @@ In this topological rich-club regime, both feed-in and feed-out connections exhi
 %]][[TODO-AA: Seems like feed-in actually the lowest now??]].
 Full distributions of $r_\phi$ for each edge type at a hub threshold of $k > 44$ are in Fig.~\ref{fig:S_RFPdistributions}.
 
-These results show (i) increased coexpression in connected pairs of nodes;
+In summary, our results reveal:
+(i) increased coexpression in connected pairs of nodes;
 (ii) the highest coexpression in rich connections; and
-(iii) lowest coexpression in peripheral connections.
-Obtained using incomplete binary annotations of gene expression across just 948 genes in a microscale neuronal connectome, thay are consistent with a prior analysis of the expression of over 17\,000 genes across 213 regions of the mesoscale mouse connectome.
+(iii) lowest coexpression in peripheral connections;
+These results, obtained using incomplete binary annotations of gene expression across 948 genes in a microscale neuronal connectome, are consistent with a prior analysis of the expression of over 17\,000 genes across 213 regions of the mesoscale mouse connectome \cite{Fulcher:2016ck}.
 % (iii) intermediate coexpression in feeder connections; and
 
 \subsection*{Potential drivers of elevated coexpression between hubs}
