@@ -1,4 +1,4 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{100}
 
 \bibitem{White:1986tx}
 White JG, Southgate E, Thomson JN.
@@ -204,7 +204,7 @@ van~den Heuvel MP, Kahn RS, Go{\~n}i J, Sporns O.
 \newblock Proc Natl Acad Sci USA. 2012;109(28):11372--11377.
 
 \bibitem{Harriger2012}
-Harriger L, van~den Heuvel MP, Sporns O, McIntosh A, Bakker R, Drury H.
+Harriger L, van~den Heuvel MP, Sporns O.
 \newblock {Rich Club Organization of Macaque Cerebral Cortex and Its Role in
   Network Communication}.
 \newblock PLoS ONE. 2012;7(9):e46497.
@@ -420,7 +420,7 @@ Gillis J, Mistry M, Pavlidis P.
 \bibitem{Ashburner2000}
 Ashburner M, Ball CA, Blake JA, Botstein D, Butler H, Cherry JM, et~al.
 \newblock {Gene Ontology: Tool for The Unification of Biology}.
-\newblock NATURE GENETICS. 2000;25(1):25--29.
+\newblock Nature Genetics. 2000;25(1):25--29.
 \newblock doi:{10.1038/75556}.
 
 \bibitem{Zoubarev2012}
@@ -595,6 +595,89 @@ French L, Pavlidis P.
 \newblock {Relationships between gene expression and brain wiring in the adult
   rodent brain}.
 \newblock PLoS Comp Biol. 2011;7(1):e1001049.
+
+\bibitem{Garriga1999}
+Garriga G, Forrester WC, Dell M, Perens E.
+\newblock {A C. elegans Ror receptor tyrosine kinase regulates cell motility
+  and asymmetric cell division}.
+\newblock Nature. 1999;400(6747):881--885.
+\newblock doi:{10.1038/23722}.
+
+\bibitem{Leung-Hagesteijn1992}
+Leung-Hagesteijn C, Spence AM, Stern BD, Zhou Y, Su MW, Hedgecock EM, et~al.
+\newblock {UNC-5, a transmembrane protein with immunoglobulin and
+  thrombospondin type 1 domains, guides cell and pioneer axon migrations in C.
+  elegans}.
+\newblock Cell. 1992;71(2):289--299.
+\newblock doi:{10.1016/0092-8674(92)90357-I}.
+
+\bibitem{Zallen1999}
+Zallen JA, Kirch SA, Bargmann CI.
+\newblock {Genes required for axon pathfinding and extension in the C. elegans
+  nerve ring.}
+\newblock Development (Cambridge, England). 1999;126(16):3679--92.
+
+\bibitem{Hoffmann2010}
+Hoffmann M, Segbert C, Helbig G, Bossinger O.
+\newblock {Intestinal tube formation in Caenorhabditis elegans requires vang-1
+  and egl-15 signaling}.
+\newblock Developmental Biology. 2010;339(2):268--279.
+\newblock doi:{10.1016/j.ydbio.2009.12.002}.
+
+\bibitem{Wu2006}
+Wu M, Herman MA.
+\newblock {A novel noncanonical Wnt pathway is involved in the regulation of
+  the asymmetric B cell division in C. elegans}.
+\newblock Developmental Biology. 2006;293(2):316--329.
+\newblock doi:{10.1016/j.ydbio.2005.12.024}.
+
+\bibitem{Ikeda2008}
+Ikeda DD, Duan Y, Matsuki M, Kunitomo H, Hutter H, Hedgecock EM, et~al.
+\newblock {CASY-1, an ortholog of calsyntenins/alcadeins, is essential for
+  learning in Caenorhabditis elegans}.
+\newblock Proceedings of the National Academy of Sciences.
+  2008;105(13):5260--5265.
+\newblock doi:{10.1073/pnas.0711894105}.
+
+\bibitem{Sarafi-Reinach2001}
+Sarafi-Reinach TR, Melkman T, Hobert O, Sengupta P.
+\newblock {The lin-11 LIM homeobox gene specifies olfactory and chemosensory
+  neuron fates in C. elegans.}
+\newblock Development (Cambridge, England). 2001;128(17):3269--81.
+
+\bibitem{Prasad2008}
+Prasad B, Karakuzu O, Reed RR, Cameron S.
+\newblock {unc-3-dependent repression of specific motor neuron fates in
+  Caenorhabditis elegans.}
+\newblock Developmental biology. 2008;323(2):207--15.
+\newblock doi:{10.1016/j.ydbio.2008.08.029}.
+
+\bibitem{Baran1999}
+Baran R, Aronoff R, Garriga G.
+\newblock {The C. elegans homeodomain gene unc-42 regulates chemosensory and
+  glutamate receptor expression.}
+\newblock Development (Cambridge, England). 1999;126(10):2241--51.
+
+\bibitem{Cassata2000}
+Cassata G, Kagoshima H, Andachi Y, Kohara Y, D{\"{u}}rrenberger MB, Hall DH,
+  et~al.
+\newblock {The LIM homeobox gene ceh-14 confers thermosensory function to the
+  AFD neurons in Caenorhabditis elegans.}
+\newblock Neuron. 2000;25(3):587--97.
+
+\bibitem{Schmid2006}
+Schmid C, Schwarz V, Hutter H.
+\newblock {AST-1, a novel ETS-box transcription factor, controls axon guidance
+  and pharynx development in C. elegans}.
+\newblock Developmental Biology. 2006;293(2):403--413.
+\newblock doi:{10.1016/j.ydbio.2006.02.042}.
+
+\bibitem{Shaham2002a}
+Shaham S, Bargmann CI.
+\newblock {Control of neuronal subtype identity by the C. elegans ARID protein
+  CFI-1.}
+\newblock Genes {\&} development. 2002;16(8):972--83.
+\newblock doi:{10.1101/gad.976002}.
 
 \bibitem{Kaufman2006}
 Kaufman A, Dror G, Meilijson I, Ruppin E.

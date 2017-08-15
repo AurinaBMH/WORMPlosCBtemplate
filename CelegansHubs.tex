@@ -1176,7 +1176,7 @@ Moreover, there is no difference in coexpression between pairs of hubs that are 
 %% comment on enrichment analysis. No write up can be done before deciding on options.
 % Having determined that pairs of neurons with different connectivity exhibit different levels of coexpression,
 Having characterized a robust relationship between hub connectivity and gene coexpression, we next investigate whether specific functional groups of genes contribute to the observed differences in gene coexpression.
-We developed a method to score genes according to their contribution to a given coexpression pattern, which was used to perform an overrepresentation enrichment analysis using gene ontology (GO) categories for biological processes \cite{Ashburner2000, Gillis2010} (see \emph{Methods}).
+We developed a method to score genes according to their contribution to a given coexpression pattern (see \emph{Methods}). These scores were used to perform an overrepresentation enrichment analysis using gene ontology (GO) categories for biological processes \cite{Ashburner2000, Gillis2010}.
 % (related to the probability of a gene being expressed together in a given set of neuron pairs compared to an alternative set).
 % Previous results using quantitative gene expression in mouse has indicated that genes driving an increase in coexpression between connected pairs of neurons are enriched in GO categories related to neuronal, synaptic, and axonal structure and function
 % \cite{Fulcher:2016ck, Ji:2014jw, Fakhry:2015kl, French:2011cz}.
@@ -1186,6 +1186,24 @@ We first determined which functional groups of genes drive increased coexpressio
 % No GO categories were significant at a false discovery rate of 0.05.
 The top GO categories are related to glutamate receptor signaling: `ionotropic glutamate receptor signaling pathway' and `glutamate receptor signaling pathway', as well as cell surface receptor signaling, `ion transport', and `ion transmembrane transport', but none are significant at a false discovery rate of 0.05.
 Other categories are involved in the regulation of growth rate and several catabolic processes (see Table~\ref{tab:enrichmentCON}).
+
+\begin{itemize}
+     \item Given no GO categories are significantly overrepresented in the enrichment analysis, we investigated the individual genes that contributed towards the increased coexpression.
+     \item Several biologically relevant gene groups including glutamate receptor genes (glr-1, glr-2, glr-4, glr-5, nmr-1, nmr-2), innexins (unc-9, unc-7, inx-7, inx-19, inx-13), cell adhesion molecules and transcription factors were found among the top 20$\%$ of the most influential genes. 
+Here we show that adhesion molecules related to locomotion (cam-1, unc-5 \cite{Harris:2009kd}) cell migration (cam-1 \cite{Garriga1999}, unc-6, rig-1, unc-5 \cite{Leung-Hagesteijn1992}), axon outgrowth and guidance (sax-3 \cite{Zallen1999}, cam-1 \cite{Garriga1999}) as well as cell polarity (vang-1 \cite{Hoffmann2010}, prkl-1 \cite{Wu2006}) and learning (casy-1 \cite{Ikeda2008}) are implicated.
+In addition, transcription factors regulating neuronal development, fate specification (lin-11 \cite{Sarafi-Reinach2001}, unc-3 \cite{Prasad2008}, unc-42 \cite{Baran1999}, ceh-14 \cite{Cassata2000}, ast-1 \cite{Schmid2006}, cfi-1 \cite{Shaham2002a}) and locomotion (unc-3 \cite{Prasad2008}) also play an important role in the increased coexpression between connected neurons. \\
+     INTERPRETATION
+     
+     \item glutamate ???.
+     \item innexins are responsible for the formation of electrical synapses. Here we use the connectome with both chemical and electrical synapses. 
+     \item cell adhesion is regulating cell interaction with the surface or other cells, therefore potentially facilitate signal transduction and communication. 
+     \item transcription factors found in this analysis mainly regulate neuronal development and fate specification which is important in establishing connections between neurons. 
+
+ \end{itemize}
+
+ INTERPRETATION OF SINGLE GENE RESULTS
+%regulating cell interaction with the surface or other cells, therefore potentially facilitate signal transduction and communication, 
+
 %While these incomplete binary expression data do not allow us to deduce functional categories with statistical significance, our findings point to the possible role of some relevant neuronal processes in driving the increased coexpression of connected pairs of neurons relative to unconnected pairs.
  % demonstrate a method for computing GO categories from binary expression data that suggest that connected pairs of neurons may coexpress genes associated with neuronal connectivity relative to unconnected neuron pairs.
 
@@ -1198,7 +1216,20 @@ Thus, although a direct test of the metabolic hypothesis is not possible from cu
 %Due to gene expression data specificity in all the following analyses we present top 15 GO categories enriched in a particular link type compared to other links.
 Top GO categories are listed in Table~\ref{tab:enrichmentRICH}; none are statistically significant at a false discovery rate of 0.05.
 The same two glutamate receptor signaling categories implicated for connectivity above: `ionotropic glutamate receptor signaling pathway' and `glutamate receptor signaling pathway', were again at the top of the list of categories related to hub connectivity.
-Other top categories include a more general receptor signaling class (`cell surface receptor signaling pathway'), `regulation of locomotion', and various metabolism and biosynthesis related processes including `positive regulation of biosynthetic process', two groups responsible for positive regulation of nitrogen and nucleobase-containing compound metabolic process, `positive regulation of cellular metabolic process', and `positive regulation of macromolecule biosynthetic process'.
+Other top categories include a more general receptor signaling class (`cell surface receptor signaling pathway'), `regulation of locomotion', and various metabolism and biosynthesis related processes including `positive regulation of biosynthetic process', two groups responsible for positive regulation of nitrogen and nucleobase-containing compound metabolic process, `positive regulation of cellular metabolic process', and `positive regulation of macromolecule biosynthetic process'.\\
+
+\begin{itemize}
+     \item Here we again look at the top 20$\%$ of the individual genes implicated in the increased coexpression for connections involving hubs. 
+     \item In addition to glutamate receptor (glr-5, nmr-1, nmr-2, glr-1, glr-2, grld-1) and acetylcholine related genes (ace-2, cho-1, unc-17, deg-3), we again find a high number of  adhesion molecules (cam-1, rig-1, rig-6, unc-6, grld-1, dbl-1, ncam-1) and transcription factors (unc-3, unc-42, ast-1, pdfr-1) that at least partially overlap with genes found comparing connected and unconnected pairs of neurons.  \\
+     \item rig-1, ncam-1 and grld-1 are known to be human orthologs \cite{Harris:2009kd} for genes regulating cell migration, differentiation and neuron cell adhesion. \\
+     INTERPRETATION
+     
+     \item glutamate is known to be important in the regulation of locomotion in command interneurons \cite{Brockie2006}.
+     \item majority of hubs are cholinergic (our findings)
+     \item high overlap between adhesion molecule and transcription factor genes shows the importance of establishing connections.
+ \end{itemize}
+ 
+REMOVE interpretation of enrichment. 
 % ---also emerged as enriched in connections involving hubs compared to other connections.
 
 %These findings are in line with our expectations as hub neurons receive input from sensory neurons, the majority of which are glutamatergic.
