@@ -19,6 +19,10 @@ Repeated entry---line 638 of file library_ben.bib
  : @article{Horvat:2016ia
  :                       ,
 I'm skipping whatever remains of this entry
+Repeated entry---line 874 of file library_ben.bib
+ : @article{Parkes:2017dn
+ :                       ,
+I'm skipping whatever remains of this entry
 Repeated entry---line 909 of file library_ben.bib
  : @article{vandenHeuvel:2012kh
  :                             ,
@@ -36,43 +40,43 @@ Warning--can't use both volume and number fields in choe2004network
 Warning--empty pages in choe2004network
 You've used 120 entries,
             3058 wiz_defined-function locations,
-            1489 strings with 50270 characters,
-and the built_in function-call counts, 374643 in all, are:
-= -- 45402
-> -- 1984
+            1487 strings with 51683 characters,
+and the built_in function-call counts, 390072 in all, are:
+= -- 47118
+> -- 2020
 < -- 4
-+ -- 1893
-- -- 496
-* -- 35460
-:= -- 41049
-add.period$ -- 520
++ -- 1911
+- -- 505
+* -- 37141
+:= -- 42753
+add.period$ -- 518
 call.type$ -- 120
 change.case$ -- 2
 chr.to.int$ -- 0
 cite$ -- 122
-duplicate$ -- 19258
-empty$ -- 37745
-format.name$ -- 611
-if$ -- 85594
+duplicate$ -- 19367
+empty$ -- 39432
+format.name$ -- 620
+if$ -- 89033
 int.to.chr$ -- 0
 int.to.str$ -- 120
-missing$ -- 1198
-newline$ -- 648
+missing$ -- 1207
+newline$ -- 646
 num.names$ -- 120
-pop$ -- 1869
+pop$ -- 1881
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 1932
+skip$ -- 1949
 stack$ -- 0
-substring$ -- 92650
-swap$ -- 3029
+substring$ -- 97618
+swap$ -- 3043
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 1280
+while$ -- 1289
 width$ -- 123
-write$ -- 1407
-(There were 6 error messages)
+write$ -- 1403
+(There were 7 error messages)

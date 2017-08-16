@@ -699,36 +699,16 @@ Zheng Y, Brockie PJ, Mellem JE, Madsen DM, Maricq AV.
 \newblock Neuron. 1999;24(2):347--361.
 \newblock doi:{10.1016/S0896-6273(00)80849-1}.
 
-\bibitem{vandenHeuvel:2017ex}
-van~den Heuvel MP, Yeo BTT.
-\newblock {A Spotlight on Bridging Microscale and Macroscale Human Brain
-  Architecture}.
-\newblock Neuron. 2017;93(6):1248--1251.
-
-\bibitem{Varadan:2006ek}
-Varadan V, Miller~III DM, Anastassiou D.
-\newblock {Computational inference of the molecular logic for synaptic
-  connectivity in C. elegans}.
-\newblock Bioinformatics. 2006;22(14):e497--e506.
-
-\bibitem{Kaufman2006}
-Kaufman A, Dror G, Meilijson I, Ruppin E.
-\newblock {Gene expression of Caenorhabditis elegans neurons carries
-  information on their synaptic connectivity.}
-\newblock PLoS computational biology. 2006;2(12):e167.
-\newblock doi:{10.1371/journal.pcbi.0020167}.
-
-\bibitem{Baruch2008b}
-Baruch L, Itzkovitz S, Golan-Mashiach M, Shapiro E, Segal E.
-\newblock {Using Expression Profiles of Caenorhabditis elegans Neurons To
-  Identify Genes That Mediate Synaptic Connectivity}.
-\newblock PLoS computational biology. 2008;4(7):e1000120.
-\newblock doi:{10.1371/journal.pcbi.1000120}.
-
 \bibitem{Lein:2007jn}
 Lein E, Hawrylycz MJ, Ao N, Ayres M, Bensinger A, Bernard A, et~al.
 \newblock {Genome-wide atlas of gene expression in the adult mouse brain}.
 \newblock Nature. 2007;445(7124):168--176.
+
+\bibitem{Hawrylycz:2012ky}
+Hawrylycz MJ, Lein E, Guillozet-Bongaarts AL, Shen EH, Ng L, Miller JA, et~al.
+\newblock {An anatomically comprehensive atlas of the adult human brain
+  transcriptome}.
+\newblock Nature. 2012;489(7416):391--399.
 
 \bibitem{French2011}
 French L, Pavlidis P.
@@ -737,10 +717,29 @@ French L, Pavlidis P.
 \newblock PLoS computational biology. 2011;7(1):e1001049.
 \newblock doi:{10.1371/journal.pcbi.1001049}.
 
-\bibitem{Bullmore2012}
-Bullmore E, Sporns O.
-\newblock {The economy of brain network organization.}
-\newblock Nature Reviews Neuroscience. 2012;13(5):336--49.
-\newblock doi:{10.1038/nrn3214}.
+\bibitem{Parkes:2017dn}
+Parkes L, Fulcher BD, Y{\"u}cel M, Fornito A.
+\newblock {Transcriptional signatures of connectomic subregions of the human
+  striatum}.
+\newblock Genes, Brain and Behavior. 2017;25:1176.
+
+\bibitem{Shen:2012ua}
+Shen EH, Overly CC, Jones AR.
+\newblock {The Allen Human Brain Atlas: comprehensive gene expression mapping
+  of the human brain}.
+\newblock Trends Neurosci. 2012;32(12):711--714.
+
+\bibitem{Tasic:2016jp}
+Tasic B, Menon V, Nguyen TN, Kim TK, Jarsky T, Yao Z, et~al.
+\newblock {Adult mouse cortical cell taxonomy revealed by single cell
+  transcriptomics}.
+\newblock Nat Neurosci. 2016;19(2):335--346.
+
+\bibitem{Kaufman2006}
+Kaufman A, Dror G, Meilijson I, Ruppin E.
+\newblock {Gene expression of Caenorhabditis elegans neurons carries
+  information on their synaptic connectivity.}
+\newblock PLoS computational biology. 2006;2(12):e167.
+\newblock doi:{10.1371/journal.pcbi.0020167}.
 
 \end{thebibliography}
