@@ -450,12 +450,6 @@ Richiardi J, Altmann A, Greicius M.
   Synchronous Activity In Brain Networks}.
 \newblock bioRxiv. 2017; p. 132746.
 
-\bibitem{Henderson:2014fg}
-Henderson JA, Robinson PA.
-\newblock Relations Between the Geometry of Cortical Gyrification and
-  White-Matter Network Architecture.
-\newblock Brain Conn. 2014;4(2):112--130.
-
 \bibitem{Horvat:2016ia}
 Horv{\'a}t S, G{\u{a}}m{\u{a}}nuț R, Ercsey-Ravasz M, Magrou L,
   G{\u{a}}m{\u{a}}nuț B, Van~Essen DC, et~al.
@@ -472,6 +466,18 @@ Wang XJ, Kennedy H.
 Markov NT, Ercsey-Ravasz M, Van~Essen DC, Knoblauch K, Toroczkai Z, Kennedy H.
 \newblock {Cortical High-Density Counterstream Architectures}.
 \newblock Science. 2013;342(6158):1238406--1238406.
+
+\bibitem{Henderson:2014fg}
+Henderson JA, Robinson PA.
+\newblock Relations Between the Geometry of Cortical Gyrification and
+  White-Matter Network Architecture.
+\newblock Brain Conn. 2014;4(2):112--130.
+
+\bibitem{Noori:2017ce}
+Noori HR, Sch{\"o}ttler J, Ercsey-Ravasz M, Cosa-Linan A, Varga M, Toroczkai Z,
+  et~al.
+\newblock {A multiscale cerebral neurochemical connectome of the rat brain}.
+\newblock PLoS Biol. 2017;15(7):e2002612.
 
 \bibitem{Levy:2012dy}
 Levy RB, Reyes AD.
@@ -596,6 +602,12 @@ French L, Pavlidis P.
   rodent brain}.
 \newblock PLoS Comp Biol. 2011;7(1):e1001049.
 
+\bibitem{Zallen1999}
+Zallen JA, Kirch SA, Bargmann CI.
+\newblock {Genes required for axon pathfinding and extension in the C. elegans
+  nerve ring.}
+\newblock Development (Cambridge, England). 1999;126(16):3679--92.
+
 \bibitem{Garriga1999}
 Garriga G, Forrester WC, Dell M, Perens E.
 \newblock {A C. elegans Ror receptor tyrosine kinase regulates cell motility
@@ -611,18 +623,13 @@ Leung-Hagesteijn C, Spence AM, Stern BD, Zhou Y, Su MW, Hedgecock EM, et~al.
 \newblock Cell. 1992;71(2):289--299.
 \newblock doi:{10.1016/0092-8674(92)90357-I}.
 
-\bibitem{Zallen1999}
-Zallen JA, Kirch SA, Bargmann CI.
-\newblock {Genes required for axon pathfinding and extension in the C. elegans
-  nerve ring.}
-\newblock Development (Cambridge, England). 1999;126(16):3679--92.
-
-\bibitem{Hoffmann2010}
-Hoffmann M, Segbert C, Helbig G, Bossinger O.
-\newblock {Intestinal tube formation in Caenorhabditis elegans requires vang-1
-  and egl-15 signaling}.
-\newblock Developmental Biology. 2010;339(2):268--279.
-\newblock doi:{10.1016/j.ydbio.2009.12.002}.
+\bibitem{Ikeda2008}
+Ikeda DD, Duan Y, Matsuki M, Kunitomo H, Hutter H, Hedgecock EM, et~al.
+\newblock {CASY-1, an ortholog of calsyntenins/alcadeins, is essential for
+  learning in Caenorhabditis elegans}.
+\newblock Proceedings of the National Academy of Sciences.
+  2008;105(13):5260--5265.
+\newblock doi:{10.1073/pnas.0711894105}.
 
 \bibitem{Wu2006}
 Wu M, Herman MA.
@@ -631,13 +638,12 @@ Wu M, Herman MA.
 \newblock Developmental Biology. 2006;293(2):316--329.
 \newblock doi:{10.1016/j.ydbio.2005.12.024}.
 
-\bibitem{Ikeda2008}
-Ikeda DD, Duan Y, Matsuki M, Kunitomo H, Hutter H, Hedgecock EM, et~al.
-\newblock {CASY-1, an ortholog of calsyntenins/alcadeins, is essential for
-  learning in Caenorhabditis elegans}.
-\newblock Proceedings of the National Academy of Sciences.
-  2008;105(13):5260--5265.
-\newblock doi:{10.1073/pnas.0711894105}.
+\bibitem{Hoffmann2010}
+Hoffmann M, Segbert C, Helbig G, Bossinger O.
+\newblock {Intestinal tube formation in Caenorhabditis elegans requires vang-1
+  and egl-15 signaling}.
+\newblock Developmental Biology. 2010;339(2):268--279.
+\newblock doi:{10.1016/j.ydbio.2009.12.002}.
 
 \bibitem{Sarafi-Reinach2001}
 Sarafi-Reinach TR, Melkman T, Hobert O, Sengupta P.
@@ -679,11 +685,62 @@ Shaham S, Bargmann CI.
 \newblock Genes {\&} development. 2002;16(8):972--83.
 \newblock doi:{10.1101/gad.976002}.
 
+\bibitem{Choi2015}
+Choi S, Taylor KP, Chatzigeorgiou M, Hu Z, Schafer WR, Kaplan JM.
+\newblock {Sensory Neurons Arouse C. elegans Locomotion via Both Glutamate and
+  Neuropeptide Release.}
+\newblock PLoS genetics. 2015;11(7):e1005359.
+\newblock doi:{10.1371/journal.pgen.1005359}.
+
+\bibitem{Zheng1999}
+Zheng Y, Brockie PJ, Mellem JE, Madsen DM, Maricq AV.
+\newblock {Neuronal Control of Locomotion in C. elegans Is Modified by a
+  Dominant Mutation in the GLR-1 Ionotropic Glutamate Receptor}.
+\newblock Neuron. 1999;24(2):347--361.
+\newblock doi:{10.1016/S0896-6273(00)80849-1}.
+
+\bibitem{vandenHeuvel:2017ex}
+van~den Heuvel MP, Yeo BTT.
+\newblock {A Spotlight on Bridging Microscale and Macroscale Human Brain
+  Architecture}.
+\newblock Neuron. 2017;93(6):1248--1251.
+
+\bibitem{Varadan:2006ek}
+Varadan V, Miller~III DM, Anastassiou D.
+\newblock {Computational inference of the molecular logic for synaptic
+  connectivity in C. elegans}.
+\newblock Bioinformatics. 2006;22(14):e497--e506.
+
 \bibitem{Kaufman2006}
 Kaufman A, Dror G, Meilijson I, Ruppin E.
 \newblock {Gene expression of Caenorhabditis elegans neurons carries
   information on their synaptic connectivity.}
 \newblock PLoS computational biology. 2006;2(12):e167.
 \newblock doi:{10.1371/journal.pcbi.0020167}.
+
+\bibitem{Baruch2008b}
+Baruch L, Itzkovitz S, Golan-Mashiach M, Shapiro E, Segal E.
+\newblock {Using Expression Profiles of Caenorhabditis elegans Neurons To
+  Identify Genes That Mediate Synaptic Connectivity}.
+\newblock PLoS computational biology. 2008;4(7):e1000120.
+\newblock doi:{10.1371/journal.pcbi.1000120}.
+
+\bibitem{Lein:2007jn}
+Lein E, Hawrylycz MJ, Ao N, Ayres M, Bensinger A, Bernard A, et~al.
+\newblock {Genome-wide atlas of gene expression in the adult mouse brain}.
+\newblock Nature. 2007;445(7124):168--176.
+
+\bibitem{French2011}
+French L, Pavlidis P.
+\newblock {Relationships between gene expression and brain wiring in the adult
+  rodent brain.}
+\newblock PLoS computational biology. 2011;7(1):e1001049.
+\newblock doi:{10.1371/journal.pcbi.1001049}.
+
+\bibitem{Bullmore2012}
+Bullmore E, Sporns O.
+\newblock {The economy of brain network organization.}
+\newblock Nature Reviews Neuroscience. 2012;13(5):336--49.
+\newblock doi:{10.1038/nrn3214}.
 
 \end{thebibliography}
