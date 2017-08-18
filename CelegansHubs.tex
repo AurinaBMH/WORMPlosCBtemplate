@@ -1366,18 +1366,18 @@ It is therefore possible that these spatial dependences of connectivity and corr
 Recent work has emphasized the importance of treating the brain as a spatially embedded object, demonstrating that many seemingly non-trivial properties of brain organization can be explained using very simple, isotropic spatial rules \cite{Henderson:2014fg, Roberts2016, Horvat:2016ia}, and [[CITE OPTIMIZATION WORK ON WIRING COST IN C. ELEGANS??]]; our results suggest that these principles may be common to neural systems of different types and scales.
 
 
-\textbf{MAIN EFFECT}
 % COMPARE TO MOUSE
-Compared to our previous work in the mesoscale mouse connectome \cite{Fulcher:2016ck}, the present findings in a fully mapped neuronal connectome show both similarities and differences.
-Despite the incredible difference in spatial scale (from each node containing $\tilde 10^5$ neurons in mouse, to just a single neuron in worm), we found a similar basic qualitative signal of increased coexpression in connected pairs of neurons, and amongst connected pairs, the most similar expression signatures in pairs of connected hub neurons.
-These overall findings were specific to connections involving interneurons, i.e., were not found in motor or sensory neurons, being driven by the relatively expression similarity of high-degree interneuron hubs, were not driven by similarity in lineage, neurotransmitter type, or modular membership, and were robust to a range of data processing choices (including connectome type, and coexpression measure).\\
-These findings come despite sparsely annotated, binary gene expression data, with less than 5\% coverage of the full genome. 
+The correlated gene expression patterns in \emph{C. elegans} show many surprising similarities to previous work in the mesoscale mouse connectome \cite{Fulcher:2016ck}, despite an incredible difference in spatial scale (from each node containing $\tilde 10^5$ neurons in mouse, to just a single neuron in \emph{C. elegans}), being a different type of neural system (from the spatially continuous macroscopic brain of mouse, to the spatially separated nervous system of \emph{C. elegans}), and involving different gene annotations (comprehensive in situ hybridization expression data across $\sim20\,000$ genes in mouse versus literature curated annotations across $\sim 1000$ genes in \emph{C. elegans}).
+Representing both systems as a graph, with gene expression data annotated to each node in the graph, reveals a common pattern of increased correlation in gene expression between connected pairs of neurons and, amongst connections, an increase in the transcriptional similarity between hubs with connectivity degree, $k$ [[QU: I think we might want to explicitly show the similarity between the results? We kind of assume that the reader is familiar with the old work; could be nice to put the two results side-by-side...?]].
+[[Comment on why electrical are more transcriptionally similar than chemical?? -- it's not a spatial effect -- distances are not greater for chemical synapses]]
+The findings were also robust to a range of data processing choices, including different representations of the connectome (e.g., directed/undirected, or excluding electrical synapses), and differences in the measure of transcriptional similarity.
 % with preliminary enrichment analysis indicating a role for glutamate in both connectivity and hub-connectivity.
 Our results indicate that even in a highly specialized neuronal nervous system, costly hub-hub connections display a distinctive transcriptional signature that may reflect their unique functional role in the network.
-Further work across different species and scales may shed light on deeper principles of how connectomes organize to facilitate efficient biological functioning.
+The close relationship to mouse results 
+
 
 \textbf{DRIVING FACTORS}
-
+The range of additional data on \emph{C. elegans} neurons allowed us to rule out the transcriptional similarity of hubs being driven by the fact that hubs are interneurons, or that the results are driven by their cell lineage relationships, birth times, neurotransmitter type, or modular membership.
 The hubs of the mouse connectome are broadly distributed across anatomical divisions \cite{Fulcher:2016ck}, whereas \emph{C. elegans} hubs mostly correspond to a specific functional circuit. 
 We attempted to address this by looking at potential confounds, to characterize whether high coexpression associated with rich connections was related to aspects like interneuron type, neurotransmitter system, neuronal birth time, neuronal lineage, anatomical location, modular organization of the connectome as well as functional class.
 We were able to reject influences of all except one potential driving factors. 
@@ -1421,6 +1421,8 @@ Compared to continuous expression information provided from techniques like RNA 
 Further, using the current data, we are unable to distinguish expression levels between neurons that express a given gene, and we are unable to distinguish missing data, from negative data (both are represented as `0').
 In addition to that, this data has different qualifiers, therefore some arbitrary choices need to be made in order to keep the balance between sensitivity and specificity. 
 
+These findings come despite sparsely annotated, binary gene expression data, with less than 5\% coverage of the full genome.
+
 Thus, despite minimal gene coverage, we developed a new method that was able to find interpretable patterns in the existing binary expression data for \emph{C. elegans}, providing clues as to function of genes that may drive molecular differences between topologically different pairs of neurons.
 Future work systematically mapping gene expression in a unified experimental paradigm would allow a more subtle and comprehensive analysis of gene expression and function.
 With increases in data quality, this method could be used can be further used to investigate biological basis of neuronal organization.
@@ -1449,7 +1451,7 @@ With increases in data quality, this method could be used can be further used to
 
 \section*{Conclusion}
 
-Conclusion text.
+Increasing availability of detailed gene expression datasets, including the potential for single-cell RNA sequencing, will allow future work across species and scales to shed light on deeper molecular mechanisms underlying the organizational principles of connectome organization that underpin efficient biological functioning.
 
 \section*{Acknowledgments}
 % Thanks to Alex Fornito for being a big deal.
