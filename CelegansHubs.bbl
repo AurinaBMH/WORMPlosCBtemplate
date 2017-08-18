@@ -1,5 +1,11 @@
 \begin{thebibliography}{100}
 
+\bibitem{Fulcher:2016ck}
+Fulcher BD, Fornito A.
+\newblock {A transcriptional signature of hub connectivity in the mouse
+  connectome}.
+\newblock Proc Natl Acad Sci USA. 2016;113(5):1435--1440.
+
 \bibitem{White:1986tx}
 White JG, Southgate E, Thomson JN.
 \newblock {The structure of the nervous system of the nematode Caenorhabditis
@@ -229,12 +235,6 @@ van~den Heuvel MP, Scholtens LH, de~Reus MA.
   connectome}.
 \newblock Brain Structure and Function. 2016;221(3):1719--1736.
 \newblock doi:{10.1007/s00429-015-0999-6}.
-
-\bibitem{Fulcher:2016ck}
-Fulcher BD, Fornito A.
-\newblock {A transcriptional signature of hub connectivity in the mouse
-  connectome}.
-\newblock Proc Natl Acad Sci USA. 2016;113(5):1435--1440.
 
 \bibitem{Tomasi:2013kl}
 Tomasi D, Wang GJ, Volkow ND.
@@ -485,12 +485,6 @@ Levy RB, Reyes AD.
   Mouse Primary Auditory Cortex.
 \newblock J Neurosci. 2012;32(16):5609--5619.
 
-\bibitem{Roberts2016}
-Roberts JA, Perry A, Lord AR, Roberts G, Mitchell PB, Smith RE, et~al.
-\newblock {The contribution of geometry to the human connectome.}
-\newblock NeuroImage. 2016;124(Pt A):379--93.
-\newblock doi:{10.1016/j.neuroimage.2015.09.009}.
-
 \bibitem{Goulas:2016hr}
 Goulas A, Uylings HBM, Hilgetag CC.
 \newblock {Principles of ipsilateral and contralateral cortico-cortical
@@ -698,6 +692,12 @@ Zheng Y, Brockie PJ, Mellem JE, Madsen DM, Maricq AV.
   Dominant Mutation in the GLR-1 Ionotropic Glutamate Receptor}.
 \newblock Neuron. 1999;24(2):347--361.
 \newblock doi:{10.1016/S0896-6273(00)80849-1}.
+
+\bibitem{Roberts2016}
+Roberts JA, Perry A, Lord AR, Roberts G, Mitchell PB, Smith RE, et~al.
+\newblock {The contribution of geometry to the human connectome.}
+\newblock NeuroImage. 2016;124(Pt A):379--93.
+\newblock doi:{10.1016/j.neuroimage.2015.09.009}.
 
 \bibitem{Lein:2007jn}
 Lein E, Hawrylycz MJ, Ao N, Ayres M, Bensinger A, Bernard A, et~al.

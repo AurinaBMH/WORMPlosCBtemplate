@@ -11,19 +11,23 @@ Repeated entry---line 280 of file library_ben.bib
  : @article{Lein:2007jn
  :                     ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 630 of file library_ben.bib
+Repeated entry---line 536 of file library_ben.bib
+ : @article{Kim:2014bu
+ :                    ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 653 of file library_ben.bib
  : @article{Shih:2015cu
  :                     ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 638 of file library_ben.bib
+Repeated entry---line 661 of file library_ben.bib
  : @article{Horvat:2016ia
  :                       ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 874 of file library_ben.bib
+Repeated entry---line 897 of file library_ben.bib
  : @article{Parkes:2017dn
  :                       ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 909 of file library_ben.bib
+Repeated entry---line 932 of file library_ben.bib
  : @article{vandenHeuvel:2012kh
  :                             ,
 I'm skipping whatever remains of this entry
@@ -32,6 +36,7 @@ Repeated entry---line 520 of file library_aurina.bib
  : @article{Stephan2001
  :                     ,
 I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "Starich2001"
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
@@ -40,7 +45,7 @@ Warning--can't use both volume and number fields in choe2004network
 Warning--empty pages in choe2004network
 You've used 120 entries,
             3058 wiz_defined-function locations,
-            1487 strings with 51683 characters,
+            1489 strings with 51705 characters,
 and the built_in function-call counts, 390072 in all, are:
 = -- 47118
 > -- 2020
@@ -79,4 +84,4 @@ warning$ -- 2
 while$ -- 1289
 width$ -- 123
 write$ -- 1403
-(There were 7 error messages)
+(There were 8 error messages)
