@@ -596,6 +596,12 @@ French L, Pavlidis P.
   rodent brain}.
 \newblock PLoS Comp Biol. 2011;7(1):e1001049.
 
+\bibitem{Starich2001}
+Starich T, Sheehan M, Jadrich J, Shaw J.
+\newblock {Innexins in C. elegans}.
+\newblock Cell Communication {\&} Adhesion. 2001;8(4-6):311--314.
+\newblock doi:{10.3109/15419060109080744}.
+
 \bibitem{Zallen1999}
 Zallen JA, Kirch SA, Bargmann CI.
 \newblock {Genes required for axon pathfinding and extension in the C. elegans
@@ -638,6 +644,28 @@ Hoffmann M, Segbert C, Helbig G, Bossinger O.
   and egl-15 signaling}.
 \newblock Developmental Biology. 2010;339(2):268--279.
 \newblock doi:{10.1016/j.ydbio.2009.12.002}.
+
+\bibitem{Paemka2013}
+Paemka L, Mahajan VB, Skeie JM, Sowers LP, Ehaideb SN, Gonzalez-Alegre P,
+  et~al.
+\newblock {PRICKLE1 Interaction with SYNAPSIN I Reveals a Role in Autism
+  Spectrum Disorders}.
+\newblock PLoS ONE. 2013;8(12).
+\newblock doi:{10.1371/journal.pone.0080737}.
+
+\bibitem{Ehaideb2016}
+Ehaideb SN, Wignall EA, Kasuya J, Evans WH, Iyengar A, Koerselman HL, et~al.
+\newblock {Mutation of orthologous prickle genes causes a similar epilepsy
+  syndrome in flies and humans}.
+\newblock Annals of Clinical and Translational Neurology. 2016;3(9):695.
+\newblock doi:{10.1002/acn3.334}.
+
+\bibitem{Sowers2013}
+Sowers LP, Loo L, Wu Y, Campbell E, Ulrich JD, Wu S, et~al.
+\newblock {Disruption of the non-canonical Wnt gene PRICKLE2 leads to
+  autism-like behaviors with evidence for hippocampal synaptic dysfunction}.
+\newblock Molecular psychiatry. 2013;18(10):1077.
+\newblock doi:{10.1038/mp.2013.71}.
 
 \bibitem{Sarafi-Reinach2001}
 Sarafi-Reinach TR, Melkman T, Hobert O, Sengupta P.

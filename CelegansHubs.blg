@@ -32,56 +32,55 @@ Repeated entry---line 932 of file library_ben.bib
  :                             ,
 I'm skipping whatever remains of this entry
 Database file #2: library_aurina.bib
-Repeated entry---line 520 of file library_aurina.bib
+Repeated entry---line 590 of file library_aurina.bib
  : @article{Stephan2001
  :                     ,
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "Starich2001"
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Warning--can't use both volume and number fields in choe2004network
 Warning--empty pages in choe2004network
-You've used 120 entries,
+You've used 124 entries,
             3058 wiz_defined-function locations,
-            1489 strings with 51705 characters,
-and the built_in function-call counts, 390072 in all, are:
-= -- 47118
-> -- 2020
+            1521 strings with 53717 characters,
+and the built_in function-call counts, 406779 in all, are:
+= -- 49148
+> -- 2120
 < -- 4
-+ -- 1911
-- -- 505
-* -- 37141
-:= -- 42753
-add.period$ -- 518
-call.type$ -- 120
++ -- 2014
+- -- 530
+* -- 38748
+:= -- 44569
+add.period$ -- 538
+call.type$ -- 124
 change.case$ -- 2
 chr.to.int$ -- 0
-cite$ -- 122
-duplicate$ -- 19367
-empty$ -- 39432
-format.name$ -- 620
-if$ -- 89033
+cite$ -- 126
+duplicate$ -- 20227
+empty$ -- 41108
+format.name$ -- 649
+if$ -- 92856
 int.to.chr$ -- 0
-int.to.str$ -- 120
-missing$ -- 1207
-newline$ -- 646
-num.names$ -- 120
-pop$ -- 1881
+int.to.str$ -- 124
+missing$ -- 1255
+newline$ -- 670
+num.names$ -- 124
+pop$ -- 1941
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 1949
+skip$ -- 2033
 stack$ -- 0
-substring$ -- 97618
-swap$ -- 3043
+substring$ -- 101781
+swap$ -- 3161
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 1289
-width$ -- 123
-write$ -- 1403
+while$ -- 1338
+width$ -- 127
+write$ -- 1455
 (There were 8 error messages)
