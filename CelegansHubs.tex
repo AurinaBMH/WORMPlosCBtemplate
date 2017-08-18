@@ -236,23 +236,17 @@
 \end{flushleft}
 % Please keep the abstract below 300 words
 \section*{Abstract}
-Highly connected hubs of connectomes have been shown to be densely inter-connected, forming a costly but central backbone for neuronal communication.
-Adding to this picture, previous work has characterized the transcriptional similarity of hub regions in the mesoscale mouse connectome, suggesting that hubs may also be distinctive in their gene expression patterns.
-Given the importance of hubs across scales and species, here we test whether similar signatures of hub connectivity are also present in the fully mapped neuronal nervous system of \emph{C. elegans}.
-We assembled open data, on the chemical and electrical connectivity structure of \emph{C. elegans}, matched to a binary gene expression signature across 948 genes for each neuron, and computed a correlated gene expression score for each pair of neurons according to their transcriptional similarity.
-We characterize the decreasing spatial dependence of neuronal connectivity and correlated gene expression, showing that both are consistent with prior patterns in other species.
-We then confirmed the rich-club connectivity of \emph{C. elegans} and demonstrate that connections between hub neurons have the highest transcriptional similarity, and connections between nonhubs having the least correlated gene expression, in striking agreement with previous results in the mesoscale mouse connectome \cite{Fulcher:2016ck}.
-Our results hint that hub transcriptional similarity may be a conserved property of neuronal systems.
+Highly connected hubs of biological neural networks are densely inter-connected, forming a costly but central backbone for neuronal communication.
+Previous work has characterized the transcriptional similarity of these topologically important hub regions in the mesoscale mouse connectome, suggesting that hubs may possess a distinctive gene expression signature.
+Given the consistency of hub connectivity properties across scales and species, here we investigate whether a similar transcriptional signatures of hubs is present in the fully mapped neuronal nervous system of \emph{C. elegans}.
+Using open data on the chemical and electrical connectivity of 279 \emph{C. elegans} neurons matched to a binary gene expression signature across 948 genes, we computed a correlated gene expression score for each pair of neurons, providing a measure of their transcriptional similarity.
+We confirm the rich-club connectivity of \emph{C. elegans} and demonstrate that connections between hub neurons have the highest transcriptional similarity and connections between nonhubs having the lowest, consistent with previous results in the mouse \cite{Fulcher:2016ck}.
+Genes with the greatest contribution to this signature are related to glutamate receptor, acetylcholine, and other neuronal communication related genes.
+Using a range of metadata, we show that the high correlated gene expression between hub neurons cannot be attributed to a range of other properties (such as the fact that hub neurons are interneurons, born prior to hatching, mostly cholinergic and in the head), but we are unable to discount the possibility that it is driven by the transcriptional similarity of control interneurons, which control locomotion behavior.
+Our results hint that hub transcriptional similarity may be a conserved property of neuronal systems and the methods we introduce here for quantifying the contribution of genes to patterns of correlated gene expression will be important to provide biological understanding of global \emph{C. elegans} neuronal organization as expression data increase in genome coverage and quality.
+% , we propose that similar methods could be used in future work to characterize the biological basis of a range of patterns of neuronal connectivity.
 
-We demonstrate a relationship between neuronal connectivity and correlated gene expression in \textit{C. elegans}.
-
-
-Combining a range of data sources, we demonstrate that the results cannot be attributed to the fact that hub neurons are interneurons, born prior to hatching, are more likely to be in the same network module, are mostly cholinergic, are mostly in the head, nor can it be attributed to the lineage similarity of hub neurons.
-However, given the overlap between hub neurons in \emph{C. elegans} with the transcriptionally similar set of control interneurons, we are unable to discount the possibility that the high correlated gene expression between hub neurons is driven by that of the control interneurons.
-Amongst the genes considered here, many of those with the greatest contribution to this signature are related to glutamate receptor, acetylcholine, and other neuronal communication related genes.
-The methods we develop here for quantifying correlation gene expression and scoring genes on their contribution to it yield biologically interpretable results on incomplete, binary gene expression data.
-With increases in gene annotations and genome coverage, we propose that similar methods could be used in future work to characterize the biological basis of a range of patterns of neuronal connectivity.
-
+% The decreasing spatial dependence of neuronal connectivity and correlated gene expression exhibit patterns that resemble those characterized in larger of other species.
 
 % Please keep the Author Summary between 150 and 200 words
 % Use first person. PLOS ONE authors please skip this step.
