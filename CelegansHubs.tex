@@ -1342,11 +1342,12 @@ Future work leveraging more comprehensive expression data could be used to more 
 \section*{Discussion}
 
 In this work, we demonstrate a relationship between neuronal connectivity and correlated gene expression in \textit{C. elegans}.
-We find that connections between hub neurons have the highest transcriptional similarity, and connections between nonhubs having the least correlated gene expression.
-This result, in a specialized neuronal nervous system, is in striking agreement with previous results in the mesoscale mouse connectome \cite{Fulcher:2016ck}, hinting that hub transcriptional similarity may be a conserved property of neuronal systems.
-Combining a range of data sources, we demonstrate that the results cannot be attributed to the fact that hub neurons are interneurons, born prior to hatching, are more likely to be in the same network module, are mostly cholinergic, are mostly in the head, nor can it be attributed to the lineage similarity of hub neurons.
-However, given the overlap between hub neurons in \emph{C. elegans} with the transcriptionally similar set of control interneurons, we are unable to discount the possibility that the high correlated gene expression between hub neurons is driven by that of the control interneurons.
-Amongst the genes considered here, many of those with the greatest contribution to this signature are related to glutamate receptor, acetylcholine, and other neuronal communication related genes.
+We report a range of patterns that are consistent with that of macroscopic mammalian neuronal systems, including the decreasing spatial dependence of connection probability for connections within the head, tail, and body, and a decreasing spatial trend in many patterns of correlated gene expression.
+Furthermore, in striking agreement with previous results in the mesoscale mouse connectome \cite{Fulcher:2016ck}, we find that connected pairs of neurons have higher transcriptional similarity than unconnected pairs and, amongst connected pairs, that connections between hub neurons have the highest transcriptional similarity, connections between nonhubs have the lowest transcriptional similarity, and connections between hubs and nonhubs are intermediate.
+This result, in a specialized neuronal nervous system, hints that hub transcriptional similarity may be a conserved property of neuronal systems.
+Our results cannot be attributed to the fact that hub neurons are interneurons, born prior to hatching, are more likely to be in the same network module, are mostly cholinergic, are mostly in the head, nor can it be attributed to the lineage similarity of hub neurons.
+However, given the overlap between hub neurons in \emph{C. elegans} with the transcriptionally similar control interneurons, we are unable to discount the possibility that these control interneurons drive the high correlated gene expression between hubs.
+Amongst the genes considered here, many of those with the greatest contribution to connectivity a biologically plausible genes related to receptors, neurotransmitters, and cell adhesion, and those with the greatest contribution to hub connectivity are related to glutamate receptor, acetylcholine, and other neuronal communication related genes.
 The methods we develop here for quantifying correlation gene expression and scoring genes on their contribution to it yield biologically interpretable results on incomplete, binary gene expression data.
 With increases in gene annotations and genome coverage, we propose that similar methods could be used in future work to characterize the biological basis of a range of patterns of neuronal connectivity.
 
@@ -1360,7 +1361,7 @@ With increases in gene annotations and genome coverage, we propose that similar 
 
 %These findings highlight a close relationship between metabolic expenditure and the high signaling load of hub regions in the brain, as has been previously proposed \cite{Bullmore2012}.
 %As well as being a highly conserved structural feature, these studies hint that hub connectivity may also be consistently related to metabolic demand, with the picture of highly connected hubs being both metabolically costly, both to construct and to run.\\
-\textbf{SPACE}
+
 
 Our results on the spatial dependence of connection probability and gene expression, using sparsely-annotated binary expression data in a highly specialized neuronal nervous system, mirror many trends observed in bulk regions of macroscopic mammalian brains of mouse \cite{Fulcher:2016ck} and human \cite{Krienen:2016eq}.
 It is therefore likely that the spatial effects in this specialized neuronal connectome are not simply due to bulk spatial trends in coexpression, as in macroscopic brains containing millions of neurons, but may reflect true organizational principles.\\
