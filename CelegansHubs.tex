@@ -1343,7 +1343,7 @@ This result, in a specialized neuronal nervous system, hints that hub transcript
 Our results cannot be attributed to the fact that hub neurons are interneurons, born prior to hatching, are more likely to be in the same network module, are mostly cholinergic, are mostly in the head, nor can it be attributed to the lineage similarity of hub neurons.
 However, given the overlap between hub neurons in \emph{C. elegans} with the transcriptionally similar control interneurons, we are unable to discount the possibility that these control interneurons drive the high correlated gene expression between hubs.
 Amongst the genes considered here, many of those with the greatest contribution to connectivity a biologically plausible genes related to receptors, neurotransmitters, and cell adhesion, and those with the greatest contribution to hub connectivity are related to glutamate receptor, acetylcholine, and other neuronal communication related genes.
-The methods we develop here for quantifying correlation gene expression and scoring genes on their contribution to it yield biologically interpretable results on incomplete, binary gene expression data.
+The methods we develop here for quantifying correlated gene expression and scoring genes on their contribution to it yield biologically interpretable results on incomplete, binary gene expression data.
 With increases in gene annotations and genome coverage, we propose that similar methods could be used in future work to characterize the biological basis of a range of patterns of neuronal connectivity.
 
 % Introduce gene expression work in C elegans(Kaufman) and prior work relating gene expression and connectivity (mouse, human)}
@@ -1376,28 +1376,39 @@ The findings were also robust to a range of data processing choices, including d
 % with preliminary enrichment analysis indicating a role for glutamate in both connectivity and hub-connectivity.
 Our results indicate that even in a highly specialized neuronal nervous system, costly hub-hub connections display a distinctive transcriptional signature that may reflect their unique functional role in the network.
 The close relationship to mouse results hints at a conserved molecular signature of highly connected neural elements.
-Although present data are not sufficiently comprehensive to allow us to test the possibility that hub connectivity of \emph{C. elegans} is associated with a distinctive metabolic cost, as has been done with gene expression data in mouse \cite{Fulcher:2016ck} and human \cite{Vertes2016a}, future analyses with more comprehensive expression data may shed light on this possibility.
+Although present data are not sufficiently comprehensive to allow us to test the possibility that hub connectivity of \emph{C. elegans} is associated with a distinctive metabolic cost, as has been done with gene expression data in mouse \cite{Fulcher:2016ck} and human \cite{Vertes2016a}, future analyses with more comprehensive expression data may shed light on this possibility.\\
+
+Compared to hubs in the mouse connectome that are broadly distributed across anatomical divisions \cite{Fulcher:2016ck}, hubs in \emph{C. elegans} mostly correspond to a specific functional circuit. 
+Given the cellular complexity in the \emph{C. elegans} nervous system with neurons exhibiting highly conserved functions the range of additional data on each neuron allowed us to investigate whether transcriptional similarity of hubs can be explained by other factors such as interneuron type, neuronal lineage, birth time, anatomical location, neurotransmitter type, modular membership or functional class.  
+We attempted to address this by systematically looking at the influences of potential confounds and were able to reject the overwhelming majority of them. 
+The only factor that could not be dismissed was the functional class that majority of hub neurons belong to. 
+Keeping in mind the highly specialized nature of the neurons in \textit{C. elegans} connectome, 
+the effect of topological organization and a functional class could not be separated due to the overlap between highest degree neurons and the functional class of command interneurons where the list of highest degree hubs is dominated by this single functional class. 
+Additionally, we can not rule out the possibility that gene annotations have been influenced by the nature of a curated dataset. 
+Given their functional similarity, command interneurons might have been tested as a group in a set set of experiments for the expression of particular genes and consequently assigned similar expression signatures.
+While the concerns regarding biased gene annotations might be valid, we do not have any empirical evidence to support that at the moment, therefore only further development in gene expression data could shed some light in this regard.
 
 
-\textbf{DRIVING FACTORS}
-The range of additional data on \emph{C. elegans} neurons allowed us to rule out the transcriptional similarity of hubs being driven by the fact that hubs are interneurons, or that the results are driven by their cell lineage relationships, birth times, neurotransmitter type, or modular membership.
-The hubs of the mouse connectome are broadly distributed across anatomical divisions \cite{Fulcher:2016ck}, whereas \emph{C. elegans} hubs mostly correspond to a specific functional circuit. 
-We attempted to address this by looking at potential confounds, to characterize whether high coexpression associated with rich connections was related to aspects like interneuron type, neurotransmitter system, neuronal birth time, neuronal lineage, anatomical location, modular organization of the connectome as well as functional class.
-We were able to reject influences of all except one potential driving factors. 
-Keeping in mind the highly specialized nature of the neurons in \textit{C. elegans} connectome it is impossible to separate the effect of topological organization and a functional class as the highest degree neurons also happen to belong to the functional class of command interneurons. 
-Additionally, command interneurons might have been annotated to similar genes as a result of the  biased nature of a curated dataset. 
-We can not rule out the possibility that given their functional similarity command interneurons might have been tested in a set of experiments as a group for the expression of particular genes and consequently assigned similar expression signatures. 
+%\textit{C. elegans} nervous system is divided into four functional categories defined by their circuitry, namely, sensory neurons, interneurons, motor neurons and polymodal neurons. 
+%Within each category neurons are highly diverse in their function
+
+% potential confounds, to characterize whether high coexpression associated with rich connections was related to aspects like interneuron type, neurotransmitter system, neuronal birth time, neuronal lineage, anatomical location, modular organization of the connectome as well as functional class.
+%it is impossible to separate the effect of topological organization and a functional class as the highest degree neurons also happen to belong to the functional class of command interneurons. 
+%Additionally, command interneurons might have been annotated to similar genes as a result of the  biased nature of a curated dataset. 
+%We can not rule out the possibility that given their functional similarity command interneurons might have been tested in a  as a group for the expression of particular genes and consequently assigned similar expression signatures. 
 
 %Being a neuronal connectome with so few neurons, each highly specialized, it is impossible to dessentangle the effect of degree and may be hard to pick up broad expression patterns that are network topology-specific.
 %Quite different to the case in mouse, where regions were spread across the brain, and so effects of regional specialization of function, cytoarchitecture, gene expression were averaged, and the remaining hub-related signal could be isolated.
 
 \textbf{GENES}
-We developed methods to relate binary gene expression data to connectivity and afterwards to evaluate the effects of single genes by scoring them according to their influence.
-With increasing quality of the gene expression data those methods will allow to comprehensively investigate relationships between these two modalities. 
-Although gene expression data is incomplete and gene enrichment analyses did not have enough power to detect significant effects, top GO categories point us into the right direction given biologically relevant categories emerge at the top.
-Moreover, using single gene analyses we were able to contribute more detailed information about the specific gene groups involved in the increased coexpression. 
+Here we developed methods to relate binary gene expression data to connectivity and afterwards to evaluate the effects of single genes by scoring them according to their influence.
+%With increasing quality of the gene expression data those methods will allow to comprehensively investigate relationships between these two modalities. 
+Although gene enrichment analyses did not have enough power to detect significant effects, top GO categories point us into the right direction given biologically relevant categories related to neuronal connectivity, neurotransmitters and metabolism emerge at the top.
+Moreover, using single gene analyses we were able to contribute more detailed information about the specific gene groups involved in the increased coexpression for both connected pairs of neurons as well as for connections involving hub neurons. 
+Given \textit{Drosdophila} (\textit{vang-1}, \textit{prkl-1}) and human (\textit{prkl-1}) orthologs related to cell polarity were implemented in neuronal connectivity of the \textit{C. elegans}, methods outlined in this paper could be potentially implemented in making insights into targets for further research in other species. 
+
 These results both validate our method and provide some valuable information regarding the mechanisms involved in hub connectivity on a global level.
-[[NOTE: how much do we want to elaborate on separate groups of genes? compare them to other species?]]
+%[[NOTE: how much do we want to elaborate on separate groups of genes? compare them to other species?]]
 Future work leveraging more comprehensive expression data could be used to understand the relationship between network topology, neurotransmitter signaling, and other gene-regulated functions in more detail.
 
 
@@ -1420,11 +1431,11 @@ Future work leveraging more comprehensive expression data could be used to under
 
 \textbf{LIMITATIONS}
 Compared to continuous expression measurements of $>17\,000$ genes in the mouse brain \cite{Lein:2007jn} or $>20\,000$ genes in the human brain \cite{Hawrylycz:2012ky}, which permit more detailed analysis \cite{Fulcher:2016ck, Ji:2014jw, Fakhry:2015kl, French2011, Vertes2016a, Parkes:2017dn}, the key challenges of working with \emph{C. elegans} expression data are both incomplete ($<5$\%) coverage of the full worm genome (which contains $>20\,000$ protein-coding genes \cite{Harris:2009kd}) as well as binary nature of the data. 
-Compared to continuous expression information provided from techniques like RNA sequencing, \emph{in situ} hybridization, or microarray with whole-brain coverage using a systematic experimental procedure \cite{Lein:2007jn, Shen:2012ua, Tasic:2016jp}, the data analyzed here are very limited. 
-Further, using the current data, we are unable to distinguish expression levels between neurons that express a given gene, and we are unable to distinguish missing data, from negative data (both are represented as `0').
+Compared to continuous expression information provided from techniques like RNA sequencing, \emph{in situ} hybridization, or microarray with whole-brain coverage using a systematic experimental procedure \cite{Lein:2007jn, Shen:2012ua, Tasic:2016jp}, the data analyzed here are quite limited. 
+To begin with, we are unable to distinguish: (i) expression levels between neurons that express a given gene, as well as (ii) missing data (no information about a gene), from negative data (gene is not expressed) as both cases are represented as '0'.
 In addition to that, this data has different qualifiers, therefore some arbitrary choices need to be made in order to keep the balance between sensitivity and specificity. 
 
-These findings come despite sparsely annotated, binary gene expression data, with less than 5\% coverage of the full genome.
+%The fact that findings presented here came despite sparsely annotated, binary gene expression data, with less than 5\% coverage of the full genome.
 
 Thus, despite minimal gene coverage, we developed a new method that was able to find interpretable patterns in the existing binary expression data for \emph{C. elegans}, providing clues as to function of genes that may drive molecular differences between topologically different pairs of neurons.
 Future work systematically mapping gene expression in a unified experimental paradigm would allow a more subtle and comprehensive analysis of gene expression and function.
