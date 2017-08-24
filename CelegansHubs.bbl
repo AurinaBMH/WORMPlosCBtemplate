@@ -330,6 +330,12 @@ Pavlovic DM, V{\'e}rtes PE, Bullmore ET, Schafer WR, Nichols TE.
   Caenorhabditis elegans Connectome}.
 \newblock PLoS ONE. 2014;9(7):e97584.
 
+\bibitem{van2017guiding}
+Van De~Ville D, Demesmaeker R, Preti MG.
+\newblock Guiding Network Analysis using Graph Slepians: {An} Illustration for
+  the {\emph{C. Elegans}} Connectome.
+\newblock arXiv preprint. 2017; p. 1708.04657.
+
 \bibitem{Pan:2010jt}
 Pan RK, Chatterjee N, Sinha S.
 \newblock {Mesoscopic Organization Reveals the Constraints Governing
@@ -726,6 +732,18 @@ Roberts JA, Perry A, Lord AR, Roberts G, Mitchell PB, Smith RE, et~al.
 \newblock {The contribution of geometry to the human connectome.}
 \newblock NeuroImage. 2016;124(Pt A):379--93.
 \newblock doi:{10.1016/j.neuroimage.2015.09.009}.
+
+\bibitem{Bassett:2010hf}
+Bassett DS, Greenfield DL, Meyer-Lindenberg A, Weinberger DR, Moore SW,
+  Bullmore ET.
+\newblock {Efficient Physical Embedding of Topologically Complex Information
+  Processing Networks in Brains and Computer Circuits}.
+\newblock PLoS Comp Biol. 2010;6(4):e1000748.
+
+\bibitem{Towlson:2013gf}
+Towlson EK, V{\'e}rtes PE, Ahnert SE.
+\newblock {The rich club of the C. elegans neuronal connectome}.
+\newblock J Neurosci. 2013;33(15):6380--6387.
 
 \bibitem{Lein:2007jn}
 Lein E, Hawrylycz MJ, Ao N, Ayres M, Bensinger A, Bernard A, et~al.

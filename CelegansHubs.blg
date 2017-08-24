@@ -1,33 +1,33 @@
-This is BibTeX, Version 0.99d (TeX Live 2015)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: CelegansHubs.aux
+This is BibTeX, Version 0.99d (TeX Live 2017)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: ./CelegansHubs.aux
 The style file: plos2015.bst
 Database file #1: library_ben.bib
-Repeated entry---line 201 of file library_ben.bib
+Repeated entry---line 202 of file library_ben.bib
  : @article{Shih:2015cu
  :                     ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 280 of file library_ben.bib
+Repeated entry---line 281 of file library_ben.bib
  : @article{Lein:2007jn
  :                     ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 536 of file library_ben.bib
+Repeated entry---line 545 of file library_ben.bib
  : @article{Kim:2014bu
  :                    ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 653 of file library_ben.bib
+Repeated entry---line 662 of file library_ben.bib
  : @article{Shih:2015cu
  :                     ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 661 of file library_ben.bib
+Repeated entry---line 670 of file library_ben.bib
  : @article{Horvat:2016ia
  :                       ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 897 of file library_ben.bib
+Repeated entry---line 906 of file library_ben.bib
  : @article{Parkes:2017dn
  :                       ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 932 of file library_ben.bib
+Repeated entry---line 941 of file library_ben.bib
  : @article{vandenHeuvel:2012kh
  :                             ,
 I'm skipping whatever remains of this entry
@@ -42,45 +42,45 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Warning--can't use both volume and number fields in choe2004network
 Warning--empty pages in choe2004network
-You've used 124 entries,
+You've used 127 entries,
             3058 wiz_defined-function locations,
-            1521 strings with 53717 characters,
-and the built_in function-call counts, 406779 in all, are:
-= -- 49148
-> -- 2120
-< -- 4
-+ -- 2014
-- -- 530
-* -- 38748
-:= -- 44569
-add.period$ -- 538
-call.type$ -- 124
+            1534 strings with 54242 characters,
+and the built_in function-call counts, 413041 in all, are:
+= -- 49947
+> -- 2168
+< -- 5
++ -- 2038
+- -- 542
+* -- 39263
+:= -- 45233
+add.period$ -- 550
+call.type$ -- 127
 change.case$ -- 2
 chr.to.int$ -- 0
-cite$ -- 126
-duplicate$ -- 20227
-empty$ -- 41108
-format.name$ -- 649
-if$ -- 92856
+cite$ -- 129
+duplicate$ -- 20748
+empty$ -- 41695
+format.name$ -- 664
+if$ -- 94326
 int.to.chr$ -- 0
-int.to.str$ -- 124
-missing$ -- 1255
-newline$ -- 670
-num.names$ -- 124
-pop$ -- 1941
+int.to.str$ -- 127
+missing$ -- 1284
+newline$ -- 685
+num.names$ -- 127
+pop$ -- 1997
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 2033
+skip$ -- 2105
 stack$ -- 0
-substring$ -- 101781
-swap$ -- 3161
-text.length$ -- 4
+substring$ -- 103030
+swap$ -- 3254
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 1338
-width$ -- 127
-write$ -- 1455
+while$ -- 1369
+width$ -- 130
+write$ -- 1488
 (There were 8 error messages)
