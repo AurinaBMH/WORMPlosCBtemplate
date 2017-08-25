@@ -5,7 +5,7 @@
 %
 % -- IMPORTANT NOTE
 %
-% This template contains comI greatly appreciate the opportunity to apply for the editorial internship at your company. While I’m disappointed that I didn’t get the internship, I appreciate you taking the time to meet with me and review my materialsments intended
+% This template contains coments intended
 % to minimize problems and delays during our production
 % process. Please follow the template instructions
 % whenever possible.
@@ -1189,21 +1189,18 @@ Consequently, we characterized individual genes with $p_\mathrm{corr}<0.0001$ (a
 
 We first investigated which genes drive increased coexpression in connected pairs of neurons relative to unconnected pairs (Fig.~\ref{fig:topology_rich}).
 Previous studies in mouse have indicated that genes driving an increase in correlated expression between connected pairs of brain regions are enriched in GO categories related to neuronal connectivity and communication \cite{Fulcher:2016ck, Ji:2014jw, Fakhry:2015kl, French:2011cz}.
-Top scoring biological process GO categories from ORA analysis (of 85 genes relative to the 414 genes with sufficient data for this analysis) are listed in Table~\ref{tab:enrichmentCON}.
-Although no GO categories are significant at a false discovery rate of 0.05, the top categories are consistent with a connectivity profile, including `glutamate receptor signaling', `cell surface receptor signaling', and `ion transport', with other categories involved in regulation of growth rate and several related to catabolic processes.
-Despite incomplete gene expression data that do not provide sufficient coverage to detect statistically significant effects, these highly scored GO categories show a sensible summary of genes most involved in neuronal connectivity.
 
-To explore these results in more detail, we manually investigated individual high-scoring genes submitted to ORA analysis (see supplementary data GeneList.xlsx).
-Given that glutamate is one of the most prevalent neurotransmitters in \textit{C. elegans} (26\% of neurons with known neurotransmitter type are glutamatergic \cite{Pereira:2015er}), it is appropriate that many high scoring genes are related to glutamate receptors (including \emph{glr-1}, \emph{glr-2}, \emph{glr-4}, \emph{glr-5}, \emph{nmr-1}, and \emph{nmr-2}).
+
+First, we manually investigated individual high-scoring genes (see supplementary data GeneList.xlsx). 
+% submitted to ORA analysis 
+Keeping in mind that glutamate is one of the most prevalent neurotransmitters in \textit{C. elegans} (26\% of neurons with known neurotransmitter type are glutamatergic \cite{Pereira:2015er}), it is appropriate that many high scoring genes are related to glutamate receptors (including \emph{glr-1}, \emph{glr-2}, \emph{glr-4}, \emph{glr-5}, \emph{nmr-1}, and \emph{nmr-2}).
 Consistent with the importance of innexins in forming electrical synapses \cite{Starich2001}, the following innexin genes all scored in the top 20\%: \emph{unc-9}, \emph{unc-7}, \emph{inx-7}, \emph{inx-19}, \emph{inx-13}.
 % the involvement of both neurotransmitter as well as electrical synapse related genes is expected.
 % innexins .
 % cell adhesion molecules, and transcription factors were found.
-Cell adhesion molecule genes related to axon outgrowth and guidance (\emph{sax-3}, \emph{cam-1}),
-cell migration (\emph{cam-1}, \emph{unc-6}, \emph{rig-1}, \emph{unc-5}),
-locomotion (\emph{cam-1}, \emph{unc-5}),
-learning (\emph{casy-1}) \cite{Zallen1999, Garriga1999, Leung-Hagesteijn1992, Harris:2009kd, Ikeda2008},
-as well as two orthologs of \emph{Drosophila melanogaster} (\emph{vang-1} and \emph{prkl-1} \cite{Wu2006, Hoffmann2010}) and human (\emph{prkl-1}) genes involved in determining cell polarity are also amongst the selected 20\% of the highest scoring genes. 
+
+Genes encoding cell adhesion molecules related to axon outgrowth and guidance, cell migration, locomotion (\emph{sax-3}, \emph{cam-1}, \emph{unc-6}, \emph{rig-1}, \emph{unc-5}) and learning (\emph{casy-1}) \cite{Zallen1999, Garriga1999, Leung-Hagesteijn1992, Harris:2009kd, Ikeda2008},
+as well as the genes that are involved in determining cell polarity \emph{vang-1}, \emph{prkl-1} \cite{Wu2006, Hoffmann2010} are also amongst the selected 20\% of the highest scoring genes. 
 Given these genes are implicated in neuronal connectivity in other species \cite{Paemka2013, Ehaideb2016, Sowers2013}, we confirm that our method can produce preliminary predictions for the genetic signature in \textit{C. elegans} nervous system. 
 
 In addition, transcription factors regulating neuronal development,
@@ -1211,7 +1208,12 @@ fate specification \cite{Sarafi-Reinach2001 ,Prasad2008, Baran1999, Cassata2000,
 and locomotion \cite{Prasad2008} (\emph{unc-3})
 also were implicated in driving the increased coexpression among connected pairs of neurons. 
 Both adhesion molecules as well as transcription factors are potentially involved in facilitating signal transduction and communication.
-Despite incomplete and noisy data, these results indicate that our data-driven gene scoring method is able to yield sensible, biologically relevant insights into the genetic basis of neuronal connectivity in \textit{C. elegans} connectome. 
+
+In order to summarise the above mentioned results and determine if any particular functional groups of genes are dominating in driving this effect, we performed ORA. 
+Top scoring biological process GO categories from ORA analysis (of 85 genes relative to the 414 genes with sufficient data for this analysis) are listed in Table~\ref{tab:enrichmentCON}.
+Although no GO categories are significant at a false discovery rate of 0.05, the top categories are consistent with a connectivity profile, including `glutamate receptor signaling', `cell surface receptor signaling', and `ion transport', with other categories involved in regulation of growth rate and several related to catabolic processes.
+Despite incomplete gene expression data that do not provide sufficient coverage to detect statistically significant effects, these results indicate that our data-driven gene scoring method is able to yield sensible, biologically relevant insights into the genetic basis of neuronal connectivity in \textit{C. elegans} connectome.
+
 
 % (related to the probability of a gene being expressed together in a given set of neuron pairs compared to an alternative set).
 %Relative to previous work in mouse, for example \cite{Fulcher:2016ck, Ji:2014jw, Fakhry:2015kl, French:2011cz}, the current data are more challenging due to incomplete binary expression measurements in a small proportion of the genome.
@@ -1222,27 +1224,17 @@ Despite incomplete and noisy data, these results indicate that our data-driven g
  % demonstrate a method for computing GO categories from binary expression data that suggest that connected pairs of neurons may coexpress genes associated with neuronal connectivity relative to unconnected neuron pairs.
 
 Having characterized genes that contribute to the increase in correlated gene expression between connected pairs of neurons, we next investigated whether particular functional groups of genes drive differences in coexpression between connections involving hub neurons (i.e., in rich, feed-in, and feed-out connections) relative to peripheral connections between pairs of nonhub neurons.
-While previous work implicated genes regulating oxidative metabolism for connections involving hubs in mouse \cite{Fulcher:2016ck}, and for hub regions in human \cite{Vertes2016a}, the gene expression dataset used here was not sufficiently comprehensive to investigate these processes.
-For example, only one of the 948 genes annotated to the GO categories related to hub connectivity in mouse is present in our gene expression dataset (only \emph{unc-32} is annotated to `ATP hydrolysis coupled proton transport').
-% GO:0015991:
-% GO categories were filtered using <<searchGOcategories.m>> function.
-Although a direct test of the metabolic hypothesis is not possible from current data, we investigated whether other GO categories were overrepresented in pairs of connected hubs using ORA (for 30 out of 168 valid genes for this analysis).
-Results are listed in Table~\ref{tab:enrichmentRICH}.
-% , providing some support for the idea that hubs are energetically costly elements of the connectome.
-%Due to gene expression data specificity in all the following analyses we present top 15 GO categories enriched in a particular link type compared to other links.
-Although no categories are statistically significant at a false discovery rate of 0.05, the list of top categories includes both 'glutamate receptor signaling pathway' as well as more general 'cell surface receptor signaling pathway' in addition to several ion transport related gene groups ('ion transport', 'ion transmembrane transport', 'transmembrane transport').  
-Furthermore, other important GO categories include regulation of locomotion, and various metabolism and biosynthesis related processes. 
 
 %Our inability to get a comprehensive understanding of neurotransmitter signaling for the gene expression data used here is related to its incompleteness, e.g., only one acetylcholine-related GO category---`synaptic transmission, cholinergic' (GO:0007271)---contained sufficiently many genes (fourteen) to be represented in our enrichment analysis.
 % [[DO WE SHOW NUMBER IN DATA OR IN GENE SETS USED FOR CON and RF analysis]] while others (n=9) had only up to 3 genes, therefore were not included in the enrichment analysis as categories with 5-100 genes were required.
 %Glutamate release categories were also not represented here (each were annotated with fewer than five genes in our dataset and hence excluded).
 % including `positive regulation of biosynthetic process', two groups responsible for positive regulation of nitrogen and nucleobase-containing compound metabolic process, `positive regulation of cellular metabolic process', and `positive regulation of macromolecule biosynthetic process'.
 
-In order to investigate which specific genes contribute most to the increase in correlated gene expression for connections involving hubs, we manually investigated the list of highest scoring genes.
+In order to investigate which specific genes contribute most to the increase in correlated gene expression for connections involving hubs, we again manually investigated the list of around 20\% highest scoring genes.
 In addition to glutamate receptor genes (\emph{glr-5}, \emph{nmr-1}, \emph{nmr-2}, \emph{glr-1}, \emph{glr-2}, \emph{grld-1})
 and acetylcholine related genes (\emph{ace-2}, \emph{cho-1}, \emph{unc-17}, \emph{deg-3}),
 we again find a high number of genes regulating cell adhesion (\emph{cam-1}, \emph{rig-1}, \emph{rig-6}, \emph{unc-6}, \emph{grld-1}, \emph{dbl-1}, \emph{ncam-1})
-and relevant transcription factors (\emph{unc-3}, \emph{unc-42}, \emph{ast-1}, \emph{pdfr-1}).
+and relevant transcription factors (\emph{unc-3}, \emph{unc-42}, \emph{ast-1}).
 % that at least partially overlap with genes found comparing connected and unconnected pairs of neurons.
 The implication of glutamate and acetylcholine may be attributable to the importance of glutamate in the regulation of locomotion in command interneurons \cite{Choi2015, Zheng1999}, with acetylcholine being the dominant neurotransmitter in hubs (13 out of 16 hubs are cholinergic \cite{Pereira:2015er}).
 High overlap between adhesion molecule and transcription factor genes found in the previous analysis and the implication of human orthologs (\emph{rig-1}, \emph{ncam-1}, \emph{grld-1}) \cite{Harris:2009kd} for genes regulating cell migration, differentiation and neuron cell adhesion, demonstrates the importance of establishing neuronal connections.
@@ -1253,6 +1245,18 @@ High overlap between adhesion molecule and transcription factor genes found in t
 %The implication of glutamate receptor signaling for synaptic connectivity, and hub connectivity in particular, is somewhat surprising given that only 26\% of neurons with known neurotransmitter type are glutamatergic (whereas 55\% are cholinergic) and just two of the sixteen hubs are glutamatergic (thirteen are cholinergic, and one is of unknown type).
 %Furthermore, just 32\% of neurons that project to hubs are glutamatergic.
 % FeedInOutNodes;
+
+While previous work implicated genes regulating oxidative metabolism for connections involving hubs in mouse \cite{Fulcher:2016ck}, and for hub regions in human \cite{Vertes2016a}, the gene expression dataset used here was not sufficiently comprehensive to investigate these processes.
+For example, only one of the 948 genes annotated to the GO categories related to hub connectivity in mouse is present in our gene expression dataset (only \emph{unc-32} is annotated to `ATP hydrolysis coupled proton transport').
+% GO:0015991:
+% GO categories were filtered using <<searchGOcategories.m>> function.
+Although a direct test of the metabolic hypothesis is not possible from current data, we investigated whether other GO categories were overrepresented in pairs of connected hubs using ORA (for 30 out of 168 valid genes for this analysis).
+Results are listed in Table~\ref{tab:enrichmentRICH}.
+% , providing some support for the idea that hubs are energetically costly elements of the connectome.
+%Due to gene expression data specificity in all the following analyses we present top 15 GO categories enriched in a particular link type compared to other links.
+Even though no categories are statistically significant at a false discovery rate of 0.05, the list of top categories includes both 'glutamate receptor signaling pathway' as well as more general 'cell surface receptor signaling pathway' in addition to several ion transport related gene groups ('ion transport', 'ion transmembrane transport', 'transmembrane transport').  
+Furthermore, other important GO categories include regulation of locomotion, and various metabolism and biosynthesis related processes. 
+
 Our gene scoring method was again able to yield interpretable insights into the types of genes that contribute to differences in correlated gene expression between different classes of neuronal connections in \emph{C. elegans}.
 
 % , thus were not included in the analysis.
