@@ -32,7 +32,7 @@ Repeated entry---line 941 of file library_ben.bib
  :                             ,
 I'm skipping whatever remains of this entry
 Database file #2: library_aurina.bib
-Repeated entry---line 590 of file library_aurina.bib
+Repeated entry---line 634 of file library_aurina.bib
  : @article{Stephan2001
  :                     ,
 I'm skipping whatever remains of this entry
@@ -44,43 +44,43 @@ Warning--can't use both volume and number fields in choe2004network
 Warning--empty pages in choe2004network
 You've used 127 entries,
             3058 wiz_defined-function locations,
-            1534 strings with 54238 characters,
-and the built_in function-call counts, 413041 in all, are:
-= -- 49947
-> -- 2168
+            1540 strings with 53968 characters,
+and the built_in function-call counts, 409850 in all, are:
+= -- 49606
+> -- 2156
 < -- 5
-+ -- 2038
-- -- 542
-* -- 39263
-:= -- 45233
-add.period$ -- 550
++ -- 2033
+- -- 539
+* -- 38914
+:= -- 44877
+add.period$ -- 551
 call.type$ -- 127
 change.case$ -- 2
 chr.to.int$ -- 0
 cite$ -- 129
-duplicate$ -- 20748
-empty$ -- 41695
-format.name$ -- 664
-if$ -- 94326
+duplicate$ -- 20752
+empty$ -- 41343
+format.name$ -- 660
+if$ -- 93623
 int.to.chr$ -- 0
 int.to.str$ -- 127
-missing$ -- 1284
-newline$ -- 685
+missing$ -- 1281
+newline$ -- 686
 num.names$ -- 127
-pop$ -- 1997
+pop$ -- 1992
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 2105
+skip$ -- 2098
 stack$ -- 0
-substring$ -- 103030
-swap$ -- 3254
+substring$ -- 101985
+swap$ -- 3244
 text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 1369
+while$ -- 1365
 width$ -- 130
-write$ -- 1488
+write$ -- 1490
 (There were 8 error messages)

@@ -1,11 +1,5 @@
 \begin{thebibliography}{100}
 
-\bibitem{Fulcher:2016ck}
-Fulcher BD, Fornito A.
-\newblock {A transcriptional signature of hub connectivity in the mouse
-  connectome}.
-\newblock Proc Natl Acad Sci USA. 2016;113(5):1435--1440.
-
 \bibitem{White:1986tx}
 White JG, Southgate E, Thomson JN.
 \newblock {The structure of the nervous system of the nematode Caenorhabditis
@@ -235,6 +229,12 @@ van~den Heuvel MP, Scholtens LH, de~Reus MA.
   connectome}.
 \newblock Brain Structure and Function. 2016;221(3):1719--1736.
 \newblock doi:{10.1007/s00429-015-0999-6}.
+
+\bibitem{Fulcher:2016ck}
+Fulcher BD, Fornito A.
+\newblock {A transcriptional signature of hub connectivity in the mouse
+  connectome}.
+\newblock Proc Natl Acad Sci USA. 2016;113(5):1435--1440.
 
 \bibitem{Tomasi:2013kl}
 Tomasi D, Wang GJ, Volkow ND.
@@ -740,10 +740,17 @@ Bassett DS, Greenfield DL, Meyer-Lindenberg A, Weinberger DR, Moore SW,
   Processing Networks in Brains and Computer Circuits}.
 \newblock PLoS Comp Biol. 2010;6(4):e1000748.
 
-\bibitem{Towlson:2013gf}
-Towlson EK, V{\'e}rtes PE, Ahnert SE.
-\newblock {The rich club of the C. elegans neuronal connectome}.
-\newblock J Neurosci. 2013;33(15):6380--6387.
+\bibitem{Kim2016}
+Kim S, Kim H, Kralik JD, Jeong J, Bargmann C, Aballay A.
+\newblock {Vulnerability-Based Critical Neurons, Synapses, and Pathways in the
+  Caenorhabditis elegans Connectome}.
+\newblock PLOS Computational Biology. 2016;12(8):e1005084.
+\newblock doi:{10.1371/journal.pcbi.1005084}.
+
+\bibitem{Mesulam1998}
+Mesulam MM.
+\newblock {From sensation to cognition.}
+\newblock Brain : a journal of neurology. 1998;121 ( Pt 6:1013--52.
 
 \bibitem{Lein:2007jn}
 Lein E, Hawrylycz MJ, Ao N, Ayres M, Bensinger A, Bernard A, et~al.
@@ -774,12 +781,6 @@ Parkes L, Fulcher BD, Y{\"u}cel M, Fornito A.
 \newblock {Transcriptional signatures of connectomic subregions of the human
   striatum}.
 \newblock Genes, Brain and Behavior. 2017;25:1176.
-
-\bibitem{Tasic:2016jp}
-Tasic B, Menon V, Nguyen TN, Kim TK, Jarsky T, Yao Z, et~al.
-\newblock {Adult mouse cortical cell taxonomy revealed by single cell
-  transcriptomics}.
-\newblock Nat Neurosci. 2016;19(2):335--346.
 
 \bibitem{Kaufman2006}
 Kaufman A, Dror G, Meilijson I, Ruppin E.
