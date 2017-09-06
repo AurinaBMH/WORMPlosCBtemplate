@@ -727,6 +727,24 @@ Zheng Y, Brockie PJ, Mellem JE, Madsen DM, Maricq AV.
 \newblock Neuron. 1999;24(2):347--361.
 \newblock doi:{10.1016/S0896-6273(00)80849-1}.
 
+\bibitem{Fornito:2015dq}
+Fornito A, Zalesky A, Breakspear MJ.
+\newblock {The connectomics of brain disorders}.
+\newblock Nat Rev Neurosci. 2015;16(3):159--172.
+
+\bibitem{vandenHeuvel:2013ij}
+van~den Heuvel MP, Sporns O.
+\newblock {An Anatomical Substrate for Integration among Functional Networks in
+  Human Cortex}.
+\newblock J Neurosci. 2013;33(36):14489--14500.
+
+\bibitem{Vertes:2016in}
+V{\'e}rtes PE, Rittman T, Whitaker KJ, Romero-Garcia R, V{\'a}{\v s}a F,
+  Kitzbichler MG, et~al.
+\newblock {Gene transcription profiles associated with inter-modular hubs and
+  connection distance in human functional magnetic resonance imaging networks}.
+\newblock Phil Trans Roy Soc B. 2016;371(1705):20150362.
+
 \bibitem{Roberts2016}
 Roberts JA, Perry A, Lord AR, Roberts G, Mitchell PB, Smith RE, et~al.
 \newblock {The contribution of geometry to the human connectome.}

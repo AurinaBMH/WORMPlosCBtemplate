@@ -1,33 +1,33 @@
 This is BibTeX, Version 0.99d (TeX Live 2015)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: CelegansHubs.aux
+The top-level auxiliary file: ./CelegansHubs.aux
 The style file: plos2015.bst
 Database file #1: library_ben.bib
-Repeated entry---line 202 of file library_ben.bib
+Repeated entry---line 215 of file library_ben.bib
  : @article{Shih:2015cu
  :                     ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 281 of file library_ben.bib
+Repeated entry---line 294 of file library_ben.bib
  : @article{Lein:2007jn
  :                     ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 545 of file library_ben.bib
+Repeated entry---line 558 of file library_ben.bib
  : @article{Kim:2014bu
  :                    ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 662 of file library_ben.bib
+Repeated entry---line 675 of file library_ben.bib
  : @article{Shih:2015cu
  :                     ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 670 of file library_ben.bib
+Repeated entry---line 683 of file library_ben.bib
  : @article{Horvat:2016ia
  :                       ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 906 of file library_ben.bib
+Repeated entry---line 919 of file library_ben.bib
  : @article{Parkes:2017dn
  :                       ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 941 of file library_ben.bib
+Repeated entry---line 954 of file library_ben.bib
  : @article{vandenHeuvel:2012kh
  :                             ,
 I'm skipping whatever remains of this entry
@@ -42,45 +42,45 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Warning--can't use both volume and number fields in choe2004network
 Warning--empty pages in choe2004network
-You've used 127 entries,
+You've used 130 entries,
             3058 wiz_defined-function locations,
-            1540 strings with 53968 characters,
-and the built_in function-call counts, 409850 in all, are:
-= -- 49606
-> -- 2156
+            1549 strings with 54418 characters,
+and the built_in function-call counts, 417311 in all, are:
+= -- 50539
+> -- 2204
 < -- 5
-+ -- 2033
-- -- 539
-* -- 38914
-:= -- 44877
-add.period$ -- 551
-call.type$ -- 127
++ -- 2057
+- -- 551
+* -- 39578
+:= -- 45684
+add.period$ -- 563
+call.type$ -- 130
 change.case$ -- 2
 chr.to.int$ -- 0
-cite$ -- 129
-duplicate$ -- 20752
-empty$ -- 41343
-format.name$ -- 660
-if$ -- 93623
+cite$ -- 132
+duplicate$ -- 21278
+empty$ -- 42071
+format.name$ -- 675
+if$ -- 95343
 int.to.chr$ -- 0
-int.to.str$ -- 127
-missing$ -- 1281
-newline$ -- 686
-num.names$ -- 127
-pop$ -- 1992
+int.to.str$ -- 130
+missing$ -- 1311
+newline$ -- 701
+num.names$ -- 130
+pop$ -- 2043
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 2098
+skip$ -- 2145
 stack$ -- 0
-substring$ -- 101985
-swap$ -- 3244
+substring$ -- 103656
+swap$ -- 3322
 text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 1365
-width$ -- 130
-write$ -- 1490
+while$ -- 1397
+width$ -- 133
+write$ -- 1523
 (There were 8 error messages)
