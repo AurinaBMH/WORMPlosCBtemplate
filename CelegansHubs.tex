@@ -1073,7 +1073,7 @@ Thus, for both types of modular decompositions, connected pairs of hub neurons e
 % ------------------------------------------------------------------------------
 \begin{figure}[!h]
 \centering
-    \includegraphics[width=1\textwidth]{extrasALL.pdf}
+    \includegraphics[width=1\textwidth]{extrasALL2.pdf}
  \caption{
  \textbf{Increased coexpression of hub neurons is not driven by modularity, neuronal birth time, or cell lineage distance.}
 %\textbf{A: Connection distance}
@@ -1737,7 +1737,7 @@ GO:1903508          & \begin{tabular}[c]{@{}l@{}}positive regulation of nucleic 
 \label{fig:S_propOnes}
 \textbf{Dependence of binary coexpression metrics on the proportion of positive annotations.}
 % Given the sparse binary annotation of genes to neurons, we investigated bias in each measure across 1\,000 pairs of random binary vectors, each with a fixed proportion of ones.
-Shown here is the mean correlation between pairs of random, binary vectors of length 948, with different proportions of 1s (between 0--0.16; matrix size is 150$\times$150, therefore the number of ones ranges from 1 to 150).
+Shown here is the mean correlation between pairs of random, binary vectors of length 948, with different proportions of 1s (between 0--0.15; matrix size is 150$\times$150, therefore the number of ones ranges from 1 to 150).
 Each point is averaged over 1\,000 different pairs of random vectors.
  % for 948-long vectors with between 0--0.16 proportion of ones (matrix size is 150x150, therefore the number of ones ranges from 1 to 150).
 Bias is indicated by a systematic trend in correlation values, driven simply by the proportion of positive annotations for a pair of vectors.
@@ -1844,7 +1844,7 @@ The increased separation distance between hubs is driven by a relative increase 
 % {\bf Coexpression for rich, feeder and peripheral links as a function of degree.}
 \begin{figure}[h]
 \centering
-    \includegraphics[width=1\textwidth]{distributionsALL.pdf}
+    \includegraphics[width=1\textwidth]{distributionsSUPP2.pdf}
     \caption{
 \textbf{Coexpression for different types of connectome edges.}
 \emph{Left}: Distribution of transcriptional similarity between reciprocally connected (219 pairs), unidirectionally connected (1\,721) and  and unconnected (36\,749 pairs) pairs of neurons as a violin plot, with the median of each distribution shown as a horizontal line.
@@ -1884,39 +1884,39 @@ Circles indicate values of $\Phi_\mathrm{norm}$ that are significantly higher th
 % <<RichClub.m>>
 % \paragraph*{S8 Fig.}
  %{\bf Weighted rich club organisation of the connectome.}
-\begin{figure}[!h]
-\centering
-    \includegraphics[width=1\textwidth]{lineageDistanceRPF.pdf}
-    \caption{
-    \textbf{Lineage distance between pairs of neurons for different connection types as a function of the degree at which hubs are defined, $k$.}
-    \emph{Top}: Degree distribution.
-\emph{Middle}: proportion of connections that are `rich' (hub$\rightarrow$hub, red), `feed-in' (nonhub$\rightarrow$hub, yellow), `feed-out' (hub$\rightarrow$nonhub, orange), and `peripheral' (nonhub$\rightarrow$nonhub, blue) as a function of the degree threshold, $k$, used to define hubs.
-Note that at high $k$, most neurons are labeled as nonhubs, and hence the vast majority of connections are `peripheral'.
-\emph{Lower}: Mean lineage distance for each connection type as a function of $k$.
-Lineage distance across all network links shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. Fig.~\ref{fig:topology_rich}) is shaded gray.
-Circles indicate a statistically significant increase or decrease in birth time difference in a given link type relative to the rest of the network (two-sided Welch’s t test; $p < 0.05$).
-}
-\label{fig:Lineagek}
-\end{figure}
+%\begin{figure}[!h]
+%\centering
+ %   \includegraphics[width=1\textwidth]{lineageDistanceRPF.pdf}
+ %   \caption{
+ %   \textbf{Lineage distance between pairs of neurons for different connection types as a function of the degree at which hubs are defined, $k$.}
+%    \emph{Top}: Degree distribution.
+%\emph{Middle}: proportion of connections that are `rich' (hub$\rightarrow$hub, red), `feed-in' (nonhub$\rightarrow$hub, yellow), `feed-out' (hub$\rightarrow$nonhub, orange), and `peripheral' (nonhub$\rightarrow$nonhub, blue) as a function of the degree threshold, $k$, used to define hubs.
+%Note that at high $k$, most neurons are labeled as nonhubs, and hence the vast majority of connections are `peripheral'.
+%\emph{Lower}: Mean lineage distance for each connection type as a function of $k$.
+%Lineage distance across all network links shown as a dotted black line; the topological rich-club regime %(determined from the network topology, cf. Fig.~\ref{fig:topology_rich}) is shaded gray.
+%Circles indicate a statistically significant increase or decrease in birth time difference in a given link %type relative to the rest of the network (two-sided Welch’s t test; $p < 0.05$).
+%}
+%\label{fig:Lineagek}
+%\end{figure}
 % <<RichClub.m>>
 
 % ------------------------------------------------------------------------------
 % \paragraph*{S9 Fig.}
 % {\bf Mean birth time difference as a function of degree for different link types}
-\begin{figure}[!h]
-\label{BirthTimesk}
-\centering
-    \includegraphics[width=1\textwidth]{birthTimeRPFALL.pdf}
-    \caption{
-    \textbf{Birth time difference between pairs of neurons for different connection types as a function of the degree at which hubs are defined, $k$.}
-\emph{Top}: Degree distribution.
-\emph{Middle}: proportion of connections that are `rich' (hub$\rightarrow$hub, red), `feed-in' (nonhub$\rightarrow$hub, yellow), `feed-out' (hub$\rightarrow$nonhub, orange), and `peripheral' (nonhub$\rightarrow$nonhub, blue) as a function of the degree threshold, $k$, used to define hubs.
-Note that at high $k$, most neurons are labeled as nonhubs, and hence the vast majority of connections are `peripheral'.
-\emph{Bottom}: Mean birth time difference for each connection type as a function of $k$.
-The mean birth time difference across all network links shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. Fig.~\ref{fig:topology_rich}) is shaded gray.
-Circles indicate a statistically significant increase or decrease in birth time difference in a given link type relative to the rest of the network (two-sided Welch's $t$ test; $p < 0.05$).
-}
-\end{figure}
+%\begin{figure}[!h]
+%\label{BirthTimesk}
+%\centering
+ %   \includegraphics[width=1\textwidth]{birthTimeRPFALL.pdf}
+ %   \caption{
+ %   \textbf{Birth time difference between pairs of neurons for different connection types as a function of the degree at which hubs are defined, $k$.}
+%\emph{Top}: Degree distribution.
+%\emph{Middle}: proportion of connections that are `rich' (hub$\rightarrow$hub, red), `feed-in' (nonhub$\rightarrow$hub, yellow), `feed-out' (hub$\rightarrow$nonhub, orange), and `peripheral' (nonhub$\rightarrow$nonhub, blue) as a function of the degree threshold, $k$, used to define hubs.
+%Note that at high $k$, most neurons are labeled as nonhubs, and hence the vast majority of connections are `peripheral'.
+%\emph{Bottom}: Mean birth time difference for each connection type as a function of $k$.
+%The mean birth time difference across all network links shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. Fig.~\ref{fig:topology_rich}) is shaded gray.
+%Circles indicate a statistically significant increase or decrease in birth time difference in a given link type relative to the rest of the network (two-sided Welch's $t$ test; $p < 0.05$).
+%}
+%\end{figure}
 
 % propTypesDegree(C) script
 %\paragraph*{S6 Fig.}
