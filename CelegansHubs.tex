@@ -547,15 +547,14 @@ and (iii) low genome coverage (less than 5\% of the protein coding genes in \emp
 % [GenesinGO, GOs] = searchGOcategories(C,G, 'mouse');
 Given that $r_\phi$ [Eq.~\ref{eq:rphi}] treats mutual gene expression ($n_{11}$) the same as mutual absence of gene expression ($n_{00}$), we started by developing a new analytic measure of the probability of mutual gene expression, given its clearer biological interpretation (see Supporting Information).
 This measure was not biased by differences in the relative number of expressed genes (Fig.~\ref{fig:S_propOnes}D) and yields qualitatively similar outputs to $r_\phi$ on our data (Fig.~\ref{fig:RFPposmatches}).
-Thus, while we use $r_\phi$ throughout this work for its ease of interpretation (as an analogue of the conventional correlation coefficient), our new measure allowed us to motivate a method for quantifying the contribution of individual genes (and functional groups of genes) to patterns of coupled expression that allows us to address some of the above-mentioned challenges.
+Thus, while we use $r_\phi$ throughout this work for its ease of interpretation (as an analogue of the conventional correlation coefficient), our new probability-based CGE measure allowed us to motivate a method for quantifying the contribution of individual genes (and functional groups of genes) to patterns of coupled expression that addresses some of the above-mentioned challenges.
 % and was useful for validating and interpreting our results.
 % The similarity in results based on both $r_\phi$ and coexpression matching index motivated the development of a new method to quantify the contribution of individual genes, and functional groups of genes, to patterns of coupled expression that allows to overcome the above mentioned challenges.
 
 %(e.g., differences between connected \emph{vs} unconnected, between electrical and chemical synapses, and for rich and feeder connections versus peripheral connections), in analogy to previous methods developed for continuous gene expression data \cite{Fulcher:2016ck}.
-We take as our starting point the aim of comparing gene scores across different categories of neuron pairs.
-For example, we aim to compare the contributions of each gene to increases in coexpression observed for (i) connected vs unconnected pairs of neurons, or (ii) rich and feeder vs peripheral edges.
+As a starting point, we quantified the contribution of individual genes to differences in CGE for different categories of neuron pairs, specifically for (i) increased CGE in connected compared to unconnected pairs of neurons, and (ii) increased CGE in rich and feeder compared to peripheral connections.
 % electrical versus chemical connections, or (iii)
-We first scored each gene for whether it is more likely to be expressed in a given class of neuron pair over another as the probability of obtaining at least as many matches (defined as expression in both neurons of a pair) as observed under a random expression null model using the binomial distribution:
+We first scored each gene for whether it is more likely to be expressed in a given class of neuron pair over another as the probability of obtaining at least as many matches (defined as expression in both neurons of a pair) as observed under a random CGE null model using the binomial distribution:
 % We sought to determine whether certain sets of genes drive specific patterns of coupled expression between particular classes of neuron pairs (e.g., connected \emph{vs} unconnected and between rich/feeder/peripheral connections) using gene enrichment analysis.
 % to identify functionally annotated groups of genes from the Gene Ontology (GO) \cite{Ashburner2000}.
 %  that contribute to the increased coexpression between:
@@ -572,26 +571,28 @@ We first scored each gene for whether it is more likely to be expressed in a giv
 	\label{eq:CBinomialProbability}
      p^{(a)} = 1 - \sum_{i=0}^{m-1}\binom{n}{i} p_\mathrm{class}^{i}(1-p_\mathrm{class}^{n-i}),
 \end{eqnarray}
-where $m$ is the number of matches (a match indicates that a given gene was expressed (i.e., was assigned a value of `1') in both neurons) on the class of neuron pairs of interest, $n$ is the total number of matches across all neuron pairs considered in the analysis, $p_\mathrm{class} = n_\mathrm{class}/M$ is the probability of the given class of inter-region pairs as the total number of neuron pairs of that class, $n_\mathrm{class}$ divided by the maximum number of possible neuron pairs, $M$.
-This score can be interpreted as a $p$-value under the null hypothesis that the number of expression matches of a gene can be explained by random assignment to neuron pairs, giving lower values to genes with more matches in the edge class of interest (compared to an alternative set of edges) than expected by chance.
+where $m$ is the number of matches (a match indicates that a given gene was expressed (i.e., was assigned a value of `1') in both neurons) on the class of neuron pairs of interest, $n$ is the total number of matches across all neuron pairs considered in the analysis, $p_\mathrm{class} = n_\mathrm{class}/M$ is the probability of the given class of inter-region pairs, as the total number of neuron pairs of that class, $n_\mathrm{class}$, divided by the maximum number of possible neuron pairs, $M$.
+This score, $p^{(a)}$, can be interpreted as a $p$-value under the null hypothesis that the number of expression matches of a gene is consistent with a purely random pattern of matches/mismatches across edges, giving lower values to genes with more matches in the edge class of interest (compared to an alternative set of edges) than expected by chance.
 % as they are also excluded from the gene expression analysis.
 For reasons described earlier, bilateral pairs of neurons were excluded from all scoring procedures and, to ensure that each gene contributes a meaningful score, we imposed a data quality threshold on the number of possible matches, $n \geq 10$.
-Details on how this gene scoring method was applied to the specific analyses performed here are described in the Supplementary Information.
+% Details on how this gene scoring method was applied to the specific analyses performed here are described in the Supplementary Information.
 
-Our first analysis involved comparing pairs of neurons that are connected to pairs of neurons that are unconnected.
+Our first analysis compares two mutually exclusive types of neuron pairs:
+(i) all pairs of neurons that are connected by at least one chemical or electrical synapse, and
+(ii) all pairs of neurons that are unconnected.
 For this analysis, $p_\mathrm{class} = 0.059$ is the proportion of neuron pairs that are connected, $n$ is the total number of neuron pairs that both exhibit expression of gene $a$, and $m$ is the number of neuron pairs that are structurally connected for which both neurons express gene $a$.
-A total of 414 (/948) genes had $n \geq 10$ for this connectivity analysis.
+A total of 414 (/948) genes had $n \geq 10$ for this analysis.
 Our second analysis compares pairs of connected neurons for which at least one is a hub (i.e., rich, feed-in, or feed-out connections), to pairs in which both neurons are nonhubs (i.e., peripheral connections).
 In this case, $p_\mathrm{class} = 0.35$ is the proportion of connected pairs of neurons that involve hubs, $n$ is the number of connected neuron pairs for which gene $a$ is expressed in both, and $m$ counts the number of connected neuron pairs involving hubs for which gene $a$ is expressed.
-A total of 168 (/948) genes had sufficient data, $n \geq 10$, for this hub connectivity analysis.
+A total of 168 (/948) genes had sufficient data, $n \geq 10$, for this analysis.
 
 %Given the reduced number of genes remaining for analysis following the quality control (threshold on $n \geq 10$),
-As well as interpreting the list of genes that were significant after corrected for multiple hypothesis comparison, we also performed an over-representation analysis (ORA) using the genes that contribute most to a given connectivity pattern to assess whether any gene sets (GO categories) were statistically over-represented in this list.
+As well as interpreting the list of individual genes that were significant after correcting for multiple hypothesis comparison, we also performed an over-representation analysis (ORA) using the genes that contribute most to a given connectivity pattern to assess whether any gene sets (GO categories) were statistically over-represented in this list.
 % in a list of selected genes that contribute most strongly to coexpression for a given link type the most.
 % chose a more conservative approach of testing the top list of the most influential genes instead of taking into consideration gene scores through the whole list of genes in question.
 % , as well as the noisy gene expression data as well as the nature of the binary gene expression data which does not allow to produce a reliable continuous score for each gene,
 To obtain the gene list, we used the false discovery rate correction of Benjamini and Hochberg \cite{Benjamini:1995cd} on $p$-values computed using Eq.~\eqref{eq:CBinomialProbability}, which were thresholded at a stringent level of $p = 10^{-4}$.
-Over-representation for each biological process GO category with 5 to 100 genes available was quantified as an FDR-corrected $p$-value (across [[XX]] GO categories) using version 3.0.2 of \emph{ErmineJ} software \cite{Gillis2010}.
+Over-representation for each biological process GO category with 5 to 100 genes available was quantified as an FDR-corrected $p$-value (across [[XX]] GO categories [[TODO-AA]]) using version 3.0.2 of \emph{ErmineJ} software \cite{Gillis2010}.
 Biological process GO annotations \cite{Ashburner2000} were obtained from GEMMA \cite{Zoubarev2012} (using \texttt{Generic\_worm\_noParents.an.txt.gz} downloaded on March 31, 2017).
 % downloaded using a build-in option within ErmineJ software
 % and then compute the probability that the mean score in each GO category is larger than expected from a random assignment of scores to the genes in the list.
@@ -618,7 +619,7 @@ Gene Ontology terms and definitions were obtained in RDF XML file format downloa
 % Results and Discussion can be combined.
 
 \section*{Results}
-Our main aim in this work is to relate patterns of pairwise connectivity in the \emph{C. elegans} neuronal connectome to coupled gene expression (gene coexpression), focusing particularly on hub connectivity.
+Our main aim in this work is to relate patterns of pairwise connectivity in the \emph{C. elegans} neuronal connectome to correlated gene expression (CGE), focusing particularly on hub connectivity.
 A schematic overview of our data is in Fig.~\ref{fig:SchematicRepresentation}, including
 the directed binary connectome (Fig.~\ref{fig:SchematicRepresentation}A),
 additional anatomical data gathered for each neuron (Fig.~\ref{fig:SchematicRepresentation}B),
@@ -633,7 +634,7 @@ and binary gene expression across 948 genes (Fig.~\ref{fig:SchematicRepresentati
  \caption{\textbf{Schematic representation of the data used in this study.}
 All plots show neurons (rows) ordered by their longitudinal position, from the top of the head (upper) to bottom of the tail (lower).
 %Schematic representation of the \textit{C. elegans} nervous system is shown on the left (scale of the animal is not preserved).
- \textbf{A} Connectivity matrix summarized 2, 990 directed chemical and electrical connections between 279 neurons from neuron $i$ (row) to neuron $j$ (column).
+ \textbf{A} Connectivity matrix summarized 2990 directed chemical and electrical connections between 279 neurons from neuron $i$ (row) to neuron $j$ (column).
 Connections are colored according to how they connect hubs ($k > 44$) and nonhubs ($k \leq 44$), as `rich' (hub $\rightarrow$ hub), `feed-in' (nonhub $\rightarrow$ hub), `feed-out' (hub $\rightarrow$ nonhub), and `peripheral' (nonhub $\rightarrow$ nonhub).
   \textbf{B} Anatomical location, neurotransmitter system, functional type and hub assignment for each of the 279 neurons.
 % The 948 genes (columns) are expressed in each of the a neuron that are expressed in at least one neuron.
@@ -647,18 +648,18 @@ Connections are colored according to how they connect hubs ($k > 44$) and nonhub
 % ------------------------------------------------------------------------------
 
 Our analysis is presented in five parts:
-(i) given past evidence for a major effect of physical distance on connection probability and gene coexpression \cite{Fulcher:2016ck}, we first characterize the spatial dependency of connection probability and gene coexpression;
+(i) given past evidence for a major effect of physical distance on connection probability and CGE \cite{Fulcher:2016ck}, we first characterize the spatial dependency of connection probability and CGE;
 (ii) we confirm the rich-club organization of the \emph{C. elegans} connectome;
-(iii) we show that gene coexpression is increased in connected pairs of neurons relative to unconnected pairs, in electrical synapses relative to chemical synapses, and in connected hub neurons relative to other types of connected neuron pairs (mirroring previous results in the mesoscale mouse connectome \cite{Fulcher:2016ck});
-(iv) we demonstrate expression similarity of hubs is not driven by factors like stereotypical interneuron expression, expression similarity within modules, birth time or lineage similarity, or neuromodulator types; and
-(v) we show that coupled expression between hubs is driven by the high coexpression amongst control interneurons, with genes related to glutamate receptor signaling playing a major role.
+(iii) we show that CGE is increased in connected pairs of neurons relative to unconnected pairs, in electrical synapses relative to chemical synapses, and in connected hub neurons relative to other types of connected neuron pairs (mirroring previous results in the mesoscale mouse connectome \cite{Fulcher:2016ck});
+(iv) we demonstrate that highly correlated expression between connected hub neurons is not driven by factors like stereotypical interneuron expression, expression similarity within modules, birth time or lineage similarity, or neuromodulator types, but may be driven by the high CGE of control interneurons,
+(v) we characterize the contribution of specific genes, and broader gene ontology categories, to the observed patterns.
 % we show that these transcriptional signatures may be driven by glutamate receptor signaling, and that
 % Consistent with previous results in the mouse \cite{Fulcher:2016ck}, we show that synaptically connected neurons display more similar gene expression than those that are unconnected, and that, amongst connected regions, those involving hub neurons show more similar gene expression.
 
 
 \subsection*{Spatial dependency}
 Previous work has demonstrated the importance of spatial effects in driving patterns of gene expression, with more proximal brain areas exhibiting more similar gene expression patterns than more distant brain areas \cite{Krienen:2016eq, Fulcher:2016ck, Pantazatos:2016ir, Richiardi:2017hb}.
-Connection probability also decreases with spatial separation between brain areas \cite{Horvat:2016ia, Wang:2016gg, Markov:2013jo, Henderson:2014fg, Fulcher:2016ck, Noori:2017ce}, and for individual neurons in mouse primary auditory cortex \cite{Levy:2012dy}, and in \emph{C. elegans} (cf. Fig.~S1 of \cite{Azulay:2016cg}).
+Connection probability also decreases with spatial separation between brain areas \cite{Horvat:2016ia, Wang:2016gg, Markov:2013jo, Henderson:2014fg, Fulcher:2016ck, Noori:2017ce}, and individual neurons in mouse primary auditory cortex \cite{Levy:2012dy}, and in \emph{C. elegans} (cf. Fig.~S1 of \cite{Azulay:2016cg}).
 Unlike network analyses of mammalian brains, where all neurons are confined to a spatially contiguous organ, neurons of the \emph{C. elegans} nervous system are distributed throughout the entire organism, forming a dense cluster of 147 neurons in the head (all within 130\,$\mu$m), 105 sparser neurons in the body (spanning 1.02\,mm), which are predominantly motor neurons (75\%), and another dense cluster of 27 neurons in the tail (all within 90\,$\mu$m of each other), as plotted in Fig.~\ref{fig:neuronsSpace}.
 In order to examine the relationship between connectivity and correlated gene expression, we first need to understand the spatial dependence of both connectivity and correlated gene expression, and in particular characterize to what extent previously reported spatial dependencies of these measurements applies to the microscale nervous system of \emph{C. elegans}.
 % To ensure that relationships between connectivity and gene expression are not driven by their mutual spatial dependency,
@@ -671,28 +672,26 @@ In order to examine the relationship between connectivity and correlated gene ex
 \centering
     \includegraphics[width=1\textwidth]{SpatialPlot.png}
 \caption{
-\textbf{Hub neurons are distributed between the head and tail}.
-Neurons are positioned along the anterior--posterior (horizontal), and dorsal--ventral (vertical) axes.
-% Definitions of posterior/anterior/ventral/dorsal from Varier.
-Neurons are colored by type:
+\textbf{Hub neurons are contained within the head and tail of \emph{C. elegans}}.
+Neurons are positioned along the anterior--posterior (horizontal), and dorsal--ventral (vertical) axes, and are colored by type:
 (i) interneuron (85 neurons, orange),
 (ii) sensory (68 neurons, blue),
 (iii) motor (108 neurons, green), or
 (iv) multiple assignments (18 neurons, yellow).
 Hub neurons (i.e., neurons with $k > 44$, see Fig.~\ref{fig:topology_rich}) are shown as larger circles and outlined in black.
-Rich connections between hub neurons (red) are shown, with all other connections also shown in the upper plots (gray).
+`Rich-club' connections between hub neurons are shown (red), and all other connections are also shown in the upper plots (gray).
 Axes of each subplot are to scale with each other, and the upper zoomed-in plots of the head and tail are shown as dotted rectangles in the lower plot.
 \label{fig:neuronsSpace}
 }
 \end{figure}
 % ------------------------------------------------------------------------------
 
-We first characterize the probability that two neurons will be connected given their source and target types, labeling each neuron as either `head', `body', or `tail' according to anatomically distinct regions of the \emph{C. elegans} nervous system.
+We first characterize the probability that two neurons will be connected given their source and target types, labeling each neuron as either `head', `body', or `tail' of the \emph{C. elegans} nervous system.
 % (cf. Fig.~\ref{fig:neuronsSpace}).
-Connection probability is plotted as a function of Euclidean separation distance in Fig.~\ref{fig:connectionProb} for each combination of source and target neuron labels, across 10 equiprobable distance bins (and with an exponential fit) in each case.
-Distinguishing connections by source and target neuron types uncovers clear spatial relationships (that are obscured when all connections are grouped, as in \cite{Azulay:2016cg}), revealing that different classes of connections exhibit different spatial connectivity relationships.
+Connection probability is plotted as a function of Euclidean separation distance in Fig.~\ref{fig:connectionProb} for each combination of source and target neuron labels, across 10 equiprobable distance bins (and with an exponential fit also added).
+Distinguishing connections by source and target neuron types uncovers clear spatial relationships (that are obscured when all connections are grouped, as in \cite{Azulay:2016cg}), that differ across classes of connections.
 From the very short distance scale of $\lessapprox 100\,\mu$m of head$\rightarrow$head and tail$\rightarrow$tail connections to the very longest-range head$\rightarrow$tail and tail$\rightarrow$head connections ($\gtrapprox 1\,$mm), connection probability decreases with separation distance (Fig.~\ref{fig:connectionProb}A).
-For connections between pairs of neurons located in the body, ranging up to $\approx 1$\,mm, a near-exponential trend is exhibited, mirroring results in other species and across longer length scales \cite{Wang:2016gg}, including mouse \cite{Goulas:2016hr, Fulcher:2016ck}, and rodents and primates \cite{Horvat:2016ia}.
+For connections between pairs of neurons located in the body, ranging up to $\approx 1$\,mm, a near-exponential trend is exhibited, mirroring results in other species and across longer length scales \cite{Wang:2016gg}, including mouse \cite{Goulas:2016hr, Fulcher:2016ck}, and in rodents and primates \cite{Horvat:2016ia}.
 Other connections do not exhibit strong spatial connectivity relationships, i.e., connections between the body and head or between the body and tail, shown in Fig.~\ref{fig:connectionProb}B.
 % [[Is this expected? Are head and tail, and neurons within the body somehow functionally distinct units that you would expect to exhibit different connectivity relationships compared to connections between the body and head or tail?? Would be nice to add some speculative sentence here around this.]]
 
@@ -719,22 +718,22 @@ Apart from a small effect at short range for tail$\rightarrow$body connections, 
 
 % The probability of a pair of neurons being connected decreases as a function of their separation distance for connections within the head, connections within the tail, connections within the body, and connections between the head and tail
 
-We next investigate the spatial dependency of gene coexpression between neuron pairs, $r_\phi$, as a function of separation distance, shown in Fig.~\ref{fig:spatialCoexpressionMain}.
+We next investigate the dependence of CGE, $r_\phi$, on the separation distance between neuron pairs, shown in Fig.~\ref{fig:spatialCoexpressionMain}.
 % (excluding bilateral pairs of neurons)
 Gene coexpression decreases slightly with separation distance for the spatially close neurons within the head (Fig.~\ref{fig:spatialCoexpressionMain}A) and within the tail (Fig.~\ref{fig:spatialCoexpressionMain}B), but not for pairs of neurons involving the body (Fig.~\ref{fig:spatialCoexpressionMain}C).
 % Stronger spatial relationships were seen within the head for specific subtypes of neurons, including pairs of interneurons, pairs of sensory neurons, pairs of motor neurons, and motor-interneuron pairs (Figs~\ref{fig:S_distCoexp}D--H).
 % Within the head, a decreasing (approximately exponential) underlying trend could be seen for pairs of interneurons, pairs of sensory neurons, pairs of motor neurons, and motor-interneuron pairs (Figs~\ref{fig:S_distCoexp}D--H).
 % [[Add some interpretation in terms of the function of body neurons as potentially distinct from those in the head and tail??]].
 % Furthermore, $r_\phi$ is not symmetric about a trend line; rather the trends that exist for head neurons and tail neurons are driven by pairs of close neurons with high coexpression.
-A weakly decreasing trend in gene coexpression with distance is seen only within the head and tail, and is primarily driven by a subset of nearby neurons with high $r_\phi$.
+The decreasing trend in CGE with distance within the head and tail is primarily driven by a subset of nearby neurons with high $r_\phi$.
 It may therefore represent a relationship specific to particular functionally related neurons, rather than a general, bulk spatial relationship seen in macroscopic mammalian brains \cite{Fulcher:2016ck}.
 % Given the weak spatial relationships of $r_\phi$ in \emph{C. elegans} that are only seen within the head and tail and are driven mostly by pairs of close neurons with similar gene expression profiles, there is no clear bulk spatial trend that can be corrected for (as done previously for mouse brain expression data \cite{Fulcher:2016ck}).
 % Residuals after subtracting an exponential form (following Fulcher and Fornito using mouse brain expression data \cite{Fulcher:2016ck}), are not symmetric, since the trend is often driven by pairs of close neurons with high coexpression.
-Accordingly, attempting to correct for a bulk trend in the discrete \emph{C. elegans} connectome by taking residuals from an exponential fit produced artifactual reductions in the coexpression of many neuron pairs (shown in Fig.~\ref{fig:S_head_rphi_correct}).
+Accordingly, attempting to correct for a bulk trend in the discrete \emph{C. elegans} connectome by taking residuals from an exponential fit produced artifactual reductions in the CGE of many neuron pairs (shown in Fig.~\ref{fig:S_head_rphi_correct}).
 % NOTE AA: I think we should include the plot (probably in supp) where exp for head-head is fitted (A) and a plot for residuals (B).
 % Given that the effect was relatively small, and no standard correction could be applied, we use original uncorrected gene coexpression data for all the further analyses.
 % Due to the large artifacts introduced, we chose not to correct for the small spatial dependence of gene coexpression in head-head and tail-tail connections for the main analyses presented here,
-Thus, we found no evidence for bulk spatial relationships of $r_\phi$ in the specialized and discrete neuronal connectome of \emph{C. elegans} and accordingly analyze $r_\phi$ without any bulk spatial correction throughout this work.
+Thus, we found no evidence for bulk spatial relationships of $r_\phi$ in the highly specialized neuronal connectome of \emph{C. elegans} and accordingly analyze $r_\phi$ without any bulk spatial correction throughout this work.
 % , but note that applying such a correction yields similar results to those presented.
 % [[TODO: INCORPORATE RESULTS/VERIFICATION, cf. \emph{CoExpressionDistanceCorrect}]].
 % Future data that allow more accurate and continuous measurement of gene coexpression, may allow spatial correction to be applied more accurately.
@@ -776,7 +775,7 @@ The degree distribution is shown in Fig.~\ref{fig:topology_rich}A, where neurons
 Consistent with the results of Towlson et al., who used an undirected version of the connectome (by ignoring the directionality of chemical synapses), we found a positively-skewed degree distribution containing an extended tail of high-degree hub interneurons.
 % Note that we define degree as the sum of incoming and outgoing projections to a given neuron (total degree, $k$).
 % who included both synaptic connections as well as gap junctions and symmetrized the directed synaptic connectivity (despite only 233 out of 1\,961 pairs of connected neurons being reciprocally connected), whereas here we retain the directed architecture of the connectome
-Hub interneurons of \emph{C. elegans} are known to mediate behaviors like coordinated locomotion and foraging \cite{tsalik2003}.
+Hub interneurons of \emph{C. elegans} to correspond closely to control interneurons and mediate behaviors like coordinated locomotion and foraging \cite{tsalik2003}.
 % connectivity between interneurons in the rich club provides the anatomical basis for vital neuronal computation of behaviours, such as coordinated locomotion and foraging36,37. Forward and backward movements, for example, are generated in two functionally separate subsets of neurons in this core, potentially coordinated through reciprocal inhibi- tion37,44. Moreover, a study recently demonstrated that random search behaviour in the worm can be approx- imated by a connectome-based stochastic model of this circuit4
 
 % Here we confirm the high connectivity, centrality and wiring cost of hub connections in the C elegans connectome, as previoulsy shown by Towlson et al () and as also found in the macaue (Harriger) and human (van den Huevel-PNAS) brains.
@@ -791,9 +790,9 @@ Hub interneurons of \emph{C. elegans} are known to mediate behaviors like coordi
    \centering
     \includegraphics[width=0.9\textwidth]{topologicalRCall.pdf}
     % \includegraphics[width=0.7\textwidth]{RCcurve.eps}
- \caption{\textbf{Rich-club organization of the connectome}.
+ \caption{\textbf{Rich-club organization of the \emph{C. elegans} connectome}.
 % A: Topological rich-club. B: Mixed rich-club. C: Weighted rich-club.
-\textbf{A} Degree distribution of the directed \textit{C. elegans} connectome, where neurons are labeled according to four categories:
+\textbf{A} Degree distribution of neurons, labeled to four categories:
 (i) interneuron (85 neurons, orange),
 (ii) motor (108 neurons, green),
 (iii) sensory (68 neurons, blue), or
@@ -830,7 +829,7 @@ The plot reveals rich-club organization ($\Phi_\mathrm{norm} > 1$) at the upper 
 % ), referred to here as the `topological rich-club regime'.
 Similar results were obtained using weighted representations of the connectome (i.e., using information about the number of synapses in the chemical connectivity network) for two different definitions of the weighted rich-club coefficient \cite{Opsahl2008}, shown in Fig.~\ref{fig:S_weightedRC}.
 Throughout this work, we define a set of hubs as the sixteen neurons with $k > 44$, which corresponds to the lowest degree threshold at which the network displays a contiguous region of significant rich-club organization at high $k$.
-Our list of hubs overlaps almost completely with the list of Towlson et al.~\cite{Towlson2013} (see Table~\ref{tab:HubList}).
+Our list of hubs overlaps almost completely with the list of Towlson et al.~\cite{Towlson2013} (see Table~\ref{tab:HubList}). [[TODO-AA: what do you mean `almost completely'? Can you quantify? How many out of how many match?]]
 % This indicates that when nodes are defined as hubs (degree $>\textit{k}$) in this range, they are more densely interconnected than expected by chance.
  % of the analyses presented below examine how different topological and genomic properties vary as a function of the hub threshold, $k$, but for analyses requiring a fixed hub definition, we define hubs as the 13 neurons with
 
@@ -843,8 +842,9 @@ The rich-club connectivity of the \emph{C. elegans} connectome is accompanied by
  % we plot the mean distance between all pairs of connected hubs at each degree threshold, $k$.
 This increase can be attributed to a relative increase in long-distance hub-hub connections between the head and tail, plotted in Fig.~\ref{fig:S_connectionProportion}.
 % , we find an increase in mean hub-hub connection distance with $k$, through to the extent of the topological rich-club regime.
-The high connection density and long mean anatomical distance of pairs of hub neurons counters the general trend in the \emph{C. elegans} connectome, where the probability of connectivity between two neurons decays with their separation distance (quantified in Fig.~\ref{fig:connectionProb}).
-These results are consistent with previous findings \cite{Towlson2013} and suggest that the rich club may provide a central yet costly backbone for neuronal communication \cite{vandenHeuvel:2012kh}.
+The high connection density and long mean anatomical distance of pairs of hub neurons counters the general trend in the \emph{C. elegans} connectome, where the probability of connectivity between two neurons decays with their separation distance (see Fig.~\ref{fig:connectionProb}).
+These results are consistent with previous findings across diverse neural systems and suggest that the rich club may provide a central yet costly backbone for neuronal communication in \emph{C. elegans} \cite{vandenHeuvel:2012kh}.
+% Towlson2013
 % replicate the findings by Towlson et al. \cite{Towlson2013}, demonstrating that hub-hub connections in \emph{C. elegans} are dense and extend over significantly longer distances than other types of connections in the synaptic network of the nematode nervous system, consistent with the rich club forming a central yet costly backbone for neuronal communication \cite{vandenHeuvel:2012kh}.
 % The distribution of hubs and hub-hub connections in two-dimensional space is depicted in Fig.~\ref{fig:neuronsSpace}.
 
@@ -855,20 +855,23 @@ These results are consistent with previous findings \cite{Towlson2013} and sugge
 % The same is true in the C. elegans neuronal nervous system, analyzed in the past as an undirected binary connectome including both chemical and electrical synapses \cite{Towlson:2013gf}, which exhibits highly connected, and densely interconnected hub neurons.
 
 %%
-\subsection*{Coexpression and connectivity}
+\subsection*{Correlated gene expression and connectivity}
 
 % ---connectivity/coexpression---
 % Having characterized the topological and geometric properties of rich-club connectivity in \emph{C. elegans},
-We next investigate how the network connectivity properties of \emph{C. elegans} relate to patterns of gene expression.
-We compare pairwise connectivity to pairwise similarity in gene expression, measured by the mean square contingency coefficient, $r_\phi$ (excluding bilateral pairs of neurons to ensure their high transcriptional similarity does not drive results, see \emph{Methods}).
+We next investigate how the network connectivity properties of \emph{C. elegans} relate to patterns of correlated gene expression.
+We compare pairwise connectivity to pairwise similarity in gene expression, measured by the mean square contingency coefficient, $r_\phi$.
+% (excluding bilateral pairs of neurons to ensure their high transcriptional similarity does not drive results, see \emph{Methods}).
 % Note that connections between bilateral pairs of neurons display high transcriptional similarity and are excluded from this analysis, leaving 474 electrically (514-40), 1\,940 connected pairs (1\,961 - 21) and 36\,450 unconnected pairs (36\,494 - 44).
 % , to define gene coexpression, and excluding coexpression values between homologous left/right neuron pairs, see Methods).
 % , to define gene coexpression, and excluding coexpression values between homologous left/right neuron pairs, see Methods).
 
-To test whether gene coexpression varies as a function of connectivity, we compared the distribution of $r_\phi$ for all connected pairs of neurons, and all unconnected pairs of neurons.
+To test whether gene coexpression varies as a function of connectivity, we compared the distribution of $r_\phi$ between
+(i) all connected pairs of neurons, and
+(ii) all unconnected pairs of neurons.
 Connected pairs of neurons have more similar expression profiles than unconnected pairs (Wilcoxon rank-sum test, $p = 1.8 \times 10^{-78}$), mirroring previous results in the mesoscale mouse connectome \cite{Fulcher:2016ck} (Fig.~\ref{fig:S_RFPdistributions}).
 Figure~\ref{fig:coExp}A shows distributions of $r_\phi$ for:
-(i) all pairs of neurons that are connected via a gap junction (474 pairs, after excluding bilateral pairs),
+(i) all pairs of neurons that are connected via an electrical gap junction (474 pairs, after excluding bilateral pairs),
 (ii) all pairs of neurons that are connected via a chemical synapse (1\,940 pairs), and
 (iii) all pairs of neurons that have neither connection (36\,450 pairs).
 % This analysis involves 474 pairs of neurons connected by a gap junctions, 1\,940 pairs connected by a synapses, and 36\,450 pairs with no connection (after excluding bilateral pairs of neurons).
@@ -876,7 +879,7 @@ Note that 175 pairs of neurons are connected both by a chemical synapse and by a
 Amongst connected pairs of neurons, those connected via gap junctions exhibit more similar gene expression profiles than those connected via chemical synapses (Wilcoxon rank-sum test, $p = 5.4 \times 10^{-22}$).
 % and  and chemically connected neuron pairs are not mutually exclusive with 175 pairs of neurons connected via both types of connections.
 % Note that because connections between bilateral pairs of neurons display high transcriptional similarity and are excluded from this analysis, leaving 474 electrically (514-40), 1\,940 connected pairs (1\,961 - 21) and 36\,450 unconnected pairs (36\,494 - 44).
-We found no difference in gene coexpression between pairs of neurons connected reciprocally by chemical synapses ($N_1 \leftrightarrow N_2$ for two neurons $N_1$ and $N_2$) versus those connected unidirectionally ($N_1 \rightarrow N_2$) (Wilcoxon rank-sum test, $p = 0.99$, see Fig.~\ref{fig:S_RFPdistributions}), in contrast to significant differences found in the mesoscale mouse connectome \cite{Fulcher:2016ck}.
+We found no difference in CGE between pairs of neurons connected reciprocally by chemical synapses ($N_1 \leftrightarrow N_2$ for two neurons $N_1$ and $N_2$) versus those connected unidirectionally ($N_1 \rightarrow N_2$) (Wilcoxon rank-sum test, $p = 0.99$, see Fig.~\ref{fig:S_RFPdistributions}), in contrast to significant differences found in the mesoscale mouse connectome \cite{Fulcher:2016ck}.
 % into three distinct categories: electrical, chemical reciprocal ($X \leftrightarrow Y$) and chemical unidirectional ($X \rightarrow Y$), however, unlike in the mouse brain, we found no differences in gene coexpression, $r_\phi$, between chemical unidirectional and reciprocal connections (see Fig.~\ref{fig:S_RFPdistributions}).
 
 
@@ -887,8 +890,8 @@ We found no difference in gene coexpression between pairs of neurons connected r
  \begin{figure}[h]
  \centering
     \includegraphics[width=1\textwidth]{MeanCoexpression3.pdf}
-\caption{{\bf Gene coexpression varies as a function of connectedness and connection type.}
-\textbf{A} Distribution of gene coexpression for (i) pairs of neurons connected by gap junctions, (ii) pairs of neurons connected by chemical synapses, and (iii) pairs of neurons that are unconnected, shown as a violin plot, with the median of each distribution represented by a horizontal line.
+\caption{{\bf Correlated gene expression varies as a function of connectedness and connection type.}
+\textbf{A} Distribution of CGE for (i) pairs of neurons connected by gap junctions, (ii) pairs of neurons connected by chemical synapses, and (iii) pairs of neurons that are unconnected, shown as a violin plot, with the median of each distribution represented by a horizontal line.
 % Coexpression, $r_\phi$, is increased in connected compared to unconnected pairs of neurons ($P < 10^{-78}$, Wilcoxon rank sum test).
 % Coexpression, $r_\phi$, is increased in neuron pairs connected via electrical synapses compared to pairs connected via chemical synapses ($P < 10^{-22}$, Wilcoxon rank sum test).
 \textbf{B}
@@ -899,8 +902,8 @@ We found no difference in gene coexpression between pairs of neurons connected r
 `feed-out' (hub$\rightarrow$nonhub, orange), or
 `peripheral' (nonhub$\rightarrow$nonhub, blue) as a function of the degree threshold, $k$, used to define hubs.
 Note that at high $k$ most neurons are labeled as nonhubs and hence the vast majority of connections are labeled `peripheral'.
- \emph{Bottom}: Median gene coexpression, $r_\phi$, for each connection type as a function of $k$.
- The median coexpression across all network links is shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. Fig.~\ref{fig:topology_rich}) is shaded gray.
+ \emph{Bottom}: Median CGE, $\tilde{r}_\phi$, for each connection type as a function of $k$.
+The median CGE across all network links is shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. Fig.~\ref{fig:topology_rich}) is shaded gray.
 Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (one-sided Wilcoxon rank-sum test, $p < 0.05$).
 %[[TODO: add labels A, B; label connection types rich, feed-in, etc.]]
 }
@@ -924,12 +927,12 @@ Full distributions of $r_\phi$ for each edge type at a hub threshold of $k > 44$
 In summary, our results reveal:
 (i) increased coexpression in connected pairs of nodes;
 (ii) the highest coexpression in rich connections; and
-(iii) lowest coexpression in peripheral connections;
+(iii) lowest coexpression in peripheral connections.
 These results, obtained using incomplete binary annotations of gene expression across 948 genes in a microscale neuronal connectome, are consistent with a prior analysis of the expression of over 17\,000 genes across 213 regions of the mesoscale mouse connectome \cite{Fulcher:2016ck}.
 % (iii) intermediate coexpression in feeder connections; and
 
 \subsection*{Potential drivers of elevated coexpression between hubs}
-As we establish through this section, the sixteen hub neurons in \emph{C. elegans} ($k > 44$)
+The sixteen hub neurons in \emph{C. elegans} ($k > 44$)
 are all interneurons;
 are all located in either the head or tail;
 are mostly contained within a single topological module of the network;
@@ -955,12 +958,12 @@ We therefore investigated whether the similarity of gene expression profiles bet
  %\end{figure}
 
 \paragraph{Interneurons.}
-The sixteen hubs in \textit{C. elegans} ($k > 44$) are all interneurons.
-To determine whether the increase in gene coexpression in rich connections was specific to interneurons, we plotted the median coexpression for hub-hub connections, $\tilde{r}_\phi$, as a function of the degree threshold, $k$, separately for connections involving interneurons, sensory neurons, and motor neurons as shown in Fig.~\ref{fig:interneuron_dep}A.
-For the curve labeled `sensory' neurons, for example, each point is the median $r_\phi$ across connections involving sensory neurons (i.e., at least one neuron of a connected pair is a sensory neuron), for which both neurons have degree $>k$.
+The sixteen hubs in \textit{C. elegans} are all interneurons.
+To determine whether the increase in gene coexpression in rich connections was specific to interneurons, we plotted the median coexpression for hub-hub connections, $\tilde{r}_\phi$, as a function of the degree threshold, $k$, separately for connections involving interneurons, sensory neurons, and motor neurons, as shown in Figs.~\ref{fig:interneuron_dep}B.
+For the curve labeled `sensory', for example, each point is the median $r_\phi$ across connections involving sensory neurons (i.e., at least one neuron of a connected pair is a sensory neuron), for which both neurons have degree $>k$.
 The increase in median hub-hub gene coexpression is strongest for connections involving interneurons.
 Motor neurons show a smaller increase with $k$, although the absence of motor and sensory neurons with high {$k$ makes it difficult to draw firm conclusions.
-However, we do find that average coexpression is higher for hub-hub pairs of interneurons compared to connections between all pairs of nonhub interneurons (Wilcoxon rank sum test, $p = 5 \times 10^{-31}$), indicating that the high expression of rich pairs cannot simply be explained by the fact that all hub neurons are interneurons.
+However, we do find that CGE is higher for hub-hub pairs of interneurons compared to connections between all pairs of nonhub interneurons (Wilcoxon rank sum test, $p = 5 \times 10^{-31}$), indicating that the high expression of rich pairs cannot simply be explained by the fact that all hub neurons are interneurons.
 
 % ------------------------------------------------------------------------------
 % <<plot_neuronType.m>>
@@ -975,19 +978,21 @@ However, we do find that average coexpression is higher for hub-hub pairs of int
 Circles indicate a statistically significant increase in gene coexpression in a given link type relative to the rest of the network (one-sided Wilcoxon rank-sum test, $p < 0.05$).
 \textbf{C} Coexpression distributions for all pairs of hub interneurons (red) and all pairs of anatomically matched nonhub interneurons (dark yellow) (Wilcoxon rank sum test, $p = 0.051$).
 %[[TODO-AA: Is the top-left plot actually counting pairs?? Or is it actual connectome edges?]] - pairs (changed in caption)
-%[[TODO-AA: Add labels A, B, C using the LabelCurrentAxes function]]
 %[[TODO-AA: Clarify axis tick labels in B: at the moment appears like a node-level analysis on horizontal axis but pairwise analysis on vertical]]
 %[[TODO-AA: Recolor, or somehow update caption for B that reflects the new command interneuron story -- will do when plots are finalized]]
+[[TODO-AA: Add legend to B?]]
 }
  \label{fig:interneuron_dep}
 \end{figure}
 
-We next investigated whether increased coexpression of rich pairs could be driven by the anatomical properties of hub interneurons.
+[[TODO-AA: Shorten \& incorporate into previous paragraph, or otherwise revise]]:\\
+We next investigated whether greater CGE of hub-hub pairs of neurons could be driven by the anatomical properties of hub interneurons.
 %Hub interneurons tend to extent across the body, therefore to see if this property drove the effect, we selected other neurons with similar connectivity profiles
 %[[TODO-AA: this still needs some unpacking to distinguish from the rank sum test just performed]].
-Specifically, we selected a subset of interneurons that most closely resemble the anatomical properties of hub interneurons, in terms of their origin and termination locations, arriving at the following set of seven nonhub head interneurons: AVFL, AVFR, AVHL, AVHR, AVKR, AVJL, and AVJR [[any reproducible criteria through which these were selected??]].
-As shown in Fig.~\ref{fig:interneuron_dep}B, pairs of hub interneurons exhibit slightly higher gene coexpression than pairs of anatomically-matched nonhub interneurons (Wilcoxon rank sum test, $p = 0.051$).
+Specifically, we selected a subset of interneurons that most closely resemble the anatomical properties of hub interneurons, in terms of their origin and termination locations, we determined the following set of seven nonhub head interneurons: AVFL, AVFR, AVHL, AVHR, AVKR, AVJL, and AVJR.
+As shown in Fig.~\ref{fig:interneuron_dep}C, pairs of hub interneurons exhibit slightly higher CGE than pairs of anatomically-matched nonhub interneurons (Wilcoxon rank sum test, $p = 0.051$).
 Thus, the increase in coexpression amongst hub interneurons cannot be simply explained by their anatomical similarity among interneurons.
+[[TODO: A bit of a strange interpretation of $p=0.051$??]]
 
 % Neurons in \emph{C. elegans} are annotated to the following categories: sensory neurons, motor neurons, and interneurons (eighteen multifunctional neurons are annotated to two categories).
 % As in Towlson et al.~\cite{Towlson:2013gf}, we find that
@@ -1023,14 +1028,16 @@ Thus, the increase in coexpression amongst hub interneurons cannot be simply exp
 %Given that connectome modules may correspond to functionally specialized systems, it is therefore plausible that neurons belonging to the same module might exhibit similar gene expression patterns, as has been shown for macroscopic functional networks in the human brain \cite{Richiardi2015}.
 %Brain network hubs generally participate in multiple modules \cite{vandenHeuvel:2013ij, deReus:2014cz}, and their dense rich-club connectivity implies that they may form their own module that overlaps with other, more specialized systems \cite{Fornito:2015dq, deReus:2013cy, ZamoraLopez:2010hy}.
 %We therefore investigated whether therefore increased gene coexpression between pairs of hub neurons in the \emph{C. elegans} connectome can be explained by their distribution across connectome modules.
-Another important topological property of nervous systems is modularity, such that network nodes coalesce into tightly connected subsystems that are thought to serve a common function \cite{Sporns2016}.
-Prior work in humans has shown that brain regions belonging to the same functional system have elevated transcriptional coupling \cite{Richiardi2015}.
-The \emph{C. elegans} connectome has a modular organization, and can be decomposed into groups of neurons or modules with dense inter-module connectivity (with relatively sparse connectivity between modules) \cite{Kim2014, Pan:2010jt, Bassett2010}, or into groups of neurons with more similar patterns of connectivity within groups than between groups \cite{Achacoso:1992ay, Pavlovic2014}.
-We therefore examined the association between topological modularity of the \emph{C. elegans} connectome and gene coexpression.
+Another important topological property of neural systems is modularity, whereby network nodes coalesce into tightly connected subsystems that are thought to serve a common function \cite{Sporns2016}.
+Prior work in humans has shown that brain regions belonging [[to the same functional system]][[TODO: rephrase?]] have elevated transcriptional coupling \cite{Richiardi2015}.
+The \emph{C. elegans} connectome has a modular organization; prior work has decomposed it into:
+(i) modules of neurons with dense intra-module connectivity (and relatively sparse connectivity between modules) \cite{Kim2014, Pan:2010jt, Bassett2010}, or
+(ii) groups of neurons with more similar connectivity patterns within groups than between groups \cite{Achacoso:1992ay, Pavlovic2014}.
+We therefore examined the association between topological modularity of the \emph{C. elegans} connectome and CGE.
 We used the Louvain community detection algorithm \cite{Blondel:2008do} to extract modules from the \emph{C. elegans} connectome using consensus clustering (see \textit{Methods}).
 Four modules were extracted, with eleven hubs in module one (which contains 111 neurons), four hubs in module two (96 neurons), one hub in module three (40 neurons), and no hubs in module four (32 neurons).
 We also compared the results of this modular partition of neurons to a previously reported nine-module partition derived from an Erd\"os-R\'enyi Mixture Model (ERMM) \cite{Pavlovic:2014gx}.
-For the Louvain consensus modules, gene coexpression, $r_\phi$, was significantly increased for connected neurons in the same module (1\,552 pairs) relative to connected pairs in different modules (687 pairs) (Wilcoxon rank sum test, $p = 6.6 \times 10^{-4}$), but there was no significant difference between intra-modular connected neurons and inter-modular connected neurons for the nine-module ERMM partition (Wilcoxon rank sum test, $p = 0.46$).
+For the Louvain consensus modules, CGE, $r_\phi$, was significantly increased for connected neurons in the same module (1552 pairs) relative to connected pairs in different modules (687 pairs) (Wilcoxon rank sum test, $p = 6.6 \times 10^{-4}$), but there was no significant difference between intra-modular connected neurons and inter-modular connected neurons for the nine-module ERMM partition (Wilcoxon rank sum test, $p = 0.46$).
 % CoexpressionDistributionsModules(C,G,'intraInter',true,'consensus');
 % There was no significant difference in gene coexpression for connections within modules compared to those between modules ($p = 0.69$, Wilcoxon rank sum test), as shown in Fig.~\ref{fig:OtherInfluences}B.
 The resolution and type of modular decomposition thus affects the relationship between coexpression, connectivity, and modular network structure in \emph{C. elegans}.
@@ -1047,15 +1054,15 @@ The resolution and type of modular decomposition thus affects the relationship b
 % 10 out of 11 hub neurons in this module are directly responsible for
 % The main goal of this analysis was to compare coexpression within and between modules in order to examine if neurons assigned to the same module are more genetically similar than neurons in other modules.
 % The expectation that gene coexpression, $r_\phi$, was increased within modules was not observed.
-We then tested whether connected hubs exhibit more similar coexpression within and between modules analyzing both the consensus Louvain and ERMM decompositions.
-For pairs of connected neurons within the same module, coexpression is higher for pairs of hubs than pairs of nonhubs (Wilcoxon rank sum test, $p = 6.9\times 10^{-17}$ for consensus Louvain modules, shown in Fig.~\ref{fig:OtherInfluences}A; $9.3 \times 10^{-7}$ for ERMM partition).
+We then tested whether connected hubs exhibit more similar coexpression within and between modules (for both the consensus Louvain and ERMM modular decompositions).
+For pairs of connected neurons within the same module, $r_\phi$ is higher for pairs of hubs than pairs of nonhubs (Wilcoxon rank sum test, $p = 6.9\times 10^{-17}$ for consensus Louvain modules, shown in Fig.~\ref{fig:OtherInfluences}A; $9.3 \times 10^{-7}$ for ERMM partition).
 % CoexpressionDistributionsModules(C,G,'hubIntra',true,'consensus');
 % CoexpressionDistributionsModules(C,G,'hubIntra',true,'ERMM');
 We found a similar result for connected neurons in different modules: pairs of connected hubs exhibit increased coexpression than other types of connected pairs of neurons (Wilcoxon rank sum test, $p = 1.6 \times 10^{-5}$ for consensus Louvain modules, shown in Fig.~\ref{fig:OtherInfluences}B; $p = 1.6 \times 10^{-16}$ for ERMM).
 % CoexpressionDistributionsModules(C,G,'hubInter',true,'consensus');
 % CoexpressionDistributionsModules(C,G,'hubInter',true,'ERMM');
 % We also computed an empirical null distribution for the mean coexpression across random sets of 55 intramodular and two intermodular links by taking 1\,000 random samples from these two link types across the network, yielding a null $r_\phi$ of $0.13 \pm 0.02$, compared to the observed value of $0.51$ ($p < 10^{-16}$).
-Thus, for both types of modular decompositions, connected pairs of hub neurons exhibit increased coexpression relative to other intra-modular and inter-modular connections.
+Thus, for both types of modular decompositions considered, intra-modular and inter-modular connections involving hub neurons exhibit more correlated gene expression patterns than other intra-modular and inter-modular connections.
 % and hence the increased coexpression within hubs cannot be explained by their position in similar modules.
 % , which is present within intra-modular and inter-modular connections.
 % despite the fact that gene coexpression can be increased for pairs of connected neurons within the same module, this effect does not explain
@@ -1126,20 +1133,6 @@ Focusing on the 201 neurons (16 hub and 185 nonhub neurons) born prior to hatchi
 % Adj = GiveMeAdj(C,'zeroBinary','ch');k = sum(Adj) + sum(Adj,2)';
 % sum(C.BirthTime<550 & k>41) = 13
 % sum(C.BirthTime<550 & k<=41) = 188
-
-\paragraph{Lineage distance.}
-%[[should first characterize general relationship between lineage and coexpression, and then address hub effect]] -- there is no general lineage-coexpression effect in our results.
-The lineage distance between a pair of neurons is defined as the sum of total divisions that have taken place since the most recent common ancestor cell \cite{Pavlovic:2014gx, Sulston1977, Sulston1983}.
-In the mammalian brain, neuronal lineage has been associated with both functional \cite{Ciceri2013, Li2012} and connectivity-related properties \cite{Yu2012}.
-Moreover, tissue distance (resembling lineage distance on a cellular scale) correlates with gene expression divergence, meaning that tissues from the same branch on the fate map share more similar gene expression pattern in both human and mouse mesoderm as well as ectoderm tissues \cite{Cui2007}.
-Given that the ectoderm eventually differentiates to form the nervous system, this finding suggests a possible relationship between lineage distance and gene coexpression in a microscale neuronal system such as that of \textit{C. elegans}.
-%Therefore, lineage distance could potentially be an informative source of information about the genetic makeup of the \textit{C. elegans} nervous system \cite{Schroter:2017eo}.
-We find no significant correlation between lineage distance and gene coexpression in \textit{C. elegans} (Spearman's $\rho = -0.027$, $p = 0.2$).
-As shown in Fig.~\ref{fig:OtherInfluences}E, we also find no significant difference in lineage distance between hub (rich connections) and nonhub neurons (non-rich connections) (Wilcoxon rank sum test, $p = 0.079$).
-%[[Could do as pairs rather than connected...? - THERE IS A sign DIFFERENCE if we take all pairs instead of connections - hubs are more close in lineage it means that there are no connections between hubs that are closest in lineage, while literature suggests, that some neurons in mouse form connections preferentially with `sister' neurons as in Yu, 2012.]].
-%all hub neurons are formed early in development as characterized above, and hence it is possible that they originate from common ancestry cells and share intrinsic similarities in gene expression that influence the observed increase in coexpression between hub neurons.
-%It may be the case, for example, that hub neurons are derived from similar cell lines, which may drive their increased coexpression.
-Thus, we can not attribute the transcriptional similarity of connected hub neurons to their neuronal lineage.
 
 %[[not sure this is relevant/fits the story. Could remove:]]\\
 %Looking closer, we find that lineage distance increases with degree for feeder links while no significant change is observed for rich links (Fig.~\ref{fig:Lineagek}).
