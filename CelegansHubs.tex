@@ -1563,7 +1563,7 @@ We thank WormBase.
 % \end{thebibliography}
 
 \newpage
-\section*{Supporting information}
+\section*{Supporting Information}
 \setcounter{figure}{0} \renewcommand{\thefigure}{S\arabic{figure}}
 \renewcommand{\thefigure}{S\arabic{figure}}
 \renewcommand{\thetable}{S\arabic{table}}
@@ -1630,9 +1630,9 @@ Based on these numerical experiments, we selected mean square contingency coeffi
 % Simple matching coefficient, on the other hand, shows a steady increase with increasing ratio.
 % We therefore selected $r_\phi$ to analyze in this work, which was insensitive to the proportion of genes expressed in each neuron.
 
-\subsection*{Binary enrichment scoring}
-[[MOVED TO METHODS]]
-In this section we provide more information about how genes were scored in the connectivity and hub connectivity analyses performed in this work.
+% \subsection*{Binary enrichment scoring}
+% [[MOVED TO METHODS]]
+% In this section we provide more information about how genes were scored in the connectivity and hub connectivity analyses performed in this work.
 %When comparing pairs of neurons that contain a structural connection to pairs of neurons that do not share a connection, $p_\mathrm{class} = 0.059$ is the proportion of neuron pairs that are connected, $n$ is the total number of neuron pairs that both exhibit expression of gene $a$, and $m$ is the number of neuron pairs that are structurally connected for which both neurons express gene $a$.
 % we talk here about undirected connectome (pairs of connected vs pairs of unconnected neurons). undirected density = 5.9%, directed density 3.85%
 % In this case, $p = 0.059$ is the edge density of the connectome, and for each gene, $n$ is the total number of pairs of neurons $(i,j)$ for which $g^{(a)}_i = 1$ and $g^{(a)}_j = 1$, and $m$ is the observed number of neuron pairs, $(i,j)$, that are both structurally connected and for which $g^{(a)}_i = 1$ and $g^{(a)}_j = 1$.
@@ -1644,19 +1644,24 @@ In this section we provide more information about how genes were scored in the c
 %[[TODO-AA: Aurina -- can you add the electrical/chemical stuff to this section?]]
 %The data quality criterion of $n \geq 10$ matches was satisfied by 414 (/948) genes for the connected/unconnected analysis and 168 genes for hub connectivity analysis.
 
-
-
 %% enrichment table for connected links
 % results generated using ermineJ, all categories tested separately. significante threshold pcorrected<0.05. Results arranged using
 
+\clearpage
+
 \paragraph*{S1 Table}
 {\bf Hub neurons of the \textit{C. elegans} connectome.}
+\paragraph*{S2 Table}
+{\bf Enrichment results for connected \textit{vs} unconnected neurons.}
+\paragraph*{S3 Table.}
+{\bf Enrichment results for links involving hubs.}
+
 \begin{table}[h]
 \centering
-\caption{Hub neurons of the \textit{C. elegans} connectome.
-Hubs are defined as neurons with $k>44$.
-For each hub, we list the neuron name, degree, $k$, location, and function.
-Entries have been sorted (descending) by degree.}
+\caption{\textbf{Hub neurons of the \textit{C. elegans} connectome.}
+Hubs are defined as neurons with degree $k > 44$.
+For each hub, we list (i) the neuron name, (ii) its degree, $k$, (iii) location (`head', `body', or `tail'), and function [[TODO-AA: where are these functional annotations derived from?]].
+Neurons are sorted (descending) by degree.}
 \label{tab:HubList}
 \begin{tabular}{lll}
 \hline
@@ -1681,16 +1686,15 @@ RIGL   & 49         & Head interneuron                                          
 \end{table}
 
 
-\paragraph*{S2 Table}
-{\bf Enrichment results for connected \textit{vs} unconnected neurons.}
+
 \begin{table}[]
 \centering
-\caption{Biological processes GO categories showing increased CGE for connected neurons compared to unconnected neurons.
-Entries have been sorted by $p$-value (uncorrected).}
+\caption{Biological process GO categories of genes most enriched in genes with the highest mean increase in correlated gene expression for connected neurons compared to unconnected neurons.
+Categories are sorted by $p$-value (increasing).}
 \label{tab:enrichmentCON}
 \begin{tabular}{llccc}
 \hline
-\textbf{GOcategory} & \textbf{Description}                                                                       & \begin{tabular}[c]{@{}c@{}}No. of\\ genes\end{tabular} & \begin{tabular}[c]{@{}c@{}}p \\ (uncorr)\end{tabular} & \begin{tabular}[c]{@{}c@{}}p\\ (corr)\end{tabular} \\ \hline
+\textbf{Category} & \textbf{Description}                                                                       & \begin{tabular}[c]{@{}c@{}}\# genes\end{tabular} & \begin{tabular}[c]{@{}c@{}}$p$\\(uncorr)\end{tabular} & \begin{tabular}[c]{@{}c@{}}$p$\\(corr)\end{tabular} \\ \hline
 GO:0035235          & \begin{tabular}[c]{@{}l@{}}ionotropic glutamate receptor \\ signaling pathway\end{tabular} & 7                                                      & 0.0005                                                & 0.3245                                             \\
 GO:0007215          & glutamate receptor signaling pathway                                                       & 9                                                      & 0.0041                                                & 0.9367                                             \\
 GO:0007166          & cell surface receptor signaling pathway                                                    & 37                                                     & 0.0048                                                & 0.9367                                             \\
@@ -1709,18 +1713,17 @@ GO:0050830          & \begin{tabular}[c]{@{}l@{}}defense response to Gram-positi
 \end{tabular}
 \end{table}
 
-\paragraph*{S3 Table.}
-{\bf Enrichment results for links involving hubs.}
+
 \begin{table}[]
 \centering
 \caption{
-Biological processes GO categories showing increased CGE for links involving hubs (rich, feed-in and feed-out) compared to peripheral links.
-Categories have been sorted by $p$-value (uncorrected).
+Biological process GO categories most enriched in genes with the highest mean increase in correlated gene expression for connections involving hub neurons (i.e., rich, feed-in and feed-out connections) compared to connections between nonhub neurons (i.e., in peripheral connections).
+Categories are sorted by $p$-value (ascending).
 }
 \label{tab:enrichmentRICH}
 \begin{tabular}{llccc}
 \hline
-\textbf{GOcategory} & \textbf{Description}                                                                                               & \begin{tabular}[c]{@{}c@{}}No. of\\ genes\end{tabular} & \begin{tabular}[c]{@{}c@{}}p\\ (uncorr)\end{tabular} & \begin{tabular}[c]{@{}c@{}}p\\ (corr)\end{tabular} \\ \hline
+\textbf{Category} & \textbf{Description}                                                                                               & \begin{tabular}[c]{@{}c@{}}\# genes\end{tabular} & \begin{tabular}[c]{@{}c@{}}$p$\\(uncorr)\end{tabular} & \begin{tabular}[c]{@{}c@{}}$p$\\(corr)\end{tabular} \\ \hline
 GO:0007215          & glutamate receptor signaling pathway                                                                               & 6                                                      & 0.0009                                               & 0.1741                                             \\
 GO:0035235          & \begin{tabular}[c]{@{}l@{}}ionotropic glutamate receptor signaling \\ pathway\end{tabular}                         & 6                                                      & 0.0009                                               & 0.1741                                             \\
 GO:0007166          & cell surface receptor signaling pathway                                                                            & 20                                                     & 0.0035                                               & 0.3473                                             \\
@@ -1739,7 +1742,20 @@ GO:1903508          & \begin{tabular}[c]{@{}l@{}}positive regulation of nucleic 
 \end{tabular}
 \end{table}
 
+% ------------------------------------------------------------------------------
+% ------------------------------------------------------------------------------
+% ------------------------------------------------------------------------------
+% ------------------------------------------------------------------------------
+% ------------------------------------------------------------------------------
+% ------------------------------------------------------------------------------
+% FIGURE TIME
+% ------------------------------------------------------------------------------
+% ------------------------------------------------------------------------------
+% ------------------------------------------------------------------------------
+% ------------------------------------------------------------------------------
+% ------------------------------------------------------------------------------
 
+\clearpage
 
 % Please add the following required packages to your document preamble:
 % \usepackage[normalem]{ulem}
@@ -1748,6 +1764,7 @@ GO:1903508          & \begin{tabular}[c]{@{}l@{}}positive regulation of nucleic 
 % ------------------------------------------------------------------------------
 % Include only the SI item label in the paragraph heading. Use the \nameref{label} command to cite SI items in the text.
 % ------------------------------------------------------------------------------
+
 
 % ------------------------------------------------------------------------------
 % compare proportions for simulations to validate
@@ -1759,18 +1776,23 @@ GO:1903508          & \begin{tabular}[c]{@{}l@{}}positive regulation of nucleic 
     \includegraphics[width=1\textwidth]{CoexpressionMeasures.pdf}
 \caption{
 \label{fig:S_propOnes}
-\textbf{Dependence of binary CGE metrics on the proportion of positive annotations.}
+\textbf{Dependence of correlated gene expression measures on the proportion of positive annotations.}
 % Given the sparse binary annotation of genes to neurons, we investigated bias in each measure across 1\,000 pairs of random binary vectors, each with a fixed proportion of ones.
-Shown here is the mean correlation between pairs of random, binary vectors of length 948, with different proportions of 1s (between 0--0.15; matrix size is 150$\times$150, therefore the number of ones ranges from 1 to 150).
-Each point is averaged over 1\,000 different pairs of random vectors.
+We plot the mean value of each metric across 1000 different pairs of random, binary vectors of length 948, which vary only in their proportion of 1s (between 0--0.15; corresponding to a number of `1's ranging from 1 to 150).
+This is repeated for:
+\textbf{A} mean square contingency coefficient, $r_\phi$,
+\textbf{B} Jaccard index,
+\textbf{C} Yule's $Q$, and
+\textbf{D} our developed positive match measure, $p_\mathrm{match}$, Eq.~\eqref{eqn:positiveMatch}.
+% Each point is averaged over 1\,000 different pairs of random vectors.
  % for 948-long vectors with between 0--0.16 proportion of ones (matrix size is 150x150, therefore the number of ones ranges from 1 to 150).
-Bias is indicated by a systematic trend in correlation values, driven simply by the proportion of positive annotations for a pair of vectors.
-\textbf{A} Pearson, $r_\phi$, the measure used throughout this work as well as our developed positive match measure \textbf{D} shows no systematic bias (note the color axis scale, 10$^{-3}$ for Pearson, $r_\phi$ and 0.5 for positive match measure).
-By contrast, the remaining measures to show a dependence on the proportion of 1s in each vector:
-\textbf{B} Jaccard,
-\textbf{C} Yule's $Q$.
+Any systematic trend in correlation values indicates a bias driven by the proportion of positive annotations for a pair of vectors, as is seen for the Jaccard index and Yule's $Q$.
+By contrast, $r_\phi$, which is used through this work, and our probability-based measure, $p_\mathrm{match}$, used to motivate individual gene scoring for enrichment analysis, show no evidence of systematic bias (note the color axis scales).
+[[TODO-AA: can you tweak D??; the central value is 05 instead of 0.5]]
 }
 \end{figure}
+
+
 % RichClub script
 % \paragraph*{S10 Fig.}
 % {\bf Average CGE for rich, feeder and peripheral links as a function of degree.}
