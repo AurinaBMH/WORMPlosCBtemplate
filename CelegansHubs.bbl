@@ -1,5 +1,10 @@
 \begin{thebibliography}{100}
 
+\bibitem{vandenHeuvel:2016eg}
+van~den Heuvel MP, Bullmore ET, Sporns O.
+\newblock {Comparative Connectomics}.
+\newblock Trends in Cognitive Sciences. 2016;0(0).
+
 \bibitem{White:1986tx}
 White JG, Southgate E, Thomson JN.
 \newblock {The structure of the nervous system of the nematode Caenorhabditis
@@ -411,6 +416,12 @@ Warrens MJ.
 \newblock Psychometrika. 2008;73(4):777--789.
 \newblock doi:{10.1007/s11336-008-9070-3}.
 
+\bibitem{Ashburner2000}
+Ashburner M, Ball CA, Blake JA, Botstein D, Butler H, Cherry JM, et~al.
+\newblock {Gene Ontology: Tool for The Unification of Biology}.
+\newblock Nature Genetics. 2000;25(1):25--29.
+\newblock doi:{10.1038/75556}.
+
 \bibitem{Benjamini:1995cd}
 Benjamini Y, Hochberg Y.
 \newblock {Controlling the False Discovery Rate: A Practical and Powerful
@@ -422,12 +433,6 @@ Gillis J, Mistry M, Pavlidis P.
 \newblock {Gene function analysis in complex data sets using ErmineJ.}
 \newblock Nature protocols. 2010;5(6):1148--59.
 \newblock doi:{10.1038/nprot.2010.78}.
-
-\bibitem{Ashburner2000}
-Ashburner M, Ball CA, Blake JA, Botstein D, Butler H, Cherry JM, et~al.
-\newblock {Gene Ontology: Tool for The Unification of Biology}.
-\newblock Nature Genetics. 2000;25(1):25--29.
-\newblock doi:{10.1038/75556}.
 
 \bibitem{Zoubarev2012}
 Zoubarev A, Hamer KM, Keshav KD, {Luke Mccarthy} E, Santos JRC, Van~rossum T,
