@@ -594,7 +594,7 @@ As well as interpreting the list of individual genes that were significant after
 % in a list of selected genes that contribute most strongly to CGE for a given link type the most.
 % chose a more conservative approach of testing the top list of the most influential genes instead of taking into consideration gene scores through the whole list of genes in question.
 % , as well as the noisy gene expression data as well as the nature of the binary gene expression data which does not allow to produce a reliable continuous score for each gene,
-To obtain the gene list, we used the false discovery rate correction of Benjamini and Hochberg \cite{Benjamini:1995cd} on $p$-values computed using Eq.~\eqref{eq:CBinomialProbability}, which were thresholded at a stringent level of $p = 10^{-4}$, selecting around $20\%$ of genes in each analysis. 
+To obtain the gene list, we used the false discovery rate correction of Benjamini and Hochberg \cite{Benjamini:1995cd} on $p$-values computed using Eq.~\eqref{eq:CBinomialProbability}, which were thresholded at a stringent level of $p = 10^{-4}$, selecting around $20\%$ of genes in each analysis.
 Over-representation for each biological process GO category with 5 to 100 genes available was quantified as an FDR-corrected $p$-value (across arround 700 GO categories) using version 3.0.2 of \emph{ErmineJ} software \cite{Gillis2010}.
 Biological process GO annotations \cite{Ashburner2000} were obtained from GEMMA \cite{Zoubarev2012} (using \texttt{Generic\_worm\_noParents.an.txt.gz} downloaded on March 31, 2017).
 % downloaded using a build-in option within ErmineJ software
@@ -832,7 +832,7 @@ The plot reveals rich-club organization ($\Phi_\mathrm{norm} > 1$) at the upper 
 % ), referred to here as the `topological rich-club regime'.
 Similar results were obtained using weighted representations of the connectome (i.e., using information about the number of synapses in the connectivity network) for two different definitions of the weighted rich-club coefficient \cite{Opsahl2008}, shown in Fig.~\ref{fig:S_weightedRC}.
 Throughout this work, we define a set of hubs as the sixteen neurons with $k > 44$, which corresponds to the lowest degree threshold at which the network displays a contiguous region of significant rich-club organization at high $k$.
-Our list of hubs overlaps completely with the list of 11 hub neurons in Towlson et al.~\cite{Towlson2013} at $3 \sigma$ (see Table~\ref{tab:HubList}) with a few additional hubs identified in our analysis due to a differently processed version of a connectome used. 
+Our list of hubs overlaps completely with the list of 11 hub neurons in Towlson et al.~\cite{Towlson2013} at $3 \sigma$ (see Table~\ref{tab:HubList}) with a few additional hubs identified in our analysis due to a differently processed version of a connectome used.
 % This indicates that when nodes are defined as hubs (degree $>\textit{k}$) in this range, they are more densely interconnected than expected by chance.
  % of the analyses presented below examine how different topological and genomic properties vary as a function of the hub threshold, $k$, but for analyses requiring a fixed hub definition, we define hubs as the 13 neurons with
 
@@ -966,7 +966,7 @@ To determine whether the increase in CGE in rich connections was specific to int
 For the curve labeled `sensory', for example, each point is the median $r_\phi$ across connections involving sensory neurons (i.e., at least one neuron of a connected pair is a sensory neuron), for which both neurons have degree $>k$.
 The increase in median hub-hub CGE is strongest for connections involving interneurons.
 Motor neurons show a smaller increase with $k$, although the absence of motor and sensory neurons with high {$k$ makes it difficult to draw firm conclusions.
-However, we do find that CGE is higher for hub-hub pairs of interneurons compared to connections between all pairs of nonhub interneurons (Wilcoxon rank sum test, $p = 5 \times 10^{-31}$), indicating that the high expression of rich pairs cannot simply be explained by the fact that all hub neurons are interneurons. 
+However, we do find that CGE is higher for hub-hub pairs of interneurons compared to connections between all pairs of nonhub interneurons (Wilcoxon rank sum test, $p = 5 \times 10^{-31}$), indicating that the high expression of rich pairs cannot simply be explained by the fact that all hub neurons are interneurons.
 We next investigated whether greater CGE of hub-hub pairs of neurons could be driven by specific anatomical properties of hub interneurons.
 Specifically, we selected a subset of nonhub interneurons that most closely resemble the anatomical properties of hub interneurons, in terms of their origin and termination locations (AVFL, AVFR, AVHL, AVHR, AVKR, AVJL, AVJR).
 As shown in Fig.~\ref{fig:interneuron_dep}C, pairs of hub interneurons exhibit slightly higher CGE than pairs of anatomically-matched nonhub interneurons (Wilcoxon rank sum test, $p = 0.051$).
@@ -1794,9 +1794,9 @@ By contrast, $r_\phi$, which is used through this work, and our probability-base
 \centering
     \includegraphics[width=1\textwidth]{meanCoexpressionCoXALL.pdf}
 \caption{
-\textbf{Correlated gene expression, as measured by a positive matching probability index, Eq.~(\ref{eqn:positiveMatch}).}
+\textbf{Correlated gene expression, measured using positive matching probability index, Eq.~\eqref{eqn:positiveMatch}.}
 \emph{Top}: Degree distribution.
-\emph{Middle}: proportion of connections that are `rich' (hub$\rightarrow$hub, red), `feed-in' (nonhub$\rightarrow$hub, yellow), `feed-out' (hub$\rightarrow$nonhub, orange), and `peripheral' (nonhub$\rightarrow$nonhub, blue) as a function of the degree threshold, $k$, used to define hubs.
+\emph{Middle}: Proportion of connections that are `rich' (hub$\rightarrow$hub, red), `feed-in' (nonhub$\rightarrow$hub, yellow), `feed-out' (hub$\rightarrow$nonhub, orange), and `peripheral' (nonhub$\rightarrow$nonhub, blue) as a function of the degree threshold, $k$, used to define hubs.
 Note that at high $k$, most neurons are labeled as nonhubs, and hence the vast majority of connections are `peripheral'.
 \emph{Bottom}: Mean CGE calculated using similarity index from only positive matches, $r_\xi$, for each connection type as a function of $k$.
 The mean CGE across all network links shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. Fig.~\ref{fig:topology_rich}) is shaded gray.
@@ -1896,10 +1896,6 @@ Circles indicate values of $\Phi_\mathrm{norm}$ that are significantly higher th
 \label{fig:S_weightedRC}
 }
 \end{figure}
-
-
-
-
 
 
 
