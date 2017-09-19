@@ -343,7 +343,7 @@ The connectome of this animal, which comprises 302 neurons and around 5600 chemi
 We combined these data on neuronal connectivity with curated information on the binary expression patterns of 948 genes across neurons to examine the relationship between gene expression and the large-scale topological organization of the nematode nervous system.
 We also took advantage of detailed information on neuron spatial positions, birth times, neuronal lineage, and functional and chemical composition of neurons to understand the mechanisms through which gene expression might influence network topology.
 We show that connections between hub neurons in the \textit{C. elegans} connectome are most similar in their gene expression driven by genes related to glutamate and acetylcholine signaling as well as neuronal communication.
-Furthermore, we demonstrate that this effect is not explained by other factors such as neuronal birth time, lineage, neurotransmitter system or spatial position but is rather related to the functional class of hub neurons, regulating the higher order behaviours of the organism.
+Furthermore, we demonstrate that this effect is not explained by other factors such as neuronal birth time, lineage, neurotransmitter system or spatial position but is rather related to the functional class of hub neurons, regulating the higher order behaviors of the organism.
 
 % Introduce hub connectivity-expression hypothesis
 % Connectivity in brain networks is not uniformly distributed. Network elements with high node degree – i.e., a large number of connections to other areas – are called `hubs'.
@@ -1778,7 +1778,7 @@ GO:1903508          & \begin{tabular}[c]{@{}l@{}}positive regulation of nucleic 
 \label{fig:S_propOnes}
 \textbf{Dependence of correlated gene expression measures on the proportion of positive annotations.}
 % Given the sparse binary annotation of genes to neurons, we investigated bias in each measure across 1\,000 pairs of random binary vectors, each with a fixed proportion of ones.
-We plot the mean value of each metric across 1000 different pairs of random, binary vectors of length 948, which vary only in their proportion of 1s (between 0--0.15; corresponding to a number of `1's ranging from 1 to 150).
+We plot the mean value of each metric across 1000 different pairs of random, binary vectors of length 948, which vary only in their proportion of `1's (between 0--0.15; corresponding to a number of `1's ranging from 1 to 150).
 This is repeated for:
 \textbf{A} mean square contingency coefficient, $r_\phi$,
 \textbf{B} Jaccard index,
@@ -1788,7 +1788,7 @@ This is repeated for:
  % for 948-long vectors with between 0--0.16 proportion of ones (matrix size is 150x150, therefore the number of ones ranges from 1 to 150).
 Any systematic trend in correlation values indicates a bias driven by the proportion of positive annotations for a pair of vectors, as is seen for the Jaccard index and Yule's $Q$.
 By contrast, $r_\phi$, which is used through this work, and our probability-based measure, $p_\mathrm{match}$, used to motivate individual gene scoring for enrichment analysis, show no evidence of systematic bias (note the color axis scales).
-[[TODO-AA: can you tweak D??; the central value is 05 instead of 0.5]]
+[[TODO-AA: can you tweak D??; the central value of the colorbar is `05' instead of `0.5']]
 }
 \end{figure}
 
@@ -1800,7 +1800,8 @@ By contrast, $r_\phi$, which is used through this work, and our probability-base
 \centering
     \includegraphics[width=1\textwidth]{meanCoexpressionCoXALL.pdf}
 \caption{
-\textbf{Correlated gene expression, measured using positive matching probability index, Eq.~\eqref{eqn:positiveMatch}.}
+\textbf{Correlated gene expression measured using positive matching probability index.}
+The matching probability index, $p_\mathrm{match}$, is introduced here as Eq.~\eqref{eqn:positiveMatch}.
 \emph{Top}: Degree distribution.
 \emph{Middle}: Proportion of connections that are `rich' (hub$\rightarrow$hub, red), `feed-in' (nonhub$\rightarrow$hub, yellow), `feed-out' (hub$\rightarrow$nonhub, orange), and `peripheral' (nonhub$\rightarrow$nonhub, blue) as a function of the degree threshold, $k$, used to define hubs.
 Note that at high $k$, most neurons are labeled as nonhubs, and hence the vast majority of connections are `peripheral'.
@@ -1808,6 +1809,7 @@ Note that at high $k$, most neurons are labeled as nonhubs, and hence the vast m
 The mean CGE across all network links shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. Fig.~\ref{fig:topology_rich}) is shaded gray.
 Circles indicate a statistically significant increase in CGE in a given link type relative to the rest of the network (one-sided Welch's $t$ test; $p < 0.05$).
 \label{fig:RFPposmatches}
+[[TODO: Fix coexpression -- is vertical axis actually $p_\mathrm{match}$?]]
 }
 \end{figure}
 
@@ -1818,16 +1820,13 @@ Circles indicate a statistically significant increase in CGE in a given link typ
   \centering
     \includegraphics[width=.9\textwidth]{head_rphi_correct.eps}
   \caption{
-  \textbf{Applying an exponential trend correction to skewed CGE data produces artifacts in the resulting corrected data.}
-  \textbf{A} Coexpression values, $r_\phi$, are plotted as a function of Euclidean separation distance for all pairs of neurons within the head (gray dots).
-  An exponential trend fitted to the data is shown in black, $f(x) = A\exp(-\lambda x) + B$.
-    The trend is not a bulk effect that holds in general across the brain, but is driven primarily by a small number of neuron pairs with high $r_\phi$ at short distances ($\lessapprox 25\mu$m).
-    Thus, taking residuals from this trend, shown in \textbf{B}, does not adequately correct the spatial trend.
+  \textbf{Applying spatial correction to CGE data as residuals of a fitted exponential produces artifacts in $r_\phi$.}
+  \textbf{A} Coexpression values, $r_\phi$, are plotted as a function of Euclidean separation distance for all pairs of neurons within the head (gray dots), with a fitted exponential trend shown in black, $f(x) = A\exp(-\lambda x) + B$.
+    \textbf{B} Taking residuals from this trend does not adequately correct the spatial trend.
+    This indicates that the trend is not a bulk, isotropic effect in the brain, but may instead be driven primarily by a small number of neuron pairs with high $r_\phi$ at short distances ($\lessapprox 25\mu$m).
     }
   \label{fig:S_head_rphi_correct}
 \end{figure}
-
-
 
 % \paragraph*{S2 Fig.}
 % {\bf Connection probability decreases with the separation distance between neurons}
@@ -1891,15 +1890,16 @@ Circles indicate a statistically significant increase in CGE in a given link typ
 \begin{figure}[h]
 \centering
     \includegraphics[width=1\textwidth]{weightedRCALL.pdf}
-    \caption{\textbf{A} Degree distribution of the binary connectome, where neurons are labeled according to four categories:
-(i) interneuron (85 neurons, orange),
-(ii) sensory (68 neurons, blue),
-(iii) motor (108 neurons, green), or
-(iv) multimodal (18 neurons, yellow).
-An extended tail of high-degree neurons can be seen, which are mostly interneurons.
-\textbf{B}
-Normalized weighted (topology fixed and weights randomized in the null model, shown orange) $\Phi_\mathrm{norm}^\mathrm{weighted}$ and mixed (both topology and weights mixed in the null model, shown green) $\Phi_\mathrm{norm}^\mathrm{mixed}$ rich club coefficient as a function of the degree, $k$, at which hubs are defined (as neurons with degree $>k$).
-Circles indicate values of $\Phi_\mathrm{norm}$ that are significantly higher than an ensemble of 1\,000 degree-matched null networks (Welch's $t$-test, $p < 0.05$).
+    \caption{
+    \textbf{Weighted rich-club analysis yields similar results to binary rich-club analysis.}
+    \textbf{A} Degree distribution of the \emph{C. elegans} connectome.
+    Neurons are labeled to four types as in the legend.
+    \textbf{B}
+    Normalized weighted rich-club coefficient, $\Phi_\mathrm{norm}^\mathrm{weighted}$ (i.e., topology fixed and weights randomized in the null model, shown orange), and
+    normalized mixed rich-club coefficient, $\Phi_\mathrm{norm}^\mathrm{mixed}$ (i.e., both topology and weights mixed in the null model, shown green) are plotted as a function of the degree, $k$, at which hubs are defined (as neurons with degree $>k$).
+    [[TODO-AA: add reference to these two definitions of rich-club coefficients.]]
+    Circles indicate values of $\Phi_\mathrm{norm}$ that are significantly higher than an ensemble of 1\,000 degree-matched null networks (Welch's $t$-test, $p < 0.05$).
+    [[TODO-AA: add some interpretation, since this is supplementary -- i.e., what is similar in these results to the results of the binary rich-club analysis?]]
 \label{fig:S_weightedRC}
 }
 \end{figure}
@@ -1959,10 +1959,12 @@ Circles indicate values of $\Phi_\mathrm{norm}$ that are significantly higher th
 \centering
     \includegraphics[width=1\textwidth]{connectionProportionDivision.eps}
 \caption{
-\textbf{Distribution of rich and non-rich connections across anatomical divisions.}
+\textbf{Rich and non-rich connections in the \emph{C. elegans} connectome, are categorized by the  anatomical location of source and target neurons.}
 \label{fig:S_connectionProportion}
-Distribution of hub-hub connections (`rich', red), and all other connections (`non-rich', i.e., feeder and peripheral, gray) across anatomical divisions (head, body, and tail), defining hubs as those with degree, $k > 44$, corresponding to the lowest threshold at which the \emph{C. elegans} connectome exhibits rich-club organization.
-The increased separation distance between hubs is driven by a relative increase in connection density between the head and tail.
+Hub-hub connections (`rich') are shown red, and all other connections (`non-rich', i.e., feeder and peripheral) are shown gray.
+Anatomical locations are labeled as `head', `body', and `tail', with hubs defined as neurons with degree, $k > 44$.
+% corresponding to the lowest threshold at which the \emph{C. elegans} connectome exhibits rich-club organization.
+The plot shows that the increased separation distance between connected hubs relative to other types of connected neurons is driven by a relative increase in long-range connections between the head and tail.
 %[[TODO-BF: is the plor updated? because the caption was not]].
 }
 \end{figure}
