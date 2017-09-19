@@ -263,9 +263,8 @@ Our results suggest that neural hubs may possess a distinctive transcriptional s
 % Author Summary not valid for PLOS ONE submissions.
 \section*{Author summary}
 %WE $\heartsuit$ WORMS
-Given evolutionary pressure, brains evolve balancing two major principles of organization: while minimising the wiring cost to reduce the amount of matter, it also needs to maximise the efficiency of communication.
-This trade-off can be facilitated through the rich-club organisation, where a small number of topologically central elements in the network (hubs) are more densely interconnected between themselves than expected by chance.
-The fact that this phenomenon manifests in different species through multiple scales implies it's genetic origin.
+Neural systems are thought evolve towards optimality by minimizing wiring cost but also maximizing the communication efficiency.
+Rich-club organization, whereby a small number of highly central neural elements (hubs) are densely interconnected between themselves, is thought to be a signature of this balance, and manifests in different species and across multiple spatial scales.
 \textit{C. elegans} nervous system mapped on an individual neuron level together with the publicly available gene expression data enables us to tackle this question on more detail.
 Here we find that indeed connections between hub neurons are the most similar in their gene expression.
 We show that this effect cannot be explained by a range of neuron properties such as neuron type, position, birth time, lineage or neurotransmitter system but is rather linked to the functional class of hub neurons and is driven by glutamate, acetylcholine and neuronal communication related genes.
@@ -1700,7 +1699,7 @@ Categories are sorted by $p$-value (ascending).}
 \begin{tabular}{llccc}
 
 \hline
-\textbf{Category} & \textbf{Description} & \textbf{\# genes} & \textbf{p (uncorr)}                                                                                                                                        & \textbf{p (corr)} \\ \hline                                                                                                                                         %& \begin{tabular}[c]{@{}c@{}}\# genes\end{tabular} & \begin{tabular}[c]{@{}c@{}}$p$\\(uncorr)\end{tabular} & \begin{tabular}[c]{@{}c@{}}$p$\\(corr)\end{tabular}
+\textbf{Category} & \textbf{Description} & \textbf{\# genes} & \textbf{$p$ (uncorr)}                                                                                                                                        & \textbf{$p$ (corr)} \\ \hline                                                                                                                                         %& \begin{tabular}[c]{@{}c@{}}\# genes\end{tabular} & \begin{tabular}[c]{@{}c@{}}$p$\\(uncorr)\end{tabular} & \begin{tabular}[c]{@{}c@{}}$p$\\(corr)\end{tabular}
 GO:0035235          & ionotropic glutamate receptor signaling pathway & 7                                                      & 0.0005                                                & 0.3245                                             \\
 GO:0007215          & glutamate receptor signaling pathway                                                       & 9                                                      & 0.0041                                                & 0.9367                                             \\
 GO:0007166          & cell surface receptor signaling pathway                                                    & 37                                                     & 0.0048                                                & 0.9367                                             \\
@@ -1732,7 +1731,7 @@ Categories are sorted by $p$-value (ascending).
 \label{tab:enrichmentRICH}
 \begin{tabular}{llccc}
 \hline
-\textbf{Category} & \textbf{Description}                                                                                               &  \textbf{\# genes} & \textbf{p (uncorr)}                                                                                                                                      & \textbf{p (corr)} \\ \hline
+\textbf{Category} & \textbf{Description}                                                                                               &  \textbf{\# genes} & \textbf{$p$ (uncorr)}                                                                                                                                      & \textbf{$p$ (corr)} \\ \hline
 GO:0007215          & glutamate receptor signaling pathway                                                                               & 6                                                      & 0.0009                                               & 0.1741                                             \\
 GO:0035235          & ionotropic glutamate receptor signaling pathway                        & 6                                                      & 0.0009                                               & 0.1741                                             \\
 GO:0007166          & cell surface receptor signaling pathway                                                                            & 20                                                     & 0.0035                                               & 0.3473                                             \\
@@ -1850,6 +1849,7 @@ Circles indicate a statistically significant increase in CGE in a given link typ
     \includegraphics[width=.9\textwidth]{head_rphi_correct.eps}
   \caption{
   \textbf{Applying spatial correction to CGE data as residuals of a fitted exponential produces artifacts in $r_\phi$.}
+  Here we consider correlated gene expression in the head, where the strongest spatial relationship exists (cf. Fig.~\ref{fig:spatialCoexpressionMain}).
   \textbf{A} Coexpression values, $r_\phi$, are plotted as a function of Euclidean separation distance for all pairs of neurons within the head (gray dots), with a fitted exponential trend shown in black, $f(x) = A\exp(-\lambda x) + B$.
     \textbf{B} Taking residuals from this trend does not adequately correct the spatial trend.
     This indicates that the trend is not a bulk, isotropic effect in the brain, but may instead be driven primarily by a small number of neuron pairs with high $r_\phi$ at short distances ($\lessapprox 25\mu$m).
