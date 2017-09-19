@@ -42,45 +42,45 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Warning--can't use both volume and number fields in choe2004network
 Warning--empty pages in choe2004network
-You've used 130 entries,
+You've used 131 entries,
             3058 wiz_defined-function locations,
-            1549 strings with 54414 characters,
-and the built_in function-call counts, 417311 in all, are:
-= -- 50539
-> -- 2204
+            1552 strings with 54517 characters,
+and the built_in function-call counts, 419071 in all, are:
+= -- 50773
+> -- 2216
 < -- 5
-+ -- 2057
-- -- 551
-* -- 39578
-:= -- 45684
-add.period$ -- 563
-call.type$ -- 130
++ -- 2063
+- -- 554
+* -- 39723
+:= -- 45872
+add.period$ -- 567
+call.type$ -- 131
 change.case$ -- 2
 chr.to.int$ -- 0
-cite$ -- 132
-duplicate$ -- 21278
-empty$ -- 42071
-format.name$ -- 675
-if$ -- 95343
+cite$ -- 133
+duplicate$ -- 21448
+empty$ -- 42235
+format.name$ -- 679
+if$ -- 95757
 int.to.chr$ -- 0
-int.to.str$ -- 130
-missing$ -- 1311
-newline$ -- 701
-num.names$ -- 130
-pop$ -- 2043
+int.to.str$ -- 131
+missing$ -- 1319
+newline$ -- 706
+num.names$ -- 131
+pop$ -- 2057
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 2145
+skip$ -- 2158
 stack$ -- 0
-substring$ -- 103656
-swap$ -- 3322
+substring$ -- 103988
+swap$ -- 3342
 text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 1397
-width$ -- 133
-write$ -- 1523
+while$ -- 1405
+width$ -- 134
+write$ -- 1534
 (There were 8 error messages)

@@ -237,14 +237,15 @@
 % Please keep the abstract below 300 words
 \section*{Abstract}
 Studies of nervous system connectivity in a wide variety of species and at different scales of resolution have identified several highly conserved organizational motifs.
-These include a heterogeneous distribution of connectivity across neural elements, such that some elements are highly connected and functionally important network hubs, and a dense interconnectivity of these hubs, or rich-club network organization.
-Investigations of mesoscale network organization in the mouse has identified a distinctive gene transcriptional signature of neural hubs, characterized by tightly coupled expression of genes regulative oxidative metabolism, with similar genes characterizing macroscale hub regions of the human cortex.
+These include a heterogeneous distribution of connectivity across neural elements, such that some elements are highly connected and functionally important network hubs.
+Dense interconnectivity of these hubs is known as the rich-club organization.
+Investigations of mesoscale network organization in the mouse has identified a distinctive gene transcriptional signature of neural hubs, characterized by tightly coupled expression of genes regulating oxidative metabolism, with similar genes characterizing macroscale inter-modular hub regions of the human cortex.
 Here, we sought to determine whether hubs of the \emph{C. elegans} connectome, which has been mapped at the microscale of individual neurons and synapses, show a similar increase in correlated gene expression.
 Using open data on the chemical and electrical connectivity of 279 \emph{C. elegans} neurons matched to a binary gene expression of each neuron across 948 genes, we computed a correlated gene expression score for each pair of neurons, providing a measure of their gene expression similarity.
 After confirming the rich-club connectivity of the \emph{C. elegans} connectome, we demonstrate that connections between hub neurons are the most similar in their gene expression while connections between nonhubs are the least similar.
-Genes with the greatest contribution to this signature are related to glutamate receptor, acetylcholine, and neuronal communication related processes.
-We further show that coupled expression between hub neurons cannot be explained by their broad subtype (i.e., sensory, motor, or interneuron), chemical secreted neurotransmitter, birth time, pairwise lineage distance, or their topological module affiliation.
-Instead, this coupling seems intrinsically linked to the identity of most hubs as command interneurons, a specific class of neurons that regulate locomotion.
+Genes with the greatest contribution to this signature are involved in glutamate receptor, acetylcholine signalling as well as neuronal communication related processes.
+We further show that coupled expression between hub neurons cannot be explained by their broad subtype (i.e., sensory, motor, or interneuron), chemically secreted neurotransmitter, birth time, pairwise lineage distance, or their topological module affiliation.
+Instead, this coupling seems to be intrinsically linked to the identity of most hubs as command interneurons, a specific class of neurons that regulate locomotion.
 %Using a range of metadata, we show that the high correlated gene expression between hub neurons cannot be attributed to a range of other properties (such as the fact that hub neurons are interneurons, born prior to hatching, mostly cholinergic and in the head), but we are unable to discount the possibility that it is driven by the transcriptional similarity of command interneurons, which control locomotion behavior.
 Our results suggest that neural hubs may possess a distinctive transcriptional signature, preserved across scales and species, related to the involvement of hubs in regulating higher-order behaviors of the organism.
 %hub transcriptional similarity may be a conserved property of neuronal systems and the methods we introduce here for quantifying the contribution of genes to patterns of correlated gene expression will be important to provide biological understanding of global \emph{C. elegans} neuronal organization as expression data increase in genome coverage and quality.
@@ -261,7 +262,14 @@ Our results suggest that neural hubs may possess a distinctive transcriptional s
 % Use first person. PLOS ONE authors please skip this step.
 % Author Summary not valid for PLOS ONE submissions.
 \section*{Author summary}
-WE $\heartsuit$ WORMS
+%WE $\heartsuit$ WORMS
+Given evolutionary pressure, brains evolve balancing two major principles of organization: while minimising the wiring cost to reduce the amount of matter, it also needs to maximise the efficiency of communication.
+This trade-off can be facilitated through the rich-club organisation, where a small number of topologically central elements in the network (hubs) are more densely interconnected between themselves than expected by chance.
+The fact that this phenomenon manifests in different species through multiple scales implies it's genetic origin.
+\textit{C. elegans} nervous system mapped on an individual neuron level together with the publicly available gene expression data enables us to tackle this question on more detail.
+Here we find that indeed connections between hub neurons are the most similar in their gene expression.
+We show that this effect cannot be explained by a range of neuron properties such as neuron type, position, birth time, lineage or neurotransmitter system but is rather linked to the functional class of hub neurons and is driven by glutamate, acetylcholine and neuronal communication related genes.
+Altogether, we demonstrate a method to combine gene expression and connectivity data which provides valuable clues to the general mechanisms that may be involved in hub connectivity.
 
 \linenumbers
 
@@ -326,7 +334,7 @@ Hub nodes typically participate in more than one functional system, thus, hub co
 Experimental data and computational modeling also indicates that hub nodes, and the connections between them, are topologically positioned to mediate a high volume of signal traffic \cite{vandenHeuvel:2012kh, Harriger2012, Misic:2014it, Misic:2015jw}.
 This integrative role comes at a cost, with connections between hubs extending over longer distances, on average, than other types of connections, a finding reported in the human \cite{vandenHeuvel:2012kh}, macaque \cite{Harriger2012}, rat \cite{VandenHeuvel2016b}, mouse \cite{Fulcher:2016ck}, and nematode \cite{Towlson2013}.
 Human positron emission tomography also suggests that hub nodes consume greater metabolic resources and have higher levels of blood flow than other areas \cite{Tomasi:2013kl, Collin:2014kq, Liang2013a}.
-This high metabolic cost may underlie the involvement of hub regions in a broad array of human diseases \cite{Fornito2015, Bullmore:2012vl, Crossley:2014eta}. Thus, hub connectivity is a functionally valuable, yet costly, aspect of neuronal connectivity.
+This high metabolic cost may underlie the involvement of hub regions in a broad array of human diseases \cite{Fornito2015, Bullmore:2012vl, Crossley:2014eta}. %Thus, hub connectivity is a functionally valuable, yet costly, aspect of neuronal connectivity.
 
 Recent work in mice and humans suggests that this high cost of hub connectivity is associated with a distinct gene transcriptional signature.
 %Work linking the large-scale topological organization of brain networks to microscale measure of gene expression has suggested that this high metabolic cost of hub connectivity is associated with a distinct metabolic signature.
@@ -334,14 +342,14 @@ Fulcher and Fornito \cite{Fulcher:2016ck} combined viral tract tracing data on c
 They found that transcriptional coupling, across the entire genome, was stronger for connected compared to unconnected brain regions and that, in general, this coupling decayed sharply with increasing anatomical distance between brain regions.
 In contrast to this general trend, connected pairs of hubs (i.e., the ``rich club'' of the brain) showed the highest levels of transcriptional coupling (compared to hub-nonhub and nonhub pairs), despite these regions being more spatially separated, on average.
 Moreover, this coupling was driven predominantly by genes regulating the oxidative synthesis and metabolism of adenosine triphosphate (ATP), the primary energetic currency of neuronal signaling \cite{Lennie:2003ia, Laughlin:2003vu}.
-Vertes et al. \cite{Vertes2016a} later found evidence of a similar transcriptional signature of hub connectivity in humans.
-[[TODO: REWRITE THIS SENTENCE?]]
-Combining microarray gene expression data of 20\,737 genes through 285 cortical areas partial least squares to identify a latent variable, accounting for 37$\%$ of the variance, that described covariance between the topologically integrative role of hub regions with long-distance connectivity and the expression of genes involved in oxidative metabolism and mitochondrial function.
-Together, the analyses of Fulcher and Fornito \cite{Fulcher:2016ck} and Vertes et al. \cite{Vertes2016a}, which were performed using measures of mesoscale ($\mu$m to mm) and macroscale (mm to cm) connectivity, respectively, suggest that the molecular signature of hub connectivity, which is characterized by elevated coupling of the expression of genes regulating oxidative metabolism, may be conserved across species and resolution scales.
+Vertes et al. \cite{Vertes2016a} later found evidence that inter-modular hubs also have local transcriptional profiles enriched in oxidative metabolism and mitochondria in humans.
+Combining microarray gene expression data of 20\,737 genes through 285 cortical areas they were able to identify that topologically integrative hub regions with long-distance connectivity had local transcriptional profiles enriched in oxidative metabolism and mitochondrial function.
+Together, the analyses of Fulcher and Fornito \cite{Fulcher:2016ck} and Vertes et al. \cite{Vertes2016a}, which were performed using measures of mesoscale ($\mu$m to mm) and macroscale (mm to cm) connectivity, respectively, suggest that the molecular signature of hub connectivity, characterized by elevated coupling of genes regulating oxidative metabolism, may be conserved across species and resolution scales.
 Here, we sought to test this hypothesis by examining the link between gene expression and microscale connectivity in the nematode \emph{C. elegans}.
-The connectome of this animal, which comprises 302 neurons and around 5600 chemical and electrical synapses \cite{White:1986tx}, is the only species to have its connectome mapped almost completely at the level of individual neurons and synapses using electron microscopy \cite{White:1986tx, Varshney2011}.
+\emph{C. elegans} is the only species to have its connectome mapped almost completely at the level of individual neurons and synapses using electron microscopy \cite{White:1986tx, Varshney2011}.
+It comprises 302 neurons and around 5600 chemical and electrical synapses \cite{White:1986tx}.
 We combined these data on neuronal connectivity with curated information on the binary expression patterns of 948 genes across neurons to examine the relationship between gene expression and the large-scale topological organization of the nematode nervous system.
-We also took advantage of detailed information on neuron spatial positions, birth times, neuronal lineage, and functional and chemical composition of neurons to understand the mechanisms through which gene expression might influence network topology.
+We also took advantage of detailed information on neuron spatial positions, birth times, neuronal lineage as well as functional and chemical composition of neurons to understand the mechanisms through which gene expression might influence network topology.
 We show that connections between hub neurons in the \textit{C. elegans} connectome are most similar in their gene expression driven by genes related to glutamate and acetylcholine signaling as well as neuronal communication.
 Furthermore, we demonstrate that this effect is not explained by other factors such as neuronal birth time, lineage, neurotransmitter system or spatial position but is rather related to the functional class of hub neurons, regulating the higher order behaviors of the organism.
 
@@ -372,13 +380,13 @@ We then describe the gene expression data, how we measure expression similarity 
 % METHODS: connectivity data
 \subsection*{Neuronal connectivity data}
 The nervous system of \emph{C. elegans} comprises 302 neurons, divided into the pharyngeal nervous system (20 neurons) and the somatic nervous system (282 neurons).
-The spatial positions of neurons, and their interconnections, are genetically determined and highly reproducible across organisms \cite{Riddle1997} and do not change over time \cite{Schnabel1997}.
+The spatial positions of neurons, and their interconnections, are genetically determined and highly reproducible across organisms \cite{Riddle1997}.
 Neuronal connectivity data for the adult hermaphrodite \emph{C. elegans} was first mapped by White et al.~\cite{White:1986tx} through detailed electron microscopy, and then revised by Chen et al. \cite{Chen:2006ie} and Varshney et al.~\cite{Varshney2011}.
 Here we analyze the larger somatic nervous system using data from Varshney et al.~\cite{Varshney2011}, who mapped connectivity between 279 neurons (282 somatic neurons, i.e., excluding CANL/R, and VC6, which do not form synapses with other neurons), which was downloaded from WormAtlas \cite{WormAtlas} (\url{www.wormatlas.org/neuronalwiring.html#NeuronalconnectivityII}).
 % [[TODO: Aurina, VC6 does have data available, right, it just only makes connections via neuromuscular junctions is the reason we exclude. But is it that CANL/R don't have data available? Or they just don't make connections? Should distinguish missing data from absence of connections]]
 
 Connectivity data are available for both electrical gap junctions and chemical synapses.
-The chemical synapse network is both directed (i.e., the pre-synaptic and post-synaptic neurons are identified) and weighted (as the number of synapses from one neuron to another), while electrical gap junction synapses are conventionally represented as [[weighted]][[TODO: describe -- how weighted??]], undirected connections.
+The chemical synapse network is both directed (i.e., the pre-synaptic and post-synaptic neurons are identified) and weighted (as the number of synapses from one neuron to another), while gap junctions are conventionally represented as weighted (as the number of electrical synapses connecting two neurons), undirected connections.
 % The directionality of electrical gap junctions is unknown (and have previously been represented as bidirectional connections), whereas chemical connectivity information includes presynaptic and postsynaptic neurons (providing information about the connectivity direction) and synapse number (providing information about the projection strength, or connectivity weight).
 % The result can be represented as a weighted, directed connectivity matrix, with weights given by the number of synapses.
 % To avoid any possible differences in gene expression between chemical synapses and gap junctions, our analysis focuses just on the synaptic connectivity network, which contains a total of 1\,961 pairs of connected neurons, spanning a total of 2\,194 directed connections (and a total of 6\,394 individual synapses).
@@ -486,7 +494,7 @@ We also compared results to a previously-reported nine-module partition derived 
 % METHODS: gene expression
 \subsection*{Gene expression}
 Neuronal gene expression is represented as a binary indicator of which genes are expressed in a given neuron using data from many individual experiments compiled into a unified data resource on WormBase \cite{Harris:2009kd}.
-We use release WS256 of this dataset (\url{ftp://ftp.wormbase.org/pub/wormbase/releases/WS256/ONTOLOGY/anatomy_association.WS256.wb}) and analyze annotations made `directly' to individual neurons, excluding `uncertain' annotations (using `direct' and `uncertain' annotation labels, see Supplementary Information for details).
+We use release WS256 of this dataset (\url{ftp://ftp.wormbase.org/pub/wormbase/releases/WS256/ONTOLOGY/anatomy_association.WS256.wb}) and analyze annotations made `directly' to individual neurons, excluding `uncertain' annotations (see Supplementary Information for details on annotations).
 % downloaded on 6th Feb 2017
 % (when genes are expressed in some neurons for a certain hierarchical category of cells)
 % If a gene is expressed under a specific qualifier for a specific neuron, it is assigned a value of 1, in all other cases 0 values are assigned.
@@ -515,7 +523,7 @@ To explore this further, we compared $r_\phi$ with several other commonly used m
 While these other binary correlation measures exhibited strong bias with the proportion of gene expression annotations made to a given neuron, $r_\phi$ was unbiased (see Fig.~\ref{fig:S_propOnes}).
 
 % A total of 92 anatomically distinct neuron classes are bilateral, that is, they contain both left and right counterparts (e.g., AVAL/AVAR).
-The 92 bilateral pairs of neurons (e.g., AVAL/AVAR, CEPVL/CEPVR, etc.) mostly exhibit highly correlated gene expression patterns, with all bilateral pairs of neurons exhibiting $r_\phi > 0.8$, and 96\% exhibiting $r_\phi > 0.95$.
+The 92 bilateral pairs of neurons (e.g., AVAL/AVAR, CEPVL/CEPVR, etc.) mostly show highly correlated gene expression patterns, with all bilateral pairs of neurons exhibiting $r_\phi > 0.8$, and 96\% - $r_\phi > 0.95$.
 % mean CGE value $\langle r_\phi^{\mathrm{intraclass}} \rangle = 0.98$ (median $=1$).
 % [[CODE used - testLeftRightCoexpression.m. Distribution for these links is not normal. Median is 1;]]
 Although including bilateral pairs of neurons do not change the main results of this paper, to ensure that our results are not driven by the high CGE between bilateral pairs of neurons, we excluded CGE values of bilateral pairs of neurons from all analyses involving CGE.
@@ -526,7 +534,7 @@ Although including bilateral pairs of neurons do not change the main results of 
  % that focuses on evaluating only positive matches, i.e. only cases when both neurons have a certain gene expressed as opposed to the mean square contingency coefficient which is symmetrical to both positive (a gene is expressed in both neurons) and negative (a gene is not expressed in both neurons) matches (see Supplementary Information).
 
 \subsection*{Gene scoring and enrichment}
-Our CGE measure, $r_\phi$, measures the association between the expression profiles of two neurons across all 948 genes.
+Our CGE measure, $r_\phi$, defines the association between the expression profiles of two neurons across all 948 genes.
 To further investigate the contribution of individual genes to different CGE patterns, we developed a method for scoring the contribution of each individual gene to the overall correlation coefficient, following prior work using continuous gene expression data \cite{Fulcher:2016ck}.
 Performing similar analyses with \emph{C. elegans} data poses additional challenges due to:
 (i) binary expression data, making robust quantification difficult;
@@ -593,8 +601,8 @@ As well as interpreting the list of individual genes that were significant after
 % in a list of selected genes that contribute most strongly to CGE for a given link type the most.
 % chose a more conservative approach of testing the top list of the most influential genes instead of taking into consideration gene scores through the whole list of genes in question.
 % , as well as the noisy gene expression data as well as the nature of the binary gene expression data which does not allow to produce a reliable continuous score for each gene,
-To obtain the gene list, we used the false discovery rate correction of Benjamini and Hochberg \cite{Benjamini:1995cd} on $p$-values computed using Eq.~\eqref{eq:CBinomialProbability}, which were thresholded at a stringent level of $p = 10^{-4}$.
-Over-representation for each biological process GO category with 5 to 100 genes available was quantified as an FDR-corrected $p$-value (across [[XX]] GO categories [[TODO-AA]]) using version 3.0.2 of \emph{ErmineJ} software \cite{Gillis2010}.
+To obtain the gene list, we used the false discovery rate correction of Benjamini and Hochberg \cite{Benjamini:1995cd} on $p$-values computed using Eq.~\eqref{eq:CBinomialProbability}, which were thresholded at a stringent level of $p = 10^{-4}$, selecting around $20\%$ of genes in each analysis.
+Over-representation for each biological process GO category with 5 to 100 genes available was quantified as an FDR-corrected $p$-value (across arround 700 GO categories) using version 3.0.2 of \emph{ErmineJ} software \cite{Gillis2010}.
 Biological process GO annotations \cite{Ashburner2000} were obtained from GEMMA \cite{Zoubarev2012} (using \texttt{Generic\_worm\_noParents.an.txt.gz} downloaded on March 31, 2017).
 % downloaded using a build-in option within ErmineJ software
 % and then compute the probability that the mean score in each GO category is larger than expected from a random assignment of scores to the genes in the list.
@@ -651,10 +659,10 @@ Connections are colored according to how they connect hubs ($k > 44$) and nonhub
 
 Our analysis is presented in five parts:
 (i) given past evidence for a major effect of physical distance on connection probability and CGE \cite{Fulcher:2016ck}, we first characterize the spatial dependency of connection probability and CGE;
-(ii) we confirm the rich-club organization of the \emph{C. elegans} connectome;
-(iii) we show that CGE is increased in connected pairs of neurons relative to unconnected pairs, in electrical synapses relative to chemical synapses, and in connected hub neurons relative to other types of connected neuron pairs (mirroring previous results in the mesoscale mouse connectome \cite{Fulcher:2016ck});
-(iv) we demonstrate that highly correlated expression between connected hub neurons is not driven by factors like stereotypical interneuron expression, expression similarity within modules, birth time or lineage similarity, or neuromodulator types, but may be driven by the high CGE of control interneurons,
-(v) we characterize the contribution of specific genes, and broader gene ontology categories, to the observed patterns.
+(ii) confirm the rich-club organization of the \emph{C. elegans} connectome;
+(iii) show that CGE is increased in connected pairs of neurons relative to unconnected pairs, in electrical synapses relative to chemical synapses, and in connected hub neurons relative to other types of connected neuron pairs (mirroring previous results in the mesoscale mouse connectome \cite{Fulcher:2016ck});
+(iv) demonstrate that highly correlated expression between connected hub neurons is not driven by factors like stereotypical interneuron expression, birth time, lineage similarity, neuromodulator types or expression similarity within modules, but may be driven by the high CGE of control interneurons;
+(v) characterize the contribution of specific genes, and broader gene ontology categories, to the observed patterns.
 % we show that these transcriptional signatures may be driven by glutamate receptor signaling, and that
 % Consistent with previous results in the mouse \cite{Fulcher:2016ck}, we show that synaptically connected neurons display more similar gene expression than those that are unconnected, and that, amongst connected regions, those involving hub neurons show more similar gene expression.
 
@@ -682,7 +690,7 @@ Neurons are positioned along the anterior--posterior (horizontal), and dorsal--v
 (iv) multiple assignments (18 neurons, yellow).
 Hub neurons (i.e., neurons with $k > 44$, see Fig.~\ref{fig:topology_rich}) are shown as larger circles and outlined in black.
 `Rich-club' connections between hub neurons are shown (red), and all other connections are also shown in the upper plots (gray).
-Axes of each subplot are to scale with each other, and the upper zoomed-in plots of the head and tail are shown as dotted rectangles in the lower plot.
+Axes of each subplot are to scale with each other, and the upper zoomed-in plots of the head and tail are shown as dotted rectangles in the lower plot.[[TODO BF make higher resolution image]]
 \label{fig:neuronsSpace}
 }
 \end{figure}
@@ -777,7 +785,7 @@ The degree distribution is shown in Fig.~\ref{fig:topology_rich}A, where neurons
 Consistent with the results of Towlson et al., who used an undirected version of the connectome (by ignoring the directionality of chemical synapses), we found a positively-skewed degree distribution containing an extended tail of high-degree hub interneurons.
 % Note that we define degree as the sum of incoming and outgoing projections to a given neuron (total degree, $k$).
 % who included both synaptic connections as well as gap junctions and symmetrized the directed synaptic connectivity (despite only 233 out of 1\,961 pairs of connected neurons being reciprocally connected), whereas here we retain the directed architecture of the connectome
-Hub interneurons of \emph{C. elegans} to correspond closely to control interneurons and mediate behaviors like coordinated locomotion and foraging \cite{tsalik2003}.
+Hub interneurons of \emph{C. elegans} correspond closely to control interneurons and mediate behaviors like coordinated locomotion and foraging \cite{tsalik2003}.
 % connectivity between interneurons in the rich club provides the anatomical basis for vital neuronal computation of behaviours, such as coordinated locomotion and foraging36,37. Forward and backward movements, for example, are generated in two functionally separate subsets of neurons in this core, potentially coordinated through reciprocal inhibi- tion37,44. Moreover, a study recently demonstrated that random search behaviour in the worm can be approx- imated by a connectome-based stochastic model of this circuit4
 
 % Here we confirm the high connectivity, centrality and wiring cost of hub connections in the C elegans connectome, as previoulsy shown by Towlson et al () and as also found in the macaue (Harriger) and human (van den Huevel-PNAS) brains.
@@ -829,9 +837,9 @@ The figure plots the variation of $\Phi_\mathrm{norm}$ across degree thresholds,
 % [[check whether randmio\_dir only preserves degree: AA - degree distributions in binary, out-strength (but not in-strength) in weighted]].
 The plot reveals rich-club organization ($\Phi_\mathrm{norm} > 1$) at the upper tail of the degree distribution, particularly across the range $44 < k < 63$, shaded gray in Fig.~\ref{fig:topology_rich}B.
 % ), referred to here as the `topological rich-club regime'.
-Similar results were obtained using weighted representations of the connectome (i.e., using information about the number of synapses in the chemical connectivity network) for two different definitions of the weighted rich-club coefficient \cite{Opsahl2008}, shown in Fig.~\ref{fig:S_weightedRC}.
+Similar results were obtained using weighted representations of the connectome (i.e., using information about the number of synapses in the connectivity network) for two different definitions of the weighted rich-club coefficient \cite{Opsahl2008}, shown in Fig.~\ref{fig:S_weightedRC}.
 Throughout this work, we define a set of hubs as the sixteen neurons with $k > 44$, which corresponds to the lowest degree threshold at which the network displays a contiguous region of significant rich-club organization at high $k$.
-Our list of hubs overlaps almost completely with the list of Towlson et al.~\cite{Towlson2013} (see Table~\ref{tab:HubList}). [[TODO-AA: what do you mean `almost completely'? Can you quantify? How many out of how many match?]]
+Our list of hubs overlaps completely with the list of 11 hub neurons in Towlson et al.~\cite{Towlson2013} at $3 \sigma$ (see Table~\ref{tab:HubList}) with a few additional hubs identified in our analysis due to a differently processed version of a connectome used.
 % This indicates that when nodes are defined as hubs (degree $>\textit{k}$) in this range, they are more densely interconnected than expected by chance.
  % of the analyses presented below examine how different topological and genomic properties vary as a function of the hub threshold, $k$, but for analyses requiring a fixed hub definition, we define hubs as the 13 neurons with
 
@@ -891,7 +899,7 @@ We found no difference in CGE between pairs of neurons connected reciprocally by
 % ------------------------------------------------------------------------------
  \begin{figure}[h]
  \centering
-    \includegraphics[width=1\textwidth]{MeanCoexpression3.pdf}
+    \includegraphics[width=1\textwidth]{MeanCoexpression4.pdf}
 \caption{{\bf Correlated gene expression varies as a function of connectedness and connection type.}
 \textbf{A} Distribution of CGE for (i) pairs of neurons connected by gap junctions, (ii) pairs of neurons connected by chemical synapses, and (iii) pairs of neurons that are unconnected, shown as a violin plot, with the median of each distribution represented by a horizontal line.
 % Coexpression, $r_\phi$, is increased in connected compared to unconnected pairs of neurons ($P < 10^{-78}$, Wilcoxon rank sum test).
@@ -966,6 +974,10 @@ For the curve labeled `sensory', for example, each point is the median $r_\phi$ 
 The increase in median hub-hub CGE is strongest for connections involving interneurons.
 Motor neurons show a smaller increase with $k$, although the absence of motor and sensory neurons with high {$k$ makes it difficult to draw firm conclusions.
 However, we do find that CGE is higher for hub-hub pairs of interneurons compared to connections between all pairs of nonhub interneurons (Wilcoxon rank sum test, $p = 5 \times 10^{-31}$), indicating that the high expression of rich pairs cannot simply be explained by the fact that all hub neurons are interneurons.
+We next investigated whether greater CGE of hub-hub pairs of neurons could be driven by specific anatomical properties of hub interneurons.
+Specifically, we selected a subset of nonhub interneurons that most closely resemble the anatomical properties of hub interneurons, in terms of their origin and termination locations (AVFL, AVFR, AVHL, AVHR, AVKR, AVJL, AVJR).
+As shown in Fig.~\ref{fig:interneuron_dep}C, pairs of hub interneurons exhibit slightly higher CGE than pairs of anatomically-matched nonhub interneurons (Wilcoxon rank sum test, $p = 0.051$).
+Thus, the increase in CGE amongst hub interneurons cannot be simply explained by their anatomical similarity among interneurons.[[TODO: how to phrase the results with 0.051 p value??]]
 
 % ------------------------------------------------------------------------------
 % <<plot_neuronType.m>>
@@ -982,19 +994,9 @@ Circles indicate a statistically significant increase in CGE in a given link typ
 %[[TODO-AA: Is the top-left plot actually counting pairs?? Or is it actual connectome edges?]] - pairs (changed in caption)
 %[[TODO-AA: Clarify axis tick labels in B: at the moment appears like a node-level analysis on horizontal axis but pairwise analysis on vertical]]
 %[[TODO-AA: Recolor, or somehow update caption for B that reflects the new command interneuron story -- will do when plots are finalized]]
-[[TODO-AA: Add legend to B?]]
 }
  \label{fig:interneuron_dep}
 \end{figure}
-
-[[TODO-AA: Shorten \& incorporate into previous paragraph, or otherwise revise]]:\\
-We next investigated whether greater CGE of hub-hub pairs of neurons could be driven by the anatomical properties of hub interneurons.
-%Hub interneurons tend to extent across the body, therefore to see if this property drove the effect, we selected other neurons with similar connectivity profiles
-%[[TODO-AA: this still needs some unpacking to distinguish from the rank sum test just performed]].
-Specifically, we selected a subset of interneurons that most closely resemble the anatomical properties of hub interneurons, in terms of their origin and termination locations, we determined the following set of seven nonhub head interneurons: AVFL, AVFR, AVHL, AVHR, AVKR, AVJL, and AVJR.
-As shown in Fig.~\ref{fig:interneuron_dep}C, pairs of hub interneurons exhibit slightly higher CGE than pairs of anatomically-matched nonhub interneurons (Wilcoxon rank sum test, $p = 0.051$).
-Thus, the increase in CGE amongst hub interneurons cannot be simply explained by their anatomical similarity among interneurons.
-[[TODO: A bit of a strange interpretation of $p=0.051$??]]
 
 % Neurons in \emph{C. elegans} are annotated to the following categories: sensory neurons, motor neurons, and interneurons (eighteen multifunctional neurons are annotated to two categories).
 % As in Towlson et al.~\cite{Towlson:2013gf}, we find that
@@ -1197,7 +1199,7 @@ Moreover, there is no difference in CGE between pairs of hubs that are not comma
 %Relative to macroscopic brains in which hubs are often distributed across diverse neural systems \cite{Fulcher:2016ck}, it is not possible to disentangle the role of specialized functional circuits from connectivity in \emph{C. elegans}, with highly connected hubs containing the transcriptionally uniform set of command interneurons.
 
 
-\subsection*{Drivers of correlated gene expression}
+\subsection*{Genes driving the correlated gene expression}
 %% comment on enrichment analysis. No write up can be done before deciding on options.
 % Having determined that pairs of neurons with different connectivity exhibit different levels of CGE,
 Having characterized a robust relationship between CGE and (i) connectivity, and (ii) hub connectivity, we next investigated which specific genes contribute most to this relationship.
@@ -1213,13 +1215,12 @@ Consistent with the importance of innexins in forming electrical synapses \cite{
 % the involvement of both neurotransmitter as well as electrical synapse related genes is expected.
 % innexins .
 % cell adhesion molecules, and transcription factors were found.
-Genes encoding cell adhesion molecules related to axon outgrowth and guidance, cell migration, locomotion (\emph{sax-3}, \emph{cam-1}, \emph{unc-6}, \emph{rig-1}, \emph{unc-5}) [[TODO-AA: Unclear whether these genes are all related just to locomotion, and if so why axon guidance/cell migration is unannotated?]], and learning (\emph{casy-1}) \cite{Zallen1999, Garriga1999, Leung-Hagesteijn1992, Harris:2009kd, Ikeda2008},
+Genes encoding cell adhesion molecules related to axon outgrowth and guidance, cell migration and locomotion (\emph{sax-3}, \emph{cam-1}, \emph{unc-6}, \emph{rig-1}, \emph{unc-5}), learning (\emph{casy-1}) \cite{Zallen1999, Garriga1999, Leung-Hagesteijn1992, Harris:2009kd, Ikeda2008},
 as well as the genes that are involved in determining cell polarity \emph{vang-1}, \emph{prkl-1} \cite{Wu2006, Hoffmann2010} were also amongst the top scoring genes for connectivity.
-These genes have been implicated in neuronal connectivity in other species [[TODO-AA: give brief indication of which other species?]] \cite{Paemka2013, Ehaideb2016, Sowers2013}, with these results predicting that they may play a similar role in \textit{C. elegans}.
+These genes have been implicated in neuronal connectivity in both flies and humans \cite{Paemka2013, Ehaideb2016, Sowers2013}, with these results predicting that they may play a similar role in \textit{C. elegans}.
 In addition, transcription factors regulating neuronal development,
 fate specification (\emph{lin-11}, \emph{unc-3}, \emph{unc-42}, \emph{ceh-14}, \emph{ast-1}, \emph{cfi-1}) \cite{Sarafi-Reinach2001, Prasad2008, Baran1999, Cassata2000, Schmid2006, Shaham2002a},
-and locomotion (\emph{unc-3}) \cite{Prasad2008} [[TODO-AA: why is this gene not part of the locomotion list above? Be clear that above was an adhesion molecule, but these are transcription factors? Would be good to define to remind PLOS CB reader what the difference is]]
-also were implicated in driving the increased CGE amongst connected pairs of neurons.
+and locomotion (\emph{unc-3}) \cite{Prasad2008}) also were implicated in driving the increased CGE amongst connected pairs of neurons.
 Both adhesion molecules and transcription factors are candidates for facilitating signal transduction and communication.
 
 In order to summarize the above mentioned results and determine if any particular functional groups of genes are dominating in driving this effect, we performed an enrichment analysis.
@@ -1246,7 +1247,7 @@ we again find a high number of genes regulating cell adhesion (\emph{cam-1}, \em
 and relevant transcription factors (\emph{unc-3}, \emph{unc-42}, \emph{ast-1}).
 % that at least partially overlap with genes found comparing connected and unconnected pairs of neurons.
 The implication of glutamate and acetylcholine may be attributable to the importance of glutamate in the regulation of locomotion in command interneurons \cite{Choi2015, Zheng1999}, with acetylcholine being the dominant neurotransmitter in hubs (13 out of 16 hubs are cholinergic \cite{Pereira:2015er}).
-High overlap between adhesion molecule and transcription factor genes found in the previous analysis and the implication of human orthologs (\emph{rig-1}, \emph{ncam-1}, \emph{grld-1}) [[TODO-AA: what is the source of the ortholog matching? What are the corresponding human genes??]] \cite{Harris:2009kd} for genes regulating cell migration, differentiation and neuron cell adhesion, demonstrates the importance of establishing neuronal connections.
+High overlap between adhesion molecule and transcription factor genes found in the previous analysis and the implication of human orthologs (\emph{rig-1}, \emph{ncam-1}, \emph{grld-1}) [[TODO-AA: what is the source of the ortholog matching? What are the corresponding human genes?? - AA: source annotations in wormbase website (rig1 ( ROBO4 ), ncam-1 (NCAM2), grld-1 (RBM15) - don't think it's worth listing those here ]] \cite{Harris:2009kd} for genes regulating cell migration, differentiation and neuron cell adhesion, demonstrates the importance of establishing neuronal connections.
 
 % ---also emerged as enriched in connections involving hubs compared to other connections.
 %These findings are in line with our expectations as hub neurons receive input from sensory neurons, the majority of which are glutamatergic.
@@ -1257,7 +1258,7 @@ High overlap between adhesion molecule and transcription factor genes found in t
 % FeedInOutNodes;
 
 While previous work implicated genes regulating oxidative metabolism for connections involving hubs in mouse \cite{Fulcher:2016ck}, and for hub regions in human \cite{Vertes2016a}, the gene expression dataset used here was not sufficiently comprehensive to investigate these processes.
-For example, only one of the 948 genes annotated to the GO categories related to hub connectivity in mouse is present in our gene expression dataset (only \emph{unc-32} is annotated to the GO category: `ATP hydrolysis coupled proton transport').
+For example, only one of the 948 genes annotated to the GO categories related to hub connectivity in mouse is present in our gene expression dataset (\emph{unc-32} is annotated to the GO category: `ATP hydrolysis coupled proton transport').
 % GO:0015991:
 % GO categories were filtered using <<searchGOcategories.m>> function.
 Although a direct test of the metabolic hypothesis for neural hubs is not possible from current data, we investigated whether other GO categories were overrepresented in pairs of connected hubs using ORA (for 30 out of 168 valid genes for this analysis), with results listed in Table~\ref{tab:enrichmentRICH}.
@@ -1347,7 +1348,7 @@ While current data are limited, more comprehensive expression annotations in fut
 % \end{itemize}
 
 \section*{Discussion}
-Highly connected hubs of neural systems play and important role in brain function, with their dense rich-club interconnectivity playing a vital role in integrating disparate neural networks \cite{vandenHeuvel:2013ge, Fornito:2015dq, deReus:2013cy, vandenHeuvel:2013ij}.
+Highly connected hubs of neural systems play and important role in brain function, with their dense rich-club interconnectivity integrating disparate neural networks \cite{vandenHeuvel:2013ge, Fornito:2015dq, deReus:2013cy, vandenHeuvel:2013ij}.
 Here, our analysis linking hub connectivity of the microscale connectome of \emph{C. elegans} to patterns of neuron-specific gene expression has identified a transcriptional signature that appears to be highly conserved, given recent findings reported in a mesoscale investigation of the mouse \cite{Fulcher:2016ck} and a macroscale study of humans \cite{Vertes:2016in}.
 Specifically, we show that:
 (i) correlated gene expression, CGE, is higher for connected pairs of neurons compared to unconnnected pairs,
@@ -1377,7 +1378,7 @@ However, many of our results in \emph{C. elegans} suggest a striking conservatio
 For example, connection probability decreases with spatial separation between brain areas in rodents and primates \cite{Horvat:2016ia, Wang:2016gg} (including in macaque \cite{Markov:2013jo}, human \cite{Henderson:2014fg}, mouse \cite{Fulcher:2016ck}, and rat \cite{Noori:2017ce}), for individual neurons in mouse primary auditory cortex \cite{Levy:2012dy}, and between neurons in \emph{C. elegans} (cf. Fig.~S1 of \cite{Azulay:2016cg}).
 % Previous results have from the scale of individual neurons in mouse primary auditory cortex \cite{Levy:2012dy} to the scale of macroscopic brain regions \cite{Fulcher:2016ck}.
 Unlike mammalian brains, where all neurons are confined to a spatially contiguous organ, neurons are distributed across nearly the entire length of \emph{C. elegans}, including a dense cluster of neurons in the head and in the tail.
-Despite these distinct mnorphologies, we report a qualitatively similar spatial dependence of connection probability with separation distance for many classes of connections in \emph{C. elegans}, including those within the head, body, and tail, indicating that this distance-dependence may be a generic property of evolved neuronal systems that must balance the energetic cost of long-range connections with their functional benefit \cite{Bullmore:2012vl, vandenHeuvel:2012kh, Kim:2014bu, Betzel:2016jt}.
+Despite these distinct morphologies, we report a qualitatively similar spatial dependence of connection probability with separation distance for many classes of connections in \emph{C. elegans}, including those within the head, body, and tail, indicating that this distance-dependence may be a generic property of evolved neuronal systems that must balance the energetic cost of long-range connections with their functional benefit \cite{Bullmore:2012vl, vandenHeuvel:2012kh, Kim:2014bu, Betzel:2016jt}.
 Less frequently characterized is the spatial dependence of CGE, with available evidence indicating that more proximal brain areas exhibit more similar gene expression patterns than more distant brain areas in the mouse brain \cite{Fulcher:2016ck} and human cortex \cite{Krienen:2016eq, Pantazatos:2016ir, Richiardi:2017hb}.
 Some of the spatial trends in correlated gene expression found in the 948 genes analyzed here mirror these trends of bulk regions of macroscopic mammalian brains in the highly specialized microscale nervous system of \emph{C. elegans}.
 It is therefore possible that these spatial dependences of connectivity and correlated gene expression may not be simply due to bulk spatial trends in macroscopic brains containing millions of neurons, but may reflect conserved organizational principles that hold across species and spatial scales.
@@ -1448,15 +1449,16 @@ In this work we developed methods to relate correlations in binary gene expressi
 % to these patterns by scoring them according to their influence.
 %With increasing quality of the gene expression data those methods will allow to comprehensively investigate relationships between these two modalities.
 Compared to continuous \emph{in situ} hybridization measurements of the expression of $>17\,000$ genes in the mouse brain \cite{Lein:2007jn}, or microarray measurements of $>20\,000$ genes in the human brain \cite{Hawrylycz:2012ky, Shen:2012ua}, which permit more detailed analysis \cite{Fulcher:2016ck, Ji:2014jw, Fakhry:2015kl, French2011, Vertes2016a, Parkes:2017dn}, working with \emph{C. elegans} gene expression data is challenging due to its low coverage ($<5$\% coverage of the full worm genome), binary indications of expression, and incompleteness (an inability to distinguish missing data from lack of expression).
-Moreover, [[this data has different qualifiers]][[TODO: explain]], requiring choices to be made to appropriately balance sensitivity and specificity.
+Moreover, this data has different qualifiers related to the certainty of gene expression annotations (see Supporting Information), requiring choices to be made to appropriately balance sensitivity and specificity.
 Although gene enrichment analyses did not have enough power to detect significant effects here, top GO categories point us towards biologically relevant categories related to neuronal connectivity, neurotransmitters, and metabolism.
 We note however, that the incomplete coverage of the genome in our annotated dataset may mask many true GO associations.
-Our single gene analysis identified specific genes contributing to increases in CGE for connected pairs of neurons generally, and for connections involving hub neurons.
+Our single gene analysis identified specific genes contributing to increases in CGE for connected pairs of neurons and for connections involving hub neurons.
 In line with our expectations, genes regulating both chemical and electrical signaling, namely glutamate receptor and innexin genes were implicated in general connectivity.
 In addition, we also find multiple cell adhesion molecule genes and transcription factors that regulate neuronal development and fate specification -- both groups are important in forming neuronal connections.
 High overlap between adhesion molecule genes and transcription factors implicated in regulating both general and hub connectivity highlights the importance of establishing neuronal connections.
-While we were not able to test GO categories related to various neurotransmitter signaling due to insufficient coverage of gene expression annotations, single gene analysis revealed the importance of acetylcholine genes, \emph{ace-2}, \emph{cho-1}, \emph{unc-17}, and \emph{deg-3}, which may be related to the fact that acetylcholine is the dominant neurotransmitter in hub neurons.
+While we were not able to test GO categories related to various neurotransmitter signaling due to insufficient coverage of gene expression annotations, single gene analysis revealed the importance of acetylcholine genes, which may be related to the fact that acetylcholine is the dominant neurotransmitter in hub neurons.
 % (cf. \cite{Pereira:2015er}).
+% \emph{ace-2}, \emph{cho-1}, \emph{unc-17}, and \emph{deg-3}
 %Moreover, using single gene analyses we were able to contribute more detailed information about the specific gene groups involved in the increased CGE for both connected pairs of neurons as well as for connections involving hub neurons.
 %Given \textit{Drosdophila} (\textit{vang-1}, \textit{prkl-1}) and human (\textit{prkl-1}) orthologs related to cell polarity were implemented in neuronal connectivity of the \textit{C. elegans}, we show that our proposed framework has a potential to make predictions of genes, that have plausibility given the role of these genes in neuronal functioning in other species, that may in future be validated directly in {\it C. elegans}.
 These results validate our method and provide valuable clues of the general mechanisms that may be involved in hub connectivity.
@@ -1520,8 +1522,8 @@ These results validate our method and provide valuable clues of the general mech
 \section*{Conclusion}
 
 We have shown that highly connected hubs of the \textit{C. elegans} connectome have tightly coupled gene expression patterns, despite the fact that these neurons are separated, on average, by longer anatomical distances than other pairs of neurons.
-This finding could not be explained by the neuronal class, module affiliation, neurotransmitter system, birth time or lineage distance of hub neurons, but was closely related to the designation of hubs as the specific functional class of command interneurons, which control locomotion.
-This link between hub connectivity and correlated gene expression mirrors results observed in the mesoscale mouse connectome and the macroscale human coneectome, suggesting that it may be a highly conserved relationship that transcends species and resolution scales.
+This finding could not be explained by the neuronal class, module affiliation, neurotransmitter system, birth time, spatial position or lineage distance of hub neurons, but was closely related to the designation of hubs as the specific functional class of command interneurons, which control locomotion.
+This link between hub connectivity and correlated gene expression mirrors results observed in the mesoscale mouse and the macroscale human connectomes, suggesting that it may be a highly conserved relationship that transcends species and resolution scales.
 Increasing availability of detailed gene expression datasets, including the potential for single-cell RNA sequencing, will allow future work across species and scales to shed light on deeper molecular mechanisms underlying the organizational principles of connectome organization that underpin efficient biological functioning.
 
 \section*{Acknowledgments}
@@ -1615,7 +1617,7 @@ Yule's $Q$ coefficient, $(n_{00}n_{11} - n_{01}n_{10})/(n_{00}n_{11} + n_{01}n_{
 and the $\chi^2$ index, $N (n_{00}n_{11} - n_{01}n_{10})/(n_{1\bullet}n_{0\bullet}n_{\bullet 0}n_{\bullet 1})$ \cite{Kaufman2006}, where $n_{xy}$ counts the number of observations of each of the four binary pairwise possibilities: $n_{00}$, $n_{01}$, $n_{10}$, and $n_{11}$ (as outlined in the main text), and the $\bullet$ symbol sums across a given variable (e.g., $n_{\bullet 0} = n_{00} + n_{10}$).
 % and Simple matching coefficients [[TODO: define and give reference]],
 
-To evaluate bias in each CGE measure to the proportion of annotations in each expression vector, we generated random binary vectors of length 948 containing different proportions of 1s seen in our data, ranging from the minimum, 1, to the maximum, 148.
+To evaluate bias in each CGE measure to the proportion of annotations in each expression vector, we generated random binary vectors of length 948 containing different proportions of 1s seen in our data, ranging from the minimum, 1, to the maximum, 150.
 For all pairwise combinations of proportions, we computed the CGE measure, taking an average across 1\,000 permutations, and then recorded the resulting mean correlation value, as plotted in Fig.~\ref{fig:S_propOnes}.
 Because all vectors are independent random binary strings, any systematic dependence of mean CGE with annotation proportion indicates bias.
 The mean square contingency coefficient, $r_\phi$ (Fig.~\ref{fig:S_propOnes}A) and our own novel CGE matching index, $p_\mathrm{match}$ (Fig.~\ref{fig:S_propOnes}D) show no systematic dependence on the proportion of ones in each vector (varying randomly within $\approx 10^{-3}$ and $\approx 0.5$ respectively).
@@ -1657,10 +1659,11 @@ Based on these numerical experiments, we selected mean square contingency coeffi
 {\bf Enrichment results for links involving hubs.}
 
 \begin{table}[h]
+\begin{adjustwidth}{-2.25in}{}
 \centering
 \caption{\textbf{Hub neurons of the \textit{C. elegans} connectome.}
 Hubs are defined as neurons with degree $k > 44$.
-For each hub, we list (i) the neuron name, (ii) its degree, $k$, (iii) location (`head', `body', or `tail'), and function [[TODO-AA: where are these functional annotations derived from?]].
+For each hub, we list (i) the neuron name, (ii) its degree, $k$, (iii) location (`head', `body', or `tail'), and function [[TODO-AA: where are these functional annotations derived from?AA: wormatlas website, each neurons separately]].
 Neurons are sorted (descending) by degree.}
 \label{tab:HubList}
 \begin{tabular}{lll}
@@ -1675,7 +1678,7 @@ PVCL   & 64         & Tail interneuron, role in locomotor decisions             
 AVDR   & 63         & Head interneuron, role in locomotor decisions 				\\
 AVER   & 63         & Head interneuron, role in locomotor decisions                \\
 AVEL   & 62         & Head interneuron, role in locomotor decisions                \\
-DVA    & 59         & Tail interneuron, stretch sensitive                \\
+DVA    & 59         & Tail interneuron, mechanosensory integration               \\
 RIBL   & 56         & Head interneuron                							\\
 AVKL   & 53         & Head interneuron                                             \\
 AVDL   & 52         & Head interneuron, role in locomotor decisions                 \\
@@ -1683,19 +1686,22 @@ RIBR   & 52         & Head interneuron                                          
 AIBR   & 49         & Head interneuron                                             \\
 RIGL   & 49         & Head interneuron                                             \\\hline
 \end{tabular}
+\end{adjustwidth}
 \end{table}
 
 
 
 \begin{table}[]
+\begin{adjustwidth}{-2.25in}{}
 \centering
 \caption{Biological process GO categories of genes most enriched in genes with the highest mean increase in correlated gene expression for connected neurons compared to unconnected neurons.
-Categories are sorted by $p$-value (increasing).}
+Categories are sorted by $p$-value (ascending).}
 \label{tab:enrichmentCON}
 \begin{tabular}{llccc}
+
 \hline
-\textbf{Category} & \textbf{Description}                                                                       & \begin{tabular}[c]{@{}c@{}}\# genes\end{tabular} & \begin{tabular}[c]{@{}c@{}}$p$\\(uncorr)\end{tabular} & \begin{tabular}[c]{@{}c@{}}$p$\\(corr)\end{tabular} \\ \hline
-GO:0035235          & \begin{tabular}[c]{@{}l@{}}ionotropic glutamate receptor \\ signaling pathway\end{tabular} & 7                                                      & 0.0005                                                & 0.3245                                             \\
+\textbf{Category} & \textbf{Description} & \textbf{\# genes} & \textbf{p (uncorr)}                                                                                                                                        & \textbf{p (corr)} \\ \hline                                                                                                                                         %& \begin{tabular}[c]{@{}c@{}}\# genes\end{tabular} & \begin{tabular}[c]{@{}c@{}}$p$\\(uncorr)\end{tabular} & \begin{tabular}[c]{@{}c@{}}$p$\\(corr)\end{tabular}
+GO:0035235          & ionotropic glutamate receptor signaling pathway & 7                                                      & 0.0005                                                & 0.3245                                             \\
 GO:0007215          & glutamate receptor signaling pathway                                                       & 9                                                      & 0.0041                                                & 0.9367                                             \\
 GO:0007166          & cell surface receptor signaling pathway                                                    & 37                                                     & 0.0048                                                & 0.9367                                             \\
 GO:0006811          & ion transport                                                                              & 71                                                     & 0.0058                                                & 0.9367                                             \\
@@ -1709,12 +1715,15 @@ GO:0009056          & catabolic process                                         
 GO:0009057          & macromolecule catabolic process                                                            & 28                                                     & 0.0548                                                & 1                                                  \\
 GO:0071495          & cellular response to endogenous stimulus                                                   & 14                                                     & 0.0575                                                & 1                                                  \\
 GO:0045927          & positive regulation of growth                                                              & 29                                                     & 0.0689                                                & 1                                                  \\
-GO:0050830          & \begin{tabular}[c]{@{}l@{}}defense response to Gram-positive \\ bacterium\end{tabular}     & 5                                                      & 0.0695                                                & 1    \\\hline
+GO:0050830          & defense response to Gram-positive bakterium%& \begin{tabular}[c]{@{}l@{}}defense response to Gram-positive \\ bacterium\end{tabular}
+& 5                                                      & 0.0695                                                & 1    \\\hline
 \end{tabular}
+\end{adjustwidth}
 \end{table}
 
 
 \begin{table}[]
+\begin{adjustwidth}{-2.25in}{}
 \centering
 \caption{
 Biological process GO categories most enriched in genes with the highest mean increase in correlated gene expression for connections involving hub neurons (i.e., rich, feed-in and feed-out connections) compared to connections between nonhub neurons (i.e., in peripheral connections).
@@ -1723,25 +1732,45 @@ Categories are sorted by $p$-value (ascending).
 \label{tab:enrichmentRICH}
 \begin{tabular}{llccc}
 \hline
-\textbf{Category} & \textbf{Description}                                                                                               & \begin{tabular}[c]{@{}c@{}}\# genes\end{tabular} & \begin{tabular}[c]{@{}c@{}}$p$\\(uncorr)\end{tabular} & \begin{tabular}[c]{@{}c@{}}$p$\\(corr)\end{tabular} \\ \hline
+\textbf{Category} & \textbf{Description}                                                                                               &  \textbf{\# genes} & \textbf{p (uncorr)}                                                                                                                                      & \textbf{p (corr)} \\ \hline
 GO:0007215          & glutamate receptor signaling pathway                                                                               & 6                                                      & 0.0009                                               & 0.1741                                             \\
-GO:0035235          & \begin{tabular}[c]{@{}l@{}}ionotropic glutamate receptor signaling \\ pathway\end{tabular}                         & 6                                                      & 0.0009                                               & 0.1741                                             \\
+GO:0035235          & ionotropic glutamate receptor signaling pathway                        & 6                                                      & 0.0009                                               & 0.1741                                             \\
 GO:0007166          & cell surface receptor signaling pathway                                                                            & 20                                                     & 0.0035                                               & 0.3473                                             \\
 GO:0009891          & positive regulation of biosynthetic process                                                                        & 11                                                     & 0.0063                                               & 0.3473                                             \\
-GO:0031328          & \begin{tabular}[c]{@{}l@{}}positive regulation of cellular \\ biosynthetic process\end{tabular}                    & 11                                                     & 0.0063                                               & 0.3473                                             \\
-GO:0045935          & \begin{tabular}[c]{@{}l@{}}positive regulation of nucleobase-containing \\ compound metabolic process\end{tabular} & 11                                                     & 0.0063                                               & 0.3473                                             \\
-GO:0051173          & \begin{tabular}[c]{@{}l@{}}positive regulation of nitrogen compound \\ metabolic process\end{tabular}              & 11                                                     & 0.0063                                               & 0.3473                                             \\
-GO:0031325          & \begin{tabular}[c]{@{}l@{}}positive regulation of cellular \\ metabolic process\end{tabular}                       & 12                                                     & 0.0109                                               & 0.5258                                             \\
+GO:0031328          & positive regulation of cellular biosynthetic process                   & 11                                                     & 0.0063                                               & 0.3473                                             \\
+GO:0045935          & positive regulation of nucleobase-containing compound metabolic process & 11                                                     & 0.0063                                               & 0.3473                                             \\
+GO:0051173          & positive regulation of nitrogen compound metabolic process             & 11                                                     & 0.0063                                               & 0.3473                                             \\
+GO:0031325          & positive regulation of cellular metabolic process                & 12                                                     & 0.0109                                               & 0.5258                                             \\
 GO:0040012          & regulation of locomotion                                                                                           & 24                                                     & 0.0156                                               & 0.5467                                             \\
-GO:0010557          & \begin{tabular}[c]{@{}l@{}}positive regulation of macromolecule \\ biosynthetic process\end{tabular}               & 10                                                     & 0.0212                                               & 0.5467                                             \\
-GO:0045893          & \begin{tabular}[c]{@{}l@{}}positive regulation of transcription, \\ DNA-templated\end{tabular}                     & 10                                                     & 0.0212                                               & 0.5467                                             \\
-GO:0045944          & \begin{tabular}[c]{@{}l@{}}positive regulation of transcription from \\ RNA polymerase II promoter\end{tabular}    & 10                                                     & 0.0212                                               & 0.5467                                             \\
-GO:0051254          & \begin{tabular}[c]{@{}l@{}}positive regulation of RNA metabolic \\ process\end{tabular}                            & 10                                                     & 0.0212                                               & 0.5467                                             \\
-GO:1902680          & \begin{tabular}[c]{@{}l@{}}positive regulation of RNA biosynthetic \\ process\end{tabular}                         & 10                                                     & 0.0212                                               & 0.5467                                             \\
-GO:1903508          & \begin{tabular}[c]{@{}l@{}}positive regulation of nucleic acid-templated \\ transcription\end{tabular}             & 10                                                     & 0.0212                                               & 0.5467    \\\hline
+GO:0010557          & positive regulation of macromolecule biosynthetic process               & 10                                                     & 0.0212                                               & 0.5467                                             \\
+GO:0045893          & positive regulation of transcription DNA-templated                & 10                                                     & 0.0212                                               & 0.5467                                             \\
+GO:0045944          & positive regulation of transcription from RNA polymerase II promoter    & 10                                                     & 0.0212                                               & 0.5467                                             \\
+GO:0051254          & positive regulation of RNA metabolic process                           & 10                                                     & 0.0212                                               & 0.5467                                             \\
+GO:1902680          & positive regulation of RNA biosynthetic process                     & 10                                                     & 0.0212                                               & 0.5467                                             \\
+GO:1903508          & positive regulation of nucleic acid-templated transcription           & 10                                                     & 0.0212                                               & 0.5467    \\\hline
 \end{tabular}
+\end{adjustwidth}
 \end{table}
 
+%\begin{tabular}{llccc}
+%\hline
+%\textbf{Category} & \textbf{Description}                                                                                               & \begin{tabular}[c]{@{}c@{}}\# genes\end{tabular} & \begin{tabular}[c]{@{}c@{}}$p$\\(uncorr)\end{tabular} & \begin{tabular}[c]{@{}c@{}}$p$\\(corr)\end{tabular} \\ \hline
+%GO:0007215          & glutamate receptor signaling pathway                                                                               & 6                                                      & 0.0009                                               & 0.1741                                             \\
+%GO:0035235          & \begin{tabular}[c]{@{}l@{}}ionotropic glutamate receptor signaling \\ pathway\end{tabular}                         & 6                                                      & 0.0009                                               & 0.1741                                             \\
+%GO:0007166          & cell surface receptor signaling pathway                                                                            & 20                                                     & 0.0035                                               & 0.3473                                             \\
+%GO:0009891          & positive regulation of biosynthetic process                                                                        & 11                                                     & 0.0063                                               & 0.3473                                             \\
+%GO:0031328          & \begin{tabular}[c]{@{}l@{}}positive regulation of cellular \\ biosynthetic process\end{tabular}                    & 11                                                     & 0.0063                                               & 0.3473                                             \\
+%GO:0045935          & \begin{tabular}[c]{@{}l@{}}positive regulation of nucleobase-containing \\ compound metabolic process\end{tabular} & 11                                                     & 0.0063                                               & 0.3473                                             \\
+%GO:0051173          & \begin{tabular}[c]{@{}l@{}}positive regulation of nitrogen compound \\ metabolic process\end{tabular}              & 11                                                     & 0.0063                                               & 0.3473                                             \\
+%GO:0031325          & \begin{tabular}[c]{@{}l@{}}positive regulation of cellular \\ metabolic process\end{tabular}                       & 12                                                     & 0.0109                                               & 0.5258                                             \\
+%GO:0040012          & regulation of locomotion                                                                                           & 24                                                     & 0.0156                                               & 0.5467                                             \\
+%GO:0010557          & \begin{tabular}[c]{@{}l@{}}positive regulation of macromolecule \\ biosynthetic process\end{tabular}               & 10                                                     & 0.0212                                               & 0.5467                                             \\
+%GO:0045893          & \begin{tabular}[c]{@{}l@{}}positive regulation of transcription, \\ DNA-templated\end{tabular}                     & 10                                                     & 0.0212                                               & 0.5467                                             \\
+%GO:0045944          & \begin{tabular}[c]{@{}l@{}}positive regulation of transcription from \\ RNA polymerase II promoter\end{tabular}    & 10                                                     & 0.0212                                               & 0.5467                                             \\
+%GO:0051254          & \begin{tabular}[c]{@{}l@{}}positive regulation of RNA metabolic \\ process\end{tabular}                            & 10                                                     & 0.0212                                               & 0.5467                                             \\
+%GO:1902680          & \begin{tabular}[c]{@{}l@{}}positive regulation of RNA biosynthetic \\ process\end{tabular}                         & 10                                                     & 0.0212                                               & 0.5467                                             \\
+%GO:1903508          & \begin{tabular}[c]{@{}l@{}}positive regulation of nucleic acid-templated \\ transcription\end{tabular}             & 10                                                     & 0.0212                                               & 0.5467    \\\hline
+%\end{tabular}
 % ------------------------------------------------------------------------------
 % ------------------------------------------------------------------------------
 % ------------------------------------------------------------------------------
@@ -1886,7 +1915,6 @@ Circles indicate a statistically significant increase in CGE in a given link typ
 % ------------------------------------------------------------------------------
 % <<networkRC.m>>
 % \paragraph*{S7 Fig.}
-% {\bf Weighted and mixed rich club.}
 \begin{figure}[h]
 \centering
     \includegraphics[width=1\textwidth]{weightedRCALL.pdf}
@@ -1981,8 +2009,8 @@ The plot shows that the increased separation distance between connected hubs rel
 \centering
     \includegraphics[width=1\textwidth]{distributionsSUPP2.pdf}
     \caption{
-\textbf{Coexpression for different types of connectome edges.}
-\emph{Left}: Distribution of transcriptional similarity between reciprocally connected (219 pairs), unidirectionally connected (1\,721) and  and unconnected (36\,749 pairs) pairs of neurons as a violin plot, with the median of each distribution shown as a horizontal line.
+\textbf{Correlated gene expression for different types of connectome edges.}
+\emph{Left}: Distribution of CGE between reciprocally connected (219 pairs), unidirectionally connected (1\,721) and  and unconnected (36\,749 pairs) pairs of neurons as a violin plot, with the median of each distribution shown as a horizontal line.
 Connections between symmetrical (left/right) pairs of neurons are excluded from the analysis.
 Coexpression, $r_\phi$ is increased in connected (reciprocally and unidirectionally) pairs of neurons ($p = 1.8 10^{-78}$, Wilcoxon rank sum test).
 Coexpression between neurons connected via gap junctions is significantly higher than between neurons connected via chemical synapses ($p = 5.4 10^{-22}$, Wilcoxon rank sum test).
