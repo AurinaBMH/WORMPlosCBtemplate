@@ -1919,7 +1919,7 @@ Circles indicate a statistically significant increase in CGE in a given link typ
 \centering
     \includegraphics[width=1\textwidth]{weightedRCALL.pdf}
     \caption{
-    \textbf{Weighted rich-club analysis yields similar results to binary rich-club analysis.}
+    \textbf{Weighted and unweighted rich-club analyses yield similar results.}
     \textbf{A} Degree distribution of the \emph{C. elegans} connectome.
     Neurons are labeled to four types as in the legend.
     \textbf{B}
@@ -1980,24 +1980,22 @@ Circles indicate a statistically significant increase in CGE in a given link typ
 %\centering
 %    \includegraphics[width=0.7\textwidth]{TypeTransmitterDegree}
 %\end{figure}
+
 % ------------------------------------------------------------------------------
-% <<probabilityVSdistance>>
+% hubConnectionDistance(C)
 % ------------------------------------------------------------------------------
 \begin{figure}[h]
 \centering
     \includegraphics[width=1\textwidth]{connectionProportionDivision.eps}
 \caption{
-\textbf{Rich and non-rich connections in the \emph{C. elegans} connectome, are categorized by the  anatomical location of source and target neurons.}
+\textbf{Rich and non-rich connections in the \emph{C. elegans} connectome, categorized by the  anatomical location of the source and target neurons.}
 \label{fig:S_connectionProportion}
-Hub-hub connections (`rich') are shown red, and all other connections (`non-rich', i.e., feeder and peripheral) are shown gray.
-Anatomical locations are labeled as `head', `body', and `tail', with hubs defined as neurons with degree, $k > 44$.
+Hub-hub connections (`rich') are shown red, and all other connections (`non-rich', i.e., feeder and peripheral) are shown gray, where hubs are defined as neurons with degree, $k > 44$.
+Anatomical locations are labeled as `head', `body', and `tail', and each connection is labeled according to its source and target neurons, labeled on the vertical axis in the form `SourceTarget'.
 % corresponding to the lowest threshold at which the \emph{C. elegans} connectome exhibits rich-club organization.
 The plot shows that the increased separation distance between connected hubs relative to other types of connected neurons is driven by a relative increase in long-range connections between the head and tail.
-%[[TODO-BF: is the plor updated? because the caption was not]].
 }
 \end{figure}
-
-
 
 % ------------------------------------------------------------------------------
 % <<plot_disstributionsSUPP.m>>
@@ -2009,12 +2007,12 @@ The plot shows that the increased separation distance between connected hubs rel
 \centering
     \includegraphics[width=1\textwidth]{distributionsSUPP2.pdf}
     \caption{
-\textbf{Correlated gene expression for different types of connectome edges.}
-\emph{Left}: Distribution of CGE between reciprocally connected (219 pairs), unidirectionally connected (1\,721) and  and unconnected (36\,749 pairs) pairs of neurons as a violin plot, with the median of each distribution shown as a horizontal line.
-Connections between symmetrical (left/right) pairs of neurons are excluded from the analysis.
-Coexpression, $r_\phi$ is increased in connected (reciprocally and unidirectionally) pairs of neurons ($p = 1.8 10^{-78}$, Wilcoxon rank sum test).
-Coexpression between neurons connected via gap junctions is significantly higher than between neurons connected via chemical synapses ($p = 5.4 10^{-22}$, Wilcoxon rank sum test).
-\emph{Right}: Distribution of transcriptional similarity for rich, feed-in, feed-out and peripheral links, where hubs are neurons with degree $k>44$.
+\textbf{Distributions of correlated gene expression for different types of connectome edges.}
+Violin plots of the distribution of CGE, $r_\phi$, between reciprocally connected (219 pairs), unidirectionally connected (1\,721) and unconnected (36\,749 pairs) pairs of neurons; also for pairs of neurons labeled as peripheral, feed-in, feed-out, and rich, where hubs are neurons with degree $k>44$. The median of each distribution shown as a horizontal line.
+% Connections between symmetrical (left/right) pairs of neurons are excluded from the analysis.
+CGE is increased in connected (electrical or chemical; reciprocally or unidirectionally) pairs of neurons relative to unconnected pairs ($p = 1.8 10^{-78}$, Wilcoxon rank sum test).
+CGE between neurons connected via gap junctions is significantly higher than between neurons connected via chemical synapses ($p = 5.4 10^{-22}$, Wilcoxon rank sum test).
+[[TODO-AA: Can you confirm that all of these analyses are done at the pairwise level? I.e., that in the rich, it's pairs of connected hubs, rather than a reciprocal pair counting twice?]]
 \label{fig:S_RFPdistributions}
 }
 \end{figure}
