@@ -289,12 +289,6 @@ V{\'{e}}rtes PE, Rittman T, Whitaker KJ, Romero-Garcia R, V{\'{a}}{\v{s}}a F,
 Riddle DL, Blumenthal T, Meyer BJ, Priess JR. {C. elegans II}; 1997.
 \newblock Available from: \url{http://www.ncbi.nlm.nih.gov/books/NBK19997/}.
 
-\bibitem{Schnabel1997}
-Schnabel R.
-\newblock {Why does a nematode have an invariant cell lineage?}
-\newblock Seminars in Cell {\&} Developmental Biology. 1997;8(4):341--349.
-\newblock doi:{10.1006/scdb.1997.0158}.
-
 \bibitem{Chen:2006ie}
 Chen BL, Hall DH, Chklovskii DB.
 \newblock {Wiring optimization can relate neuronal structure and function}.
@@ -811,5 +805,11 @@ Kaufman A, Dror G, Meilijson I, Ruppin E.
   information on their synaptic connectivity.}
 \newblock PLoS computational biology. 2006;2(12):e167.
 \newblock doi:{10.1371/journal.pcbi.0020167}.
+
+\bibitem{Alstott2014}
+Alstott J, Panzarasa P, Rubinov M, Bullmore ET, V{\'{e}}rtes PE.
+\newblock {A unifying framework for measuring weighted rich clubs.}
+\newblock Scientific reports. 2014;4:7258.
+\newblock doi:{10.1038/srep07258}.
 
 \end{thebibliography}

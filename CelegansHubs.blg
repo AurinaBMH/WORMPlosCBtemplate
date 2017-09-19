@@ -44,43 +44,43 @@ Warning--can't use both volume and number fields in choe2004network
 Warning--empty pages in choe2004network
 You've used 131 entries,
             3058 wiz_defined-function locations,
-            1552 strings with 54517 characters,
-and the built_in function-call counts, 419071 in all, are:
-= -- 50773
-> -- 2216
+            1553 strings with 54593 characters,
+and the built_in function-call counts, 420210 in all, are:
+= -- 50902
+> -- 2232
 < -- 5
-+ -- 2063
-- -- 554
-* -- 39723
-:= -- 45872
++ -- 2071
+- -- 558
+* -- 39836
+:= -- 45994
 add.period$ -- 567
 call.type$ -- 131
 change.case$ -- 2
 chr.to.int$ -- 0
 cite$ -- 133
-duplicate$ -- 21448
-empty$ -- 42235
-format.name$ -- 679
-if$ -- 95757
+duplicate$ -- 21495
+empty$ -- 42348
+format.name$ -- 684
+if$ -- 96017
 int.to.chr$ -- 0
 int.to.str$ -- 131
-missing$ -- 1319
+missing$ -- 1323
 newline$ -- 706
 num.names$ -- 131
-pop$ -- 2057
+pop$ -- 2067
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 2158
+skip$ -- 2162
 stack$ -- 0
-substring$ -- 103988
-swap$ -- 3342
+substring$ -- 104285
+swap$ -- 3346
 text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 1405
+while$ -- 1408
 width$ -- 134
 write$ -- 1534
 (There were 8 error messages)
