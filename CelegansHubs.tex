@@ -988,8 +988,8 @@ Motor neurons show a smaller increase with $k$, although the absence of motor an
 However, we do find that CGE is higher for hub-hub pairs of interneurons compared to connections between all pairs of nonhub interneurons (Wilcoxon rank sum test, $p = 5 \times 10^{-31}$), indicating that the high expression of rich pairs cannot simply be explained by the fact that all hub neurons are interneurons.
 We next investigated whether greater CGE of hub-hub pairs of neurons could be driven by specific anatomical properties of hub interneurons.
 Specifically, we selected a subset of nonhub interneurons that most closely resemble the anatomical properties of hub interneurons, in terms of their origin and termination locations (AVFL, AVFR, AVHL, AVHR, AVKR, AVJL, AVJR).
-As shown in Fig.~\ref{fig:interneuron_dep}C, pairs of hub interneurons exhibit slightly higher CGE than pairs of anatomically-matched nonhub interneurons (Wilcoxon rank sum test, $p = 0.051$).
-Thus, the increase in CGE amongst hub interneurons cannot be simply explained by their anatomical similarity among interneurons.[[TODO: how to phrase the results with 0.051 p value??]]
+As shown in Fig.~\ref{fig:interneuron_dep}C, pairs of hub interneurons exhibit a tendency of  slightly higher CGE than pairs of anatomically-matched nonhub interneurons (Wilcoxon rank sum test, $p = 0.051$).
+Thus, the increase in CGE amongst hub interneurons probably cannot be explained only by their anatomical similarity among interneurons.
 
 % ------------------------------------------------------------------------------
 % <<plot_neuronType.m>>
@@ -1252,14 +1252,14 @@ Having characterized genes that contribute to the increase in correlated gene ex
 % [[DO WE SHOW NUMBER IN DATA OR IN GENE SETS USED FOR CON and RF analysis]] while others (n=9) had only up to 3 genes, therefore were not included in the enrichment analysis as categories with 5-100 genes were required.
 %Glutamate release categories were also not represented here (each were annotated with fewer than five genes in our dataset and hence excluded).
 % including `positive regulation of biosynthetic process', two groups responsible for positive regulation of nitrogen and nucleobase-containing compound metabolic process, `positive regulation of cellular metabolic process', and `positive regulation of macromolecule biosynthetic process'.
-In order to investigate which specific genes contribute most to the increase in CGE for connections involving hubs, we again manually investigated the list of around 20\% highest scoring genes ($p_\mathrm{corr} < 10^{-4}$,).
+In order to investigate which specific genes contribute most to the increase in CGE for connections involving hubs, we again manually investigated the list of around 20\% highest scoring genes ($p_\mathrm{corr} < 10^{-4}$).
 In addition to glutamate receptor genes (\emph{glr-5}, \emph{nmr-1}, \emph{nmr-2}, \emph{glr-1}, \emph{glr-2}, \emph{grld-1})
 and acetylcholine related genes (\emph{ace-2}, \emph{cho-1}, \emph{unc-17}, \emph{deg-3}),
 we again find a high number of genes regulating cell adhesion (\emph{cam-1}, \emph{rig-1}, \emph{rig-6}, \emph{unc-6}, \emph{grld-1}, \emph{dbl-1}, \emph{ncam-1})
 and relevant transcription factors (\emph{unc-3}, \emph{unc-42}, \emph{ast-1}).
 % that at least partially overlap with genes found comparing connected and unconnected pairs of neurons.
 The implication of glutamate and acetylcholine may be attributable to the importance of glutamate in the regulation of locomotion in command interneurons \cite{Choi2015, Zheng1999}, with acetylcholine being the dominant neurotransmitter in hubs (13 out of 16 hubs are cholinergic \cite{Pereira:2015er}).
-High overlap between adhesion molecule and transcription factor genes found in the previous analysis and the implication of human orthologs (\emph{rig-1}, \emph{ncam-1}, \emph{grld-1}, corresponding to human genes ROBO4, NCAM2, and RBM15 respectively) \cite{Harris:2009kd} for genes regulating cell migration, differentiation and neuron cell adhesion, demonstrates the importance of establishing neuronal connections.
+High overlap between adhesion molecule and transcription factor genes found in the previous analysis and the implication of human orthologs (\emph{rig-1}, \emph{ncam-1}, \emph{grld-1}, corresponding to human genes ROBO4, NCAM2, and RBM15 respectively  \cite{Harris:2009kd}) for genes regulating cell migration, differentiation and neuron cell adhesion, demonstrates the importance of establishing neuronal connections.
 
 % ---also emerged as enriched in connections involving hubs compared to other connections.
 %These findings are in line with our expectations as hub neurons receive input from sensory neurons, the majority of which are glutamatergic.
@@ -2022,8 +2022,8 @@ The plot shows that the increased separation distance between connected hubs rel
 \textbf{Distributions of correlated gene expression for different types of connectome edges.}
 Violin plots of the distribution of CGE, $r_\phi$, between reciprocally connected (219 pairs), unidirectionally connected (1\,721) and unconnected (36\,749 pairs) pairs of neurons; also for pairs of neurons labeled as peripheral, feed-in, feed-out, and rich, where hubs are neurons with degree $k>44$. The median of each distribution shown as a horizontal line.
 % Connections between symmetrical (left/right) pairs of neurons are excluded from the analysis.
-CGE is increased in connected (electrical or chemical; reciprocally or unidirectionally) pairs of neurons relative to unconnected pairs ($p = 1.8 10^{-78}$, Wilcoxon rank sum test).
-CGE between neurons connected via gap junctions is significantly higher than between neurons connected via chemical synapses ($p = 5.4 10^{-22}$, Wilcoxon rank sum test).
+CGE is increased in connected (electrical or chemical; reciprocally or unidirectionally) pairs of neurons relative to unconnected pairs ($p = 1.8 \times 10^{-78}$, Wilcoxon rank sum test).
+CGE between neurons connected via gap junctions is significantly higher than between neurons connected via chemical synapses ($p = 5.4 1\times 0^{-22}$, Wilcoxon rank sum test). CGE is significantly higher between hubs (rich links) compared to feeder ($p = 5 \times 10^{-22}$, Wilcoxon rank sum test) and peripheral ($p = 3.9 \times 10^{-19}$, Wilcoxon rank sum test) links. Feed-out links show significantly higher CGE than both feed-in ($p = 1.9 \times 10^{-6}$, Wilcoxon rank sum test) and peripheral links ($p = 4.5 \times 10^{-12}$, Wilcoxon rank sum test).
 \label{fig:S_RFPdistributions}
 }
 \end{figure}
