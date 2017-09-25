@@ -24,17 +24,18 @@ Chiang AS, Lin CY, Chuang CC, Chang HM, Hsieh CH, Yeh CW, et~al.
   {Drosophila} at single-cell resolution.
 \newblock Curr Biol. 2011;21(1):1--11.
 
-\bibitem{Shih:2015cu}
+\bibitem{Shih2015}
 Shih CT, Sporns O, Yuan SL, Su TS, Lin YJ, Chuang CC, et~al.
-\newblock Connectomics-Based Analysis of Information Flow in the {Drosophila}
-  Brain.
-\newblock Curr Biol. 2015;.
+\newblock {Connectomics-Based Analysis of Information Flow in the Drosophila
+  Brain}.
+\newblock Current Biology. 2015;25(10):1249--1258.
+\newblock doi:{10.1016/j.cub.2015.03.021}.
 
 \bibitem{Wanner:2016ea}
 Wanner AA, Genoud C, Masudi T, Siksou L, Friedrich RW.
 \newblock {Dense EM-based reconstruction of the interglomerular projectome in
   the zebrafish olfactory bulb}.
-\newblock Nat Neurosci. 2016;19(6):816--825.
+\newblock Nature Neuroscience. 2016;19(6):816--825.
 
 \bibitem{Hildebrand:2017iu}
 Hildebrand DGC, Cicconet M, Torres RM, Choi W, Quan TM, Moon J, et~al.
@@ -168,18 +169,23 @@ Towlson EK, V{\'{e}}rtes PE, Ahnert SE, Schafer WR, Bullmore ET.
 \newblock Journal of Neuroscience. 2013;33(15):6380--7.
 \newblock doi:{10.1523/JNEUROSCI.3784-12.2013}.
 
+\bibitem{Shih:2015cu}
+Shih CT, Sporns O, Yuan SL, Su TS, Lin YJ, Chuang CC, et~al.
+\newblock Connectomics-Based Analysis of Information Flow in the {Drosophila}
+  Brain.
+\newblock Curr Biol. 2015;.
+
 \bibitem{Fornito2015}
 Fornito A, Zalesky A, Breakspear M.
 \newblock {The connectomics of brain disorders}.
-\newblock Nature Reviews Neuroscience. 2015;16(3):159--172.
+\newblock Nat Rev Neurosci. 2015;16(3):159--172.
 \newblock doi:{10.1038/nrn3901}.
 
-\bibitem{VandenHeuvel2013a}
+\bibitem{vandenHeuvel:2013ij}
 van~den Heuvel MP, Sporns O.
 \newblock {An Anatomical Substrate for Integration among Functional Networks in
   Human Cortex}.
-\newblock Journal of Neuroscience. 2013;33(36):14489--14500.
-\newblock doi:{10.1523/JNEUROSCI.2128-13.2013}.
+\newblock J Neurosci. 2013;33(36):14489--14500.
 
 \bibitem{Crossley2014}
 Crossley NA, Mechelli A, Scott J, Carletti F, Fox PT, McGuire P, et~al.
@@ -257,12 +263,6 @@ Liang X, Zou Q, He Y, Yang Y.
 \newblock Proceedings of the National Academy of Sciences.
   2013;110(5):1929--34.
 \newblock doi:{10.1073/pnas.1214900110}.
-
-\bibitem{Crossley:2014eta}
-Crossley NA, Mechelli A, Scott J, Carletti F, Fox PT, McGuire P, et~al.
-\newblock {The hubs of the human connectome are generally implicated in the
-  anatomy of brain disorders}.
-\newblock Brain. 2014;137(8):2382--2395.
 
 \bibitem{Lennie:2003ia}
 Lennie P.
@@ -377,7 +377,7 @@ Sulston JE, Schierenberg E, White JG, Thomson JN.
 \bibitem{Colizza:2006kz}
 Colizza V, Flammini A, Serrano M, Vespignani A.
 \newblock {Detecting rich-club ordering in complex networks}.
-\newblock Nat Phys. 2006;2(2):110--115.
+\newblock Nature Physics. 2006;2(2):110--115.
 
 \bibitem{Maslov:2002hi}
 Maslov S, Sneppen K.
@@ -593,11 +593,12 @@ Fakhry A, Ji S.
   expression patterns}.
 \newblock Methods. 2015;73:71--78.
 
-\bibitem{French:2011cz}
+\bibitem{French2011}
 French L, Pavlidis P.
 \newblock {Relationships between gene expression and brain wiring in the adult
-  rodent brain}.
-\newblock PLoS Comp Biol. 2011;7(1):e1001049.
+  rodent brain.}
+\newblock PLoS computational biology. 2011;7(1):e1001049.
+\newblock doi:{10.1371/journal.pcbi.1001049}.
 
 \bibitem{Starich2001}
 Starich T, Sheehan M, Jadrich J, Shaw J.
@@ -724,36 +725,11 @@ Zheng Y, Brockie PJ, Mellem JE, Madsen DM, Maricq AV.
 \newblock Neuron. 1999;24(2):347--361.
 \newblock doi:{10.1016/S0896-6273(00)80849-1}.
 
-\bibitem{Fornito:2015dq}
-Fornito A, Zalesky A, Breakspear MJ.
-\newblock {The connectomics of brain disorders}.
-\newblock Nat Rev Neurosci. 2015;16(3):159--172.
-
-\bibitem{vandenHeuvel:2013ij}
-van~den Heuvel MP, Sporns O.
-\newblock {An Anatomical Substrate for Integration among Functional Networks in
-  Human Cortex}.
-\newblock J Neurosci. 2013;33(36):14489--14500.
-
-\bibitem{Vertes:2016in}
-V{\'e}rtes PE, Rittman T, Whitaker KJ, Romero-Garcia R, V{\'a}{\v s}a F,
-  Kitzbichler MG, et~al.
-\newblock {Gene transcription profiles associated with inter-modular hubs and
-  connection distance in human functional magnetic resonance imaging networks}.
-\newblock Phil Trans Roy Soc B. 2016;371(1705):20150362.
-
 \bibitem{Roberts2016}
 Roberts JA, Perry A, Lord AR, Roberts G, Mitchell PB, Smith RE, et~al.
 \newblock {The contribution of geometry to the human connectome.}
 \newblock NeuroImage. 2016;124(Pt A):379--93.
 \newblock doi:{10.1016/j.neuroimage.2015.09.009}.
-
-\bibitem{Bassett:2010hf}
-Bassett DS, Greenfield DL, Meyer-Lindenberg A, Weinberger DR, Moore SW,
-  Bullmore ET.
-\newblock {Efficient Physical Embedding of Topologically Complex Information
-  Processing Networks in Brains and Computer Circuits}.
-\newblock PLoS Comp Biol. 2010;6(4):e1000748.
 
 \bibitem{Kim2016}
 Kim S, Kim H, Kralik JD, Jeong J, Bargmann C, Aballay A.
@@ -783,13 +759,6 @@ Shen EH, Overly CC, Jones AR.
 \newblock {The Allen Human Brain Atlas: comprehensive gene expression mapping
   of the human brain}.
 \newblock Trends Neurosci. 2012;32(12):711--714.
-
-\bibitem{French2011}
-French L, Pavlidis P.
-\newblock {Relationships between gene expression and brain wiring in the adult
-  rodent brain.}
-\newblock PLoS computational biology. 2011;7(1):e1001049.
-\newblock doi:{10.1371/journal.pcbi.1001049}.
 
 \bibitem{Parkes:2017dn}
 Parkes L, Fulcher BD, Y{\"u}cel M, Fornito A.

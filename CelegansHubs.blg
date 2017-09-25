@@ -1,6 +1,6 @@
 This is BibTeX, Version 0.99d (TeX Live 2015)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: ./CelegansHubs.aux
+The top-level auxiliary file: CelegansHubs.aux
 The style file: plos2015.bst
 Database file #1: library_ben.bib
 Repeated entry---line 266 of file library_ben.bib
@@ -20,7 +20,12 @@ Repeated entry---line 860 of file library_ben.bib
  :                             ,
 I'm skipping whatever remains of this entry
 Database file #2: library_aurina.bib
-Repeated entry---line 634 of file library_aurina.bib
+I was expecting a `,' or a `}'---line 122 of file library_aurina.bib
+ : 
+ : @article{Choi2015,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Repeated entry---line 624 of file library_aurina.bib
  : @article{Stephan2001
  :                     ,
 I'm skipping whatever remains of this entry
@@ -28,45 +33,45 @@ Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 131 entries,
+You've used 126 entries,
             3058 wiz_defined-function locations,
-            1553 strings with 54496 characters,
-and the built_in function-call counts, 418742 in all, are:
-= -- 50658
-> -- 2232
+            1538 strings with 53877 characters,
+and the built_in function-call counts, 407417 in all, are:
+= -- 49221
+> -- 2152
 < -- 6
-+ -- 2071
-- -- 558
-* -- 39669
-:= -- 45870
-add.period$ -- 567
-call.type$ -- 131
++ -- 2031
+- -- 538
+* -- 38686
+:= -- 44654
+add.period$ -- 547
+call.type$ -- 126
 change.case$ -- 2
 chr.to.int$ -- 0
-cite$ -- 131
-duplicate$ -- 21245
-empty$ -- 42222
-format.name$ -- 684
-if$ -- 95662
+cite$ -- 126
+duplicate$ -- 20347
+empty$ -- 41133
+format.name$ -- 659
+if$ -- 93035
 int.to.chr$ -- 0
-int.to.str$ -- 131
-missing$ -- 1324
-newline$ -- 706
-num.names$ -- 131
-pop$ -- 2097
+int.to.str$ -- 126
+missing$ -- 1274
+newline$ -- 681
+num.names$ -- 126
+pop$ -- 2012
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 2176
+skip$ -- 2101
 stack$ -- 0
-substring$ -- 104025
-swap$ -- 3359
+substring$ -- 101632
+swap$ -- 3229
 text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 1409
-width$ -- 134
-write$ -- 1535
-(There were 5 error messages)
+while$ -- 1357
+width$ -- 129
+write$ -- 1480
+(There were 6 error messages)
