@@ -1,6 +1,6 @@
 This is BibTeX, Version 0.99d (TeX Live 2015)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: CelegansHubs.aux
+The top-level auxiliary file: ./CelegansHubs.aux
 The style file: plos2015.bst
 Database file #1: library_ben.bib
 Repeated entry---line 266 of file library_ben.bib
@@ -20,11 +20,6 @@ Repeated entry---line 860 of file library_ben.bib
  :                             ,
 I'm skipping whatever remains of this entry
 Database file #2: library_aurina.bib
-I was expecting a `,' or a `}'---line 122 of file library_aurina.bib
- : 
- : @article{Choi2015,
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
 Repeated entry---line 624 of file library_aurina.bib
  : @article{Stephan2001
  :                     ,
@@ -35,7 +30,7 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 You've used 125 entries,
             3058 wiz_defined-function locations,
-            1533 strings with 53671 characters,
+            1533 strings with 53675 characters,
 and the built_in function-call counts, 405274 in all, are:
 = -- 48944
 > -- 2136
@@ -74,4 +69,4 @@ warning$ -- 0
 while$ -- 1346
 width$ -- 128
 write$ -- 1469
-(There were 6 error messages)
+(There were 5 error messages)
