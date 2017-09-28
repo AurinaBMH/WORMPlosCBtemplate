@@ -201,12 +201,6 @@ Crossley NA, Mechelli A, V{\'e}rtes PE, Winton-Brown TT, Patel AX, Ginestet CE,
   functional coactivation network}.
 \newblock Proc Natl Acad Sci USA. 2013;110(28):11583--11588.
 
-\bibitem{deReus:2014cz}
-de~Reus MA, Saenger VM, Kahn RS, van~den Heuvel MP.
-\newblock {An edge-centric perspective on the human connectome: link
-  communities in the brain}.
-\newblock Phil Trans Roy Soc B. 2014;369(1653):20130527--20130527.
-
 \bibitem{vandenHeuvel:2012kh}
 van~den Heuvel MP, Kahn RS, Go{\~n}i J, Sporns O.
 \newblock High-cost, high-capacity backbone for global brain communication.
@@ -390,6 +384,27 @@ Rubinov M, Sporns O.
   interpretations}.
 \newblock NeuroImage. 2010;52(3):1059--1069.
 
+\bibitem{Kim2014}
+Kim JS, Kaiser M.
+\newblock {From Caenorhabditis elegans to the human connectome: a specific
+  modular organization increases metabolic, functional and developmental
+  efficiency.}
+\newblock Philosophical transactions of the Royal Society of London Series B,
+  Biological sciences. 2014;369(1653).
+\newblock doi:{10.1098/rstb.2013.0529}.
+
+\bibitem{Achacoso:1992ay}
+Achacoso T, Yamamoto W.
+\newblock AY's Neuroanatomy of C. elegans for Computation.
+\newblock CRC Press, Boca Raton, FL; 1992.
+
+\bibitem{Pavlovic2014}
+Pavlovic DM, V{\'{e}}rtes PE, Bullmore ET, Schafer WR, Nichols TE.
+\newblock {Stochastic blockmodeling of the modules and core of the
+  Caenorhabditis elegans connectome.}
+\newblock PLoS ONE. 2014;9(7):e97584.
+\newblock doi:{10.1371/journal.pone.0097584}.
+
 \bibitem{Blondel:2008do}
 Blondel VD, Guillaume JL, Lambiotte R, Lefebvre E.
 \newblock {Fast unfolding of communities in large networks}.
@@ -519,27 +534,6 @@ Richiardi J, Altmann A, Milazzo AC, Chang C, Chakravarty MM, Banaschewski T,
   networks}.
 \newblock Science. 2015;348(6240):1241--1244.
 \newblock doi:{10.1126/science.1255905}.
-
-\bibitem{Kim2014}
-Kim JS, Kaiser M.
-\newblock {From Caenorhabditis elegans to the human connectome: a specific
-  modular organization increases metabolic, functional and developmental
-  efficiency.}
-\newblock Philosophical transactions of the Royal Society of London Series B,
-  Biological sciences. 2014;369(1653).
-\newblock doi:{10.1098/rstb.2013.0529}.
-
-\bibitem{Achacoso:1992ay}
-Achacoso T, Yamamoto W.
-\newblock AY's Neuroanatomy of C. elegans for Computation.
-\newblock CRC Press, Boca Raton, FL; 1992.
-
-\bibitem{Pavlovic2014}
-Pavlovic DM, V{\'{e}}rtes PE, Bullmore ET, Schafer WR, Nichols TE.
-\newblock {Stochastic blockmodeling of the modules and core of the
-  Caenorhabditis elegans connectome.}
-\newblock PLoS ONE. 2014;9(7):e97584.
-\newblock doi:{10.1371/journal.pone.0097584}.
 
 \bibitem{Ciceri2013}
 Ciceri G, Dehorter N, Sols I, Huang ZJ, Maravall M, Mar{\'{i}}n O.
