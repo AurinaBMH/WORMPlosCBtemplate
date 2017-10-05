@@ -866,7 +866,7 @@ The plot reveals rich-club organization ($\Phi_\mathrm{norm} > 1$) at the upper 
 % ), referred to here as the `topological rich-club regime'.
 Similar results were obtained using weighted representations of the connectome (i.e., using information about the number of synapses in the connectivity network) for two different definitions of the weighted rich-club coefficient \cite{Opsahl2008}, shown in Fig.~\ref{fig:S_weightedRC}.
 Throughout this work, we define a set of hubs as the sixteen neurons with $k > 44$, which corresponds to the lowest degree threshold at which the network displays a contiguous region of significant rich-club organization at high $k$.
-Our list of hubs includes all of the 11 hub neurons of Towlson et al.~\cite{Towlson2013} at $3 \sigma$ (see Table~\ref{tab:HubList}) with a few additional hubs identified in our analysis of the directed connectome.
+Our list of hubs includes all of the 11 hub neurons of Towlson et al.~\cite{Towlson2013} at $3 \sigma$ (see Table~\ref{tab:HubList}) with five additional hubs identified in our analysis of the directed connectome.
 % This indicates that when nodes are defined as hubs (degree $>\textit{k}$) in this range, they are more densely interconnected than expected by chance.
  % of the analyses presented below examine how different topological and genomic properties vary as a function of the hub threshold, $k$, but for analyses requiring a fixed hub definition, we define hubs as the 13 neurons with
 
@@ -879,7 +879,7 @@ The rich-club connectivity of the \emph{C. elegans} connectome is accompanied by
  % we plot the mean distance between all pairs of connected hubs at each degree threshold, $k$.
 This can be attributed to a relative increase in long-distance hub-hub connections between the head and tail, shown in Fig.~\ref{fig:neuronsSpace} (cf. Fig.~\ref{fig:S_connectionProportion}).
 % , we find an increase in mean hub-hub connection distance with $k$, through to the extent of the topological rich-club regime.
-The high connection density and long mean anatomical distance between pairs of hub neurons counters the general trend in the \emph{C. elegans} connectome, where the probability of connectivity between two neurons decays with their separation distance (Fig.~\ref{fig:connectionProb\texttt{}).}
+The high connection density and long mean anatomical distance between pairs of hub neurons counters the general trend in the \emph{C. elegans} connectome, where the probability of connectivity between two neurons decays with their separation distance (Fig.~\ref{fig:connectionProb}).
 These results are consistent with previous findings across diverse neural systems and suggest that the rich club may provide a central yet costly backbone for neuronal communication in \emph{C. elegans} \cite{vandenHeuvel:2012kh, Towlson2013}.
 % Towlson2013
 % replicate the findings by Towlson et al. \cite{Towlson2013}, demonstrating that hub-hub connections in \emph{C. elegans} are dense and extend over significantly longer distances than other types of connections in the synaptic network of the nematode nervous system, consistent with the rich club forming a central yet costly backbone for neuronal communication \cite{vandenHeuvel:2012kh}.
@@ -929,6 +929,8 @@ We found no difference in CGE between pairs of neurons connected reciprocally by
     \includegraphics[width=1\textwidth]{MeanCoexpression4.pdf}
 \caption{{\bf Correlated gene expression varies as a function of connectedness and connection type.}
 \textbf{A} Distribution of CGE for (i) pairs of neurons connected by gap junctions, (ii) pairs of neurons connected by chemical synapses, and (iii) pairs of neurons that are unconnected, shown as a violin plot, with the median of each distribution represented by a horizontal line.
+Connected pairs of neurons show higher CGE than unconnected pairs (Wilcoxon rank-sum test, $p = 1.8 \times 10^{-78}$). 
+Among connected pairs of neurons neurons connected via gap junctions have more similar CGE than connected via chemical synapses (Wilcoxon rank-sum test, $p = 5.4 \times 10^{-22}$). *** represent statistically significant differences.  
 % Coexpression, $r_\phi$, is increased in connected compared to unconnected pairs of neurons ($P < 10^{-78}$, Wilcoxon rank sum test).
 % Coexpression, $r_\phi$, is increased in neuron pairs connected via electrical synapses compared to pairs connected via chemical synapses ($P < 10^{-22}$, Wilcoxon rank sum test).
 \textbf{B}
@@ -1127,7 +1129,7 @@ Thus, for both types of modular decompositions considered, intra-modular and int
 % The number of connections of each type is shown in parentheses.
 \textbf{C} Distributions of lineage distance between rich links (red) and non-rich links (blue), plotted as histograms due to a discrete nature of this measure (Wilcoxon rank sum test, $p = 0.079$).
 \textbf{D} Distributions of CGE, $r_\phi$, between early born hubs (rich links, red) and nonhubs (non-rich links, blue) shown as violin plots with the median shown as a horizontal bar (Wilcoxon rank sum test, $p = 3.9 \times 10^{-22}$).
-\textbf{E} Distributions of CGE between hub command interneurons (red) and hub non-command interneurons (blue) shown as violin plots with the median shown as a horizontal bar (Wilcoxon rank sum test, $p = 3.3 \times 10^{-8}$).
+\textbf{E} Distributions of CGE between hub command interneurons (red) and hub non-command interneurons (blue) shown as violin plots with the median shown as a horizontal bar (Wilcoxon rank sum test, $p = 3.3 \times 10^{-8}$). *** represent statistically significant differences.
 %[[TODO: could add neurotransmitter type as a bar code in modules]]
 %[[TODO: change colors for distributions, fill distributions, e.g., intra-modular and inter-modular shouldn't use red (rich) use green for non-rich]]
 %Composition of each module according to neuron type.
@@ -1287,7 +1289,7 @@ While previous work implicated genes regulating oxidative metabolism for connect
 For example, only one of the 948 genes annotated to the GO categories related to hub connectivity in mouse is present in our gene expression dataset (\emph{unc-32} is annotated to the GO category: `ATP hydrolysis coupled proton transport').
 % GO:0015991:
 % GO categories were filtered using <<searchGOcategories.m>> function.
-Thus, although a direct test of the metabolic hypothesis for neural hubs is not possible from current data, we investigated whether other biological process GO categories were overrepresented in pairs of connected hubs using ORA (for 30 out of 168 valid genes for this analysis), with results listed in Table~\ref{tab:enrichmentRICH}.
+Thus, although a direct test of the metabolic hypothesis for neural hubs is not possible from current data, we investigated whether other biological process GO categories were overrepresented in pairs of connected hubs using ORA (of 30 genes relative to the 168 genes with sufficient data for this analysis), with results listed in Table~\ref{tab:enrichmentRICH}.
 % , providing some support for the idea that hubs are energetically costly elements of the connectome.
 %Due to gene expression data specificity in all the following analyses we present top 15 GO categories enriched in a particular link type compared to other links.
 Even though no categories are statistically significant at a false discovery rate of 0.05, the list of top categories includes both `glutamate receptor signaling pathway' as well as more general `cell surface receptor signaling pathway' in addition to several ion transport related gene groups ('ion transport', `ion transmembrane transport', `transmembrane transport').
