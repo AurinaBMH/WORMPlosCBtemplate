@@ -385,8 +385,8 @@ We first describe the neural connectivity data used to construct a connectome fo
 % , such as their functional class, body position, neurochemical composition, and lineage.
 We then describe the gene expression data, how we measure expression similarity between pairs of neurons, and our method for scoring the contribution of individual genes to patterns of correlated gene expression.
 % Neurons making up the nervous system of the nematode worm \emph{C. elegans} can be divided into groups, commonly as: sensory neurons (support receptive function), motor neurons (cells containing neuromuscular junctions), interneurons (all other neurons), and polymodal neurons (performing more than one type of circuit function) \cite{White:1986tx}.
-Note that all data used for analysis in this work were obtained from publicly available sources, and can be downloaded from an accompanying figshare repository (\url{https://figshare.com/s/797199619fbabdab8c86}).
-Code to process this data and reproduce all figures and analyses presented here is on github [and will be made public on acceptance of this paper].
+Note that all data used for analysis in this work were obtained from publicly available sources, and can be downloaded from an accompanying figshare repository (\url{figshare.com/s/797199619fbabdab8c86}).
+Code to process this data and reproduce all figures and analyses presented here is on github (\url{github.com/BMHLab/CElegansConnectomeGeneExpression}).
 
 
 % METHODS: Outline (add what it's about)
@@ -925,7 +925,7 @@ We found no difference in CGE between pairs of neurons connected reciprocally by
 % ------------------------------------------------------------------------------
  \begin{figure}[h]
  \centering
-    \includegraphics[width=1\textwidth]{MeanCoexpression4.pdf}
+    \includegraphics[width=0.8\textwidth]{MeanCoexpression5.pdf}
 \caption{{\bf Correlated gene expression varies as a function of connectedness and connection type.}
 \textbf{A} Distribution of CGE for (i) pairs of neurons connected by gap junctions, (ii) pairs of neurons connected by chemical synapses, and (iii) pairs of neurons that are unconnected, shown as a violin plot, with the median of each distribution represented by a horizontal line.
 Connected pairs of neurons show higher CGE than unconnected pairs (Wilcoxon rank-sum test, $p = 1.8 \times 10^{-78}$). 
@@ -1378,9 +1378,11 @@ While current data are limited, more comprehensive expression annotations in the
 Highly connected hubs of neural systems play an important role in brain function, with their dense rich-club interconnectivity integrating disparate neural networks \cite{vandenHeuvel:2013ge, Fornito2015, deReus:2013cy, vandenHeuvel:2013ij}.
 Here, our analysis linking hub connectivity of the microscale connectome of \emph{C. elegans} to patterns of neuron-specific gene expression has identified a transcriptional signature that appears to be highly conserved, given recent findings reported in a mesoscale investigation of the mouse \cite{Fulcher:2016ck} and a macroscale study of humans \cite{Vertes2016a}.
 Specifically, we show that:
-(i) CGE, is higher for connected pairs of neurons compared to unconnnected pairs;
-(ii) both the probability of connectivity and similarity of gene expression between neural elements decays as a function of their spatial separation, and;
-(iii) that connected pairs of hub neurons, which are generally separated by longer anatomical distances, counter this general trend by showing the highest levels of CGE.
+(i) CGE is higher for connected pairs of neurons compared to unconnnected pairs;
+(ii) the neuron connection probability decays as a function of spatial separation, and;
+% and similarity of gene expression
+(iii) connected pairs of hub neurons, which are generally separated by longer anatomical distances, show the highest levels of CGE.
+% counter this general trend by
 This association between CGE and hub connectivity followed a gradient, such that CGE was lowest for connected nonhubs, intermediate for hub-nonhub pairs, and highest for connected hubs, consistent with results reported in the mouse brain \cite{Fulcher:2016ck}.
 % Our results cannot be attributed to the fact that hub neurons are interneurons, are born prior to hatching, are more likely to be in the same network module, are mostly cholinergic, are mostly in the head, or to the lineage similarity of hub neurons.
 % However, given the overlap between hub neurons with functional class of command interneurons, we are unable to discount the possibility that these command interneurons drive the high CGE between hub neurons in \emph{C. elegans}.
@@ -1882,7 +1884,8 @@ Circles indicate a statistically significant increase in CGE in a given link typ
   Here we consider correlated gene expression in the head, where the strongest spatial relationship exists (cf. Fig.~\ref{fig:spatialCoexpressionMain}).
   \textbf{A} CGE values, $r_\phi$, plotted as a function of Euclidean separation distance for all pairs of neurons within the head (gray dots), with a fitted exponential trend shown in black, $f(x) = A\exp(-\lambda x) + B$.
     \textbf{B} Taking residuals from this trend does not adequately correct the spatial trend.
-    This indicates that the trend is not a bulk, isotropic effect in the brain, but may instead be driven primarily by a small number of neuron pairs with high $r_\phi$ at short distances ($\lessapprox 25\mu$m).
+    Note the artifactual negative correlations indicated with an arrow.
+    This indicates that the trend is not a bulk, isotropic effect in the brain, but may instead be driven primarily by a small number of neuron pairs with high $r_\phi$ at short distances ($\lessapprox 25\mu$m), indicated with a circle in \textbf{A}.
     }
   \label{fig:S_head_rphi_correct}
 \end{figure}
@@ -1954,11 +1957,11 @@ Circles indicate a statistically significant increase in CGE in a given link typ
     Neurons are labeled to four types as in the legend.
     \textbf{B}
     Normalized weighted rich-club coefficient, $\Phi_\mathrm{norm}^\mathrm{weighted}$ (i.e., topology fixed and weights randomized in the null model, shown orange), and
-    normalized mixed rich-club coefficient, $\Phi_\mathrm{norm}^\mathrm{mixed}$ (i.e., both topology and weights mixed in the null model, shown green) are plotted as a function of the degree, $k$, at which hubs are defined (as neurons with degree $>k$), \cite{Alstott2014}. 
+    normalized mixed rich-club coefficient, $\Phi_\mathrm{norm}^\mathrm{mixed}$ (i.e., both topology and weights mixed in the null model, shown green) are plotted as a function of the degree, $k$, at which hubs are defined (as neurons with degree $>k$) \cite{Alstott2014}. 
     Circles indicate values of $\Phi_\mathrm{norm}$ that are significantly higher than an ensemble of 1\,000 degree-matched null networks (Welch's $t$-test, $p < 0.05$).
     Compared to topological rich-club analysis presented in the main text, here the weights of the connections are also accounted for when calculating the rich club coefficient. 
-    In the case of the weighted rich-club coefficient, the topology for the null models was kept stable and only the weights of the connections randomised. Results presented here show that connections between higher degree nodes are stronger than expected by chance. 
-    On the other hand, in the mixed rich club coefficient both the topology and weights are randomised, therefore we see the combined effect of both types. 
+    In the case of the weighted rich-club coefficient, the topology for the null models was kept stable and only the weights of the connections randomized. Results presented here show that connections between higher degree nodes are stronger than expected by chance. 
+    On the other hand, in the mixed rich club coefficient both the topology and weights are randomized, therefore we see the combined effect of both types. 
     Distinction between the different null models is discussed in detail in \cite{Alstott2014}. 
     These results show that connections between high degree nodes are both denser and stronger than expected by chance. }
    
