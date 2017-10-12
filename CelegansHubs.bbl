@@ -13,8 +13,8 @@ White JG, Southgate E, Thomson JN.
 
 \bibitem{Varshney2011}
 Varshney LR, Chen BL, Paniagua E, Hall DH, Chklovskii DB.
-\newblock {Structural properties of the Caenorhabditis elegans neuronal
-  network.}
+\newblock Structural properties of the Caenorhabditis elegans neuronal
+  network.
 \newblock PLoS computational biology. 2011;7(2):e1001066.
 \newblock doi:{10.1371/journal.pcbi.1001066}.
 
@@ -304,8 +304,8 @@ Azulay A, Itskovits E, Zaslaver A.
 
 \bibitem{Kim:2016gl}
 Kim S, Kim H, Kralik JD, Jeong J.
-\newblock {Vulnerability-Based Critical Neurons, Synapses, and Pathways in the
-  Caenorhabditis elegans Connectome}.
+\newblock Vulnerability-Based Critical Neurons, Synapses, and Pathways in the
+  \emph{Caenorhabditis elegans} Connectome.
 \newblock PLoS Comp Biol. 2016;12(8):e1005084.
 
 \bibitem{Kim:2014bu}
