@@ -242,7 +242,7 @@ One such motif is a heterogeneous distribution of connectivity across neural ele
 These brain network hubs are interconnected, which is characteristic of a so-called rich-club organization.
 Recent work in mouse has identified a distinctive transcriptional signature of neural hubs, characterized by tightly coupled expression of genes regulating oxidative metabolism, with similar genes characterizing macroscale inter-modular hub regions of the human cortex.
 Here, we sought to determine whether hubs of the \emph{C. elegans} connectome, which has been mapped at the microscale of individual neurons and synapses, also show tightly coupled gene expression.
-Using open data on the chemical and electrical connectivity of 279 \emph{C. elegans} neurons, and binary gene expression expression data for each neuron across 948 genes, we computed a correlated gene expression score for each pair of neurons, providing a measure of their gene expression similarity.
+Using open data on the chemical and electrical connectivity of 279 \emph{C. elegans} neurons, and binary gene expression data for each neuron across 948 genes, we computed a correlated gene expression score for each pair of neurons, providing a measure of their gene expression similarity.
 After confirming the rich-club connectivity of the \emph{C. elegans} connectome, we demonstrate that connections between hub neurons are the most similar in their gene expression while connections between nonhubs are the least similar.
 Genes with the greatest contribution to this effect are involved in glutamatergic and cholinergic signalling, and other communication processes. 
 We further show that coupled expression between hub neurons cannot be explained by their neuronal subtype (i.e., sensory, motor, or interneuron), separation distance, chemically secreted neurotransmitter, birth time, pairwise lineage distance, or their topological module affiliation.
@@ -266,10 +266,10 @@ Our results suggest that neural hubs may possess a distinctive transcriptional s
 
 %%V1
 %Neural systems are thought evolve towards optimality by minimizing wiring cost but also maximizing the communication efficiency.
-Some elements of neural systems possess many more connections than others, marking them as network hubs. 
+Some elements of neural systems possess many more connections than others, marking them network hubs. 
 These hubs are often densely interconnected with each other, forming a so-called rich-club that is thought to support integrated function. 
 Recent work in the mouse suggests that connected pairs of hubs show higher levels of transcriptional coupling than other pairs of brain regions. 
-Here, we show the hubs neurons of the nematode worm \textit{C. elegans} also show tightly coupled gene expression and that this effect cannot be explained by the spatial proximity or anatomical location of hub neurons, their chemical composition, birth time, neuronal lineage or topological module affiliation. 
+Here, we show that hub neurons of the nematode worm \textit{C. elegans} also show tightly coupled gene expression and that this effect cannot be explained by the spatial proximity or anatomical location of hub neurons, their chemical composition, birth time, neuronal lineage or topological module affiliation. 
 Instead, we find that elevated coexpression is driven by the identity of most hubs of the \textit{C. elegans} connectome as command interneurons, a specific functional class of neurons that regulate locomotion. 
 These findings suggest that coupled gene expression is a highly conserved genomic signature of neural hubs that may be related to the specific functional role that hubs play in broader network function. 
 
@@ -905,7 +905,7 @@ To test whether CGE varies as a function of connectivity, we compared the distri
 (ii) all unconnected pairs of neurons.
 Connected pairs of neurons have more similar expression profiles than unconnected pairs (Wilcoxon rank-sum test, $p = 1.8 \times 10^{-78}$), mirroring previous results in the mesoscale mouse connectome \cite{Fulcher:2016ck}.
 % (Fig.~\ref{fig:S_RFPdistributions}).
-Figure~\ref{fig:coExp}A left shows distributions of $r_\phi$ for:
+Figure~\ref{fig:coExp}A (left) shows distributions of $r_\phi$ for:
 (i) all pairs of neurons that are connected via an electrical gap junctions (474 pairs, after excluding bilateral pairs),
 (ii) all pairs of neurons that are connected via reciprocal (291 pairs) and, 
 (iii) unidirectional chemical synapses (1721 pairs) as well as
@@ -928,10 +928,10 @@ We found no difference in CGE between pairs of neurons connected reciprocally by
  \centering
     \includegraphics[width=0.8\textwidth]{MeanCoexpression5.pdf}
 \caption{{\bf Correlated gene expression varies as a function of connectedness and connection type.}
-\textbf{A} Left: distribution of CGE for (i) pairs of neurons connected by gap junctions, (ii) pairs of neurons connected by reciprocal chemical synapses, (iii) pairs of neurons connected vie unidirectional chemical synapses, (iv) pairs of neurons that are unconnected, shown as a violin plot, with the median of each distribution represented by a horizontal line. 
+\textbf{A} \textit{Left}: distribution of CGE for (i) pairs of neurons connected by gap junctions, (ii) pairs of neurons connected by reciprocal chemical synapses, (iii) pairs of neurons connected by unidirectional chemical synapses, (iv) pairs of neurons that are unconnected, shown as a violin plot, with the median of each distribution represented by a horizontal line. 
 CGE is increased in connected (electrical or chemical; reciprocally or unidirectionally) pairs of neurons relative to unconnected pairs ($p = 1.8 \times 10^{-78}$, Wilcoxon rank sum test).
 Among connected pairs of neurons neurons connected via gap junctions have more similar CGE than connected via chemical synapses (Wilcoxon rank-sum test, $p = 5.4 \times 10^{-22}$). 
-Right: GCE for pairs of neurons labeled as peripheral, feed-in, feed-out, and rich, where hubs are neurons with degree $k>44$. The median of each distribution shown as a horizontal line.
+\textit{Right}: GCE for pairs of neurons labeled as peripheral, feed-in, feed-out, and rich, where hubs are neurons with degree $k>44$. The median of each distribution shown as a horizontal line.
 % Connections between symmetrical (left/right) pairs of neurons are excluded from the analysis.
 CGE is significantly higher between hubs (rich links) compared to feeder ($p = 5 \times 10^{-22}$, Wilcoxon rank sum test) and peripheral ($p = 3.9 \times 10^{-19}$, Wilcoxon rank sum test) links. 
 Feed-out links show significantly higher CGE than both feed-in ($p = 1.9 \times 10^{-6}$, Wilcoxon rank sum test) and peripheral links ($p = 4.5 \times 10^{-12}$, Wilcoxon rank sum test). 
@@ -965,7 +965,7 @@ The median CGE, $\tilde{r}_\phi$, of each of these four connection types is plot
 Correlated gene expression in rich connections increases with degree, $k$, particularly in the topological rich-club regime where hubs are densely interconnected (shaded gray in Fig.~\ref{fig:coExp}B).
 In this topological rich-club regime, both feed-in and feed-out connections exhibit increased CGE relative to peripheral connections, which show the lowest levels of CGE.
 %]][[TODO-AA: Seems like feed-in actually the lowest now??]].
-Full distributions of $r_\phi$ for each edge type at a hub threshold of $k > 44$ are in Fig.~\ref{fig:coExp}B right.
+Full distributions of $r_\phi$ for each edge type at a hub threshold of $k > 44$ are in Fig.~\ref{fig:coExp}A (right).
 
 In summary, our results reveal:
 (i) increased CGE in connected pairs of neurons;
@@ -1008,7 +1008,7 @@ The increase in median hub-hub CGE is strongest for connections involving intern
 Motor neurons show a smaller increase with $k$, although the absence of motor and sensory neurons with high {$k$ makes it difficult to draw firm conclusions.
 However, we do find that CGE is higher for hub-hub pairs of interneurons compared to connections between all pairs of nonhub interneurons (Wilcoxon rank sum test, $p = 5 \times 10^{-21}$), indicating that the high expression of rich pairs cannot simply be explained by the fact that all hub neurons are interneurons (Fig.~\ref{fig:interneuron_dep}C).
 We next investigated whether greater CGE of hub-hub pairs of neurons could be driven by specific anatomical properties of hub interneurons.
-Specifically, we selected a subset of nonhub interneurons that most closely resemble the anatomical properties of hub interneurons, in terms of their position and projection pattern: AVFL, AVFR, AVHL, AVHR, AVKR, AVJL, and AVJR, meaning that their bodies are in similar locations in the head and axons project to similar targets in the tail.
+Specifically, we selected a subset of nonhub interneurons that most closely resemble the anatomical properties of hub interneurons in terms of their position and projection pattern; that is, the cells are in similar locations in the head and their axons project to similar targets in the tail. These neurons were AVFL, AVFR, AVHL, AVHR, AVKR, AVJL, and AVJR. 
 Pairs of hub interneurons show higher median CGE than pairs of anatomically-matched nonhub interneurons, with the difference being at the threshold of statistical significance (Wilcoxon rank sum test, $p = 0.051$), suggesting that the increase in CGE amongst hub interneurons cannot be explained by their anatomical similarity among interneurons.
 
 % ------------------------------------------------------------------------------
@@ -1153,7 +1153,7 @@ Thus, for both types of modular decompositions considered, intra-modular and int
 \paragraph{Lineage distance.}
 %[[should first characterize general relationship between lineage and CGE, and then address hub effect]] -- there is no general lineage-CGE effect in our results.
 The lineage distance between a pair of neurons is defined as the sum of total divisions that have taken place since the most recent common ancestor cell \cite{Pavlovic:2014gx, Sulston1977, Sulston1983}.
-In the mammalian brain, neuronal lineage has been associated with functional properties   \cite{Ciceri2013, Li2012} and connectivity \cite{Yu2012}.
+In the mammalian brain, neuronal lineage has been associated with both functional properties \cite{Ciceri2013, Li2012} as well as connectivity \cite{Yu2012}.
 Moreover, tissue distance (resembling lineage distance on a cellular scale) correlates with gene expression divergence, meaning that tissues from the same branch on the fate map share more similar gene expression patterns in both human and mouse mesoderm as well as ectoderm tissues \cite{Cui2007}.
 Given that the ectoderm eventually differentiates to form the nervous system, this finding suggests a possible relationship between lineage distance and CGE in a microscale neuronal system such as that of \textit{C. elegans}.
 %Therefore, lineage distance could potentially be an informative source of information about the genetic makeup of the \textit{C. elegans} nervous system \cite{Schroter:2017eo}.
@@ -1199,7 +1199,7 @@ Focusing on the 201 neurons born prior to hatching (16 hub and 185 nonhub neuron
 Hub neurons ($k > 44$) consist of thirteen cholinergic neurons, two glutamatergic neurons, and one neuron of unknown neurotransmitter type \cite{Pereira:2015er}.
 We find that neuron pairs show different CGE relationships as a function of their neurotransmitter type, e.g., pairs of GABAergic neurons have high median CGE, $\tilde{r}_\phi = 0.59$, while pairs of glutamatergic neurons exhibit a relatively low median CGE, $\tilde{r}_\phi = 0.08$.
 % TypeConfoundHubs.m
-To determine whether the similarity in CGE between pairs of hub neurons could be explained by their neurotransmitter types, we constructed $10^8$ random sets of sixteen neurons of the same neurotransmitter types as hubs (e.g., thirteen random cholinergic neurons, two random glutamatergic neurons, and one random neuron of unknown neurotransmitter type) and compared the distribution of median CGE of each group to the median CGE of hub neurons as a permutation test.
+To determine whether the similarity in CGE between pairs of hub neurons could be explained by their neurotransmitter types, we constructed $10^8$ random sets of sixteen neurons of the same neurotransmitter types as hubs (e.g., thirteen random cholinergic neurons, two random glutamatergic neurons, and one random neuron of an unknown neurotransmitter type) and compared the distribution of median CGE of each group to the median CGE of hub neurons as a permutation test.
 Neurochemical identity cannot explain the elevated CGE of hub neurons, with hubs displaying a significant increase in median CGE relative to random sets of neurons with the same neurotransmitter types as hubs (permutation test, $p = 2.57\times10^{-6}$).
 % used a permutation test, computing the median CGE between random groups of  across $1\times 10^6$ permutations.
 % The mean CGE between hub neurons is significantly increased relative to random sets of neurons with the same neurotransmitter types as hubs (permutation test, $p = 3.2\times 10^{-5}$).
@@ -1871,7 +1871,7 @@ The matching probability index, $p_\mathrm{match}$, is introduced here as Eq.~\e
 \emph{Top}: Degree distribution.
 \emph{Middle}: Proportion of connections that are `rich' (hub$\rightarrow$hub, red), `feed-in' (nonhub$\rightarrow$hub, yellow), `feed-out' (hub$\rightarrow$nonhub, orange), and `peripheral' (nonhub$\rightarrow$nonhub, blue) as a function of the degree threshold, $k$, used to define hubs.
 Note that at high $k$, most neurons are labeled as nonhubs, and hence the vast majority of connections are `peripheral'.
-\emph{Bottom}: Mean CGE calculated using similarity index from only positive matches, $p_match$, for each connection type as a function of $k$.
+\emph{Bottom}: Mean CGE calculated using similarity index from only positive matches, $p_{match}$, for each connection type as a function of $k$.
 The mean CGE across all network links shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. Fig.~\ref{fig:topology_rich}) is shaded gray.
 Circles indicate a statistically significant increase in CGE in a given link type relative to the rest of the network (one-sided Welch's $t$ test; $p < 0.05$).
 \label{fig:RFPposmatches}
@@ -1890,7 +1890,7 @@ Circles indicate a statistically significant increase in CGE in a given link typ
   \textbf{A} CGE values, $r_\phi$, plotted as a function of Euclidean separation distance for all pairs of neurons within the head (gray dots), with a fitted exponential trend shown in black, $f(x) = A\exp(-\lambda x) + B$.
     \textbf{B} Taking residuals from this trend does not adequately correct the spatial trend.
     Note the artifactual negative correlations indicated with an arrow.
-    This indicates that the trend is not a bulk, isotropic effect in the brain, but may instead be driven primarily by a small number of neuron pairs with high $r_\phi$ at short distances ($\lessapprox 25\mu$m), indicated with a circle in \textbf{A}.
+    This indicates that the trend is not a bulk, isotropic effect, but may instead be driven primarily by a small number of neuron pairs with high $r_\phi$ at short distances ($\lessapprox 25\mu$m), indicated with a circle in \textbf{A}.
     }
   \label{fig:S_head_rphi_correct}
 \end{figure}
