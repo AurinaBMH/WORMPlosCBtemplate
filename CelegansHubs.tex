@@ -662,7 +662,7 @@ and binary gene expression across 948 genes (Fig.~\ref{fig:SchematicRepresentati
 % ------------------------------------------------------------------------------
 \begin{figure}[h]
   \centering
-    \includegraphics[width=1\textwidth]{SchematicIndicators.pdf}
+    %\includegraphics[width=1\textwidth]{SchematicIndicators.pdf}
  \caption{\textbf{Schematic representation of the data used in this study.}
 All plots show neurons (rows) ordered by anterior-posterior along the longitudinal axis, from the top of the head (upper, left) to the bottom of the tail (lower, right).
 %Schematic representation of the \textit{C. elegans} nervous system is shown on the left (scale of the animal is not preserved).
@@ -705,7 +705,7 @@ In order to examine the relationship between connectivity and CGE, we first need
 % <<VisRichConns>>
 \begin{figure}[h]
 \centering
-    \includegraphics[width=1\textwidth]{SpatialPlotAnnotated.png}
+    %\includegraphics[width=1\textwidth]{SpatialPlotAnnotated.png}
 \caption{
 \textbf{Hub neurons are contained within the head and tail of \emph{C. elegans}}.
 Neurons are positioned along the anterior--posterior (horizontal), and dorsal--ventral (vertical) axes, and are colored by type:
@@ -735,7 +735,7 @@ Other connections do not exhibit strong spatial connectivity relationships, i.e.
 % ------------------------------------------------------------------------------
 \begin{figure}[h]
   \centering
-    \includegraphics[width=\textwidth]{connectionProbability.eps}
+    %\includegraphics[width=\textwidth]{connectionProbability.eps}
   \caption{
 \textbf{Connection probability decreases with separation distance within and between the head and tail, and within the body.}
 The connection probability for a pair of neurons as a function of their Euclidean distance is estimated in 10 equiprobable distance bins, shown as a circle (bin centers) and a horizontal line (bin extent).
@@ -781,7 +781,7 @@ Thus, we found no evidence for bulk spatial relationships of $r_\phi$ in the neu
 % ------------------------------------------------------------------------------
 \begin{figure}[h]
   \centering
-    \includegraphics[width=\textwidth]{spatialCoexpressionMain.pdf}
+%    \includegraphics[width=\textwidth]{spatialCoexpressionMain.pdf}
   \caption{
   \textbf{Dependence of correlated gene expression, $r_\phi$, on spatial separation between pairs of neurons.}
   Correlated gene expression, $r_\phi$ (excluding bilateral homologous pairs of neurons), is shown as a function of the pairwise separation distance between pairs of neurons (shown as the mean (solid) $\pm$ standard deviation (dotted) in seven equiprobable distance bins, with extent shown as horizontal bars), for \textbf{A} all pairs of neurons in the head, \textbf{B} all pairs of neurons in the tail, and \textbf{C} all other pairs (labeled).
@@ -824,7 +824,7 @@ Hub interneurons of \emph{C. elegans} are mostly command interneurons and mediat
 % ------------------------------------------------------------------------------
 \begin{figure}[h]
    \centering
-    \includegraphics[width=0.9\textwidth]{topologicalRCall2.pdf}
+%    \includegraphics[width=0.9\textwidth]{topologicalRCall2.pdf}
     % \includegraphics[width=0.7\textwidth]{RCcurve.eps}
  \caption{\textbf{Rich-club organization of the \emph{C. elegans} connectome}.
 % A: Topological rich-club. B: Mixed rich-club. C: Weighted rich-club.
@@ -926,7 +926,7 @@ We found no difference in CGE between pairs of neurons connected reciprocally by
 % ------------------------------------------------------------------------------
  \begin{figure}[h]
  \centering
-    \includegraphics[width=0.8\textwidth]{MeanCoexpression5.pdf}
+%    \includegraphics[width=0.8\textwidth]{MeanCoexpression5.pdf}
 \caption{{\bf Correlated gene expression varies as a function of connectedness and connection type.}
 \textbf{A} \textit{Left}: distribution of CGE for (i) pairs of neurons connected by gap junctions, (ii) pairs of neurons connected by reciprocal chemical synapses, (iii) pairs of neurons connected by unidirectional chemical synapses, (iv) pairs of neurons that are unconnected, shown as a violin plot, with the median of each distribution represented by a horizontal line. 
 CGE is increased in connected (electrical or chemical; reciprocally or unidirectionally) pairs of neurons relative to unconnected pairs ($p = 1.8 \times 10^{-78}$, Wilcoxon rank sum test).
@@ -1017,7 +1017,7 @@ Pairs of hub interneurons show higher median CGE than pairs of anatomically-matc
 % ------------------------------------------------------------------------------
 \begin{figure}[h]
 \centering
-   \includegraphics[width=1\textwidth]{Type_Degree5NEW.pdf}
+%   \includegraphics[width=1\textwidth]{Type_Degree5NEW.pdf}
  \caption{
 \textbf{Correlated gene expression is highest for hub interneurons.}
 \textbf{A} The number of connected neuron pairs involving interneurons (orange), sensory neurons (blue), and motor neurons (green) across degree threshold, $k$, represented as $\log_{10}$(number of links).
@@ -1115,7 +1115,7 @@ Thus, for both types of modular decompositions considered, intra-modular and int
 % ------------------------------------------------------------------------------
 \begin{figure}[!h]
 \centering
-    \includegraphics[width=1\textwidth]{extrasALL2.pdf}
+%    \includegraphics[width=1\textwidth]{extrasALL2.pdf}
  \caption{
  \textbf{Increased CGE of hub neurons is not driven by modularity, neuronal birth time, or cell lineage distance.}
 %\textbf{A: Connection distance}
@@ -1691,11 +1691,15 @@ Based on these numerical experiments, we selected mean square contingency coeffi
 \clearpage
 
 \paragraph*{S1 Table}
-{\bf Hub neurons of the \textit{C. elegans} connectome.}
+{\bf Hub neurons of the \textit{C. elegans} connectome.} Hubs are defined as neurons with degree $k > 44$.
+For each hub, we list (i) the neuron name, (ii) its degree, $k$, (iii) location (`head', `body', or `tail'), and function based on information presented in the wormatlas website \url{http://www.wormatlas.org/}. 
+Neurons are sorted (descending) by degree.}
 \paragraph*{S2 Table}
-{\bf Enrichment results for connected \textit{vs} unconnected neurons.}
+{\bf Enrichment results for connected \textit{vs} unconnected neurons.} Top 15 biological process GO categories enriched in genes with the highest mean increase in CGE for connected neurons compared to unconnected neurons.
+Categories are sorted by $p$-value (ascending).
 \paragraph*{S3 Table.}
-{\bf Enrichment results for links involving hubs.}
+{\bf Enrichment results for links involving hubs.} Top 15 biological process GO categories enriched in genes with the highest increase in CGE for connections involving hub neurons (i.e., rich, feed-in and feed-out connections) compared to connections between nonhub neurons (i.e., in peripheral connections).
+Categories are sorted by $p$-value (ascending).
 
 \begin{table}[h]
 \begin{adjustwidth}{-2.25in}{}
@@ -1841,7 +1845,7 @@ GO:1903508          & positive regulation of nucleic acid-templated transcriptio
 % {\bf Comparing different CGE measures.}
 \begin{figure}[h]
 \centering
-    \includegraphics[width=1\textwidth]{CoexpressionMeasures.pdf}
+%    \includegraphics[width=1\textwidth]{CoexpressionMeasures.pdf}
 \caption{
 \label{fig:S_propOnes}
 \textbf{Dependence of correlated gene expression measures on the proportion of positive annotations.}
@@ -1865,7 +1869,7 @@ By contrast, $r_\phi$, which is used through this work, and our probability-base
 % {\bf Average CGE for rich, feeder and peripheral links as a function of degree.}
 \begin{figure}[!h]
 \centering
-    \includegraphics[width=1\textwidth]{meanCoexpressionCoXALL.pdf}
+%    \includegraphics[width=1\textwidth]{meanCoexpressionCoXALL.pdf}
 \caption{
 \textbf{Correlated gene expression measured using the positive matching probability index.}
 The matching probability index, $p_\mathrm{match}$, is introduced here as Eq.~\eqref{eqn:positiveMatch}.
@@ -1884,7 +1888,7 @@ Circles indicate a statistically significant increase in CGE in a given link typ
 % ------------------------------------------------------------------------------
 \begin{figure}[h]
   \centering
-    \includegraphics[width=.9\textwidth]{head_rphi_correct.eps}
+%    \includegraphics[width=.9\textwidth]{head_rphi_correct.eps}
   \caption{
   \textbf{Correcting for spatial effects in CGE data using a bulk exponential trend.}
   Here we consider correlated gene expression in the head, where the strongest spatial relationship exists (cf. Fig.~\ref{fig:spatialCoexpressionMain}).
@@ -1956,7 +1960,7 @@ Circles indicate a statistically significant increase in CGE in a given link typ
 % \paragraph*{S7 Fig.}
 \begin{figure}[h]
 \centering
-    \includegraphics[width=1\textwidth]{weightedRCALL.pdf}
+%    \includegraphics[width=1\textwidth]{weightedRCALL.pdf}
     \caption{
     \textbf{Weighted and unweighted rich-club analyses yield similar results.}
     \textbf{A} Degree distribution of the \emph{C. elegans} connectome.
@@ -2029,7 +2033,7 @@ Circles indicate a statistically significant increase in CGE in a given link typ
 % ------------------------------------------------------------------------------
 \begin{figure}[h]
 \centering
-    \includegraphics[width=1\textwidth]{connectionProportionDivision.eps}
+%    \includegraphics[width=1\textwidth]{connectionProportionDivision.eps}
 \caption{
 \textbf{Rich and non-rich connections in the \emph{C. elegans} connectome, categorized by the  anatomical location of the source and target neurons.}
 \label{fig:S_connectionProportion}
