@@ -15,7 +15,7 @@ White JG, Southgate E, Thomson JN.
 Varshney LR, Chen BL, Paniagua E, Hall DH, Chklovskii DB.
 \newblock Structural properties of the Caenorhabditis elegans neuronal
   network.
-\newblock PLoS computational biology. 2011;7(2):e1001066.
+\newblock PLoS Comp Biol. 2011;7(2):e1001066.
 \newblock doi:{10.1371/journal.pcbi.1001066}.
 
 \bibitem{Chiang:2011}
@@ -28,7 +28,7 @@ Chiang AS, Lin CY, Chuang CC, Chang HM, Hsieh CH, Yeh CW, et~al.
 Shih CT, Sporns O, Yuan SL, Su TS, Lin YJ, Chuang CC, et~al.
 \newblock {Connectomics-Based Analysis of Information Flow in the Drosophila
   Brain}.
-\newblock Current Biology. 2015;25(10):1249--1258.
+\newblock Curr Biol. 2015;25(10):1249--1258.
 \newblock doi:{10.1016/j.cub.2015.03.021}.
 
 \bibitem{Wanner:2016ea}
@@ -74,7 +74,7 @@ Markov NT, Ercsey-Ravasz MM, Gomes ARR, Lamy C, Magrou L, Vezoli J, et~al.
 Stephan KE, Kamper L, Bozkurt A, Burns GA, Young MP, K{\"o}tter R.
 \newblock Advanced database methodology for the Collation of Connectivity data
   on the Macaque brain (CoCoMac).
-\newblock Philos Trans Roy Soc Lond B: Biol Sci. 2001;356(1412):1159--1186.
+\newblock Philos Trans Roy Soc B: Biol Sci. 2001;356(1412):1159--1186.
 
 \bibitem{Hagmann:2008gda}
 Hagmann P, Cammoun L, Gigandet X, Meuli R, Honey CJ, Wedeen VJ, et~al.
@@ -132,7 +132,7 @@ Bassett DS, Greenfield DL, Meyer-Lindenberg A, Weinberger DR, Moore SW,
   Bullmore ET.
 \newblock {Efficient Physical Embedding of Topologically Complex Information
   Processing Networks in Brains and Computer Circuits}.
-\newblock PLoS computational biology. 2010;6(4):e1000748.
+\newblock PLoS Comp Biol. 2010;6(4):e1000748.
 \newblock doi:{10.1371/journal.pcbi.1000748}.
 
 \bibitem{Betzel:2016jt}
@@ -166,7 +166,7 @@ de~Reus MA, van~den Heuvel MP.
 \bibitem{Towlson2013}
 Towlson EK, V{\'{e}}rtes PE, Ahnert SE, Schafer WR, Bullmore ET.
 \newblock {The rich club of the C. elegans neuronal connectome.}
-\newblock Journal of Neuroscience. 2013;33(15):6380--7.
+\newblock J Neurosci. 2013;33(15):6380--7.
 \newblock doi:{10.1523/JNEUROSCI.3784-12.2013}.
 
 \bibitem{Shih:2015cu}
@@ -178,7 +178,7 @@ Shih CT, Sporns O, Yuan SL, Su TS, Lin YJ, Chuang CC, et~al.
 \bibitem{Fornito2015}
 Fornito A, Zalesky A, Breakspear M.
 \newblock {The connectomics of brain disorders}.
-\newblock Nature Reviews Neuroscience. 2015;16(3):159--172.
+\newblock Nat Rev Neurosci. 2015;16(3):159--172.
 \newblock doi:{10.1038/nrn3901}.
 
 \bibitem{vandenHeuvel:2013ij}
@@ -254,8 +254,7 @@ Collin G, Sporns O, Mandl RCW, van~den Heuvel MP.
 Liang X, Zou Q, He Y, Yang Y.
 \newblock {Coupling of functional connectivity and regional cerebral blood flow
   reveals a physiological basis for network hubs of the human brain.}
-\newblock Proceedings of the National Academy of Sciences.
-  2013;110(5):1929--34.
+\newblock Proc Natl Acad Sci USA. 2013;110(5):1929--34.
 \newblock doi:{10.1073/pnas.1214900110}.
 
 \bibitem{Lennie:2003ia}
@@ -273,7 +272,7 @@ V{\'{e}}rtes PE, Rittman T, Whitaker KJ, Romero-Garcia R, V{\'{a}}{\v{s}}a F,
   Kitzbichler MG, et~al.
 \newblock {Gene transcription profiles associated with inter-modular hubs and
   connection distance in human functional magnetic resonance imaging networks}.
-\newblock Philosophical Transactions of the Royal Society B.
+\newblock Phil Trans Roy Soc B.
   2016;371(1705):735--769.
 \newblock doi:{10.1098/rstb.2015.0362}.
 
@@ -337,13 +336,13 @@ Pan RK, Chatterjee N, Sinha S.
 Choe Y, McCormick B, Koh W.
 \newblock Network connectivity analysis on the temporally augmented C. elegans
   web: A pilot study.
-\newblock In: Soc. Neurosci. Abstr.. vol.~30; 2004. p. 921.9.
+\newblock In: Soc. Neurosci. Abstr. vol.~30; 2004. p. 921.9.
 
 \bibitem{Varier2011}
 Varier S, Kaiser M, Koh W, Meuli R, Honey C.
 \newblock {Neural Development Features: Spatio-Temporal Development of the
   Caenorhabditis elegans Neuronal Network}.
-\newblock PLoS Computational Biology. 2011;7(1):e1001044.
+\newblock PLoS Comp Biol. 2011;7(1):e1001044.
 \newblock doi:{10.1371/journal.pcbi.1001044}.
 
 \bibitem{Harris:2009kd}
@@ -389,7 +388,7 @@ Kim JS, Kaiser M.
 \newblock {From Caenorhabditis elegans to the human connectome: a specific
   modular organization increases metabolic, functional and developmental
   efficiency.}
-\newblock Philosophical transactions of the Royal Society of London Series B,
+\newblock Phil Trans Roy Soc B,
   Biological sciences. 2014;369(1653).
 \newblock doi:{10.1098/rstb.2013.0529}.
 
@@ -426,7 +425,7 @@ Warrens MJ.
 \bibitem{Ashburner2000}
 Ashburner M, Ball CA, Blake JA, Botstein D, Butler H, Cherry JM, et~al.
 \newblock {Gene Ontology: Tool for The Unification of Biology}.
-\newblock Nature Genetics. 2000;25(1):25--29.
+\newblock Nat. Gen. 2000;25(1):25--29.
 \newblock doi:{10.1038/75556}.
 
 \bibitem{Benjamini:1995cd}
@@ -518,7 +517,7 @@ Tsalik EL, Hobert O.
 \bibitem{Opsahl2008}
 Opsahl T, Colizza V, Panzarasa P, Ramasco JJ.
 \newblock {Prominence and control: the weighted rich-club effect.}
-\newblock Physical review letters. 2008;101(16):168702.
+\newblock Phys Rev Lett. 2008;101(16):168702.
 \newblock doi:{10.1103/PhysRevLett.101.168702}.
 
 \bibitem{Sporns2016}
@@ -539,7 +538,7 @@ Richiardi J, Altmann A, Milazzo AC, Chang C, Chakravarty MM, Banaschewski T,
 Ciceri G, Dehorter N, Sols I, Huang ZJ, Maravall M, Mar{\'{i}}n O.
 \newblock {Lineage-specific laminar organization of cortical GABAergic
   interneurons}.
-\newblock Nature Neuroscience. 2013;16(9):1199--1210.
+\newblock Nat Neurosci. 2013;16(9):1199--1210.
 \newblock doi:{10.1038/nn.3485}.
 
 \bibitem{Li2012}
@@ -591,7 +590,7 @@ Fakhry A, Ji S.
 French L, Pavlidis P.
 \newblock {Relationships between gene expression and brain wiring in the adult
   rodent brain.}
-\newblock PLoS computational biology. 2011;7(1):e1001049.
+\newblock PLoS Comp Biol. 2011;7(1):e1001049.
 \newblock doi:{10.1371/journal.pcbi.1001049}.
 
 \bibitem{Starich2001}
@@ -625,8 +624,7 @@ Leung-Hagesteijn C, Spence AM, Stern BD, Zhou Y, Su MW, Hedgecock EM, et~al.
 Ikeda DD, Duan Y, Matsuki M, Kunitomo H, Hutter H, Hedgecock EM, et~al.
 \newblock {CASY-1, an ortholog of calsyntenins/alcadeins, is essential for
   learning in Caenorhabditis elegans}.
-\newblock Proceedings of the National Academy of Sciences.
-  2008;105(13):5260--5265.
+\newblock Proc Natl Acad Sci USA. 2008;105(13):5260--5265.
 \newblock doi:{10.1073/pnas.0711894105}.
 
 \bibitem{Wu2006}
@@ -729,7 +727,7 @@ Roberts JA, Perry A, Lord AR, Roberts G, Mitchell PB, Smith RE, et~al.
 Kim S, Kim H, Kralik JD, Jeong J, Bargmann C, Aballay A.
 \newblock {Vulnerability-Based Critical Neurons, Synapses, and Pathways in the
   Caenorhabditis elegans Connectome}.
-\newblock PLOS Computational Biology. 2016;12(8):e1005084.
+\newblock PLoS Comp Biol. 2016;12(8):e1005084.
 \newblock doi:{10.1371/journal.pcbi.1005084}.
 
 \bibitem{Mesulam1998}
@@ -764,7 +762,7 @@ Parkes L, Fulcher BD, Y{\"u}cel M, Fornito A.
 Kaufman A, Dror G, Meilijson I, Ruppin E.
 \newblock {Gene expression of Caenorhabditis elegans neurons carries
   information on their synaptic connectivity.}
-\newblock PLoS computational biology. 2006;2(12):e167.
+\newblock PLoS Comp Biol. 2006;2(12):e167.
 \newblock doi:{10.1371/journal.pcbi.0020167}.
 
 \bibitem{Alstott2014}
