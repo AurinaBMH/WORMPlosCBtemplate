@@ -3,39 +3,39 @@
 \bibitem{vandenHeuvel:2016eg}
 van~den Heuvel MP, Bullmore ET, Sporns O.
 \newblock {Comparative Connectomics}.
-\newblock Trends Cogn Sci. 2016;0(0).
+\newblock Trends in Cognitive Sciences 2016;0(0).
 
 \bibitem{White:1986tx}
 White JG, Southgate E, Thomson JN.
 \newblock {The structure of the nervous system of the nematode Caenorhabditis
   elegans}.
-\newblock Trans Roy Soc Lond B Biol. 1986;.
+\newblock Philosophical Transactions of the Royal Society B: Biological Sciences 1986;.
 
 \bibitem{Varshney2011}
 Varshney LR, Chen BL, Paniagua E, Hall DH, Chklovskii DB.
 \newblock Structural properties of the Caenorhabditis elegans neuronal
   network.
-\newblock PLoS Comp Biol. 2011;7(2):e1001066.
+\newblock PLOS Computational Biology. 2011;7(2):e1001066.
 \newblock doi:{10.1371/journal.pcbi.1001066}.
 
 \bibitem{Chiang:2011}
 Chiang AS, Lin CY, Chuang CC, Chang HM, Hsieh CH, Yeh CW, et~al.
 \newblock Three-dimensional reconstruction of brain-wide wiring networks in
   {Drosophila} at single-cell resolution.
-\newblock Curr Biol. 2011;21(1):1--11.
+\newblock Current Biology. 2011;21(1):1--11.
 
 \bibitem{Shih2015}
 Shih CT, Sporns O, Yuan SL, Su TS, Lin YJ, Chuang CC, et~al.
 \newblock {Connectomics-Based Analysis of Information Flow in the Drosophila
   Brain}.
-\newblock Curr Biol. 2015;25(10):1249--1258.
+\newblock Current Biology. 2015;25(10):1249--1258.
 \newblock doi:{10.1016/j.cub.2015.03.021}.
 
 \bibitem{Wanner:2016ea}
 Wanner AA, Genoud C, Masudi T, Siksou L, Friedrich RW.
 \newblock {Dense EM-based reconstruction of the interglomerular projectome in
   the zebrafish olfactory bulb}.
-\newblock Nat Neurosci. 2016;19(6):816--825.
+\newblock Nature Neuroscience. 2016;19(6):816--825.
 
 \bibitem{Hildebrand:2017iu}
 Hildebrand DGC, Cicconet M, Torres RM, Choi W, Quan TM, Moon J, et~al.
@@ -57,29 +57,29 @@ Zingg B, Hintiryan H, Gou L, Song MY, Bay M, Bienkowski MS, et~al.
 Bota M, Sporns O, Swanson LW.
 \newblock Architecture of the cerebral cortical association connectome
   underlying cognition.
-\newblock Proc Natl Acad Sci USA. 2015;112(16):E2093--E2101.
+\newblock Proceedings of the National Academy of Sciences. 2015;112(16):E2093--E2101.
 
 \bibitem{scannell1995}
 Scannell JW, Blakemore C, Young MP.
 \newblock Analysis of connectivity in the cat cerebral cortex.
-\newblock J Neurosci. 1995;15(2):1463--1483.
+\newblock Journal of Neuroscience. 1995;15(2):1463--1483.
 
 \bibitem{Markov:2012wu}
 Markov NT, Ercsey-Ravasz MM, Gomes ARR, Lamy C, Magrou L, Vezoli J, et~al.
 \newblock {A Weighted and Directed Interareal Connectivity Matrix for Macaque
   Cerebral Cortex}.
-\newblock Cereb Cortex. 2012;24(1):bhs270--36.
+\newblock Cerebral Cortex. 2012;24(1):bhs270--36.
 
 \bibitem{stephan2001}
 Stephan KE, Kamper L, Bozkurt A, Burns GA, Young MP, K{\"o}tter R.
 \newblock Advanced database methodology for the Collation of Connectivity data
   on the Macaque brain (CoCoMac).
-\newblock Philos Trans Roy Soc B: Biol Sci. 2001;356(1412):1159--1186.
+\newblock Philosophical Transactions of the Royal Society B: Biological Sciences 2001;356(1412):1159--1186.
 
 \bibitem{Hagmann:2008gda}
 Hagmann P, Cammoun L, Gigandet X, Meuli R, Honey CJ, Wedeen VJ, et~al.
 \newblock {Mapping the Structural Core of Human Cerebral Cortex}.
-\newblock PLoS Biol. 2008;6(7):e159.
+\newblock PLoS Biology. 2008;6(7):e159.
 
 \bibitem{VanEssen2013}
 {Van Essen} DC, Smith SM, Barch DM, Behrens TEJ, Yacoub E, Ugurbil K.
@@ -91,17 +91,17 @@ Hagmann P, Cammoun L, Gigandet X, Meuli R, Honey CJ, Wedeen VJ, et~al.
 Bullmore ET, Sporns O.
 \newblock {Complex brain networks: graph theoretical analysis of structural and
   functional systems}.
-\newblock Nat Rev Neurosci. 2009;10(3):186--198.
+\newblock Nature Reviews Neuroscience. 2009;10(3):186--198.
 
 \bibitem{Bullmore:2012vl}
 Bullmore ET, Sporns O.
 \newblock {The economy of brain network organization}.
-\newblock Nat Rev Neurosci. 2012;13:337--349.
+\newblock Nature Reviews Neuroscience. 2012;13:337--349.
 
 \bibitem{Sporns2011}
 Sporns O.
 \newblock {The non-random brain: efficiency, economy, and complex dynamics.}
-\newblock Frontiers in computational neuroscience. 2011;5:5.
+\newblock Frontiers in Computational Neuroscience. 2011;5:5.
 \newblock doi:{10.3389/fncom.2011.00005}.
 
 \bibitem{VandenHeuvel2016}
@@ -115,7 +115,7 @@ van~den Heuvel MP, Bullmore ET, Sporns O, Campbell AW, Brodmann K, von Bonin G,
 Schr{\"o}ter M, Paulsen O, Bullmore E.
 \newblock {Micro-connectomics: probing the organization of neuronal networks at
   the cellular scale}.
-\newblock Nat Rev Neurosci. 2017; p. 1--16.
+\newblock Nature Reviews Neuroscience. 2017; p. 1--16.
 
 \bibitem{fornito2016book}
 Fornito A, Zalesky A, Bullmore E.
@@ -125,14 +125,14 @@ Fornito A, Zalesky A, Bullmore E.
 \bibitem{Meunier:2010hq}
 Meunier D, Lambiotte R, Bullmore ET.
 \newblock {Modular and Hierarchically Modular Organization of Brain Networks}.
-\newblock Front Psychiat. 2010;4:1--11.
+\newblock Frontiers in Psychiatry. 2010;4:1--11.
 
 \bibitem{Bassett2010}
 Bassett DS, Greenfield DL, Meyer-Lindenberg A, Weinberger DR, Moore SW,
   Bullmore ET.
 \newblock {Efficient Physical Embedding of Topologically Complex Information
   Processing Networks in Brains and Computer Circuits}.
-\newblock PLoS Comp Biol. 2010;6(4):e1000748.
+\newblock PLOS Computational Biology. 2010;6(4):e1000748.
 \newblock doi:{10.1371/journal.pcbi.1000748}.
 
 \bibitem{Betzel:2016jt}
@@ -144,48 +144,48 @@ Betzel RF, Avena-Koenigsberger A, Go{\~n}i J, He Y, de~Reus MA, Griffa A,
 \bibitem{vandenHeuvel:2013ge}
 van~den Heuvel MP, Sporns O.
 \newblock {Network hubs in the human brain}.
-\newblock Trends Cogn Sci. 2013;17(12):683--696.
+\newblock Trends in Cognitive Sciences 2013;17(12):683--696.
 
 \bibitem{vandenHeuvel:2011he}
 van~den Heuvel MP, Sporns O.
 \newblock Rich-Club Organization of the Human Connectome.
-\newblock J Neurosci. 2011;31(44):15775--15786.
+\newblock Journal of Neuroscience. 2011;31(44):15775--15786.
 
 \bibitem{ZamoraLopez:2010hy}
 Zamora-L{\'o}pez G, Zhou C, Kurths J.
 \newblock {Cortical Hubs Form a Module for Multisensory Integration on Top of
   the Hierarchy of Cortical Networks}.
-\newblock Front Neuroinf. 2010;4:1.
+\newblock Frontiers in Neuroinformatics. 2010;4:1.
 
 \bibitem{deReus:2013cy}
 de~Reus MA, van~den Heuvel MP.
 \newblock {Rich Club Organization and Intermodule Communication in the Cat
   Connectome}.
-\newblock J Neurosci. 2013;33(32):12929--12939.
+\newblock Journal of Neuroscience. 2013;33(32):12929--12939.
 
 \bibitem{Towlson2013}
 Towlson EK, V{\'{e}}rtes PE, Ahnert SE, Schafer WR, Bullmore ET.
 \newblock {The rich club of the C. elegans neuronal connectome.}
-\newblock J Neurosci. 2013;33(15):6380--7.
+\newblock Journal of Neuroscience. 2013;33(15):6380--7.
 \newblock doi:{10.1523/JNEUROSCI.3784-12.2013}.
 
 \bibitem{Shih:2015cu}
 Shih CT, Sporns O, Yuan SL, Su TS, Lin YJ, Chuang CC, et~al.
 \newblock Connectomics-Based Analysis of Information Flow in the {Drosophila}
   Brain.
-\newblock Curr Biol. 2015;.
+\newblock Current Biology. 2015;.
 
 \bibitem{Fornito2015}
 Fornito A, Zalesky A, Breakspear M.
 \newblock {The connectomics of brain disorders}.
-\newblock Nat Rev Neurosci. 2015;16(3):159--172.
+\newblock Nature Reviews Neuroscience. 2015;16(3):159--172.
 \newblock doi:{10.1038/nrn3901}.
 
 \bibitem{vandenHeuvel:2013ij}
 van~den Heuvel MP, Sporns O.
 \newblock {An Anatomical Substrate for Integration among Functional Networks in
   Human Cortex}.
-\newblock J Neurosci. 2013;33(36):14489--14500.
+\newblock Journal of Neuroscience. 2013;33(36):14489--14500.
 
 \bibitem{Crossley2014}
 Crossley NA, Mechelli A, Scott J, Carletti F, Fox PT, McGuire P, et~al.
@@ -199,12 +199,12 @@ Crossley NA, Mechelli A, V{\'e}rtes PE, Winton-Brown TT, Patel AX, Ginestet CE,
   et~al.
 \newblock {Cognitive relevance of the community structure of the human brain
   functional coactivation network}.
-\newblock Proc Natl Acad Sci USA. 2013;110(28):11583--11588.
+\newblock Proceedings of the National Academy of Sciences. 2013;110(28):11583--11588.
 
 \bibitem{vandenHeuvel:2012kh}
 van~den Heuvel MP, Kahn RS, Go{\~n}i J, Sporns O.
 \newblock High-cost, high-capacity backbone for global brain communication.
-\newblock Proc Natl Acad Sci USA. 2012;109(28):11372--11377.
+\newblock Proceedings of the National Academy of Sciences. 2012;109(28):11372--11377.
 
 \bibitem{Harriger2012}
 Harriger L, van~den Heuvel MP, Sporns O.
@@ -217,7 +217,7 @@ Harriger L, van~den Heuvel MP, Sporns O.
 Mi{\v s}i{\'c} B, Sporns O, McIntosh AR.
 \newblock {Communication Efficiency and Congestion of Signal Traffic in
   Large-Scale Brain Networks}.
-\newblock PLoS Comp Biol. 2014;10(1):e1003427.
+\newblock PLOS Computational Biology. 2014;10(1):e1003427.
 
 \bibitem{Misic:2015jw}
 Mi{\v s}i{\'c} B, Betzel RF, Nematzadeh A, Go{\~n}i J, Griffa A, Hagmann P,
@@ -237,30 +237,30 @@ van~den Heuvel MP, Scholtens LH, de~Reus MA.
 Fulcher BD, Fornito A.
 \newblock {A transcriptional signature of hub connectivity in the mouse
   connectome}.
-\newblock Proc Natl Acad Sci USA. 2016;113(5):1435--1440.
+\newblock Proceedings of the National Academy of Sciences. 2016;113(5):1435--1440.
 
 \bibitem{Tomasi:2013kl}
 Tomasi D, Wang GJ, Volkow ND.
 \newblock {Energetic cost of brain functional connectivity}.
-\newblock Proc Natl Acad Sci USA. 2013;110(33):13642--13647.
+\newblock Proceedings of the National Academy of Sciences. 2013;110(33):13642--13647.
 
 \bibitem{Collin:2014kq}
 Collin G, Sporns O, Mandl RCW, van~den Heuvel MP.
 \newblock {Structural and Functional Aspects Relating to Cost and Benefit of
   Rich Club Organization in the Human Cerebral Cortex}.
-\newblock Cereb Cortex. 2014;24(9):2258--2267.
+\newblock Cerebral Cortex. 2014;24(9):2258--2267.
 
 \bibitem{Liang2013a}
 Liang X, Zou Q, He Y, Yang Y.
 \newblock {Coupling of functional connectivity and regional cerebral blood flow
   reveals a physiological basis for network hubs of the human brain.}
-\newblock Proc Natl Acad Sci USA. 2013;110(5):1929--34.
+\newblock Proceedings of the National Academy of Sciences. 2013;110(5):1929--34.
 \newblock doi:{10.1073/pnas.1214900110}.
 
 \bibitem{Lennie:2003ia}
 Lennie P.
 \newblock {The Cost of Cortical Computation}.
-\newblock Curr Biol. 2003;13(6):493--497.
+\newblock Current Biology. 2003;13(6):493--497.
 
 \bibitem{Laughlin:2003vu}
 Laughlin SB, Sejnowski TJ.
@@ -272,7 +272,7 @@ V{\'{e}}rtes PE, Rittman T, Whitaker KJ, Romero-Garcia R, V{\'{a}}{\v{s}}a F,
   Kitzbichler MG, et~al.
 \newblock {Gene transcription profiles associated with inter-modular hubs and
   connection distance in human functional magnetic resonance imaging networks}.
-\newblock Phil Trans Roy Soc B.
+\newblock Philosophical Transactions of the Royal Society B: Biological Sciences
   2016;371(1705):735--769.
 \newblock doi:{10.1098/rstb.2015.0362}.
 
@@ -283,7 +283,7 @@ Riddle DL, Blumenthal T, Meyer BJ, Priess JR. {C. elegans II}; 1997.
 \bibitem{Chen:2006ie}
 Chen BL, Hall DH, Chklovskii DB.
 \newblock {Wiring optimization can relate neuronal structure and function}.
-\newblock Proc Natl Acad Sci USA. 2006;103(12):4723--4728.
+\newblock Proceedings of the National Academy of Sciences. 2006;103(12):4723--4728.
 
 \bibitem{WormAtlas}
 Altun ZF, Herndon LA, Wolkow CA, Crocker C, Lints R, Hall DH. WormAtlas;
@@ -293,26 +293,26 @@ Altun ZF, Herndon LA, Wolkow CA, Crocker C, Lints R, Hall DH. WormAtlas;
 \bibitem{Kashtan:2004ev}
 Kashtan N, Itzkovitz S, Milo R, Alon U.
 \newblock {Topological generalizations of network motifs}.
-\newblock Phys Rev E. 2004;70(3):031909.
+\newblock Physical Review E. 2004;70(3):031909.
 
 \bibitem{Azulay:2016cg}
 Azulay A, Itskovits E, Zaslaver A.
 \newblock {The C. elegans Connectome Consists of Homogenous Circuits with
   Defined Functional Roles}.
-\newblock PLoS Comp Biol. 2016;12(9):e1005021.
+\newblock PLOS Computational Biology. 2016;12(9):e1005021.
 
 \bibitem{Kim:2016gl}
 Kim S, Kim H, Kralik JD, Jeong J.
 \newblock Vulnerability-Based Critical Neurons, Synapses, and Pathways in the
   \emph{Caenorhabditis elegans} Connectome.
-\newblock PLoS Comp Biol. 2016;12(8):e1005084.
+\newblock PLOS Computational Biology. 2016;12(8):e1005084.
 
 \bibitem{Kim:2014bu}
 Kim JS, Kaiser M.
 \newblock {From Caenorhabditis elegans to the human connectome: a specific
   modular organization increases metabolic, functional and developmental
   efficiency}.
-\newblock Phil Trans Roy Soc B. 2014;369(1653):20130529--20130529.
+\newblock Philosophical Transactions of the Royal Society B: Biological Sciences. 2014;369(1653):20130529--20130529.
 
 \bibitem{Pavlovic:2014gx}
 Pavlovic DM, V{\'e}rtes PE, Bullmore ET, Schafer WR, Nichols TE.
@@ -342,7 +342,7 @@ Choe Y, McCormick B, Koh W.
 Varier S, Kaiser M, Koh W, Meuli R, Honey C.
 \newblock {Neural Development Features: Spatio-Temporal Development of the
   Caenorhabditis elegans Neuronal Network}.
-\newblock PLoS Comp Biol. 2011;7(1):e1001044.
+\newblock PLOS Computational Biology. 2011;7(1):e1001044.
 \newblock doi:{10.1371/journal.pcbi.1001044}.
 
 \bibitem{Harris:2009kd}
@@ -360,17 +360,17 @@ Pereira L, Kratsios P, Serrano-Saiz E, Sheftel H, Mayo AE, Hall DH, et~al.
 Sulston JE, Horvitz HR.
 \newblock {Post-embryonic cell lineages of the nematode, Caenorhabditis
   elegans.}
-\newblock Developmental biology. 1977;56(1):110--56.
+\newblock Developmental Biology. 1977;56(1):110--56.
 
 \bibitem{Sulston1983}
 Sulston JE, Schierenberg E, White JG, Thomson JN.
 \newblock {The embryonic cell lineage of the nematode Caenorhabditis elegans.}
-\newblock Developmental biology. 1983;100(1):64--119.
+\newblock Developmental Biology. 1983;100(1):64--119.
 
 \bibitem{Colizza:2006kz}
 Colizza V, Flammini A, Serrano M, Vespignani A.
 \newblock {Detecting rich-club ordering in complex networks}.
-\newblock Nat Phys. 2006;2(2):110--115.
+\newblock Nature Physics. 2006;2(2):110--115.
 
 \bibitem{Maslov:2002hi}
 Maslov S, Sneppen K.
@@ -388,8 +388,7 @@ Kim JS, Kaiser M.
 \newblock {From Caenorhabditis elegans to the human connectome: a specific
   modular organization increases metabolic, functional and developmental
   efficiency.}
-\newblock Phil Trans Roy Soc B,
-  Biological sciences. 2014;369(1653).
+\newblock Philosophical Transactions of the Royal Society B: Biological Sciences. 2014;369(1653).
 \newblock doi:{10.1098/rstb.2013.0529}.
 
 \bibitem{Achacoso:1992ay}
@@ -407,7 +406,7 @@ Pavlovic DM, V{\'{e}}rtes PE, Bullmore ET, Schafer WR, Nichols TE.
 \bibitem{Blondel:2008do}
 Blondel VD, Guillaume JL, Lambiotte R, Lefebvre E.
 \newblock {Fast unfolding of communities in large networks}.
-\newblock J Stat Mech. 2008;2008(10):P10008.
+\newblock Journal of Statistical Mechanics. 2008;2008(10):P10008.
 
 \bibitem{Lancichinetti2012}
 Lancichinetti A, Fortunato S, Thomson JN, Brenner S, Moon S.
@@ -425,19 +424,19 @@ Warrens MJ.
 \bibitem{Ashburner2000}
 Ashburner M, Ball CA, Blake JA, Botstein D, Butler H, Cherry JM, et~al.
 \newblock {Gene Ontology: Tool for The Unification of Biology}.
-\newblock Nat. Gen. 2000;25(1):25--29.
+\newblock Nature Genetics. 2000;25(1):25--29.
 \newblock doi:{10.1038/75556}.
 
 \bibitem{Benjamini:1995cd}
 Benjamini Y, Hochberg Y.
 \newblock Controlling the False Discovery Rate: A Practical and Powerful
   Approach to Multiple Testing.
-\newblock J Roy Stat Soc B. 1995;57(1):289--300.
+\newblock Journal of the Royal Statistical Society. Series B. 1995;57(1):289--300.
 
 \bibitem{Gillis2010}
 Gillis J, Mistry M, Pavlidis P.
 \newblock {Gene function analysis in complex data sets using ErmineJ.}
-\newblock Nature protocols. 2010;5(6):1148--59.
+\newblock Nature Protocols. 2010;5(6):1148--59.
 \newblock doi:{10.1038/nprot.2010.78}.
 
 \bibitem{Zoubarev2012}
@@ -452,12 +451,12 @@ Zoubarev A, Hamer KM, Keshav KD, {Luke Mccarthy} E, Santos JRC, Van~rossum T,
 Krienen FM, Yeo BTT, Ge T, Buckner RL, Sherwood CC.
 \newblock {Transcriptional profiles of supragranular-enriched genes associate
   with corticocortical network architecture in the human brain.}
-\newblock Proc Natl Acad Sci USA. 2016;113(4):E469--78.
+\newblock Proceedings of the National Academy of Sciences. 2016;113(4):E469--78.
 
 \bibitem{Pantazatos:2016ir}
 Pantazatos SP, Li X.
 \newblock Commentary: {BRAIN NETWORKS}. Correlated gene expression supports
-  synchronous activity in brain networks. Science 348, 1241-4.
+  synchronous activity in brain networks. Science. 348, 1241-4.
 \newblock bioRxiv. 2016; p. 079202.
 
 \bibitem{Richiardi:2017hb}
@@ -472,12 +471,12 @@ Horv{\'a}t S, G{\u{a}}m{\u{a}}nuț R, Ercsey-Ravasz M, Magrou L,
   G{\u{a}}m{\u{a}}nuț B, Van~Essen DC, et~al.
 \newblock Spatial Embedding and Wiring Cost Constrain the Functional Layout of
   the Cortical Network of Rodents and Primates.
-\newblock PLoS Biol. 2016;14(7):e1002512.
+\newblock PLoS Biology. 2016;14(7):e1002512.
 
 \bibitem{Wang:2016gg}
 Wang XJ, Kennedy H.
 \newblock {Brain structure and dynamics across scales: in search of rules}.
-\newblock Curr Opin Neurobiol. 2016;37:92--98.
+\newblock Current Opinion in Neurobiology. 2016;37:92--98.
 
 \bibitem{Markov:2013jo}
 Markov NT, Ercsey-Ravasz M, Van~Essen DC, Knoblauch K, Toroczkai Z, Kennedy H.
@@ -488,36 +487,36 @@ Markov NT, Ercsey-Ravasz M, Van~Essen DC, Knoblauch K, Toroczkai Z, Kennedy H.
 Henderson JA, Robinson PA.
 \newblock Relations Between the Geometry of Cortical Gyrification and
   White-Matter Network Architecture.
-\newblock Brain Conn. 2014;4(2):112--130.
+\newblock Brain Connectivity. 2014;4(2):112--130.
 
 \bibitem{Noori:2017ce}
 Noori HR, Sch{\"o}ttler J, Ercsey-Ravasz M, Cosa-Linan A, Varga M, Toroczkai Z,
   et~al.
 \newblock {A multiscale cerebral neurochemical connectome of the rat brain}.
-\newblock PLoS Biol. 2017;15(7):e2002612.
+\newblock PLoS Biology. 2017;15(7):e2002612.
 
 \bibitem{Levy:2012dy}
 Levy RB, Reyes AD.
 \newblock Spatial Profile of Excitatory and Inhibitory Synaptic Connectivity in
   Mouse Primary Auditory Cortex.
-\newblock J Neurosci. 2012;32(16):5609--5619.
+\newblock Journal of Neuroscience. 2012;32(16):5609--5619.
 
 \bibitem{Goulas:2016hr}
 Goulas A, Uylings HBM, Hilgetag CC.
 \newblock {Principles of ipsilateral and contralateral cortico-cortical
   connectivity in the mouse}.
-\newblock Brain Struct Funct. 2016;252:1--15.
+\newblock Brain Structure and Function. 2016;252:1--15.
 
 \bibitem{tsalik2003}
 Tsalik EL, Hobert O.
 \newblock Functional mapping of neurons that control locomotory behavior in
   Caenorhabditis elegans.
-\newblock J Neurobiol. 2003;56(2):178--197.
+\newblock Journal of Neurobiology. 2003;56(2):178--197.
 
 \bibitem{Opsahl2008}
 Opsahl T, Colizza V, Panzarasa P, Ramasco JJ.
 \newblock {Prominence and control: the weighted rich-club effect.}
-\newblock Phys Rev Lett. 2008;101(16):168702.
+\newblock Physical Review Letters. 2008;101(16):168702.
 \newblock doi:{10.1103/PhysRevLett.101.168702}.
 
 \bibitem{Sporns2016}
@@ -538,7 +537,7 @@ Richiardi J, Altmann A, Milazzo AC, Chang C, Chakravarty MM, Banaschewski T,
 Ciceri G, Dehorter N, Sols I, Huang ZJ, Maravall M, Mar{\'{i}}n O.
 \newblock {Lineage-specific laminar organization of cortical GABAergic
   interneurons}.
-\newblock Nat Neurosci. 2013;16(9):1199--1210.
+\newblock Nature Neuroscience. 2013;16(9):1199--1210.
 \newblock doi:{10.1038/nn.3485}.
 
 \bibitem{Li2012}
@@ -564,14 +563,14 @@ Cui Q, Yu Z, Purisima EO, Wang E, Li X, Schwarz P, et~al.
 \bibitem{Hobert2003}
 Hobert O.
 \newblock {Behavioral Plasticity in C. elegans: Paradigms, Circuits, Genes}.
-\newblock J Neurobiol. 2003;54:203--223.
+\newblock Journal of Neurobiology. 2003;54:203--223.
 \newblock doi:{10.1002/neu.10168}.
 
 \bibitem{Rakowski2013}
 Rakowski F, Srinivasan J, Sternberg PW, Karbowski J.
 \newblock {Synaptic polarity of the interneuron circuit controlling C. elegans
   locomotion.}
-\newblock Frontiers in computational neuroscience. 2013;7:128.
+\newblock Frontiers in Computational Neuroscience. 2013;7:128.
 \newblock doi:{10.3389/fncom.2013.00128}.
 
 \bibitem{Ji:2014jw}
@@ -590,7 +589,7 @@ Fakhry A, Ji S.
 French L, Pavlidis P.
 \newblock {Relationships between gene expression and brain wiring in the adult
   rodent brain.}
-\newblock PLoS Comp Biol. 2011;7(1):e1001049.
+\newblock PLOS Computational Biology. 2011;7(1):e1001049.
 \newblock doi:{10.1371/journal.pcbi.1001049}.
 
 \bibitem{Starich2001}
@@ -624,7 +623,7 @@ Leung-Hagesteijn C, Spence AM, Stern BD, Zhou Y, Su MW, Hedgecock EM, et~al.
 Ikeda DD, Duan Y, Matsuki M, Kunitomo H, Hutter H, Hedgecock EM, et~al.
 \newblock {CASY-1, an ortholog of calsyntenins/alcadeins, is essential for
   learning in Caenorhabditis elegans}.
-\newblock Proc Natl Acad Sci USA. 2008;105(13):5260--5265.
+\newblock Proceedings of the National Academy of Sciences. 2008;105(13):5260--5265.
 \newblock doi:{10.1073/pnas.0711894105}.
 
 \bibitem{Wu2006}
@@ -673,14 +672,14 @@ Sarafi-Reinach TR, Melkman T, Hobert O, Sengupta P.
 Prasad B, Karakuzu O, Reed RR, Cameron S.
 \newblock {unc-3-dependent repression of specific motor neuron fates in
   Caenorhabditis elegans.}
-\newblock Developmental biology. 2008;323(2):207--15.
+\newblock Developmental Biology. 2008;323(2):207--15.
 \newblock doi:{10.1016/j.ydbio.2008.08.029}.
 
 \bibitem{Baran1999}
 Baran R, Aronoff R, Garriga G.
 \newblock {The C. elegans homeodomain gene unc-42 regulates chemosensory and
   glutamate receptor expression.}
-\newblock Development (Cambridge, England). 1999;126(10):2241--51.
+\newblock Development. 1999;126(10):2241--51.
 
 \bibitem{Cassata2000}
 Cassata G, Kagoshima H, Andachi Y, Kohara Y, D{\"{u}}rrenberger MB, Hall DH,
@@ -727,13 +726,13 @@ Roberts JA, Perry A, Lord AR, Roberts G, Mitchell PB, Smith RE, et~al.
 Kim S, Kim H, Kralik JD, Jeong J, Bargmann C, Aballay A.
 \newblock {Vulnerability-Based Critical Neurons, Synapses, and Pathways in the
   Caenorhabditis elegans Connectome}.
-\newblock PLoS Comp Biol. 2016;12(8):e1005084.
+\newblock PLOS Computational Biology. 2016;12(8):e1005084.
 \newblock doi:{10.1371/journal.pcbi.1005084}.
 
 \bibitem{Mesulam1998}
 Mesulam MM.
 \newblock {From sensation to cognition.}
-\newblock Brain : a journal of neurology. 1998;121 ( Pt 6:1013--52.
+\newblock Brain: a journal of neurology. 1998;121 ( Pt 6:1013--52.
 
 \bibitem{Lein:2007jn}
 Lein E, Hawrylycz MJ, Ao N, Ayres M, Bensinger A, Bernard A, et~al.
@@ -750,25 +749,25 @@ Hawrylycz MJ, Lein E, Guillozet-Bongaarts AL, Shen EH, Ng L, Miller JA, et~al.
 Shen EH, Overly CC, Jones AR.
 \newblock {The Allen Human Brain Atlas: comprehensive gene expression mapping
   of the human brain}.
-\newblock Trends Neurosci. 2012;32(12):711--714.
+\newblock Trends in Neurosciences. 2012;32(12):711--714.
 
 \bibitem{Parkes:2017dn}
 Parkes L, Fulcher BD, Y{\"u}cel M, Fornito A.
 \newblock {Transcriptional signatures of connectomic subregions of the human
   striatum}.
-\newblock Genes, Brain Behav. 2017;25:1176.
+\newblock Genes, Brain and Behavior. 2017;25:1176.
 
 \bibitem{Kaufman2006}
 Kaufman A, Dror G, Meilijson I, Ruppin E.
 \newblock {Gene expression of Caenorhabditis elegans neurons carries
   information on their synaptic connectivity.}
-\newblock PLoS Comp Biol. 2006;2(12):e167.
+\newblock PLOS Computational Biology. 2006;2(12):e167.
 \newblock doi:{10.1371/journal.pcbi.0020167}.
 
 \bibitem{Alstott2014}
 Alstott J, Panzarasa P, Rubinov M, Bullmore ET, V{\'{e}}rtes PE.
 \newblock {A unifying framework for measuring weighted rich clubs.}
-\newblock Scientific reports. 2014;4:7258.
+\newblock Scientific Reports. 2014;4:7258.
 \newblock doi:{10.1038/srep07258}.
 
 \end{thebibliography}
