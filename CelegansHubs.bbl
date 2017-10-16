@@ -101,14 +101,14 @@ Bullmore ET, Sporns O.
 \bibitem{Sporns2011}
 Sporns O.
 \newblock {The non-random brain: efficiency, economy, and complex dynamics.}
-\newblock Frontiers in computational neuroscience. 2011;5:5.
+\newblock Front Comput Neurosci. 2011;5:5.
 \newblock doi:{10.3389/fncom.2011.00005}.
 
 \bibitem{VandenHeuvel2016}
 van~den Heuvel MP, Bullmore ET, Sporns O, Campbell AW, Brodmann K, von Bonin G,
   et~al.
 \newblock {Comparative Connectomics}.
-\newblock Trends in Cognitive Sciences. 2016;20(5):345--361.
+\newblock Trends Cogn. Sci.. 2016;20(5):345--361.
 \newblock doi:{10.1016/j.tics.2016.03.001}.
 
 \bibitem{Schroter:2017eo}
@@ -191,7 +191,7 @@ van~den Heuvel MP, Sporns O.
 Crossley NA, Mechelli A, Scott J, Carletti F, Fox PT, McGuire P, et~al.
 \newblock {The hubs of the human connectome are generally implicated in the
   anatomy of brain disorders.}
-\newblock Brain: a journal of neurology. 2014;137(Pt 8):2382--95.
+\newblock Brain. 2014;137(Pt 8):2382--95.
 \newblock doi:{10.1093/brain/awu132}.
 
 \bibitem{Crossley:2013kl}
@@ -230,7 +230,7 @@ Mi{\v s}i{\'c} B, Betzel RF, Nematzadeh A, Go{\~n}i J, Griffa A, Hagmann P,
 van~den Heuvel MP, Scholtens LH, de~Reus MA.
 \newblock {Topological organization of connectivity strength in the rat
   connectome}.
-\newblock Brain Structure and Function. 2016;221(3):1719--1736.
+\newblock Brain Struct Funct. 2016;221(3):1719--1736.
 \newblock doi:{10.1007/s00429-015-0999-6}.
 
 \bibitem{Fulcher:2016ck}
@@ -348,7 +348,7 @@ Varier S, Kaiser M, Koh W, Meuli R, Honey C.
 \bibitem{Harris:2009kd}
 Harris TW, Antoshechkin I, Bieri T, Blasiar D, Chan J, Chen WJ, et~al.
 \newblock WormBase: a comprehensive resource for nematode research.
-\newblock Nucleic Acids Research. 2009;38:D463--D467.
+\newblock Nucleic Acids Res. 2009;38:D463--D467.
 
 \bibitem{Pereira:2015er}
 Pereira L, Kratsios P, Serrano-Saiz E, Sheftel H, Mayo AE, Hall DH, et~al.
@@ -360,12 +360,12 @@ Pereira L, Kratsios P, Serrano-Saiz E, Sheftel H, Mayo AE, Hall DH, et~al.
 Sulston JE, Horvitz HR.
 \newblock {Post-embryonic cell lineages of the nematode, Caenorhabditis
   elegans.}
-\newblock Developmental biology. 1977;56(1):110--56.
+\newblock Dev Biol. 1977;56(1):110--56.
 
 \bibitem{Sulston1983}
 Sulston JE, Schierenberg E, White JG, Thomson JN.
 \newblock {The embryonic cell lineage of the nematode Caenorhabditis elegans.}
-\newblock Developmental biology. 1983;100(1):64--119.
+\newblock Dev Biol. 1983;100(1):64--119.
 
 \bibitem{Colizza:2006kz}
 Colizza V, Flammini A, Serrano M, Vespignani A.
@@ -412,7 +412,7 @@ Blondel VD, Guillaume JL, Lambiotte R, Lefebvre E.
 \bibitem{Lancichinetti2012}
 Lancichinetti A, Fortunato S, Thomson JN, Brenner S, Moon S.
 \newblock {Consensus clustering in complex networks}.
-\newblock Scientific Reports. 2012;2:547--579.
+\newblock Sci. Rep.. 2012;2:547--579.
 \newblock doi:{10.1038/srep00336}.
 
 \bibitem{Warrens2008}
@@ -437,7 +437,7 @@ Benjamini Y, Hochberg Y.
 \bibitem{Gillis2010}
 Gillis J, Mistry M, Pavlidis P.
 \newblock {Gene function analysis in complex data sets using ErmineJ.}
-\newblock Nature protocols. 2010;5(6):1148--59.
+\newblock Nat. Protoc. 2010;5(6):1148--59.
 \newblock doi:{10.1038/nprot.2010.78}.
 
 \bibitem{Zoubarev2012}
@@ -523,7 +523,7 @@ Opsahl T, Colizza V, Panzarasa P, Ramasco JJ.
 \bibitem{Sporns2016}
 Sporns O, Betzel RF.
 \newblock {Modular Brain Networks}.
-\newblock Annual Review of Psychology. 2016;67(1):613--640.
+\newblock Annu Rev Psychol. 2016;67(1):613--640.
 \newblock doi:{10.1146/annurev-psych-122414-033634}.
 
 \bibitem{Richiardi2015}
@@ -558,7 +558,7 @@ Yu YC, He S, Chen S, Fu Y, Brown KN, Yao XH, et~al.
 \bibitem{Cui2007}
 Cui Q, Yu Z, Purisima EO, Wang E, Li X, Schwarz P, et~al.
 \newblock {MicroRNA regulation and interspecific variation of gene expression}.
-\newblock Trends in Genetics. 2007;23(8):372--375.
+\newblock Trends Genet. 2007;23(8):372--375.
 \newblock doi:{10.1016/j.tig.2007.04.003}.
 
 \bibitem{Hobert2003}
@@ -571,7 +571,7 @@ Hobert O.
 Rakowski F, Srinivasan J, Sternberg PW, Karbowski J.
 \newblock {Synaptic polarity of the interneuron circuit controlling C. elegans
   locomotion.}
-\newblock Frontiers in computational neuroscience. 2013;7:128.
+\newblock Front Comput Neurosci. 2013;7:128.
 \newblock doi:{10.3389/fncom.2013.00128}.
 
 \bibitem{Ji:2014jw}
@@ -596,7 +596,7 @@ French L, Pavlidis P.
 \bibitem{Starich2001}
 Starich T, Sheehan M, Jadrich J, Shaw J.
 \newblock {Innexins in C. elegans}.
-\newblock Cell Communication {\&} Adhesion. 2001;8(4-6):311--314.
+\newblock Cell Commun. Adhes.. 2001;8(4-6):311--314.
 \newblock doi:{10.3109/15419060109080744}.
 
 \bibitem{Zallen1999}
@@ -631,14 +631,14 @@ Ikeda DD, Duan Y, Matsuki M, Kunitomo H, Hutter H, Hedgecock EM, et~al.
 Wu M, Herman MA.
 \newblock {A novel noncanonical Wnt pathway is involved in the regulation of
   the asymmetric B cell division in C. elegans}.
-\newblock Developmental Biology. 2006;293(2):316--329.
+\newblock Dev Biol. 2006;293(2):316--329.
 \newblock doi:{10.1016/j.ydbio.2005.12.024}.
 
 \bibitem{Hoffmann2010}
 Hoffmann M, Segbert C, Helbig G, Bossinger O.
 \newblock {Intestinal tube formation in Caenorhabditis elegans requires vang-1
   and egl-15 signaling}.
-\newblock Developmental Biology. 2010;339(2):268--279.
+\newblock Dev Biol. 2010;339(2):268--279.
 \newblock doi:{10.1016/j.ydbio.2009.12.002}.
 
 \bibitem{Paemka2013}
@@ -653,14 +653,14 @@ Paemka L, Mahajan VB, Skeie JM, Sowers LP, Ehaideb SN, Gonzalez-Alegre P,
 Ehaideb SN, Wignall EA, Kasuya J, Evans WH, Iyengar A, Koerselman HL, et~al.
 \newblock {Mutation of orthologous prickle genes causes a similar epilepsy
   syndrome in flies and humans}.
-\newblock Annals of Clinical and Translational Neurology. 2016;3(9):695.
+\newblock Ann Clin Transl Neurol. 2016;3(9):695.
 \newblock doi:{10.1002/acn3.334}.
 
 \bibitem{Sowers2013}
 Sowers LP, Loo L, Wu Y, Campbell E, Ulrich JD, Wu S, et~al.
 \newblock {Disruption of the non-canonical Wnt gene PRICKLE2 leads to
   autism-like behaviors with evidence for hippocampal synaptic dysfunction}.
-\newblock Molecular psychiatry. 2013;18(10):1077.
+\newblock Mol. Psychiatry. 2013;18(10):1077.
 \newblock doi:{10.1038/mp.2013.71}.
 
 \bibitem{Sarafi-Reinach2001}
@@ -673,7 +673,7 @@ Sarafi-Reinach TR, Melkman T, Hobert O, Sengupta P.
 Prasad B, Karakuzu O, Reed RR, Cameron S.
 \newblock {unc-3-dependent repression of specific motor neuron fates in
   Caenorhabditis elegans.}
-\newblock Developmental biology. 2008;323(2):207--15.
+\newblock Dev Biol. 2008;323(2):207--15.
 \newblock doi:{10.1016/j.ydbio.2008.08.029}.
 
 \bibitem{Baran1999}
@@ -693,7 +693,7 @@ Cassata G, Kagoshima H, Andachi Y, Kohara Y, D{\"{u}}rrenberger MB, Hall DH,
 Schmid C, Schwarz V, Hutter H.
 \newblock {AST-1, a novel ETS-box transcription factor, controls axon guidance
   and pharynx development in C. elegans}.
-\newblock Developmental Biology. 2006;293(2):403--413.
+\newblock Dev Biol. 2006;293(2):403--413.
 \newblock doi:{10.1016/j.ydbio.2006.02.042}.
 
 \bibitem{Shaham2002a}
@@ -707,7 +707,7 @@ Shaham S, Bargmann CI.
 Choi S, Taylor KP, Chatzigeorgiou M, Hu Z, Schafer WR, Kaplan JM.
 \newblock {Sensory Neurons Arouse C. elegans Locomotion via Both Glutamate and
   Neuropeptide Release.}
-\newblock PLoS genetics. 2015;11(7):e1005359.
+\newblock PLoS Genet. 2015;11(7):e1005359.
 \newblock doi:{10.1371/journal.pgen.1005359}.
 
 \bibitem{Zheng1999}
@@ -733,7 +733,7 @@ Kim S, Kim H, Kralik JD, Jeong J, Bargmann C, Aballay A.
 \bibitem{Mesulam1998}
 Mesulam MM.
 \newblock {From sensation to cognition.}
-\newblock Brain : a journal of neurology. 1998;121 ( Pt 6:1013--52.
+\newblock Brain. 1998;121 ( Pt 6:1013--52.
 
 \bibitem{Lein:2007jn}
 Lein E, Hawrylycz MJ, Ao N, Ayres M, Bensinger A, Bernard A, et~al.
@@ -768,7 +768,7 @@ Kaufman A, Dror G, Meilijson I, Ruppin E.
 \bibitem{Alstott2014}
 Alstott J, Panzarasa P, Rubinov M, Bullmore ET, V{\'{e}}rtes PE.
 \newblock {A unifying framework for measuring weighted rich clubs.}
-\newblock Scientific reports. 2014;4:7258.
+\newblock Sci. Rep. 2014;4:7258.
 \newblock doi:{10.1038/srep07258}.
 
 \end{thebibliography}
