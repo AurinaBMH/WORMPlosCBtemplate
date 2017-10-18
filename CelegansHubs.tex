@@ -238,15 +238,15 @@ Alex Fornito\textsuperscript{1}*\\
 \end{flushleft}
 % Please keep the abstract below 300 words
 \section*{Abstract}
-Studies of nervous system connectivity, in a wide variety of species and at different scales of resolution, have identified several highly conserved motifs of network organization. 
-One such motif is a heterogeneous distribution of connectivity across neural elements, such that some elements act as highly connected and functionally important network hubs. 
+Studies of nervous system connectivity, in a wide variety of species and at different scales of resolution, have identified several highly conserved motifs of network organization.
+One such motif is a heterogeneous distribution of connectivity across neural elements, such that some elements act as highly connected and functionally important network hubs.
 These brain network hubs are also densely interconnected, forming a so-called rich-club.
 Recent work in mouse has identified a distinctive transcriptional signature of neural hubs, characterized by tightly coupled expression of oxidative metabolism genes, with similar genes characterizing macroscale inter-modular hub regions of the human cortex.
-Here, we sought to determine whether hubs of the neuronal \textit{C. elegans} connectome also show tightly coupled gene expression. 
-Using open data on the chemical and electrical connectivity of 279 \textit{C. elegans} neurons, and binary gene expression data for each neuron across 948 genes, we computed a correlated gene expression score for each pair of neurons, providing a measure of their gene expression similarity. 
-We demonstrate that connections between hub neurons are the most similar in their gene expression while connections between nonhubs are the least similar. 
-Genes with the greatest contribution to this effect are involved in glutamatergic and cholinergic signalling, and other communication processes. 
-We further show that coupled expression between hub neurons cannot be explained by their neuronal subtype (i.e., sensory, motor, or interneuron), separation distance, chemically secreted neurotransmitter, birth time, pairwise lineage distance, or their topological module affiliation. 
+Here, we sought to determine whether hubs of the neuronal \textit{C. elegans} connectome also show tightly coupled gene expression.
+Using open data on the chemical and electrical connectivity of 279 \textit{C. elegans} neurons, and binary gene expression data for each neuron across 948 genes, we computed a correlated gene expression score for each pair of neurons, providing a measure of their gene expression similarity.
+We demonstrate that connections between hub neurons are the most similar in their gene expression while connections between nonhubs are the least similar.
+Genes with the greatest contribution to this effect are involved in glutamatergic and cholinergic signalling, and other communication processes.
+We further show that coupled expression between hub neurons cannot be explained by their neuronal subtype (i.e., sensory, motor, or interneuron), separation distance, chemically secreted neurotransmitter, birth time, pairwise lineage distance, or their topological module affiliation.
 Instead, this coupling is intrinsically linked to the identity of most hubs as command interneurons, a specific class of interneurons that regulates locomotion.
 Our results suggest that neural hubs may possess a distinctive transcriptional signature, preserved across scales and species, that is related to the involvement of hubs in regulating the higher-order behaviors of a given organism.
 %hub transcriptional similarity may be a conserved property of neuronal systems and the methods we introduce here for quantifying the contribution of genes to patterns of correlated gene expression will be important to provide biological understanding of global \emph{C. elegans} neuronal organization as expression data increase in genome coverage and quality.
@@ -865,7 +865,7 @@ The plot reveals rich-club organization ($\Phi_\mathrm{norm} > 1$) at the upper 
 % ), referred to here as the `topological rich-club regime'.
 Similar results were obtained using weighted representations of the connectome (i.e., using information about the number of synapses in the connectivity network) for two different definitions of the weighted rich-club coefficient \cite{Opsahl2008}, shown in \nameref{S4_Fig}.
 Throughout this work, we define a set of hubs as the sixteen neurons with $k > 44$, which corresponds to the lowest degree threshold at which the network displays a contiguous region of significant rich-club organization at high $k$.
-Our list of hubs includes all of the 11 hub neurons of Towlson et al.~\cite{Towlson2013} at $3 \sigma$ (see Table~\ref{tab:HubList}) with five additional hubs identified in our analysis of the directed connectome.
+Our list of hubs includes all of the 11 hub neurons of Towlson et al.~\cite{Towlson2013} at $3 \sigma$ (see \nameref{tab:HubList}) with five additional hubs identified in our analysis of the directed connectome.
 % This indicates that when nodes are defined as hubs (degree $>\textit{k}$) in this range, they are more densely interconnected than expected by chance.
  % of the analyses presented below examine how different topological and genomic properties vary as a function of the hub threshold, $k$, but for analyses requiring a fixed hub definition, we define hubs as the 13 neurons with
 
@@ -1257,7 +1257,7 @@ and locomotion (\emph{unc-3}) \cite{Prasad2008}) were also implicated in driving
 Both adhesion molecules and transcription factors are candidates for facilitating signal transduction and communication.
 
 In order to summarize the above mentioned results and determine if any particular functional groups of genes are dominating in driving this effect, we performed an enrichment analysis.
-Top scoring biological process GO categories from ORA analysis (of 85 genes relative to the 414 genes with sufficient data for this analysis) are listed in Table~\ref{tab:enrichmentCON}.
+Top scoring biological process GO categories from ORA analysis (of 85 genes relative to the 414 genes with sufficient data for this analysis) are listed in \nameref{tab:enrichmentCON}.
 Although no GO categories are significant at a false discovery rate of 0.05, the top categories are consistent with a connectivity profile, including `glutamate receptor signaling', `cell surface receptor signaling', and `ion transport', with other categories involved in regulation of growth rate and several related to catabolic processes.
 Thus, despite incomplete gene expression data that do not provide sufficient coverage to detect statistically significant effects, these results indicate that our data-driven gene scoring method is able to yield sensible, biologically relevant insights into the genetic basis of neuronal connectivity in \textit{C. elegans} connectome.
 
@@ -1294,7 +1294,7 @@ While previous work implicated genes regulating oxidative metabolism for connect
 For example, only one of the 948 genes annotated to the GO categories related to hub connectivity in mouse is present in our gene expression dataset (\emph{unc-32} is annotated to the GO category: `ATP hydrolysis coupled proton transport').
 % GO:0015991:
 % GO categories were filtered using <<searchGOcategories.m>> function.
-Thus, although a direct test of the metabolic hypothesis for neural hubs is not possible from current data, we investigated whether other biological process GO categories were overrepresented in pairs of connected hubs using ORA (of 30 genes relative to the 168 genes with sufficient data for this analysis), with results listed in Table~\ref{tab:enrichmentRICH}.
+Thus, although a direct test of the metabolic hypothesis for neural hubs is not possible from current data, we investigated whether other biological process GO categories were overrepresented in pairs of connected hubs using ORA (of 30 genes relative to the 168 genes with sufficient data for this analysis), with results listed in \nameref{tab:enrichmentRICH}.
 % , providing some support for the idea that hubs are energetically costly elements of the connectome.
 %Due to gene expression data specificity in all the following analyses we present top 15 GO categories enriched in a particular link type compared to other links.
 Even though no categories are statistically significant at a false discovery rate of 0.05, the list of top categories includes both `glutamate receptor signaling pathway' as well as more general `cell surface receptor signaling pathway' in addition to several ion transport related gene groups ('ion transport', `ion transmembrane transport', `transmembrane transport').
@@ -1566,7 +1566,8 @@ While we were not able to test GO categories related to neurotransmitter signali
 
 \section*{Acknowledgments}
 % Thanks to Alex Fornito for being a big deal.
-We thank WormBase and particularly Daniela Raciti for providing valuable information regarding the curation of \emph{C. elegans} gene expression data and Taqi Ali for preliminary data processing.
+We thank WormBase and particularly Daniela Raciti for providing valuable information regarding the curation of \emph{C. elegans} gene expression data and Taqi Ali for preliminary data processing. 
+AF was supported by the Australian Research Council (ID: FT130100589) and the National Health and Medical Research Council (ID: 3251213). 
 
 \nolinenumbers
 
@@ -1690,109 +1691,112 @@ Based on these numerical experiments, we selected mean square contingency coeffi
 \clearpage
 
 \paragraph*{S1 Table}
+\label{tab:HubList}
 {\bf Hub neurons of the \textit{C. elegans} connectome.} Hubs are defined as neurons with degree $k > 44$.
 For each hub, we list (i) the neuron name, (ii) its degree, $k$, (iii) location (`head', `body', or `tail'), and function based on information presented in the wormatlas website \url{http://www.wormatlas.org/}.
 Neurons are sorted (descending) by degree.}
 \paragraph*{S2 Table}
+\label{tab:enrichmentCON}
 {\bf Enrichment results for connected \textit{vs} unconnected neurons.} Top 15 biological process GO categories enriched in genes with the highest mean increase in CGE for connected neurons compared to unconnected neurons.
 Categories are sorted by $p$-value (ascending).
 \paragraph*{S3 Table.}
+\label{tab:enrichmentRICH}
 {\bf Enrichment results for links involving hubs.} Top 15 biological process GO categories enriched in genes with the highest increase in CGE for connections involving hub neurons (i.e., rich, feed-in and feed-out connections) compared to connections between nonhub neurons (i.e., in peripheral connections).
 Categories are sorted by $p$-value (ascending).
 
-\begin{table}[h]
-\begin{adjustwidth}{-2.25in}{}
-\centering
-\caption{\textbf{Hub neurons of the \textit{C. elegans} connectome.}
-Hubs are defined as neurons with degree $k > 44$.
-For each hub, we list (i) the neuron name, (ii) its degree, $k$, (iii) location (`head', `body', or `tail'), and function based on information presented in the wormatlas website \url{http://www.wormatlas.org/}.
-Neurons are sorted (descending) by degree.}
-\label{tab:HubList}
-\begin{tabular}{lll}
-\hline
-\textbf{Neuron} & \textbf{Degree, $k$} & \textbf{Description}                    \\ \hline
-AVAR   & 137        & Head command interneuron, role in locomotor decisions                \\
-AVAL   & 134        & Head command interneuron, role in locomotor decisions                \\
-AVBR   & 104        & Head command interneuron, role in locomotor decisions                \\
-AVBL   & 102        & Head command interneuron, role in locomotor decisions                \\
-PVCR   & 69         & Tail command interneuron, role in locomotor decisions                \\
-PVCL   & 64         & Tail command interneuron, role in locomotor decisions                \\
-AVDR   & 63         & Head command interneuron, role in locomotor decisions 				\\
-AVER   & 63         & Head command interneuron, role in locomotor decisions                \\
-AVEL   & 62         & Head command interneuron, role in locomotor decisions                \\
-DVA    & 59         & Tail interneuron, mechanosensory integration               \\
-RIBL   & 56         & Head interneuron                							\\
-AVKL   & 53         & Head interneuron                                             \\
-AVDL   & 52         & Head command interneuron, role in locomotor decisions                 \\
-RIBR   & 52         & Head interneuron                                             \\
-AIBR   & 49         & Head interneuron                                             \\
-RIGL   & 49         & Head interneuron                                             \\\hline
-\end{tabular}
-\end{adjustwidth}
-\end{table}
+%\begin{table}[h]
+%\begin{adjustwidth}{-2.25in}{}
+%\centering
+%\caption{\textbf{Hub neurons of the \textit{C. elegans} connectome.}
+%Hubs are defined as neurons with degree $k > 44$.
+%For each hub, we list (i) the neuron name, (ii) its degree, $k$, (iii) location (`head', `body', or `tail'), and function based on information presented in the wormatlas website \url{http://www.wormatlas.org/}.
+%Neurons are sorted (descending) by degree.}
+
+%\begin{tabular}{lll}
+%\hline
+%\textbf{Neuron} & \textbf{Degree, $k$} & \textbf{Description}                    \\ \hline
+%AVAR   & 137        & Head command interneuron, role in locomotor decisions                \\
+%AVAL   & 134        & Head command interneuron, role in locomotor decisions                \\
+%AVBR   & 104        & Head command interneuron, role in locomotor decisions                \\
+%AVBL   & 102        & Head command interneuron, role in locomotor decisions                \\
+%PVCR   & 69         & Tail command interneuron, role in locomotor decisions                \\
+%PVCL   & 64         & Tail command interneuron, role in locomotor decisions                \\
+%AVDR   & 63         & Head command interneuron, role in locomotor decisions 				\\
+%AVER   & 63         & Head command interneuron, role in locomotor decisions                \\
+%AVEL   & 62         & Head command interneuron, role in locomotor decisions                \\
+%DVA    & 59         & Tail interneuron, mechanosensory integration               \\
+%RIBL   & 56         & Head interneuron                							\\
+%AVKL   & 53         & Head interneuron                                             \\
+%AVDL   & 52         & Head command interneuron, role in locomotor decisions                 \\
+%RIBR   & 52         & Head interneuron                                             \\
+%AIBR   & 49         & Head interneuron                                             \\
+%RIGL   & 49         & Head interneuron                                             \\\hline
+%\end{tabular}
+%\end{adjustwidth}
+%\end{table}%
 
 
 
-\begin{table}[]
-\begin{adjustwidth}{-2.25in}{}
-\centering
-\caption{Top 15 biological process GO categories enriched in genes with the highest mean increase in CGE for connected neurons compared to unconnected neurons.
-Categories are sorted by $p$-value (ascending).}
-\label{tab:enrichmentCON}
-\begin{tabular}{llccc}
+%\begin{table}[]
+%\begin{adjustwidth}{-2.25in}{}
+%\centering
+%\caption{Top 15 biological process GO categories enriched in genes with the highest mean increase in CGE for connected neurons compared to unconnected neurons.
+%Categories are sorted by $p$-value (ascending).}
 
-\hline
-\textbf{Category} & \textbf{Description} & \textbf{\# genes} & \textbf{$p$ (uncorr)}                                                                                                                                        & \textbf{$p$ (corr)} \\ \hline                                                                                                                                         %& \begin{tabular}[c]{@{}c@{}}\# genes\end{tabular} & \begin{tabular}[c]{@{}c@{}}$p$\\(uncorr)\end{tabular} & \begin{tabular}[c]{@{}c@{}}$p$\\(corr)\end{tabular}
-GO:0035235          & ionotropic glutamate receptor signaling pathway & 7                                                      & 0.0005                                                & 0.3245                                             \\
-GO:0007215          & glutamate receptor signaling pathway                                                       & 9                                                      & 0.0041                                                & 0.9367                                             \\
-GO:0007166          & cell surface receptor signaling pathway                                                    & 37                                                     & 0.0048                                                & 0.9367                                             \\
-GO:0006811          & ion transport                                                                              & 71                                                     & 0.0058                                                & 0.9367                                             \\
-GO:0034220          & ion transmembrane transport                                                                & 57                                                     & 0.0079                                                & 1                                                  \\
-GO:0055085          & transmembrane transport                                                                    & 67                                                     & 0.0129                                                & 1                                                  \\
-GO:1901575          & organic substance catabolic process                                                        & 33                                                     & 0.031                                                 & 1                                                  \\
-GO:0040009          & regulation of growth rate                                                                  & 7                                                      & 0.0417                                                & 1                                                  \\
-GO:0040010          & positive regulation of growth rate                                                         & 7                                                      & 0.0417                                                & 1                                                  \\
-GO:0030163          & protein catabolic process                                                                  & 27                                                     & 0.0428                                                & 1                                                  \\
-GO:0009056          & catabolic process                                                                          & 35                                                     & 0.0493                                                & 1                                                  \\
-GO:0009057          & macromolecule catabolic process                                                            & 28                                                     & 0.0548                                                & 1                                                  \\
-GO:0071495          & cellular response to endogenous stimulus                                                   & 14                                                     & 0.0575                                                & 1                                                  \\
-GO:0045927          & positive regulation of growth                                                              & 29                                                     & 0.0689                                                & 1                                                  \\
-GO:0050830          & defense response to Gram-positive bakterium%& \begin{tabular}[c]{@{}l@{}}defense response to Gram-positive \\ bacterium\end{tabular}
-& 5                                                      & 0.0695                                                & 1    \\\hline
-\end{tabular}
-\end{adjustwidth}
-\end{table}
+%\begin{tabular}{llccc}
+
+%\hline
+%\textbf{Category} & \textbf{Description} & \textbf{\# genes} & \textbf{$p$ (uncorr)}                                                                                                                                        & \textbf{$p$ (corr)} \\ \hline                                                                                                                                         %& \begin{tabular}[c]{@{}c@{}}\# genes\end{tabular} & \begin{tabular}[c]{@{}c@{}}$p$\\(uncorr)\end{tabular} & \begin{tabular}[c]{@{}c@{}}$p$\\(corr)\end{tabular}
+%GO:0035235          & ionotropic glutamate receptor signaling pathway & 7                                                      & 0.0005                                                & 0.3245                                             \\
+%GO:0007215          & glutamate receptor signaling pathway                                                       & 9                                                      & 0.0041                                                & 0.9367                                             \\
+%GO:0007166          & cell surface receptor signaling pathway                                                    & 37                                                     & 0.0048                                                & 0.9367                                             \\
+%GO:0006811          & ion transport                                                                              & 71                                                     & 0.0058                                                & 0.9367                                             \\
+%GO:0034220          & ion transmembrane transport                                                                & 57                                                     & 0.0079                                                & 1                                                  \\
+%GO:0055085          & transmembrane transport                                                                    & 67                                                     & 0.0129                                                & 1                                                  \\
+%GO:1901575          & organic substance catabolic process                                                        & 33                                                     & 0.031                                                 & 1                                                  \\
+%GO:0040009          & regulation of growth rate                                                                  & 7                                                      & 0.0417                                                & 1                                                  \\
+%GO:0040010          & positive regulation of growth rate                                                         & 7                                                      & 0.0417                                                & 1                                                  \\
+%GO:0030163          & protein catabolic process                                                                  & 27                                                     & 0.0428                                                & 1                                                  \\
+%GO:0009056          & catabolic process                                                                          & 35                                                     & 0.0493                                                & 1                                                  \\
+%GO:0009057          & macromolecule catabolic process                                                            & 28                                                     & 0.0548                                                & 1                                                  \\
+%GO:0071495          & cellular response to endogenous stimulus                                                   & 14                                                     & 0.0575                                                & 1                                                  \\
+%GO:0045927          & positive regulation of growth                                                              & 29                                                     & 0.0689                                                & 1                                                  \\
+%GO:0050830          & defense response to Gram-positive bakterium%& \begin{tabular}[c]{@{}l@{}}defense response to Gram-positive \\ bacterium\end{tabular}
+%& 5                                                      & 0.0695                                                & 1    \\\hline
+%\end{tabular}
+%\end{adjustwidth}
+%\end{table}
 
 
-\begin{table}[]
-\begin{adjustwidth}{-2.25in}{}
-\centering
-\caption{
-Top 15 biological process GO categories enriched in genes with the highest increase in CGE for connections involving hub neurons (i.e., rich, feed-in and feed-out connections) compared to connections between nonhub neurons (i.e., in peripheral connections).
-Categories are sorted by $p$-value (ascending).
-}
-\label{tab:enrichmentRICH}
-\begin{tabular}{llccc}
-\hline
-\textbf{Category} & \textbf{Description}                                                                                               &  \textbf{\# genes} & \textbf{$p$ (uncorr)}                                                                                                                                      & \textbf{$p$ (corr)} \\ \hline
-GO:0007215          & glutamate receptor signaling pathway                                                                               & 6                                                      & 0.0009                                               & 0.1741                                             \\
-GO:0035235          & ionotropic glutamate receptor signaling pathway                        & 6                                                      & 0.0009                                               & 0.1741                                             \\
-GO:0007166          & cell surface receptor signaling pathway                                                                            & 20                                                     & 0.0035                                               & 0.3473                                             \\
-GO:0009891          & positive regulation of biosynthetic process                                                                        & 11                                                     & 0.0063                                               & 0.3473                                             \\
-GO:0031328          & positive regulation of cellular biosynthetic process                   & 11                                                     & 0.0063                                               & 0.3473                                             \\
-GO:0045935          & positive regulation of nucleobase-containing compound metabolic process & 11                                                     & 0.0063                                               & 0.3473                                             \\
-GO:0051173          & positive regulation of nitrogen compound metabolic process             & 11                                                     & 0.0063                                               & 0.3473                                             \\
-GO:0031325          & positive regulation of cellular metabolic process                & 12                                                     & 0.0109                                               & 0.5258                                             \\
-GO:0040012          & regulation of locomotion                                                                                           & 24                                                     & 0.0156                                               & 0.5467                                             \\
-GO:0010557          & positive regulation of macromolecule biosynthetic process               & 10                                                     & 0.0212                                               & 0.5467                                             \\
-GO:0045893          & positive regulation of transcription DNA-templated                & 10                                                     & 0.0212                                               & 0.5467                                             \\
-GO:0045944          & positive regulation of transcription from RNA polymerase II promoter    & 10                                                     & 0.0212                                               & 0.5467                                             \\
-GO:0051254          & positive regulation of RNA metabolic process                           & 10                                                     & 0.0212                                               & 0.5467                                             \\
-GO:1902680          & positive regulation of RNA biosynthetic process                     & 10                                                     & 0.0212                                               & 0.5467                                             \\
-GO:1903508          & positive regulation of nucleic acid-templated transcription           & 10                                                     & 0.0212                                               & 0.5467    \\\hline
-\end{tabular}
-\end{adjustwidth}
-\end{table}
+%\begin{table}[]
+%\begin{adjustwidth}{-2.25in}{}
+%\centering
+%\caption{
+%Top 15 biological process GO categories enriched in genes with the highest increase in CGE for connections involving hub neurons (i.e., rich, feed-in and feed-out connections) compared to connections between nonhub neurons (i.e., in peripheral connections).
+%Categories are sorted by $p$-value (ascending).
+%}
+
+%\begin{tabular}{llccc}
+%\hline
+%\textbf{Category} & \textbf{Description}                                                                                               &  \textbf{\# genes} & %\textbf{$p$ (uncorr)}                                                                                                                                      & \textbf{$p$ (corr)} \\ \hline
+%GO:0007215          & glutamate receptor signaling pathway                                                                               & 6                                                      & 0.0009                                               & 0.1741                                             \\
+%GO:0035235          & ionotropic glutamate receptor signaling pathway                        & 6                                                      & 0.0009                                               & 0.1741                                             \\
+%GO:0007166          & cell surface receptor signaling pathway                                                                            & 20                                                     & 0.0035                                               & 0.3473                                             \\
+%GO:0009891          & positive regulation of biosynthetic process                                                                        & 11                                                     & 0.0063                                               & 0.3473                                             \\
+%GO:0031328          & positive regulation of cellular biosynthetic process                   & 11                                                     & 0.0063                                               & 0.3473                                             \\
+%GO:0045935          & positive regulation of nucleobase-containing compound metabolic process & 11                                                     & 0.0063                                               & 0.3473                                             \\
+%GO:0051173          & positive regulation of nitrogen compound metabolic process             & 11                                                     & 0.0063                                               & 0.3473                                             \\
+%GO:0031325          & positive regulation of cellular metabolic process                & 12                                                     & 0.0109                                               & 0.5258                                             \\
+%GO:0040012          & regulation of locomotion                                                                                           & 24                                                     & 0.0156                                               & 0.5467                                             \\
+%GO:0010557          & positive regulation of macromolecule biosynthetic process               & 10                                                     & 0.0212                                               & 0.5467                                             \\
+%GO:0045893          & positive regulation of transcription DNA-templated                & 10                                                     & 0.0212                                               & 0.5467                                             \\
+%GO:0045944          & positive regulation of transcription from RNA polymerase II promoter    & 10                                                     & 0.0212                                               & 0.5467                                             \\
+%GO:0051254          & positive regulation of RNA metabolic process                           & 10                                                     & 0.0212                                               & 0.5467                                             \\
+%GO:1902680          & positive regulation of RNA biosynthetic process                     & 10                                                     & 0.0212                                               & 0.5467                                             \\
+%GO:1903508          & positive regulation of nucleic acid-templated transcription           & 10                                                     & 0.0212                                               & 0.5467    \\\hline
+%\end{tabular}
+%\end{adjustwidth}
+%\end{table}
 
 %\begin{tabular}{llccc}
 %\hline
