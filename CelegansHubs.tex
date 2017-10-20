@@ -131,8 +131,8 @@
 
 
 % Remove comment for double spacing
-%\usepackage{setspace}
-%\doublespacing
+\usepackage{setspace}
+\doublespacing
 
 % Text layout
 \raggedright
@@ -184,8 +184,8 @@
 % \newcommand{\ipsum}{{\bf IPSUM}}
 
 %% END MACROS SECTION
-\usepackage{setspace}
-\doublespacing
+%\usepackage{setspace}
+%\doublespacing
 \graphicspath{{./figs/}}
 %\linespread{1.6}
 \begin{document}
@@ -199,11 +199,11 @@
 \newline
 % Insert author names, affiliations and corresponding author email (do not include titles, positions, or degrees).
 \\
-Aurina Arnatkevi\u{c}i\={u}t\.{e}\textsuperscript{1\Yinyang},
+Aurina Arnatkevi\u{c}i\={u}t\.{e}\textsuperscript{1\Yinyang}*,
 Ben D. Fulcher\textsuperscript{1\Yinyang},
 Roger Pocock\textsuperscript{2},
 % % Taqi Ali,
-Alex Fornito\textsuperscript{1}*\\
+Alex Fornito\textsuperscript{1}\\
 \bigskip
 \textbf{1} Brain and Mental Health Laboratory, Monash Institute of Cognitive and Clinical Neurosciences, School of Psychological Sciences, Monash University, 770 Blackburn Rd, Clayton, 3168, VIC, Australia.\\
 \textbf{2} Development and Stem Cells Program, Monash Biomedicine Discovery Institute and Department of Anatomy and Developmental Biology, Monash University, 15 Innovation Walk, Clayton 3800, VIC, Australia.
@@ -215,7 +215,7 @@ Alex Fornito\textsuperscript{1}*\\
 % % Remove or comment out the author notes below if they aren't used.
 % %
 % % Primary Equal Contribution Note
-% \Yinyang These authors contributed equally to this work.
+\Yinyang These authors contributed equally to this work.\\
 %
 % % Additional Equal Contribution Note
 % % Also use this double-dagger symbol for special authorship notes, such as senior authorship.
@@ -233,7 +233,7 @@ Alex Fornito\textsuperscript{1}*\\
 % % \textpilcrow Membership list can be found in the Acknowledgments section.
 %
 % % Use the asterisk to denote corresponding authorship and provide email address in note below.
-% * alex.fornito@monash.edu
+* aurina.arnatkeviciute@monash.edu
 
 \end{flushleft}
 % Please keep the abstract below 300 words
@@ -1007,7 +1007,7 @@ To determine whether the increase in CGE in rich connections was specific to int
 For the curve labeled `sensory', for example, each point is the median $\tilde{r}_\phi$ across connections involving sensory neurons (i.e., at least one neuron of a connected pair is a sensory neuron), for which both neurons have degree $>k$.
 The increase in median hub-hub CGE is strongest for connections involving interneurons.
 Motor neurons show a smaller increase with $k$, although the absence of motor and sensory neurons with high {$k$ makes it difficult to draw firm conclusions.
-However, we do find that CGE is higher for hub-hub pairs of interneurons compared to connections between all pairs of nonhub interneurons (Wilcoxon rank sum test, $p = 5 \times 10^{-21}$), indicating that the high expression of rich pairs cannot simply be explained by the fact that all hub neurons are interneurons (Fig.~\ref{fig:Fig7}C).
+However, we do find that CGE is higher for hub-hub pairs of interneurons compared to connections between all pairs of nonhub interneurons (Wilcoxon rank sum test, $p = 5 \times 10^{-21}$), indicating that the high CGE of rich pairs cannot simply be explained by the fact that all hub neurons are interneurons (Fig.~\ref{fig:Fig7}C).
 We next investigated whether greater CGE of hub-hub pairs of neurons could be driven by specific anatomical properties of hub interneurons.
 Specifically, we selected a subset of nonhub interneurons that most closely resemble the anatomical properties of hub interneurons in terms of their position and projection pattern; that is, the cells are in similar locations in the head and their axons project to similar targets in the tail. These neurons were AVFL, AVFR, AVHL, AVHR, AVKR, AVJL, and AVJR.
 Pairs of hub interneurons show higher median CGE than pairs of anatomically-matched nonhub interneurons, with the difference being at the threshold of statistical significance (Wilcoxon rank sum test, $p = 0.051$), suggesting that the increase in CGE amongst hub interneurons cannot be explained by their anatomical similarity among interneurons.
@@ -1566,9 +1566,10 @@ While we were not able to test GO categories related to neurotransmitter signali
 
 \section*{Acknowledgments}
 % Thanks to Alex Fornito for being a big deal.
-We thank WormBase and particularly Daniela Raciti for providing valuable information regarding the curation of \emph{C. elegans} gene expression data and Taqi Ali for preliminary data processing. 
-A.F.~was supported by the Australian Research Council (ID: FT130100589) and the National Health and Medical Research Council (ID: 3251213).
-B.D.F.~was supported by a NHMRC Early Career Fellowship (ID: 1089718).
+We thank WormBase and particularly Daniela Raciti for providing valuable information regarding the curation of \emph{C. elegans} gene expression data and Taqi Ali for preliminary data processing. \\
+AF was supported by the Australian Research Council (ID: FT130100589) and the National Health and Medical Research Council (ID: 3251213).
+BDF was supported by an NHMRC Early Career Fellowship (1089718).
+RP was supported by Monash University Biomedicine Discovery Fellowship, NHMRC Project Grant (GNT1105374) and veski innovation fellowship: VIF 23 to RP.
 
 \nolinenumbers
 
