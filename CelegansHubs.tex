@@ -493,7 +493,7 @@ Values of $\Phi_\mathrm{norm} > 1$ indicate rich-club organization of the networ
 %As a result, a small number of high degree nodes forming a rich club was identified.
 
 \paragraph{Modularity.}
-To investigate whether our results were influenced by the well-known modular organization of the \emph{C. elegans} connectome \cite{Kim2014, Pan:2010jt, Bassett2010, Achacoso:1992ay, Pavlovic2014}, we decomposed the network into modules using two methods.
+To investigate whether our results were influenced by the well-known modular organization of the \emph{C. elegans} connectome \cite{Kim:2014bu, Pan:2010jt, Bassett2010, Achacoso:1992ay, Pavlovic2014}, we decomposed the network into modules using two methods.
 The first method involved applying the Louvain community detection algorithm \cite{Blondel:2008do} using the \texttt{community\_louvain} function in the Brain Connectivity Toolbox \cite{Rubinov:2010jd}.
 To identify the optimal modular assignment, neurons were assigned to modules using consensus clustering across 1000 repeats of the Louvain algorithm \cite{Lancichinetti2012}, weighting each partition by its modularity, $Q$, using the \texttt{agreement\_weighted} and \texttt{consensus\_und} functions of the BCT\cite{Rubinov:2010jd}.
 % of the \emph{Brain Connectivity Toolbox} \cite{Rubinov:2010jd} with $\tau = 0.1$.
@@ -1060,7 +1060,7 @@ Circles indicate a statistically significant increase in CGE in a given link typ
 % ---even amongst interneurons with the same anatomical properties, hubs exhibit significantly increased CGE.
 
 \paragraph{Modular organization.}
-%The \emph{C. elegans} connectome has a modular organization, and can be decomposed into groups of neurons or modules with dense inter-module connectivity (with relatively sparse connectivity between modules) \cite{Kim2014, Pan:2010jt, Bassett2010}, or into groups of neurons with more similar patterns of connectivity within groups than between groups \cite{Achacoso:1992ay, Pavlovic:2014gx}.
+%The \emph{C. elegans} connectome has a modular organization, and can be decomposed into groups of neurons or modules with dense inter-module connectivity (with relatively sparse connectivity between modules) \cite{Kim:2014bu, Pan:2010jt, Bassett2010}, or into groups of neurons with more similar patterns of connectivity within groups than between groups \cite{Achacoso:1992ay, Pavlovic:2014gx}.
 % , which can correspond to specific functional circuits
 %Given that connectome modules may correspond to functionally specialized systems, it is therefore plausible that neurons belonging to the same module might exhibit similar gene expression patterns, as has been shown for macroscopic functional networks in the human brain \cite{Richiardi2015}.
 %Brain network hubs generally participate in multiple modules \cite{vandenHeuvel:2013ij, deReus:2014cz}, and their dense rich-club connectivity implies that they may form their own module that overlaps with other, more specialized systems \cite{Fornito:2015dq, deReus:2013cy, ZamoraLopez:2010hy}.
@@ -1068,7 +1068,7 @@ Circles indicate a statistically significant increase in CGE in a given link typ
 Another important topological property of neural systems is modularity, whereby network nodes coalesce into tightly connected subsystems that are thought to serve a common function \cite{Sporns2016}.
 Prior work in humans has shown that functional networks in the brain have elevated transcriptional coupling \cite{Richiardi2015}.
 The \emph{C. elegans} connectome has a modular organization, with prior work decomposing it into:
-(i) modules of neurons with dense intra-module connectivity (and relatively sparse connectivity between modules) \cite{Kim2014, Pan:2010jt, Bassett2010}, or
+(i) modules of neurons with dense intra-module connectivity (and relatively sparse connectivity between modules) \cite{Kim:2014bu, Pan:2010jt, Bassett2010}, or
 (ii) groups of neurons with more similar connectivity patterns within groups than between groups \cite{Achacoso:1992ay, Pavlovic2014}.
 We therefore examined the association between topological modularity of the \emph{C. elegans} connectome and CGE.
 We used the Louvain community detection algorithm \cite{Blondel:2008do} to extract modules from the \emph{C. elegans} connectome using consensus clustering (see \textit{Methods}).
