@@ -245,7 +245,7 @@ Recent work in mouse has identified a distinctive transcriptional signature of n
 Here, we sought to determine whether hubs of the neuronal \textit{C. elegans} connectome also show tightly coupled gene expression.
 Using open data on the chemical and electrical connectivity of 279 \textit{C. elegans} neurons, and binary gene expression data for each neuron across 948 genes, we computed a correlated gene expression score for each pair of neurons, providing a measure of their gene expression similarity.
 We demonstrate that connections between hub neurons are the most similar in their gene expression while connections between nonhubs are the least similar.
-Genes with the greatest contribution to this effect are involved in glutamatergic and cholinergic signalling, and other communication processes.
+Genes with the greatest contribution to this effect are involved in glutamatergic and cholinergic signaling, and other communication processes.
 We further show that coupled expression between hub neurons cannot be explained by their neuronal subtype (i.e., sensory, motor, or interneuron), separation distance, chemically secreted neurotransmitter, birth time, pairwise lineage distance, or their topological module affiliation.
 Instead, this coupling is intrinsically linked to the identity of most hubs as command interneurons, a specific class of interneurons that regulates locomotion.
 Our results suggest that neural hubs may possess a distinctive transcriptional signature, preserved across scales and species, that is related to the involvement of hubs in regulating the higher-order behaviors of a given organism.
@@ -331,7 +331,7 @@ These findings suggest that coupled gene expression is a highly conserved genomi
 % % I DON'T BELIEVE IN THIS ONE SO LEAVING IT OUT: pigeon \cite{Shanahan:2013ej},
 
 Neuronal connectivity provides the substrate for integrated brain function.
-Recent years have seen several systematic and large-scale attempts to generate comprehensive wiring diagrams, or connectomes, of nervous systems \cite{vandenHeuvel:2016eg} in species as diverse as the nematode \emph{Caenorhabditis elegans} \cite{White:1986tx, Varshney2011}, \emph{Drosophila} \cite{Chiang:2011, Shih2015}, zebrafish \cite{Wanner:2016ea, Hildebrand:2017iu}, mouse \cite{Oh2014, Zingg:2014el}, rat \cite{bota2015}, cat \cite{scannell1995}, macaque \cite{Markov:2012wu, stephan2001}, and human \cite{Hagmann:2008gda, VanEssen2013}.
+Recent years have seen several systematic and large-scale attempts to generate comprehensive wiring diagrams, or connectomes, of nervous systems \cite{VandenHeuvel2016} in species as diverse as the nematode \emph{Caenorhabditis elegans} \cite{White:1986tx, Varshney2011}, \emph{Drosophila} \cite{Chiang:2011, Shih:2015cu}, zebrafish \cite{Wanner:2016ea, Hildebrand:2017iu}, mouse \cite{Oh2014, Zingg:2014el}, rat \cite{bota2015}, cat \cite{scannell1995}, macaque \cite{Markov:2012wu, stephan2001}, and human \cite{Hagmann:2008gda, VanEssen2013}.
 One of the most striking findings to emerge from analyses of these diverse data, acquired using different measurement techniques and at resolution scales ranging from nm to mm, is of a strong conservation of certain topological properties of network organization (reviewed in \cite{Bullmore:2009iv, Bullmore:2012vl, Sporns2011, VandenHeuvel2016, Schroter:2017eo}, see also \cite{fornito2016book}).
 These properties include a modular organization, such that subsets of functionally related (and usually spatially adjacent) elements are densely interconnected with each other;
 a hierarchy of modules, such that modules contain nested sub-modules and so on over multiple scales \cite{Meunier:2010hq, Bassett2010};
@@ -493,7 +493,7 @@ Values of $\Phi_\mathrm{norm} > 1$ indicate rich-club organization of the networ
 %As a result, a small number of high degree nodes forming a rich club was identified.
 
 \paragraph{Modularity.}
-To investigate whether our results were influenced by the well-known modular organization of the \emph{C. elegans} connectome \cite{Kim2014, Pan:2010jt, Bassett2010, Achacoso:1992ay, Pavlovic2014}, we decomposed the network into modules using two methods.
+To investigate whether our results were influenced by the well-known modular organization of the \emph{C. elegans} connectome \cite{Kim:2014bu, Pan:2010jt, Bassett2010, Achacoso:1992ay, Pavlovic:2014gx}, we decomposed the network into modules using two methods.
 The first method involved applying the Louvain community detection algorithm \cite{Blondel:2008do} using the \texttt{community\_louvain} function in the Brain Connectivity Toolbox \cite{Rubinov:2010jd}.
 To identify the optimal modular assignment, neurons were assigned to modules using consensus clustering across 1000 repeats of the Louvain algorithm \cite{Lancichinetti2012}, weighting each partition by its modularity, $Q$, using the \texttt{agreement\_weighted} and \texttt{consensus\_und} functions of the BCT\cite{Rubinov:2010jd}.
 % of the \emph{Brain Connectivity Toolbox} \cite{Rubinov:2010jd} with $\tau = 0.1$.
@@ -1060,7 +1060,7 @@ Circles indicate a statistically significant increase in CGE in a given link typ
 % ---even amongst interneurons with the same anatomical properties, hubs exhibit significantly increased CGE.
 
 \paragraph{Modular organization.}
-%The \emph{C. elegans} connectome has a modular organization, and can be decomposed into groups of neurons or modules with dense inter-module connectivity (with relatively sparse connectivity between modules) \cite{Kim2014, Pan:2010jt, Bassett2010}, or into groups of neurons with more similar patterns of connectivity within groups than between groups \cite{Achacoso:1992ay, Pavlovic:2014gx}.
+%The \emph{C. elegans} connectome has a modular organization, and can be decomposed into groups of neurons or modules with dense inter-module connectivity (with relatively sparse connectivity between modules) \cite{Kim:2014bu, Pan:2010jt, Bassett2010}, or into groups of neurons with more similar patterns of connectivity within groups than between groups \cite{Achacoso:1992ay, Pavlovic:2014gx}.
 % , which can correspond to specific functional circuits
 %Given that connectome modules may correspond to functionally specialized systems, it is therefore plausible that neurons belonging to the same module might exhibit similar gene expression patterns, as has been shown for macroscopic functional networks in the human brain \cite{Richiardi2015}.
 %Brain network hubs generally participate in multiple modules \cite{vandenHeuvel:2013ij, deReus:2014cz}, and their dense rich-club connectivity implies that they may form their own module that overlaps with other, more specialized systems \cite{Fornito:2015dq, deReus:2013cy, ZamoraLopez:2010hy}.
@@ -1068,8 +1068,8 @@ Circles indicate a statistically significant increase in CGE in a given link typ
 Another important topological property of neural systems is modularity, whereby network nodes coalesce into tightly connected subsystems that are thought to serve a common function \cite{Sporns2016}.
 Prior work in humans has shown that functional networks in the brain have elevated transcriptional coupling \cite{Richiardi2015}.
 The \emph{C. elegans} connectome has a modular organization, with prior work decomposing it into:
-(i) modules of neurons with dense intra-module connectivity (and relatively sparse connectivity between modules) \cite{Kim2014, Pan:2010jt, Bassett2010}, or
-(ii) groups of neurons with more similar connectivity patterns within groups than between groups \cite{Achacoso:1992ay, Pavlovic2014}.
+(i) modules of neurons with dense intra-module connectivity (and relatively sparse connectivity between modules) \cite{Kim:2014bu, Pan:2010jt, Bassett2010}, or
+(ii) groups of neurons with more similar connectivity patterns within groups than between groups \cite{Achacoso:1992ay, Pavlovic:2014gx}.
 We therefore examined the association between topological modularity of the \emph{C. elegans} connectome and CGE.
 We used the Louvain community detection algorithm \cite{Blondel:2008do} to extract modules from the \emph{C. elegans} connectome using consensus clustering (see \textit{Methods}).
 Four modules were extracted, with eleven hubs in module one (which contains 111 neurons), four hubs in module two (96 neurons), one hub in module three (40 neurons), and no hubs in module four (32 neurons).
@@ -1445,8 +1445,8 @@ We also show that the effect is not driven by similarities in the birth time nor
 Moreover, the abundance of cholinergic signaling of hub neurons cannot explain the effect.
 % since their gene expression is more highly correlated than one would expect for a random set of neurons with the same neurotransmitter types.
 Rather, the CGE between pairs of hub neurons in \textit{C. elegans} may be related to the specific functional role of these cells.
-Namely, 60\% of them are command interneurons, which play a vital role in coordinating forward and backward locomotion in \textit{C. elegans} \cite{Kim2016}.
-% Command interneurons play a critical role in the regulation of forward and backward locomotion in \textit{C. elegans}, and are topologically positioned to play a central role in overall network function \cite{Kim2016}.
+Namely, 60\% of them are command interneurons, which play a vital role in coordinating forward and backward locomotion in \textit{C. elegans} \cite{Kim:2016gl}.
+% Command interneurons play a critical role in the regulation of forward and backward locomotion in \textit{C. elegans}, and are topologically positioned to play a central role in overall network function \cite{Kim:2016gl}.
 The overlap between command interneurons and hub neurons has interesting parallels with the human cortex, where polymodal association areas tend to be the most highly connected network elements \cite{VandenHeuvel2016}.
 Association areas sit at atop the cortical hierarchy and support complex behaviors by integrating information from diverse neural systems \cite{Mesulam1998}.
 Locomotion is arguably one of the most complex behaviors expressed by \emph{C. elegans}.
