@@ -1,6 +1,6 @@
 This is BibTeX, Version 0.99d (TeX Live 2015)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: ./CelegansHubs.aux
+The top-level auxiliary file: CelegansHubs.aux
 The style file: plos2015.bst
 Database file #1: library_ben.bib
 Repeated entry---line 266 of file library_ben.bib
@@ -30,36 +30,36 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 You've used 125 entries,
             3058 wiz_defined-function locations,
-            1534 strings with 53783 characters,
-and the built_in function-call counts, 405274 in all, are:
-= -- 48944
+            1534 strings with 53777 characters,
+and the built_in function-call counts, 405250 in all, are:
+= -- 48940
 > -- 2136
 < -- 6
 + -- 2023
 - -- 534
-* -- 38506
-:= -- 44426
+* -- 38503
+:= -- 44424
 add.period$ -- 543
 call.type$ -- 125
 change.case$ -- 2
 chr.to.int$ -- 0
 cite$ -- 125
-duplicate$ -- 20164
-empty$ -- 40930
+duplicate$ -- 20160
+empty$ -- 40928
 format.name$ -- 654
-if$ -- 92536
+if$ -- 92530
 int.to.chr$ -- 0
 int.to.str$ -- 125
 missing$ -- 1264
 newline$ -- 676
 num.names$ -- 125
-pop$ -- 1992
+pop$ -- 1993
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
 skip$ -- 2087
 stack$ -- 0
-substring$ -- 101198
+substring$ -- 101194
 swap$ -- 3203
 text.length$ -- 6
 text.prefix$ -- 0
