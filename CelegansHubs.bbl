@@ -758,25 +758,33 @@ Goel P, Kuceyeski A, LoCastro, E, Raj A.
 \newblock doi:{10.1002/hbm.22471}.
 
 \bibitem{Mills2017}
-Mills B D, Grayson D, Shunmugavel A, Miranda-Dominguez O, Feczko E, Earl E, Neve K, Fair D.
+Mills BD, Grayson D, Shunmugavel A, Miranda-Dominguez O, Feczko E, Earl E, Neve K, Fair D.
 \newblock {Correlated gene expression and anatomical communication support synchronized brain activity in the mouse functional connectome.}
 \newblock bioRxiv.
 \newblock doi:{10.1101/167304}.
 
 \bibitem{Futcher1999}
-Futcher B, Latter G I, Monardo P, McLaughlin C S, Garrels J I.
+Futcher B, Latter GI, Monardo P, McLaughlin CS, Garrels JI.
 \newblock {A sampling of the yeast proteome.}
 \newblock Mol. Cell. Biol. 1999;19(11):7357-7368.
 
 \bibitem{Greenbaum2003}
-Greenbaum D, Colangelo Ch, Williams K, Gerstein† M.
+Greenbaum D, Colangelo Ch, Williams K, Gerstein M.
 \newblock {Comparing protein abundance and mRNA expression levels on a genomic scale.}
 \newblock Genome Biol. 2003;4(9):117.
 
 \bibitem{Gygi1999}
-Gygi S P, Rochon Y, Franza B R, Aebersold R.
+Gygi SP, Rochon Y, Franza BR, Aebersold R.
 \newblock {Correlation between protein and mRNA abundance in yeast.}
 \newblock Mol. Cell. Biol. 1999;19(3):1720-1730.
+
+\bibitem{Varadan2006}
+Varadan V, Miller DM, Anastassiou D.
+\newblock {Computational inference of the molecular logic for synaptic connectivity in C. elegans.}
+\newblock Bioinformatics. 2006;22(14):497-506.
+\newblock doi:{10.1093/bioinformatics/btl224}.
+
+Computational inference of the molecular logic for synaptic connectivity in C. elegans
 
 
 \end{thebibliography}
