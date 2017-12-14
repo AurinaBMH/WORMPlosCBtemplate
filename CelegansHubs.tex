@@ -346,11 +346,15 @@ Consistent with this view, experimental data and computational modeling indicate
 This integrative role comes at a cost, with connections between hubs extending over longer distances, on average, than other types of connections, a finding reported in the human \cite{vandenHeuvel:2012kh}, macaque \cite{Harriger2012}, rat \cite{VandenHeuvel2016b}, mouse \cite{Fulcher:2016ck}, and nematode \cite{Towlson2013}.
 Human positron emission tomography also suggests that hub nodes consume greater metabolic resources and have higher levels of blood flow than other areas \cite{Tomasi:2013kl, Collin:2014kq, Liang2013a}.
 This high metabolic cost may underlie the involvement of hub regions in a broad array of human diseases \cite{Fornito2015, Bullmore:2012vl, Crossley2014}. \\ %Thus, hub connectivity is a functionally valuable, yet costly, aspect of neuronal connectivity.
-Recent studies in mice and humans suggest that the high cost of hub connectivity is associated with a distinct molecular signature, as inferred from brain-wide transcriptomic data. 
+Recent studies in mice and humans suggest that the high cost of hub connectivity is associated with a distinct 
+\color{teal}
+molecular signature, as inferred from brain-wide transcriptomic data. 
 This work has focused on how patterns of expression across many thousands of genes covary between pairs of brain regions. 
-Such patterns of covariation are variously referred to as transcriptional coupling \cite{Fulcher2016}, gene coexpression \cite{Krienen2016} or correlated gene expression \cite{Richiardi2015, Mills2017, Goel2014}. 
+Such patterns of covariation are variously referred to as transcriptional coupling \cite{Fulcher:2016ck}, gene coexpression \cite{Krienen:2016eq} or correlated gene expression \cite{Richiardi2015, Mills2017, Goel2014}. 
 The goal of this work is to understand how pair-wise coupling of gene expression corresponds to the pairwise connection topology of the brain, thus drawing a link between molecular function and large-scale network organization. 
-For example, Fulcher and Fornito \cite{Fulcher:2016ck} combined viral tract tracing data on connectivity between 213 regions of the right hemisphere of the mouse brain \cite{Oh2014} with \emph{in situ} hybridization measures of the expression of 17\,642 genes in each of those regions.
+For example, 
+\color{black}
+Fulcher and Fornito \cite{Fulcher:2016ck} combined viral tract tracing data on connectivity between 213 regions of the right hemisphere of the mouse brain \cite{Oh2014} with \emph{in situ} hybridization measures of the expression of 17\,642 genes in each of those regions.
 They found that transcriptional coupling, across all genes, is stronger for connected compared to unconnected brain regions and that, in general, this coupling decays with increasing separation distance between brain regions.
 Countering this general trend however, connected pairs of hubs (i.e., the ``rich club'' of the brain) show the highest levels of transcriptional coupling (compared to hub-nonhub and nonhub pairs), despite being separated by larger distances, on average, and being distributed across diverse anatomical brain divisions.
 Moreover, this coupling is driven predominantly by genes regulating the oxidative synthesis and metabolism of adenosine triphosphate (ATP), the primary energetic currency of neuronal signaling \cite{Lennie:2003ia, Laughlin:2003vu}.
@@ -414,12 +418,18 @@ Previous investigations of \emph{C. elegans} neuronal connectivity have used dif
 or (iv) comparing multiple connectome representations \cite{Pan:2010jt}.
 % (e.g., following thresholding
 Our analysis here focuses on the combined directed, binary network, treating gap junctions as bidirectional connections.
-We chose to focus on a binarized network to follow previous studies on \textit{C. elegans} connectome data \citep{Kaufman2006, Towlson2013, Varier2011, Varadan2006, Pavlovic:2014gx} and to enable a more direct comparison to our previous analysis of the relationship between (binary) connectivity and gene expression in mouse \cite{Fulcher:2016ck}.
+\color{teal}
+We chose to focus on a binarized network to follow previous studies on \textit{C. elegans} connectome data \cite{Kaufman2006, Towlson2013, Varier2011, Varadan2006, Pavlovic:2014gx} and to enable a more direct comparison to our previous analysis of the relationship between (binary) connectivity and gene expression in mouse \cite{Fulcher:2016ck}.
+\color{black}
 % but  chemical synapses represented as directed edges from the presynaptic neuron to the postsynaptic neuron.
 The resulting connectome contains 279 neurons, with 2\,990 unique connections linking 2\,287 pairs of neurons.
 % <<BasicStats.m>>
-Note that the qualitative results presented here are not highly sensitive to the connectome representation.
-For example, we observe similar results when analyzing just the directed chemical connectivity network.
+Note that the qualitative results presented here are not highly sensitive to the 
+\color{teal}
+types of connections included in the connectome. 
+For example, node degree is highly correlated between the worm connectome defined according to chemical and electrical synapses or chemical synapses alone (Spearman's $\rho= 0.9$, $p = 3 \times 10^{-107}$).
+We also obtained qualitatively similar results for rich-club organization and trends in CGE when excluding gap junctions (see \nameref{S1_Fig}). 
+\color{black}
 % , e.g., hold when the directed chemical connectivity network is analyzed (i.e., excluding gap junctions).
 % (and the weighted network includes a total of 8\,168 individual synapses).
 % [[TODO: Some statement that our core results hold for different representations of the neuronal connectome]].
@@ -543,7 +553,7 @@ The coefficient assumes a maximum value $r_\phi = 1$ when $x$ and $y$ are identi
 
 One concern about applying this measure to sparsely annotated data is that it may be biased by differences in the number of expressed genes in a neuron, which ranged from 3 (0.3\% of 948 genes analyzed here) to 138 (14.6\%).
 To explore this further, we compared $r_\phi$ with several other commonly used metrics of association between binary vectors including Yule's $Q$ and Jaccard.
-While these other binary correlation metrics exhibited strong bias with the proportion of gene expression annotations made to a given neuron, $r_\phi$ was not biased (see \nameref{S1_Fig}).
+While these other binary correlation metrics exhibited strong bias with the proportion of gene expression annotations made to a given neuron, $r_\phi$ was not biased (see \nameref{S2_Fig}).
 Note that we use $r_\phi$ to denote this coefficient given that it is commonly referred to as the phi coefficient in the literature; this notation should not be confused with $\phi(k)$, which is used to denote the rich club coefficient.
 
 % A total of 92 anatomically distinct neuron classes are bilateral, that is, they contain both left and right counterparts (e.g., AVAL/AVAR).
@@ -580,9 +590,9 @@ and (iii) low genome coverage (less than 5\% of the protein coding genes in \emp
 % fot the enrichment we choose gene set size (5-100), so no analysis could be done with only one gene.
 % [GenesinGO, GOs] = searchGOcategories(C,G, 'mouse');
 Given that $r_\phi$ [Eq.~\ref{eq:rphi}] treats mutual gene expression (i.e., cases in which a gene is jointly expressed in both neurons) ($n_{11}$) the same as mutual absence of gene expression ($n_{00}$), we started by developing a new analytic measure of the probability of mutual gene expression, given its clearer biological interpretation (see Supporting Information).
-This measure was not biased by differences in the relative number of expressed genes (\nameref{S1_Fig}D) and yields qualitatively similar outputs to $r_\phi$ on our data.
+This measure was not biased by differences in the relative number of expressed genes (\nameref{S2_Fig}D) and yields qualitatively similar outputs to $r_\phi$ on our data.
 Thus, while we use $r_\phi$ throughout this work for its ease of interpretation (as an analogue of the conventional correlation coefficient), our new probability-based CGE measure allowed us to motivate a method for quantifying the contribution of individual genes (and functional groups of genes) to patterns of CGE that addresses some of the above-mentioned challenges.
-Note that our basic findings replicated regardless of whether we use $r_\phi$ or this new measure to quantify CGE (e.g., cf. \nameref{S2_Fig}).
+Note that our basic findings replicated regardless of whether we use $r_\phi$ or this new measure to quantify CGE (e.g., cf. \nameref{S3_Fig}).
 % and was useful for validating and interpreting our results.
 % The similarity in results based on both $r_\phi$ and CGE matching index motivated the development of a new method to quantify the contribution of individual genes, and functional groups of genes, to patterns of coupled expression that allows to overcome the above mentioned challenges.
 
@@ -767,7 +777,7 @@ The decreasing trend in CGE with distance within the head and tail is primarily 
 It may therefore represent a relationship specific to particular functionally related neurons, rather than a general, bulk spatial relationship seen in macroscopic mammalian brains \cite{Fulcher:2016ck}.
 % Given the weak spatial relationships of $r_\phi$ in \emph{C. elegans} that are only seen within the head and tail and are driven mostly by pairs of close neurons with similar gene expression profiles, there is no clear bulk spatial trend that can be corrected for (as done previously for mouse brain expression data \cite{Fulcher:2016ck}).
 % Residuals after subtracting an exponential form (following Fulcher and Fornito using mouse brain expression data \cite{Fulcher:2016ck}), are not symmetric, since the trend is often driven by pairs of close neurons with high CGE.
-Accordingly, attempting to correct for a bulk, non-specific trend by taking residuals from an exponential fitted to the relationship produced artifactual reductions in the CGE of many neuron pairs (shown in \nameref{S3_Fig}).
+Accordingly, attempting to correct for a bulk, non-specific trend by taking residuals from an exponential fitted to the relationship produced artifactual reductions in the CGE of many neuron pairs (shown in \nameref{S4_Fig}).
 % NOTE AA: I think we should include the plot (probably in supp) where exp for head-head is fitted (A) and a plot for residuals (B).
 % Given that the effect was relatively small, and no standard correction could be applied, we use original uncorrected CGE data for all the further analyses.
 % Due to the large artifacts introduced, we chose not to correct for the small spatial dependence of CGE in head-head and tail-tail connections for the main analyses presented here,
@@ -866,7 +876,7 @@ The figure plots the variation of $\Phi_\mathrm{norm}$ across degree thresholds,
 % [[check whether randmio\_dir only preserves degree: AA - degree distributions in binary, out-strength (but not in-strength) in weighted]].
 The plot reveals rich-club organization ($\Phi_\mathrm{norm} > 1$) at the upper tail of the degree distribution, particularly across the range $44 < k < 63$, shaded gray in Fig.~\ref{fig:Fig5}B.
 % ), referred to here as the `topological rich-club regime'.
-Similar results were obtained using weighted representations of the connectome (i.e., using information about the number of synapses in the connectivity network) for two different definitions of the weighted rich-club coefficient \cite{Opsahl2008}, shown in \nameref{S4_Fig}.
+Similar results were obtained using weighted representations of the connectome (i.e., using information about the number of synapses in the connectivity network) for two different definitions of the weighted rich-club coefficient \cite{Opsahl2008}, shown in \nameref{S5_Fig}.
 Throughout this work, we define a set of hubs as the sixteen neurons with $k > 44$, which corresponds to the lowest degree threshold at which the network displays a contiguous region of significant rich-club organization at high $k$.
 Our list of hubs includes all of the 11 hub neurons of Towlson et al.~\cite{Towlson2013} at $3 \sigma$ (see \nameref{tab:HubList}) with five additional hubs identified in our analysis of the directed connectome.
 % This indicates that when nodes are defined as hubs (degree $>\textit{k}$) in this range, they are more densely interconnected than expected by chance.
@@ -879,7 +889,7 @@ Our list of hubs includes all of the 11 hub neurons of Towlson et al.~\cite{Towl
 The rich-club connectivity of the \emph{C. elegans} connectome is accompanied by an increase in mean hub-hub connection distance \cite{Towlson2013}, with a significant increase through the topological rich-club regime (right-tailed Welch's $t$-test, $p < 0.05$), shown in Fig.~\ref{fig:Fig5}B.
 % and consistent with prior analysis by Towlson et al. \cite{Towlson:2013gf}.
  % we plot the mean distance between all pairs of connected hubs at each degree threshold, $k$.
-This can be attributed to a relative increase in long-distance hub-hub connections between the head and tail, shown in Fig.~\ref{fig:Fig2} (cf. \nameref{S5_Fig}).
+This can be attributed to a relative increase in long-distance hub-hub connections between the head and tail, shown in Fig.~\ref{fig:Fig2} (cf. \nameref{S6_Fig}).
 % , we find an increase in mean hub-hub connection distance with $k$, through to the extent of the topological rich-club regime.
 The high connection density and long mean anatomical distance between pairs of hub neurons counters the general trend in the \emph{C. elegans} connectome, where the probability of connectivity between two neurons decays with their separation distance (Fig.~\ref{fig:Fig3}).
 These results are consistent with previous findings across diverse neural systems and suggest that the rich club may provide a central yet costly backbone for neuronal communication in \emph{C. elegans} \cite{vandenHeuvel:2012kh, Towlson2013}.
@@ -1460,8 +1470,10 @@ More comprehensive transcriptomic data (e.g., obtained through systematic single
 Additionally, we cannot rule out the possibility that gene annotations have been influenced by the nature of the curated data that we have used here.
 Given their functional similarity, command interneurons might have been tested as a group in a set of experiments for the expression of particular genes and consequently assigned similar expression signatures.
 More precise and systematic measurement of neuron-specific gene expression patterns would be required to address this question.
+\color{teal}
 Finally, studies of gene expression often assume that expression levels correspond to protein abundance, but this assumption does not always hold \cite{Futcher1999, Greenbaum2003, Gygi1999}. 
 Thus, analyses of the transcriptomic data can be viewed as a relatively efficient approach for investigating potential links between molecular function and nervous system organization, that can be more strongly verified using subsequent proteomic analysis.
+\color{black}
 
 % with preliminary enrichment analysis indicating a role for glutamate in both connectivity and hub-connectivity.
 %Our results suggest that, even in a highly specialized neuronal nervous system, costly hub-hub connections display a distinctive transcriptional signature that may reflect their unique functional role in the network.
@@ -1649,7 +1661,7 @@ Our index, $p_\mathrm{match}$, is approximately equal to the probability of obta
 \end{equation}
 for $m$ positive matches.
 
-We verified that this index yields qualitatively similar results to the mean square contingency coefficient, $r_\phi$, used throughout this work (\nameref{S2_Fig}), validating our related positive match method for scoring individual genes [as an approximately single-gene contribution to the probability score computed in Eq.~\eqref{eqn:pmatch}].
+We verified that this index yields qualitatively similar results to the mean square contingency coefficient, $r_\phi$, used throughout this work (\nameref{S3_Fig}), validating our related positive match method for scoring individual genes [as an approximately single-gene contribution to the probability score computed in Eq.~\eqref{eqn:pmatch}].
 Given the qualitative similarity of this measure to $r_\phi$, we chose to focus on $r_\phi$ throughout this work due to its ease of interpretability as a correlation coefficient ranging from -1 to 1.
 
 \subsection*{Sensitivity of correlated gene expression measures}
@@ -1664,10 +1676,10 @@ and the $\chi^2$ index, $N (n_{00}n_{11} - n_{01}n_{10})/(n_{1\bullet}n_{0\bulle
 % and Simple matching coefficients [[TODO: define and give reference]],
 
 To evaluate bias in each CGE measure to the proportion of annotations in each expression vector, we generated random binary vectors of length 948 containing different proportions of 1s seen in our data, ranging from the minimum, 1, to the maximum, 150.
-For all pairwise combinations of proportions, we computed the CGE measure, taking an average across 1\,000 permutations, and then recorded the resulting mean correlation value, as plotted in \nameref{S1_Fig}.
+For all pairwise combinations of proportions, we computed the CGE measure, taking an average across 1\,000 permutations, and then recorded the resulting mean correlation value, as plotted in \nameref{S2_Fig}.
 Because all vectors are independent random binary strings, any systematic dependence of mean CGE with annotation proportion indicates bias.
-The mean square contingency coefficient, $r_\phi$ (\nameref{S1_Fig}A) and our own novel CGE matching index, $p_\mathrm{match}$ (\nameref{S1_Fig}D) show no systematic dependence on the proportion of ones in each vector (varying randomly within $\approx 10^{-3}$ and $\approx 0.5$ respectively).
-However, Yule's $Q$ shows a negative bias for small annotation proportions (\nameref{S1_Fig}B) and the Jaccard index shows a strong positive bias across the full range (\nameref{S1_Fig}C).
+The mean square contingency coefficient, $r_\phi$ (\nameref{S2_Fig}A) and our own novel CGE matching index, $p_\mathrm{match}$ (\nameref{S2_Fig}D) show no systematic dependence on the proportion of ones in each vector (varying randomly within $\approx 10^{-3}$ and $\approx 0.5$ respectively).
+However, Yule's $Q$ shows a negative bias for small annotation proportions (\nameref{S2_Fig}B) and the Jaccard index shows a strong positive bias across the full range (\nameref{S2_Fig}C).
 Based on these numerical experiments, we selected mean square contingency coefficient, $r_\phi$, here, to ensure that changes in CGE were due to matching expression patterns and not simply driven by differences in the number of gene annotations between neurons.
 
 % As shown in \nameref{S1_Fig}, the only metric that did not show a systematic bias on random binary vectors as a function of the proportion of ones was $r_\phi$.
@@ -1851,8 +1863,25 @@ Categories are sorted by $p$-value (ascending).
 % ------------------------------------------------------------------------------
 % compare proportions for simulations to validate
 % ------------------------------------------------------------------------------
+\color{teal}
 \paragraph*{S1 Fig.}
 \label{S1_Fig}
+{\bf Rich club organisation and correlated gene expression in synaptic connectivity matrix.} 
+(A) Rich-club organization of the synaptic \textit{C. elegans} connectome. 
+Top: Degree distribution of neurons, labelled to four categories: (i) interneuron (85 neurons, orange), (ii) motor (108 neurons, green), (iii) sensory (68 neurons, blue), or (iv) multiple assignments (18 neurons, yellow). 
+The distribution features an extended tail of high-degree neurons. 
+Bottom: Normalized rich club coefficient, $\Phi_\mathrm{norm}$ (red), as a function of the degree, k, at which hubs are defined (as neurons with degree > \textit{k}). Also shown is the mean Euclidean separation distance, d (purple) between connected hub regions (across degree thresholds, k). $\Phi_\mathrm{norm} > 1$ indicates that hubs are more densely interconnected among each other than expected by chance, with red circles indicate values of norm that are significantly higher than an ensemble of 1 000 degree-matched null networks ($p < 0.05$). 
+Purple circles indicate where the Euclidean distance between connected pairs of hubs is significantly greater than the Euclidean distance for all other pairs of connected regions (right-tailed Welch's t-test, $p < 0.05$). 
+(B) Top: Degree distribution, k, of the synaptic \textit{C. elegans}  connectome. 
+Middle: proportion of connections that are: `rich' (hub $\rightarrow$ hub, red), `feed-in' (nonhub $\rightarrow$ hub, yellow), `feed-out' (hub $\rightarrow$ nonhub, orange), or `peripheral' (nonhub $\rightarrow$ nonhub, blue) as a function of the degree threshold, \textit{k}, used to define hubs. 
+Note that at high \textit{k} most neurons are labeled as nonhubs and hence the vast majority of connections are labeled `peripheral'. 
+Bottom: Median CGE, $\tilde{r}_\phi$, for each connection type as a function of \textit{k}. 
+The median CGE across all network links is shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. A) is shaded gray. 
+Circles indicate a statistically significant increase in CGE in a given link type relative to the rest of the network (one-sided Wilcoxon rank-sum test, $p <  0. 05$).
+\color{black}
+
+\paragraph*{S2 Fig.}
+\label{S2_Fig}
 {\bf Dependence of correlated gene expression measures on the proportion of positive annotations.} We plot the mean value of each metric across 1000 different pairs of random, binary vectors of length 948, which vary only in their proportion of `1's (between 0--0.15; corresponding to a number of `1's ranging from 1 to 150).
 This is repeated for:
 (A) mean square contingency coefficient, $r_\phi$,
@@ -1865,8 +1894,8 @@ Any systematic trend in correlation values indicates a bias driven by the propor
 By contrast, $r_\phi$, which is used through this work, and our probability-based measure, $p_\mathrm{match}$, used to motivate individual gene scoring for enrichment analysis, show no evidence of systematic bias (note the color axis scales).
 
 % RichClub script
-\paragraph*{S2 Fig.}
-\label{S2_Fig}
+\paragraph*{S3 Fig.}
+\label{S3_Fig}
 {\bf Correlated gene expression measured using the positive matching probability index.} The matching probability index, $p_\mathrm{match}$, is introduced here as Eq.~\eqref{eqn:positiveMatch}.
 \emph{Top}: Degree distribution.
 \emph{Middle}: Proportion of connections that are `rich' (hub$\rightarrow$hub, red), `feed-in' (nonhub$\rightarrow$hub, yellow), `feed-out' (hub$\rightarrow$nonhub, orange), and `peripheral' (nonhub$\rightarrow$nonhub, blue) as a function of the degree threshold, $k$, used to define hubs.
@@ -1879,14 +1908,16 @@ Circles indicate a statistically significant increase in CGE in a given link typ
 % ------------------------------------------------------------------------------
 % <<CoExpressionDistanceCorrect(C,G)>>
 % ------------------------------------------------------------------------------
-\paragraph*{S3 Fig.}
-\label{S3_Fig}
+\paragraph*{S4 Fig.}
+\label{S4_Fig}
 {\bf Correcting for spatial effects in CGE data using a bulk exponential trend.}
   Here we consider correlated gene expression in the head, where the strongest spatial relationship exists (cf. Fig.~\ref{fig:Fig4}. (A) CGE values, $r_\phi$, plotted as a function of Euclidean separation distance for all pairs of neurons within the head (gray dots), with a fitted exponential trend shown in black, $f(x) = A\exp(-\lambda x) + B$.
 (B) Taking residuals from this trend does not adequately correct the spatial trend.
     Note the artifactual negative correlations indicated with an arrow.
     This indicates that the trend is not a bulk, isotropic effect, but may instead be driven primarily by a small number of neuron pairs with high $r_\phi$ at short distances ($\lessapprox 50\mu$m), indicated with a circle in (A).
-Those neuron pairs, with $r_\phi$ > 0.8, are between the following classes of head neurons: CEP, IL1, OLQ, RMD, RME, RMF, SAAD, SAAV, SAB, SIA, SIB, SMB, SMD, URA, URY.
+    \color{teal}
+Those neuron pairs, with $r_\phi > 0.8$, are between the following classes of head neurons: CEP, IL1, OLQ, RMD, RME, RMF, SAAD, SAAV, SAB, SIA, SIB, SMB, SMD, URA, URY.
+\color{black}
 
 
 % \paragraph*{S2 Fig.}
@@ -1945,8 +1976,8 @@ Those neuron pairs, with $r_\phi$ > 0.8, are between the following classes of he
 % ------------------------------------------------------------------------------
 % <<networkRC.m>>
 % \paragraph*{S7 Fig.}
-\paragraph*{S4 Fig.}
-\label{S4_Fig}
+\paragraph*{S5 Fig.}
+\label{S5_Fig}
 {\bf Weighted and unweighted rich-club analyses yield similar results.}
    (A) Degree distribution of the \emph{C. elegans} connectome.
     Neurons are labeled to four types as in the legend.
@@ -2011,8 +2042,8 @@ Those neuron pairs, with $r_\phi$ > 0.8, are between the following classes of he
 % ------------------------------------------------------------------------------
 % hubConnectionDistance(C)
 % ------------------------------------------------------------------------------
-\paragraph*{S5 Fig.}
-\label{S5_Fig}
+\paragraph*{S6 Fig.}
+\label{S6_Fig}
 {\bf Rich and non-rich connections in the \emph{C. elegans} connectome, categorized by the  anatomical location of the source and target neurons.}
    Hub-hub connections (`rich') are shown red, and all other connections (`non-rich', i.e., feeder and peripheral) are shown gray, where hubs are defined as neurons with degree, $k > 44$.
 Anatomical locations are labeled as `head', `body', and `tail', and each connection is labeled according to its source and target neurons, labeled on the vertical axis in the form `Source-Target'.
