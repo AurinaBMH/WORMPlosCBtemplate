@@ -763,5 +763,20 @@ Mills B D, Grayson D, Shunmugavel A, Miranda-Dominguez O, Feczko E, Earl E, Neve
 \newblock bioRxiv.
 \newblock doi:{10.1101/167304}.
 
+\bibitem{Futcher1999}
+Futcher B, Latter G I, Monardo P, McLaughlin C S, Garrels J I.
+\newblock {A sampling of the yeast proteome.}
+\newblock Mol. Cell. Biol. 1999;19(11):7357-7368.
+
+\bibitem{Greenbaum2003}
+Greenbaum D, Colangelo Ch, Williams K, Gerstein† M.
+\newblock {Comparing protein abundance and mRNA expression levels on a genomic scale.}
+\newblock Genome Biol. 2003;4(9):117.
+
+\bibitem{Gygi1999}
+Gygi S P, Rochon Y, Franza B R, Aebersold R.
+\newblock {Correlation between protein and mRNA abundance in yeast.}
+\newblock Mol. Cell. Biol. 1999;19(3):1720-1730.
+
 
 \end{thebibliography}
