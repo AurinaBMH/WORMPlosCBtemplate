@@ -784,7 +784,10 @@ Varadan V, Miller DM, Anastassiou D.
 \newblock Bioinformatics. 2006;22(14):497-506.
 \newblock doi:{10.1093/bioinformatics/btl224}.
 
-Computational inference of the molecular logic for synaptic connectivity in C. elegans
-
+\bibitem{Baruch2008}
+Baruch L, Itzkovitz S, Golan-Mashiach M, Shapiro E, Segal E.
+\newblock {Using Expression Profiles of Caenorhabditis elegans Neurons To Identify Genes That Mediate Synaptic Connectivity.}
+\newblock PLoS Comp Biol. 2008;4(7):e1000120.
+\newblock doi:{10.1371/journal.pcbi.1000120}.
 
 \end{thebibliography}
