@@ -369,7 +369,7 @@ We combined these data on neuronal connectivity with curated information on the 
 We also used detailed information on neuron spatial positions, birth times, neuronal lineage as well as the functional and chemical composition of each neuron to understand the mechanisms through which gene expression might influence network topology.
 Paralleling findings in humans and mouse, we find that hub neurons of \emph{C. elegans} are genomically distinct, with connected hub neurons showing the most similar patterns of gene expression.
 Genes that contribute most to this effect are involved in regulating glutamate and acetylcholine function, and neuronal communication.
-We demonstrate that this effect is not \color{teal} is not associated with the factors \color{black}  such as neuronal birth time, lineage, neurotransmitter system or spatial position but is rather related to the functional specialization of hub neurons in mediating higher order behaviours of the organism.
+We demonstrate that this effect \color{teal} is not associated with the factors \color{black} such as neuronal birth time, lineage, neurotransmitter system or spatial position but may rather be related to the functional specialization of hub neurons in mediating higher order behaviours of the organism.
 
 % Introduce hub connectivity-expression hypothesis
 % Connectivity in brain networks is not uniformly distributed. Network elements with high node degree – i.e., a large number of connections to other areas – are called `hubs'.
@@ -885,7 +885,7 @@ The plot reveals rich-club organization ($\Phi_\mathrm{norm} > 1$) at the upper 
 Similar results were obtained using weighted representations of the connectome (i.e., using information about the number of synapses in the connectivity network) for two different definitions of the weighted rich-club coefficient \cite{Opsahl2008}, shown in \nameref{S5_Fig}.
 Throughout this work, we define a set of hubs as the sixteen neurons with $k > 44$, which corresponds to the lowest degree threshold at which the network displays a contiguous region of significant rich-club organization at high $k$.
 Our list of hubs includes all of the 11 hub neurons of Towlson et al.~\cite{Towlson2013} at $3 \sigma$ (see \nameref{tab:HubList}) with five additional hubs identified in our analysis of the directed connectome.
-% This indicates that when nodes are defined as hubs (degree $>\textit{k}$) in this range, they are more densely interconnected than expected by chance.
+% This indicates that when nodes are defined as hubs (degree $>k$) in this range, they are more densely interconnected than expected by chance.
  % of the analyses presented below examine how different topological and genomic properties vary as a function of the hub threshold, $k$, but for analyses requiring a fixed hub definition, we define hubs as the 13 neurons with
 
 % ------------------------------------------------------------------------------
@@ -1139,7 +1139,7 @@ Thus, for both types of modular decompositions considered, intra-modular and int
  \textbf{Increased CGE of hub neurons is not driven by modularity, neuronal birth time, or cell lineage distance.}
 %\textbf{A: Connection distance}
 %Top: Degree distribution.
-%Bottom: Median lineage distance for rich, feeder, and peripheral connections as a function of \textit{k}, with the %median across all network links shown as a dashed black line and the topological rich club regime shaded grey.
+%Bottom: Median lineage distance for rich, feeder, and peripheral connections as a function of $k$, with the %median across all network links shown as a dashed black line and the topological rich club regime shaded grey.
 %Circles indicate a statistically significant change in lineage distance in a given link type relative to the rest %of the network (Wilcoxon rank sum test; $p < 0.05$). \\
 %\textbf{A} Nematode connectivity matrix organized by topological module (white squares), with all connections labeled by type: rich (red), feed-in (yellow), feed-out (orange), and peripheral (blue).
 %Neuron indicators are shown to the left:
@@ -1153,14 +1153,15 @@ Thus, for both types of modular decompositions considered, intra-modular and int
 % The number of connections of each type is shown in parentheses.
 (C) Distributions of lineage distance between rich links (red) and non-rich links (blue), plotted as histograms due to a discrete nature of this measure (Wilcoxon rank sum test, $p = 0.079$).
 (D) Distributions of CGE, $r_\phi$, between early born hubs (rich links, red) and nonhubs (non-rich links, blue) shown as violin plots with the median shown as a horizontal bar (Wilcoxon rank sum test, $p = 3.9 \times 10^{-22}$).
-(E) Distributions of CGE between hub command interneurons (red) and hub non-command interneurons (blue) shown as violin plots with the median shown as a horizontal bar (Wilcoxon rank sum test, $p = 3.3 \times 10^{-8}$). * represents statistically significant differences.
+(E) Distributions of CGE between hub command interneurons (red) and hub non-command interneurons (blue) shown as violin plots with the median shown as a horizontal bar (Wilcoxon rank sum test, $p = 3.3 \times 10^{-8}$).
+* represents statistically significant differences.
 %[[TODO: could add neurotransmitter type as a bar code in modules]]
 %[[TODO: change colors for distributions, fill distributions, e.g., intra-modular and inter-modular shouldn't use red (rich) use green for non-rich]]
 %Composition of each module according to neuron type.
 %Modular organisation of the connectome.
 %Coexpression distributions within and between modules.
 %\textbf{C: Lineage distance}
-%Top: Degree distribution. Bottom: Mean lineage distance for rich, feeder, and peripheral connections as a function %of \textit{k}, with the median across all network links shown as a dashed black line and the topological rich club regime shaded grey.
+%Top: Degree distribution. Bottom: Mean lineage distance for rich, feeder, and peripheral connections as a function %of $k$, with the median across all network links shown as a dashed black line and the topological rich club regime shaded grey.
 %Circles indicate a statistically significant change in lineage distance in a given link type relative to the rest of the network (one-sided Welch’s t-test; $p < 0.05$) \\
 %\textbf{D: Coexpression for different types of neurons. }
 %Top: Median CGE as a function of degree for connections involving different types of neurons.
@@ -1232,7 +1233,7 @@ CGE varies as a function of anatomical location (i.e., `head', `body', and `tail
 Given this variation, we tested whether the increased CGE between hub neurons \color{teal} is related to \color{black} their anatomical distribution using the permutation testing procedure described above for neurochemistry.
 That is, we compared the distribution of CGE between hubs to a null distribution formed from $10^8$ random permutations of thirteen head neurons and three tail neurons.
 % TypeConfoundHubs -> doWhat='anatomy'
-The median CGE, $\tilde{r}_\phi$, between hub neurons is significantly increased relative to random sets of thirteen head neurons and three tail neurons (permutation test, $p = 8\times10^{-6}$).
+The median CGE, $\tilde{r}_\phi$, between hub neurons is significantly increased relative to random sets of thirteen head neurons and three tail neurons (permutation test, $p = 8\times10^{-8}$).
 Furthermore, CGE is significantly increased amongst hub neurons relative to other pairs of head neurons (Wilcoxon rank sum test, $p = 4.1 \times 10^{-11}$ for 46 hub-hub pairs and 1\,186 others),
 and also amongst head/tail pairs of neurons (Wilcoxon rank sum test, $p = 1.6 \times 10^{-14}$ for 23 hub-hub pairs, 174 others),
 but not for the three hub neurons in the tail (Wilcoxon rank sum test, $p = 0.15$ for three hub-hub pairs, 53 others).
@@ -1885,12 +1886,12 @@ Categories are sorted by $p$-value (ascending).
 (A) Rich-club organization of the synaptic \textit{C. elegans} connectome. 
 Top: Degree distribution of neurons, labelled to four categories: (i) interneuron (85 neurons, orange), (ii) motor (108 neurons, green), (iii) sensory (68 neurons, blue), or (iv) multiple assignments (18 neurons, yellow). 
 The distribution features an extended tail of high-degree neurons. 
-Bottom: Normalized rich club coefficient, $\Phi_\mathrm{norm}$ (red), as a function of the degree, \textit{k}, at which hubs are defined (as neurons with degree $> \textit{k}$). Also shown is the mean Euclidean separation distance, d (purple) between connected hub regions (across degree thresholds, k). $\Phi_\mathrm{norm} > 1$ indicates that hubs are more densely interconnected among each other than expected by chance, with red circles indicate values of norm that are significantly higher than an ensemble of 1 000 degree-matched null networks ($p < 0.05$). 
+Bottom: Normalized rich club coefficient, $\Phi_\mathrm{norm}$ (red), as a function of the degree, $k$, at which hubs are defined (as neurons with degree $>k$). Also shown is the mean Euclidean separation distance, d (purple) between connected hub regions (across degree thresholds, k). $\Phi_\mathrm{norm} > 1$ indicates that hubs are more densely interconnected among each other than expected by chance, with red circles indicate values of norm that are significantly higher than an ensemble of 1 000 degree-matched null networks ($p < 0.05$). 
 Purple circles indicate where the Euclidean distance between connected pairs of hubs is significantly greater than the Euclidean distance for all other pairs of connected regions (right-tailed Welch's t-test, $p < 0.05$). 
 (B) Top: Degree distribution, k, of the synaptic \textit{C. elegans}  connectome. 
-Middle: proportion of connections that are: `rich' (hub $\rightarrow$ hub, red), `feed-in' (nonhub $\rightarrow$ hub, yellow), `feed-out' (hub $\rightarrow$ nonhub, orange), or `peripheral' (nonhub $\rightarrow$ nonhub, blue) as a function of the degree threshold, \textit{k}, used to define hubs. 
-Note that at high \textit{k} most neurons are labeled as nonhubs and hence the vast majority of connections are labeled `peripheral'. 
-Bottom: Median CGE, $\tilde{r}_\phi$, for each connection type as a function of \textit{k}. 
+Middle: proportion of connections that are: `rich' (hub $\rightarrow$ hub, red), `feed-in' (nonhub $\rightarrow$ hub, yellow), `feed-out' (hub $\rightarrow$ nonhub, orange), or `peripheral' (nonhub $\rightarrow$ nonhub, blue) as a function of the degree threshold, $k$, used to define hubs. 
+Note that at high $k$ most neurons are labeled as nonhubs and hence the vast majority of connections are labeled `peripheral'. 
+Bottom: Median CGE, $\tilde{r}_\phi$, for each connection type as a function of $k$. 
 The median CGE across all network links is shown as a dotted black line; the topological rich-club regime (determined from the network topology, cf. A) is shaded gray. 
 Circles indicate a statistically significant increase in CGE in a given link type relative to the rest of the network (one-sided Wilcoxon rank-sum test, $p <  0. 05$).
 \color{black}
