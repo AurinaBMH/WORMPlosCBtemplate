@@ -506,6 +506,9 @@ Values of $\Phi_\mathrm{norm} > 1$ indicate rich-club organization of the networ
 %As a result, a small number of high degree nodes forming a rich club was identified.
 
 \paragraph{Modularity.}
+\color{teal}
+Another important topological property of neural systems is modularity, whereby network nodes coalesce into tightly connected subsystems that are thought to serve a common function \cite{Sporns2016}.
+\color{black}
 To investigate whether our results were influenced by the well-known modular organization of the \emph{C. elegans} connectome \cite{Kim:2014bu, Pan:2010jt, Bassett2010, Achacoso:1992ay, Pavlovic:2014gx}, we decomposed the network into modules using two methods.
 The first method involved applying the Louvain community detection algorithm \cite{Blondel:2008do} using the \texttt{community\_louvain} function in the Brain Connectivity Toolbox \cite{Rubinov:2010jd}.
 To identify the optimal modular assignment, neurons were assigned to modules using consensus clustering across 1000 repeats of the Louvain algorithm \cite{Lancichinetti2012}, weighting each partition by its modularity, $Q$, using the \texttt{agreement\_weighted} and \texttt{consensus\_und} functions of the BCT\cite{Rubinov:2010jd}.
@@ -919,7 +922,7 @@ We next investigate how the network connectivity properties of \emph{C. elegans}
 To test whether CGE varies as a function of connectivity, we compared the distribution of $r_\phi$ between
 (i) all connected pairs of neurons, and
 (ii) all unconnected pairs of neurons.
-Connected pairs of neurons have more similar expression profiles than unconnected pairs (Wilcoxon rank-sum test, $p = 1.8 \times 10^{-78}$), mirroring previous results in the mesoscale mouse connectome \cite{Fulcher:2016ck}.
+Connected pairs of neurons have more similar expression profiles than unconnected pairs (Wilcoxon rank-sum test, $p = 1.8 \times 10^{-78}$). 
 % (Fig.~\ref{fig:S_RFPdistributions}).
 Figure~\ref{fig:Fig6}A (left) shows distributions of $r_\phi$ for:
 (i) all pairs of neurons that are connected via an electrical gap junctions (474 pairs, after excluding bilateral pairs),
@@ -932,7 +935,7 @@ Amongst connected pairs of neurons, those connected via gap junctions exhibit mo
 % At the same time there is no significant difference in pairwise distances between them (Wilcoxon rank-sum test, $p = 0.63$), therefore, the increase in CGE for neurons connected via gap junctions could not be attributed to their spatial position.
 % and  and chemically connected neuron pairs are not mutually exclusive with 175 pairs of neurons connected via both types of connections.
 % Note that because connections between bilateral pairs of neurons display high transcriptional similarity and are excluded from this analysis, leaving 474 electrically (514-40), 1\,940 connected pairs (1\,961 - 21) and 36\,450 unconnected pairs (36\,494 - 44).
-We found no difference in CGE between pairs of neurons connected reciprocally by chemical synapses ($N_1 \leftrightarrow N_2$ for two neurons $N_1$ and $N_2$) versus those connected unidirectionally ($N_1 \rightarrow N_2$) (Wilcoxon rank-sum test, $p = 0.99$), in contrast to significant differences found in the mesoscale mouse connectome \cite{Fulcher:2016ck}.
+We found no difference in CGE between pairs of neurons connected reciprocally by chemical synapses ($N_1 \leftrightarrow N_2$ for two neurons $N_1$ and $N_2$) versus those connected unidirectionally ($N_1 \rightarrow N_2$) (Wilcoxon rank-sum test, $p = 0.99$).
 % into three distinct categories: electrical, chemical reciprocal ($X \leftrightarrow Y$) and chemical unidirectional ($X \rightarrow Y$), however, unlike in the mouse brain, we found no differences in CGE, $r_\phi$, between chemical unidirectional and reciprocal connections (see Fig.~\ref{fig:S_RFPdistributions}).
 
 
@@ -1081,7 +1084,7 @@ Circles indicate a statistically significant increase in CGE in a given link typ
 %Given that connectome modules may correspond to functionally specialized systems, it is therefore plausible that neurons belonging to the same module might exhibit similar gene expression patterns, as has been shown for macroscopic functional networks in the human brain \cite{Richiardi2015}.
 %Brain network hubs generally participate in multiple modules \cite{vandenHeuvel:2013ij, deReus:2014cz}, and their dense rich-club connectivity implies that they may form their own module that overlaps with other, more specialized systems \cite{Fornito:2015dq, deReus:2013cy, ZamoraLopez:2010hy}.
 %We therefore investigated whether therefore increased CGE between pairs of hub neurons in the \emph{C. elegans} connectome can be explained by their distribution across connectome modules.
-Another important topological property of neural systems is modularity, whereby network nodes coalesce into tightly connected subsystems that are thought to serve a common function \cite{Sporns2016}.
+
 Prior work in humans has shown that functional networks in the brain have elevated transcriptional coupling \cite{Richiardi2015}.
 The \emph{C. elegans} connectome has a modular organization, with prior work decomposing it into:
 (i) modules of neurons with dense intra-module connectivity (and relatively sparse connectivity between modules) \cite{Kim:2014bu, Pan:2010jt, Bassett2010}, or
