@@ -383,14 +383,6 @@ Rubinov M, Sporns O.
   interpretations}.
 \newblock NeuroImage. 2010;52(3):1059--1069.
 
-\bibitem{Kim2014}
-Kim JS, Kaiser M.
-\newblock {From Caenorhabditis elegans to the human connectome: a specific
-  modular organization increases metabolic, functional and developmental
-  efficiency.}
-\newblock Phil Trans Roy Soc B,
-  Biological sciences. 2014;369(1653).
-\newblock doi:{10.1098/rstb.2013.0529}.
 
 \bibitem{Achacoso:1992ay}
 Achacoso T, Yamamoto W.
@@ -717,12 +709,6 @@ Roberts JA, Perry A, Lord AR, Roberts G, Mitchell PB, Smith RE, et~al.
 \newblock NeuroImage. 2016;124(Pt A):379--93.
 \newblock doi:{10.1016/j.neuroimage.2015.09.009}.
 
-\bibitem{Kim2016}
-Kim S, Kim H, Kralik JD, Jeong J, Bargmann C, Aballay A.
-\newblock {Vulnerability-Based Critical Neurons, Synapses, and Pathways in the
-  Caenorhabditis elegans Connectome}.
-\newblock PLoS Comp Biol. 2016;12(8):e1005084.
-\newblock doi:{10.1371/journal.pcbi.1005084}.
 
 \bibitem{Mesulam1998}
 Mesulam MM.
@@ -764,5 +750,18 @@ Alstott J, Panzarasa P, Rubinov M, Bullmore ET, V{\'{e}}rtes PE.
 \newblock {A unifying framework for measuring weighted rich clubs.}
 \newblock Sci. Rep. 2014;4:7258.
 \newblock doi:{10.1038/srep07258}.
+
+\bibitem{Goel2014}
+Goel P, Kuceyeski A, LoCastro, E, Raj A.
+\newblock {Spatial patterns of genome-wide expression profiles reflect anatomic and fiber connectivity architecture of healthy human brain.}
+\newblock Hum Brain Mapp. 2014;35(8): 4204-4218.
+\newblock doi:{10.1002/hbm.22471}.
+
+\bibitem{Mills2017}
+Mills B D, Grayson D, Shunmugavel A, Miranda-Dominguez O, Feczko E, Earl E, Neve K, Fair D.
+\newblock {Correlated gene expression and anatomical communication support synchronized brain activity in the mouse functional connectome.}
+\newblock bioRxiv.
+\newblock doi:{10.1101/167304}.
+
 
 \end{thebibliography}
