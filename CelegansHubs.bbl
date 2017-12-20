@@ -795,4 +795,11 @@ Romme IAC. , de Reus MA, Ophoff RA, Kahn RS, van den Heuvel MP.
 \newblock {Connectome Disconnectivity and Cortical Gene Expression in Patients With Schizophrenia.}
 \newblock Biol. Psychiatry 2016;15;81(6):495-502.
 \newblock doi:{10.1016/j.biopsych.2016.07.012}.
+
+\bibitem{Burt2017}
+Burt JB, Demirtas M, Eckner WJ, Navejar NM, Ji JL, Martin WJ, Bernacchia A, Anticevic A, Murray JD.
+\newblock {Hierarchy of transcriptomic specialization across human cortex captured by myelin map topography.}
+\newblock bioRxiv 2017;
+\newblock doi:{10.1101/199703}.
+
 \end{thebibliography}
