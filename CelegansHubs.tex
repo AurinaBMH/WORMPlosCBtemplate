@@ -545,7 +545,7 @@ Thus, we found no evidence for bulk spatial relationships of $r_\phi$ in the neu
 
 Next we analyze the topological properties of the \emph{C. elegans} connectome, represented as a directed, binary connectivity matrix between 279 neurons, combining directed chemical synapses and undirected electrical gap junctions (Fig.~\ref{fig:Fig1}).
 The degree distribution is shown in Fig.~\ref{fig:Fig5}A, where neurons are labeled as sensory neurons, interneurons, motor neurons, or neurons with multiple functional assignments.
-Consistent with the results of Towlson et al., who used an undirected version of the connectome (by ignoring the directionality of chemical synapses), we found a positively-skewed degree distribution containing an extended tail of high-degree hub interneurons.
+Consistent with the results of Towlson et al. \cite{Towlson2013},  who used an undirected version of the connectome (by ignoring the directionality of chemical synapses), we found a positively-skewed degree distribution containing an extended tail of high-degree hub interneurons.
 Hub interneurons of \emph{C. elegans} are mostly command interneurons and mediate behaviors like coordinated locomotion and foraging \cite{tsalik2003}.
 
 \begin{figure}[h]
@@ -560,7 +560,7 @@ The distribution features an extended tail of high-degree interneurons.
 (B)
 Normalized rich club coefficient, $\Phi_\mathrm{norm}$ (red), as a function of the degree, $k$, at which hubs are defined (as neurons with degree $>k$).
 Also shown is the mean Euclidean separation distance, $d$ (purple) between connected hub regions (across degree thresholds, $k$).
-$\Phi_\mathrm{norm} > 1$ indicates that hubs are more densely interconnected among each other than expected by chance, with red circles indicate values of $\Phi_\mathrm{norm}$ that are significantly higher than an ensemble of 1\,000 degree-matched null networks ($p < 0.05$).
+$\Phi_\mathrm{norm} > 1$ indicates that hubs are more densely interconnected among each other than expected by chance, with red circles indicating values of $\Phi_\mathrm{norm}$ that are significantly higher than an ensemble of 1\,000 degree-matched null networks ($p < 0.05$).
 Purple circles indicate where the Euclidean distance between connected pairs of hubs is significantly greater than the Euclidean distance for all other pairs of connected regions (right-tailed Welch's $t$-test, $p < 0.05$).
 }
  \label{fig:Fig5}
@@ -587,11 +587,11 @@ To test whether CGE varies as a function of connectivity, we compared the distri
 (ii) all unconnected pairs of neurons.
 Connected pairs of neurons have more similar expression profiles than unconnected pairs (Wilcoxon rank-sum test, $p = 1.8 \times 10^{-78}$).
 Figure~\ref{fig:Fig6}A (left) shows distributions of $r_\phi$ for:
-(i) all pairs of neurons that are connected via an electrical gap junctions (474 pairs, after excluding bilateral pairs),
+(i) all pairs of neurons that are connected via electrical gap junctions (474 pairs, after excluding bilateral pairs),
 (ii) all pairs of neurons that are connected via reciprocal (291 pairs) and,
 (iii) unidirectional chemical synapses (1721 pairs) as well as
 (iv) all pairs of neurons that have neither connection (36\,450 pairs).
-Note that 175 pairs of neurons are connected by both a chemical synapse and a gap junction, and are thus included in both chemical and electrical categories.
+Note that 175 pairs of neurons are connected by both chemical synapses and gap junctions, and are thus included in both chemical and electrical categories.
 Amongst connected pairs of neurons, those connected via gap junctions exhibit more similar gene expression profiles than those connected via chemical synapses (Wilcoxon rank-sum test, $p = 5.4 \times 10^{-22}$).
 We found no difference in CGE between pairs of neurons connected reciprocally by chemical synapses ($N_1 \leftrightarrow N_2$ for two neurons $N_1$ and $N_2$) versus those connected unidirectionally ($N_1 \rightarrow N_2$) (Wilcoxon rank-sum test, $p = 0.99$).
 
@@ -704,7 +704,7 @@ In the mammalian brain, neuronal lineage has been associated with both functiona
 Moreover, tissue distance (resembling lineage distance on a cellular scale) correlates with gene expression divergence, meaning that tissues from the same branch on the fate map share more similar gene expression patterns in both human and mouse mesoderm as well as ectoderm tissues \cite{Cui2007}.
 Given that the ectoderm eventually differentiates to form the nervous system, this finding suggests a possible relationship between lineage distance and CGE in a microscale neuronal system such as that of \textit{C. elegans}.
 However, we find no significant correlation between lineage distance and CGE in \textit{C. elegans} (Spearman's $\rho = -0.027$, $p = 0.2$).
-As shown in Fig.~\ref{fig:Fig8}C, there was only a weak tendency for the meadian lineage distance lineage distance to be increased in non-rich pairs (Wilcoxon rank sum test, $p = 0.079$).
+As shown in Fig.~\ref{fig:Fig8}C, there was only a weak tendency for the meadian lineage distance to be increased in non-rich pairs (Wilcoxon rank sum test, $p = 0.079$).
 Thus, we can not attribute the transcriptional similarity of connected hub neurons to their neuronal lineage.
 
 
@@ -733,12 +733,12 @@ Thus, anatomical location does not explain the high CGE of hub neurons.
 
 \paragraph{Functional class.}
 \emph{C. elegans} neurons can be divided into distinct groups that each perform a specialized behavioral function \cite{Hobert2003}.
-One of the best-characterised functional classes that is particularly relevant for our analysis is the set of `command interneurons' which are a functional group of ten neurons that govern forward (AVBL, AVBR, PVCL, PVCR) and backward (AVAL, AVAR, AVDL, AVDR, AVEL, AVER) locomotion \cite{Rakowski2013}.
+One of the best-characterised functional classes that is particularly relevant for our analysis is the set of `command interneurons' -- a functional group of ten neurons that govern forward (AVBL, AVBR, PVCL, PVCR) and backward (AVAL, AVAR, AVDL, AVDR, AVEL, AVER) locomotion \cite{Rakowski2013}.
 All of these neurons are hubs.
 Given the overlap between hub neurons and command interneurons, we investigated whether command interneurons exhibit more similar expression than other hub interneurons, and may therefore drive the increase in CGE amongst hubs as a whole.
 We compared CGE, $r_\phi$, between all pairs of command interneurons (ten neurons), and between all pairs of hubs that are not command interneurons (six neurons), shown in Fig.~\ref{fig:Fig8}E.
 Correlated gene expression between command interneurons is significantly greater than between other hub neurons (Wilcoxon rank sum test, $p = 3.3 \times 10^{-8}$), indicating that command interneurons play a major role in driving the increased CGE amongst hub neurons.
-Moreover, there is no difference in CGE between pairs of hubs that are not command interneurons (DVA, RIBL, RIBR, AIBR, RIGL, AVKL) and a set of seven anatomically matched nonhub head interneurons (AVFL, AVFR, AVHL, AVHR, AVJL, AVJR, AVKR) (Wilcoxon rank sum test, $p = 0.13$), indicating that the status of many hub neurons as command interneurons makes a significant contribution to the elevated CGE of hubs.
+Moreover, there is no difference in CGE between pairs of hubs that are not command interneurons (DVA, RIBL, RIBR, AIBR, RIGL, AVKL) and a set of seven anatomically matched nonhub head interneurons (AVFL, AVFR, AVHL, AVHR, AVJL, AVJR, AVKR) (Wilcoxon rank sum test, $p = 0.13$), indicating that the status of many hub neurons as command interneurons makes a significant contribution to the elevated CGE between hubs.
 
 \subsection*{Genes driving correlated gene expression patterns}
 
@@ -796,7 +796,7 @@ With improvements in gene annotation quality and specificity, and increases in g
 
 The availability of spatial maps of gene expression with genome-wide coverage has allowed the relationship between gene expression and connectivity to be investigated in species ranging from \textit{C. elegans} through to mouse and human.
 For example, Krienen et al. \cite{Krienen:2016eq} showed that the topography of transcriptional expression of a small number of human supragranular enriched genes mirrors the large-scale brain network organization of rs-fMRI in the healthy human brain, and Romme et al. \cite{Romme2016} showed that schizophrenia-related structural disconnectivity is significantly correlated to the expression profiles of schizophrenia risk genes.
-Recent work has shown a relationship between spatial gene expression maps and cortical hierarchy using structural MRI imaging in macaque and human \cite{Burt2017}.
+Recent work has demonstrated a relationship between spatial gene expression maps and cortical hierarchy using structural MRI imaging in macaque and human \cite{Burt2017}.
 Spatial maps of gene transcription will continue to play a key role in uncovering species-conserved mechanisms underlying brain connectivity.
 
 Computational methods to extract relationships between network organization and gene expression can help understand the molecular processes underlying neuronal connectivity.
@@ -1732,10 +1732,10 @@ Categories are sorted by $p$-value (ascending).
 \paragraph*{S1 Fig.}
 \label{S1_Fig}
 {\bf Rich club organisation and correlated gene expression in synaptic connectivity matrix.}
-(A) Rich-club organization of the synaptic C. elegans connectome.
+(A) Rich-club organization of the synaptic \textit{C. elegans} connectome.
 Top: Degree distribution of neurons, labelled to four categories: (i) interneuron (85 neurons, orange), (ii) motor (108 neurons, green), (iii) sensory (68 neurons, blue), or (iv) multiple assignments (18 neurons, yellow).
 The distribution features an extended tail of high-degree neurons. Bottom: Normalized rich club coefficient, $\Phi_\mathrm{norm}$ (red), as a function of the degree, $k$, at which hubs are defined (as neurons with degree $>k$).
-Also shown is the mean Euclidean separation distance, d (purple) between connected hub regions (across degree thresholds, k). $\Phi_\mathrm{norm} > 1$ indicates that hubs are more densely interconnected among each other than expected by chance, with red circles indicate values of norm that are significantly higher than an ensemble of 1 000 degree-matched null networks ($p < 0.05$).
+Also shown is the mean Euclidean separation distance, d (purple) between connected hub regions (across degree thresholds, k). $\Phi_\mathrm{norm} > 1$ indicates that hubs are more densely interconnected among each other than expected by chance, with red circles indicating values of $\Phi_\mathrm{norm}$ that are significantly higher than an ensemble of 1 000 degree-matched null networks ($p < 0.05$).
 Purple circles indicate where the Euclidean distance between connected pairs of hubs is significantly greater than the Euclidean distance for all other pairs of connected regions (right-tailed Welch's t-test, $p < 0.05$).
 (B) Top: Degree distribution, $k$, of the synaptic \textit{C. elegans}  connectome.
 Middle: proportion of connections that are: `rich' (hub $\rightarrow$ hub, red), `feed-in' (nonhub $\rightarrow$ hub, yellow), `feed-out' (hub $\rightarrow$ nonhub, orange), or `peripheral' (nonhub $\rightarrow$ nonhub, blue) as a function of the degree threshold, $k$, used to define hubs.
@@ -1771,7 +1771,7 @@ Circles indicate a statistically significant increase in CGE in a given link typ
   Here we consider correlated gene expression in the head, where the strongest spatial relationship exists (cf. Fig.~\ref{fig:Fig4}. (A) CGE values, $r_\phi$, plotted as a function of Euclidean separation distance for all pairs of neurons within the head (gray dots), with a fitted exponential trend shown in black, $f(x) = A\exp(-\lambda x) + B$.
 (B) Taking residuals from this trend does not adequately correct the spatial trend.
     Note the artifactual negative correlations indicated with an arrow.
-    “ This indicates that the trend is not a bulk, isotropic effect, but may instead be driven primarily by a small number of neuron pairs with high $r_\phi$ at short distances ($\lessapprox 50\mu$m), indicated with a circle in (A).
+    This indicates that the trend is not a bulk, isotropic effect, but may instead be driven primarily by a small number of neuron pairs with high $r_\phi$ at short distances ($\lessapprox 50\mu$m), indicated with a circle in (A).
 For example, neuron pairs with $r_\phi > 0.8$, are all between the following classes of head neurons: CEP, IL1, OLQ, RMD, RME, RMF, SAAD, SAAV, SAB, SIA, SIB, SMB, SMD, URA, URY.
 
 \paragraph*{S5 Fig.}
@@ -1793,11 +1793,12 @@ For example, neuron pairs with $r_\phi > 0.8$, are all between the following cla
 \label{S6_Fig}
 {\bf Rich and non-rich connections in the \emph{C. elegans} connectome, categorized by the  anatomical location of the source and target neurons.}
    Hub-hub connections (`rich') are shown red, and all other connections (`non-rich', i.e., feeder and peripheral) are shown gray, where hubs are defined as neurons with degree, $k > 44$.
-Anatomical locations are labeled as `head', `body', and `tail', and each connection is labeled according to its source and target neurons, labeled on the vertical axis in the form `Source-Target'.
+Anatomical locations are labeled as `head', `body', and `tail', and each connection is labeled according to its source and target neurons, listed on the vertical axis in the form `Source-Target'.
 The plot shows that the increased separation distance between connected hubs relative to other types of connected neurons is driven by a relative increase in long-range connections between the head and tail.
 
-\paragraph*{S1 File}
+\paragraph*{S1 File.}
 \label{file:geneList}
-{\bf A list of genes that contributed towards the increased correlated gene expression for (i) connected \textit{vs} unconnected neurons and (ii) rich and feeder \textit{vs} peripheral connections the most.} 
+{\bf Genes controbuting towards increased CGE.}
+A list of genes that contributed towards the (i) increased CGE in connected compared to unconnected pairs of neurons, and (ii) increased CGE in rich and feeder compared to peripheral connections. 
 
 \end{document}
